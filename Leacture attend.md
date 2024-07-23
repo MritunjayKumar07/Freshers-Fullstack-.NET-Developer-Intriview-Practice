@@ -18,15 +18,14 @@
 5. Interview Questions [Link](https://www.includehelp.com/mcq/csharp-multiple-choice-questions-mcqs.aspx)
 6. Interview Questions [Link](https://www.scribd.com/document/62902701/c-Interview-Questions)
 7. Interviewbit [Link](https://www.interviewbit.com/c-sharp-interview-questions/)
-5. Programs [Link](https://www.sanfoundry.com/csharp-programming-examples/#csharp-basic-programs)
-8. Programs [Link](https://www.includehelp.com/dot-net/c-sharp-programs.aspx)
+8. Programs [Link](https://www.sanfoundry.com/csharp-programming-examples/#csharp-basic-programs)
+9. Programs [Link](https://www.includehelp.com/dot-net/c-sharp-programs.aspx)
 
 ## SQL Server
 
 ### Intriview Question Leacture:
 
 ### Intriview Question Documentation:
-
 
 ## ASP.NET
 
@@ -40,3 +39,6 @@
 
 ## .NET Core
 
+## Question's
+
+- C#: (CSharpQuestion)(./CSharpQuestion.md)
