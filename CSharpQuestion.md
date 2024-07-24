@@ -1,4 +1,4 @@
-CSharp Question:
+## CSharp Question:
 
 - <details>
     <summary>What is OOP's?</summary>
@@ -106,14 +106,12 @@ CSharp Question:
     </pre>
     <hr/>
   </details>
-
 - <details>
     <summary>What is the by default access modifier of class?</summary>
     <hr/>
     By default, the access modifier for a class in C# is <b>internal</b> if no access modifier is specified.
     <hr/>
   </details>
-
 - <details>
     <summary>What is the by default access modifier of default/implicitly constructor?</summary>
     <hr/>
@@ -123,7 +121,6 @@ CSharp Question:
   <br/>
 
   <b>Dought (What is the by default access modifier of default/implicitly constructor?): </b><br/>Bhangar_raju_sir_leacture [Link](https://youtu.be/Fo_SED11gME?si=52GtwaYZjcT57lBJ) time 10:00 to 11:00 Compair with ChatGPT Answer [Link](./What%20is%20the%20by%20default%20access%20modifier%20of%20implicitly%20constructor.png)
-
 - <details>
     <summary>What is Implicit/default constructor and Explicit constructor?</summary>
     <hr/>
@@ -136,14 +133,12 @@ CSharp Question:
     <b>Calling a Constructor always explicit: </b>You use the new keyword followed by the constructor, e.g., new Program();.
     <hr/>
   </details>
-
 - <details>
     <summary>What is Static</summary>
     <hr/>
     Keyword which is use to create space in memory and it's class member variable. If you want to get access the class member variable without creating object you need declare static member.
     <hr/>
   </details>
-
 - <details>
     <summary>How many type of constructor?</summary>
     <hr/>
@@ -153,11 +148,20 @@ CSharp Question:
     Private less<br/>
     <hr/>
   </details>
-
 - <details>
-    <summary>What is Default or Parameter less?</summary>
+    <summary>What is Default or Parameter less constructor ?</summary>
     <hr/>
     Also called Implicit Constructor or Default Constructor or Parameter less Constructor. If you define the constructor like that public MyClass(); in side the class.
+    <hr/>
+  </details>
+- <details>
+    <summary>What is this keyword?</summary>
+    <hr/>
+    > Refers to the current instance of the class.  It acts as a reference to the current object, allowing access to the object's members (fields, properties, methods) and constructors.<br/><br/>
+    > It is used to differentiate between instance variables and parameters or local variables with the same name.<br/><br/>
+    > `this` used to return the current object from a method.
+    
+    More Explanation: [Link](https://codecomponents.hashnode.dev/advance-c-sharp-proggramming-language?t=1721797919621#heading-this-keyword)
     <hr/>
   </details>
 
