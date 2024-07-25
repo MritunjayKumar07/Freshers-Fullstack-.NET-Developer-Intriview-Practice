@@ -2,26 +2,77 @@
 
 ### Theory Question's:-
 
-1. What is Database?
+<!-- 33. <details>
+    <summary></summary>
+    <hr/>
+    <hr/>
+    </details> -->
+
+1. <details>
+   <summary>What is Database?</summary>
+   <hr/>
+   Collection of Realted data.
+   <hr/>
+   </details>
 2. How many type of Database?
-3. What is OLTP and OLAP? Write Feature.
-4. What is DBMS?
-5. Whar are the Evolution of DBMS?
+3. <details>
+   <summary>What is OLTP and OLAP? Write Feature.</summary>
+   <hr/>
+   OLTP (Online Transaction Processing): Day-to-day transaction, CRUD operation, Highly normalized data structure, Simple/Short Queries, Response time milliseconds to seconds.
+   <br/>
+   OLAP (Online Analytical Processing): Complex data analysis, Read operation, Denormalized with multi-dimensional schemas data structure, Complex Queries, Response time Second to minutes.
+   <hr/>
+   </details>
+4. <details>
+   <summary>What is DBMS?</summary>
+   <hr/>
+   DBMS (database management system): It is a software used to create, manage, and manipulate databases. DBMS is an inteface between user and database. DBMS allows users to create, read, update, delete data.
+   <hr/>
+   </details>
+5. Whar are the Evolution of DBMS? [Link](https://codecomponents.hashnode.dev/sql-server-tutorials#heading-evolution-of-dbms)
 6. What are the type of DBMS?
 7. Is that true DBMS is Interface bitween user and database?
 8. What is RDBMS and what is E.F.Code Rules? Give some example.
-9. What are the features of RDBMS?
-10. What are the support transactions?
-11. RDBMS Software commonly known as?
-12. What is ORDBMS?
-13. How to form ORDBMS?
-14. Which one support reusability?
-15. Is that ORDBMS supports reusability through UDTs (user-defined types).?
-16. Give four example of No SQL database?
-17. What is SQL Server?
-18. Is that true SQL Server is a RDBMS software developed by Microsoft that also supports ORDBMS features for creating and managing databases?
-19. What is the first version of SQL Server and Last three SQL Server version?
-20. What is SSMS?
+9. <details>
+   <summary>What are the features of RDBMS?</summary>
+   <hr/>
+   Easy to access and manipulate data.<br/>
+   Less duplication of data.<br/>
+   More Security.<br/> 
+   Support Data Sharing, Data Integrity and Transactions(ACID properties).
+   <hr/>
+   </details>
+10. <details>
+    <summary>What are the support transactions?</summary>
+    <hr/>
+    <b>Support transactions (ACID properties):</b><br/> 
+    <b>Atomicity: </b>Transaction completely successfull or not.<br/>
+    <b>Consistency: </b>Transactions data move database from one valid state to another<br/>
+    <b>Isolation: </b>Ensures transactions do not affect each other.<br/>
+    <b>Durability: </b>Ensures committed transaction are permanently saved.<br/>
+    <hr/>
+    </details>
+11. <details>
+    <summary>RDBMS Software commonly known as?</summary>
+    <hr/>
+    SQL Database
+    <hr/>
+    </details>
+12. <details>
+        <summary>How to form ORDBMS?</summary>
+        <hr/>
+        ORDBMS (Object Relational Database Management System):<br/>
+        <b>Cobination: </b> ORDBMS = RDBMS + OOP(from OOP's take Reusability, Security).
+        <hr/>
+        </details>
+    <!-- Mritunjay -->
+13. Which one support reusability?
+14. Is that ORDBMS supports reusability through UDTs (user-defined types)?
+15. Give four example of No SQL database?
+16. What is SQL Server?
+17. Is that true SQL Server is a RDBMS software developed by Microsoft that also supports ORDBMS features for creating and managing databases?
+18. What is the first version of SQL Server and Last three SQL Server version?
+19. What is SSMS?
 
 ```md
 Server side: A system where SQL Server is installed and running.
@@ -283,76 +334,77 @@ Use the BETWEEN operator with the lower value first and the upper value second t
   </details>
 
 - <details>
-  <summary>How to cheak any employees whose name starts with 's'?</summary>
-    <pre>SELECT * FROM EMP WHERE ENAME LIKE  's%';</pre>
- </details>
+   <summary>How to cheak any employees whose name starts with 's'?</summary>
+     <pre>SELECT * FROM EMP WHERE ENAME LIKE  's%';</pre>
+  </details>
 
 - <details>
-  <summary>How to cheak any employees whose names end with 's'?</summary>
-    <pre>SELECT * FROM EMP WHERE ENAME LIKE  '%s';</pre>
- </details>
+   <summary>How to cheak any employees whose names end with 's'?</summary>
+     <pre>SELECT * FROM EMP WHERE ENAME LIKE  '%s';</pre>
+  </details>
 
 - <details>
-  <summary>How to cheak any employees whose name contains 's'?</summary>
-    <pre>SELECT * FROM EMP WHERE ENAME LIKE  '%s%';</pre>
- </details>
+   <summary>How to cheak any employees whose name contains 's'?</summary>
+     <pre>SELECT * FROM EMP WHERE ENAME LIKE  '%s%';</pre>
+  </details>
 
 - <details>
-  <summary>How to cheak any employees where 's' is the 2nd character in their name?</summary>
-    <pre>SELECT * FROM EMP WHERE ENAME LIKE  '_s%';</pre>
- </details>
+   <summary>How to cheak any employees where 's' is the 2nd character in their name?</summary>
+     <pre>SELECT * FROM EMP WHERE ENAME LIKE  '_s%';</pre>
+  </details>
 
 - <details>
-  <summary>How to cheak 's' is the 3rd character from the last?</summary>
-    <pre>SELECT * FROM EMP WHERE ENAME LIKE  '%s__';</pre>
- </details>
+   <summary>How to cheak 's' is the 3rd character from the last?</summary>
+     <pre>SELECT * FROM EMP WHERE ENAME LIKE  '%s__';</pre>
+  </details>
 
 - <details>
-  <summary>How to cheak any names containing exactly 4 characters?</summary>
-    <pre>SELECT * FROM EMP WHERE ENAME LIKE  '____';</pre>
- </details>
+   <summary>How to cheak any names containing exactly 4 characters?</summary>
+     <pre>SELECT * FROM EMP WHERE ENAME LIKE  '____';</pre>
+  </details>
 
 - <details>
-  <summary>How to cheak any names starting with 'a', 'r', or 'v'?</summary>
-    <pre>SELECT * FROM EMP WHERE ENAME LIKE  '[arv]%';</pre>
- </details>
+   <summary>How to cheak any names starting with 'a', 'r', or 'v'?</summary>
+     <pre>SELECT * FROM EMP WHERE ENAME LIKE  '[arv]%';</pre>
+  </details>
 
 - <details>
-  <summary>How to cheak any names starting between 'a' and 'p'?</summary>
-    <pre>SELECT * FROM EMP WHERE ENAME LIKE  '[a-p]%';</pre>
- </details>
+   <summary>How to cheak any names starting between 'a' and 'p'?</summary>
+     <pre>SELECT * FROM EMP WHERE ENAME LIKE  '[a-p]%';</pre>
+  </details>
 
 - <details>
-  <summary>How to cheak any employees who joined in October (yyyy-mm-dd)?</summary>
-    <pre>SELECT * FROM EMP WHERE HIREDATE LIKE  '_____10___';</pre>
- </details>
+   <summary>How to cheak any employees who joined in October (yyyy-mm-dd)?</summary>
+     <pre>SELECT * FROM EMP WHERE HIREDATE LIKE  '_____10___';</pre>
+  </details>
 
 - <details>
-  <summary>How to cheak any employees who joined in the year 2020?</summary>
-    <pre>SELECT * FROM EMP WHERE HIREDATE LIKE  '2020%';</pre>
- </details>
+   <summary>How to cheak any employees who joined in the year 2020?</summary>
+     <pre>SELECT * FROM EMP WHERE HIREDATE LIKE  '2020%';</pre>
+  </details>
 
 - <details>
-  <summary>How to cheak any names containing an underscore (_)?</summary>
-    <pre>SELECT * FROM EMP WHERE ENAME LIKE  '%_%';</pre>
- </details>
+   <summary>How to cheak any names containing an underscore (_)?</summary>
+     <pre>SELECT * FROM EMP WHERE ENAME LIKE  '%_%';</pre>
+  </details>
 
 - <details>
-  <summary>How to cheak any names containing a literal underscore (_), using escape character?</summary>
-    <pre>SELECT * FROM EMP WHERE ENAME LIKE  '%\_%' ESCAPE '\';</pre>
- </details>
+   <summary>How to cheak any names containing a literal underscore (_), using escape character?</summary>
+     <pre>SELECT * FROM EMP WHERE ENAME LIKE  '%\_%' ESCAPE '\';</pre>
+  </details>
 
 - <details>
-  <summary>How to cheak any names containing a percent sign (%), using escape character?</summary>
-    <pre>SELECT * FROM EMP WHERE ENAME LIKE  '%\%%' ESCAPE '\';</pre>
- </details>
+   <summary>How to cheak any names containing a percent sign (%), using escape character?</summary>
+     <pre>SELECT * FROM EMP WHERE ENAME LIKE  '%\%%' ESCAPE '\';</pre>
+  </details>
 
 - <details>
-  <summary>How to cheak any names containing two underscores (__), using escape character?</summary>
-    <pre>SELECT * FROM EMP WHERE ENAME LIKE  '%\_%\_%' ESCAPE '\';</pre>
- </details>
+   <summary>How to cheak any names containing two underscores (__), using escape character?</summary>
+     <pre>SELECT * FROM EMP WHERE ENAME LIKE  '%\_%\_%' ESCAPE '\';</pre>
+  </details>
 
 #### Question Set:
+
 ```md
 Practice questions 01:
 Q1. Create Database and Emp table.

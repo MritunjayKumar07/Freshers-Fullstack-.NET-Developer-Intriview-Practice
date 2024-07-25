@@ -19,3 +19,5 @@
 --Q23. Show the details of employees who were hired in the second quarter of any year (April to June).
 --Q25. Show the details of employees who joined in either January, February, or March of any year.
 --Q26. Find the employees whose job titles do not start with 'A' or 'C'.
+
+
