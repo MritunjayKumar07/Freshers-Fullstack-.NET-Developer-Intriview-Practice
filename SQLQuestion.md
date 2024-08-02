@@ -14,7 +14,19 @@
    Collection of Realted data.
    <hr/>
    </details>
-2. How many type of Database?
+
+2. <details>
+    <summary>How many types of databases are there based on data model and workload?</summary>
+    <hr/>
+      1. Types of Databases Based on Data Model:<br/>
+       - SQL Databases (Relational)<br/>
+       - NoSQL Databases (Non-Relational)<br/>
+      2. Types of Databases Based on Workload:<br/>
+       - OLTP (Online Transaction Processing)<br/>
+       - OLAP (Online Analytical Processing)
+    <hr/>
+   </details>
+
 3. <details>
    <summary>What is OLTP and OLAP? Write Feature.</summary>
    <hr/>
@@ -59,17 +71,13 @@
     <hr/>
     </details>
 12. <details>
-        <summary>How to form ORDBMS?</summary>
-        <hr/>
-        ORDBMS (Object Relational Database Management System):<br/>
-        <b>Cobination: </b> ORDBMS = RDBMS + OOP(from OOP's take Reusability, Security).
-        <hr/>
-        </details>
-<!---------------------------Mritunjay------------------------->
-
-
-
-
+            <summary>How to form ORDBMS?</summary>
+            <hr/>
+            ORDBMS (Object Relational Database Management System):<br/>
+            <b>Cobination: </b> ORDBMS = RDBMS + OOP(from OOP's take Reusability, Security).
+            <hr/>
+            </details>
+    <!---------------------------Mritunjay------------------------->
 
 13. Which one support reusability?
 14. Is that ORDBMS supports reusability through UDTs (user-defined types)?
