@@ -65,7 +65,12 @@
         <b>Cobination: </b> ORDBMS = RDBMS + OOP(from OOP's take Reusability, Security).
         <hr/>
         </details>
-    <!-- Mritunjay -->
+<!---------------------------Mritunjay------------------------->
+
+
+
+
+
 13. Which one support reusability?
 14. Is that ORDBMS supports reusability through UDTs (user-defined types)?
 15. Give four example of No SQL database?
@@ -125,7 +130,7 @@ SQL Server: DataBase.
     Allows only ASCII chars (256 chars)
     <ol>
         <li>char(n):- 8000 char, use for specified size, memory west, Syntax -> char(n), Example -> char(100).</li>
-        <li>varchar(n):- 8000 char, use for required size, memory west, Syntax -> varchar(n), Example -> varchar(50).</li>
+        <li>varchar(n):- 8000 char, use for required size, not memory west, Syntax -> varchar(n), Example -> varchar(50).</li>
         <li>varchar(max):- 2GB, use for very large size, not memory west, Syntax -> varchar(MAX), Example -> varchar().</li>
 
     </ol> 
@@ -407,6 +412,7 @@ Use the BETWEEN operator with the lower value first and the upper value second t
 
 ```md
 Practice questions 01:
+
 Q1. Create Database and Emp table.
 Q2. Insert this data (101, 'John', 'Manager', 75000, '2020-01-15', 45, 'M').
 Q3. Insert this data (102, 'Jane', 'Analyst', 60000, '2019-03-12', 34, 'F'), (103, 'Mike', 'Clerk', 35000, '2018-07-23', 28, 'M')
@@ -429,7 +435,7 @@ Q14. List the names and ages of employees who are older than 30.
 Q15. Find the employees who were hired in the year 2020.
 Q16. Display the details of employees earning exactly 62,000.
 Q17. Find the female employees working as Managers.
-Q18. List the names of employees who have 'a' as the second character in their names.
+Q18. List the names of employees who have 'a' as the second character.
 Q19. Show the details of employees who are earning more than 35,000 but less than 65,000.
 Q20. Retrieve the details of employees who joined before July 1, 2020.
 Q21. Find the employees whose job title is either 'Manager' or 'Analyst' and their age is greater than 30.

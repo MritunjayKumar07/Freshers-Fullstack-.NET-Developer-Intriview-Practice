@@ -7,15 +7,10 @@
     <hr/>
   </details>
 - <details>
-    <summary>Why OOP's not added in C language why create new C++ language?</summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
     <summary>C is which type of language?</summary>
     <hr/>
     <p>Structured Programming Language</p>
+    <p>Procedural Oriented programming Language</p>
     <hr/>
   </details>
 - <details>
@@ -79,7 +74,7 @@
     <hr/>
   </details>
 - <details>
-    <summary>Car c = new Car();</summary>
+    <summary>Car car1 = new Car();</summary>
     <hr/>
     <ul>
       <li><b>Reference Variable: </b>car1 is a reference variable of type Car. It holds the address of the Car instance.
@@ -118,13 +113,15 @@
     The access modifier for a implicitly constructor is same as class access modifier. But if not specified the access modifier of class then implicitly constructor access modifier is <b>internal</b> because default access modifier for a class is  <b>internal</b>.
     <hr/>
   </details>
-  <br/>
-
-  <b>Dought (What is the by default access modifier of default/implicitly constructor?): </b><br/>Bhangar_raju_sir_leacture [Link](https://youtu.be/Fo_SED11gME?si=52GtwaYZjcT57lBJ) time 10:00 to 11:00 Compair with ChatGPT Answer [Link](./What%20is%20the%20by%20default%20access%20modifier%20of%20implicitly%20constructor.png)
+- <details>
+    <summary>What is the by default access modifier class member?</summary>
+    <hr/>
+    In C#, the default access modifier for class members (such as fields, properties, and methods) is private.
+    <hr/>
+  </details>
 - <details>
     <summary>What is Implicit/default constructor and Explicit constructor?</summary>
     <hr/>
-    <b>Defining a Constructor:</b><br/>
     <b>Implicit :</b>Parameter less construtor and provided by the compiler if no constructors are defined by the user. Access level matches the class.
     <br/>
     <b>Explicit :</b>Defined by the user with specific parameters and can have different access levels.
@@ -155,13 +152,520 @@
     <hr/>
   </details>
 - <details>
-    <summary>What is this keyword?</summary>
+    <summary>What is `this` keyword?</summary>
     <hr/>
     > Refers to the current instance of the class.  It acts as a reference to the current object, allowing access to the object's members (fields, properties, methods) and constructors.<br/><br/>
     > It is used to differentiate between instance variables and parameters or local variables with the same name.<br/><br/>
     > `this` used to return the current object from a method.
     
     More Explanation: [Link](https://codecomponents.hashnode.dev/advance-c-sharp-proggramming-language?t=1721797919621#heading-this-keyword)
+    <hr/>
+  </details>
+- <details>
+    <summary>What is constructor chaining?</summary>
+    <hr/>
+    <p> Using the 'this' keyword, you can call another constructor within the same class by matching the number and types of parameters are called constructor chaining.</p>
+    <pre>
+    class A
+    {
+       public A() : this("mritunjay"){ }
+       public A(string nam)
+       {
+           Console.WriteLine(nam);
+       }
+    }
+    </pre>
+    <p></p>
+    <hr/>
+  </details>
+
+```md
+## Key Points ot 'this' keyword:-
+
+Scope: The this keyword can only be used within non-static methods and constructors, as it refers to an instance of the class.
+Static methods do not have an instance context and therefore cannot use this.
+
+Contextual Clarity: Using this is not mandatory when referring to instance
+members unless there is a naming conflict with parameters or local variables.
+However, some developers prefer using this consistently for clarity.
+```
+
+- <details>
+    <summary>What is copy constructor?</summary>
+    <hr/>
+    <p>Create multiple instances with the same value</p>
+    <p>In a copy constructor the constructor take the same class as a parameter to it.</p>
+    <p>The copy constructor is used to create a new instance by copying the values from an existing instance.</p>
+    <pre>
+    class Program
+    {
+      int x;
+      public Program(int i) // Parametrize Constructor
+      {
+        x=i;
+        Console.WriteLine("parametrize constructor "+ i);
+      }
+      public Program(Program other)// Copy constructor: 'Program' is class name and 'other' is refrence
+      {
+        x = other.x;
+        Console.WriteLine("Copy constructor " + other.x);
+      }
+      static void Main()
+      {
+        // Calls parameterized constructor
+        Program pc = new Program(15);
+        Program pc1 = new Program(pc);
+        pc.Display(); //Output is :- Vale of x is: 15
+        pc1.Display(); //Output is :- Vale of x is: 15
+      }
+    }
+    </pre>
+
+  - other.x refers to the x field of the existing instance (the one being copied).
+
+  - Using other.x allows you to access the value of x from the existing instance and assign it to the new instance.
+
+  - Create an instance like Program pc1 = new Program(pc);. This makes a new instance (pc1) by copying the value of x from the existing instance (pc).
+
+  - The line x = other.x; ensures that pc1.x gets the same value as pc.x.
+    <hr/>
+  </details>
+- <details>
+    <summary>What is Static Constructor?</summary>
+    <hr/>
+    <p>Static constructor are responsible in initializing static variable and these constructors are never called explicitly they are implicitly called and more over these constructor are first to execute under any class.</p>
+
+    <pre>
+    class Program
+    {
+      static int x;
+      static Program() //StaticConstructor
+      {
+        x=i;
+      }
+      static void Main(){}
+    }
+    </pre>
+
+    <p>Main method runs first, but just before it runs, the static constructor is executed automatically.</p>
+    <hr/>
+  </details>
+- <details>
+    <summary>Is that posible to overloading the Static constructors?</summary>
+    <hr/>
+    <p>Static constructors cannot be parameterized, so overloading static constructors (passing parameters in a static constructor) is not possible.</p>
+    <hr/>
+  </details>
+- <details>
+    <summary>Why is an explicit constructor required in the program? And what is the need for defining a constructor explicitly again?</summary>
+    <hr/>
+    <p> We require an explicit constructor because if we do not define a constructor, the compiler creates an implicit constructor and initializes default values in variables which is declear in class. That's why we need the explicit constructor to initialize our own values or pass parameters to change the values by creating an instance of the class and also make multiple instance of class (reusability approach apply) .</p>
+    <hr/>
+  </details>
+- <details>
+    <summary>Way we need constructor to inslize own value.</summary>
+    <hr/>
+    <p>Generaly every class requires some value for execution and the value that are required for a class to execute are always sent to that class by using the constructor only.
+    </p>
+    <p>
+    
+    ![Image way we need constructor to inslize own value](https://cdn.hashnode.com/res/hashnode/image/upload/v1717647295271/48c0c6d6-b2a4-486f-93de-0f9f532e465e.png?auto=compress,format&format=webp)
+    
+    </p>
+    <hr/>
+  </details>
+- <details>
+    <summary>What is Private Constructor?</summary>
+    <hr/>
+    A private constructor is a special type of constructor that can't be accessed from outside the class. This means you can't create instances of the class directly from outside. Also, you can't inherit a class that has a private constructor. Private constructors are usually used to Prevent Instantiation ( Stop the creation of objects from a class) and Implement Singleton Pattern (Make sure only one instance of a class is created). 
+    <hr/>
+  </details>
+- <details>
+    <summary>What is Prevent Instantiation and Singleton Pattern? </summary>
+    <hr/>
+    In object-oriented programming, constructors are special methods used to initialize new objects. The constructors are allowing other classes to create instances of the class.
+    <br/>
+    <br/>
+    <b>Preventing Instantiation: </b>When a class has a private constructor and no public or internal constructor, it prevents the creation of instances of that class from outside the class itself. This means that no code outside the class can directly create an instance of the class. (It means The primary goal is to stop external code from creating instances. This does not inherently involve the creation of a single instance; rather, it may mean no instances are created at all if the class is purely static or utility-based.)
+    <br/>
+    <br/>
+    <b>Singleton Pattern: </b>The Singleton pattern uses a private constructor as part of its design to ensure that only one instance of the class can exist. In this pattern, a static field holds the single instance of the class, and a public static method or property provides access to this instance. The private constructor prevents the creation of additional instances. (It means specifically designed to ensure a single, globally accessible instance of a class, typically using a private constructor, a static field to hold the instance, and a public method to provide access to it.)
+    Prevent instantiation is way to stop creating the object(instance) outside the class itself. This is typically done by making the class constructor private or protected.
+    <br/>
+
+    ```C#
+      public class Utility
+      {
+          // Private constructor prevents instantiation
+          private Utility(){}
+          // Static method
+          public static void PrintMessage()
+          {
+              Console.WriteLine("Utility method called.");
+          }
+      }
+      // Usage
+      Utility.PrintMessage(); // This is valid (class name + Method/Property name)
+      // Utility u = new Utility(); // This will cause a compile-time error
+    ```
+    One more example:-
+
+    ```C#
+    class School
+    {
+        // This field holds the single instance of the School      class
+        private static School instance;
+    
+        // Private constructor prevents instantiation from     other classes
+        private School(){}
+    
+        // Public property to provide access to the single     instance of the class
+        public static School Instance
+        {
+            get
+            {
+                // If no instance exists, create one
+                if (instance == null)
+                {
+                    instance = new School();
+                }
+                return instance;
+            }
+        }
+        // Method to demonstrate functionality
+        public void ShowMessage()
+        {
+            Console.WriteLine("School instance");
+        }
+    }
+    
+    class Program2
+    {
+        static void Main()
+        {
+            School s1 = School.Instance;
+            School s2 = School.Instance;
+            s1.ShowMessage(); // Output: Singleton instance
+            // Verify both instances are the same
+            Console.WriteLine(s1 == s2); // Output: True
+        }
+    }
+    ```
+    - ***School:***  In inside the School class the 'school' keyword specifies the type of the instance field. In this case, instance is a field of type School, meaning it will hold references to School objects.
+
+    - ***instance:*** In inside the School class the 'instance' keyword is the name of the field. It holds the reference to the single instance of the School class that the Singleton pattern is managing. Initially, this field is null, meaning no instance of School has been created yet.
+
+    - Utility or Helper for unnecessary object creation.
+    <hr/>
+  </details>
+- <details>
+    <summary>Those constructor which is declared using the static modifier are called what?</summary>
+    <hr/>
+    - Static constructor.
+    <hr/>
+  </details>
+- <details>
+    <summary>Who initializing the Static or Non-Static Variable/Fields?</summary>
+    <hr/>
+    <p>Constructors are responsible for initializing fields/variables of a class, so static fields are initialized by static constructors and non-static fields are initialized by non-static constructors.</p>
+
+    ```C#
+     class Program2
+     {
+      static int x;
+      int y = 20;
+      static Program2()
+      {
+          x = 10;
+      }
+      Program2()
+      {
+          y = 20;
+      }
+     }
+    ```
+    <hr/>
+  </details>
+- <details>
+    <summary>Who Called the Static and Non-Static constructor?</summary>
+    <hr/>
+    <p>Static constructors are implicitly called, whereas non-static constructors are called explicitly.</p>
+    <hr/>
+  </details>
+- <details>
+    <summary></summary>
+    <hr/>
+    <p></p>
+    <hr/>
+  </details>
+- <details>
+    <summary></summary>
+    <hr/>
+    <p></p>
+    <hr/>
+  </details>
+- <details>
+    <summary></summary>
+    <hr/>
+    <p></p>
+    <hr/>
+  </details>
+- <details>
+    <summary></summary>
+    <hr/>
+    <p></p>
+    <hr/>
+  </details>
+- <details>
+    <summary></summary>
+    <hr/>
+    <p></p>
+    <hr/>
+  </details>
+- <details>
+    <summary></summary>
+    <hr/>
+    <p></p>
+    <hr/>
+  </details>
+- <details>
+    <summary></summary>
+    <hr/>
+    <p></p>
+    <hr/>
+  </details>
+- <details>
+    <summary></summary>
+    <hr/>
+    <p></p>
+    <hr/>
+  </details>
+- <details>
+    <summary></summary>
+    <hr/>
+    <p></p>
+    <hr/>
+  </details>
+- <details>
+    <summary></summary>
+    <hr/>
+    <p></p>
+    <hr/>
+  </details>
+- <details>
+    <summary></summary>
+    <hr/>
+    <p></p>
+    <hr/>
+  </details>
+- <details>
+    <summary></summary>
+    <hr/>
+    <p></p>
+    <hr/>
+  </details>
+- <details>
+    <summary></summary>
+    <hr/>
+    <p></p>
+    <hr/>
+  </details>
+- <details>
+    <summary></summary>
+    <hr/>
+    <p></p>
+    <hr/>
+  </details>
+- <details>
+    <summary></summary>
+    <hr/>
+    <p></p>
+    <hr/>
+  </details>
+- <details>
+    <summary></summary>
+    <hr/>
+    <p></p>
+    <hr/>
+  </details>
+- <details>
+    <summary></summary>
+    <hr/>
+    <p></p>
+    <hr/>
+  </details>
+- <details>
+    <summary></summary>
+    <hr/>
+    <p></p>
+    <hr/>
+  </details>
+- <details>
+    <summary></summary>
+    <hr/>
+    <p></p>
+    <hr/>
+  </details>
+- <details>
+    <summary></summary>
+    <hr/>
+    <p></p>
+    <hr/>
+  </details>
+- <details>
+    <summary></summary>
+    <hr/>
+    <p></p>
+    <hr/>
+  </details>
+- <details>
+    <summary></summary>
+    <hr/>
+    <p></p>
+    <hr/>
+  </details>
+- <details>
+    <summary></summary>
+    <hr/>
+    <p></p>
+    <hr/>
+  </details>
+- <details>
+    <summary></summary>
+    <hr/>
+    <p></p>
+    <hr/>
+  </details>
+- <details>
+    <summary></summary>
+    <hr/>
+    <p></p>
+    <hr/>
+  </details>
+- <details>
+    <summary></summary>
+    <hr/>
+    <p></p>
+    <hr/>
+  </details>
+- <details>
+    <summary></summary>
+    <hr/>
+    <p></p>
+    <hr/>
+  </details>
+- <details>
+    <summary></summary>
+    <hr/>
+    <p></p>
+    <hr/>
+  </details>
+- <details>
+    <summary></summary>
+    <hr/>
+    <p></p>
+    <hr/>
+  </details>
+- <details>
+    <summary></summary>
+    <hr/>
+    <p></p>
+    <hr/>
+  </details>
+- <details>
+    <summary></summary>
+    <hr/>
+    <p></p>
+    <hr/>
+  </details>
+- <details>
+    <summary></summary>
+    <hr/>
+    <p></p>
+    <hr/>
+  </details>
+- <details>
+    <summary></summary>
+    <hr/>
+    <p></p>
+    <hr/>
+  </details>
+- <details>
+    <summary></summary>
+    <hr/>
+    <p></p>
+    <hr/>
+  </details>
+- <details>
+    <summary></summary>
+    <hr/>
+    <p></p>
+    <hr/>
+  </details>
+- <details>
+    <summary></summary>
+    <hr/>
+    <p></p>
+    <hr/>
+  </details>
+- <details>
+    <summary></summary>
+    <hr/>
+    <p></p>
+    <hr/>
+  </details>
+- <details>
+    <summary></summary>
+    <hr/>
+    <p></p>
+    <hr/>
+  </details>
+- <details>
+    <summary></summary>
+    <hr/>
+    <p></p>
+    <hr/>
+  </details>
+- <details>
+    <summary></summary>
+    <hr/>
+    <p></p>
+    <hr/>
+  </details>
+- <details>
+    <summary></summary>
+    <hr/>
+    <p></p>
+    <hr/>
+  </details>
+- <details>
+    <summary></summary>
+    <hr/>
+    <p></p>
+    <hr/>
+  </details>
+- <details>
+    <summary></summary>
+    <hr/>
+    <p></p>
+    <hr/>
+  </details>
+- <details>
+    <summary></summary>
+    <hr/>
+    <p></p>
+    <hr/>
+  </details>
+- <details>
+    <summary></summary>
+    <hr/>
+    <p></p>
+    <hr/>
+  </details>
+- <details>
+    <summary></summary>
+    <hr/>
+    <p></p>
     <hr/>
   </details>
 

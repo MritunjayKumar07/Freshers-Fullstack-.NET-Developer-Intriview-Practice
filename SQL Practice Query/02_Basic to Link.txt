@@ -10,7 +10,6 @@
 (107, 'Chris', 'Analyst', 64000, '2019-12-25', 31, 'M'),
 (108, 'Anna', 'Manager', 82000, '2022-01-11', 42, 'F');*/
 
---Q18. List the names of employees who have 'a' as the second character in their names.
 --Q20. Retrieve the details of employees who joined before July 1, 2020.
 --Q21. List the employees' names and hire dates who were hired in the month of December.
 --Q22. Show the details of employees whose salary is not between 35,000 and 70,000.
@@ -19,5 +18,8 @@
 --Q23. Show the details of employees who were hired in the second quarter of any year (April to June).
 --Q25. Show the details of employees who joined in either January, February, or March of any year.
 --Q26. Find the employees whose job titles do not start with 'A' or 'C'.
+--Q27. Find the employees who not earning Salary?
+--Select * from emp where Sal is NULL;
+--Q28. Find the employees who earning Salary?
 
 
