@@ -133,7 +133,14 @@
 - <details>
     <summary>What is Static</summary>
     <hr/>
-    Keyword which is use to create space in memory and it's class member variable. If you want to get access the class member variable without creating object you need declare static member.
+    Keyword which is use to create space in memory and it's class member variable. If you want to get access the class member variable without creating object you need declare static member.</br>
+    A static class is a class that cannot be instantiated, meaning you cannot create an object of a static class. All members of a static class must also be static.
+    <hr/>
+  </details>
+- <details>
+    <summary>One static class and in side the static class `non-static` member are available. Is that posible to access the static member?</summary>
+    <hr/>
+    No, First things you can't create the static member in static class and you can't create the instance of static class.<br/>
     <hr/>
   </details>
 - <details>
