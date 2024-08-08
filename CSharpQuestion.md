@@ -77,10 +77,10 @@
     <summary>Car car1 = new Car();</summary>
     <hr/>
     <ul>
-      <li><b>Reference Variable: </b>car1 is a reference variable of type Car. It holds the address of the Car instance.
+      <li><b>Reference Variable: </b>`car1` is a reference variable of type `Car`. It holds the address of the `Car` instance.
       </li>
       <li>
-        <b>Instance: </b>The object created by new Car() is the instance. This instance has its own state and behavior defined by the Car class.
+        <b>Instance: </b>The object created by `new Car()` is the instance. This instance has its own state and behavior defined by the `Car` class.
       </li>
     <ul>
     <hr/>
