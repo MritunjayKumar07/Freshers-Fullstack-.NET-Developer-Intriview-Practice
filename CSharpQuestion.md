@@ -139,10 +139,11 @@
 - <details>
     <summary>How many type of constructor?</summary>
     <hr/>
-    Default or Parameter less </b><br/>
+    Default or Parameter less<br/>
+    Parmetrized Constructor<br/>
     Copy<br/>
     Static<br/>
-    Private less<br/>
+    Private Constructor<br/>
     <hr/>
   </details>
 - <details>
