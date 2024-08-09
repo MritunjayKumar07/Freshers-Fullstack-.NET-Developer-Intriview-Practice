@@ -238,6 +238,7 @@ However, some developers prefer using this consistently for clarity.
   - The line x = other.x; ensures that pc1.x gets the same value as pc.x.
     <hr/>
   </details>
+
 - <details>
     <summary>What is Static Constructor?</summary>
     <hr/>
@@ -258,6 +259,7 @@ However, some developers prefer using this consistently for clarity.
     <p>Main method runs first, but just before it runs, the static constructor is executed automatically.</p>
     <hr/>
   </details>
+
 - <details>
     <summary>Is that posible to overloading the Static constructors?</summary>
     <hr/>
@@ -294,78 +296,81 @@ However, some developers prefer using this consistently for clarity.
     In object-oriented programming, constructors are special methods used to initialize new objects. The constructors are allowing other classes to create instances of the class.
     <br/>
     <br/>
-    <b>Preventing Instantiation: </b>When a class has a private constructor and no public or internal constructor, it prevents the creation of instances of that class from outside the class itself. This means that no code outside the class can directly create an instance of the class. (It means The primary goal is to stop external code from creating instances. This does not inherently involve the creation of a single instance; rather, it may mean no instances are created at all if the class is purely static or utility-based.)
+    <b>Preventing Instantiation: </b>When a <b><mark>class has a private constructor and no public or internal constructor</mark></b>, it prevents the creation of instances of that class from outside the class itself. This means that no code outside the class can directly create an instance of the class. (It means The primary goal is to stop external code from creating instances. This does not inherently involve the creation of a single instance; rather, it may mean no instances are created at all if the class is purely static or utility-based.)
     <br/>
     <br/>
-    <b>Singleton Pattern: </b>The Singleton pattern uses a private constructor as part of its design to ensure that only one instance of the class can exist. In this pattern, a static field holds the single instance of the class, and a public static method or property provides access to this instance. The private constructor prevents the creation of additional instances. (It means specifically designed to ensure a single, globally accessible instance of a class, typically using a private constructor, a static field to hold the instance, and a public method to provide access to it.)
+    <b>Singleton Pattern: </b>The Singleton pattern <b><mark>uses a private constructor as part of its design to ensure that only one instance of the class can exist</b></mark>. In this pattern, a static field holds the single instance of the class, and a public static method or property provides access to this instance. The private constructor prevents the creation of additional instances. (It means specifically designed to ensure a single, globally accessible instance of a class, typically using a private constructor, a static field to hold the instance, and a public method to provide access to it.)
     Prevent instantiation is way to stop creating the object(instance) outside the class itself. This is typically done by making the class constructor private or protected.
     <br/>
 
-    ```C#
-      public class Utility
+  ```C#
+    public class Utility
+    {
+        // Private constructor prevents instantiation
+        private Utility(){}
+        // Static method
+        public static void PrintMessage()
+        {
+            Console.WriteLine("Utility method called.");
+        }
+    }
+    // Usage
+    Utility.PrintMessage(); // This is valid (class name + Method/Property name)
+    // Utility u = new Utility(); // This will cause a compile-time error
+  ```
+
+  One more example:-
+
+  ```C#
+  class School
+  {
+      // This field holds the single instance of the School class
+      private static School instance;
+
+      // Private constructor prevents instantiation from other classes
+      private School(){}
+
+      // Public property to provide access to the single instance of the class
+      public static School Instance
       {
-          // Private constructor prevents instantiation
-          private Utility(){}
-          // Static method
-          public static void PrintMessage()
+          get
           {
-              Console.WriteLine("Utility method called.");
+              // If no instance exists, create one
+              if (instance == null) //If instance is null then create instance
+              {
+                  instance = new School(); //Give access to create only one instance
+              }
+              return instance; //If is not null then return previous instance.
           }
       }
-      // Usage
-      Utility.PrintMessage(); // This is valid (class name + Method/Property name)
-      // Utility u = new Utility(); // This will cause a compile-time error
-    ```
-    One more example:-
+      // Method to demonstrate functionality
+      public void ShowMessage()
+      {
+          Console.WriteLine("School instance");
+      }
+  }
 
-    ```C#
-    class School
-    {
-        // This field holds the single instance of the School      class
-        private static School instance;
-    
-        // Private constructor prevents instantiation from     other classes
-        private School(){}
-    
-        // Public property to provide access to the single     instance of the class
-        public static School Instance
-        {
-            get
-            {
-                // If no instance exists, create one
-                if (instance == null)
-                {
-                    instance = new School();
-                }
-                return instance;
-            }
-        }
-        // Method to demonstrate functionality
-        public void ShowMessage()
-        {
-            Console.WriteLine("School instance");
-        }
-    }
-    
-    class Program2
-    {
-        static void Main()
-        {
-            School s1 = School.Instance;
-            School s2 = School.Instance;
-            s1.ShowMessage(); // Output: Singleton instance
-            // Verify both instances are the same
-            Console.WriteLine(s1 == s2); // Output: True
-        }
-    }
-    ```
-    - ***School:***  In inside the School class the 'school' keyword specifies the type of the instance field. In this case, instance is a field of type School, meaning it will hold references to School objects.
+  class Program2
+  {
+      static void Main()
+      {
+          School s1 = School.Instance;
+          School s2 = School.Instance;
+          s1.ShowMessage(); // Output: Singleton instance
+          // Verify both instances are the same
+          Console.WriteLine(s1 == s2); // Output: True
+      }
+  }
+  ```
 
-    - ***instance:*** In inside the School class the 'instance' keyword is the name of the field. It holds the reference to the single instance of the School class that the Singleton pattern is managing. Initially, this field is null, meaning no instance of School has been created yet.
+  - **_School:_** In inside the School class the 'school' keyword specifies the type of the instance field. In this case, instance is a field of type School, meaning it will hold references to School objects.
 
-    - Utility or Helper for unnecessary object creation.
+  - **_instance:_** In inside the School class the 'instance' keyword is the name of the field. It holds the reference to the single instance of the School class that the Singleton pattern is managing. Initially, this field is null, meaning no instance of School has been created yet.
+
+  - Utility or Helper for unnecessary object creation.
     <hr/>
   </details>
+
 - <details>
     <summary>Those constructor which is declared using the static modifier are called what?</summary>
     <hr/>
@@ -377,107 +382,146 @@ However, some developers prefer using this consistently for clarity.
     <hr/>
     <p>Constructors are responsible for initializing fields/variables of a class, so static fields are initialized by static constructors and non-static fields are initialized by non-static constructors.</p>
 
-    ```C#
-     class Program2
-     {
-      static int x;
-      int y = 20;
-      static Program2()
-      {
-          x = 10;
-      }
-      Program2()
-      {
-          y = 20;
-      }
-     }
-    ```
+  ```C#
+   class Program2
+   {
+    static int x;
+    int y = 20;
+    static Program2()
+    {
+        x = 10;
+    }
+    Program2()
+    {
+        y = 20;
+    }
+   }
+  ```
+
     <hr/>
   </details>
+
 - <details>
     <summary>Who Called the Static and Non-Static constructor?</summary>
     <hr/>
-    <p>Static constructors are implicitly called, whereas non-static constructors are called explicitly.</p>
+    <p>Static constructors are called implicitly by the .NET runtime when the class is first accessed, whereas non-static constructors are called explicitly when an instance of the class is created.</p>
+    <br/>
+    <p><b>Static Constructors: </b>These are implicitly called by the .NET runtime. A static constructor is automatically called when the class is first accessed, either when an instance of the class is created or when a static member of the class is referenced. You do not call a static constructor directly, and it is only called once per type..</p>
+    </hr>
+    <p><b>Non-Static Constructors: </b>These are explicitly called when you create an instance of the class using the new keyword. For example, MyClass obj = new MyClass(); explicitly calls the non-static constructor of MyClass.</p>
+    </hr>
+  </details>
+- <details>
+    <summary>Which Constructors execute first Static or `non-static` constructors?</summary>
+    <hr/>
+    <p>Static constructors execute immediately once the execution of a class starts and, moreover, they are the first block of code to run in a class. Non-static constructors, on the other hand, execute only after creating an instance of the class and every time an instance of the class is created.</p>
     <hr/>
   </details>
+
+```md
+Life cycle means from the starting of execution to the end of execution.
+```
+
+- <details>
+    <summary>How many time execute static and non-static constructor?</summary>
+    <hr/>
+    <p>In the life cycle of class, the static constructor executes only once, whereas the non-static constructor executes zero times if no instances are created and 'n' times if 'n' instances are created.</p>
+    <hr/>
+  </details>
+- <details>
+    <summary>Can Static and non-static members are access directly?</summary>
+    <hr/>
+    <p>Static members can be accessed directly, whereas non-static members cannot be accessed directly.</p></br>
+    <p>Because static members instances are shared among all of a class. While non-static members belong to individual instances. </p>
+    </br>
+    <p>Only one copy of the static members.</p>
+    <hr/>
+  </details>
+
+- <details>
+    <summary>Can be static constructor parametrized?</summary>
+    <hr/>
+    <p>Non-static constructor can be parametrized but static constructor can't have parametrized. Because of static constrctor is implicitly call & wo will pass the parameter. Remember static constructor is a 1st block of code to run the class.</p>
+    <hr/>
+  </details>
+
+- <details>
+    <summary>Is that posible to overloade the static constructor?</summary>
+    <hr/>
+    <p>Non static constructor can be overloaded where as static constructor can't be overloaded.</p>
+    <hr/>
+  </details>
+
+- <details>
+    <summary>When Constructor is Implicitly call?</summary>
+    <hr/>
+    <p>Every class contains an implicit constructor if not defined explicitly constructor.</p>
+    </br>
+    <p>You can't create an instance of static class. They can't have instance constructors, whether implicit or explicit. However, they can have static constructors to initialize static members.</p>
+    <hr/>
+  </details>
+
+- <details>
+    <summary>When Static constructor implicitly defined by compiler?</summary>
+    <hr/>
+    <p>Static constructors are implicitly defined only if that class contains any static members or else that constructor will be present at all.</p>
+    <hr/>
+  </details>
+
+- <details>
+    <summary>What is destructor?</summary>
+    <hr/>
+    <p>Special method used to clean up an object before the garbage collector reclaims it.</p>
+    <p>It runs automatically when the object is no longer needed.</p>
+    <p>Destructor's name is the same as the class name, but with a tilde (~) at the beginning.</p>
+
+  ```C#
+
+    ~SampleClass()
+    {
+        Console.WriteLine("Destructor: Cleaning up object.  ");
+    }
+
+  ```
+
+    <hr/>
+  </details>
+
+- <details>
+    <summary>Destructors have any access modifiers?</summary>
+    <hr/>
+    <p>No, destructors do not have access modifiers and are implicitly private.</p>
+    <hr/>
+  </details>
+
+- <details>
+    <summary>Destructors take any Parameters?</summary>
+    <hr/>
+    <p>No, destructors cannot take parameters.</p>
+    <hr/>
+  </details>
+
+- <details>
+    <summary>Can it posible destructor overloading? </summary>
+    <hr/>
+    <p>Not posible, a class can only have one destructor.</p>
+    <hr/>
+  </details>
+
+- <details>
+    <summary>Who and when called the destructor?</summary>
+    <hr/>
+    <p>Destructors are called automatically by the garbage collector when an object is no longer needed.</p>
+    <hr/>
+  </details>
+
 - <details>
     <summary></summary>
     <hr/>
     <p></p>
     <hr/>
   </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
+  
 - <details>
     <summary></summary>
     <hr/>
