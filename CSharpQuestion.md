@@ -1,6 +1,238 @@
 ## CSharp Question:
 
 - <details>
+    <summary>What is .NET?</summary>
+    <hr/>
+    <p>
+    It's a Framework tool not a Operating System, not programming language, not Application Software,  not ERP application, not Testing Too,  not DBMS Tool / Application,  not low code tool, not cloud platform and not devops tool.
+    </p>
+    <p>It is a product of Microsoft launched in the year 2002, which can be used for building various kinds of Applications like: Web, Mobile, Desktop, Micro services, Cloud, Machine Learning, Game Development and IoT (Internet of Things).
+    </p>
+    <hr/>
+  </details>
+- <details>
+    <summary>How to develope various kinds of application by using .NET?</summary>
+    <hr/>
+    <p>To develop the above applications, .NET provides with a set of Programming Languages, Technologies & Servers using which we can build any kind of Application.</p>
+    <hr/>
+  </details>
+- <details>
+    <summary>What are the Programming Languages, .NET provides to us?</summary>
+    <hr/>
+    <p>In 2002 .NET give 30+ programming languages like CSharp(C#), VB.NET, Python.NET, J#.NET and etc are available for a developer to build applications and programmers have a chance of choosing any 1 language from the list. </p>
+    <hr/>
+  </details>
+- <details>
+    <summary>As of todady, how many language usege in .NET?</summary>
+    <hr/>
+    <p>
+    5 language: C#, VB.NET, F#.NET, Iron Python and ML.NET<br/>C# is the most popular language.<br/> And this language is run in the .NET Framework
+    </p>
+    <hr/>
+  </details>
+- <details>
+    <summary>What are the two important features in .Net?</summary>
+    <hr/>
+    <p>
+    1. Language Independent<br/>
+    2. Platform Independent
+    </p>
+    <hr/>
+  </details>
+- <details>
+    <summary>What is Framework?</summary>
+    <hr/>
+    <p>Framework is a runtime environment which provides many features & will allow to run multiple programming language code.</p>
+    <hr/>
+  </details>
+- <details>
+    <summary>What is the output code generated after .NET compilation, and who compiles .NET code?</summary>
+    <hr/>
+    <p>The output code generated after compiling a program written in a .NET language is called CIL (Common Intermediate Language) or MSIL (Microsoft Intermediate Language).</p>
+    <hr/>
+  </details>
+- <details>
+    <summary>If any 2 languages want to communicate or interoperate with each other they need?</summary>
+    <hr/>
+    <p>1. Not mismatch compile code.</p>
+    <p>2. Not mismatch data type.</p>
+    <hr/>
+  </details>
+- <details>
+    <summary>How does .NET solve the problem of communication between languages?</summary>
+    <hr/>
+    <p>.NET solves the problem of communication between different programming languages by making sure that all languages compile down to the same kind of code called CIL or MSIL. It also avoids problems with different data types by using the 'Common Type System' (CTS), which makes sure that similar data types are the same size and work the same way across all .NET languages.</p>
+    <hr/>
+  </details>
+- <details>
+    <summary>How to execute C language code?</summary>
+    <hr/>
+    <p>The program we write in C is called source code.</p>
+    <p>The C compiler compiles the source code and generates native code. Usually, this native code can only run on the machine where it was generated, and the operating system executes the code.</p>
+    <p>C language Source code > C compiler > Native code > Execute the code</p>
+    <p>When a language compiler compiles the source code, it considers two factors:<br/>
+      1. Operating System (OS) Architecture<br/>
+      2. Processor Architecture
+    </p>
+    <p>Native code is created so it can be understood by the current processor and the operating system where the code is compiled.</p>
+    <hr/>
+  </details>
+
+## Nots:-
+```HTML
+C++ Source Code => Compiled by using C++ Compiler => Generates Object Code => Which can be consumed from another C++ Program.
+
+
+Java Source Code => Compiled by using Java Compiler => Generates Byte Code => Which can be consumed from another Java Program.
+
+
+C# Source Code => Compiled by using C# Compiler => Generates CIL Code => Which can be consumed from any .NET Language Program.
+
+
+F# Source Code => Compiled by using F# Compiler => Generates CIL Code => Which can be consumed from any .NET Language Program.
+
+
+VB Source Code => Compiled by using VB Compiler => Generates CIL Code => Which can be consumed from any .NET Language Program.
+
+```
+
+- <details>
+    <summary>What is Platform Independent?</summary>
+    <hr/>
+    <p>It is a way to run an application developed on one platform on <mark>other</mark> platforms.</p>
+    <hr/>
+  </details>
+- <details>
+    <summary>What is Platform?</summary>
+    <hr/>
+    <p>A platform is an environment where an application runs. It includes two main components: microprocessor and operating system.</p>
+    <hr/>
+  </details>
+- <details>
+    <summary>What is a platform dependency??</summary>
+    <hr/>
+    <p>The code created by the language compiler cannot run on a different processor or operating system. This is called platform dependency.</p>
+    <hr/>
+  </details>
+- <details>
+    <summary>Explain about the code execution process in .Net?</summary>
+    <hr/>
+    <p> In .Net source code will be compiled by the respective language compiler & an Intermediate code is generated known as MSIL (MicroSoft Intermediate Language)</p>
+    <p>This MSIL code is then converted into native code using CLR (Common Language Runtime) finally code will be executed by the operating system with the help of CLR (or) CLR will run the code with the help of operating system<p/>
+    <hr/>
+  </details>
+- <details>
+    <summary>What happens to the code when you compile a .NET application, and what is the outcome?</summary>
+    <hr/>
+    <p>When you compile a .NET application using any .NET language, the code is turned into "CIL" (Common Intermediate Language) code. This intermediate code is the result of the compilation process, no matter which .NET language you used to create the application.</p>
+    <p></p>
+    <hr/>
+  </details>
+- <details>
+    <summary>What is required to run CIL code on client machines?</summary>
+    <hr/>
+    <p>To run CIL code on client machines, you need to install the ".NET Runtime" software. This runtime includes the CLR (Common Language Runtime), which converts CIL code into native machine code that the computer can execute.</p>
+    <hr/>
+  </details>
+- <details>
+    <summary>How did .NET expand to support operating systems other than Windows?</summary>
+    <hr/>
+    <p>When .NET was first launched by Microsoft in 2002, the .NET Runtime was only available for Windows. However, Microsoft made the specifications for developing the runtime open, allowing third-party companies to create runtimes for other operating systems. This led to the development of the ".NET Framework," starting with version 1.0 and ending with version 4.8.</p>
+    <hr/>
+  </details>
+- <details>
+    <summary>What is the role of the CLR in the .NET Framework?</summary>
+    <hr/>
+    <p>The CLR (Common Language Runtime) is a key component of the .NET Runtime that converts CIL (Common Intermediate Language) code into native machine code. This conversion allows the compiled .NET application to run on the client machine.</p>
+    <hr/>
+  </details>
+- <details>
+    <summary>What was a major criticism of the .NET Framework before 2016?</summary>
+    <hr/>
+    <p>The .NET Framework was criticized for not being fully platform-independent because Microsoft initially provided it only for Windows. This limited the ability of developers to create cross-platform applications.</p>
+    <hr/>
+  </details>
+- <details>
+    <summary>What significant change did Microsoft introduce with .NET Core in 2016??</summary>
+    <hr/>
+    <p>In 2016, Microsoft introduced .NET Core, a new runtime designed to work on multiple platforms. Unlike the original .NET Framework, .NET Core was available for Windows, Linux, and Mac, allowing developers to build and run applications on different operating systems.</p>
+    <hr/>
+  </details>
+- <details>
+    <summary>What is the significance of the .NET 5.0 release in 2020?</summary>
+    <hr/>
+    <p>On November 10, 2020, Microsoft released .NET 5.0, which merged the .NET Framework and .NET Core into one platform. This new .NET, starting from version 5.0, is a continuation of .NET Core but is now just called “.NET.” The latest version, as of November 2021, is .NET 6.0.</p>
+    <hr/>
+  </details>
+- <details>
+    <summary>How did Microsoft simplify the naming of its runtime frameworks in 2020?</summary>
+    <hr/>
+    <p>Microsoft made the naming simpler by combining .NET Framework and .NET Core into one platform called ".NET." Starting with version 5.0, this unified platform continues from .NET Core but is no longer called .NET Core or .NET Framework separately.</p>
+    <hr/>
+  </details>
+- <details>
+    <summary>What is Distributed application?</summary>
+    <hr/>
+    <p>A distributed application is software that runs related code across multiple machines. For example, in an application like Gmail, the code may run on different machines: one on the user's device (e.g., a browser), another on a server, and a third on a database server. This setup, where different components of the application run on different machines, defines a distributed application.</p>
+    <hr/>
+  </details>
+- <details>
+    <summary>When the program comes to a running state?</summary>
+    <hr/>
+    <p>When we double-click the .exe file of the program, it is moved from secondary memory to primary memory, and then the program starts running.</p>
+    <p>Memory allocation always happens in primary memory.</p>
+    <p>Saving the program always happens in secondary memory.</p>
+    <hr/>
+  </details>
+- <details>
+    <summary>What is a .NET Runtime??</summary>
+    <hr/>
+    <p></p>
+    <hr/>
+  </details>
+- <details>
+    <summary>?</summary>
+    <hr/>
+    <p></p>
+    <hr/>
+  </details>
+- <details>
+    <summary>?</summary>
+    <hr/>
+    <p></p>
+    <hr/>
+  </details>
+- <details>
+    <summary>?</summary>
+    <hr/>
+    <p></p>
+    <hr/>
+  </details>
+- <details>
+    <summary>?</summary>
+    <hr/>
+    <p></p>
+    <hr/>
+  </details>
+- <details>
+    <summary>?</summary>
+    <hr/>
+    <p></p>
+    <hr/>
+  </details>
+- <details>
+    <summary>?</summary>
+    <hr/>
+    <p></p>
+    <hr/>
+  </details>
+- <details>
+    <summary>?</summary>
+    <hr/>
+    <p></p>
+    <hr/>
+  </details>
+- <details>
     <summary>What is OOP's?</summary>
     <hr/>
      <p>OOP is a paradigm/methodology/way of programming, a way of creating real-world applications, providing security, and building business applications.</p>
@@ -516,12 +748,12 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary></summary>
+    <summary>Explain the relationship between classes and data types. How can a class, whether predefined or user-defined, be considered a data type?</summary>
     <hr/>
-    <p></p>
+    <p>https://codecomponents.hashnode.dev/advance-c-sharp-proggramming-language#heading-variable-instance-amp-refrence-of-class</p>
     <hr/>
   </details>
-  
+
 - <details>
     <summary></summary>
     <hr/>
@@ -673,41 +905,53 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
   </details>
 - <details>
-    <summary></summary>
+    <summary>Is that posible to create object of abstract class?</summary>
     <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
+    <p>No, it is not possible to create an object (or instance) of an abstract class directly in C#. Abstract classes are designed to be base classes that provide a common definition of a base class that derived classes can share. They can include abstract methods, which must be implemented by non-abstract derived classes, as well as methods with actual implementation.</p>
     <hr/>
   </details>
 - <details>
-    <summary></summary>
+    <summary>How to call abstract class Constructor?</summary>
     <hr/>
-    <p></p>
-    <hr/>
+    <p>You cannot directly instantiate an abstract class, but you can call its constructor from a derived class. The abstract class's constructor is called implicitly when an instance of a derived class is created.</p>
+    <br/>
+
+  ```C#
+
+  //Abstract class
+  public abstract class Mrk
+  {
+    // Protected constructor so it can be calledby     derived classes
+    protected Mrk()
+    {
+        Console.WriteLine("Hello baby");
+    }
+  }
+
+  //Derived class
+  class Go : Mrk
+  {
+    // Protected constructor that calls the baseclass     constructor
+    protected Go() : base()
+    {
+        Console.WriteLine("Go class...");
+    }
+  }
+
+  class Constructor
+  {
+        static void Main()
+        {
+            // Creating an instance of the derivedclass
+            Go og = new Go();
+        }
+  }
+
+  ```
+
+  <hr/>
   </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
+
 - <details>
     <summary></summary>
     <hr/>
