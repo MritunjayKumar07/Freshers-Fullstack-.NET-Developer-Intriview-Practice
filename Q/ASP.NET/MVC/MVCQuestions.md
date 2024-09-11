@@ -974,274 +974,613 @@ Now in the below, change the defaults as following:
     <p></p>
     <hr/>
   </details>
+
+## LINQ to SQL
+
 - <details>
-    <summary></summary>
+    <summary>What is LINQ, and why is it important?</summary>
     <hr/>
-    <p></p>
+    <p>LINQ (Language Integrated Query) is a feature of the .NET Framework that provides a way to integrate data queries directly into C# and other .NET languages. It offers a strongly-typed interface to data, allowing developers to work with data in a more natural way within their programming environment. LINQ makes data manipulation easier, allowing developers to query data from different sources like memory, databases, XML files, etc., without leaving the C# environment. This integration helps reduce errors and makes the code easier to debug and maintain.</p>
     <hr/>
   </details>
 - <details>
-    <summary></summary>
+    <summary>What problems does LINQ solve for developers?</summary>
     <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
+    <p>LINQ addresses several issues that developers face when dealing with data:</p>
+    <ul>
+    <li>It removes the complexity of transitioning between the strongly-typed, object-oriented world of C# and the less structured data tier.</li>
+    <li>It allows developers to write queries in a way that is fully integrated into their .NET language, using familiar syntax and tools.</li>
+    <li>It improves type safety and reduces runtime errors because queries are checked at compile-time.</li>
+    <li>It simplifies debugging, as LINQ queries are part of the code and can be debugged using Visual Studio’s debugging tools.</li>
+    </ul>
     <hr/>
   </details>
 - <details>
-    <summary></summary>
+    <summary>What is LINQ to SQL?</summary>
     <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
+    <p>LINQ to SQL is a specific implementation of LINQ that provides a strongly-typed interface for interacting with SQL Server databases. It allows developers to query, insert, update, and delete data using LINQ queries in C# or another .NET language. LINQ to SQL maps the SQL database structure (tables, views, stored procedures) to C# classes, making database operations more intuitive and easier to perform within the .NET environment.</p>
     <hr/>
   </details>
 - <details>
-    <summary></summary>
+    <summary>How does LINQ to SQL integrate with Visual Studio?</summary>
     <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
+    Visual Studio provides a feature called the Object-Relational **Designer (OR Designer)** to facilitate working with LINQ to SQL. <mark><b>The OR Designer allows developers to create LINQ to SQL classes by visually mapping database tables, views, and stored procedures to C# objects.</mark></b> When you add a LINQ to SQL class to your project (e.g., MVCDB.dbml), Visual Studio automatically generates the necessary code (like DataContext classes) that connects to the database and enables CRUD (Create, Read, Update, Delete) operations.
     <hr/>
   </details>
 - <details>
-    <summary></summary>
+    <summary>What is Object Relational Mapping (ORM)?</summary>
     <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
+    **Object Relational Mapping (ORM)** is the process of converting data between relational databases and object-oriented programming languages. In LINQ to SQL, ORM is handled by the Object-Relational Designer (OR Designer), which automatically generates C# classes that map to database tables, columns, and relationships. This makes it easier to work with data as objects in the application.
     <hr/>
   </details>
 - <details>
-    <summary></summary>
+    <summary>How do you add a LINQ to SQL class in Visual Studio?</summary>
     <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
+    <p>To add a LINQ to SQL class in Visual Studio:</p>
+    <ul>
+    <li>Create a new ASP.NET Web Application project.</li>
+    <li>In the Solution Explorer, right-click on the "Models" folder and select "Add New Item".</li>
+    <li>In the left-hand side (LHS) of the window, select "Data".</li>
+    <li>In the right-hand side (RHS), choose "LINQ to SQL Classes" and name the item (e.g., MVCDB.dbml).</li>
+    <li>Click the "Add" button. Visual Studio will:
+    <ul>
+    <li>Add a reference to System.Data.Linq.</li>
+    <li>Create a .dbml file along with related files (MVCDB.dbml.layout and MVCDB.Designer.cs), which contain the code that maps database objects to C# objects.</li>
+    </ul>
+    </li>
+    </ul>
     <hr/>
   </details>
 - <details>
-    <summary></summary>
+    <summary>What is the purpose of the DataContext class in LINQ to SQL?</summary>
     <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
+    <p>The DataContext class is a key component in LINQ to SQL that acts as a bridge between the application and the SQL Server database. It is responsible for:</p>
+    <ul>
+    <li>Managing the connection to the database using a connection string.</li>
+    <li>Executing queries and commands against the database.</li>
+    <li>Tracking changes to the objects (e.g., inserts, updates, deletes) so that the database can be updated accordingly.</li>
+    <li>Providing methods like CreateDatabase, DeleteDatabase, GetTable, ExecuteQuery, and SubmitChanges to perform various database operations.</li>
+    </ul>
     <hr/>
   </details>
 - <details>
-    <summary></summary>
+    <summary>What are some common methods provided by the DataContext class in LINQ to SQL?</summary>
     <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
+    <p>The DataContext class includes several methods for interacting with the database:</p>
+    <ul>
+    <li>CreateDatabase(): Creates a new database.</li>
+    <li>DeleteDatabase(): Deletes the existing database.</li>
+    <li>GetTable&ltT&gt(): Retrieves a table from the database.</li>
+    <li>ExecuteQuery&ltT&gt(): Executes a raw SQL query.</li>
+    <li>SubmitChanges(): Submits all the changes made to the DataContext back to the database.</li>
+    </ul>
     <hr/>
   </details>
 - <details>
-    <summary></summary>
+    <summary>What does the MVCDB.designer.cs file contain when using LINQ to SQL?</summary>
     <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
+    The `MVCDB.designer.cs` file is an auto-generated file created by the OR Designer. It contains:
+    <ul>
+    <li>The MVCDBDataContext class, which inherits from the DataContext class.</li>
+    <li>ORM code that maps the relational database objects (like tables and views) to C# classes.</li>
+    <li>Constructors and methods to perform database operations, such as CreateDatabase, DeleteDatabase, and SubmitChanges.<li>
+    </ul>
     <hr/>
   </details>
 - <details>
-    <summary></summary>
+    <summary>How do you perform CRUD operations using LINQ to SQL?</summary>
     <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
+    CRUD operations (Create, Read, Update, Delete) using LINQ to SQL are performed using the DataContext class:
+    <ul>
+    <li><b>Create</b>: Add new objects to the database by creating instances of the mapped classes and calling SubmitChanges().</li>
+    <li><b>Read</b>: Query data using LINQ syntax to retrieve objects from the database.</li>
+    <li><b>Update</b>: Modify the properties of the retrieved objects and call SubmitChanges() to save the changes.</li>
+    <li><b>Delete</b>: Remove objects from the database by calling the DeleteOnSubmit() method and then SubmitChanges().</li>
+    </ul>
     <hr/>
   </details>
 - <details>
-    <summary></summary>
+    <summary>How do you create the Student entity class for the Student table in LINQ to SQL?</summary>
     <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
+    To create the Student entity class:
+    <ul>
+    <li>Open the "Server Explorer" in Visual Studio from the "View" menu.</li>
+    <li>Right-click on "Data Connections" and select "Add Connection".</li>
+    <li>Configure the connection to your SQL Server database (MVCDB) by entering the server name, selecting the authentication mode, and choosing the database.</li>
+    <li>Once the database is connected, drag and drop the "Student" table onto the Object-Relational (O/R) Designer surface.</li>
+    <li>This action automatically creates a Student class in the MVCDB.designer.cs file, with properties corresponding to the columns in the "Student" table (e.g., Sid, Name, Class, Fees, Photo, Status).</li>
+    </ul>
     <hr/>
   </details>
 - <details>
-    <summary></summary>
+    <summary>What happens when you drag and drop a table onto the O/R Designer in Visual Studio?</summary>
     <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
+    When you drag and drop a table onto the O/R Designer:
+    <ul>
+    <li>A connection string is added to the Web.config file, targeting the database configured in the "Server Explorer".</li>
+    <li>A default constructor is defined in the MVCDBDataContext class to connect to the database using the connection string from the Web.config file.</li>
+    <li>A new class representing the table entity is created (e.g., Student for the Student table).</li>
+    <li>Properties are defined in this entity class corresponding to the columns in the table.</li>
+    <li>A property of type Table&ltEntity&gt is defined in the MVCDBDataContext class, referring to the table (Table&ltStudent&gt for the "Student" entity).</li>
+    </ul>
     <hr/>
   </details>
 - <details>
-    <summary></summary>
+    <summary>What is the purpose of the Table&ltEntity&gt property in the MVCDBDataContext class?</summary>
     <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
+    The Table&ltEntity&gt property represents a table in the database and provides a strongly typed interface to perform CRUD operations on the entity. For example, Table&ltStudent&gt represents the "Student" table, allowing you to perform operations like InsertOnSubmit, DeleteOnSubmit, SingleOrDefault, FirstOrDefault, etc., directly on the Student table.
     <hr/>
   </details>
 - <details>
-    <summary></summary>
+    <summary> What is the process to perform an Insert operation using LINQ to SQL?</summary>
     <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
+    The steps to perform an Insert operation are:
+    <ul>
+    <li>Create an instance of the Student class, representing a record in the "Student" table.
+
+    
+    ```C#
+    Student newStudent = new Student();
+    ```
+
+    </li>
+    <li>Assign values to its properties (e.g., Sid, Name, Class, etc.).
+    
+    ```C#
+    newStudent.Sid = 1;             // Example ID
+    newStudent.Name = "John Doe";   // Example Name
+    newStudent.Class = 10;          // Example Class
+    newStudent.Fees = 1500.00m;     // Example Fees
+    newStudent.Photo = "john.jpg";  // Example Photo
+    newStudent.Status = true;       // Example Status
+    ```
+
+    </li>
+    <li>Call the InsertOnSubmit method on the Students table to add the record in a pending state (Use the InsertOnSubmit method of the Table&ltStudent&gt class (defined in DataContext) to add the new Student object in a pending state:).
+
+    ```C#
+    //Call the InsertOnSubmit Method:
+    MVCDBDataContext dbContext = new MVCDBDataContext(
+    ConfigurationManager.ConnectionStrings["Connection string"].ConnectionString); //Create
+
+    dbContext.Students.InsertOnSubmit(newStudent);// Add new student to Students table
+    ```
+
+    </li>
+    <li>Call the SubmitChanges method on the DataContext object to save the changes to the SQL Server database.(Save the changes to the database by calling SubmitChanges on the DataContext object:)
+    
+    ```C#
+    //Call the SubmitChanges Method:
+    dbContext.SubmitChanges();
+    ```
+
+    </li>
+    </ul>
     <hr/>
   </details>
 - <details>
-    <summary></summary>
+    <summary>How do you perform an Update operation using LINQ to SQL?</summary>
     <hr/>
-    <p></p>
+    The steps to perform an Update operation are:
+    <ul>
+    <li>Retrieve the record to be updated by calling First, FirstOrDefault, SingleOrDefault, or Single method on the Students table.
+
+    <b>First():</b> The First method returns the first record that matches the specified condition. It throws an exception if no matching record is found.
+
+    ```c#
+    // Step 1: Retrieve the record using the First method
+    Student studentToUpdate = dbContext.Students.First(s => s.Sid == 1); // Replace '1' with the actual ID to find
+
+    // Step 2: Modify the values of the properties
+    studentToUpdate.Name = "Jane Doe";   // New Name
+    studentToUpdate.Class = 11;          // Updated Class
+
+    // Step 3: Submit the changes to the database
+    dbContext.SubmitChanges();
+    ```
+
+    <b>FirstOrDefault():</b> The FirstOrDefault method returns the first record that matches the specified condition or null if no record is found.
+
+    ```c#
+    // Step 1: Retrieve the record using the FirstOrDefault method
+    Student studentToUpdate = dbContext.Students.FirstOrDefault(s => s.Sid == 1); // Replace '1' with the actual ID to find
+
+    if (studentToUpdate != null) // Check if a record was found
+    {
+      // Step 2: Modify the values of the properties
+      studentToUpdate.Name = "Jane Doe";   // New Name
+      studentToUpdate.Class = 11;          // Updated Class
+
+      // Step 3: Submit the changes to the database
+      dbContext.SubmitChanges();
+    }
+    ```
+
+    <b>Single():</b> The Single method returns the only record that matches the specified condition. It throws an exception if no records or more than one record is found.
+
+    ```c#
+    // Step 1: Retrieve the record using the Single method
+    Student studentToUpdate = dbContext.Students.Single(s => s.Sid == 1); // Replace '1' with the actual ID to find
+
+    // Step 2: Modify the values of the properties
+    studentToUpdate.Name = "Jane Doe";   // New Name
+    studentToUpdate.Class = 11;          // Updated Class
+
+    // Step 3: Submit the changes to the database
+    dbContext.SubmitChanges();
+    ```
+
+    <b>SingleOrDefault():</b> The SingleOrDefault method returns the only record that matches the specified condition or null if no record is found. It throws an exception if more than one record is found.
+
+    ```c#
+    // Step 1: Retrieve the record using the SingleOrDefault method
+    Student studentToUpdate = dbContext.Students.SingleOrDefault(s => s.Sid == 1); // Replace '1' with the actual ID to find
+
+    if (studentToUpdate != null) // Check if a record was found
+    {
+      // Step 2: Modify the values of the properties
+      studentToUpdate.Name = "Jane Doe";   // New Name
+      studentToUpdate.Class = 11;          // Updated Class
+
+      // Step 3: Submit the changes to the database
+      dbContext.SubmitChanges();
+    }
+    ```
+
+    </li>
+    <li>Modify the values of the properties of the retrieved Student instance.</li>
+    <li>Call the SubmitChanges method on the DataContext object to save the updated data to the SQL Server database.</li>
+    </ul>
+
+    <li>Use First or FirstOrDefault when you expect multiple records but want the first one.</li>
+    <li>Use Single or SingleOrDefault when you expect exactly one matching record.</li>
+    <li>SubmitChanges: Saves the modified data back to the SQL Server database.</li>
+
+    ```C#
+    using System;
+    using System.Configuration;
+    using System.Data.Linq;  // Namespace for LINQ to SQL
+    
+    public class Program
+    {
+        public static void Main()
+        {
+            // Step 1: Create the DataContext
+            MVCDBDatadbContext context = new MVCDBDataContext(
+    ConfigurationManager.ConnectionStrings["Connection string"].ConnectionString); //Create
+
+    
+            // Step 1: Retrieve the record using the FirstOrDefault method
+            Student studentToUpdate = dbContext.Students.FirstOrDefault(s => s.Sid == 1); // Replace '1' with the actual ID to find
+    
+            if (studentToUpdate != null) // Check if a record was found
+            {
+                // Step 2: Modify the values of the properties
+                studentToUpdate.Name = "Jane Doe";   // New Name
+                studentToUpdate.Class = 11;          // Updated Class
+    
+                // Step 3: Submit the changes to the database
+                dbContext.SubmitChanges();
+                Console.WriteLine("Student record updated successfully!");
+            }
+            else
+            {
+                Console.WriteLine("Student record not found.");
+            }
+        }
+    }
+    ```
+
     <hr/>
   </details>
 - <details>
-    <summary></summary>
+    <summary>What are the steps to perform a Delete operation using LINQ to SQL?</summary>
     <hr/>
-    <p></p>
+    The steps to perform a Delete operation are:
+    <ul>
+    <li>Retrieve the record to be deleted by calling First, FirstOrDefault, SingleOrDefault, or Single method on the Students table.</li>
+    <li>Call the DeleteOnSubmit method on the Students table to mark the record for deletion.</li>
+    <li>Call the SubmitChanges method on the DataContext object to remove the record from the SQL Server database.</li>
+    </ul>
+
+    ```c#
+    using System;
+    using System.Configuration;
+    using System.Data.Linq;  // Namespace for LINQ to SQL
+
+    public class Program
+    {
+        public static void Main()
+        {
+            // Step 1: Create the DataContext
+            MVCDBDatadbContext context = new MVCDBDataContext(
+    ConfigurationManager.ConnectionStrings["Connection string"].ConnectionString); //Create
+
+
+            // Step 1: Retrieve the record using the FirstOrDefault method
+            Student studentToDelete = dbContext.Students.FirstOrDefault(s => s.Sid == 1); // Replace '1' with the actual ID to find
+
+            if (studentToDelete != null) // Check if a record was found
+            {
+                // Step 2: Mark the record for deletion
+                dbContext.Students.DeleteOnSubmit(studentToDelete);
+
+                // Step 3: Submit the changes to the database
+                dbContext.SubmitChanges();
+                Console.WriteLine("Student record deleted successfully!");
+            }
+            else
+            {
+                Console.WriteLine("Student record not found.");
+            }
+        }
+    }
+    ```
+
+    <hr/>
+  </details>
+- <details>
+    <summary>What is the DataContext class, and how is it used in LINQ to SQL?</summary>
+    <hr/>
+    The `DataContext` class in LINQ to SQL is the main class that manages the connection to the database. It facilitates all CRUD operations on the entities. It contains methods like `InsertOnSubmit`, `DeleteOnSubmit`, `SubmitChanges`, etc., to manage database transactions and interact with the SQL Server database.
+    <hr/>
+  </details>
+- <details>
+    <summary>Why is it important to call SubmitChanges in LINQ to SQL?</summary>
+    <hr/>
+    The `SubmitChanges` method is important because it commits all pending changes (inserts, updates, deletes) to the database. Until `SubmitChanges` is called, no actual changes are made in the database. It ensures that all operations are executed in a single transaction, maintaining data consistency.
+    <hr/>
+  </details>
+- <details>
+    <summary>How can i Read all data from the Student model in this ASP.NET MVC application, ensuring the use of LINQ to interact with the database effectively?</summary>
+    <hr/>
+
+    Hear the answer: [Read_all_the_data](./MVCWithLinq1_project.md/#read-all-data-from-database)
+
+    <hr/>
+  </details>
+- <details>
+    <summary>What does MVCDBDataContext db = new MVCDBDataContext(ConfigurationManager.ConnectionStrings["MVCDBConnectionString"].ConnectionString); do?</summary>
+    <hr/>
+    MVCDBDataContext db = new MVCDBDataContext(): This is the object of MVCDBDataContext class whic is in LINQ to SQL (ORM).<br/>
+    This line creates an instance of `MVCDBDataContext`, which is a class used to interact with the database. It uses a connection string named "MVCDBConnectionString" from the configuration file (web.config) to establish a connection to the database.
+    <hr/>
+  </details>
+- <details>
+    <summary>What is List&ltStudent&gt students;?</summary>
+    <hr/>
+    This line declares a list named students that will store objects of type Student. List&ltStudent&gt is a collection that will hold multiple Student objects.
+    <hr/>
+  </details>
+- <details>
+    <summary>What does StudentDAL obj = new StudentDAL(); mean?</summary>
+    <hr/>
+    <p>This line creates an instance of the StudentDAL class, named obj. The StudentDAL class is responsible for accessing the database and retrieving student data.</p>
+    <hr/>
+  </details>
+- <details>
+    <summary>What is @model IEnumerable&ltMVCWithLinq1.Models.Student&gt?</summary>
+    <hr/>
+    <p>This line in the Razor view specifies that the view expects a model of type IEnumerable<Student>, which is a collection of Student objects from the MVCWithLinq1.Models namespace. It tells the view that it will be working with a list of Student objects.</p>
+    <hr/>
+  </details>
+- <details>
+    <summary>What does @{ ViewBag.Title = "ShowStudents"; } do?</summary>
+    <hr/>
+    <p>This line sets the title of the webpage to "ShowStudents". ViewBag is a dynamic object used to pass data from the controller to the view.</p>
+    <hr/>
+  </details>
+- <details>
+    <summary>What do @Html.DisplayNameFor(S => S.Sid), @Html.DisplayNameFor(S => S.Name), etc., do?</summary>
+    <hr/>
+    <p>These lines use the DisplayNameFor helper method to generate the display names (column headers) for each property (Sid, Name, Fees, Class, Photo) of the Student model in the HTML table.</p>
+    <hr/>
+  </details>
+- <details>
+    <summary>What does @foreach(MVCWithLinq1.Models.Student student in Model) { ... } mean?</summary>
+    <hr/>
+    <p>This line starts a loop that goes through each Student object in the Model, which is the collection of students passed to the view. For each student in the collection, it generates a row in the HTML table.</p>
+    <hr/>
+  </details>
+- <details>
+    <summary>What does MVCWithLinq1.Models.Student student in Model signify?</summary>
+    <hr/>
+    <p>This part of the foreach loop specifies that each item being looped over is a Student object from the MVCWithLinq1.Models namespace, and student is the name of the variable that represents the current student in each iteration.</p>
+    <hr/>
+  </details>
+- <details>
+    <summary>What is MVCWithLinq1.Models.Student student?</summary>
+    <hr/>
+    <p>This declares a variable named student of type Student, which is used to reference each individual Student object while looping through the collection.</p>
+    <hr/>
+  </details>
+- <details>
+    <summary>How can I Read single data from the Student model in this ASP.NET MVC application, ensuring the use of LINQ to interact with the database effectively?</summary>
+    <hr/>
+
+    Hear the answer: [Read_Single_the_data](./MVCWithLinq1_project.md/#read-single-data-from-database)
+
+    <hr/>
+  </details>
+- <details>
+    <summary>How can I Add data in Student model in this ASP.NET MVC application, ensuring the use of LINQ to interact with the database effectively?</summary>
+    <hr/>
+
+    Hear the answer: [Add_the_data](./MVCWithLinq1_project.md/#add-data-in-database)
+
+    <hr/>
+  </details>
+- <details>
+    <summary>What does &ltimg src='/Uploads/@student.Photo' width="40" height="25" alt="No Image" /&gt do?</summary>
+    <hr/>
+    <ul>
+    <li>This HTML tag displays an image from the "Uploads" folder.</li>
+    <li>The src attribute points to the location of the image file, where @student.Photo dynamically includes the file name stored in the Photo property of the student object.</li>
+    <li>width and height set the size of the displayed image.</li>
+    <li>alt provides alternate text ("No Image") if the image cannot be loaded.</li>
+    </ul>
+    <hr/>
+  </details>
+- <details>
+    <summary>What is @foreach (MVCWithLinq1.Models.Student student in Model)?</summary>
+    <hr/>
+    <ul>
+    <li>This is a loop in Razor syntax used in ASP.NET MVC views.</li>
+    <li>@foreach iterates over each Student object in the Model, which is a collection of students.</li>
+    <li>For each iteration, it assigns the current Student object to the variable student to be used in the loop body.</li>
+    </ul>
+    <hr/>
+  </details>
+- <details>
+    <summary>What do Student student, HttpPostedFileBase selectedFile represent in the [HttpPost] method?</summary>
+    <hr/>
+    <ul>
+    <li>Student student is an object containing the details of a student (like Name, Fees, Class, etc.).</li>
+    <li>HttpPostedFileBase selectedFile represents a file uploaded by the user, such as an image or document.</li>
+    <li>It handles file uploads in ASP.NET MVC.</li>
+    </ul>
+    <hr/>
+  </details>
+- <details>
+    <summary>What does string PhysicalPath = Server.MapPath("~/Uploads/"); do?</summary>
+    <hr/>
+    <ul>
+    <li>This line converts a relative virtual path (~/Uploads/) to a physical file system path on the server.</li>
+    <li>Server.MapPath gets the full path where the "Uploads" folder is located on the server.</li>
+    <li>PhysicalPath stores this absolute path for later use.</li>
+    </ul>
+    <hr/>
+  </details>
+- <details>
+    <summary>What is the purpose of Directory.CreateDirectory(PhysicalPath);?</summary>
+    <hr/>
+    <ul>
+    <li>It checks if the "Uploads" directory exists on the server.</li>
+    <li>If the directory does not exist, it creates it.</li>
+    <li>This ensures there is a folder to save uploaded files into.</li>
+    </ul>
+    <hr/>
+  </details>
+- <details>
+    <summary>What does selectedFile.SaveAs(PhysicalPath + selectedFile.FileName); do?</summary>
+    <hr/>
+    <ul>
+    <li>This line saves the uploaded file to the "Uploads" folder on the server.</li>
+    <li>selectedFile.FileName is the name of the file being uploaded.</li>
+    <li>PhysicalPath + selectedFile.FileName creates the full path where the file will be stored.</li>
+    </ul>
+    <hr/>
+  </details>
+- <details>
+    <summary>Why is student.Photo = selectedFile.FileName; used?</summary>
+    <hr/>
+    <ul>
+    <li>This assigns the name of the uploaded file to the Photo property of the student object.</li>
+    <li>The file name is saved in the database to reference the image later.</li>
+    <li>The image can then be displayed using this file name.</li>
+    </ul>
+    <hr/>
+  </details>
+- <details>
+    <summary>What does student.Status = true; mean?</summary>
+    <hr/>
+    <ul>
+    <li>It sets the Status property of the student object to true.</li>
+    <li>This might indicate that the student is active or valid in the system.</li>
+    </ul>
+    <hr/>
+  </details>
+- <details>
+    <summary>How does db.Students.InsertOnSubmit(student); work?</summary>
+    <hr/>
+    <ul>
+    <li>This line marks the student object to be inserted into the Students table in the database.</li>
+    <li>InsertOnSubmit prepares the object for insertion when SubmitChanges() is called.</li>
+    </ul>
+    <hr/>
+  </details>
+- <details>
+    <summary>What are the workflow of this Adding student data?</summary>
+    <hr/>
+    <ol>
+    <li><b>User Submits Form</b>: The form is submitted with student details and an optional file upload.</li>
+    <li><b>Folder Handling</b>: The server checks for the "Uploads" folder and saves the uploaded file.</li>
+    <li><b>Student Object Updated</b>: The student object is updated with the uploaded file name and status.</li>
+    <li><b>Database Update</b>: The new student is added to the database and changes are saved.</li>
+    <li><b>View Refresh</b>: The user is redirected to the "ShowStudents" view with the updated list of students.</li>
+    </ol>
+    <hr/>
+  </details>
+- <details>
+    <summary>How can i delete data in Student model in this ASP.NET MVC application, ensuring the use of LINQ to interact with the database effectively?</summary>
+    <hr/>
+
+    Hear the answer: [Delete_the_data](./MVCWithLinq1_project.md/#delete-data-in-database)
+
+    <hr/>
+  </details>
+- <details>
+    <summary>What does the line Student oldValues = db.Students.First(S => S.Sid == Sid); do?</summary>
+    <hr/>
+    This line retrieves the first Student object from the db.Students collection where the Sid (Student ID) matches the given Sid parameter. The First method is a LINQ query that returns the first student with the matching ID. If no student is found, it will throw an exception.
+    <hr/>
+  </details>
+- <details>
+    <summary>What happens when if (del == true) db.Students.DeleteOnSubmit(oldValues); is executed?</summary>
+    <hr/>
+    If the del parameter is true, this line calls the DeleteOnSubmit method on the db.Students table to permanently delete the Student object (oldValues) from the database when SubmitChanges is called.
+    <hr/>
+  </details>
+- <details>
+    <summary>What is the purpose of the else oldValues.Status = false; line?</summary>
+    <hr/>
+    If del is false, this line sets the Status property of the Student object (oldValues) to false. This is a way to temporarily delete or deactivate the student without removing the record from the database.
+    <hr/>
+  </details>
+- <details>
+    <summary>Why is db.SubmitChanges(); necessary in the DeleteStudent method?</summary>
+    <hr/>
+    The db.SubmitChanges(); line saves all changes made to the database. It is required to commit the deletion (permanent or temporary) to the database.
+    <hr/>
+  </details>
+- <details>
+    <summary>What does @Html.ActionLink("Temporary delete", "RemoveStudent", new { Sid = student.Sid, del = false }, new {onclick= "return confirm('Do you really want to delete this student temporarily?')" }) do?</summary>
+    <hr/>
+    This line creates an HTML link labeled "Temporary delete" that allows the user to temporarily delete a student. It links to the RemoveStudent action in the StudentController with the student's ID (Sid) and a del parameter set to false for temporary deletion. The onclick attribute shows a confirmation dialog asking if the user really wants to temporarily delete the student.
+    <hr/>
+  </details>
+- <details>
+    <summary>What does @Html.ActionLink("Permanently delete", "RemoveStudent", new { Sid = student.Sid, del = true }, new { onclick = "return confirm('Do you really want to delete this student permanently?')" }) do?</summary>
+    <hr/>
+    This line creates an HTML link labeled "Permanently delete" that allows the user to permanently delete a student. It links to the RemoveStudent action in the StudentController with the student's ID (Sid) and a del parameter set to true for permanent deletion. The onclick attribute shows a confirmation dialog asking if the user really wants to permanently delete the student.
+    <hr/>
+  </details>
+- <details>
+    <summary>What is the role of the StudentDAL class in the application?</summary>
+    <hr/>
+    The StudentDAL class serves as the Data Access Layer (DAL), acting as a bridge between the database and the controller. It encapsulates all the logic required to interact with the Students table using LINQ to SQL (MVCDBDataContext).
+    <hr/>
+  </details>
+- <details>
+    <summary>Why is RedirectToAction("ShowStudents") used in the RemoveStudent method?</summary>
+    <hr/>
+    The RedirectToAction("ShowStudents") method is used to redirect the user to the "ShowStudents" action after performing a delete or deactivate operation. This ensures that the user is redirected back to the list of students to provide immediate feedback on the action taken.
+    <hr/>
+  </details>
+- <details>
+    <summary>How can i edit or update data in Student model in this ASP.NET MVC application, ensuring the use of LINQ to interact with the database effectively?</summary>
+    <hr/>
+
+    Hear the answer: [Update_the_data](./MVCWithLinq1_project.md/#update-data-in-database)
+
+    <hr/>
+  </details>
+- <details>
+    <summary>How can I implement CRUD (Create, Read, Update, Delete) operations for the Student model in this ASP.NET MVC application, ensuring the use of LINQ to interact with the database effectively?</summary>
+    <hr/>
+
+    Hear the answer: [CRUD](./MVCWithLinq1_project.md/#crud-with-data-in-database)
+
     <hr/>
   </details>
 - <details>
