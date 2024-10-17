@@ -166,7 +166,6 @@ The provided code defines a basic MVC structure that uses a Data Access Layer (`
 
 ## Read single data from database:
 
-
 StudentDAL.cs:
 
 ```c#
@@ -233,8 +232,12 @@ ShowStudent.cshtml:
 <br />
 
 @Html.DisplayNameFor(S => S.Photo)
-<img src="~/Uploads/@Model.Photo" width="250px" height="250px" alt="@Model.Photo"/>
-
+<img
+  src="~/Uploads/@Model.Photo"
+  width="250px"
+  height="250px"
+  alt="@Model.Photo"
+/>
 ```
 
 ## Add data in database:
@@ -397,7 +400,6 @@ Explain to add data:
 4. **Database Insert**: The new `student` object is added to the database and changes are saved.
 5. **View Update**: The user is redirected to the "ShowStudents" view where the updated list of students, including the new one, is displayed.
 
-
 ## Delete data in database:
 
 StudentDAL.cs:
@@ -452,44 +454,52 @@ ShowStudents.cshtml:
 
 ```html
 @model IEnumerable<MVCWithLinq1.Models.Student>
+  @{ ViewBag.Title = "ShowStudents"; }
 
-@{
-    ViewBag.Title = "ShowStudents";
-}
+  <h2>ShowStudents</h2>
 
-<h2>ShowStudents</h2>
-
-<table class="table">
+  <table class="table">
     <thead>
-        <tr>
-            <th>@Html.DisplayNameFor(S => S.Sid)</th>
-            <th>@Html.DisplayNameFor(S => S.Name)</th>
-            <th>@Html.DisplayNameFor(S => S.Fees)</th>
-            <th>@Html.DisplayNameFor(S => S.Class)</th>
-            <th>@Html.DisplayNameFor(S => S.Photo)</th>
-            <th>Action's'</th>
-        </tr>
+      <tr>
+        <th>@Html.DisplayNameFor(S => S.Sid)</th>
+        <th>@Html.DisplayNameFor(S => S.Name)</th>
+        <th>@Html.DisplayNameFor(S => S.Fees)</th>
+        <th>@Html.DisplayNameFor(S => S.Class)</th>
+        <th>@Html.DisplayNameFor(S => S.Photo)</th>
+        <th>Action's'</th>
+      </tr>
     </thead>
     <tbody>
-        @foreach (MVCWithLinq1.Models.Student student in Model)
-        {
-            <tr>
-                <td>@Html.DisplayFor(S => student.Sid)</td>
-                <td>@Html.DisplayFor(S => student.Name)</td>
-                <td>@Html.DisplayFor(S => student.Fees)</td>
-                <td>@Html.DisplayFor(S => student.Class)</td>
-                <th><img src='/Uploads/@student.Photo' width="40" height="25" alt="No Image" /></th>
-                <td>
-                    @Html.ActionLink("View", "ShowStudent", new { Sid = student.Sid }) @*Sid = student.Sid: Sid name same as parameter of method*@
-                    @Html.ActionLink("Temporary delete", "RemoveStudent", new { Sid = student.Sid, del = false }, new {onclick= "return confirm('Do you realy want to delete this student temporary?')" }) 
-                    @Html.ActionLink("Permanently delete", "RemoveStudent", new { Sid = student.Sid, del = true }, new { onclick = "return confirm('Do you realy want to delete this student permenantly?')" }) 
-                </td>
-            </tr>
-         }
+      @foreach (MVCWithLinq1.Models.Student student in Model) {
+      <tr>
+        <td>@Html.DisplayFor(S => student.Sid)</td>
+        <td>@Html.DisplayFor(S => student.Name)</td>
+        <td>@Html.DisplayFor(S => student.Fees)</td>
+        <td>@Html.DisplayFor(S => student.Class)</td>
+        <th>
+          <img
+            src="/Uploads/@student.Photo"
+            width="40"
+            height="25"
+            alt="No Image"
+          />
+        </th>
+        <td>
+          @Html.ActionLink("View", "ShowStudent", new { Sid = student.Sid })
+          @*Sid = student.Sid: Sid name same as parameter of method*@
+          @Html.ActionLink("Temporary delete", "RemoveStudent", new { Sid =
+          student.Sid, del = false }, new {onclick= "return confirm('Do you
+          realy want to delete this student temporary?')" })
+          @Html.ActionLink("Permanently delete", "RemoveStudent", new { Sid =
+          student.Sid, del = true }, new { onclick = "return confirm('Do you
+          realy want to delete this student permenantly?')" })
+        </td>
+      </tr>
+      }
     </tbody>
-</table>
-@Html.ActionLink("Add Student's", "AddStudent")
-
+  </table>
+  @Html.ActionLink("Add Student's", "AddStudent")
+</MVCWithLinq1.Models.Student>
 ```
 
 Explain to Delete data:
@@ -497,10 +507,12 @@ Explain to Delete data:
 ### 1. **StudentDAL.cs** (Data Access Layer)
 
 - **`Student oldValues = db.Students.First(S => S.Sid == Sid);`**
+
   - This line retrieves the first `Student` object from the `db.Students` collection where the `Sid` (Student ID) matches the `Sid` passed as a parameter to the `DeleteStudent` method.
   - The `First` method is a LINQ (Language Integrated Query) method that returns the first element that satisfies the given condition. If no student matches the ID, it will throw an exception.
 
 - **`if (del == true) db.Students.DeleteOnSubmit(oldValues);`**
+
   - This `if` statement checks whether the `del` parameter is `true`.
   - If `del` is `true`, it calls `DeleteOnSubmit` on the `db.Students` table with `oldValues` (the `Student` object found earlier) as an argument.
   - This means the student will be **permanently removed** from the database when `SubmitChanges` is called.
@@ -508,7 +520,6 @@ Explain to Delete data:
 - **`else oldValues.Status = false;`**
   - If `del` is `false`, instead of deleting the student, it sets the `Status` property of the `Student` object (`oldValues`) to `false`.
   - This is a way to **temporarily delete** or deactivate the student without removing their record from the database.
-  
 - **`db.SubmitChanges();`**
   - This line saves all the changes made to the database.
   - Whether the student is permanently deleted or just deactivated, this line is necessary to commit those changes to the database.
@@ -516,6 +527,7 @@ Explain to Delete data:
 ### 2. **StudentController.cs** (Controller)
 
 - **`public RedirectToRouteResult RemoveStudent(int Sid, bool del)`**
+
   - This method is in the `StudentController` class and it handles the request to remove a student.
   - It takes two parameters: `Sid` (the student ID) and `del` (a boolean indicating whether the deletion is permanent).
   - Inside, it calls the `DeleteStudent` method from the `StudentDAL` class with these parameters.
@@ -526,6 +538,7 @@ Explain to Delete data:
 ### 3. **ShowStudents.cshtml** (View)
 
 - **`@Html.ActionLink("Temporary delete", "RemoveStudent", new { Sid = student.Sid, del = false }, new { onclick = "return confirm('Do you really want to delete this student temporarily?')" })`**
+
   - This line creates an HTML link that allows the user to **temporarily delete** (deactivate) a student.
   - `@Html.ActionLink` is a helper method that generates a link to a specific action method in the controller.
   - `"Temporary delete"` is the text shown on the link.
@@ -543,14 +556,15 @@ Explain to Delete data:
 ### Additional Important Points:
 
 - **Data Access Layer (DAL):**
+
   - The `StudentDAL` class acts as a bridge between the database and the controller, encapsulating all the logic required to interact with the `Students` table. It uses LINQ to SQL (`MVCDBDataContext`) for querying and modifying data.
 
 - **Confirmation Messages in Views:**
+
   - Using `onclick` for confirmation prompts in the view helps prevent accidental deletions by asking the user to confirm their actions before proceeding.
 
 - **Using Redirect in Controller:**
   - The `RedirectToAction("ShowStudents")` method call in the `RemoveStudent` action ensures that after any action is taken (temporary or permanent deletion), the user is redirected back to the list of students. This keeps the user experience consistent and provides immediate feedback on the action taken.
-
 
 ## Update data in database
 
@@ -567,7 +581,7 @@ namespace MVCWithLinq1.Models
     {
         MVCDBDataContext db = new MVCDBDataContext(ConfigurationManager.ConnectionStrings["MVCDBConnectionString"].ConnectionString); //By using this instance of MVCDBDataContext class use to connect the database (ORM-> LINK to SQL)
 
-        public void EditStudent(Student student) 
+        public void EditStudent(Student student)
         {
             Student oldValues = db.Students.First(S => S.Sid == student.Sid);
             oldValues.Name = student.Name;
@@ -624,50 +638,53 @@ namespace MVCWithLinq1.Controllers
 UpdateStudent.cshtml:
 
 ```html
-@model MVCWithLinq1.Models.Student
-@{
-    ViewBag.Title = "UpdateStudent";
-}
+@model MVCWithLinq1.Models.Student @{ ViewBag.Title = "UpdateStudent"; }
 
 <h2>UpdateStudent</h2>
 
-@using (Html.BeginForm("UpdateStudent", "Student", FormMethod.Post, new { enctype ="multipart/form-data"}))
-{
-    <div>@Html.LabelFor(S => S.Sid)<br />@Html.TextBoxFor(S => S.Sid, new { @readOnly = true })</div>
-    <div>@Html.LabelFor(S => S.Name)<br />@Html.TextBoxFor(S => S.Name)</div>
-    <div>@Html.LabelFor(S => S.Class)<br />@Html.TextBoxFor(S => S.Class)</div>
-    <div>@Html.LabelFor(S => S.Fees)<br />@Html.TextBoxFor(S => S.Fees)</div>
-    <div>
-        @Html.LabelFor(S => S.Photo)<br />
-        <img src="~/Uploads/@Model.Photo" width="250px" height="250px" alt="@Model.Photo"/>
-        <input type="file" name="selectedFile"/>
-    </div>
-    <div>
-        <input type="submit" value="Update" />
-    </div>
-} 
-
-@Html.ActionLink("Back to Student Details", "DisplayStudents")
-
+@using (Html.BeginForm("UpdateStudent", "Student", FormMethod.Post, new {
+enctype ="multipart/form-data"})) {
+<div>
+  @Html.LabelFor(S => S.Sid)<br />@Html.TextBoxFor(S => S.Sid, new { @readOnly =
+  true })
+</div>
+<div>@Html.LabelFor(S => S.Name)<br />@Html.TextBoxFor(S => S.Name)</div>
+<div>@Html.LabelFor(S => S.Class)<br />@Html.TextBoxFor(S => S.Class)</div>
+<div>@Html.LabelFor(S => S.Fees)<br />@Html.TextBoxFor(S => S.Fees)</div>
+<div>
+  @Html.LabelFor(S => S.Photo)<br />
+  <img
+    src="~/Uploads/@Model.Photo"
+    width="250px"
+    height="250px"
+    alt="@Model.Photo"
+  />
+  <input type="file" name="selectedFile" />
+</div>
+<div>
+  <input type="submit" value="Update" />
+</div>
+} @Html.ActionLink("Back to Student Details", "DisplayStudents")
 ```
 
 Explain to Delete data:
+
 - `Student student = obj.GetStudent(Sid, true);`
-    - Retrieves the Student object with the given Sid using the GetStudent method of the StudentDAL class.
-    - The true parameter might indicate whether to include related data or perform additional operations, but it depends on the implementation of GetStudent (not provided in your code).
+
+  - Retrieves the Student object with the given Sid using the GetStudent method of the StudentDAL class.
+  - The true parameter might indicate whether to include related data or perform additional operations, but it depends on the implementation of GetStudent (not provided in your code).
 
 - `return View(student);`
-    - Returns the UpdateStudent view with the Student object passed as the model.
-    - This model will be used to populate the form fields with the existing data for the student.
-
+  - Returns the UpdateStudent view with the Student object passed as the model.
+  - This model will be used to populate the form fields with the existing data for the student.
 
 ## CRUD with data in database
 
 1. Create MVC Project in Visual Studio name it `MVCWithLinq1`.
-2. Add MVCDB database and Student table in SQL. 
+2. Add MVCDB database and Student table in SQL.
 3. In MVC Projectand add LINQ to SQL and name it `MVCDB`.
 4. Create `Uploads` folder in `MVCWithLinq1` project.
-5. Next create `StudentDAL.cs` in `Models` folder. 
+5. Next create `StudentDAL.cs` in `Models` folder.
 
 StudentDAL.cs :-
 
@@ -721,7 +738,7 @@ namespace MVCWithLinq1.Models
             db.SubmitChanges();
         }
 
-        public void EditStudent(Student student) 
+        public void EditStudent(Student student)
         {
             Student oldValues = db.Students.First(S => S.Sid == student.Sid);
             oldValues.Name = student.Name;
@@ -736,7 +753,7 @@ namespace MVCWithLinq1.Models
 
 6. And create the `StudentController.cs` in Controller folder and create all controller all code is below:
 
-StudentController.cs :- 
+StudentController.cs :-
 
 ```C#
 using MVCWithLinq1.Models;
@@ -778,7 +795,7 @@ namespace MVCWithLinq1.Controllers
                 selectedFile.SaveAs(PhysicalPath + selectedFile.FileName);
                 student.Photo = selectedFile.FileName;
             }
-            
+
             student.Status = true;
             obj.AddStudent(student);
             return RedirectToAction("ShowStudents");
@@ -824,59 +841,51 @@ namespace MVCWithLinq1.Controllers
 AddStudent.cshtml :-
 
 ```html
-@model MVCWithLinq1.Models.Student
-@{
-    ViewBag.Title = "AddStudent";
-}
+@model MVCWithLinq1.Models.Student @{ ViewBag.Title = "AddStudent"; }
 
 <h2>AddStudent</h2>
 
-@using (Html.BeginForm("AddStudent", "Student", FormMethod.Post, new { enctype = "multipart/form-data" }))
-{
-    <div>@Html.LabelFor(S => S.Sid)<br />@Html.TextBoxFor(S => S.Sid)</div>
-    <div>@Html.LabelFor(S => S.Name)<br />@Html.TextBoxFor(S => S.Name)</div>
-    <div>@Html.LabelFor(S => S.Class)<br />@Html.TextBoxFor(S => S.Class)</div>
-    <div>@Html.LabelFor(S => S.Fees)<br />@Html.TextBoxFor(S => S.Fees)</div>
-    <div>@Html.LabelFor(S => S.Photo)<br /><input type="file" name="selectedFile" /></div>
-    <div>
-        <input type="submit" value="Save" />
-    </div>
-}
-
-
-@Html.ActionLink("Back to Student Details", "DisplayStudents")
+@using (Html.BeginForm("AddStudent", "Student", FormMethod.Post, new { enctype =
+"multipart/form-data" })) {
+<div>@Html.LabelFor(S => S.Sid)<br />@Html.TextBoxFor(S => S.Sid)</div>
+<div>@Html.LabelFor(S => S.Name)<br />@Html.TextBoxFor(S => S.Name)</div>
+<div>@Html.LabelFor(S => S.Class)<br />@Html.TextBoxFor(S => S.Class)</div>
+<div>@Html.LabelFor(S => S.Fees)<br />@Html.TextBoxFor(S => S.Fees)</div>
+<div>
+  @Html.LabelFor(S => S.Photo)<br /><input type="file" name="selectedFile" />
+</div>
+<div>
+  <input type="submit" value="Save" />
+</div>
+} @Html.ActionLink("Back to Student Details", "DisplayStudents")
 ```
 
 ShowStudent.cshtml:-
 
 ```html
-@model MVCWithLinq1.Models.Student
-
-@{
-    ViewBag.Title = "ShowStudent";
-}
+@model MVCWithLinq1.Models.Student @{ ViewBag.Title = "ShowStudent"; }
 
 <h2>ShowStudent</h2>
 
-@Html.DisplayNameFor(S => S.Sid)
-@Html.DisplayFor(S => S.Sid)
-<br/>
-
-@Html.DisplayNameFor(S => S.Name)
-@Html.DisplayFor(S => S.Name)
+@Html.DisplayNameFor(S => S.Sid) @Html.DisplayFor(S => S.Sid)
 <br />
 
-@Html.DisplayNameFor(S => S.Class)
-@Html.DisplayFor(S => S.Class)
+@Html.DisplayNameFor(S => S.Name) @Html.DisplayFor(S => S.Name)
 <br />
 
-@Html.DisplayNameFor(S => S.Fees)
-@Html.DisplayFor(S => S.Fees)
+@Html.DisplayNameFor(S => S.Class) @Html.DisplayFor(S => S.Class)
+<br />
+
+@Html.DisplayNameFor(S => S.Fees) @Html.DisplayFor(S => S.Fees)
 <br />
 
 @Html.DisplayNameFor(S => S.Photo)
-<img src="~/Uploads/@Model.Photo" width="250px" height="250px" alt="@Model.Photo"/>
-
+<img
+  src="~/Uploads/@Model.Photo"
+  width="250px"
+  height="250px"
+  alt="@Model.Photo"
+/>
 ```
 
 ShowStudents.cshtml :-
@@ -927,28 +936,468 @@ ShowStudents.cshtml :-
 UpdateStudents.cshtml:-
 
 ```html
-@model MVCWithLinq1.Models.Student
-@{
-    ViewBag.Title = "UpdateStudent";
-}
+@model MVCWithLinq1.Models.Student @{ ViewBag.Title = "UpdateStudent"; }
 
 <h2>UpdateStudent</h2>
 
-@using (Html.BeginForm("UpdateStudent", "Student", FormMethod.Post, new { enctype ="multipart/form-data"}))
+@using (Html.BeginForm("UpdateStudent", "Student", FormMethod.Post, new {
+enctype ="multipart/form-data"})) {
+<div>
+  @Html.LabelFor(S => S.Sid)<br />@Html.TextBoxFor(S => S.Sid, new { @readOnly =
+  true })
+</div>
+<div>@Html.LabelFor(S => S.Name)<br />@Html.TextBoxFor(S => S.Name)</div>
+<div>@Html.LabelFor(S => S.Class)<br />@Html.TextBoxFor(S => S.Class)</div>
+<div>@Html.LabelFor(S => S.Fees)<br />@Html.TextBoxFor(S => S.Fees)</div>
+<div>
+  @Html.LabelFor(S => S.Photo)<br />
+  <img
+    src="~/Uploads/@Model.Photo"
+    width="250px"
+    height="250px"
+    alt="@Model.Photo"
+  />
+  <input type="file" name="selectedFile" />
+</div>
+<div>
+  <input type="submit" value="Update" />
+</div>
+} @Html.ActionLink("Back to Student Details", "DisplayStudents")
+```
+
+-----
+
+## CRUD Operation Using Store Procedures
+
+`Project_Formate`
+
+![StoredProcedures](./StoredProcedures.png)
+![StoredProcedures1](./StoredProcedures1.png)
+![StoredProcedures2](./StoredProcedures2.png)
+
+`StudentController.cs`
+
+```c#
+using MVCWithLinq3.Models;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using System.Configuration;
+using System.IO;
+
+namespace MVCWithLinq3.Controllers
 {
-    <div>@Html.LabelFor(S => S.Sid)<br />@Html.TextBoxFor(S => S.Sid, new { @readOnly = true })</div>
+    public class StudentController : Controller
+    {
+        MVCDBDataContext db = new MVCDBDataContext(ConfigurationManager.ConnectionStrings["MVCDBConnectionString"].ConnectionString);
+
+        public ViewResult Students()
+        {
+            List<Student_SelectResult> students = db.Student_Select(null, true).ToList();
+            return View(students);
+        }
+
+        public ViewResult DisplayStudent(int Sid)
+        {
+            Student_SelectResult student = db.Student_Select(Sid, true).ToList()[0];
+            return View(student);
+        }
+
+        [HttpGet]
+        public ViewResult AddStudent()
+        {
+            //Send empty object
+            Student_SelectResult student = new Student_SelectResult();
+            return View(student);
+        }
+
+        [HttpPost]
+        public RedirectToRouteResult AddStudent(Student_SelectResult student, HttpPostedFileBase selectedFile)
+        {
+            if (selectedFile != null)
+            {
+                string folderPath = Server.MapPath("~/Uploads/");
+                if (!Directory.Exists(folderPath))
+                    Directory.CreateDirectory(folderPath);
+
+                selectedFile.SaveAs(folderPath + selectedFile.FileName);
+                student.Photo = selectedFile.FileName;
+            }
+            db.Student_Insert(student.Sid, student.Name, student.Class, student.Fees, student.Photo);
+            return RedirectToAction("Students");
+        }
+
+        [HttpGet]
+        public ViewResult Update(int Sid)
+        {
+            Student_SelectResult student = db.Student_Select(Sid, true).ToList()[0];
+            TempData["Photo"] = student.Photo;
+            return View(student);
+        }
+
+        [HttpPost]
+        public RedirectToRouteResult Update(Student_SelectResult student, HttpPostedFileBase selectedFile)
+        {
+            if (selectedFile != null)
+            {
+                string folderPath = Server.MapPath("~/Uploads/");
+                if (!Directory.Exists(folderPath))
+                    Directory.CreateDirectory(folderPath);
+
+                selectedFile.SaveAs(folderPath + selectedFile.FileName);
+                student.Photo = selectedFile.FileName;
+            }
+            else if (TempData["Photo"] != null)
+                student.Photo = TempData["Photo"].ToString();
+
+            db.Student_Update(student.Sid, student.Name, student.Class, student.Fees, student.Photo);
+            return RedirectToAction("Students");
+        }
+
+        public RedirectToRouteResult Delete(int Sid)
+        {
+            db.Student_Delete(Sid);
+            return RedirectToAction("Students");
+        }
+    }
+}
+```
+
+`AddStudent.cshtml`
+
+```c#
+@model MVCWithLinq3.Models.Student_SelectResult
+@{
+    ViewBag.Title = "AddStudent";
+}
+
+<h2>AddStudent</h2>
+
+<h2 style="text-align:center;background-color:yellowgreen;color:orangered">Add New Student</h2>
+@using (Html.BeginForm("AddStudent", "Student", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div>@Html.LabelFor(S => S.Sid)<br />@Html.TextBoxFor(S => S.Sid)</div>
+    <div>@Html.LabelFor(S => S.Name)<br />@Html.TextBoxFor(S => S.Name)</div>
+    <div>@Html.LabelFor(S => S.Class)<br />@Html.TextBoxFor(S => S.Class)</div>
+    <div>@Html.LabelFor(S => S.Fees)<br />@Html.TextBoxFor(S => S.Fees)</div>
+    <div>@Html.LabelFor(S => S.Photo)<br /><input type="file" name="selectedFile" /></div>
+    <div>
+        <input type="submit" value="Save" name="btnSave" />
+        <input type="reset" value="Reset" name="btnReset" />
+    </div>
+}
+@Html.ActionLink("Back to Student Details", "Students")
+
+```
+
+`Students.cshtml`
+
+```c#
+@model IEnumerable<MVCWithLinq3.Models.Student_SelectResult>
+@{
+    ViewBag.Title = "Students";
+}
+
+<h2>Students</h2>
+
+<h2 style="text-align:center;background-color:yellowgreen;color:orangered">Students Details</h2>
+<table border="1" align="center" class="table-condensed">
+    <tr>
+        <th>@Html.DisplayNameFor(S => S.Sid)</th>
+        <th>@Html.DisplayNameFor(S => S.Name)</th>
+        <th>@Html.DisplayNameFor(S => S.Class)</th>
+        <th>@Html.DisplayNameFor(S => S.Fees)</th>
+        <th>@Html.DisplayNameFor(S => S.Photo)</th>
+        <th>Actions</th>
+    </tr>
+    @foreach (MVCWithLinq3.Models.Student_SelectResult student in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(S => student.Sid)</td>
+            <td>@Html.DisplayFor(S => student.Name)</td>
+            <td>@Html.DisplayFor(S => student.Class)</td>
+            <td>@Html.DisplayFor(S => student.Fees)</td>
+            <td><img src='/Uploads/@student.Photo' width="40" height="25" alt="No Image" /></td>
+            <td>
+                @Html.ActionLink("View", "DisplayStudent", new { Sid = student.Sid })
+                @Html.ActionLink("Edit", "Update", new { Sid = student.Sid })
+                @Html.ActionLink("Delete", "Delete", new { Sid = student.Sid },
+                new { onclick = "return confirm('Are you sure of deleting the record?')" })
+            </td>
+        </tr>
+    }
+    <tr><td colspan="6" align="center">@Html.ActionLink("Add New Student", "AddStudent")</td></tr>
+</table>
+```
+
+`DisplayStudent.cshtml`
+
+```c#
+@model MVCWithLinq3.Models.Student_SelectResult
+@{
+    ViewBag.Title = "DisplayStudent";
+}
+
+<h2>DisplayStudent</h2>
+
+<h2 style="text-align:center;background-color:yellowgreen;color:orangered">Student Details</h2>
+<table border="1" align="center">
+    <tr>
+        <td rowspan=4><img src='~/Uploads/@Model.Photo' width="200" height="200" alt="No Image" /></td>
+        <td>Sid: @Model.Sid</td>
+    </tr>
+    <tr><td>Name: @Model.Name</td></tr>
+    <tr><td>Class: @Model.Class</td></tr>
+    <tr><td>Fees: @Model.Fees</td></tr>
+    <tr><td colspan="2" align="center">@Html.ActionLink("Back to Student Details", "Students")</td></tr>
+</table>
+```
+
+`Update.cshtml`
+
+```c#
+@model MVCWithLinq3.Models.Student_SelectResult
+@{
+    ViewBag.Title = "Update";
+}
+
+<h2>Update</h2>
+
+<h2 style="text-align:center;background-color:yellowgreen;color:orangered">Edit Student Details</h2>
+@using (Html.BeginForm("Update", "Student", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div>@Html.LabelFor(S => S.Sid)<br />@Html.TextBoxFor(S => S.Sid, new { @readonly = "true" })</div>
     <div>@Html.LabelFor(S => S.Name)<br />@Html.TextBoxFor(S => S.Name)</div>
     <div>@Html.LabelFor(S => S.Class)<br />@Html.TextBoxFor(S => S.Class)</div>
     <div>@Html.LabelFor(S => S.Fees)<br />@Html.TextBoxFor(S => S.Fees)</div>
     <div>
-        @Html.LabelFor(S => S.Photo)<br />
-        <img src="~/Uploads/@Model.Photo" width="250px" height="250px" alt="@Model.Photo"/>
-        <input type="file" name="selectedFile"/>
+        @Html.LabelFor(S => S.Photo)
+        <br />
+        <img src='~/Uploads/@Model.Photo' width="50" height="50" alt="No Image" style="border:dashed 2px red" />
+        <input type="file" name="selectedFile" />
     </div>
     <div>
-        <input type="submit" value="Update" />
+        <input type="submit" value="Update" name="btnUpdate" />
+        @Html.ActionLink("Cancel", "Students")
     </div>
-} 
-
-@Html.ActionLink("Back to Student Details", "DisplayStudents")
+}
 ```
+
+## Working with multiple tables using Linq to SQL
+
+- Create database in SQL Server(ex: `MVCDB`) and create 2 table (ex: `Department` & `Employee`).
+
+```sql
+Create Table Department(
+    Did Int Constraint Did_PK Primary Key Identity(10, 10),
+    Dname Varchar(50),
+    Location Varchar(50)
+    );
+
+Insert Into Department Values
+    ('Marketing ', 'Mumbai '),
+    ('Accounting ', 'Hyderabad '),
+    ('Finance ', 'Delhi ');
+
+Create Table Employee(
+    Eid Int Constraint Eid_PK Primary Key Identity(1001, 1),
+    Ename Varchar(50),
+    Job Varchar(50),
+    Salary Money,
+    Did Int Constraint Did_FK References Department(Did),
+    Status Bit Not Null default 1
+    );
+```
+
+- Create MVC Project like `MVCWithLinq4` and add LINQ to SQL dbml file. Then drag and drop table in ORM, When you do that then automatic database connection setup.
+
+- Create the comon model class for both coman table (ex: `EmpDept.cs`).
+
+```C#
+using System.Web.Mvc;
+public class EmpDept
+{
+    public int Eid { get; set; }
+    public string Ename { get; set; }
+    public string Job { get; set; }
+    public decimal? Salary { get; set; }
+    public int Did { get; set; }
+    public string Dname { get; set; }
+    public string Location { get; set; }
+    public List<SelectListItem> Departments { get; set; }
+}
+```
+
+- Add another class under Models folder with the name `EmployeeDAL.cs` and write the below code in it:
+
+```C#
+using System.Web.Mvc;
+using System.Configuration;
+
+public class EmployeeDAL
+{
+    MVCDBDataContext context = new MVCDBDataContext(
+ConfigurationManager.ConnectionStrings["MVCDBConnectionString"].ConnectionString); //New Version
+public List<SelectListItem> GetDepartments()
+{
+    List<SelectListItem> Depts = new List<SelectListItem>();
+    foreach (var Item in dc.Departments)
+    {
+        SelectListItem li = new SelectListItem { Text = Item.Dname, Value = Item.Did.ToString() };
+        Depts.Add(li);
+    }
+    return Depts;
+}
+
+public EmpDept GetEmployee(int Eid, bool? Status)
+{
+    dynamic Record;
+    if (Status == null)
+    {
+        var Record = (
+            from E in dc.Employees join D in dc.Departments 
+            on E.Did equals D.Did where E.Eid == Eid 
+            select new { E.Eid, E.Ename, E.Job, E.Salary, D.Did, D.Dname, D.Location }
+            ).Single();
+    }
+    else
+    {
+        var Record = (
+            from E in dc.Employees join D in dc.Departments 
+            on E.Did equals D.Did where E.Eid == Eid && E.Status == Status 
+            select new { E.Eid, E.Ename, E.Job, E.Salary, D.Did, D.Dname, D.Location }
+            ).Single();
+    }
+
+    EmpDept Emp = new EmpDept { 
+        Eid = Record.Eid, 
+        Ename = Record.Ename, 
+        Job = Record.Job, 
+        Salary = Record.Salary, 
+        Did = Record.Did, 
+        Dname = Record.Dname, 
+        Location = Record.Location 
+        };
+
+    return Emp;
+}
+
+public List<EmpDept> GetEmployees(bool? Status)
+{
+    dynamic Records;
+    if (Status != null)
+    {
+        Records = from E in dc.Employees join D in dc.Departments on E.Did equals D.Did where E.Status == true select new { E.Eid, E.Ename, E.Job, E.Salary, D.Did, D.Dname, D.Location };
+    }
+    else
+    {
+        Records = from E in dc.Employees join D in dc.Departments on E.Did equals D.Did select new { E.Eid, E.Ename, E.Job, E.Salary, D.Did, D.Dname, D.Location };
+    }
+    List<EmpDept> Emps = new List<EmpDept>();
+    foreach (var Record in Records)
+    {
+        EmpDept Emp = new EmpDept { Eid = Record.Eid, Ename = Record.Ename, Job = Record.Job, Salary = Record.Salary, Did = Record.Did, Dname = Record.Dname, Location = Record.Location };
+        Emps.Add(Emp);
+    }
+    return Emps;
+}
+public void Employee_Insert(EmpDept obj)
+{
+    Employee Emp = new Employee { Ename = obj.Ename, Job = obj.Job, Salary = obj.Salary, Did = obj.Did, Status = true };
+    dc.Employees.InsertOnSubmit(Emp);
+    dc.SubmitChanges();
+}
+public void Employee_Update(EmpDept NewValues)
+{
+    Employee OldValues = dc.Employees.Single(E => E.Eid == NewValues.Eid);
+    OldValues.Ename = NewValues.Ename;
+    OldValues.Job = NewValues.Job;
+    OldValues.Salary = NewValues.Salary;
+    OldValues.Did = NewValues.Did;
+    dc.SubmitChanges();
+}
+public void Employee_Delete(int Eid)
+{
+    Employee OldValues = dc.Employees.Single(E => E.Eid == Eid);
+    OldValues.Status = false;
+    dc.SubmitChanges();
+}
+}
+```
+
+- Add a Controller under Controllers folder with the name EmployeeController.cs and write the below code in it:
+
+```C#
+using MVCWithLinq3.Models;
+public class EmployeeController : Controller
+{
+    EmployeeDAL obj = new EmployeeDAL();
+    public ViewResult DisplayEmployees()
+    {
+        return View(obj.GetEmployees(true));
+    }
+    public ViewResult DisplayEmployee(int eid)
+    {
+        return View(obj.GetEmployee(eid, true));
+    }
+    [HttpGet]
+    public ViewResult AddEmployee()
+    {
+        EmpDept emp = new EmpDept();
+        emp.Departments = obj.GetDepartments();
+        return View(emp);
+    }
+    [HttpPost]
+    public RedirectToRouteResult AddEmployee(EmpDept emp)
+    {
+        obj.Employee_Insert(emp);
+        return RedirectToAction("DisplayEmployees");
+    }
+    public ViewResult EditEmployee(int eid)
+    {
+        EmpDept Emp = obj.GetEmployee(eid, true);
+        Emp.Departments = obj.GetDepartments();
+        return View(Emp);
+    }
+    public RedirectToRouteResult UpdateEmployee(EmpDept emp)
+    {
+        obj.Employee_Update(emp);
+        return RedirectToAction("DisplayEmployees");
+    }
+    public RedirectToRouteResult DeleteEmployee(int eid)
+    {
+        obj.Employee_Delete(eid);
+        return RedirectToAction("DisplayEmployee");
+    }
+}
+
+```
+
+#### What is this `public List<SelectListItem> Departments { get; set; }`:
+
+1. `public List<SelectListItem> Departments { get; set; } `: The line public `List<SelectListItem> Departments { get; set; }` is a property definition in the EmpDept class, which is used to store a list of departments in a format suitable for rendering a dropdown list in an ASP.NET MVC view.
+2. `List<SelectListItem>`: This is a collection of SelectListItem objects. SelectListItem is a class provided by ASP.NET MVC that represents an item in a select (dropdown) list. Each SelectListItem has three main properties:
+
+   - `Text`: The text to be displayed to the user (e.g., department names like "Marketing," "Sales").
+   - `Value`: The underlying value associated with the option (e.g., the department ID).
+   - `Selected (optional)`: Indicates whether this item should be selected by default.
+
+3. `Departments`: This property holds a list of departments (as SelectListItems) and is used to populate a dropdown list in the view. This makes it possible for users to select a department when adding or editing an employee.
+4. Usage in Views: In the view (e.g., `AddEmployee.cshtml`), this property is bound to a dropdown using `@Html.DropDownListFor()`. This renders a dropdown list with department names, allowing users to choose a department.
+5. **Example of Usage in a View**: In AddEmployee.cshtml, this property is used to render a dropdown for selecting departments:
+
+```C#
+@Html.DropDownListFor(E => E.Did, Model.Departments, "-Select Dept-")
+```
+
+- E => E.Did: Binds the selected value to the Did property of the model (EmpDept).
+- Model.Departments: Uses the Departments property to populate the list of options.
+- "-Select Dept-": Placeholder text that appears in the dropdown when no selection is made.
+
+- `Purpose`: The Departments property helps in displaying a dropdown list of departments that an employee can belong to. By using SelectListItem, the data is formatted appropriately for use in the view's dropdown control.
+
+
+
+
+

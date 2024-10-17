@@ -1940,239 +1940,380 @@
     <hr/>
     Yes, in SQL Server, you can use the TOP clause with a percentage to return a percentage of rows.
 
-    ```sql
-    SELECT TOP 10 PERCENT *
-    FROM EMP
-    ORDER BY SAL DESC;
-    ```
+  ```sql
+  SELECT TOP 10 PERCENT *
+  FROM EMP
+  ORDER BY SAL DESC;
+  ```
 
-    This query returns the top 10% of rows from the EMP table sorted by salary in descending order.
+  This query returns the top 10% of rows from the EMP table sorted by salary in descending order.
     <hr/>
   </details>
+
 - <details>
     <summary>Display employee names and their annual salaries using aliases?</summary>
     <hr/>
 
-    ```sql
-    Select FullName, Salary * 12 as AnualSalary  from Employee;
-    ```
+  ```sql
+  Select FullName, Salary * 12 as AnualSalary  from Employee;
+  ```
 
     <hr/>
   </details>
+
 - <details>
-    <summary>Write a SQL query to show employee names along with their total salary (base salary plus 20% bonus) and use aliases to label the calculated columns. 🏷️ </summary>
+    <summary>Write a SQL query to show employee names along with their total salary (base salary plus 20% bonus) and use aliases to label the calculated columns.🌟</summary>
     <hr/>
 
-    ```sql
-
-    ```
+  ```sql
+  select FullName, (Salary * 12) * 0.2 as TotalSalary from Employee;
+  ```
 
     <hr/>
   </details>
+  </details>
+
 - <details>
-    <summary>Generate a query to display employee names, salaries, and their department with aliases for the calculated columns.</summary>
+    <summary>Write a query to display employee names and their experience (calculated as the difference between the current date and the hire date), using an alias for the calculated column.🌟</summary>
     <hr/>
 
-    ```sql
-
-    ```
-
-    <hr/>
-  </details>
-- <details>
-    <summary>Write a query to display employee names and their experience (calculated as the difference between the current date and the hire date), using an alias for the calculated column.</summary>
-    <hr/>
-
-    ```sql
-
-    ```
+  ```sql
+  Select FullName as EmployeeName, DATEDIFF(YEAR, JoinDate, GETDATE()) AS Experience from Employee;
+  ```
 
     <hr/>
   </details>
+
 - <details>
     <summary>Display all employee details sorted by their salaries in descending order.</summary>
     <hr/>
 
-    ```sql
-
-    ```
+  ```sql
+  Select * from Employee Order by Salary DESC;
+  ```
 
     <hr/>
   </details>
-- <details>
-    <summary>Write a SQL query to sort employee records first by department in ascending order and then by hire date in descending order within each department.</summary>
-    <hr/>
-    ```sql
 
-    ```
+- <details>
+    <summary>Write a SQL query to sort employee records first by department in ascending order and then by hire date in descending order within each department.🌟</summary>
+    <hr/>
+
+  ```sql
+  Select * From Employee
+  Order By Dep ASC JoinDate DESC;
+  ```
+
   <hr/>
   </details>
-- <details>
-    <summary>Retrieve employee details ordered by job title in ascending order and then by salary in descending order.</summary>
-    <hr/>
-    ```sql
 
-    ```
+- <details>
+    <summary>Retrieve employee details ordered by job title in ascending order and then by salary in descending order.🌟</summary>
+    <hr/>
+
+  ```sql
+  Select * From Employee
+  Order by Job ASC Salary DESC;
+  ```
+
   <hr/>
   </details>
-- <details>
-    <summary>Show a list of employees ordered by their names in alphabetical order, and then by hire date in descending order if names are the same.</summary>
-    <hr/>
-    ```sql
 
-    ```
+- <details>
+    <summary>Show a list of employees ordered by their names in alphabetical order, and then by hire date in descending order if names are the same.🌟</summary>
+    <hr/>
+
+  ```sql
+  SELECT * FROM Employee
+  ORDER BY Name ASC, HireDate DESC;
+  ```
+
   <hr/>
   </details>
-- <details>
-    <summary>Write a query to list all unique job titles from the employee table.</summary>
-    <hr/>
-    ```sql
 
-    ```
+- <details>
+    <summary>Work flow of Order By on String?🌟</summary>
+    <hr/>
+    When using the `ORDER BY` clause on a column of string data type (such as `VARCHAR` or `CHAR`), SQL sorts the records based on the following rules:
+
+  **Workflow of `ORDER BY` on String Data**
+
+  1. Character-by-Character Comparison:
+
+  - SQL sorts strings character by character from left to right.
+  - It compares the first character of each string; if those are the same, it moves to the second character, and so on, until a difference is found or the end of the string is reached.
+
+  2. Lexicographical (Dictionary) Order:
+
+  - The default sorting is done in lexicographical or dictionary order, which is based on the character encoding set of the database (like ASCII or Unicode).
+  - For example, 'A' comes before 'B', 'B' before 'C', and so on. Lowercase letters ('a', 'b', 'c') typically have higher ASCII or Unicode values than uppercase letters ('A', 'B', 'C'), so 'Apple' comes before 'banana' if case sensitivity is enabled.
+
+  3. Case Sensitivity:
+
+  - Sorting can be case-sensitive or case-insensitive, depending on the collation settings of the database.
+  - In case-sensitive sorting, 'A' and 'a' are considered different, and uppercase letters are sorted before lowercase ones.
+  - In case-insensitive sorting, 'A' and 'a' are considered equal.
+
+  4. Whitespace Handling:
+
+  - Spaces and other whitespace characters are considered significant and are sorted before letters or digits.
+  - For example, ' Apple' (with leading spaces) would come before 'Apple'.
+
+  5. Null Values:
+
+  - If the column contains `NULL` values, they are handled based on the database system.
+  - Typically, `NULL` values appear first when sorted in ascending order and last when sorted in descending order. However, this behavior can be modified using `NULLS FIRST` or `NULLS LAST`.
+
+  6. Numeric Strings:
+
+  - Strings containing numeric values are sorted as strings, not numbers.
+  - For example, '10' comes before '2' because '1' is compared with '2' first, so the order is '1', '10', '2' (lexicographical order).
+
+  **Example of `ORDER BY` on String Column**
+
+  Given a table named `Employee` with a `Name` column, the following query:
+
+  ```sql
+  SELECT Name FROM Employee ORDER BY Name;
+  ```
+
+  **Will perform the following steps:**
+
+  - **Step 1**: Compare the first character of each name string in the column.
+  - **Step 2**: If the first characters are the same, compare the second characters, and continue until it finds a difference.
+  - **Step 3**: Sort the names in ascending order based on lexicographical (dictionary) order.
+  - **Step 4**: Consider any collation settings for case sensitivity, whitespace, or special characters.
+
+  **Summary**
+
+  - **Order By on Strings** sorts based on character encoding values in a lexicographical order.
+  - **Case sensitivity** and **collation settings** can affect the final output.
+  - **Whitespace and NULL handling** play a role in determining the sort order.
   <hr/>
   </details>
-- <details>
-    <summary>Create a query to find distinct department numbers from the employee table.</summary>
-    <hr/>
-    ```sql
 
-    ```
-  <hr/>
-  </details>
 - <details>
-    <summary>Generate a query to show unique combinations of job title and department number.</summary>
+    <summary>Write a query to list all unique job titles from the employee table.🌟</summary>
     <hr/>
-    ```sql
 
-    ```
-  <hr/>
+  ```sql
+  Select DISTINCT Job from Employee;
+  ```
+
+    <hr/>
   </details>
+
 - <details>
-    <summary>Write a query to find unique salary figures from the employee table.</summary>
+    <summary>Create a query to find distinct department numbers from the employee table.🌟</summary>
     <hr/>
-    ```sql
 
-    ```
-  <hr/>
+  ```sql
+  SELECT DISTINCT Did FROM Employee;
+  ```
+
+    <hr/>
   </details>
+
 - <details>
-    <summary>Retrieve the top 5 highest-paid employees from the employee table.</summary>
+    <summary>Generate a query to show unique combinations of job title and department number.🌟</summary>
     <hr/>
-    ```sql
 
-    ```
-  <hr/>
+  ```sql
+  SELECT DISTINCT Job, Did FROM Employee;
+  ```
+
+    <hr/>
   </details>
+
 - <details>
-    <summary>Show the top 10 employees based on their years of experience (sorted from most experienced to least experienced).</summary>
+    <summary>Retrieve the top 5 highest-paid employees from the employee table.🌟</summary>
     <hr/>
-    ```sql
 
-    ```
-  <hr/>
+  ```sql
+  Select TOP 5 * from Employee Order by Salary DESC;
+  ```
+
+    <hr/>
   </details>
+
 - <details>
-    <summary>Write a query to get the top 3 employees with the lowest salaries.</summary>
+    <summary>Show the top 10 employees based on their years of experience (sorted from most experienced to least experienced).🌟</summary>
     <hr/>
-    ```sql
 
-    ```
-  <hr/>
+  ```sql
+  SELECT TOP 10 Eid, Ename, HireDate,  DATEDIFF(YEAR, HireDate, GETDATE()) AS YearsOfExperience
+  FROM Employee
+  ORDER BY YearsOfExperience DESC;
+  ```
+
+    <hr/>
   </details>
+
 - <details>
-    <summary>Display the top 4 employees who joined the company most recently.</summary>
+    <summary>Write a query to get the top 3 employees with the lowest salaries.🌟</summary>
     <hr/>
-    ```sql
 
-    ```
-  <hr/>
+  ```sql
+  SELECT TOP 3 Eid, Ename, Salary
+  FROM Employee
+  ORDER BY Salary ASC;
+  ```
+
+    <hr/>
   </details>
+
 - <details>
-    <summary>What is the purpose of using an alias in SQL? Can you provide an example where it improves the readability of a query?</summary>
+    <summary>Display the top 4 employees who joined the company most recently.🌟</summary>
     <hr/>
-    ```sql
 
-    ```
-  <hr/>
+  ```sql
+  Select Top 4 * from Employee Order by JoinDate ASC
+  ```
+
+    <hr/>
   </details>
+
+- <details>
+    <summary>What is the purpose of using an alias in SQL? Can you provide an example where it improves the readability of a query?🌟</summary>
+    <hr/>
+
+  ```sql
+  SELECT Employee.FirstName + ' ' + Employee.LastName AS FullName, AVG(Employee.Salary) AS AverageSalary
+  FROM Employee
+  GROUP BY Employee.FirstName, Employee.LastName;
+  ```
+
+    <hr/>
+  </details>
+
 - <details>
     <summary>How does using an alias for a column differ from using an alias for a table? Provide an example of each.</summary>
     <hr/>
 
-    ```sql
-
-    ```
+  ```sql
+  SELECT FirstName + ' ' + LastName AS FullName,  -- Column alias
+  Salary * 1.10 AS SalaryAfterRaise        -- Column alias
+  FROM Employee;
+  ```
 
     <hr/>
   </details>
+
 - <details>
-    <summary>How does the ORDER BY clause affect the result set of a query? Can you explain the difference between ascending and descending order?</summary>
+    <summary>How does the ORDER BY clause affect the result set of a query? Can you explain the difference between ascending and descending order?🌟</summary>
     <hr/>
 
-    ```sql
+  1. Sorting in Ascending Order
 
-    ```
+  ```sql
+  SELECT * FROM Employees
+  ORDER BY Salary ASC;
+  ```
+
+  This query retrieves all employees and sorts them by their salary from the lowest to the highest.
+
+  2. Sorting in Descending Order
+
+  ```sql
+  SELECT * FROM Employees
+  ORDER BY Salary DESC;
+  ```
+
+  This query retrieves all employees and sorts them by their salary from the highest to the lowest.
+
+  3. Sorting by Multiple Columns
+
+  ```sql
+  SELECT * FROM Employees
+  ORDER BY Department ASC, HireDate DESC;
+  ```
+
+  This query first sorts the employees by department in ascending order. Within each department, employees are sorted by their hire date in descending order.
 
     <hr/>
   </details>
+
 - <details>
     <summary>If you need to sort a result set by multiple columns, how do you specify the sorting order for each column? Can you provide an example query?</summary>
     <hr/>
-    ```sql
 
-    ```
-  <hr/>
-  </details>
-- <details>
-    <summary>Explain how the ORDER BY clause can be used in conjunction with other SQL clauses like LIMIT or OFFSET for pagination.</summary>
-    <hr/>
-    ```sql
-
-      ```
-  <h  r/>
-  </details>
-- <details>
-    <summary>This retrieves unique department numbers from the EMP table.</summary>
-    <hr/>
-
-    ```sql
-
-    ```
+  ```sql
+  SELECT * FROM Employee
+  ORDER BY FirstName ASC, LastName ASC, FullName DESC, Address DESC, DOB ASC, Gender ASC, Incentive DESC, JoinDate ASC;
+  ```
 
     <hr/>
   </details>
+
 - <details>
-    <summary>Can you explain a scenario where DISTINCT might be used incorrectly, and what the consequences would be?</summary>
+    <summary>Explain how the ORDER BY clause can be used in conjunction with other SQL clauses like LIMIT or OFFSET for pagination.🌟</summary>
     <hr/>
 
-    ```sql
-
-    ```
+  ```sql
+    Select * From Employee Where Salary > 4000 Order by JoinDate DESC;
+    --or
+    Select * From Employee Where Salary > 4000 AND Salary < 5000 Order by JoinDate DESC;
+  ```
 
     <hr/>
   </details>
+
 - <details>
-    <summary>How would you use the TOP clause to retrieve the top 10 highest salaries from an employee table? Provide a sample query.</summary>
+    <summary>Can you explain a scenario where DISTINCT might be used incorrectly, and what the consequences would be?🌟</summary>
     <hr/>
 
-    ```sql
+  Certainly! One common scenario where `DISTINCT` might be used incorrectly is when it’s applied to a query that includes multiple columns, leading to unexpected results.
 
-    ```
+  ### Incorrect Use of `DISTINCT`
+
+  Suppose you have an `EMP` table with the following columns: `EmployeeID`, `FirstName`, `LastName`, and `DepartmentNumber`. You want to find unique `DepartmentNumber` values but accidentally include other columns in the `SELECT` statement:
+
+  ```sql
+  SELECT DISTINCT EmployeeID, DepartmentNumber FROM EMP;
+  ```
+
+  ### Explanation
+
+  In this query, `DISTINCT` is applied to both `EmployeeID` and `DepartmentNumber`. This means it returns unique combinations of `EmployeeID` and `DepartmentNumber`. If multiple employees belong to the same department, the query still lists each unique employee ID, even though the department numbers might repeat.
+
+  ### Consequences
+
+  - **Incorrect Result Set**: You may end up with more rows than expected, as the query is now filtering distinct pairs of `EmployeeID` and `DepartmentNumber`, not just unique department numbers.
+  - **Performance Issues**: Using `DISTINCT` with multiple columns in large tables can slow down query performance, as it requires more data processing.
+
+  ### Correct Usage
+
+  If the goal is to get unique `DepartmentNumber` values, the query should be:
+
+  ```sql
+  SELECT DISTINCT DepartmentNumber FROM EMP;
+  ```
+
+  ### Summary
+
+  Using `DISTINCT` incorrectly, such as on unnecessary columns, can lead to misleading results, more rows than intended, and potentially increased query execution time. Always ensure `DISTINCT` is applied to only those columns for which unique values are genuinely required.
 
     <hr/>
   </details>
+
 - <details>
-    <summary>Explain how to combine the TOP clause with the ORDER BY clause to get the top N rows based on a specific sorting criterion.</summary>
+    <summary>Explain how to combine the TOP clause with the ORDER BY clause to get the top N rows based on a specific sorting criterion.🌟</summary>
     <hr/>
 
-    ```sql
+  ```sql
+    Select TOP 5 * from Employee Order by DOB ASC;
+  ```
 
-    ```
+  **Explanation**
+
+  - `Order by DOB ASC`: The rows are sorted first by DOB in descending order.
+  - `TOP (5)`: The database then selects the first 5 rows from this sorted list, which will be the top 5 highest salaries.
 
     <hr/>
   </details>
+
 - <details>
-    <summary>What is DML (Data Manipulation Language)?</summary>
+    <summary>What is DML (Data Manipulation Language)?🌟</summary>
     <hr/>
     DML stands for Data Manipulation Language. It includes SQL commands that allow you to manipulate data stored in database tables. Common DML commands are INSERT, UPDATE, DELETE, and MERGE.
 
@@ -2186,44 +2327,6 @@
     <hr/>
   </details>
 
-- <details>
-    <summary>How to commit the all DML operations?</summary>
-    <hr/>
-    All DML operations are auto-committed by default.<br/>
-    By default, when you execute a DML command, the changes are automatically saved to the database. This automatic saving of changes is known as auto-commit.
-    <hr/>
-  </details>
-- <details>
-    <summary>How to stop auto commit DML commands?</summary>
-    <hr/>
-    To stop auto-commit, execute: SET IMPLICIT_TRANSACTIONS ON.<br/>
-    If you want to manually control when changes are saved to the database, you can turn off auto-commit by executing the command SET IMPLICIT_TRANSACTIONS ON. This command ensures that changes are not automatically committed until you explicitly save them.
-    <hr/>
-  </details>
-- <details>
-    <summary>How to save the DML operation, execute COMMIT?</summary>
-    <hr/>
-    To save the operation, execute COMMIT: When IMPLICIT_TRANSACTIONS is on, you need to use the COMMIT command to save your changes permanently to the database. This is a way to confirm that you want the changes to be applied.
-    <hr/>
-  </details>
-- <details>
-    <summary>How to cancle the operation, execute ROLLBACK?</summary>
-    <hr/>
-    To cancel the operation, execute ROLLBACK: If you decide you do not want to keep the changes made during the transaction, you can use the ROLLBACK command. This command undoes all the changes made since the last commit, effectively cancelling the transaction.
-    <hr/>
-  </details>
-- <details>
-    <summary>What are the Characteristics of DML Commands?</summary>
-    <hr/>
-    <Ul>
-    <li><b>Acts on Table Data</b>: All DML commands work directly on the data within a table.</li>
-    <li><b>Auto-Committed by Default</b>: DML operations are auto-committed by default, meaning changes are saved automatically.</li>
-    <li><b>Stopping Auto-Commit</b>: To stop auto-commit, use SET IMPLICIT_TRANSACTIONS ON.</li>
-    <li><b>Committing Changes</b>: To save changes, execute COMMIT.</li>
-    <li><b>Rolling Back Changes</b>: To cancel changes, execute ROLLBACK.</li>
-    </Ul>
-    <hr/>
-  </details>
 - <details>
     <summary>What is the UPDATE Command Used For?</summary>
     <hr/>
@@ -2302,8 +2405,7 @@
     <hr/>
 
   ```sql
-   UPDATE EMP
-   SET COMM = 500;
+   UPDATE EMP SET COMM = 500;
   ```
 
     <hr/>
@@ -2348,6 +2450,29 @@
     <hr/>
   </details>
 
+```sql
+CREATE TABLE Employee
+(
+    Eid INT PRIMARY KEY,
+    Ename VARCHAR(255),
+    Job VARCHAR(255),
+    Salary DECIMAL(10,2),
+    Status BIT,
+    Did INT,
+    Dname VARCHAR(255),
+    Location NVARCHAR(255)
+);
+
+INSERT INTO Employee VALUES (101, 'John Doe', 'Manager', 75000.00, 1, 1, 'Human Resources', 'New York');
+INSERT INTO Employee VALUES (102, 'Jane Smith', 'Accountant', 68000.00, 1, 2, 'Finance', 'Chicago');
+INSERT INTO Employee VALUES (103, 'Michael Brown', 'Sales Executive', 55000.00, 1, 3, 'Sales', 'Los Angeles');
+INSERT INTO Employee VALUES (104, 'Emily Davis', 'Marketing Analyst', 60000.00, 1, 4, 'Marketing', 'Houston');
+INSERT INTO Employee VALUES (105, 'William Johnson', 'IT Specialist', 80000.00, 1, 5, 'IT', 'San Francisco');
+INSERT INTO Employee VALUES (106, 'Sophia Martinez', 'HR Coordinator', 50000.00, 1, 1, 'Human Resources', 'New York');
+INSERT INTO Employee VALUES (107, 'David Wilson', 'Financial Analyst', 72000.00, 1, 2, 'Finance', 'San Francisco');
+INSERT INTO Employee VALUES (108, 'Olivia Garcia', 'Sales Associate', 47000.00, 1, 3, 'Sales', 'Los Angeles');
+```
+
 - <details>
     <summary>How to increase salary by 20% and commission by 10% for salesmen hired in 1981?</summary>
     <hr/>
@@ -2389,6 +2514,102 @@
     <hr/>
   </details>
 
+- <details>
+    <summary>How to commit the all DML operations?</summary>
+    <hr/>
+    All DML operations are <mark><b>auto-committed by default.</b></mark><br/>
+    <br/>
+    By default, <b>when DML command execute, the changes are automatically saved to the database</b>. This automatic saving of changes is known as auto-commit.
+    <hr/>
+  </details>
+- <details>
+    <summary>How to stop auto commit DML commands?</summary>
+    <hr/>
+    To stop auto-commit, execute: <mark><b>SET IMPLICIT_TRANSACTIONS ON.</mark></b><br/><br/>
+    If you want to manually control when changes are saved to the database, you can turn off auto-commit by executing the command SET IMPLICIT_TRANSACTIONS ON. This command ensures that changes are not automatically committed until you explicitly save them.
+    <br/><br/>
+    To save explicitly you need manually save the changes using `COMMIT` command.
+    <hr/>
+  </details>
+- <details>
+    <summary>What is "COMMIT" command?</summary>
+    <hr/>
+    - COMMIT saves all the changes you made in the transaction to the database permanently.
+    - After you COMMIT, the changes cannot be undone.
+    - So, committing means the changes are final, and you can't use commands like ROLLBACK to undo them. If you need to reverse the changes after a COMMIT, you would have to manually run new commands to correct it, such as inserting the deleted data back into the table.
+    <hr/>
+  </details>
+- <details>
+    <summary>What is "ROLLBACK" command?</summary>
+    <hr/>
+    - ROLLBACK undoes all changes made since the BEGIN TRANSACTION.
+    - If there is an error or you decide not to keep the changes, using ROLLBACK will return the database to its previous state before the transaction started.
+    <hr/>
+  </details>
+- <details>
+    <summary>Can "ROLLBACK" command is posible to undone "COMMIT" command?</summary>
+    <hr/>
+    - No, once you use the COMMIT command, the changes are permanent and cannot be undone using ROLLBACK.
+
+    <ul>
+    <li><b>Before COMMIT: </b> If you make changes and have not yet used COMMIT, you can use ROLLBACK to undo those changes.</li>
+    <li><b>After COMMIT: </b> Once you use COMMIT, the changes are saved permanently in the database, and you cannot roll them back.</li>
+    </ul>
+    So, ROLLBACK can only undo changes if COMMIT has not been executed. After COMMIT, the changes are final.
+
+    ```sql
+    SET IMPLICIT_TRANSACTIONS ON
+    Update Employee set Salary = 200;
+    Commit;
+    Rollback;
+    ```
+
+    <hr/>
+  </details>
+- <details>
+    <summary>How to cancle the DML operation, execute ROLLBACK?</summary>
+    <hr/>
+    To cancel the operation, execute ROLLBACK: If you decide you do not want to keep the changes made during the transaction, you can use the ROLLBACK command. This command undoes all the changes made since the last commit, effectively cancelling the transaction.
+    <hr/>
+  </details>
+- <details>
+    <summary>To save a DML (Data Manipulation Language) operation, use the COMMIT command?</summary>
+    <hr/>
+    When IMPLICIT_TRANSACTIONS is ON, changes made by DML operations (like INSERT, UPDATE, or DELETE) are not automatically saved to the database. You must use the COMMIT command to permanently save these changes. COMMIT confirms that you want the changes applied to the database. Without it, the changes can be reverted using the ROLLBACK command.
+
+  **Example**
+
+  ```sql
+  BEGIN TRANSACTION;
+  -- Perform some DML operations
+  UPDATE Employees SET Salary = Salary + 1000 WHERE Department = 'Sales';
+  -- Save the changes
+  COMMIT;
+  ```
+
+  In this example, the COMMIT statement saves the changes made by the UPDATE operation to the database. If you don't execute COMMIT, you can use ROLLBACK to undo the changes.
+
+    <ui>
+    <b>BEGIN TRANSACTION: </b>
+    <li>This command starts a transaction.</li>
+    <li>A transaction is a group of changes you want to make to the database, such as adding, updating, or deleting data.</li>
+    <li>Using BEGIN TRANSACTION makes sure that all changes within this group are treated as one unit. If something goes wrong, you can undo all changes at once.</li>
+    </ui>
+    <hr/>
+  </details>
+
+- <details>
+    <summary>What are the Characteristics of DML Commands?</summary>
+    <hr/>
+    <Ul>
+    <li><b>Acts on Table Data</b>: All DML commands work directly on the data within a table.</li>
+    <li><b>Auto-Committed by Default</b>: DML operations are auto-committed by default, meaning changes are saved automatically.</li>
+    <li><b>Stopping Auto-Commit</b>: To stop auto-commit, use SET IMPLICIT_TRANSACTIONS ON.</li>
+    <li><b>Committing Changes</b>: To save changes, execute COMMIT.</li>
+    <li><b>Rolling Back Changes</b>: To cancel changes, execute ROLLBACK.</li>
+    </Ul>
+    <hr/>
+  </details>
 - <details>
     <summary>What is DDL (Data Definition Language)?</summary>
     <hr/>
@@ -4826,6 +5047,7 @@
       <hr/>
 
     </details>
+
   [Foran_Key](https://codecomponents.hashnode.dev/sql-server-tutorials#heading-foreign-key)
 
 - <details>

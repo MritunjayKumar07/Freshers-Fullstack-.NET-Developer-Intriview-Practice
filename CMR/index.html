@@ -1,0 +1,326 @@
+@{ Layout = null; }
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Pharma Connect</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link
+      rel="stylesheet"
+      href="~/CRUD_v3.styles.css"
+      asp-append-version="true"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        height: 100vh;
+        overflow-y: auto;
+      }
+      /* width */
+      ::-webkit-scrollbar {
+        width: 4px;
+      }
+
+      /* Track */
+      ::-webkit-scrollbar-track {
+        box-shadow: inherit;
+        border-radius: 10px;
+      }
+
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        background: gray;
+        border-radius: 10px;
+      }
+
+      .sidebar {
+        height: 100vh;
+        width: 250px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: #343a40;
+        padding-top: 20px;
+        display: flex;
+        flex-direction: column;
+        z-index: 9999;
+      }
+
+      .transform {
+        transition: all 0.3s ease;
+      }
+
+      .sidebar a {
+        padding: 10px 15px;
+        text-align: left;
+        color: white;
+        display: block;
+        text-decoration: none;
+      }
+
+      .sidebar a:hover {
+        background-color: #007bff;
+      }
+
+      .content {
+        padding: 20px;
+      }
+
+      .navbar {
+        margin-left: 250px;
+      }
+
+      main {
+        margin-left: 250px;
+      }
+
+      details {
+        margin: 0;
+        border: none;
+      }
+
+      summary {
+        cursor: pointer;
+        padding: 10px 15px;
+        color: white;
+        background-color: #343a40;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      summary::-webkit-details-marker {
+        display: none;
+      }
+
+      summary:hover {
+        background-color: #007bff;
+      }
+
+      .dropdown-content {
+        padding-left: 20px;
+      }
+
+      summary::after {
+        content: " ⫶";
+        display: inline-block;
+        transition: transform 0.3s ease;
+        font-weight: 900;
+        font-size: 18px;
+      }
+
+      details[open] summary::after {
+        content: " ⫶";
+        display: inline-block;
+        transform: rotate(90deg);
+        transition: transform 0.3s ease;
+        font-weight: 900;
+        font-size: 18px;
+      }
+
+      .sidebarToggle {
+        position: absolute;
+        top: 50%;
+        right: -20px;
+      }
+
+      .menuContainer {
+        height: 70vh;
+        overflow-x: auto;
+      }
+
+      .userName {
+        position: absolute;
+        bottom: 0;
+      }
+
+      /*@media (max-width: 325px) {
+    .sidebar {
+        height:100vh;
+        width:95%;
+    }
+    .content{
+        display:none;
+    }
+}*/
+    </style>
+  </head>
+  <body>
+    <!-- Sidebar -->
+    <div class="sidebar d-flex justify-content-start flex-column transform">
+      <div class="content text-white sidebarContain">
+        <h2>Logo</h2>
+      </div>
+      <div class="sidebarContain menuContainer">
+        <a href="#dashboard" class="">Dashboard</a>
+        <details>
+          <summary>Products</summary>
+          <div class="dropdown-content">
+            <a href="#">Products</a>
+            <a href="#">Mange Product</a>
+            <a href="#">Details</a>
+          </div>
+        </details>
+        <details>
+          <summary>Depo</summary>
+          <div class="dropdown-content">
+            <a href="#">Depos</a>
+            <a href="#">Mange Depos</a>
+            <a href="#">Details</a>
+          </div>
+        </details>
+        <details>
+          <summary>salesman</summary>
+          <div class="dropdown-content">
+            <a href="#">Salesmans</a>
+            <a href="#">Manage salesman</a>
+            <a href="#">Details</a>
+          </div>
+        </details>
+        <details>
+          <summary>Client</summary>
+          <div class="dropdown-content">
+            <a href="#">Clients</a>
+            <a href="#">Manage Client</a>
+          </div>
+        </details>
+
+        <a href="#reports">Reports</a>
+        <a href="#settings">Settings</a>
+      </div>
+      <div
+        class="text-white content font-weight-bold sidebarContain transform userName"
+      >
+        <h5 class="p-2">Mritunjay Kumar</h5>
+      </div>
+
+      <button
+        class="btn btn-primary rounded-circle sidebarToggle transform"
+        style="padding: 8px 10px 8px"
+        id="sidebarToggleClose"
+        onclick="sidebarToggleClose()"
+      >
+        <i class="fa-regular fa-circle-left" style="font-size: 20px"></i>
+      </button>
+      <button
+        class="btn btn-primary rounded-circle sidebarToggle d-none transform"
+        style="padding: 8px 10px 8px"
+        id="sidebarToggleOpen"
+        onclick="sidebarToggleOpen()"
+      >
+        <i class="fa-regular fa-circle-right" style="font-size: 20px"></i>
+      </button>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="content transform">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <!-- Navbar toggler (for small screens) should be before the collapsing section -->
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <!-- Collapsible Menu -->
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Features</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Pricing</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Right-side buttons (Logout) should be outside the collapsing menu -->
+          <div class="d-flex ms-auto">
+            <button class="btn btn-outline-primary me-2" type="button">
+              Logout
+            </button>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Main Content Area -->
+      <main class="transform">Page</main>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script>
+      const sidebarToggleClose = () => {
+        document.querySelector("#sidebarToggleOpen").classList.remove("d-none");
+        document.querySelector("#sidebarToggleClose").classList.add("d-none");
+        const sidebarContain = document.querySelectorAll(".sidebarContain");
+        sidebarContain.forEach((sc) => {
+          sc.style.display = "none";
+        });
+        document.querySelector(".sidebar").style.width = "24px";
+        document.querySelector("main").style.marginLeft = "15px";
+        document.querySelector(".navbar").style.marginLeft = "8px";
+
+        //When Sidebar close
+        if (window.innerWidth < 400) {
+          document
+            .querySelector("body > div.content.transform")
+            .classList.remove("d-none");
+        }
+      };
+
+      const sidebarToggleOpen = () => {
+        document.querySelector("#sidebarToggleOpen").classList.add("d-none");
+        document
+          .querySelector("#sidebarToggleClose")
+          .classList.remove("d-none");
+        const sidebarContain = document.querySelectorAll(".sidebarContain");
+        sidebarContain.forEach((sc) => {
+          sc.style.display = "block";
+        });
+        document.querySelector(".sidebar").style.width = "225px";
+        document.querySelector("main").style.marginLeft = "225px";
+        document.querySelector(".navbar").style.marginLeft = "225px";
+
+        //When Sidebar Open
+        if (window.innerWidth < 400) {
+          document
+            .querySelector("body > div.content.transform")
+            .classList.add("d-none");
+          document.querySelector(".sidebar").style.width = "95%";
+        }
+      };
+
+      ////By default Sidebar close when screen size less then 400
+      const checkSidebarToggle = () => {
+        if (window.innerWidth < 400) {
+          sidebarToggleClose();
+        }
+      };
+
+      checkSidebarToggle();
+
+      window.addEventListener("resize", checkSidebarToggle);
+    </script>
+  </body>
+</html>
