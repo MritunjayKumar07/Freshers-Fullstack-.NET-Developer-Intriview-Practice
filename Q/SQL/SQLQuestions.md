@@ -5046,87 +5046,316 @@ INSERT INTO Employee VALUES (108, 'Olivia Garcia', 'Sales Associate', 47000.00, 
       </ul>
       <hr/>
 
-    </details>
+  </details>
+- <details>
+    <summary>What is a foreign key?</summary>
+    <hr/>
+    A foreign key is used to establish a relationship between two tables by taking the primary key from one table and adding it to another table as a foreign key with the `REFERENCES` constraint.
+    <hr/>
+  </details>
+- <details>
+    <summary>How do you establish a relationship between tables using a foreign key? </summary>
+    <hr/>
 
-  [Foran_Key](https://codecomponents.hashnode.dev/sql-server-tutorials#heading-foreign-key)
+    **Table example**:
 
-- <details>
-    <summary></summary>
-    <hr/>
-    <li></li>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <li></li>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <ol>
-    <li><b></b>: </li>
-    <li><b></b>: </li>
-    <li><b></b>: </li>
-    <li><b></b>: </li>
-    </ol>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <li></li>
+    ```sql
+    --DEPT:
+
+    DNO | DNAME | LOC
+    -----------------
+    10  | HR    | BLR
+    20  | IT    | HYD
+
+    --EMP:
+    EMPNO | ENAME | SAL  | DNO
+    --------------------------
+    1     | A     | 4000 | 10
+    2     | B     | 3000 | 20
+    4     | D     | 3000 | 10
+    5     | E     | 2000 | NULL
+    ```
+
+    - Take the primary key of one table (e.g., `DEPT.DNO`) and add it to another table (e.g., `EMP.DNO`) as a foreign key.
+    - The values in the foreign key column (e.g., `EMP.DNO`) should match values in the primary key column (e.g., `DEPT.DNO`).
+    - Foreign keys can contain duplicate and NULL values.
     <hr/>
   </details>
 - <details>
-    <summary></summary>
+    <summary>What is a parent-child relationship in SQL?</summary>
     <hr/>
-    <li></li>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <li></li>
+
+    - The table with the primary key is the parent table (e.g., DEPT).
+
+    - The table with the foreign key is the child table (e.g., EMP).
+
     <hr/>
   </details>
 - <details>
-    <summary></summary>
+    <summary>Give an example of creating a foreign key relationship in SQL.</summary>
     <hr/>
-    <li></li>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <li></li>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <li></li>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <li></li>
+    - Create the DEPT table:
+    ```sql
+    CREATE TABLE DEPT55 (
+        DNO INT PRIMARY KEY, 
+        DNAME VARCHAR(10) UNIQUE NOT NULL
+    );
+    INSERT INTO DEPT55 VALUES (10, 'HR'), (20, 'IT');
+    ```
+    - Create the EMP table with a foreign key:
+    ```sql
+    CREATE TABLE EMP55 (
+        EMPNO INT PRIMARY KEY,
+        ENAME VARCHAR(10) NOT NULL,
+        SAL MONEY CHECK(SAL >= 3000),
+        DNO INT REFERENCES DEPT55(DNO)
+    );
+    ```
     <hr/>
   </details>
 - <details>
-    <summary></summary>
+    <summary>What happens when you try to insert invalid foreign key values?</summary>
     <hr/>
-    <li></li>
+    If a value is inserted into the foreign key column that does not exist in the parent table's primary key, it will result in an error. For example:
+
+    ```sql
+    INSERT INTO EMP55 VALUES (1, 'A', 4000, 10);
+    INSERT INTO EMP55 VALUES (2, 'B', 3000, 90); -- ERROR: 90 is not in DEPT55.DNO
+    INSERT INTO EMP55 VALUES (3, 'C', 3000, 10);
+    INSERT INTO EMP55 VALUES (4, 'D', 5000, NULL); -- NULL is allowed
+    ```
     <hr/>
   </details>
 - <details>
-    <summary></summary>
+    <summary>What are the different types of relationships in SQL?</summary>
     <hr/>
-    <li></li>
+
+    1. **One-to-One**: 
+      - A **one-to-one relationship** means that each row in the parent table can be linked to only one row in the child table, and vice versa. This kind of relationship ensures that for every record in the parent table, there is exactly one corresponding record in the child table.
+      - **Example**: A department can have only one manager, and each manager can manage only one department.
+
+    2. **One-to-Many (Default)**:
+      - A **one-to-many relationship** is when a single record in the parent table is related to multiple records in the child table. This is the default relationship in relational databases, where one parent can have many children, but each child can only belong to one parent.
+      - **Example**: One department (parent) can have many employees (children), but each employee works in only one department.
+
+    3. **Many-to-One**:
+      - A **many-to-one relationship** is the reverse of a one-to-many relationship. Here, multiple rows in the child table are related to a single row in the parent table. Each child can point to only one parent, but a parent can have many children.
+      - **Example**: Many employees (children) work in one department (parent).
+
+    4. **Many-to-Many**:
+      - A **many-to-many relationship** occurs when multiple records in one table are related to multiple records in another table. This is typically handled using a junction table that contains foreign keys from both related tables.
+      - **Example**: Many students can enroll in many courses, and each course can have many students.
+
     <hr/>
   </details>
+- <details>
+    <summary>How do you create a one-to-one relationship in SQL?</summary>
+    <hr/>
+    One to one relationship means each child table rows can be linked to only one parents row.
+    Create the `DEPT` and `MGR` tables. The foreign key `DNO` in the `MGR` table is also unique to ensure a one-to-one relationship:
+
+    ```sql
+    CREATE TABLE DEPT (
+        DNO INT PRIMARY KEY,
+        DNAME VARCHAR(10) NOT NULL
+    );
+
+
+    CREATE TABLE MGR (
+        MGRNO INT PRIMARY KEY,
+        MNAME VARCHAR(10) NOT NULL,
+        DNO INT UNIQUE REFERENCES DEPT(DNO)
+    );
+
+    INSERT INTO MGR VALUES (1, 'A', 10);
+    INSERT INTO MGR VALUES (2, 'B', 20);
+
+    ```
+
+    **Table example**:
+
+    ```sql
+    --DEPT:
+    DNO | DNAME
+    -----------
+    10  | HR
+    20  | IT
+    
+    --MGR:
+    MGRNO | MNAME | DNO
+    -------------------
+    1     | A     | 10
+    2     | B     | 20
+    ```
+
+    The DNO column in MGR is also unique, ensuring that each department can be linked to only one manager, creating the one-to-one relationship.
+    
+    <hr/>
+  </details>
+- <details>
+    <summary>How do you create a many-to-many relationship in SQL? A:</summary>
+    <hr/>
+
+    Create a third table (SALES) that includes the primary keys of both related tables (CUST and PRODUCTS) as foreign keys:
+
+    **Table example**:
+
+    ```sql
+    --CUST:
+    CREATE TABLE CUST (
+        CID INT PRIMARY KEY,
+        NAME VARCHAR(10),
+        ADDR VARCHAR(20)
+    );
+    INSERT INTO CUST VALUES (1, 'A', 'HYD'), (2, 'B', 'BLR');
+    
+    DNO | DNAME
+    -----------
+    10  | HR
+    20  | IT
+    
+    --PRODUCTS:
+    CREATE TABLE PRODUCTS (
+        PRODID INT PRIMARY KEY,
+        PNAME VARCHAR(10),
+        PRICE MONEY
+    );
+    INSERT INTO PRODUCTS VALUES (100, 'A', 500), (101, 'B', 200);
+    
+    MGRNO | MNAME | DNO
+    -------------------
+    1     | A     | 10
+    2     | B     | 20
+
+    --SALES:
+    CREATE TABLE SALES (
+        CID INT,
+        PRODID INT,
+        QTY INT,
+        FOREIGN KEY (CID) REFERENCES CUST(CID),
+        FOREIGN KEY (PRODID) REFERENCES PRODUCTS(PRODID),
+        PRIMARY KEY (CID, PRODID)
+    );
+    INSERT INTO SALES VALUES (1, 100, 1), (1, 101, 2), (2, 100, 1), (2, 101, 3);
+    
+    CID | PRODID | QTY
+    ------------------
+    1   | 100    | 1
+    1   | 101    | 2
+    2   | 100    | 1
+    2   | 101    | 3
+    
+    ```
+    <hr/>
+  </details>
+- <details>
+    <summary>How do you declare a column with a default value?</summary>
+    <hr/>
+    Use the DEFAULT keyword:
+
+    ```c#
+    CREATE TABLE emp16 (
+        empno INT PRIMARY KEY,
+        ename VARCHAR(10) NOT NULL,
+        hiredate DATE DEFAULT GETDATE()
+    );
+    INSERT INTO emp16 (empno, ename) VALUES (100, 'A'); -- Default hiredate is today's date
+    
+    ```
+    <hr/>
+  </details>
+- <details>
+    <summary>How do you create a check constraint at the table level?</summary>
+    <hr/>
+
+    Use the CHECK constraint:
+
+    ```c#
+    CREATE TABLE PRODUCTS (
+      prodid INT PRIMARY KEY,
+      pname VARCHAR(10) NOT NULL,
+      manufacture_dt DATE,
+      expiry_dt DATE,
+      CHECK (expiry_dt > manufacture_dt)
+    );
+
+    ```
+    <hr/>
+  </details>
+- <details>
+    <summary>What is a composite primary key?</summary>
+    <hr/>
+    A composite primary key is a combination of two or more columns that together uniquely identify records in a table. Each individual column may not be unique, but their combination is. 
+    
+    **Example**: In a registration system, both StudentID and CourseID are combined to uniquely identify each record:
+    ```sql
+    CREATE TABLE REGISTRATION (
+      StudentID INT,
+      CourseID INT,
+      PRIMARY KEY (StudentID, CourseID)
+    );   
+
+    --OR
+
+    --STUDENT
+    CREATE TABLE STUDENT (
+        SID INT PRIMARY KEY,
+        SNAME VARCHAR(10) NOT NULL
+    );
+    INSERT INTO STUDENT VALUES (1, 'A'), (2, 'B');
+    --COURSE
+    CREATE TABLE COURSE (
+        CID INT PRIMARY KEY,
+        CNAME VARCHAR(10) NOT NULL
+    );
+    INSERT INTO COURSE VALUES (10, '.NET'), (11, 'SQL');
+    --REGISTRATIONS
+    CREATE TABLE REGISTRATIONS (
+        SID INT REFERENCES STUDENT(SID),
+        CID INT REFERENCES COURSE(CID),
+        DOR DATE,
+        FEE MONEY,
+        PRIMARY KEY (SID, CID)
+    );
+    INSERT INTO REGISTRATIONS VALUES (1, 10, GETDATE(), 1000);
+    INSERT INTO REGISTRATIONS VALUES (1, 11, GETDATE(), 1000);
+    INSERT INTO REGISTRATIONS VALUES (2, 10, GETDATE(), 1000);
+    
+    ```
+    <hr/>
+  </details>
+- <details>
+    <summary>Identify the primary key for the SALES table and write the CREATE TABLE script:
+     ```sql
+     DATEID    | PRODID | CUSTID | QTY | AMT
+     --------------------------------------
+     2023-10-05 | 100    | 10     | 1   | 1000
+     2023-10-05 | 100    | 11     | 1   | 1000
+     2023-10-05 | 101    | 10     | 1   | 2000
+     2023-10-06 | 100    | 10     | 1   | 1000
+     ```
+    </summary>
+
+    <hr/>
+    
+    ```sql
+    CREATE TABLE SALES (
+      DATEID DATE,
+      PRODID INT,
+      CUSTID INT,
+      QTY INT,
+      AMT MONEY,
+      PRIMARY KEY (DATEID, PRODID, CUSTID)
+    );
+    
+    ```
+
+    **Reason**: The reason for defining the PRIMARY KEY as a combination of DATEID, PRODID, and CUSTID is to ensure that each record is uniquely identified by these three columns together. It prevents duplication of sales records for the same product (PRODID), customer (CUSTID), and date (DATEID). This combination guarantees that no two sales transactions with the same product and customer can occur on the same date.
+    <hr/>
+
+  </details>
+
+  [Start](https://codecomponents.hashnode.dev/sql-server-tutorials#heading-composite-foreign-key)
 - <details>
     <summary></summary>
     <hr/>

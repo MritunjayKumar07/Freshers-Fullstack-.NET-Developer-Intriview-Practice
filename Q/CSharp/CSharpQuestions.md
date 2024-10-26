@@ -8498,7 +8498,7 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
   </details>
 - <details>
-    <summary></summary>
+    <summary>What is Copy Constructor?</summary>
     <hr/>
     It is a constructor using which we can create a new instance of the class with the help of an existing instance of the same class, which copies the attribute values from the existing instance into the new instance and the main purpose of this constructor is to initialize a new instance with the values from an existing instance. The “Formal Parameter Type” of a copy constructor will be the same “Class Type” in which it is defined.
     <hr/>
@@ -8636,922 +8636,2366 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
   </details>
 - <details>
-    <summary></summary>
+    <summary>What is a Sealed Class?</summary>
     <hr/>
-    <p></p>
+    A Sealed Class is a class that is declared using the `sealed` modifier, which `prevents` it from being inherited by other classes. For example:
+    ```c#
+    sealed class Class1
+    {
+       // Members
+    }
+    ```
+    In this example, Class1 is a sealed class, meaning it cannot be used as a base class for inheritance.
     <hr/>
   </details>
 - <details>
-    <summary></summary>
+    <summary>Can a Sealed Class be inherited?</summary>
     <hr/>
-    <p></p>
+    No, a Sealed Class cannot be inherited by any other class. Attempting to inherit from a sealed class results in a compile-time error. For example:`class Class2 : Class1 => Invalid`.
+
+    Here, `Class2` attempting to inherit `Class1` will be invalid since `Class1` is sealed.
     <hr/>
   </details>
 - <details>
-    <summary></summary>
+    <summary>Can the members of a Sealed Class be used in other classes?</summary>
     <hr/>
-    <p></p>
+    Yes, the members of a Sealed Class can still be used in other classes by creating an instance of the sealed class. For example:`String str = new String("example");`
+
+    Here, `String` is a sealed class, **`but you can still create an instance of it and use its members`**.
     <hr/>
   </details>
 - <details>
-    <summary></summary>
+    <summary>What is a Sealed Method?</summary>
     <hr/>
-    <p></p>
+    A Sealed Method is a method that, `once declared`, `cannot be overridden` in `any derived class`. **`By default, methods in a class are sealed`** `unless they are explicitly declared` **`virtual`**. A sealed method is used to stop further overrides of a method in a derived class.
     <hr/>
   </details>
 - <details>
-    <summary></summary>
+    <summary>Can any method of a class be overridden by a child class?</summary>
     <hr/>
-    <p></p>
+    No, only methods that are explicitly marked as `virtual` in the parent class can be overridden by a child class. Methods that are not `virtual` cannot be overridden. For example:
+
+    ```c#
+    public virtual void Show() { /* ... */ }
+    ```
+
+    This `Show` method can be overridden in any child class.
     <hr/>
   </details>
 - <details>
-    <summary></summary>
+    <summary>What happens when a `virtual` method is overridden in a child class?</summary>
     <hr/>
-    <p></p>
+    When a virtual method is overridden in a child class, the child class provides its own implementation of that method, replacing the parent's implementation. For example:
+
+    ```c#
+    class Class1
+    {
+       public virtual void Show() { /* Parent Implementation */ }
+    }
+
+    class Class2 : Class1
+    {
+       public override void Show() { /* Child Implementation */ }
+    }
+    ```
+
+    Here, `Class2` overrides the Show method of `Class1`.
+
     <hr/>
   </details>
 - <details>
-    <summary></summary>
+    <summary>Can a child class seal an overridden method?</summary>
     <hr/>
-    <p></p>
+    Yes, a child class can seal an overridden method using the sealed modifier to prevent further overriding by any classes derived from it. For example:
+
+    ```c#
+    class Class2 : Class1
+    {
+       public sealed override void Show() { /* Child Implementation */ }
+    }
+    ```
+
+    In this case, any further derived class (like `Class3`) cannot override the `Show` method.
     <hr/>
   </details>
 - <details>
-    <summary></summary>
+    <summary>Can a method be sealed without being overridden first?</summary>
     <hr/>
-    <p></p>
+    No, a method must first be declared as `virtual` and then overridden in a child class before it can be sealed. The `sealed` modifier can only be applied to methods that override a `virtual` or `abstract` method.
     <hr/>
   </details>
 - <details>
-    <summary></summary>
+    <summary>When to apply sealed modifier?</summary>
     <hr/>
-    <p></p>
+    The sealed modifier can only be applied to methods that already override a virtual or abstract method from a base class. This means you can only "seal" a method that was initially meant to be overridden, preventing further overrides in any derived classes.
+
+    **Example**:
+    ```c#
+    class Parent
+    {
+        public virtual void Show() { /* can be overridden */ }
+    }
+
+    class Child : Parent
+    {
+        public sealed override void Show() { /* cannot be overridden further */ }
+    }
+    ```
+    n this case, `Child` can override `Show`, but any class inheriting from `Child` cannot override `Show` again because it’s sealed.
     <hr/>
   </details>
-  Constructor Overloading   100
 - <details>
-    <summary></summary>
+    <summary>Can a method sealed in one class be overridden in a class further down the hierarchy?</summary>
     <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
+    No, once a method is sealed in a class, it cannot be overridden in any class further down the inheritance hierarchy. For example:
+
+    ```c#
+    class Class2 : Class1
+    {
+       public sealed override void Show() { /* Implementation */ }
+    }
+
+    class Class3 : Class2
+    {
+       public override void Show() => Invalid // This will cause a compile-time error.
+    }
+    ```
+
+    Here, `Class3` cannot override the `Show` method because it has been sealed in `Class2`.
+    <hr/>
+  </details>
+- <details>
+    <summary>Why would you use a Sealed Class or a Sealed Method?</summary>
+    <hr/>
+
+    - **Sealed Class**: You use a sealed class when you want to prevent other developers from extending or modifying its behavior through inheritance. This is often used for security, stability, or optimization reasons.
+
+    - **Sealed Method**: You use a sealed method when you want to allow a method to be overridden once (in a child class), but prevent further overriding by future subclasses.
+    <hr/>
+  </details>
+- <details>
+    <summary>What is an Abstract Method?</summary>
+    <hr/>
+    An abstract method is a method without a body, meaning it has only a declaration but no implementation. To declare a method as abstract, the `abstract` modifier must be used. For example:
+
+    ```c#
+    public abstract void Mul(int a, int b);
+    ```
+
+    In this example, `Mul` is an abstract method, and any class that inherits this must provide its implementation.
+
+    <hr/>
+  </details>
 - <details>
-    <summary></summary>
+    <summary>What is an Abstract Class?</summary>
     <hr/>
-    <p></p>
+    An abstract class is a class that contains one or more abstract methods and is declared using the `abstract` modifier. It can `also contain non-abstract (concrete) members`. For example:
+
+    ```c#
+    abstract class AbsParent
+    {
+       public abstract void Mul(int a, int b);
+       public void Add(int a, int b) { /* Implementation */ }
+    }
+    ```
+
+    Here, `AbsParent` is an abstract class because it contains the abstract method Mul.
+
+    <hr/>
+  </details>
+- <details>
+    <summary>Do child classes need to implement all abstract methods of an abstract class?</summary>
+    <hr/>
+    Yes, it is mandatory for child classes to implement all abstract methods of their abstract parent class. If the child class does not implement these methods, it will result in a compile-time error.
+    <hr/>
+  </details>
+- <details>
+    <summary>Can an abstract class contain non-abstract (concrete) methods?</summary>
+    <hr/>
+    Yes, an abstract class can contain both abstract and non-abstract methods. For example:
+
+    ```c#
+    abstract class AbsParent
+    {
+       public abstract void Mul(int a, int b);
+       public void Add(int a, int b) { /* Implementation */ }
+    }
+    ```
+    Here, `Add` is a concrete method and can be directly used by the child class.
+    <hr/>
+  </details>
+- <details>
+    <summary>Can we create an instance of an abstract class?</summary>
+    <hr/>
+    No, we cannot create an instance of an abstract class. However, we can create a reference to the abstract class using an instance of its child class. For example:
+
+    ```c#
+    using System;
+
+    internal abstract class AbsParent
+    {
+        public void Add(int a, int b){}
+        public void Sub(int a, int b){}
+    
+        public abstract void Mul(int a, int b);
+        public abstract void Div(int a, int b);
+    }
+    
+    internal class AbsChild : AbsParent
+    {
+        // Implementing the abstract method
+        public override void Mul(int a, int b){}
+        public override void Div(int a, int b){}
+
+        public void Mod(int a, int b){}
+        static void Main(string[] args)
+        {
+            // Creating an instance of the child class
+            AbsChild c = new AbsChild();
+            c.Add(100, 50);
+            c.Sub(75, 17); 
+            c.Mul(12, 13); 
+            c.Div(870, 15);
+            c.Mod(121, 5); 
+    
+            // Creating a reference to abstract class using the child class instance
+            AbsParent p = c;
+            p.Add(100, 50); 
+            p.Sub(75, 17);  
+            p.Mul(12, 13);  
+            p.Div(870, 15); 
+    
+            // The following line is invalid, since `Mod` is not part of AbsParent
+            // p.Mod(121, 5);  // Uncommenting this line will cause a compilation error
+        }
+     }
+    ```
+    <hr/>
+  </details>
+- <details>
+    <summary>What is the use of abstract methods in application development?</summary>
+    <hr/>
+    Abstract methods are used to define common behaviors across various classes but allow each class to provide its specific implementation. This ensures that while the method's signature remains the same, the functionality can differ based on the class.
+
+    For example, in a mathematical application, different shapes can have a method to calculate the area (GetArea()), but the calculation logic will vary depending on the shape (Circle, Cone, etc.).
+    <hr/>
+  </details>
+- <details>
+    <summary>What happens if a child class does not implement all the abstract methods from the parent class?</summary>
+    <hr/>
+     If a child class does `not implement all the abstract methods` from the abstract parent class, the `child class must also be declared as abstract`. `Otherwise`, it will cause a `compile-time error`.
+    <hr/>
+  </details>
+- <details>
+    <summary>Can an abstract class have a constructor?+</summary>
+    <hr/>
+     Yes, an abstract class can have a constructor. This constructor is used to initialize members that are shared by child classes, but it cannot be called directly since you cannot instantiate an abstract class. Instead, the child class will call the constructor of the abstract class.
+
+     ```c#
+     abstract class Animal
+    {
+        public string Name;
+    
+        // Constructor of the abstract class
+        public Animal(string name)
+        {
+            Name = name;
+        }
+    
+        // Abstract method
+        public abstract void MakeSound();
+    }
+    
+    class Dog : Animal
+    {
+        // Constructor of the child class
+        public Dog(string name) : base(name) { }
+    
+        // Implementing the abstract method
+        public override void MakeSound()
+        {
+            Console.WriteLine($"{Name} says: Woof!");
+        }
+    }
+    
+    class Program
+    {
+        static void Main()
+        {
+            Dog dog = new Dog("Buddy");
+            dog.MakeSound();  // Output: Buddy says: Woof!
+        }
+    }
+     ```
+
+     In this example, the `Animal` abstract class has a constructor that initializes the `Name` property. The `Dog` class inherits from `Animal` and uses the `base(name)` to call the constructor of the abstract class.
+    <hr/>
+  </details>
+- <details>
+    <summary>Can abstract classes have fields?</summary>
+    <hr/>
+    Yes, abstract classes can have fields, both static and instance fields. These fields can be used by the child classes.
+
+    ```C#
+    abstract class Shape
+    {
+        // Instance field
+        public double Width;
+
+        // Static field
+        public static int ShapeCount = 0;
+
+        // Abstract method
+        public abstract double GetArea();
+
+        // Constructor to initialize instance field
+        public Shape(double width)
+        {
+            Width = width;
+            ShapeCount++; // Increment static field
+        }
+    }
+
+    class Circle : Shape
+    {
+        public Circle(double radius) : base(radius) { }
+
+        // Implement abstract method
+        public override double GetArea()
+        {
+            return 3.14 * Width * Width; // Area of a circle = π * r²
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Circle circle = new Circle(5);
+            Console.WriteLine($"Area of the circle: {circle.GetArea()}");
+            Console.WriteLine($"Total shapes created: {Shape.ShapeCount}");
+        }
+    }
+    ```
+    In this example, the abstract class `Shape` has an instance field `Width` and a static field `ShapeCount`. The `Circle` class inherits from `Shape` and provides an implementation for the abstract method `GetArea()`.
+    <hr/>
+  </details>
+- <details>
+    <summary>What is the difference between abstract methods and virtual methods?</summary>
+    <hr/>
+    - **Abstract methods**: Must be implemented by the child class and have no implementation in the parent class.
+    - **Virtual methods**: Have an implementation in the parent class, but the child class can override it if needed.
+    <hr/>
+  </details>
+- <details>
+    <summary> Can an abstract class have static methods?</summary>
+    <hr/>
+    Yes, an abstract class can have static methods. Static methods belong to the class itself and not to any specific instance, so they can be used even if the class is abstract.
+    ```c#
+    abstract class Shape
+    {
+        public static void DisplayInfo()
+        {
+            Console.WriteLine("This is a shape.");
+        }
+
+        public abstract double GetArea(); // Abstract method
+    }
+
+    class Circle : Shape
+    {
+        public double Radius { get; set; }
+
+        public Circle(double radius)
+        {
+            Radius = radius;
+        }
+
+        public override double GetArea()
+        {
+            return Math.PI * Radius * Radius; // Implementation of the abstract method
+        }
+    }
+
+    // Usage
+    class Program
+    {
+        static void Main()
+        {
+            Shape.DisplayInfo(); // Call the static method without creating an instance
+            Circle circle = new Circle(5);
+            Console.WriteLine($"Area of Circle: {circle.GetArea()}");
+        }
+    }
+
+    ```
+
+    - **Abstract Classes** can have static methods that can be called without an instance.
+
+    - **Abstract methods** must be implemented by derived classes, but static methods cannot be declared as abstract because they do not participate in inheritance the same way instance methods do.
+    <hr/>
+  </details>
+- <details>
+    <summary>Give me example of Abstract class & method?</summary>
+    <hr/>
+    ```c#
+    namespace OOPSProject
+    {
+      public abstract class Figure
+      {
+        public const float Pi = 3.14f;
+        public double Width, Height, Radius;
+        public abstract double GetArea();
+      }
+
+      public class Cone : Figure
+      {
+        public Cone(double Height, double Radius)
+        {
+          this.Height = Height;
+          base.Radius = Radius; //Here this and base are same
+        }
+
+        public override double GetArea()
+        {
+          return Pi * Radius * (Radius + Math.Sqrt((Height * Height) + (Radius * Radius)));
+        }
+      }
+      public class Circle : Figure
+      {
+        public Circle(double Radius)
+        {
+          this.Radius = Radius;
+        }
+
+        public override double GetArea()
+        {
+          return Pi * Radius * Radius;
+        }
+      }
+      public class Triangle : Figure
+      {
+        public Triangle(double Base, double Height)
+        {
+          this.Width = Base;
+          this.Height = Height;
+        }
+
+        public override double GetArea()
+        {
+          return 0.5 * Width * Height;
+        }
+      }
+      public class Rectangle : Figure
+      {
+        public Rectangle(double Length, double Breadth)
+        {
+          this.Width = Length;
+          this.Height = Breadth;
+        }
+        public override double GetArea()
+        {
+          return Width * Height;
+        }
+      }
+      internal class TestFigures
+      {
+        static void Main()
+        {
+          Cone cone = new Cone(18.92, 34.12);
+          Console.WriteLine($"Area of Cone is: {cone.GetArea()}\n");
+
+          Circle circ = new Circle(45.36);
+          Console.WriteLine($"Area of Circle is: {circ.GetArea()}\n");
+
+          Triangle trin = new Triangle(34.98, 27.87);
+          Console.WriteLine($"Area of Triangle is: {trin.GetArea()}\n");
+
+          Rectangle rect = new Rectangle(45.29, 76.12);
+          Console.WriteLine($"Area of Rectangle is: {rect.GetArea()}\n");
+        }
+      }
+    }
+    ```
+    <hr/>
+  </details>
+- <details>
+    <summary>Can it's mendatry if any abstract method in a class is there, then class shood automatically be abstract class and it's mendatry to use abstract modifier in class?</summary>
+    <hr/>
+    When a class contains abstract methods, it must be declared as abstract, and it is mandatory to use the `abstract` modifier in the class declaration. This structure helps enforce a clear contract for subclasses to follow, ensuring they implement the necessary functionality.
+    <hr/>
+  </details>
+- <details>
+    <summary>What is an interface?</summary>
+    <hr/>
+    An interface is a user-defined type like a class but can only contain abstract members. All abstract members must be implemented by the child class that implements the interface.
+    <hr/>
+  </details>
+- <details>
+    <summary>How is an interface different from a non-abstract class and an abstract class?</summary>
+    <hr/>
+
+    - **Non-Abstract Class**: Contains only non-abstract (concrete) members.
+
+    - **Abstract Class**: Contains both abstract and non-abstract members.
+
+    - **Interface**: Contains only abstract members.
+    <hr/>
+  </details>
+- <details>
+    <summary>What is the difference between inheriting a class and implementing an interface?</summary>
+    <hr/>
+    - **Inheriting a class** is called **Implementation Inheritance**, where the child class can reuse the parent class's members.
+
+    - **Implementing an interface** is called **Interface Inheritance**, where the child class must implement all abstract members of the interface but cannot consume any.
+    <hr/>
+  </details>
+- <details>
+    <summary>Why does .NET not support multiple inheritance through classes, but supports it through interfaces?</summary>
+    <hr/>
+     .NET does not support multiple inheritance via classes due to **ambiguity issues**(Compiler confusion). However, multiple inheritance is supported through interfaces because a child class only implements the abstract members of the interfaces without consuming them.
+    <hr/>
+  </details>
+- <details>
+    <summary> What is the syntax to define an interface?</summary>
+    <hr/>
+    ```c#
+    [<modifiers>] interface <Name>  
+    {  
+        // Abstract member declarations  
+    }
+    ```
+    <hr/>
+  </details>
+- <details>
+    <summary>What are the key points about interfaces?</summary>
+    <hr/>
+
+    - We cannot declare fields in an interface.
+    - Members in an interface are public by default.
+    - Every member in an interface is abstract by default, so the "abstract" modifier is not required.
+    - An interface can inherit another interface, but not a class.
+    - A class can implement more than one interface.
+
+    ```c#
+    // Defining two interfaces
+    public interface IShape
+    {
+        // By default, all members are public and abstract
+        void Draw(); // No need to use 'public' or 'abstract' keyword
+    }
+
+    public interface IColor
+    {
+        // Abstract method in interface (no 'abstract' keyword needed)
+        void Fill();
+    }
+
+    // Interface inheritance: One interface can inherit from another
+    public interface IColoredShape : IShape, IColor
+    {
+        // No new members, but this interface combines both IShape and IColor
+    }
+
+    //Interface inherit class that is wrong
+    public interface ColoredShape : "<InheritClass>"{} // Error ❎
+
+    // A class can implement more than one interface
+    public class Circle : IColoredShape
+    {
+        // Implementing the Draw method from IShape
+        public void Draw()
+        {
+            Console.WriteLine("Drawing a Circle.");
+        }
+
+        // Implementing the Fill method from IColor
+        public void Fill()
+        {
+            Console.WriteLine("Filling the Circle with color.");
+        }
+    }
+
+    class Program
+    {
+        static void Main()
+        {
+            // Creating an instance of Circle class
+            Circle circle = new Circle();
+
+            // Calling the methods defined in interfaces
+            circle.Draw();  // From IShape
+            circle.Fill();  // From IColor
+
+            // Using interface references to access members
+            IShape shape = circle;
+            shape.Draw();   // Calls IShape's method using interface    reference
+
+            IColor color = circle;
+            color.Fill();   // Calls IColor's method using interface reference
+        }
+    }
+    ```
+    <hr/>
+  </details>
+- <details>
+    <summary>Can an interface be instantiated?</summary>
+    <hr/>
+    No, an interface cannot be instantiated. However, you can create a reference of an interface using an instance of the class that implements it.
+    <hr/>
+  </details>
+- <details>
+    <summary>How can multiple inheritance be implemented using interfaces in .NET?</summary>
+    <hr/>
+     No, an interface cannot be instantiated. However, you can create a reference of an interface using an instance of the class that implements it.
+
+    ```c#
+    // Define an interface
+    public interface IAnimal
+    {
+        void Speak();
+    }
+
+    // Implement the interface in a class
+    public class Dog : IAnimal
+    {
+        public void Speak()
+        {
+            Console.WriteLine("Woof!");
+        }
+    }
+
+    class Program
+    {
+        static void Main()
+        {
+            // Cannot instantiate the interface directly
+            // IAnimal animal = new IAnimal(); // This would cause a compile error
+
+            // Create an instance of the class that implements the    interface
+            Dog dog = new Dog();
+
+            // Create a reference of the interface using the class instance
+            IAnimal animal = dog;
+
+            // Call the method using the interface reference
+            animal.Speak(); // Output: Woof!
+        }
+    }
+    ```
+    <hr/>
+  </details>
+- <details>
+    <summary>How can multiple inheritance be implemented using interfaces in .NET?</summary>
+    <hr/>
+    A class can implement multiple interfaces without ambiguity issues. There are two approaches for implementing methods of multiple interfaces:
+
+    1. **Shared Implementation**: The same method is implemented once, and both interfaces assume it belongs to them. 
+    2. **Explicit Implementation**: Methods are implemented separately for each interface using the interface name as a prefix.
+    <hr/>
+  </details>
+- <details>
+    <summary>Provide an example of implementing multiple interfaces in .NET.</summary>
+    <hr/>
+    ```c#
+    internal interface Interface1  
+    {  
+        void Test();  
+        void Show();  
+    }
+
+    internal interface Interface2  
+    {  
+        void Test();  
+        void Show();  
+    }
+
+    internal class ImplClass : Interface1, Interface2  
+    {  
+        // Shared implementation for both interfaces  
+        public void Test()  
+        {  
+            Console.WriteLine("Method declared under 2 interfaces.");  
+        }
+
+        // Explicit implementation for Interface1  
+        void Interface1.Show()  
+        {  
+            Console.WriteLine("Method declared under Interface1.");  
+        }
+
+        // Explicit implementation for Interface2  
+        void Interface2.Show()  
+        {  
+            Console.WriteLine("Method declared under Interface2.");  
+        }
+
+        static void Main()  
+        {  
+            ImplClass c = new ImplClass();  
+            c.Test();  // Shared implementation
+
+            Interface1 i1 = c;  
+            Interface2 i2 = c;  
+
+            i1.Show();  // Interface1's Show method  
+            i2.Show();  // Interface2's Show method  
+        }  
+    }
+    ```
+    <hr/>
+  </details>
+- <details>
+    <summary>How can you use interface references to call methods implemented in a class?</summary>
+    <hr/>
+    You can create an instance of the implementing class and assign it to an interface reference. Then, using the interface reference, you can call the methods that were implemented by the class. Example:
+
+    ```c#
+    ClsMath obj = new ClsMath();  
+    IMath1 i1 = obj;  
+    IMath2 i2 = obj;
+
+    i1.Add(150, 25);  // Calls Add method from IMath1
+    i1.Sub(97, 47);   // Calls Sub method from IMath1
+    i2.Mul(12, 17);   // Calls Mul method from IMath2
+    i2.Div(870, 15);  // Calls Div method from IMath2
+    ```
+    <hr/>
+  </details>
+- <details>
+    <summary>How can a class inherit from an interface and a base class at the same time in C#?</summary>
+    <hr/>
+     In C#, a class can inherit from one base class and implement one or more interfaces simultaneously. This is achieved by specifying the base class first, followed by the interfaces in the class declaration. For example:
+
+     ```c#
+     internal class BaseClass{/*Base class members*/}
+    
+    internal interface IExample{void ExampleMethod();}
+    
+    internal class DerivedClass : BaseClass, IExample
+    {
+        public void ExampleMethod(){/* Implementation of the interface method*/}
+    }
+     ```
+
+     In this example, DerivedClass inherits from BaseClass and implements the IExample interface.
+    <hr/>
+  </details>
+- <details>
+    <summary>Why is the "I" prefix commonly used for interfaces in C#?</summary>
+    <hr/>
+    The `I` prefix is a naming convention used in C# to clearly indicate that a type is an interface. This helps developers quickly identify interfaces at a glance, distinguishing them from classes and other types. For example, an interface named IMath suggests that it defines a contract for mathematical operations, while a class named Math would implement those operations. Using the `I` prefix promotes code readability and maintains consistency within the codebase.
+    <hr/>
+  </details>
+- <details>
+    <summary>Can inteface contain constructor?</summary>
+    <hr/>
+    No, interfaces cannot contain constructors in C#. This is because an interface defines a contract for classes to implement but does not provide any implementation itself, including the creation of objects.
+    <hr/>
+  </details>
+- <details>
+    <summary>What is Structure?</summary>
+    <hr/>
+    Structure is also a user-defined type like a class and interface which can contain only non-abstractmembers. A structure can contain all the members what a class can contain like constructor, static constructor, constants, fields, methods, properties, indexers, operators, and events.
+    <hr/>
+  </details>
+- <details>
+    <summary>What are the differences in Class and Structure?</summary>
+    <hr/>
+
+    | **Feature**                                | **Class**                                                          | **Structure**                                                      |
+    |--------------------------------------------|-------------------------------------------------------------------|-------------------------------------------------------------------|
+    | **Type**                                   | Reference type                                                    | Value type                                                         |
+    | **Memory Allocation**                       | Instances allocated on the Managed Heap                           | Instances allocated on the Stack                                   |
+    | **Memory Management**                       | Automatic memory management through Garbage Collector              | No automatic memory management, but faster access                 |
+    | **Data Volume**                             | Recommended for larger volumes of data                           | Recommended for smaller volumes of data                           |
+    | **Pre-defined Types**                       | Pre-defined reference types like `string` and `object`          | Pre-defined value types like `int`, `float`, `bool`, etc.       |
+    | **Instance Creation**                       | `new` keyword is mandatory for creating instances                 | `new` keyword is optional; default constructor is called implicitly |
+    | **Default Constructor**                     | Contains an implicit default constructor if no constructor is defined | Contains a default constructor which can be implicit or explicit   |
+    | **Field Initialization**                    | Fields can be declared and initialized at the time of declaration | Fields can be declared but cannot be initialized at declaration unless there’s an explicit constructor |
+    | **Field Initialization Methods**            | Fields can be initialized through a constructor or instance      | Fields can only be initialized through a constructor or instance   |
+    | **Constructor Requirement**                 | Constructors (default or parameterized) are mandatory for instance creation | Default constructor is mandatory for instance creation without `new` |
+    | **Constructor Definition**                  | Developers can define any type of constructor                    | Developers can define parameterized constructors; C# 10.0 allows default constructors |
+    | **Constructor Compilation**                 | After compilation, if defined with `0` constructors, there will be `1` constructor; if `n` constructors, `n` will exist | After compilation, if defined with `0` constructors, there will be `1`; if `n`, `n + 1` will exist |
+    | **Inheritance**                             | Supports both implementation and interface inheritance            | Supports only interface inheritance (cannot inherit from another structure) |
+
+    ```c#
+    // Define a structure
+    public struct Point
+    {
+        // Field declaration
+        public int X { get; set; }
+        public int Y { get; set; }
+
+        // Constructor (default constructor is implicit)
+        public Point(int x, int y)
+        {
+            X = x;
+            Y = y;
+        }
+
+        // Method
+        public void DisplayCoordinates()
+        {
+            Console.WriteLine($"Point coordinates: X = {X}, Y = {Y}");
+        }
+    }
+
+    // Example of a structure implementing an interface
+    public interface IShape
+    {
+        double Area();
+    }
+
+    public struct Rectangle : IShape
+    {
+        public double Width { get; set; }
+        public double Height { get; set; }
+
+        public Rectangle(double width, double height)
+        {
+            Width = width;
+            Height = height;
+        }
+
+        public double Area()
+        {
+            return Width * Height;
+        }
+    }
+
+    class Program
+    {
+        static void Main()
+        {
+            // Create an instance of Point structure
+            Point p = new Point(5, 10);
+            p.DisplayCoordinates(); // Outputs: Point coordinates: X = 5, Y = 10
+
+            // Create an instance of Rectangle structure
+            Rectangle rect = new Rectangle(4.5, 3.2);
+            Console.WriteLine($"Rectangle Area: {rect.Area()}"); // Outputs: Rectangle Area: 14.4
+        }
+    }
+
+    ```
+    <hr/>
+  </details>
+- <details>
+    <summary>What is the syntax to define a structure in C#?</summary>
+    <hr/>
+    The syntax to define a structure is:
+    ```c#
+    [<modifiers>] struct <Name>  
+    {  
+        // Define only non-abstract members  
+    }
+    ```
+    <hr/>
+  </details>
+- <details>
+    <summary>How do you add a structure to a project?</summary>
+    <hr/>
+    Unlike classes and interfaces, there is no dedicated Structure Item template in the "Add New Item" window. Instead, you should use the Code File item template.
+
+    1. Add a Code File under your project.
+
+    2. Name it, for example, MyStruct.cs.
+
+    <hr/>
+  </details>
+- <details>
+    <summary>Provide an example of a simple structure definition in C#.</summary>
+    <hr/>
+    ```c#
+    namespace OOPSProject  
+    {
+        internal struct MyStruct  
+        {
+            int x;
+
+            public MyStruct(int x)  
+            {
+                this.x = x;  
+            }
+
+            public void Display()  
+            {
+                Console.WriteLine("Method defined under a structure: " + x);  
+            }
+
+            static void Main()  
+            {
+                MyStruct m1 = new MyStruct();  
+                m1.Display();  
+
+                MyStruct m2;  
+                m2.x = 10;  
+                m2.Display();  
+
+                MyStruct m3 = new MyStruct(20);  
+                m3.Display();  
+                Console.ReadLine();  
+            }  
+        }  
+    }
+
+    ```
+    <hr/>
+  </details>
+- <details>
+    <summary>How can a structure be consumed in C#?</summary>
+    <hr/>
+    A structure and its members can be consumed from another structure or a class by creating an instance of the structure because structures do not support inheritance.
+    <hr/>
+  </details>
+- <details>
+    <summary>Provide an example of consuming a structure from another structure or class.</summary>
+    <hr/>
+    Here’s an example of consuming a structure named MyStruct from another structure named TestStruct:
+
+    ```c#
+    internal struct TestStruct  
+    {
+        static void Main()  
+        {
+            MyStruct obj1 = new MyStruct();  
+            obj1.Display();  
+
+            MyStruct obj2 = new MyStruct(30);  
+            obj2.Display();  
+            Console.ReadLine();  
+        }  
+    }
+
+    ```
+    <hr/>
+  </details>
+- <details>
+    <summary>Can structures support inheritance?</summary>
+    <hr/>
+    No, structures do not support inheritance in C#. You can create instances of structures but cannot inherit from other structures or classes. This means that you cannot create a new structure based on an existing one.
+
+    **Example**: If you create a structure called Point, you can't create another structure called ColoredPoint that inherits from Point. Instead, ColoredPoint would need to be a separate structure that has its own fields.
+    <hr/>
+  </details>
+- <details>
+    <summary>What types of members can be defined in a structure?</summary>
+    <hr/>
+     A structure can only contain non-abstract members, which means it can have fields, methods, properties, and events, but not abstract members.
+    <hr/>
+  </details>
+- <details>
+    <summary>How does memory allocation differ between structures and classes?</summary>
+    <hr/>
+    Structures are value types and are stored on the stack, whereas classes are reference types and are stored on the heap. This means structures are generally more efficient for small data types.
+    <hr/>
+  </details>
+- <details>
+    <summary>What happens if you do not initialize the fields of a structure?</summary>
+    <hr/>
+    If you do not explicitly initialize the fields of a structure in C#, they will automatically have default values when you create an instance of that structure. Here are the default values for common data types:
+      - Integer types (int, short, long): 0
+      - Floating-point types (float, double): 0.0
+      - Boolean (bool): false
+      - Character (char): '\0' (the null character)
+      - Reference types (like strings or objects): null
+
+    However, if you try to access a field of a structure without initializing it first, you will get a compile-time error. This is because structures in C# do not allow uninitialized fields to be accessed.
+
+    **Example**:
+
+    ```c#
+    namespace OOPSProject
+    {
+        internal struct MyStruct
+        {
+            public int number;      // Will default to 0
+            public bool isActive;   // Will default to false
+            public string name;     // Will default to null
+            // Method to display the values of the fields
+            public void Display()
+            {
+                Console.WriteLine($"Number: {number}, IsActive: {isActive}, Name: {name}");
+            }
+        }
+        internal class Program
+        {
+            static void Main()
+            {
+                MyStruct myStruct; // Declare a structure variable
+                // Display method can be called directly, fields will have default values
+                myStruct.Display(); // Output: Number: 0, IsActive: False, Name: 
+                // Uncommenting the line below will cause a compile-time error
+                // Console.WriteLine(myStruct.name.Length); // Error: Use of unassigned local variable 'myStruct'
+                // Explicitly initializing fields
+                myStruct.number = 10;
+                myStruct.isActive = true;
+                myStruct.name = "Test";
+                // Now displaying the initialized values
+                myStruct.Display(); // Output: Number: 10, IsActive: True, Name: Test
+                Console.ReadLine();
+            }
+        }
+    }
+    ```
+
+    **Explanation**
+
+    1. **Structure Declaration**: The MyStruct structure has three fields: number, isActive, and name. They have not been explicitly initialized.
+    
+    2. **Default Values**: When an instance of MyStruct is declared (i.e., MyStruct myStruct;), its fields are automatically assigned default values:
+      - number will be 0
+      - isActive will be false
+      - name will be null
+    3. **Display Method**: When the Display() method is called, it outputs the default values of the fields.
+    
+    4. **Compile-time Error**: If you try to access an uninitialized field directly (like calling myStruct.name.Length), it will result in a compile-time error. This is because you cannot access the Length property of name since it is null.
+    
+    5. **Explicit Initialization**: After assigning values to the fields (number, isActive, name), calling the Display() method again shows the updated values.
+
+    Structures in C# automatically assign default values to their fields if not initialized, but trying to access these fields before assignment can lead to compile-time errors. Always ensure to initialize fields before accessing them to avoid errors.
+
+    <hr/>
+  </details>
+- <details>
+    <summary>Can you create a default constructor in a structure?</summary>
+    <hr/>
+    No, a structure cannot have a default constructor explicitly defined. The compiler provides a default constructor that initializes all fields to their default values. However, you can create a parameterized constructor.
+    <hr/>
+  </details>
+- <details>
+    <summary>What is a Solution?</summary>
+    <hr/>
+    A solution is a collection of projects. Each project contains files or items (e.g., classes, structures, interfaces), which are further broken down into types (classes, structures, etc.) and members (methods, properties, etc.).
+    <hr/>
+  </details>
+- <details>
+    <summary>What happens when you create a new project in Visual Studio?</summary>
+    <hr/>
+    By default, a solution is created, and the project is added under that solution. The solution takes the name of the first project, unless otherwise specified.
+    <hr/>
+  </details>
+- <details>
+    <summary>Can a solution contain projects written in different .NET languages?</summary>
+    <hr/>
+    Yes, a solution can contain projects from different .NET languages (e.g., C#, F#). However, each project must be specific to one language.
+    <hr/>
+  </details>
+- <details>
+    <summary>How do you add a new project to an existing solution?</summary>
+    <hr/>
+    Right-click on the solution node in Solution Explorer, select "Add" -> "New Project", then specify the language (e.g., C#) and template (e.g., Console Application). Name the project and click OK.
+    <hr/>
+  </details>
+- <details>
+    <summary>How do you run a specific project in a solution with multiple projects?</summary>
+    <hr/>
+    Set the desired project as the "StartUp Project" by right-clicking the project in Solution Explorer and selecting "Set as StartUp Project".
+    <hr/>
+  </details>
+- <details>
+    <summary>How are solutions and projects saved on disk?</summary>
+    <hr/>
+    Solutions are saved as a folder that contains a `.sln` (solution file), and projects are stored in subfolders with `.csproj` (project files) containing specific items for that project.
+    <hr/>
+  </details>
+- <details>
+    <summary>What is an Assembly?</summary>
+    <hr/>
+    An assembly is the output file generated after compiling a project. It contains the Common Intermediate Language (CIL) code of the types defined in the project. An assembly is also a unit of deployment.
+
+    - It’s an output file that is generated after compilation of a project which contains CIL Code in it.
+    - Assembly file contains the CIL Code of each type that is defined under the project.
+    - An Assembly is a unit of deployment, because when we need to install an application on client machines what we install is these Assemblies only and all the .NET Libraries are installed on our machines in the form of Assemblies when we install Visual Studio.
+    - The name of an assembly file is the same name of the project and can’t be changed.
+    - In .NET Framework the assembly files of a project will be present under the project folder’s “bin\debug” folder. In .NET Core, assembly file of a project will be present under `bin\debug\netcoreapp<Version>` folder and here version represents the Core Runtime version. From .NET 5, assembly file of a project will be present under `bin\debug\net<Version>` folder and here also version represents the Runtime version.
+    - In .NET Framework the extension of an assembly file can either be a “.exe” or “.dll” which is based on the type of project we open, for example if the project is an “Application Project” then it will generate “.exe” assembly whereas if it is a “Library Project” then it will generate “.dll” assembly. From .NET Core every project will generate “.dll” assembly and apart from that “Application Project’s” will generate an additional “.exe” assembly also i.e., “Library Projects” will be generating “.dll” only now also where as “Application Project’s” will generate both “.exe” and “.dll” also.
+    <hr/>
+  </details>
+- <details>
+    <summary>What types of assembly files are generated in .NET Framework and .NET Core?</summary>
+    <hr/>
+    **.NET Framework**:
+      - Application projects generate `.exe` assemblies.
+      - Library projects generate `.dll` assemblies.
+    **.NET Core and above**:
+      - Application projects generate both `.exe` and `.dll` assemblies.
+      - Library projects generate `.dll` assemblies only.
+    <hr/>
+  </details>
+- <details>
+    <summary>What is the difference between an ".exe" and a ".dll" assembly?</summary>
+    <hr/>
+    - **`.exe`**: In-process components, loaded into memory for execution. Used by application projects.
+
+    - **`.dll`**: Out-process components, providing support to `.exe` assemblies. In .NET Framework, they cannot run on their own; from .NET Core, `.dll` assemblies from application projects can run on Linux and Mac using .NET Core CLI (dotnet `<Assembly_Name>.dll`).
+    <hr/>
+  </details>
+- <details>
+    <summary>Can you consume classes from one project in another project?</summary>
+    <hr/>
+    Yes, but you need to add a reference to the assembly of the project that contains the class. This is done by right-clicking on the project, selecting "Add" -> "Project Reference", and then browsing to the required assembly.
+    <hr/>
+  </details>
+- <details>
+    <summary>Can you add references to both .dll and .exe assemblies in .NET Framework and .NET Core?</summary>
+    <hr/>
+      In .NET Framework, you can reference both `.dll` and `.exe` assemblies. In .NET Core and above, you can only add references to `.dll` assemblies.
+    <hr/>
+  </details>
+- <details>
+    <summary>What is `ildasm`?</summary>
+    <hr/>
+    Intermediate Language Dis-Assembler. We use it to dis-assemble an Assembly file and view the contents of it. To check it out, open Visual Studio Developer Command Prompt, go to the location where the assembly files of the project are present and use it as following: `ildasm <name of the .dll assembly file>`.
+
+    **Note**: in .NET Framework we can dis-assemble both “.exe” and “.dll” assemblies also whereas from .NET Core we can dis-assemble only “.dll” assemblies.
+
+    **E.g.**: Open Visual Studio Developer Command Prompt, go to the below location and try the following:
+
+    ```bash
+    <drive>:\<our_folder>\OOPSProject\OOPSProject\bin\Debug\net8.0> ildasm OOPSProject.dll
+    <drive>:\<our_folder>\OOPSProject\SecondProject\bin\Debug\net8.0> ildasm SecondProject.dll
+    ```
+
+    <hr/>
+  </details>
+- <details>
+    <summary>Can we consume the classes of a project from other projects?</summary>
+    <hr/>
+    Yes, we can consume them, but not directly, as they are under different projects. To consume them first we need to add reference of the assembly in which the class is present to the project who wants to consume it.
+    <hr/>
+  </details>
+- <details>
+    <summary>How do you add a reference to an assembly in a project?</summary>
+    <hr/>
+
+    To add reference of an assembly to a project open solution explorer, right click on the project to whom reference must be added, select “Add => Project Reference” option, which opens a window “Reference Manager” and in that window select “Browse” option in LHS, then click on “Browse” button below, select the assembly we want to consume from its physical location and click ok. Now we can consume types of that assembly by prefixing with their namespace or importing the namespace.
+
+    **Note**: In .NET Framework we can add reference to “.exe” or “.dll” assemblies also and consume them in other projects, whereas from .NET Core onwards we can’t add reference to “.exe” assemblies i.e., we can add reference only to “.dll” assemblies.
+
+    **Example**:To test this, go to “OOPSProject” Solution, right click on the “SecondProject” we have newly added, select add reference and add the reference of “OOPSProject.dll” assembly from its physical location (`<drive>:\<our_folder>\OOPSProject\OOPSProject\bin\Debug\net8.0>`). Now add a new class under the `“SecondProject”` naming it as “`Class1.cs`” and write the below code in it:
+
+    ```c#
+    using OOPSProject;
+    internal class Class1
+    {
+      static void Main()
+      {
+        Cone cone = new Cone(18.92, 34.12);
+        Console.WriteLine($"Area of Cone is: {cone.GetArea()}\n");
+        Circle circ = new Circle(45.36);
+        Console.WriteLine($"Area of Circle is: {circ.GetArea()}\n");
+        Triangle trin = new Triangle(34.98, 27.87);
+        Console.WriteLine($"Area of Triangle is: {trin.GetArea()}\n");
+        Rectangle rect = new Rectangle(45.29, 76.12);
+        Console.WriteLine($"Area of Rectangle is: {rect.GetArea()}\n");
+      }
+    }
+    ```
+
+    <hr/>
+  </details>
+- <details>
+    <summary>What are Access Specifiers in C#?</summary>
+    <hr/>
+    Access specifiers define the scope of types and their members, determining who can access them and who cannot. They are used to control the visibility of classes and members within the code.
+    <hr/>
+  </details>
+- <details>
+    <summary>How many Access Specifiers are supported in C#?</summary>
+    <hr/>
+    1. **`Private`**: accessible only to the current class.
+    2. **`Internal`**: to all the classes in the current assembly(with-in the project) only.
+    3. **`Protected`**: to the current class and to it’s child classes.
+    4. **`Public`**: accessible to all the classes in all the assemblies (`global`).
+    5. **`Protected internal`**: if protected or internal access (`dual scope`), access to whole project and out-side the project.
+    6. **`Private protected`**: if private or internal access.
+    7. **`File`**: within the file scope.
+
+    **Note**: members that are defined in a type with any scope or specifier are always accessible with in the type, restrictions come into picture only when we try to access them outside of the type.
+    <hr/>
+  </details>
+- <details>
+    <summary>What is the default access modifier of inside the namespace?</summary>
+    <hr/>
+    Internal (first level) 
+    <hr/>
+  </details>
+- <details>
+    <summary>What is the default access specifier for members in a class or structure?</summary>
+    <hr/>
+    The default scope for members inside a class or structure is Private unless explicitly specified otherwise.
+    <hr/>
+  </details>
+- <details>
+    <summary>Can we declare a types(like: class) as private, protected, or protected internal of namespace?</summary>
+    <hr/>
+    No, types cannot be declared as `Private`, `Protected`, or `Protected Internal`. 
+
+    If you do not define a class as public, it is internal by default.
+
+    These specifiers only apply to the members of the types, such as methods, properties, and fields.
+    <hr/>
+  </details>
+- <details>
+    <summary>What is the default access modifier of constructor?</summary>
+    <hr/>
+    Default access modifier of constructor is same access modifier of class. By default Internal. It means if class access modifire is private or internal or etc same as access modifier is constructor, it is connected to class.
+    <hr/>
+  </details>
+- <details>
+    <summary>What is the default access specifier for a type?</summary>
+    <hr/>
+    The default scope for a type (such as a class or struct) is Internal in C#.
+    <hr/>
+  </details>
+- <details>
+    <summary>Whic access modifier where accessable?</summary>
+    <hr/>
+
+    | Case | Private | Internal | Protected | Private Protected | Protected Internal | Public |
+    |------|---------|----------|-----------|-------------------|--------------------|--------|
+    | Same Class, Same Project | Yes | Yes | Yes | Yes | Yes | Yes |
+    | Child Class, Same Project | No  | Yes | Yes | Yes | Yes | Yes |
+    | Non-Child Class, Same Project | No | Yes | No  | No  | Yes | Yes |
+    | Child Class, Another Project | No | No  | Yes | No  | Yes | Yes |
+    | Non-Child Class, Another Project | No | No  | No  | No  | No  | Yes |
+
+    <hr/>
+  </details>
+- <details>
+    <summary>Give me example of using all access modifier?</summary>
+    <hr/>
+
+    1. Create console project name it(i.e:`AccessDemo1`) and name the solution(i.e:`MySolution`).
+
+    2. `Progeam.cs` (By creating object)
+
+    ```c#
+    namespace AccessDemo1
+    {
+    	public class Program //use Public access modifier
+    	{
+    		private void Test1_Private()
+    		{
+    			Console.WriteLine("Private Method");
+    		}
+    		internal void Test2_Internal()
+    		{
+    			Console.WriteLine("Internal Method");
+    		}
+    		protected void Test3_Protected()
+    		{
+    			Console.WriteLine("Protected Method");
+    		}
+    		protected internal void Test4_ProtecedInternal()
+    		{
+    			Console.WriteLine("Protected Internal Method");
+    		}
+    		public void Test5_Public()
+    		{
+    			Console.WriteLine("Public Method");
+    		}
+    		private protected void Test6_PrivateProtected()
+    		{
+    			Console.WriteLine("Private Protected Method");
+    		}
+
+    		static void Main(string[] args)
+    		{
+    			Program p = new Program();
+    			p.Test1_Private();
+    			p.Test2_Internal();
+    			p.Test3_Protected();
+    			p.Test4_ProtecedInternal();
+    			p.Test5_Public();
+    			p.Test6_PrivateProtected();
+    		}
+    	}
+    }
+
+    /*Output:
+
+    Private Method
+    Internal Method
+    Protected Method
+    Protected Internal Method
+    Public Method
+    Private Protected Method
+
+    */
+    ```
+
+    - All type of access modifier accessable in  same class.
+
+    3. Create one more class name it(i.e: `Two.cs`) & consume it by Inheritance
+
+    - `Two.cs` (By Inheriting).
+
+    - **Right-click on the project** in Solution Explorer and select **Properties**.
+
+    - In the **Application** tab, look for the **Startup object dropdown**. This dropdown lists all the classes that contain a `Main` method.
+
+    - Select the class(i.e:`Two.cs`) that has the `Main` method you want to execute
+
+    - Save the changes and run the project.
+
+    ```c#
+    namespace AccessDemo1
+    {
+    	class Two:Program
+    	{
+    		static void Main(string[] args)
+    		{
+    			Two t = new Two();
+          //t.Test1_Private();//Give error
+    			t.Test2_Internal();
+    			t.Test3_Protected();
+    			t.Test4_ProtecedInternal();
+    			t.Test5_Public();
+    			t.Test6_PrivateProtected();
+    		}
+    	}
+    }
+
+    /*Output: 
+
+    Internal Method
+    Protected Method
+    Protected Internal Method
+    Public Method
+    Private Protected Method
+    */
+    ```
+
+    - Except private method all are acceble in child class
+
+    4. Create another class name it(i.e:`Three.cs`) & consume using object:
+
+    ```c#
+    namespace AccessDemo1
+    {
+    	class Three
+    	{
+    		static void Main(string[] args)
+    		{
+    			Program p = new Program();
+    			//p.Test1_Private();//Error
+    			p.Test2_Internal();
+    			//p.Test3_Protected();//Error
+    			p.Test4_ProtecedInternal();
+    			p.Test5_Public();
+    			//p.Test6_PrivateProtected();//Error
+    		}
+    	}
+    }
+    ```
+
+    5. Add a new `Console App` project under `MySolution`, name it as `AccessDemo2`, rename the default file `Program.cs` as `Four.cs` so that class name also changes to Four, add a reference to `AccessDemo1` assembly from its physical location to the new project and write the below code in the class Four:
+
+    - Rrite click on `Add` > Click `Refrence Manager` > New windows open > Right hand side Click `Browse` > Browser(`AccessDemo1\bin\Debug\net8.0\AccessDemo1.dll`) the Project(`AccessDemo1`)  accembly `AccessDemo1.dll`.
+
+      ```c#
+      namespace AccessDemo2
+      {
+      	internal class Four : AccessDemo1.Program
+      	{
+      		static void Main(string[] args)
+      		{
+      			Four p = new Four();
+      			//p.Test1_Private(); //Error
+      			//p.Test2_Internal(); //Error
+      			p.Test3_Protected();
+      			p.Test4_ProtecedInternal();
+      			p.Test5_Public();
+      			//p.Test6_PrivateProtected(); //Error
+      		}
+      	}
+      }
+      ```
+
+    <hr/>
+  </details>
+- <details>
+    <summary>What is Language Interoperability in .NET?</summary>
+    <hr/>
+    Language Interoperability allows code written in one .NET language to be used in another .NET language. This means you can use components developed in C# from VB.NET and vice versa.
+    <hr/>
+  </details>
+- <details>
+    <summary>What are the differences between VB.NET and C#?</summary>
+    <hr/>
+    - **Case Sensitivity**:
+      - VB.NET is not case sensitive.
+      - C# is case sensitive.
+    - **Syntax for Code Blocks**:
+      - **C#**: Uses curly braces {} to define the start and end of code blocks.
+      - **VB.NET**: Uses keywords like End If, End Sub, etc., to signify the end of blocks.
+    - **Statement Terminators**:
+      - **C#**: Requires semicolons ; to terminate statements.
+      - **VB.NET**: Does not use semicolons; each statement must be on a new line.
+    - **File Extensions**:
+      - **C#**: Source files have a `.cs` extension.
+      - **VB.NET**: Source files have a `.vb` extension.
+    <hr/>
+  </details>
+- <details>
+    <summary>How to create a Visual Basic project to test interoperability?</summary>
+    <hr/>
+
+    - Add a new Visual Basic **Console App** project named **AccessDemo3** under MySolution using Visual Basic.
+
+    - Delete the default file **Module1.vb** and add a new class called **TestCS.vb**.
+
+    - Reference the **AccessDemo1** assembly and write the following code in **TestCS.vb**:
+
+    ```vb
+    Imports AccessDemo1
+
+    Public Class TestCS : Inherits Program
+        Shared Sub Main()
+            ' Creating instance of the class
+            Dim obj As New TestCS()
+            obj.Test3_Protected()
+            obj.Test4_ProtecedInternal()
+            obj.Test5_Public()
+            Console.ReadLine()
+        End Sub
+    End Class
+
+    ```
+
+    - Set **AccessDemo3** as the startup project to run it.
+
+    <hr/>
+  </details>
+- <details>
+    <summary>How to consume VB.NET code in C#?</summary>
+    <hr/>
+
+    - Add a new project named **AccessDemo4** as a **Class Library** under **MySolution** using Visual Basic.
+
+    - The project contains a class named **Class1**. Implement the following code:
+
+    ```vb
+    Public Class Class1
+      Public Function SayHello(Name As String) As String
+          Return "Hello " & Name
+      End Function
+
+      Public Sub AddNums(x As Integer, y As Integer)
+          Console.WriteLine($"Sum of given 2 no's is: {x + y}")
+      End Sub
+
+      Public Sub Math(a As Integer, b As Integer, ByRef c As Integer,   ByRef d As Integer)
+          c = a + b
+          d = a * b
+      End Sub
+    End Class
+
+    ```
+
+    - Build the **AccessDemo4** project to generate `AccessDemo4.dll`.
+
+    - In the `AccessDemo1` project, add a new class called `TestVB.cs`.
+
+    - Add a reference to `AccessDemo3.dll` and write the following code in `TestVB.cs`:
+
+    ```c#
+    using AccessDemo3;
+
+    internal class TestVB
+    {
+        static void Main()
+        {
+            Class1 obj = new Class1();
+            obj.AddNums(100, 50);
+            string str = obj.SayHello("Raju");
+            Console.WriteLine(str);
+            int Sum = 0, Product = 0;
+            obj.Math(100, 25, ref Sum, ref Product);
+            Console.WriteLine("Sum of the given 2 no's is: " + Sum);
+            Console.WriteLine("Product of the given 2 no's is: " +  Product);
+            Console.ReadLine();
+        }
+    }
+
+    ```
+
+    Set both the `Startup Project` and `Startup Object` properties correctly to run the project.
+
+    <hr/>
+  </details>
+- <details>
+    <summary>. How to restrict a class not to be accessible for any other class to consume?</summary>
+    <hr/>
+    This can be done by declaring all the class constructors as private.
+    <hr/>
+  </details>
+- <details>
+    <summary> How to restrict a class not to be inherited for any other class?</summary>
+    <hr/>
+    This can be done by declaring class as sealed.
+    <hr/>
+  </details>
+- <details>
+    <summary>How to restrict a class not to be accessible for any other class to consume by creating its instance?</summary>
+    <hr/>
+    This can be done by declaring all the class constructors as protected
+    <hr/>
+  </details>
+- <details>
+    <summary>What are the two types of assemblies in .NET?</summary>
+    <hr/>
+    The two types of assemblies in .NET are:
+
+    1. Private Assembly
+    2. Shared Assembly
+    <hr/>
+  </details>
+- <details>
+    <summary>What is a private assembly?</summary>
+    <hr/>
+    A private assembly is the default type of assembly. When the reference of a private assembly is added to any project, a copy of the assembly is created for that project. Each project maintains its own private copy of the assembly.
+    <hr/>
+  </details>
+- <details>
+    <summary>How do you create a private assembly?</summary>
+    <hr/>
+    To create a private assembly:
+    1. Create a new project of type **Class Library**.
+    2. Name the project, for example, "**PAssembly**".
+
+    A default class (e.g., `Class1`) will be created. Write the following code in the class:
+
+    ```c#
+    public string SayHello() {
+    return "Hello from private assembly.";
+    }
+    ```
+
+    Compile the project by right-clicking on the project in **Solution Explorer** and selecting "Build". This will generate the private assembly `PAssembly.dll`.
+    <hr/>
+  </details>
+- <details>
+    <summary>How can you check the location of the generated assembly?</summary>
+    <hr/>
+    The path of the generated assembly can be found in the Output window at the bottom of Visual Studio after building the project.
+
+    **Example**: `1>PAssembly -> D:\dotnet\CSharpCode\PAssembly\PAssembly\bin\Debug\net8.0\PAssembly.dll`
+    <hr/>
+  </details>
+- <details>
+    <summary>How do you consume a private assembly in multiple projects?</summary>
+    <hr/>
+    To consume a private assembly in multiple projects:
+
+    1. Create two new projects of type **Console App**, for example, "TestPAssembly1" and "TestPAssembly2".
+
+    2. Add a reference to the `PAssembly.dll` file from its physical location to both projects.
+
+    3. In each project's `Main` method, write the following code:
+
+    ```c#
+    PAssembly.Class1 obj = new PAssembly.Class1();
+    Console.WriteLine(obj.SayHello());
+    Console.ReadLine();
+    ```
+
+    4. Run both projects to test them.
+
+    <hr/>
+  </details>
+- <details>
+    <summary>How can you verify that multiple copies of the private assembly were created?</summary>
+    <hr/>
+    After running both projects, navigate to the **bin/debug/net8.0** folder of both projects. You will find a copy of `PAssembly.dll` in each project's folder, proving that each project maintains its own private copy of the assembly.
+    <hr/>
+  </details>
+- <details>
+    <summary>What is the advantage of a private assembly?</summary>
+    <hr/>
+    The advantage of a private assembly is **faster execution** because it resides in the local folder of the consumer project.
+    <hr/>
+  </details>
+- <details>
+    <summary>What is the drawback of a private assembly?</summary>
+    <hr/>
+    The drawback is that **multiple copies** of the assembly are created when multiple projects add a reference to it, resulting in redundancy.
+    <hr/>
+  </details>
+- <details>
+    <summary>What is a shared assembly?</summary>
+    <hr/>
+    If we want to use an assembly in multiple applications, private assemblies are not the best option. In this case, we can install the assembly into a central location called the **Global Assembly Cache (GAC)**. Every computer that has the ".NET Runtime" installed has this system-wide cache.
+
+    The **Global Assembly Cache** is where assemblies (like ".dll" files) are stored when they need to be shared by several applications on the same computer. For example, all .NET Libraries are shared assemblies, and they are stored in the GAC.
+
+    The key benefit of a shared assembly is that it doesn't create multiple copies, even if several projects use it. Only **one copy** of the assembly is kept in the GAC, and it serves all the projects that reference it.
+
+    <hr/>
+  </details>
+- <details>
+    <summary>What is the Global Assembly Cache (GAC)?</summary>
+    <hr/>
+    The GAC is a centralized location on a computer where shared assemblies are stored. It allows multiple applications to use the same assembly without creating multiple copies. The GAC is located at: `<OS Drive>:\Windows\Microsoft.NET\assembly\GAC_MSIL`
+    <hr/>
+  </details>
+- <details>
+    <summary> Why are multiple copies of a shared assembly not created?</summary>
+    <hr/>
+    In shared assemblies, only a single copy of the assembly is placed in the GAC, and all projects reference this single copy, avoiding redundancy.
+    <hr/>
+  </details>
+- <details>
+    <summary>Who can add or delete files from the GAC?</summary>
+    <hr/>
+    Only users with **Administrator privileges** can add or delete files from the GAC, as the GAC inherits the access control list (ACL) from the Windows directory.
+    <hr/>
+  </details>
+- <details>
+    <summary>How can you make an assembly shared?</summary>
+    <hr/>
+    To make an assembly shared, it needs to be installed into the GAC using a tool called Gacutil.exe.
+    <hr/>
+  </details>
+- <details>
+    <summary>How do you install an assembly into the GAC?</summary>
+    <hr/>
+    To install an assembly into the GAC, use the **Gacutil.exe** tool from the **Visual Studio Command Prompt**. The syntax to manage assemblies is:
+
+    ```css
+    gacutil -i | -u | -l [<assembly name>]
+    or
+    gacutil /i | /u | /l [<assembly name>]
+
+    Example: Install an Assembly into GAC
+    gacutil /i MyAssembly.dll
+
+    Example: Uninstall an Assembly from GAC
+    gacutil /u MyAssembly
+    (Note: You don't need to include .dll for uninstalling.)
+
+    Example: List All Assemblies in GAC:
+    gacutil /l
+    ```
+
+    **Where**:
+
+    - `-i` is for installing the assembly.
+    - `-u` is for uninstalling the assembly.
+    - `-l` is for listing assemblies.
+    <hr/>
+  </details>
+- <details>
+    <summary>How to open Visual/Developer Studio Command Prompt?</summary>
+    <hr/>
+
+    1. **Open Visual Studio**.
+
+    2. Go to **Tools** in the top menu.
+
+    3. Select **Command Line**.
+
+    4. Click on **Developer Command Prompt** from the submenu.
+
+    <hr/>
+  </details>
+- <details>
+    <summary>What type of assembly can be installed into the GAC?</summary>
+    <hr/>
+    Only **Strong-Named Assemblies** can be installed into the GAC.
+    <hr/>
+  </details>
+- <details>
+    <summary>What is a strong-named assembly?</summary>
+    <hr/>
+
+    Assemblies deployed in the global assembly cache must have a strong name. When an assembly is added to the global assembly cache, integrity checks are performed on all files that make up the assembly.
+
+    A strong-named assembly is an assembly with a strong name that ensures integrity and uniqueness. Assemblies in the GAC must have a strong name. The strong name consists of the assembly's `name`, `version number`, and `public key`.
+
+    <hr/>
+  </details>
+- <details>
+    <summary>What are the components of a strong name?</summary>
+    <hr/>
+
+    The components of a strong name are:
+
+    1. **Name**: The assembly's identifier.
+    2. **Version**: The version number of the assembly (default is `1.0.0.0`).
+    3. **Public Key**: A unique identifier for the assembly, generated and associated with the assembly to ensure global uniqueness.
+
+    <hr/>
+  </details>
+- <details>
+    <summary>Why is a public key required for a strong name?</summary>
+    <hr/>
+    A public key is used to ensure the **uniqueness** of the assembly in the GAC. It also provides integrity by ensuring that the assembly has not been modified since it was created.
+    <hr/>
+  </details>
+- <details>
+    <summary>What are the benefits of a strong name?</summary>
+    <hr/>
+
+    The benefits of a strong name are:
+
+    - Guarantees **name uniqueness** using unique key pairs.
+
+    - Protects the **version lineage** of the assembly.
+
+    - Ensures that only the original publisher can release new versions of the assembly.
+
+    - Provides a **strong integrity check** to ensure that the assembly's contents have not been altered.
+
+    <hr/>
+  </details>
+- <details>
+    <summary>How do you generate a public key for a strong name?</summary>
+    <hr/>
+
+    To sign an assembly with a strong name, you must have a public `key pair`. This public cryptographic key pair is used during compilation to create a strong-named assembly. You can create a key pair using the Strong Name tool (`Sn.exe`) from visual studio command prompt as following:
+
+    To generate a public key pair for a **strong name**, use the Strong Name tool (**Sn.exe**) in the Visual Studio Command Prompt with the following syntax:
+
+    ```c#
+    sn -k <file name>
+    ```
+
+    For example, to create a key file:
+
+    ```c#
+    sn -k Key.snk
+    ```
+
+    This generates a key-value pair and stores it in a file with a `.snk` (strong name key) extension.
+
+    **Note**: the above statement generates a key-value and writes it into the file “**`Key.snk. Key/Value`**" pair files usually have the extension of “**`.snk`**” (strong name key).
+
+    **Note**: to open Developer command prompt in VS (" ctr + ` ") press.
+
+    <hr/>
+  </details>
+- <details>
+    <summary>How do you generate a public key for a shared assembly?</summary>
+    <hr/>
+    To generate a public key, open the Visual Studio Command Prompt, navigate to your personal folder, and run the following command:
+
+    ```c#
+    <drive>:\<CSharp> sn -k Key.snk //Run it
+    ```
+
+    This generates a strong name key file named `Key.snk`.
+
+    <hr/>
+  </details>
+- <details>
+    <summary>How do you create a shared assembly?</summary>
+    <hr/>
+    To create a shared assembly:
+
+    1. Create a new project of type **Class Library** and name it **SAssembly**.
+    2. Add the public key (`Key.snk`) to the project to make the assembly strong-named:
+
+      - Open **Solution Explorer**.
+      - Right-click on the project and select **Properties**.
+      - In the **Build** tab, check the option **Sign the output assembly**.
+      - Browse and select the **Key.snk** file you generated.
+
+    3. Write the following code under Class1:
+
+    ```c#
+    public string SayHello1()
+    {
+       return "Hello from shared assembly => 1.0.0.0";
+    }
+    ```
+
+    4. Compile the project using the Build option to generate SAssembly.dll.
+
+    <hr/>
+  </details>
+- <details>
+    <summary>How do you install the assembly into GAC?</summary>
+    <hr/>
+    To install the shared assembly into GAC:
+
+    1. Open the **Visual Studio - Developer Command Prompt in Administrator Mode**.
+    2. Navigate to the location where `SAssembly.dll` is located (e.g., `bin\Debug\net8.0`).
+    3. Run the following command to install the assembly:
+
+    ```c#
+    <drive>:\<folder\SAssembly\SAssembly\bin\Debug\net8.0> gacutil -i SAssembly.dll
+    ```
+    <hr/>
+  </details>
+- <details>
+    <summary>How do you test the shared assembly?</summary>
+    <hr/>
+    To test the shared assembly:
+
+    1. Create a new `Console App` project named `TestSAssembly1`.
+    2. Add a reference to `SAssembly.dll` from its physical location.
+    3. Write the following code under the `Main` method.
+
+    ```c#
+    SAssembly.Class1 obj = new SAssembly.Class1();
+    MessageBox.Show(obj.SayHello1());
+    ```
+
+    4. Run the project. The `TestSAssembly1` project will use the `SAssembly.dll` from the **GAC**, and no local copy of `SAssembly.dll` is required in the project folder.
+
+    <hr/>
+  </details>
+- <details>
+    <summary>What is versioning in assemblies?</summary>
+    <hr/>
+    Every assembly has attributes that describe its general information, such as **Title, Company**, and **Version**. These attributes can be found in the `.csproj` file of the project.
+    <hr/>
+  </details>
+- <details>
+    <summary>How can you view and edit assembly attributes in the .csproj file?</summary>
+    <hr/>
+    To view and edit assembly attributes in the `.csproj` file:
+
+    1. Right-click on the project in **Solution Explorer**.
+    2. Select **Edit Project File**.
+    3. The .csproj file is an XML file where you can find the default information. You can add or edit attributes like **Company** or **Version** inside the `<PropertyGroup>` tag, e.g.:
+    ```xml
+    <Company>NIT</Company>
+    ```
+    <hr/>
+  </details>
+- <details>
+    <summary>Where do you find the key file information in the .csproj file?</summary>
+    <hr/>
+    The key file information is found under the `<AssemblyOriginatorKeyFile>` tag in the .csproj file:
+    ```xml
+    <AssemblyOriginatorKeyFile>Key.snk</AssemblyOriginatorKeyFile>
+    ```
+    <hr/>
+  </details>
+
+  Why do we maintain version numbers to an assembly?
+  128
+- <details>
+    <summary>Why do we maintain version numbers for an assembly?</summary>
+    <hr/>
+    Version numbers are maintained to distinguish the changes made over time. If any modifications or enhancements are made to the assembly code, the version number changes to reflect the updates. The default version of every assembly is 1.0.0.0. The version number is a combination of four values:
+
+    1. Major Version
+    2. Minor Version
+    3. Build Number
+    4. Revision
+
+    <hr/>
+  </details>
+- <details>
+    <summary>What are the criteria for changing the version number of an assembly?</summary>
+    <hr/>
+    The version number of an assembly changes based on the following criteria:
+
+    1. Major Version: Change when new types are added to the assembly.
+    2. Minor Version: Change when existing types are modified.
+    3. Build Number: Change when new members are added to the types.
+    4. Revision: Change when existing members are modified.
+    <hr/>
+  </details>
+- <details>
+    <summary>Where do you change the version number of an assembly?</summary>
+    <hr/>
+    To change the version number of an assembly, you need to modify the project’s property file:
+
+    1. Open Solution **Explorer**.
+    2. Right-click the project and select **Edit Project File**.
+    3. Inside the `<PropertyGroup>` tag, add the following statements:
+
+    ```xml
+      <AssemblyVersion>1.0.1.0</AssemblyVersion>
+      <FileVersion>1.0.1.0</FileVersion>
+    ```
+    <hr/>
+  </details>
+- <details>
+    <summary>How do you test the process of changing the version number of an assembly?</summary>
+    <hr/>
+    To test the versioning:
+
+    1. Open the **SAssembly** project.
+    2. Add a new method to **Class1**:
+    ```c#
+    public string SayHello2()
+    {
+      return "Hello from shared assembly => 1.0.1.0";
+    }
+    ```
+    3. Update the project property file with the following attributes:
+    ```xml
+      <Company>NIT</Company>
+      <Description>This is a shared assembly developed by Naresh I Technologies.</Description>
+      <AssemblyVersion>1.0.1.0</AssemblyVersion>
+      <FileVersion>1.0.1.0</FileVersion>
+    ```
+
+    4. Rebuild the project and add the new version of SAssembly.dll (version 1.0.1.0) to the GAC using the Gacutil Tool.
+    <hr/>
+  </details>
+- <details>
+    <summary>Can the Global Assembly Cache (GAC) store multiple versions of the same assembly?</summary>
+    <hr/>
+    Yes, GAC supports side-by-side execution, allowing multiple versions of the same assembly to be stored and used simultaneously. For example, after adding SAssembly.dll versions 1.0.0.0 and 1.0.1.0 to the GAC, different applications can use different versions.
+    <hr/>
+  </details>
+- <details>
+    <summary>How do you test side-by-side execution(run both version) of assemblies?</summary>
+    <hr/>
+    1. Create a new **Console App** project named **TestSAssembly2**.
+    2. Add a reference to `SAssembly.dll` from its physical location.
+    3. Write the following code in the Main method:
+      ```c#
+        Copy code
+        SAssembly.Class1 obj = new SAssembly.Class1();
+        MessageBox.Show(obj.SayHello2());
+      ```
+    4. Run the **TestSAssembly1** and **TestSAssembly2** projects simultaneously. Each project will use a different version of the `SAssembly.dll` from the GAC.
+    <hr/>
+  </details>
+- <details>
+    <summary>What are the four sections of an assembly?</summary>
+    <hr/>
+    An assembly consists of four sections:
+    1. **Assembly Manifest**: Contains assembly metadata like name, version, file list, and strong name information.
+    2. **Type Metadata**: Describes every type and member in a language-neutral manner.
+    3. **Microsoft Intermediate Language (MSIL) Code**: The actual code implementing the types.
+    4. **Resources**: Other resources like images or data that are part of the assembly.
+    <hr/>
+  </details>
+- <details>
+    <summary>What information does the Assembly Manifest contain?</summary>
+    <hr/>
+    The Assembly Manifest contains:
+
+    - Assembly Name
+    - Assembly Version
+    - File Version
+    - Company Information
+    - Strong Name Information
+    - List of files in the assembly
+    <hr/>
+  </details>
+- <details>
+    <summary>What information does Type Metadata provide?</summary>
+    <hr/>
+    Type Metadata describes every type and member defined in your code in a language-neutral manner. Metadata stores the following information:
+
+    - Description of the assembly.
+      - Identity (name, version, culture, public key).
+      - Other assemblies that this assembly depends on.
+      - Security permissions needed to run.
+    - Description of types.
+      - Name, visibility, base class, and interfaces implemented.
+      - Members (methods, fields, properties, events, nested types)
+    <hr/>
+  </details>
+- <details>
+    <summary>What are the benefits of metadata in assemblies?</summary>
+    <hr/>
+    Metadata provides the following benefits:
+
+    1. Self-describing files: Assemblies are self-describing, containing all the necessary information.
+
+    2. Language interoperability: Metadata enables seamless interaction between different programming languages.
+    <hr/>
+  </details>
+- <details>
+    <summary>What is the role of CIL (Common Intermediate Language) in the compilation of .NET programming languages, and how does it ensure platform independence?</summary>
+    <hr/>
+    during compilation of any .NET programming languages, the source code is translated into CIL code rather than platform or processor-specific code. CIL is a CPU and platform-independent instruction set that can be executed in any environment supporting the Common Language Infrastructure, such as the .NET runtime on Windows, or the cross-platform Mono runtime.
+
+    ![alt text](CompileAndExecutionProcess.png)
+
+    <hr/>
+  </details>
+- <details>
+    <summary>What is a finalizer used for?</summary>
+    <hr/>
+    A finalizer is used to **destroy instances** of a class. It is called when an object is destroyed, whereas a constructor is called when an object is created.
+    <hr/>
+  </details>
+- <details>
+    <summary>How is a finalizer different from a constructor?</summary>
+    <hr/>
+    Both have the same name as the class, but the finalizer is prefixed with a tilde (~). Example:
+
+    ```c#
+    class Test
+    {
+        Test() { /* Constructor*/ }
+        ~Test() { /* Finalizer*/ }
+    }
+    ```
+    <hr/>
+  </details>
+- <details>
+    <summary>Can a finalizer be defined in a struct?</summary>
+    <hr/>
+    No, finalizers can only be defined in classes, not structs.
+    <hr/>
+  </details>
+- <details>
+    <summary>What are the characteristics of a finalizer?</summary>
+    <hr/>
+    - A finalizer cannot take modifiers or parameters.
+    - A class can have only one finalizer.
+    - Finalizers cannot be inherited or overloaded.
+    - Finalizers cannot be called manually; they are invoked automatically by the garbage collector.
+    <hr/>
+  </details>
+- <details>
+    <summary>When is a finalizer called?</summary>
+    <hr/>
+    The garbage collector calls a finalizer:
+    1. **At the end of the program** execution, destroying all instances related to the program.
+    2. **During the program** execution if it finds unreferenced instances.
+    3. **Explicitly** when the garbage collector is forced to run using the GC.Collect() method.
+    <hr/>
+  </details>
+- <details>
+    <summary>Should you force the garbage collector to run using `GC.Collect()`?</summary>
+    <hr/>
+    Generally, **no**. Forcing the garbage collector to run can cause **performance issues**, as it suspends program execution while reclaiming memory.
+    <hr/>
+  </details>
+- <details>
+    <summary>How does the garbage collector handle instances marked as unused?</summary>
+    <hr/>
+     When instances are marked as unused (e.g., by assigning them to `null`), the garbage collector can reclaim their memory and call the finalizer to destroy them.
+    <hr/>
+  </details>
+- <details>
+    <summary>What is the execution order of constructors and finalizers in an inheritance chain?</summary>
+    <hr/>
+    - **Constructors** are called in a **top-to-bottom hierarchy** (parent first, then child).
+
+    - **Finalizers** are called in a **bottom-to-top** hierarchy (child first, then parent).
+    <hr/>
+  </details>
+- <details>
+    <summary>How does memory management differ in C# compared to languages like C++?</summary>
+    <hr/>
+     In C#, **memory management** is handled by the **.NET Garbage** Collector, which automatically manages memory allocation and release. In contrast, languages like C++ require manual memory management. Finalizers are primarily used in C# to handle **unmanaged resources** (e.g., files, databases, network connections).
+    <hr/>
+  </details>
+- <details>
+    <summary>Can you give an example program that demonstrates how a finalizer works?</summary>
+    <hr/>
+    
+    ```c#
+    internal class DestDemo1
+    {
+        public DestDemo1() => Console.WriteLine("Instance1 is created.");
+        
+        ~DestDemo1() => Console.WriteLine("Instance1 is destroyed.");
+    
+        static void Main(string[] args)
+        {
+            DestDemo1 d1 = new DestDemo1();
+            DestDemo1 d2 = new DestDemo1();
+            DestDemo1 d3 = new DestDemo1();
+            // d1 = null; d3 = null; GC.Collect();
+            Console.ReadLine();
+        }
+    }
+    
+    ```
+
+    Output (before ReadLine): 3 constructors called.
+    Output (after ReadLine): 3 finalizers called as program ends.
     <hr/>
   </details>
 - <details>
-    <summary></summary>
+    <summary>What happens when you explicitly call the garbage collector (GC.Collect())?</summary>
     <hr/>
-    <p></p>
+    If you uncomment `d1 = null; d3 = null; GC.Collect();` in the example code, the garbage collector will immediately destroy the first and third instances **before** the program ends, while the second instance is destroyed at the end of the program.
     <hr/>
   </details>
 - <details>
-    <summary></summary>
+    <summary>How do finalizers and inheritance work?</summary>
     <hr/>
-    <p></p>
+    When a child class is destroyed, its finalizer is called first, followed by the finalizer of the parent class. Example:
+
+    ```c#
+    internal class DestDemo2 : DestDemo1
+    {
+        public DestDemo2() => Console.WriteLine("Instance2 is created.");
+        
+        ~DestDemo2() => Console.WriteLine("Instance2 is destroyed.");
+    
+        static void Main() {
+            DestDemo2 obj = new DestDemo2();
+            Console.ReadLine();
+        }
+    }
+    
+    ```
+
+    **Output**: Child instance destroyed first, then the parent instance.
+
     <hr/>
   </details>
 - <details>
-    <summary></summary>
+    <summary>Why are finalizers important when dealing with unmanaged resources?</summary>
     <hr/>
-    <p></p>
+    Finalizers are necessary for cleaning up **unmanaged resources** (files, database connections, etc.) that are not automatically managed by the .NET garbage collector.
     <hr/>
   </details>
 - <details>
-    <summary></summary>
+    <summary>What is a property in C#?</summary>
     <hr/>
-    <p></p>
+    A **property** is a member of a class that provides a **flexible mechanism** to read, write, or compute the value of a **private field**. It works like a public field but uses special methods called **accessors** (get and set).
     <hr/>
   </details>
 - <details>
-    <summary></summary>
+    <summary>How can you expose a private field's value to the outside of a class?</summary>
     <hr/>
-    <p></p>
+    You can expose a private field's value by defining a property for it. This property can give access to the value in three ways:
+
+    1. Read-only (only get access).
+    2. Write-only (only set access).
+    3. Read/Write (both get and set access).
     <hr/>
   </details>
 - <details>
-    <summary></summary>
+    <summary>What is the syntax to define a property in C#?</summary>
     <hr/>
-    <p></p>
+    ```c#
+    [<modifiers>] <type> Name
+    {
+        [ get { /* statements */ } ]  // Get Accessor
+        [ set { /* statements */ } ]  // Set Accessor
+    }
+    ```
+
+    - The get accessor is used to read a value.
+    - The set accessor is used to assign a value.
     <hr/>
   </details>
 - <details>
-    <summary></summary>
+    <summary>What is the purpose of the get and set accessors?</summary>
     <hr/>
-    <p></p>
+    - The `get` accessor **returns the value** of a private field. It behaves like a value-returning method.
+
+    - The `set` accessor **assigns a new value** to a private field. It has an implicit parameter called `value`, which refers to the value being assigned.
     <hr/>
   </details>
 - <details>
-    <summary></summary>
+    <summary>What are the different types of properties in terms of accessors?</summary>
     <hr/>
-    <p></p>
+    1. Read-only property: Only has a get accessor.
+    2. Write-only property: Only has a set accessor.
+    3. Read/Write property: Has both get and set accessors.
+
     <hr/>
   </details>
 - <details>
-    <summary></summary>
+    <summary>Can a property have different access modifiers for the get and set accessors?</summary>
     <hr/>
-    <p></p>
+    Yes, the `get` and `set` accessors of a property can have **different access modifiers**. For example, `get` can be public, and `set` can be private or protected, controlling how the property can be accessed outside the class.
     <hr/>
   </details>
 - <details>
-    <summary></summary>
+    <summary>Can a property be declared as static?</summary>
     <hr/>
-    <p></p>
+    Yes, a property can be declared as static by using the static keyword. A static property is available to callers at any time, even if no instance of the class exists.
     <hr/>
   </details>
 - <details>
-    <summary></summary>
+    <summary>Can a property be virtual or abstract?</summary>
     <hr/>
-    <p></p>
+    - A property can be declared virtual using the virtual keyword, allowing derived classes to override it.
+    - A property can also be abstract using the abstract keyword, which means derived classes must provide their own implementation.
     <hr/>
   </details>
 - <details>
-    <summary></summary>
+    <summary>What is an auto-implemented property?</summary>
     <hr/>
-    <p></p>
+    An auto-implemented property (introduced in C# 3.0) allows you to declare a property without writing explicit code for the field, `get`, or `set` accessors:
+    ```c#
+    public string Country { get; private set; }
+    ```
     <hr/>
   </details>
 - <details>
-    <summary></summary>
+    <summary>What is an auto property initializer?</summary>
     <hr/>
-    <p></p>
+    An **auto property initializer** (introduced in C# 6.0) allows a property to be initialized with a value at declaration:
+
+    ```c#
+    public string Continent { get; } = "Asia";
+    ```
+
+    This initializes the `Continent` property to "Asia" and makes it read-only.
     <hr/>
   </details>
 - <details>
-    <summary></summary>
+    <summary>What does the value keyword do in the set accessor?</summary>
     <hr/>
-    <p></p>
+    The `value` keyword represents the value assigned to the property in the `set` accessor. It acts like an input parameter of a method, referencing the value that client code is trying to assign to the property.
     <hr/>
   </details>
 - <details>
-    <summary></summary>
+    <summary>Can properties be used with enumerations?</summary>
     <hr/>
-    <p></p>
+    Yes, properties can be used with enumerations. For example, you can define a property of an enumerated type like Cities:
+
+    ```c#
+    public enum Cities
+    {
+    Bengaluru, Chennai, Delhi, Hyderabad, Kolkata, Mumbai
+    }
+    public Cities City { get; set; }
+    ```
+
+    Or
+
+    ```c#
+    public enum Cities
+    {
+    Bengaluru, Chennai, Delhi, Hyderabad, Kolkata, Mumbai
+    }
+
+    private string _city;
+
+    public Cities City
+    {
+      get { return _City; }
+      set
+      {
+        if(_Status)
+        {
+          _City = value;
+        }
+      }
+    }
+    ```
+    <hr/>
+  </details>
+- <details>
+    <summary>How do you create a read-only property?</summary>
+    <hr/>
+    A read-only property only has a get accessor:
+    ```c#
+    public int Custid
+    {
+        get { return _Custid; }
+    }
+    ```
+    <hr/>
+  </details>
+- <details>
+    <summary>Can the accessors of a property have conditions?</summary>
+    <hr/>
+     **Yes**, both `get` and `set` accessors can have conditions. For example, restricting access based on a status:
+
+     ```c#
+     public string Name
+     {
+         get { return _Name; }
+         set { if (_Status) _Name = value; }
+     }
+     ```
+    <hr/>
+  </details>
+- <details>
+    <summary>Can a property have different access levels for get and set?</summary>
+    <hr/>
+    Yes, you can define a property where get is public and set is protected or private. For example:
+
+    ```c#
+    public string State
+    {
+        get { return _State; }
+        protected set { if (_Status) _State = value; }
+    }
+    ```
+    <hr/>
+  </details>
+- <details>
+    <summary>Give me example using property with condition, access level, enumerations and etc?</summary>
+    <hr/>
+    ```c#
+    public class Customer
+    {
+        int _Custid;
+        bool _Status;
+        string _Name, _State;
+        double _Balance;
+        Cities _City;
+
+        public Customer(int Custid)
+        {
+            _Custid = Custid;
+            _Status = false;
+            _Name = "John";
+            _Balance = 5000.00;
+            _City = 0;
+            _State = "Karnataka";
+            Country = "India";
+        }
+
+        // Read-Only Property
+        public int Custid
+        {
+            get { return _Custid; }
+        }
+
+        // Read-Write Property
+        public bool Status
+        {
+            get { return _Status; }
+            set { _Status = value; }
+        }
+
+        // Read-Write Property with a condition in Set
+        public string Name
+        {
+            get { return _Name; }
+            set { if (_Status) _Name = value; }
+        }
+
+        // Read-Write Property with conditions in Get & Set
+        public double Balance
+        {
+            get { return _Status ? _Balance : 0; }
+            set { if (_Status && value >= 500) _Balance = value; }
+        }
+
+        // Enumerated Property
+        public Cities City
+        {
+            get { return _City; }
+            set { if (_Status) _City = value; }
+        }
+
+        // Read-Write Property with different access modifiers for Get/Set
+        public string State
+        {
+            get { return _State; }
+            protected set { if (_Status) _State = value; }
+        }
+
+        // Auto-Implemented Property
+        public string Country { get; private set; }
+
+        // Read-Only Property with initializer
+        public string Continent { get; } = "Asia";
+    }
+    ```
+
+    **Note**: The contextual keyword value is used in the set accessor in ordinary property declarations. It is like an input parameter of a method. The word value references the value that client code is attempting to assign to the property.
+
     <hr/>
   </details>
 - <details>

@@ -91,13 +91,19 @@
 - **Model:** The Controller uses the Model to fetch, update and manuplate data performing any needed calculations or data processing.
 - **Controller:** The Controller selects a View to display the data from the Model to the user in a clear and understandable format
 
+<img src="MVC.png" alt="Sample Image" width="100%" height="400">
+
 ---
 
 ### Q. What is the history of the MVC pattern?
 
 ---
 
-- The MVC pattern was first introduced by Trygve Reenskaug in the 1970s while working on Smalltalk-76 at Xerox Palo Alto Research Center. In the 1980s, Jim Althoff and others implemented a version of MVC for the Smalltalk-80 class library. Initially, it was used for desktop applications, but it later became popular for designing web and mobile applications.
+- The MVC architecture pattern was first introduced by Trygve Reenskaug in the 1970s while working on Smalltalk-76 at Xerox Palo Alto Research Center. In the 1980s, Jim Althoff and others implemented a version of MVC for the Smalltalk-80 class library.
+
+- Starting MVC developed for Desktop GUI's.
+- Later MVC popular for desining web Applications, Mobile & other clients.
+- Currently being used in Web Application development.
 
 ---
 
@@ -157,11 +163,18 @@ Diffrence(अंतर) Diffrenciate(तुलना)
 
 ---
 
+## **`ASP.NET MVC 5`**
+
 ### Q. What is the last version of ASP.NET MVC on the .NET Framework, and what version came after it?
 
 ---
 
 - The last version of ASP.NET MVC on the .NET Framework is ASP.NET MVC 5. The next version was initially named MVC 6, but it was later renamed to ASP.NET Core MVC and was built to run on the .NET Core platform, which is cross-platform and offers improved performance and modularity.
+
+- **ASP.Net MVC**: December 2007 (ASP.NET MVC CTP) to June 2022 (ASP.Net MVC 5.2.9) last version.
+- **ASP.Net Core MVC**: August 2016 (ASP.NET Cpre MVC 1.0) to November 2023 (ASP.Net Core MVC 8.0) last version.
+
+- No Seperate version for ASP.Net core. it same as .Net Core version.
 
 ---
 
@@ -579,6 +592,8 @@ namespace MyController.Controllers
 
 ---
 
+- Open it in Administrator mode
+
 - To host a web application in IIS from Visual Studio, open Solution Explorer, right-click on the project, and select Properties. In the Project Property Window, select Web from the left-hand side (LHS). Under the Servers section, change the dropdown value from IIS Express to Local IIS. Click on the Create Virtual Directory button to deploy the application in IIS, then save the changes.
 
 ---
@@ -910,8 +925,7 @@ public ActionResult Index(Person person)
 
 The person object will automatically bind to form fields or query parameters like person.Name and person.Age.
 
-<li>Request Body (JSON/XML Data): discus latter
-</ol>
+- Request Body (JSON/XML Data): discus latter
 
 ---
 
@@ -972,7 +986,221 @@ public string Index6(string Id)
 {
 return "The value of id is: " + Id;
 }
+
+//Passing value to Id is mandatory and Name is optional
+public string Index7(int Id, string Name)
+{
+return $"Value of Id is: {Id} and value of Name is: {Name}";
+}
+//Passing values to Id and Name are optional
+public string Index8(int? Id, string Name)
+{
+return $"Value of Id is: {Id} and value of Name is: {Name}";
+}
+
 ```
+
+- `Execute the above methods as following:`
+
+  - `IIS Express`:
+  - http://localhost:port/Params/Index1 //Invalid
+  - http://localhost:port/Params/Index1/100 //Valid
+  - http://localhost:port/Params/Index2 //Valid, but value of id is 0
+  - http://localhost:port/Params/Index2/200 //Valid
+  - http://localhost:port/Params/Index3 //Valid, but value of id is null
+  - http://localhost:port/Params/Index3/300 //Valid
+  - http://localhost:port/Params/Index4 //Invalid because there is no value for x
+  - http://localhost:port/Params/Index4/400 //Invalid because the value is not taken to x
+  - http://localhost:port/Params/Index5 //Valid and the value for x is null
+  - http://localhost:port/Params/Index5/500 //Valid, but now also the value for x is null only
+  - http://localhost:port/Params/Index6 //Valid and value of Id is null
+  - http://localhost:port/Params/Index6/Hello //Valid and value of Id is Hello
+  - http://localhost:port/Params/Index6/600 //Valid and value of Id is 600
+  - http://localhost:port/Params/Index6/true //Valid and value of Id is true
+  - http://localhost:port/Params/Index6/34.56 //Invalid, because of the special character decimal
+  - http://localhost:port/params/Index7 //Invalid because Id is mandatory parameter
+  - http://localhost:port/params/Index7/700 //Valid, in this case Name will be null value
+  - http://localhost:port/params/Index7/700/Raju //Valid
+  - http://localhost:port/Params/Index7/Raju/700 //Invalid because parameter values not in order
+  - http://localhost:port/Params/Index7?Id=700&Name=Raju //Valid, as we are passing values by specifying names
+  - http://localhost:port/Params/Index7?Name=Raju&Id=700 //Valid, as we are passing values by specifying names
+  - http://localhost:port/params/Index8 //Valid, in this case Id & Name will be null value
+  - http://localhost:port/params/Index8/800 //Valid, in this case Name will be null value
+  - http://localhost:port/params/Index8/800/Raju //Valid
+  - http://localhost:port/Params/Index8/Raju/800 //Valid, in this case id will be null value
+  - http://localhost:port/Params/Index8?Name=Raju //Valid, in this case id will be null value
+  - http://localhost:port/Params/Index8?Id=800&Name=Raju //Valid, as we are passing values by specifying names
+  - http://localhost:port/Params/Index8?Name=Raju&Id=800 //Valid, as we are passing values by specifying names
+
+  - `Local IIS`:
+  - http://localhost/MVCTestProject3/Params/Index1 //Invalid
+  - http://localhost/MVCTestProject3/Params/Index1/100 //Valid
+  - http://localhost/MVCTestProject3/Params/Index2 //Valid, but value of id is 0
+  - http://localhost/MVCTestProject3/Params/Index2/200 //Valid
+  - http://localhost/MVCTestProject3/Params/Index3 //Valid, but value of id is null
+  - http://localhost/MVCTestProject3/Params/Index3/300 //Valid
+  - http://localhost/MVCTestProject3/Params/Index4 //Invalid because there is no value for x
+  - http://localhost/MVCTestProject3/Params/Index4/400 //Invalid because the value is not taken to x
+  - http://localhost/MVCTestProject3/Params/Index5 //Valid and the value for x is null
+  - http://localhost/MVCTestProject3/Params/Index5/500 //Valid, but now also the value for x is null only
+  - http://localhost/MVCTestProject3/Params/Index6 //Valid and value of Id is null
+  - http://localhost/MVCTestProject3/Params/Index6/Hello //Valid and value of Id is Hello
+  - http://localhost/MVCTestProject3/Params/Index6/600 //Valid and value of Id is 600
+  - http://localhost/MVCTestProject3/Params/Index6/true //Valid and value of Id is true
+  - http://localhost/MVCTestProject3/Params/Index6/34.56 //Invalid, because of the special character decimal
+  - http://localhost/MVCTestProject3/params/Index7 //Invalid because Id is mandatory parameter
+  - http://localhost/MVCTestProject3/params/Index7/700 //Valid, in this case Name will be null value
+  - http://localhost/MVCTestProject3/params/Index7/700/Raju //Valid
+  - http://localhost/MVCTestProject3/Params/Index7/Raju/700 //Invalid because parameter values not in order
+  - http://localhost/MVCTestProject3/Params/Index7?Id=700&Name=Raju//Valid
+  - http://localhost/MVCTestProject3/Params/Index7?Name=Raju&Id=700 //Valid
+  - http://localhost/MVCTestProject3/params/Index8 //Valid
+  - http://localhost/MVCTestProject3/params/Index8/800 //Valid
+  - http://localhost/MVCTestProject3/params/Index8/800/Raju //Valid
+  - http://localhost/MVCTestProject3/Params/Index8/Raju/800 //Valid
+  - http://localhost/MVCTestProject3/Params/Index8?Name=Raju //Valid
+  - http://localhost/MVCTestProject3t/Params/Index8?Id=800&Name=Raju //Valid
+  - http://localhost/MVCTestProject3/Params/Index8?Name=Raju&Id=800 //Valid
+
+---
+
+### Q. How to pass value in method using Query string?
+
+---
+
+```c#
+public string Index9(int Pid, string Pname, double Price)
+{
+  return $"Pid: {Pid}; Pname: {Pname}; Price: {Price}";
+}
+```
+
+Now run the application by using the following URL:
+
+**IIS Express:**
+
+- http://localhost:port/Params/Index9/101/Shoes/3500 //Invalid
+- http://localhost:port/Params/Index9?Pid=101&Pname=Shoes&Price=3500 //Valid
+- http://localhost:port/Params/Index9?Pname=Shoes&Price=3500&Pid=101 //Valid
+- http://localhost:port/Params/Index9?Price=3500&Pid=101&Pname=Shoes //Valid
+
+**Local IIS:**
+
+- http://localhost/MVCTestProject3/Params/Index9/101/Shoes/3500 //Invalid
+- http://localhost/MVCTestProject3/Params/Index9?Pid=101&Pname=Shoes&Price=3500 //Valid
+- http://localhost/MVCTestProject3/Params/Index9?Pname=Shoes&Price=3500&Pid=101 //Valid
+- http://localhost/MVCTestProject3/Params/Index9?Price=3500&Pid=101&Pname=Shoes //Valid
+
+---
+
+### Q. Is that posible to pass pass value without defining the parameters to an action method wusing querystring? If yes then How?
+
+---
+
+```C#
+public string Index10()
+{
+  int Pid = int.Parse(Request.QueryString["Pid"]);
+  string Pname = Request.QueryString["Pname"];
+  double Price = double.Parse(Request.QueryString["Price"]);
+  return $"Pid: {Pid}; Pname: {Pname}; Price: {Price}";
+}
+```
+
+In this case, this type of example is not related to `RouteConfig`, not mendatry to write parameter name or define parameter.
+
+Now run the application by using the following URL:
+
+**IIS Express:**
+
+- http://localhost:port/Params/Index10 //Invalid
+- http://localhost:port/Params/Index10/101/Shoes/3500 //Invalid
+- http://localhost:port/Params/Index10?Pid=101&Pname=Shoes&Price=3500 //Valid
+- http://localhost:port/Params/Index10?Pname=Shoes&Price=3500&Pid=101 //Valid
+- http://localhost:port/Params/Index10?Price=3500&Pid=101&Pname=Shoes //Valid
+
+**Local IIS:**
+
+- http://localhost/MVCTestProject3/Params/Index10 //Invalid
+- http://localhost/MVCTestProject3/Params/Index10/101/Shoes/3500 //Invalid
+- http://localhost/MVCTestProject3/Params/Index10?Pid=101&Pname=Shoes&Price=3500 //Valid
+- http://localhost/MVCTestProject3/Params/Index10?Pname=Shoes&Price=3500&Pid=101 //Valid
+- http://localhost/MVCTestProject3/Params/Index10?Price=3500&Pid=101&Pname=Shoes //Valid
+
+---
+
+### Q. What is the diffrence bitween this three method?
+
+```C#
+public string Index10()
+{
+  int Pid = int.Parse(Request.QueryString["Pid"]);
+  string Pname = Request.QueryString["Pname"];
+  double Price = double.Parse(Request.QueryString["Price"]);
+  return $"Pid: {Pid}; Pname: {Pname}; Price: {Price}";
+}
+```
+
+```c#
+public string Validate1()
+{
+  string Name = Request["Name"];
+  string Pwd = Request["Pwd"];
+  if (Name == "Raju" && Pwd == "Admin")
+    return "Valid User";
+  else
+    return "Invalid User";
+}
+
+IIS Express:
+http://localhost:port/Params/Validate1?Name=Raju&Pwd=Admin //Valid
+http://localhost:port/Params/Validate1?Pwd=Admin&Name=Raju //Valid
+
+Local IIS:
+http://localhost/MVCTestProject3/Params/Validate1?Name=Raju&Pwd=Admin //Valid
+http://localhost/MVCTestProject3/Params/Validate1?Pwd=Admin&Name=Raju //Valid
+```
+
+```c#
+public string Validate2(string Name, string Pwd)
+{
+  if (Name == "Raju" && Pwd == "Admin")
+    return "Valid User";
+  else
+    return "Invalid User";
+}
+
+IIS Express:
+http://localhost:port/Params/Validate2?Name=Raju&Pwd=Admin //Valid
+http://localhost:port/Params/Validate2?Pwd=Admin&Name=Raju //Valid
+
+Local IIS:
+http://localhost/MVCTestProject3/Params/Validate2?Name=Raju&Pwd=Admin //Valid
+http://localhost/MVCTestProject3/Params/Validate2?Pwd=Admin&Name=Raju //Valid
+```
+
+---
+
+**Index10() Method:**
+
+- Uses Request.QueryString to fetch parameters (Pid, Pname, Price) exclusively from the URL `query string` (e.g., ?Pid=101&Pname=Shoes&Price=3500).
+- Do not rely depend on the `RouteConfig` file since they extract data directly from the Request object. It's not depend for parameter on the `RouteConfig` file.
+
+**Validate1() Method:**
+
+- Uses Request["Name"] and Request["Pwd"] to `get data from either the query string or form data`.
+- This is more flexible in terms of input sources since it can handle both URL query strings and form submissions.
+- No parameters are passed directly to the method; it relies on Request to retrieve data.
+- Do not rely depend on the `RouteConfig` file since they extract data directly from the Request object. It's not depend for parameter on the `RouteConfig` file.
+
+**Validate2() Method:**
+
+- Takes parameters directly (Name, Pwd) as method arguments, making it more explicit.
+- Relies on Model Binding in ASP.NET MVC to pass parameters to the method.
+- It is a cleaner way to handle input since it does not access Request directly.
+- Fully Depends on the RouteConfig file for defining how URL segments map to its method parameters. It's fully depend for parameter on the `RouteConfig` file.
+
+---
 
 ### Q. What happens if a route parameter is not provided for an action method that requires it?
 
@@ -993,6 +1221,14 @@ return "The value of id is: " + Id;
 
 ---
 
+### Q. What ia Action method?
+
+---
+
+The methods that we defined under the Controller class for performing user interactions are known as Action methods i.e., users will directly call these methods for performing actions.
+
+---
+
 ### Q. What should you do if you encounter an error when accessing a URL with missing parameters?
 
 ---
@@ -1001,163 +1237,4520 @@ return "The value of id is: " + Id;
 
 ---
 
-### Q.
+## **`Views`**
+
+### Q. What are the rules follow for defining the action method?
 
 ---
 
-- ***
+1. Action methods must be public, so every public method in a Controller class is an Action method only.
+2. Action methods cannot be static because behind the screen instance of the Controller class is used for calling
+   the Action methods.
+3. It is not suggested to overload Action methods, but if required we can still do that by decorating the method with “ActionName” attribute.
+
+```C#
+[ActionName("SayHello1")]
+public string SayHello()
+{
+  return "Hello how are you?";
+}
+[ActionName("SayHello2")]
+public string SayHello(string Name)
+{
+  return "Hello " + Name + " how are you?";
+}
+
+//Note: In the above case, we must call the method using the custom "ActionName" defined, not the original method name. To test this, define the methods inside the `ParamsController` class, and call them using the custom names provided.
+
+//We can execute the above methods following:
+http://localhost/MVCTestProject3/Params/SayHello1
+http://localhost/MVCTestProject3/Params/SayHello2?Name=Raju
+
+```
+
+4. If we want to define any non-action methods in a controller class, make sure they are not public or else decorate them with “NonAction” attribute and in this case when we try to access those methods from browser we get “404 Not Found” error.
+
+```c#
+<private or internal or protected or private protected or protected internal> string Display()
+{
+  return "Non-Action Method";
+}
+//Or
+[NonAction]
+public string Display()
+{
+  return "Non-Action Method";
+}
+```
+
+5. Action methods are generally value returning and very importantly in an MVC Application - Action Methods return type is an “ActionResult”, where “ActionResult” is a class type and under this class there are a set of child classes and we call all those classes as Action Result’s only, and we can use any of those child classes as a
+   return type of our Action method.
+
+**List of ActionResult child classes is:**
+
+<ul>
+<li>ActionResult
+<ol>
+<li>FileResult
+  <ul>
+    <li>FilePathResult</li>
+    <li>FileStreamResult</li>
+    <li>FileContentResult</li>
+  </ul>
+</li>
+<li>JsonResult</li>
+<li>ViewResult</li>
+<li>EmptyResult</li>
+<li>ContentResult</li>
+<li>RedirectResult</li>
+<li>JavaScriptResult</li>
+<li>PartialViewResult</li>
+<li>HttpStatusCodeResult</li>
+<li>RedirectToRouteResult</li>
+</ol>
+</li>
+</ul>
+
+**General signature of an Action method will be as following:**
+
+```C#
+ public <ActionResult> <Name>( [<Parameter List>] )
+ {
+   -Implement all the required logic here
+   -return an ActionResult
+ }
+ //Note: The main ActionResult of an action method is ViewResult. A  View in an MVC application is the UI containing the presentation  logic. Its file extension is .cshtml for C# and .vbhtml for VB.NET.
+
+```
+
+6. An Action method to return an “ActionResult”, we are provided with a set of methods known as “HelperMethods” and these helper methods are defined under Controller class, which is the parent or base class for
+   all the controllers we define.
+
+| **Helper Method**                  | **Action Result**     | **Description**                                                                                                          |
+| ---------------------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| File                               | FileResult            | Represents a class that is used to send file content as response.                                                        |
+| Json                               | JsonResult            | Represents a class that is used to send JSON-Formatted content as response                                               |
+| View                               | ViewResult            | Sends a view as response                                                                                                 |
+| ---                                | EmptyResult           | Represents a result that does nothing, such as controller action method which returns void.                              |
+| Content                            | ContentResult         | Represents a user-defined content type, which is sent as a response                                                      |
+| Redirect                           | RedirectResult        | Controls the processing of application’s action method by redirecting to a specified URI.                                |
+| JavaScript                         | JavaScriptResult      | Sends JavaScript content as a response (currently this is not supported by the modern browsers and removed in MVC Core). |
+| PartialView                        | PartialViewResult     | Sends a partial view as response.                                                                                        |
+| HttpNotFound                       | HttpStatusCodeResult  | Provides a way to return an action result with a specific HTTP Status Code and Description.                              |
+| RedirectToRoute / RedirectToAction | RedirectToRouteResult | Represents a result that performs a redirection to an action method by using the specified route values dictionary       |
+
+**Note:** The helper methods are defined in the under the Controller class (ie: `ParamsController.cs`). To view the pre-defined Controller class and its metadata, right-click on the Controller class in ParamsController.cs and select "Go to Definition."
 
 ---
 
-### Q.
+### Q. What is the role of the "Views" folder in an MVC application?
 
 ---
 
-- ***
+- The View Folder contain Ui components for presenting data to users and accepting user input. Each controller has its own folder under "Views" to store its related views. For example, an EmployeeController will have a corresponding Employee folder under "Views" for its views.
+
+- If a controller is added using scaffolding, the associated folder for its views is created automatically. For manually added controllers, you must create the folder yourself. Additionally, a "Shared" folder can be used for views that are common to multiple controllers.
 
 ---
 
-### Q.
+### Q. What does a View contain in an ASP.NET MVC application?
 
 ---
 
-- ***
+A View contains presentation code that combines C# or VB with HTML, and can also include CSS and JavaScript. The View's logic is processed and converted into HTML through a process called "Rendering."
 
 ---
 
-### Q.What is the difference between ASP.NET MVC and ASP.NET Core MVC?
+### Q. What is rendering in ASP.NET MVC?
 
 ---
 
-- ASP.NET MVC: Works only on the .NET Framework and has its versions listed from ASP.NET MVC 1.0 (2009) to ASP.NET MVC 5.2.9 (2022).
-- ASP.NET Core MVC: Designed to work on the newer .NET Core platform, providing cross-platform capabilities and modern web development tools. Its versions range from ASP.NET Core MVC 1.0 (2016) to ASP.NET Core MVC 8.0 (2023).
+Rendering is the process where the server-side logic is converted into HTML text, which is then sent to the client. This allows for consistent display of content across different devices and browsers.
 
 ---
 
-### Q. Why are there different versions for ASP.NET MVC and ASP.NET Core MVC?
+### Q. What are the two View Engines available in ASP.NET MVC?
 
 ---
 
-- ASP.NET MVC is designed for the .NET Framework, which is mainly used on Windows, while ASP.NET Core MVC is designed to work on the .NET Core platform, which supports cross-platform development. The different versions represent updates, improvements, and new features.
+**The two View Engines are:**
+
+1. **Web Forms Engine :**
+
+- Introduced with MVC 2008.
+- Uses .aspx.cs or .aspx.vb extensions.
+- Coding style similar to ASP.NET Web Forms.
+- Sample Web Form page with for loop:
+
+```C#
+<%
+  for(int i=1;i<=10;i++)
+  {%>
+    <h3>Hello World</h3>
+  <%
+  }
+%>
+```
+
+2. **Razor Engine**
+
+- Introduced in MVC 3.0.
+- Uses .cshtml or .vbhtml extensions.
+- Recommended for its advanced features and easier syntax.
+- Supports embedding HTML with C# or VB code.
+- Sample Razor page with for loop:
+
+```c#
+@{
+  for(int i=1;i<=10;i++)
+  {
+    <h3>Hello World</h3>
+  }
+}
+```
+
+Apart from the above 2 View Engines, ASP.NET MVC also supports many other third-party View Engines also like “NHaml”, “Brail”, “NDjango”, “Spark”, “Hasic”, etc.
 
 ---
 
-### Q. What is the significance of the MVC pattern for modern development?
+### Q. How do you create and use Action methods and Views in an ASP.NET MVC application?
 
 ---
 
-- The MVC pattern helps organize code into three distinct components: Models, Views, and Controllers. This separation makes it easier to manage, maintain, and scale applications, which is why it is widely used in web development frameworks today.
+1. Creating Action Methods:
+
+**Define:** Add controller class (ie: `HomeController.cs`) in controller folder. Define method and return type is `ViewResult`.
+
+```C#
+public ViewResult Index()
+{
+    return View();
+}
+public ViewResult Register()
+{
+    return View();
+}
+
+public ViewResult Login()
+{
+    return View();
+}
+```
+
+- HomeController is bydefault controll wich run first according to you requirement you can change.
+
+2. Adding Views:
+   **Folder Structure:** Views are placed under the Views folder, with a subfolder for each Controller (e.g., Views/Home for HomeController).
+   **Creating Views:** Right click on method name select Add View select MVC 5 View click on Add then Select Empty(without model) Template and uncheak all checkbox and click on Add. Or another way to create view Go to Home folder whic is in View folder write click > click Add > click view then create view. Use normal html to create view.
+
+- `Index View`: Create `Index.cshtml` with links to other views =.
+- `Register View`: Create `Register.cshtml` with a registration form.
+- `Login View`: Create `Login.cshtml` with a login form.
+
+Write this code inside the div:
+`Index View`
+
+```html
+<h1 style="text-align:center;color:red;text-decoration:underline">
+  Naresh I Technologies
+</h1>
+<h2>Click on the links below to navigate:</h2>
+<h3>
+  <a href="/Home/Register">Register</a> <br />
+  <a href="/Home/Login">Login</a> <br />
+  <a href="/Home/ForgotPassword">Forgot Password</a><br />
+  <a href="/Home/ResetPassword">Reset Password</a><br />
+  <a href="/Home/Contact">Contact Us</a><br />
+  <a href="/Home/Mission">Mission</a><br />
+  <a href="/Home/About">About Us</a><br />
+</h3>
+```
+
+`Register View`
+
+```html
+<h1 style="text-align:center;color:red;text-decoration:underline">
+  Naresh I Technologies
+</h1>
+<h3 style="text-align:center;text-decoration:underline">Registration Page</h3>
+<table align="center">
+  <tr>
+    <td>Name:</td>
+    <td><input type="text" id="txtName" name="txtName" /></td>
+  </tr>
+  <tr>
+    <td>User Id:</td>
+    <td><input type="text" id="txtUid" name="txtUid" /></td>
+  </tr>
+  <tr>
+    <td>Password:</td>
+    <td><input type="password" id="txtPwd" name="txtPwd" /></td>
+  </tr>
+  <tr>
+    <td>Confirm Password:</td>
+    <td><input type="password" id="txtCPwd" name="txtCPwd" /></td>
+  </tr>
+  <tr>
+    <td>Mobile:</td>
+    <td><input type="tel" id="txtMobile" name="txtMobile" /></td>
+  </tr>
+  <tr>
+    <td>Email Id:</td>
+    <td><input type="email" id="txtEmail" name="txtEmail" /></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center">
+      <input type="submit" id="btnRegister" value="Register" />
+      <input type="reset" id="btnReset" value="Reset" />
+    </td>
+  </tr>
+</table>
+<h4 style="text-align:center;color:red">
+  Click here to go to <a href="/Home/Index">Home Page.</a>
+</h4>
+```
+
+`Login View`
+
+```html
+<h1 style="text-align:center;color:red;text-decoration:underline">
+  Naresh I Technologies
+</h1>
+<h3 style="text-align:center;text-decoration:underline">Login Page</h3>
+<table align="center">
+  <tr>
+    <td>User Id:</td>
+    <td><input type="text" id="txtUid" name="txtUid" /></td>
+  </tr>
+  <tr>
+    <td>Password:</td>
+    <td><input type="password" id="txtPwd" name="txtPwd" /></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center">
+      <input type="submit" id="btnLogin" value="Login" />
+      <input type="reset" id="btnReset" value="Reset" />
+    </td>
+  </tr>
+</table>
+<h4 style="text-align:center;color:red">
+  Click here to go to <a href="/Home/Index">Home Page.</a>
+</h4>
+```
+
+**Note:** While launching a View the Action method name and View name match, simply calling View() is sufficient. When they differ, specify the view name or path.
+
+---
+
+### Q. Can the Action method name and View name be different?
+
+---
+
+Yes, Action method name and View name can be different, and if they are different, we need to explicitly pass View name or path of that View as a parameter to the Helper method. To test this, add 2 new Views naming them as “ForgotPwd” and “ResetPwd”.
+
+**Example:**
+
+Create 2 View:
+`ForgotPwd.cshtml`
+
+```html
+<h1 style="text-align:center;color:red;text-decoration:underline">
+  Naresh I Technologies
+</h1>
+<div style="text-align:center;background-color:cyan">
+  Forgot your password? Enter your registered Email Id, to receive a reset
+  password link.
+  <br />
+  Email Id:
+  <input type="email" id="txtEmail" name="txtEmail" />
+  <input type="submit" id="btnSubmit" value="Submit" />
+</div>
+<h4 style="text-align:center;color:red">
+  Click here to go to <a href="/Home/Index">Home Page.</a>
+</h4>
+```
+
+`ResetPwd.cshtml`
+
+```html
+<h1 style="text-align:center;color:red;text-decoration:underline">
+  Naresh I Technologies
+</h1>
+<div style="text-align:center;background-color:cyan">
+  <h4>Reset Password</h4>
+  <table align="center">
+    <tr>
+      <td>New Password:</td>
+      <td><input type="password" id="txtPwd" name="txtPwd" /></td>
+    </tr>
+    <tr>
+      <td>Confirm Password:</td>
+      <td><input type="password" id="txtCPwd" name="txtCPwd" /></td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center">
+        <input type="submit" id="btnSubmit" value="Submit" />
+        <input type="reset" id="btnReset" value="Reset" />
+      </td>
+    </tr>
+  </table>
+</div>
+<h4 style="text-align:center;color:red">
+  Click here to go to <a href="/Home/Index">Home Page.</a>
+</h4>
+```
+
+Create controller for this View:
+
+```c#
+public ViewResult ForgotPassword()
+{
+  return View("ForgotPwd");//Use direct name when View present in Share or representing controller view folder. Another wise not work you got error.
+}
+public ViewResult ResetPassword()
+{
+  return View("~/Views/Home/ResetPwd.cshtml");//Targert the view when view is any place.
+}
+```
+
+**Note:** in the above case Action method names are not matching with View names so we are explicitly passing View name as parameter to the Action method and that can be done in any of the above 2 ways.
+
+---
+
+### Q. Is it mandatory to place the View exactly under the folder representing the Controller?
+
+---
+
+No, it is not mandatory. Views can also be placed in the "Shared" folder or representing Controller folder under the Views folder, which is a common folder for storing views that are shared across multiple controllers.
+**Example:**
+
+- Create a Contact.cshtml view in the Shared folder.
+- The View Engine will first search for the view in the controller-specific folder (e.g., Views/Home), and if not found, it will look in the Shared folder.
+
+```c#
+public ViewResult Contact()
+{
+    return View();  // Will load Contact.cshtml from Shared folder if not found in Home folder
+}
+```
+
+- If the view is placed in another folder (like Views/Test), you will need to explicitly specify the path in the Action method.
+
+```c#
+public ViewResult Mission()
+{
+    return View("~/Views/Test/Mission.cshtml");  // View path is explicitly given
+}
+```
+
+This flexibility allows for better organization and sharing of views across controllers.
+
+---
+
+### Q: What is the default View Engine in an MVC 5 Application?
+
+---
+
+The default View Engine in an MVC5 Application is **Web Form Engine**. This means if a View page exists with both `.aspx` (Web Form) and `.cshtml` (Razor) extensions, the first preference is given to the `.aspx` View.
+
+- **Testing this**: Add two Views into the `Home` folder named `About.aspx` and `About.cshtml`. By default, MVC will load the `.aspx` view first.
+- **Important Note**: Starting from MVC5, Visual Studio removed direct support for adding "Web Form Views." To add one, you must manually add an **ASP.NET Web Form** and adjust it to function as a Web Form View Page.
+
+Example of adding a Web Form (`About.aspx`):
+
+1. **Create About.aspx**:
+
+- Right-click on the `Home` folder under `Views`. Select **Add => New Item**, choose **Web Form**, and name it `About.aspx`. Write the following HTML inside the `<div>` tag:
+
+```html
+<h3 style="text-align: center">
+  About page created using Web Form View Engine.
+</h3>
+```
+
+2. **Change Inheritance**:
+
+- Open `About.aspx.cs` (right-click `About.aspx` and select **View Code**).
+- Change the class inheritance from `System.Web.UI.Page` to `System.Web.Mvc.ViewPage`.
+
+3. **Create About.cshtml**:(Razor view)
+
+- Add another view named `About.cshtml` in the same `Home` folder.Write the following HTML inside the `<div>` tag:
+
+```html
+<h3 style="text-align: center">About page created using Razor View Engine.</h3>
+```
+
+- Now go to HomeController class and add a new Action Methods in the class as following:
+
+```c#
+public ViewResult About()
+{
+    return View();
+}
+```
+
+Now launch Index View and click on the “About Page” hyper link and this will launch “About.aspx” page because by default it will search for “.aspx” pages first, whereas if we want “About.cshtml” page to be launched we need to pass the path of “About.cshtml” file as parameter to Helper method and to test that re-write code in
+“About” action method as following:
+
+```c#
+public ViewResult About()
+{
+    return View("~/Views/Home/About.cshtml");
+}
+```
+
+---
+
+### Q. How to remove `Web form engion` and use only `Razor View Engine`?
+
+---
+
+To do this, you need to either clear all View Engines and re-add the Razor View Engine or remove the Web Form View Engine. This ensures the Razor View Engine is the default.
+
+Here’s how to configure it:
+
+1. **Option 1: Clear all View Engines and add Razor View Engine**: In the Global.asax file, inside the Application_Start method, add this code:
+
+```c#
+ViewEngines.Engines.Clear();
+ViewEngines.Engines.Add(new RazorViewEngine());
+```
+
+2. **Option 2: Remove only the Web Form View Engine**: Alternatively, if you just want to remove the Web Form View Engine (but keep any others), you can do this:
+
+```c#
+ViewEngines.Engines.Remove(ViewEngines.Engines.OfType<WebFormViewEngine>().FirstOrDefault());
+```
+
+This option need `using System.Web.Mvc;` namespace.
+
+**Note:** After applying these configurations:
+
+- Action method returns View();, it will launch the .cshtml view (e.g., About.cshtml).
+- If you try to access a .aspx view explicitly by its path, it will result in an error because WebFormViewEngine has been removed.
+
+---
+
+### Q. What is MVC Action Selectors?
+
+---
+
+These are attributes that can be applied on an Action method, and they help the View Engine to select the correct Action Method to handle the request.
+
+There are 3 Action Selectors:
+
+1. ActionName
+2. NonAction
+3. ActionVerbs
+
+---
+
+### Q: What is the use of the `ActionName` attribute?
+
+---
+
+The `ActionName` attribute allows you to call an action method using a different name than its method name. It’s often used when you want to overload action methods or call them using a custom name.  
+**Example:**
+
+```csharp
+[ActionName("Launch")]
+public ViewResult LaunchViewPageLoadingDataFromDatabase()
+```
+
+---
+
+### Q: What does the `NonAction` attribute do?
+
+---
+
+The `NonAction` attribute specifies that a public method in the controller is not an action method. It cannot be invoked via a URL.
+
+**Example:**
+
+```csharp
+[NonAction]
+public string SayHello()
+```
+
+---
+
+### Q: What is the purpose of the `ActionVerbs` attribute?
+
+---
+
+The `ActionVerbs` attribute is used to handle different types of HTTP requests like `HttpGet`, `HttpPost`, `HttpPut`, etc. By default, methods handle `HttpGet` if no action verb is specified.
+
+**Example:**
+
+```csharp
+[HttpGet]
+public ViewResult Login()  // Handles GET requests
+
+[HttpPost]
+public ViewResult Login(string Name, string Password)  // Handles POST requests
+```
+
+---
+
+## **`Razor Programming`**
+
+### Q: What is Razor Engine, and when was it introduced?
+
+---
+
+Razor Engine is a view engine introduced by Microsoft from MVC 3.0 to create View Pages without using Web Forms. Razor View Pages are saved with the **“.cshtml”** extension, whereas Web Form View Pages are saved with the **“.aspx”** extension.
+
+---
+
+### Q: What is the major difference between Razor Pages and Web Form Pages?
+
+---
+
+Razor Pages provide only a **Source View** where HTML, JavaScript, CSS, and C# logic can be implemented directly. In contrast, Web Form Pages have **Design View, Source View, and Code View** and use ASP.NET server controls. Razor Pages are lightweight as they use only HTML controls and don’t maintain View State.
+
+---
+
+### Q: How do you write C# code in Razor Pages compared to Web Form Pages?
+
+---
+
+In Razor Pages, C# code is written using **`@{ ... }`** for blocks of code, whereas in Web Form Pages, C# code is written inside **`<% ... %>`** tags.
+
+---
+
+### Q: What are the three ways to write code in Razor?
+
+---
+
+The three ways to write code in Razor Pages are:
+
+1. **Single Line Statements** – For declarations and initializations.
+
+   ```csharp
+   @{ int Count = 0; }
+   ```
+
+2. **In-Line Statements** – For printing or accessing member values.
+
+   ```html
+   <h3>Value of Count is: @Count</h3>
+   ```
+
+3. **Multi-Line Statements** – For writing multiple lines of C# or HTML code.
+   ```csharp
+   @{
+      string Date = DateTime.Now.ToShortDateString();
+      <h3>Today's Date is: @Date</h3>
+   }
+   ```
+
+---
+
+### Q: How do you include HTML code in a multi-line Razor block?
+
+---
+
+HTML code can be written directly inside the Razor block without quotes, but for static text, you must either prefix it with **`@:`** or enclose it in **`<text></text>`** tags.
+
+```csharp
+@{
+   string Date = DateTime.Now.ToShortDateString();
+   @:Today's Date is: @Date
+   <text>Current Time is:</text> @Time
+}
+```
+
+---
+
+### Q: How do you write comments in Razor?
+
+---
+
+Razor comments are enclosed between **`@* Comment *@`**. C#-style single-line comments **`//`** can also be used in multi-line blocks.
+
+---
+
+### Q: How are single line statements written in Razor programming?
+
+---
+
+Single line statements in Razor are used for simple declarations or initializations of variables. They are written inside **`@{ ... }`** blocks.
+Example:
+
+```csharp
+@{ int Count = 0; }
+@{ Count += 100; }
+```
+
+---
+
+### Q: How are in-line statements used in Razor?
+
+---
+
+In-line statements are used to print the values of variables or expressions directly within the HTML. They are preceded by an **`@`** symbol.
+Example:
+
+```html
+Value of count is: @Count Value of str is: @str Obj is of type: @Obj.GetType()
+```
+
+---
+
+### Q: How do you write multi-line statements in Razor?
+
+---
+
+Multi-line statements allow for multiple lines of C# or HTML code and are enclosed in **`@{ ... }`**. HTML can be written directly in the block, but static text must be either prefixed by **`@:`** or enclosed in **`<text></text>`**.
+Example:
+
+```csharp
+@{
+string Date = DateTime.Now.ToShortDateString();
+string Time = DateTime.Now.ToShortTimeString();
+<span>Today's Date is: @Date</span> <br>
+@:Current Time is: @Time <br>
+<text>Current Time is: @Time</text>
+}
+```
+
+---
+
+### Q: How do you implement conditions (if-else) in Razor?
+
+---
+
+```csharp
+@{
+int x = 131;
+if (x % 2 == 0)
+{
+<span>@x is an even number.</span>
+}
+else
+{
+<span>@x is an odd number.</span>
+}
+}
+```
+
+---
+
+### Q: How do you implement a `for` loop in Razor?
 
 ---
 
 ```html
-Diffrence(अंतर) Diffrenciate(तुलना)
+<ol>
+  @for (int i = 0; i < Colors.Length; i++) {
+  <li>@Colors[i]</li>
+  }
+</ol>
 ```
 
-### Q. What is the diffrence bitween ASP.NET MVC and ASP.NET Core MVC?
+Or:
+
+```html
+<ol>
+  @{ for (int i = 0; i < Colors.Length; i++) {
+  <li>@Colors[i]</li>
+  } }
+</ol>
+```
 
 ---
 
-| **Feature**                 | **ASP.NET MVC**                                             | **ASP.NET Core MVC**                                                   |
-| --------------------------- | ----------------------------------------------------------- | ---------------------------------------------------------------------- |
-| **Platform**                | Runs only on Windows.                                       | Cross-platform (runs on Windows, Linux, macOS).                        |
-| **Performance**             | Slower compared to Core MVC due to older framework design.  | Faster due to lightweight and modular design.                          |
-| **Framework**               | Built on the .NET Framework.                                | Built on .NET Core, now part of the unified .NET platform.             |
-| **Versioning**              | Separate versions from .NET Framework versions.             | Shares versioning with .NET Core.                                      |
-| **Hosting**                 | Can only be hosted on IIS (Internet Information Services).  | Can be hosted on IIS, Kestrel, Docker, or self-hosted.                 |
-| **Modularity**              | Less modular; has a large, monolithic framework.            | Highly modular; supports a small, optimized runtime.                   |
-| **Dependency Injection**    | Supports Dependency Injection but with limited flexibility. | Has built-in, more flexible Dependency Injection support.              |
-| **Updates and Maintenance** | Older, no longer actively developed or maintained.          | Actively developed with new features and updates.                      |
-| **Configuration System**    | Uses XML-based configuration files like `web.config`.       | Uses a simple, code-based configuration (JSON, environment variables). |
-| **Middleware**              | Limited middleware support.                                 | Rich middleware support to handle requests in a pipeline.              |
+### Q: How do you implement a `foreach` loop in Razor?
 
 ---
 
-### Q.
+```html
+<ul>
+  @foreach (string color in Colors) {
+  <li>@color</li>
+  }
+</ul>
+```
+
+Or:
+
+```html
+<ol>
+  @{ foreach (string color in Colors) {
+  <li>@color</li>
+  } }
+</ol>
+```
 
 ---
 
-- ***
+## **`Passing values from Controller Action Methods to Views`**
+
+### Q. What are the options for passing values from controller action methods to view?
 
 ---
 
-### Q.
+- To pass values from a Controller’s Action method to a View we are provided with various options like:
+
+1. ViewData:
+2. ViewBag
+3. TempData
+4. Cookies
+5. Session
+6. Application
+7. Anonymous Types
+8. Models
+
+- ViewData, ViewBag, TempData under the ControllerBase class which is granparent of all controller class.
 
 ---
 
-- ***
+### Q. How to modify the URL structure?
 
 ---
 
-Now in the below, change the defaults as following:
+- **Old URL:** `{controller}/{action}/{id}`
+- **New URL:** `{controller}/{action}/{id}/{name}/{price}`
+- Now change the defaults also as following:
 
-85
+```c#
+defaults: new
+{
+  controller = "Home", //If you change this then default controller load in browser change
+  action = "Index", //If you change this then default controller action method load in browser change
+  id = UrlParameter.Optional, name = UrlParameter.Optional, price =   UrlParameter.Optional //If you change this then Parameter of URL  change
+}
 
-### Q.
+```
 
----
-
-- ***
-
----
-
-### Q.
-
----
-
-- ***
+- `UrlParameter.Optional`: Means paremeter is optional in URL
 
 ---
 
-### Q.
+### Q. What is ViewData and how to use it?
 
 ---
 
-- ***
+ViewData is a dictionary object used to pass data from the Controller to the View. It stores data as key-value pairs and is accessible using string keys. Data persists for a single request (from Controller to View). Once the View is rendered, the data is discarded.
+
+```c#
+// Controller
+public ActionResult Index()
+{
+    ViewData["Message"] = "Welcome to MVC!";
+    return View();
+}
+
+// View (Index.cshtml)
+<h2>@ViewData["Message"]</h2>
+```
+
+```c#
+// Controller
+public ActionResult Index()
+{
+    List<string> Colors = new List<string>() { "Red", "Blue", "Pink", "Black", "White", "Green", "Brown", "Purple" };
+    ViewData["Colors"] = Colors;
+    return View();
+}
+
+// View (Index.cshtml)
+@foreach (string color in (List<String>)ViewData["Colors"])
+{
+  <li>@color</li>
+}
+```
 
 ---
 
-### Q.
+### Q. What is ViewBag and how to use it?
 
 ---
 
-- ***
+ViewBag is a dynamic object that provides a more flexible way to pass data from the Controller to the View. It uses the dynamic keyword to store data. Data persists for a single request (Controller to View).
+
+```c#
+// Controller
+public ActionResult Index()
+{
+    ViewBag.Message = "Welcome to MVC using ViewBag!";
+    return View();
+}
+
+// View (Index.cshtml)
+<h2>@ViewBag.Message</h2>
+```
+
+```c#
+// Controller
+public ActionResult Index()
+{
+  List<string> Colors = new List<string>() { "Red", "Blue", "Pink", "Black", "White", "Green", "Purple", "Yellow" };
+  ViewBag.Colors = Colors;
+  return View();
+}
+
+// View (Index.cshtml)
+@foreach (string color in ViewBag.Colors)
+{
+  <li>@color</li>
+}
+```
 
 ---
 
-### Q.
+### Q. What is the diffrence bitween ViewData & Viewbag?
 
 ---
 
-- ***
+- ViewData vs ViewBag
+  | **Feature** | **ViewData** | **ViewBag** |
+  |-------------|--------------|--------------|
+  | **Type** | `Dictionary` (internally stored in ViewDataDictionary) | `Dynamic object` |
+  | **Data Access** | String keys (e.g., ViewData["Key"]) | Properties (e.g., ViewBag.Key) |
+  | **Compile-time checking** | No, because it's based on strings | No, because it's dynamic |
+  | **Null checking** | Must handle potential null values | Must handle potential null values |
+  | **Type Casting** | Need Un-boxing (e.g: `double Price = Convert.ToDouble(ViewData["Price"]);`) | No need Un-boxing because it's type safe |
+
+**Key Difference:** ViewBag is easier to use because of dynamic properties, while ViewData uses a dictionary-style approach. Both are available only for a single request (Controller to View).
 
 ---
 
-### Q.
+### Q. What is TempData and how to use it?
 
 ---
 
-- ***
+TempData is a dictionary used to pass data from one request to another (e.g., from one action to another or across redirects). It is stored in session until it's read or cleared. Data persists for the duration of a single subsequent request. TempData type safe.
+
+- Both ViewData Dictionary & TempData Dictionary are child classes of `IDictionary` interface which is designed for storing data in [key-value] or [name-value] combination.
+
+```c#
+// Controller
+public ActionResult Index()
+{
+    TempData["Message"] = "This is TempData!";
+    return RedirectToAction("AnotherAction");//using this
+}
+
+public ActionResult AnotherAction()
+{
+    string message = TempData["Message"] as string;
+    return View();
+}
+
+// View (AnotherAction.cshtml)
+<h2>@TempData["Message"]</h2>
+//Or
+<h2>@TempData.Message</h2>
+
+```
 
 ---
 
-### Q.
+### Q. How to redirect to another controller action method from another controller action method?
 
 ---
 
-- ***
+```c#
+public RedirectToRouteResult Index5(int? id, string name, double? price)
+{
+  TempData["Id"] = id;
+  TempData["Name"] = name;
+  TempData["Price"] = price;
+  return RedirectToAction("Index1", "Test");//Action name, Controller name
+}
+```
+
+- **RedirectToAction(string actionName)**: For same controller action method
+- **RedirectToAction(string actionName, string controllerName)**: For diffrent controller action method
 
 ---
 
-### Q.
+### Q. What is the difference between ViewData and TempData?
 
 ---
 
-- ***
+Both ViewData and TempData are used to pass data between controllers and views. However:
+
+**ViewData** is used for transferring data between the controller and the current view during a single request.
+
+**TempData** maintains data between multiple requests, but the data is cleared after it's accessed once.
 
 ---
 
-### LINQ to SQL
+### Q. What is the drawback of TempData?
+
+---
+
+Once data is accessed from TempData, it is immediately deleted and cannot be accessed in future requests. If you need to use the data across multiple requests, this can be problematic.
+
+---
+
+### Q. How can we retain TempData values across multiple requests?
+
+---
+
+**Use eithe:**
+
+- Peek Method: Retains specific values after accessing.
+  - Example: @TempData.Peek("Id")
+- Keep Method: Retains all values in TempData after access.
+  - Example: @{ TempData.Keep(); }
+
+Use in View on top.
+
+---
+
+### Q. When to use Peek vs. Keep?
+
+---
+
+**Use eithe:**
+
+- Peek: Use when you need to retain specific values.
+- Keep: Use when you need to retain all values.
+
+---
+
+### Q. What is the diffrence bitween ViewData/ViewBag & TempData?
+
+---
+
+| Feature        | ViewBag/ViewData                            | TempData                                                        |
+| -------------- | ------------------------------------------- | --------------------------------------------------------------- |
+| Scope          | Single request (Controller to View)         | Data persists across multiple requests (e.g., across redirects) |
+| Type           | ViewData: Dictionary, ViewBag: Dynamic      | Dictionary (TempDataDictionary)                                 |
+| Data Retention | Lost after the View is rendered             | Retained until read in subsequent request                       |
+| Usage Scenario | Temporary data used within the same request | Temporary data needed across requests (e.g., redirects)         |
+
+**Key Difference:** TempData persists across multiple requests, making it suitable for passing data during redirects, while ViewBag and ViewData are for single-request scenarios.
+
+---
+
+### Q. What is a Cookie?
+
+---
+
+A cookie is a small piece of text stored by the browser on a user's device. It holds user-specific information, which can be read by a web application when the user revisits the site.
+
+---
+
+### Q. How does a web server send cookies to the client?
+
+---
+
+When a user requests a webpage, the web server can send a cookie along with the page. The browser stores the cookie and sends it back to the server with subsequent requests to the same site.
+
+---
+
+### Q. Where are cookies stored?
+
+---
+
+Cookies are stored in the browser's memory or a folder on the user's hard disk. Each website or web application has its own set of cookies stored separately by the browser.
+
+**Location of Persistant Cookies:**
+
+**Microsoft Edge:** C:\Users\&ltUser&gt\AppData\Local\Microsoft\Edge\User Data\Default
+
+**Google Chrome:** C:\Users\&ltUser&gt\AppData\Local\Google\Chrome\User Data\Default
+
+---
+
+### Q. How do you write & Read a cookie on the client machine?
+
+---
+
+Use the HttpCookie class to create a cookie and add values to it like a dictionary. Then, add the cookie to the client's machine using the Response object:
+
+```c#
+HttpCookie cookie = new HttpCookie("LoginCookie");
+cookie["User"] = "Raju";
+cookie["Pwd"] = "Admin@123";
+Response.Cookies.Add(cookie);
+
+```
+
+Use the Request object to access the cookie from the client machine:
+
+```c#
+HttpCookie cookie = Request.Cookies["LoginCookie"];
+string User = cookie["User"];
+string Pwd = cookie["Pwd"];
+
+```
+
+---
+
+### Q. What are the two types of cookies?
+
+---
+
+1. In-Memory Cookies: These cookies are stored in the browser's memory and are deleted when the browser is closed. And by default every cookie is In-Memory only.
+
+2. Persistent Cookies: These cookies are saved on the user's hard drive and have an expiration date, meaning they remain even after the browser is closed. And can be accessed next time we visit the site.
+
+---
+
+### Q. How do you make cookie as persistent?
+
+---
+
+To make a cookie as persistent we need to set “Expires” property of Cookie with a “DateTime” value. `cookie.Expires = <DateTime>;`
+
+**Setting expires property of Cookie:**
+
+```c#
+public ViewResult Index6(int? Id, string Name, double? Price)
+{
+  HttpCookie cookie = new HttpCookie("ProductCookie");//cookie name is 'ProductCookie'
+  cookie["Id"] = Id.ToString();
+  cookie["Name"] = Name;
+  cookie["Price"] = Price.ToString();
+  cookie.Expires = DateTime.Now.AddDays(3);//Provide expiry time
+  Response.Cookies.Add(cookie);
+  return View();
+}
+
+```
+
+Read the cookie:-
+
+```c#
+@{
+HttpCookie cookie = Request.Cookies["ProductCookie"];
+int Id = int.Parse(cookie["Id"]);
+string Name = cookie["Name"];
+double Price = double.Parse(cookie["Price"]);
+}
+```
+
+---
+
+### Q. What are the drawbacks of cookies?
+
+---
+
+1. We can create only 50 cookies for each website, so every new cookie from the site will override the old cookie once after reaching the limit.
+2. A cookie can store only 4 K.B. of data that too of type string only.
+3. Cookies are not secured because they are stored on client machines.
+4. Because cookies are stored on client machines there is a problem like clients can either delete the cookies or even disable cookies.
+
+---
+
+### Q. How do you disable cookies in a browser?
+
+---
+
+1. Browser > Select Settings.
+2. On the left-hand side (LHS), select Cookies and site permissions.
+3. On the right-hand side (RHS), click on Manage and delete cookies and site data.
+4. Switch off the toggle button Allow sites to save and read cookie data (recommended).
+
+---
+
+### Q. How do you delete cookies in a browser?
+
+---
+
+1. Press Ctrl + Shift + Delete to open the Clear browsing data window.
+2. Select the checkbox for Cookies and other site data.
+3. Click Clear now to delete all cookies.
+
+You can also delete individual cookies by using the Manage and delete cookies and site data option.
+
+---
+
+### Q. What is a session in ASP.NET MVC?
+
+---
+
+A session in ASP.NET is a property that stores user-specific data across multiple requests. Each user has their own session that is not shared with other users. The data in a session can be accessed across actions, controllers, and views during a session's lifetime.
+
+---
+
+### Q. How do you store values in a session?
+
+---
+
+Use the Session property to store values as key-value pairs:
+
+```c#
+Session["Name"] = "Raju";
+```
+
+---
+
+### Q. How do you retrieve values from a session?
+
+---
+
+You can access the session values using the key:
+
+```c#
+string Name = Session["Name"].ToString();
+```
+
+---
+
+### Q. What is a session's scope?
+
+---
+
+Session data is specific to a single user and is accessible across all pages, controllers, and views in an application during the user's session lifetime. This makes session data "Single-User Global Data."
+
+---
+
+### Q. How is a session identified to which user it belongs to?
+
+---
+
+Each session is assigned a unique SessionId, which is stored in the client’s browser as an In-Memory Cookie. When the user makes subsequent requests, the server reads this SessionId from the cookie to associate the user with the correct session. This allows the same session to be accessed across different tabs of the same browser instance, but not in a new browser instance.
+
+---
+
+### Q. What happens to sessions if the client closes the browser?
+
+---
+
+Sessions have a default timeout of 20 minutes (sliding expiration), which means if the session is not accessed within 20 minutes, the server destroys it. This default can be changed in the Web.config file by setting the timeout attribute in the &ltsessionState&gt element:
+
+```c#
+<sessionState timeout="1" />
+```
+
+---
+
+### Q. Can a session be explicitly destroyed?
+
+---
+
+Yes, a session can be explicitly destroyed by calling the Session.Abandon() method. This is commonly done during Sign Out or Log Out operations in web applications.
+
+---
+
+### Q. Where does the web server store session values?
+
+---
+
+The server can store session values in three locations:
+
+1. **In-Proc:** Session data is stored in the memory of the web server.
+2. **State Server:** A separate server manages session data.
+3. **SQL Server:** Session data is stored in a SQL Server database, allowing for persistence across web server restarts or across multiple web servers.
+
+---
+
+### Q. What is In-Proc?
+
+---
+
+In-Proc: this is the default option used for storing Session values and in this case Session values are stored under the memory of “IIS Worker Process”. To understand about these, first host your application on “Local IIS”.
+
+---
+
+### Q. What is an IIS Worker Process?
+
+---
+
+The IIS Worker Process is a Windows process (named w3wp.exe) that runs web applications in IIS and handles incoming requests. It is tied to an Application Pool, which is a container for one or more web applications. The worker process is responsible for processing the requests and sending back responses to the client. All ASP.NET functionalities, such as session handling, run within the scope of this worker process.
+
+---
+
+### Q. What is an Application Pool?
+
+---
+
+An Application Pool is a container in IIS for one or more web applications. It isolates the applications for better security, reliability, and availability. By default, all applications run under the DefaultAppPool, but you can create separate application pools for each web app. This prevents issues in one application from affecting others.
+
+---
+
+### Q. What happens to sessions in In-Proc mode when IIS Worker Process recycles or stops?
+
+---
+
+In In-Proc mode, session data is stored in the memory of the IIS Worker Process. If the worker process recycles or is stopped (e.g., via Task Manager), all session data is lost. This means any session information (like user authentication) will be destroyed.
+
+---
+
+### Q. How do you change the Application Pool for a web application in IIS?
+
+---
+
+To change the Application Pool for a web app:
+
+1. Open IIS Manager.
+2. Under Sites, right-click on your web application.
+3. Select Manage Applications → Advanced Settings.
+4. In the window that opens, under Application Pool, click the dropdown and select the desired Application Pool (e.g., “MyPool”).
+5. Click OK to apply the change.
+
+---
+
+### Q. How do you create a new Application Pool in IIS?
+
+---
+
+To create a new Application Pool:
+
+1. In IIS Manager, under the Connections Panel, right-click on Application Pools.
+2. Select Add Application Pool.
+3. Enter a name for the new Application Pool (e.g., "MyPool") and click OK.
+4. The new Application Pool will be created and can be assigned to any web application.
+
+---
+
+### Q. How can you view the IIS Worker Process for a specific Application Pool?
+
+---
+
+You can view the IIS Worker Process in the Task Manager:
+
+1. Open Task Manager and go to the Details tab.
+2. Look for the process named w3wp.exe.
+3. In the Details section, it will show the Application Pool associated with that worker process, allowing you to identify which worker process is handling which web application.
+
+---
+
+### Q. What is the risk of using In-Proc session mode in IIS?
+
+---
+
+In In-Proc session mode, session data is stored in the IIS Worker Process memory. If the process recycles or is terminated, all session data is lost, which could result in users being logged out or losing other session-specific data. This makes In-Proc less suitable for high-availability environments or scenarios where session persistence is critical.
+
+---
+
+### Q. What is a State Server in ASP.NET?
+
+---
+
+State Server: this is separate software for storing “Session Values” which is installed when we install .NET Runtime on any machine, and it can be found in the “Services Window”.
+
+To see that go to Control Panel => Administrative
+Tools => Services and in that we find “ASP.NET State Service”.
+
+---
+
+### Q. How can I configure my application to use State Server for session management?
+
+---
+
+To configure State Server, follow these steps:
+
+1. Start the State Service:
+
+- Open Control Panel → Administrative Tools → Services.
+- Find ASP.NET State Service, right-click, and select Start.
+
+2. Update the Web.config file:
+
+- Add the <sessionState> element with mode="StateServer" and the connection string to the service:
+
+```xml
+<sessionState mode="StateServer"  stateConnectionString="tcpip=localhost:42424" />
+```
+
+- Replace "localhost" with the machine name if the service runs on a remote machine. The default port is 42424.
+
+---
+
+### Q. What does the stateConnectionString attribute represent in the Web.config file?
+
+---
+
+The stateConnectionString specifies the server and port where the ASP.NET State Service is running.
+
+- tcpip=localhost:42424: "localhost" refers to the machine running the service (can be replaced with a remote server name), and 42424 is the default port number for communication with the State Server.
+
+---
+
+### Q. What are the advantages of using State Server over In-Proc session storage?
+
+---
+
+State Server offers several advantages:
+
+1. **Session Persistence:** Since session data is stored outside the IIS Worker Process, the data remains intact even if IIS recycles or crashes.
+2. **Scalability:** It allows the session state to be shared across multiple servers (a Web Farm) by using a centralized state server.
+3. **Isolation:** Session data is isolated from the web application memory, improving reliability.
+
+---
+
+### Q. Can the State Server run on a remote machine?
+
+---
+
+Yes, the State Server can run on a remote machine. To use a remote State Server, replace "localhost" in the stateConnectionString with the name of the remote machine, while ensuring the ASP.NET State Service is running on that machine and is accessible via the specified port.
+
+---
+
+### Q. What happens if the State Server service is stopped while the application is running?
+
+---
+
+If the State Server service is stopped, the application will no longer be able to store or retrieve session data from the service. This will result in session values being lost for active sessions, and users may encounter errors or be logged out of their sessions.
+
+---
+
+### Q. How do use SQL Server to store session data in an ASP.NET application?
+
+---
+
+If “Session Mode” is set as SQL Server then Session values are stored under SQL Server Database and to use that we need to create a Database, a set of Tables and Stored Procedures. Without creating all these objects manually, we are provided with a command line tool called as “aspnet_regsql” that should be used from “Visual
+Studio Developer Command Prompt” as below:
+
+1. Run the “aspnet_regsql” tool at “VS Developer Command Prompt”, so that the required Database, Tables and Stored Procedure for maintaining Sessions will be created under SQL Server.
+
+**-S:** to specify SQL Server name.
+**-U:** to specify User Id in case of SQL Authentication.
+**-P:** to specify password in case of SQL Authentication.
+**-E:** this must be used in case of Windows Authentication and in such case don't use -U and -P option again.
+**-ssadd:** is to enable support for SQL Server Session State and this will create a Database on the server.
+
+**Note:** If we want to remove the support for session state we need to use -ssremove in place -ssadd.
+
+**-sstype:** is to specify the type of tables we want to use where “t” indicates temporary tables, “p” indicates
+persisted tables and “c” indicates custom - but in this case we need to create our own Database to store Session
+data, and to specify that Database name we need to use “-d <Database Name>” option in the last.
+
+2. Run the command based on your authentication:
+
+- For SQL Server Authentication:
+
+```c#
+aspnet_regsql -S <Server Name> -U <User Id> -P <Password> -ssadd -sstype t|p|c
+//example: aspnet_regsql -S Server -U Sa -P 123 -ssadd -sstype t
+```
+
+- For Windows Authentication:
+
+```c#
+aspnet_regsql -S <Server Name> -E -ssadd -sstype t|p|c
+//example: aspnet_regsql -S Server -E -ssadd -sstype t
+```
+
+- Here, "t" stands for temporary tables, "p" for persisted tables, and "c" for custom database storage.
+
+**Note:** in the above case we are using temporary tables for storing Session State values, so a new Database is created on the Server with the name “ASPState” and under this Database it creates a set of Stored Procedures for managing the data and because we have asked for temporary tables, all the required tables gets created on “TempDB - System Database” and this Database will be re-created every time we re-start SQL Server, whereas if we ask for persisted tables then all the required tables also gets created on “ASPState” Database only, so even if we re-start SQL Server, then also tables and their values will be persisting.
+
+3. Now open Web.config file and re-write the <sessionState> tag as below:
+
+- Sql Server Authentication:
+
+```C#
+<sessionState mode="SQLServer" sqlConnectionString="Data Source=Server;User Id=Sa;Password=123" />
+```
+
+- Windows Authentication:
+
+```c#
+<sessionState mode="SQLServer" sqlConnectionString="Data Source=Server;Integrated Security=SSPI" />
+```
+
+**Testing the processes of using “aspnet_regsql” with permenant table support:**
+
+- **For SQL Server Authentication:** aspnet_regsql -S Server -U Sa -P 123 -ssadd -sstype p
+- **For Windows Authentication:** aspnet_regsql -S Server -E -ssadd -sstype p
+  **Testing the processes of using “aspnet_regsql” with custom Database and permenant table support:**
+- For SQL Server Authentication: aspnet_regsql -S Server -U Sa -P 123 -ssadd -sstype c -d MySessions
+- For Windows Authentication: aspnet_regsql -S Server -E -ssadd -sstype c -d MySessions
+
+In this case we are using Custom Database then we need to specify the Database name in our sqlConnectionString and also we need to use allowCustomSqlDatabase attribute with the value as true as below:
+
+**Sql Server Authentication:**
+
+```C#
+<sessionState mode="SQLServer" allowCustomSqlDatabase="true"
+sqlConnectionString="Data Source=Server;User Id=Sa;Password=123;Database=MySessions" />
+```
+
+**Windows Authentication:**
+
+```C#
+<sessionState mode="SQLServer" allowCustomSqlDatabase="true"
+sqlConnectionString="Data Source=Server; Integrated Security=SSPI;Database=MySessions" />
+```
+
+---
+
+### Q. How do you remove SQL Server session state support?
+
+---
+
+Run the following aspnet_regsql command to remove SQL Server session state support:
+
+```C#
+//For SQL Server Authentication:
+aspnet_regsql -S Server -U sa -P 123 -ssremove
+//For Windows Authentication:
+aspnet_regsql -S Server -E -ssremove
+```
+
+---
+
+### Q. When should you use State Server or SQL Server session modes over In-Proc?
+
+---
+
+Use State Server or SQL Server session modes in the following cases:
+
+1. **Web Farm:** In this architecture, a Load Balancer distributes requests across multiple servers. In-Proc session storage cannot be used because each server holds its own session data. State Server or SQL Server provides centralized session storage accessible by all servers.
+2. **Web Garden:** In this architecture, multiple worker processes run within the same Application Pool. Since different worker processes can handle requests, In-Proc session data may not persist across requests. State Server or SQL Server ensures that session data is shared across worker processes.
+
+---
+
+### Q. What is a Web Farm and why can't "In-Proc" session mode be used in this architecture?
+
+---
+
+A Web Farm is an approach of hosting a Web Application on multiple Web Servers to distribute the load. Client requests are directed to a Load Balancer, And Load Balancer which forwards the ckient to one of the available servers.
+In case of a Web Farm architecture, In-Proc session mode cannot be used because if each request from the same client is re-directed to a different Web Servers, then Session Data of 1 Web Server is not accessible to other Web Servers.
+**To overcome this, you can use:**
+
+- **State Server:** Session data is stored on a dedicated server, and all web servers in the farm access the session data from this central server.
+- **SQL Server:** Session data is stored in a SQL Server database, which all servers in the farm can access.
+
+---
+
+### Q. What is a Web Garden, and why might "In-Proc" session mode not work well here?
+
+---
+
+A Web Garden is an IIS configuration where a single application pool runs with multiple worker processes. Typically, each application pool runs with one worker process, but in a Web Garden, this number can be increased.
+In an In-Proc session mode, session data is stored in the memory of a specific worker process. If a subsequent request is handled by a different worker process in the garden, that process won’t have access to the session data. To ensure session data is accessible across all processes, you can use:
+
+- **State Server:** Session data is stored externally, accessible by all worker processes.
+- **SQL Server:** Session data is stored in a central SQL Server database.
+
+---
+
+### Q. how do you configure Web Garden in IIS?
+
+---
+
+To configure a Web Garden:
+
+1. Open IIS Manager.
+2. Right-click the Application Pool running your application and select Advanced Settings.
+3. Under the Process Model section, locate the Maximum Worker Processes setting.
+4. Change its value from 1 (default) to a higher number.
+   Click OK to apply the changes.
+
+---
+
+### Q. What is the diffrence bitween TempData & Session?
+
+---
+
+| **Feature**            | **TempData**                                           | **Session**                                          |
+| ---------------------- | ------------------------------------------------------ | ---------------------------------------------------- |
+| **Scope**              | Persists until the next request                        | Persists throughout the user session                 |
+| **Data Storage**       | Stored in session (limited to the next request)        | Stored on the server for the entire session duration |
+| **Use Case**           | Passing data between requests (e.g., across redirects) | Storing user-specific data for the entire session    |
+| **Performance Impact** | Lower since data is discarded after the next request   | Higher because it persists until the session ends    |
+
+**Key Difference:** TempData is used for short-lived data between requests, while Session is used for long-lived data throughout a user’s session.
+
+---
+
+### Q. What is the diffrence bitween TempData & Cookies?
+
+---
+
+| **Feature**      | **TempData**                                 | **Cookies**                               |
+| ---------------- | -------------------------------------------- | ----------------------------------------- |
+| **Scope**        | Server-side, persists until the next request | Client-side, persists based on expiration |
+| **Security**     | More secure (server-side)                    | Less secure (stored on client-side)       |
+| **Data Storage** | Limited to the next request                  | Can persist beyond a single session       |
+
+**Key Difference:** TempData is used for short-lived server-side data, while Cookies can be used to store data on the client-side for longer periods.
+
+---
+
+### Q. What is the diffrence bitween Cookies & Session?
+
+---
+
+| **Feature**          | **Session**                                     | **Cookies**                                                                          |
+| -------------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------ |
+| **Data Storage**     | Server-side                                     | Client-side (in browser)                                                             |
+| **Data Persistence** | Lasts until the session expires                 | Can persist across multiple sessions based on expiration                             |
+| **Security**         | More secure (server-side storage)               | Less secure (client-side storage)                                                    |
+| **Size Limit**       | No significant limits, depends on server memory | Limited to 4KB                                                                       |
+| **Use Case**         | Storing user-specific data across session       | Storing small pieces of user-specific data like preferences or authentication tokens |
+
+**Key Difference**: Session is more secure and suitable for large, server-side data. Cookies store small pieces of data on the client side and can persist beyond the session.
+
+---
+
+### Q. What is Application and how to use it?
+
+---
+
+Application-State is a global storage mechanism in ASP.NET, used to store data shared among all users of a web application. It's faster than using a database since the data is stored in the web server's memory. Unlike Session-State, which is user-specific, Application-State is accessible to all users. Whereas Application is common for all users of the application.
+
+```
+                    Web Server
++-------------------------------------------------+
+|   User 1   |   User 2   |   User 3   |  User 4  |
++-----|------------|------------|-----------|-----+
++-----V------------V------------V-----------V-----+
+|               Application Memeory               |
++-------------------------------------------------+
+```
+
+Application data does not expire unless the server restarts or the worker process recycles. Data is stored in name/value pairs, similar to Session, ViewData, or TempData. However, Application-State is not thread-safe, so you must use Lock() and UnLock() methods to ensure safe data handling. It is managed using the Application property of the HttpContext class from the System.Web namespace.
+
+**Storing values into Application:**
+
+```c#
+//Syntax
+HttpContext.Application[string key] = value (object)
+HttpContext.Application["Name"] = "Raju";
+//Example
+```
+
+**Accessing values from Application:**
+
+```c#
+//Syntax
+object value = HttpContext.Application[string key]
+//Example
+object value = HttpContext.Application["Name"];
+string Name = value.ToString();
+//or
+string Name = HttpContext.Application["Name"].ToString();
+```
+
+---
+
+### **Note**:
+
+```c#
+//1) If class & property is present then assign value(Explixitly create class and define property):-
+public class Employee
+{
+public int Id { get; set; }
+public string Name { get; set; }
+public string Job { get; set; }
+public double Salary { get; set; }
+public bool Status { get; set; }
+}
+//Create instance and assign
+Employee emp = new Employee();
+emp.Id = 1;
+emp.Name = "Mritunjay";
+emp.Job = "Manager";
+emp.Salary = 100000;
+emp.Status = true;
+//Or
+Employee emp = new Employee{ Id = 1001, Name = "Raju", Job = "Manager", Salary = 50000.00, Status = true };
+
+//2) If class & property are not present then assign value(Implixitly create class and define property by compiler):-
+var Emp = new { Id = 1001, Name = "Raju", Job = "Manager", Salary = 50000.00, Status = true };
+//Or
+dynamic Emp = new { Id = 1001, Name = "Raju", Job = "Manager", Salary = 50000.00, Status = true };
+```
+
+### Q. What are anonymous types in C# and how can they be used to pass data between action methods or to views in ASP.NET MVC?
+
+---
+
+introduced in C# 3.0
+
+Anonymous types in C# allow you to create an object without explicitly defining a class. This is useful when you need a temporary data structure with properties but don't want to create a full class.
+
+Internally, the compiler automatically generates the new type for anonymous types. You can check that by
+calling GetType() method on an anonymous type of instance which will return the following value: `<>f__AnonymousType05[System.Int32,System.String,System.String,System.Double,System.Boolean]`
+
+Anonymous types are typically used in scenarios where you need to pass data between action methods or to views in an ASP.NET MVC application without defining a specific model. You can create an instance of an anonymous type using the new keyword and store it in a variable with either var or dynamic.
+
+Example:
+
+```C#
+var product = new { Id = 105, Name = "Shoes", Price = 3500 };
+```
+
+This creates an anonymous type with properties Id, Name, and Price. These values can be passed to a view or another action method. ASP.NET MVC automatically stores the values in ViewData when passing them to the view, making them accessible using the ViewData.Eval method.
+
+To pass data from one action method to another:
+
+```C#
+public RedirectToRouteResult Index14(int? id, string name, double? price)
+{
+    var product = new { Id = id, Name = name, Price = price };
+    return RedirectToAction("Index5", "Test", product);
+}
+
+```
+
+This passes the anonymous type as route parameters to the Index5 action in another controller.
+
+Add a View to the above Action method and write the below code under its `<div>` tag:
+
+```c#
+@{
+int? Id = Convert.ToInt32(ViewData.Eval("Id"));
+string Name = ViewData.Eval("Name").ToString();
+double? Price = ViewData.Eval("Price") as double?;
+}
+<table border="1" align="center" width="15%">
+  <caption>Product Details</caption>
+  <tr><td>Id:</td><td>@Id</td></tr>
+  <tr><td>Name:</td><td>@Name</td></tr>
+  <tr>
+    <td>Price:</td>
+    <td>
+    @{
+    Price = Price + (Price * 10 / 100);
+    @Price
+    }
+  </td>
+  </tr>
+</table>
+
+```
+
+In the above case while accessing values from an anonymous type in the View, we need to first capture those values from ViewData i.e., even if we did not explicitly store the values in ViewData, they are implicitly stored into ViewData and accessible under the View.
+
+While accessing the values from ViewData we require calling “Eval” method on ViewData, because the
+values are stored in the form of an “instance or object (Complex type)” and under that instance or object we have
+all the 3 values which should be separated first and then consumed.
+
+The key points are:
+
+- Anonymous types are temporary and do not need an explicit class definition.
+- They are useful for passing data between controllers or views.
+- Data is implicitly stored in ViewData when passed to a view.
+
+---
+
+### Q. What is Models?
+
+---
+
+This is another way how we can transfer data from Controller to the View, which provides “type safety” and “intellisense” support in Views, so by using this also we can transfer values from Action method to corresponding View or Action method to Action method of same Controller or other Controllers.
+
+---
+
+### Q. how to use Models?
+
+---
+
+1. To use Models create Model Objects(model class): To transfer data, you first create a model class that defines the data structure. In this case, you create a Product class:
+
+```c#
+public class Product
+{
+    public int? Id { get; set; }
+    public string Name { get; set; }
+    public double? Price { get; set; }
+}
+```
+
+2. Defining the Action Method: In the any one controller (i.e: HomeController), you define an action method that uses the model (i.e: Product) to transfer data to the view:
+
+```c#
+public ViewResult Index15(int? id, string name, double? price)
+{
+    Product product = new Product { Id = id, Name = name, Price = price };
+    return View(product);
+}
+```
+
+This method initializes a Product object with the passed parameters and returns it to the view. You can also write it in more concise ways:
+
+```c#
+return View(new Product { Id = id, Name = name, Price = price });
+//or
+var product = new Product { Id = id, Name = name, Price = price };
+return View(product);
+//or
+dynamic product = new Product { Id = id, Name = name, Price = price };
+return View(product);
+```
+
+3. Creating the View:
+
+- In the view for Index15, you declare the model at the top:
+
+```C#
+@model MVCDataTransfer.Models.Product
+
+```
+
+- Then, you can access its properties using the @Model property:
+
+```html
+<table border="1" align="center" width="15%">
+  <caption>
+    Product Details
+  </caption>
+  <tr>
+    <td>Id:</td>
+    <td>@Model.Id</td>
+  </tr>
+  <tr>
+    <td>Name:</td>
+    <td>@Model.Name</td>
+  </tr>
+  <tr>
+    <td>Price:</td>
+    <td>@{ double? Price = Model.Price + (Model.Price * 10 / 100); @Price }</td>
+  </tr>
+</table>
+```
+
+4. Executing the Action Method
+
+**Or we can also Redirecting with Model Objects:**
+
+- You can also redirect to another action while passing the model. For example, in HomeController, you can define:
+
+```c#
+public RedirectToRouteResult Index16(Product product)
+{
+    return RedirectToAction("Index6", "Test", product);
+}
+```
+
+**Receiving the Model in Another Controller**
+In the TestController, you receive the Product model in another action:
+
+```C#
+public ViewResult Index6(Product product)
+{
+    return View(product);
+}
+```
+
+The view for this action will be similar to the previous one, accessing the Product model properties.
+
+---
+
+### Q. What is the diffrence bitween Anonymous Types & Model?
+
+---
+
+| **Feature**               | **Anonymous**                                         | **Types Models**                                              |
+| ------------------------- | ----------------------------------------------------- | ------------------------------------------------------------- |
+| **Type**                  | Anonymous, no strong typing                           | Strongly typed class                                          |
+| **Compile-time checking** | No compile-time checking                              | Full compile-time checking and validation                     |
+| **Use Case**              | Temporary and quick data passing for simple scenarios | Complex data passing, validation, and business logic handling |
+
+**Key Difference:** Models offer a more structured approach for complex data handling, whereas anonymous types are useful for simple or temporary needs.
+
+---
+
+### Q. What is the diffrence bitween Application & Session?
+
+---
+
+| **Feature**          | **Application**                          | **Session**                          |
+| -------------------- | ---------------------------------------- | ------------------------------------ |
+| **Scope**            | Global (shared across all users)         | User-specific (one per user session) |
+| **Data Persistence** | Persists as long as the application runs | Persists until the user session ends |
+| **Data Storage**     | Server-side, global                      | Server-side, user-specific           |
+|                      |
+
+**Key Difference:** Application is used for global data shared across all users, while Session is user-specific, storing data separately for each user session.
+
+---
+
+## **`State Management`**
+
+### Q. What is State Management?
+
+---
+
+State Management helps to maintain state between multiple requests in web applications, which are stateless by default. In ASP.NET, several techniques are used to maintain state across requests or sessions. Here’s a breakdown of each technique:
+
+1. **Query String**:
+
+- Query strings are values that are appended to the URL. Used to send small amounts of data from one page to another via the URL.
+
+- Example: By Action Methor `return RedirectToAction("Index", new { id = 123, name = "Product" });` or by Url `http://localhost/Home/Index?id=123&name=Product`.
+
+2. **Hidden Field**:
+
+- Hidden fields are HTML input fields that are not visible to the user but store data for later use. Used to store values that need to be carried between form submissions.
+
+- Example: `<input type="hidden" name="ProductId" value="123" />`.
+
+3. **TempData**:
+4. **Cookie**:
+5. **Session**:
+6. **Application**:
+
+---
+
+## **`UI Designing`**
+
+### Q. What is Ui Designing?
+
+---
+
+We design user interfaces in any application for taking input from end users or displaying the results.
+
+---
+
+### Q. What are the different ways to design a user interface (UI) in ASP.NET MVC?
+
+---
+
+In ASP.NET MVC, we can design user interfaces (called Views) using the following approaches:
+
+1. **Using HTML Controls**: Directly writing HTML controls in the view.
+2. **Using HTML Helpers**: Using built-in ASP.NET MVC helper methods to generate HTML.
+3. **Using Strongly Typed HTML Helpers**: Using helper methods with strongly typed models to ensure type safety and intellisense support.
+
+---
+
+**`1`**
+
+### Q. How to desine a view using `html controls`?
+
+---
+
+1. Create Controller and three action method two is for get & post another one for display:
+
+`DesineViewUsingHtmlControlsController.cs`
+
+```c#
+public ViewResult DisplayEmployee()
+{
+    return View();
+}
+[HttpGet]
+public ViewResult AddEmployee()
+{
+    return View();
+}
+[HttpPost]
+public ViewResult AddEmployee(int? id, String name)
+{
+    ViewData["Id"] = id;
+    ViewData["Name"] = name;
+    return View("DisplayEmployee");
+}
+```
+
+2. Create two Views for both action method:
+   `AddEmployee.cshtml`
+
+```html
+<table border="1" align="center">
+  <caption>
+    Employee Details
+  </caption>
+  <tr>
+    <td>Employee Id:</td>
+    <td>@ViewBag.Id</td>
+  </tr>
+  <tr>
+    <td>Employee Name:</td>
+    <td>@ViewBag.Name</td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center">
+      <a href="/DesineViewUsingHtmlControls/AddEmployee">Add a new Employee</a>
+    </td>
+  </tr>
+</table>
+```
+
+`DisplayEmployee.cshtml`
+
+```html
+<table border="1" align="center">
+  <caption>
+    Employee Details
+  </caption>
+  <tr>
+    <td>Employee Id:</td>
+    <td>@ViewBag.Id</td>
+  </tr>
+  <tr>
+    <td>Employee Name:</td>
+    <td>@ViewBag.Name</td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center">
+      <a href="/DesineViewUsingHtmlControls/AddEmployee">Add a new Employee</a>
+    </td>
+  </tr>
+</table>
+```
+
+**Flow of Control**: Call AddEmp ➡️ Invokes Get Action method of EmpController which will launch AddEmp View ➡️ on click of “Save” button it will invoke AddEmp Post Action method(because form send data as a post) and launches DisplayEmp1 View.
+
+---
+
+### Q. What is the drowback of to desine view using html controls and how to solve it?
+
+---
+
+Drobak is the `parameter name of action method` shood exactly `match with the View form input's name`. What happen when 40 of input are there then you nedd to match one by one if `bychance any mistacke` the error rise.
+
+To over come this problom we need to use `FormCollection` in action method parameter to get all form value together.
+
+---
+
+### Q. How to use FormCollection in action method?
+
+---
+
+`DesineViewUsingFormControlsController.cs`
+
+```c#
+  public ViewResult DisplayEmployee()
+  {
+      //To redirecting to another controller action method need two parameter:
+      //DesineViewUsingHtmlControls:- Controller name
+      //DisplayEmployee:- Action method name
+      return View("DesineViewUsingHtmlControl", "DisplayEmployee");
+  }
+  [HttpGet]
+  public ViewResult AddEmployee()
+  {
+      return View("DesineViewUsingHtmlControls", "AddEmployee");
+  }
+  [HttpPost]
+  public ViewResult AddEmployee(FormCollection fc)FormCollection
+  {
+      ViewData["Id"] = fc["id"];
+      ViewData["Name"] = fc["name"];
+      return View("DesineViewUsingHtmlControls", "DisplayEmployee");
+  }
+```
+
+---
+
+### Q. How is the drowback of FormCollection?
+
+---
+
+Drowback is not code cleaner, not provides type safety, and not supports intellisense in the view.
+
+To overcome the problom we use `Model Binding`.
+
+---
+
+### Q. What is Model Binding?
+
+---
+
+Model Binding allows you to automatically capture all form values into a model object without manually reading each control. This makes the code cleaner, provides type safety, and supports intellisense in the view. It simplifies passing data between views and controllers.
+
+---
+
+### Q. How to use Model Binding?
+
+---
+
+Inyou project one `Model` folder is exist. Right click on Model folder and create a class and define property:
+
+`Employee.cs`
+
+```c#
+  public class Employee
+  {
+    public int? Id { get; set; }
+    public string Name { get; set; }
+  }
+```
+
+Now go to controller create action method:
+
+`DesineViewUsingModelBindingController.cs`
+
+```c#
+using System.Web.Mvc;
+using UiDesigning.Models;
+
+namespace UiDesigning.Controllers
+{
+    public class DesineViewUsingModelBindingController : Controller
+    {
+        public ViewResult DisplayEmployee()
+        {
+            return View("DesineViewUsingHtmlControls", "DisplayEmployee");
+        }
+        [HttpGet]
+        public ViewResult AddEmployee()
+        {
+            return View("DesineViewUsingHtmlControls", "AddEmployee");
+        }
+        [HttpPost]
+        public ViewResult AddEmployee(Employee emp)
+        {
+            return View("DesineViewUsingHtmlControls", "DisplayEmployee", emp);
+        }
+    }
+}
+```
+
+`DisplayEmployee.cshtml`
+
+```html
+@model UiDesigning.Models.Employee //Import model
+
+<table border="1" align="center">
+  <caption>
+    Employee Details
+  </caption>
+  <tr>
+    <td>Employee Id:</td>
+    <td>@Model.Id</td>
+  </tr>
+  <tr>
+    <td>Employee Name:</td>
+    <td>@Model.Name/td></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center">
+      <a href="/DesineViewUsingHtmlControls/AddEmployee">Add a new Employee</a>
+    </td>
+  </tr>
+</table>
+```
+
+`AddEmployee.cshtml`
+
+```html
+<form method="post">
+  Enter Employee Id:
+  <input type="text" name="id" />
+  <br />
+  Enter Employee Name:
+  <input type="text" name="name" />
+  <br />
+  <input type="submit" value="Save" />
+</form>
+```
+
+**Flow of Control**: Call AddEmployee ➡️ Invokes Get Action method of EmpController which will launch AddEmployee View ➡️ on click of “Save” button it will invoke AddEmployee Post Action method before that Model class invoke and launches DisplayEmployee View.
+
+---
+
+### Q. What is the minning of `int? x` and diffrence bitween `String nmae & string name`?
+
+---
+
+- **int? x**: x shool not null.
+
+- **String nmae**: Explicit class name is String because first character UperCase. This is also user define data type.
+
+- **string name**: It is also class but inplicitly define and predefine data type.
+
+---
+
+**`2`**
+
+### Q. What is `HTML Helpers` in ASP.NET MVC?
+
+---
+
+HTML Helpers are methods in ASP.NET MVC that simplify the creation of HTML elements in views. These methods return HTML as a string, which can be rendered in the browser. They are used to generate form elements, links, and other UI elements more efficiently compared to writing raw HTML.
+
+They automate the generation of common HTML code such as form inputs, reducing the need for repetitive code and providing features like model binding and validation support.
+
+---
+
+### Q. How are HTML Helper methods similar to ASP.NET Web Forms server controls?
+
+---
+
+HTML Helpers in MVC are equivalent to server controls in Web Forms, but while Web Forms controls are more complex and use ViewState, HTML Helpers are lightweight and generate plain HTML. They are also stateless and rely on MVC's model binding for handling form data.
+
+---
+
+### Q. What is the syntax for using an HTML Helper method in MVC?
+
+---
+
+**Syntax**:
+
+```c#
+@Html.TextBox(string name)
+```
+
+**Example**:
+
+```c#
+@Html.TextBox("Id")
+```
+
+**Generate**:
+
+```html
+<input type="text" id="Id" name="Id" value="" />
+```
+
+---
+
+### Q. What are some commonly used HTML Helper methods in ASP.NET MVC?
+
+---
+
+Some of the commonly used HTML Helper methods include:
+
+1. **BeginForm**: Generates a form opening tag.
+2. **EndForm**: Generates a form closing tag.
+3. **ActionLink**: Creates a hyperlink (`<a> tag`) that links to a specified action.
+   ```C#
+   //Example:
+   @Html.ActionLink("Go to Home", "Index", "Home")
+   //Generate the `<a href="/Home/Index">Go to Home</a>`.
+   ```
+4. **CheckBox**: Renders a checkbox (`<input type="checkbox">`).
+5. **DropDownList**: Generates a drop-down list (`<select>`).
+   ```C#
+   //Example:
+   @Html.DropDownList("Colors", new List<SelectListItem>
+   {
+       new SelectListItem { Text = "Red", Value = "1" },
+       new SelectListItem { Text = "Blue", Value = "2" },
+       new SelectListItem { Text = "Green", Value = "3" }
+   })
+   //or
+   List<int> li= new List<int>(){1,2,3,4,5,6,7,8,9,10};
+   SelectList item = new SelectList(li);
+   @Html.DropDownList("Class", item, "-Select class-")
+   ```
+6. **Hidden**: Creates a hidden input field (`<input type="hidden">`).
+7. **ListBox**: Generates a list box (`<select multiple="multiple">`).
+8. **Password**: Renders a password input field (`<input type="password">`).
+9. **RadioButton**: Creates a radio button input (`<input type="radio">`).
+10. **Label**: Generates a label (`<label>`).
+11. **TextBox**: Creates a text input (`<input type="text">`).
+12. **TextArea**: Renders a multi-line text input (`<textarea>`).
+13. **Display**: Displays the value of a model property (Example: `@Html.DisplayFor(m => m.Name)`).
+14. **Editor**: Generates the appropriate input for a model property based on its type (Example: `@Html.EditorFor(m => m.Name)`).
+
+---
+
+### Q. How do you create a form using HTML Helper methods in ASP.NET MVC?
+
+---
+
+```C#
+@{
+  Html.BeginForm();
+    -Place all controls here
+  Html.EndForm();
+}
+//Or
+@using(Html.BeginForm())
+{
+  -Place all controls here
+}
+//Or
+//Specify the action name, controller name, and form method:
+@using(Html.BeginForm("ActionName", "ControllerName", FormMethod.Post))
+{
+    // Place your form controls here
+}
+
+```
+
+---
+
+### Q. What are the different overloads of the BeginForm() method?
+
+---
+
+1. **BeginForm()**- Opens a form with default action, controller, and method (POST).
+2. **BeginForm(string actionname, string controllername)** - Specifies action and controller.
+3. **BeginForm(string actionname, string controllername, object routevalues)** - Includes action, controller, and route values.
+4. **BeginForm(string actionname, string controllername, FormMethod method)** - Adds the form method (GET or POST).
+5. **BeginForm(string actionname, string controllername, object routevalues, FormMethod method)** - Combines all the parameters, including route values and form method.
+
+---
+
+### Q. How do you create a label using HTML Helpers?
+
+---
+
+1. **@Html.Label(string value)** - Creates a label with a specified value.
+2. **@Html.Label(string name, string value)** - Creates a label with a for attribute matching the specified name and a label text.
+3. **@Html.Label(string name, string value, object HtmlAttributes)** - Additionally allows setting HTML attributes for the label.
+
+---
+
+### Q. How do you create a TextBox using HTML Helpers?
+
+---
+
+1. **@Html.TextBox(string name)** - Creates a basic text box.
+2. **@Html.TextBox(string name, object default)** - Adds a default value for the text box.
+3. **@Html.TextBox(string name, object default, object HtmlAttributes)** - Additionally allows setting HTML attributes like class, id, style, etc.
+
+---
+
+### Q. How is form data passed from the view to the controller in this example?
+
+---
+
+Form data is passed to the controller through the Request object. The Validate() method retrieves the values of txtName and txtPwd from the form like this:
+
+```c#
+string Name = Request["txtName"];
+string Password = Request["txtPwd"];
+```
+
+---
+
+### Q. What is NuGet?
+
+---
+
+NuGet is a package manager for .NET projects. It allows developers to find, download, install, update, and configure software libraries and assemblies that they want to use in their projects. It simplifies the process of adding external libraries like Bootstrap, jQuery, and others to projects.
+
+---
+
+### Q. What is the NuGet Package Manager?
+
+---
+
+The NuGet Package Manager is a tool in Visual Studio that provides an interface to search for, install, and manage packages within your project. It helps you find libraries like Bootstrap, install them, and automatically configure the necessary files and references in your project. The process to use it involves:
+
+1. Go to Tools Menu.
+2. Select NuGet Package Manager.
+3. Click on Manage NuGet Packages for Solution.
+4. Browse and search for the library (e.g., Bootstrap), and click Install.
+
+---
+
+### Q. What is the Library Manager (LibMan)?
+
+---
+
+Library Manager (LibMan) is another tool introduced in Visual Studio 2017 for managing client-side libraries. Unlike NuGet, which is more general, LibMan is specifically designed for front-end libraries like Bootstrap and jQuery. It downloads the required files from a CDN (Content Delivery Network) and places them in your project. To use LibMan:
+
+1. Right-click on the project in Solution Explorer.
+2. Select Add → Client-Side Library.
+3. Choose the provider (e.g., cdnjs), specify the library (e.g., Bootstrap), and choose the destination folder.
+
+---
+
+### Q. How do you install Bootstrap using NuGet?
+
+---
+
+To install Bootstrap via NuGet:
+
+1. Open the NuGet Package Manager from the Tools menu.
+2. Search for “Bootstrap” in the Browse tab.
+3. Select the package provided by The Bootstrap Authors, Twitter Inc..
+4. Click Install after selecting the project in the checkbox.
+5. This action will add Bootstrap files into your project’s Content and Scripts folders.
+
+---
+
+### Q. How do you install Bootstrap using Library Manager (LibMan)?
+
+---
+
+To install Bootstrap using LibMan:
+
+1. Right-click on the project in Solution Explorer and choose Add → Client-Side Library.
+2. In the Provider field, select `cdnjs` (default).
+3. In the Library field, enter `twitter-bootstrap@5.3.3`.
+4. Set the Target Location (e.g., `Content/Bootstrap`).
+5. Click Install. This will create a `libman.json` file that tracks the libraries installed.
+
+---
+
+### Q. How do you use Bootstrap in the view?
+
+---
+
+Once Bootstrap is installed, you can use it by adding a reference to the bootstrap.min.css file in the <head> section of your view:
+
+```html
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+```
+
+---
+
+### Q. Create Student registration View and use bootstrap and HTML Helpers?
+
+---
+
+`Student.cs`
+
+```C#
+namespace UiDesigning.Models
+{
+    public class Student
+    {
+        public int? Sid { get; set; }
+        public string Name { get; set; }
+        public int? Class { get; set; }
+        public string Gender { get; set; }
+        public double? Fees { get; set; }
+        public string Address { get; set; }
+    }
+}
+```
+
+`StudentRegistrationUsingHtmlHelperController.cs`
+
+```c#
+using System.Web.Mvc;
+using UiDesigning.Models;
+
+namespace UiDesigning.Controllers
+{
+    public class StudentRegistrationUsingHtmlHelperController : Controller
+    {
+        [HttpGet]
+        public ViewResult AddStudent()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ViewResult AddStudent(Student st)
+        {
+            return View("ViewStudent",st);
+        }
+
+        public ViewResult ViewStudent()
+        {
+            return View();
+        }
+    }
+}
+```
+
+`AddStudent.cshtml`
+
+```cs
+@using (Html.BeginForm())
+{
+    @Html.Label("Enter student Id")
+    @Html.TextBox("Sid")// 'Sid' same as student model class property name
+    <br />
+    @Html.Label("Enter Name")
+    @Html.TextBox("Name")// 'Name' same as student model class property name
+    <br />
+    @Html.Label("Enter Class")
+    List<int> li = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+    SelectList item = new SelectList(li);
+    @Html.DropDownList("Class", item, "-Select class-")// 'Class' same as student model class property name
+    <br />
+    @Html.Label("Enter Gender")
+    @Html.TextBox("Gender")// 'Gender' same as student model class property name
+    <br />
+    @Html.Label("Enter Fees")
+    @Html.TextBox("Fees")// 'Fees' same as student model class property name
+    <br />
+    @Html.Label("Enter Address")
+    @Html.TextBox("Address")// 'Address' same as student model class property name
+    <br />
+    <br />
+    <input type="submit" value="Save" />
+}
+```
+
+`ViewStudent.cshtml`
+
+```html
+@model UiDesigning.Models.Student
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ViewStudent</title>
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div>
+      <ul>
+        <li>Student id: @Model.Sid</li>
+        <li>Student Name: @Model.Name</li>
+        <li>Student Class: @Model.Class</li>
+        <li>Student Gender: @Model.Gender</li>
+        <li>Student Fees: @Model.Fees</li>
+        <li>Student Address: @Model.Address</li>
+      </ul>
+    </div>
+  </body>
+</html>
+```
+
+---
+
+### Q. What is the advantage of using HTML Helpers over plain HTML controls?
+
+---
+
+HTML Helpers simplify the creation of HTML elements in views and integrate better with the model binding in MVC. They also make code cleaner, provide support for model validation, and help maintain consistency. For example, instead of manually writing a `<input>` element, you can use @Html.TextBoxFor(m => m.Name), which binds directly to the model's Name property.
+
+---
+
+**`3`**
+
+### Q. What problem do `Strongly Typed HTML Helpers` solve?
+
+---
+
+In traditional HTML Helpers, form control names need to exactly match the model’s property names. If there’s a mismatch, you won’t get a compile-time or runtime error, but the control's value won’t bind to the model property, and intellisense doesn’t help identify the property. Strongly Typed HTML Helpers solve this by tying form controls directly to model properties, `ensuring correct bindings and providing intellisense support`.
+
+---
+
+### Q. What is the difference between regular HTML Helpers and Strongly Typed HTML Helpers?
+
+---
+
+The key difference is that Strongly Typed HTML Helpers are suffixed with "For" (e.g., TextBoxFor, LabelFor) and they bind form controls directly to model properties. Regular HTML Helpers require manually naming controls, while Strongly Typed HTML Helpers take care of this by binding to the model.
+
+---
+
+### Q. What are some examples of Strongly Typed HTML Helpers?
+
+---
+
+| **HTML Helper**  | **Strongly Typed HTML Helper** | **Example of Strongly Typed HTML Helper**                       |
+| ---------------- | ------------------------------ | --------------------------------------------------------------- |
+| **Label**        | LabelFor                       | `@Html.LabelFor(S => S.Name)`                                   |
+| **Hidden**       | HiddenFor                      | `@Html.HiddenFor(S => S.Id)`                                    |
+| **ListBox**      | ListBoxFor                     | `@Html.ListBoxFor(S => S.SelectedItems, new SelectList(items))` |
+| **TextBox**      | TextBoxFor                     | `@Html.TextBoxFor(S => S.Name)`                                 |
+| **TextArea**     | TextAreaFor                    | `@Html.TextAreaFor(S => S.Description)`                         |
+| **Password**     | PasswordFor                    | `@Html.PasswordFor(S => S.Password)`                            |
+| **CheckBox**     | CheckBoxFor                    | `@Html.CheckBoxFor(S => S.IsActive)`                            |
+| **RadioButton**  | RadioButtonFor                 | `@Html.RadioButtonFor(S => S.Gender, "Male")`                   |
+| **DropDownList** | DropDownListFor                | `@Html.DropDownListFor(S => S.Class, new SelectList(items))`    |
+| **Editor**       | EditorFor                      | `@Html.EditorFor(S => S.Details)`                               |
+| **Display**      | DisplayFor                     | `@Html.DisplayFor(S => S.Name)`                                 |
+| **DisplayName**  | DisplayNameFor                 | `@Html.DisplayNameFor(S => S.Name)`                             |
+
+---
+
+### Q. How do you create a form & display using Strongly Typed HTML Helpers?
+
+---
+
+To create a form using Strongly Typed Helpers, you bind each form control to a model property:
+
+```c#
+@model MVCUIDesigning.Models.Student
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(S => S.Sid) <br />
+    @Html.TextBoxFor(S => S.Sid) <br />
+
+    @Html.LabelFor(S => S.Name) <br />
+    @Html.TextBoxFor(S => S.Name) <br />
+
+    @Html.LabelFor(S => S.Class)
+    List<int> li = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+    SelectList items = new SelectList(li);
+    @Html.DropDownListFor(S => S.Class, items, "-Select Class-") <br />
+
+    @Html.LabelFor(S => S.Gender)
+    @Html.RadioButtonFor(S => S.Gender, "Male")@:Male
+    @Html.RadioButtonFor(S => S.Gender, "Female")@:Female
+    @Html.RadioButtonFor(S => S.Gender, "Transgender")@:Transgender <br />
+
+    @Html.LabelFor(S => S.Fees) <br />
+    @Html.TextBoxFor(S => S.Fees) <br />
+
+    @Html.LabelFor(S => S.Address) <br />
+    @Html.TextAreaFor(S => S.Address, 3, 21) <br /><br />
+
+    <input type="submit" value="Save" />
+}
+
+```
+
+After submitting the form, you can display the student details using `DisplayNameFor` and `DisplayFor` helpers in the "ViewStudent" view:
+
+```c#
+@model MVCUIDesigning.Models.Student
+
+<h4>Student Details</h4>
+<ul>
+    <li>@Html.DisplayNameFor(S => S.Sid): @Html.DisplayFor(S => S.Sid)</li>
+    <li>@Html.DisplayNameFor(S => S.Name): @Html.DisplayFor(S => S.Name)</li>
+    <li>@Html.DisplayNameFor(S => S.Class): @Html.DisplayFor(S => S.Class)</li>
+    <li>@Html.DisplayNameFor(S => S.Gender): @Html.DisplayFor(S => S.Gender)</li>
+    <li>@Html.DisplayNameFor(S => S.Fees): @Html.DisplayFor(S => S.Fees)</li>
+    <li>@Html.DisplayNameFor(S => S.Address): @Html.DisplayFor(S => S.Address)</li>
+</ul>
+
+```
+
+---
+
+## **`Partial Views`**
+
+### Q. What is a Partial View in MVC?
+
+---
+
+A Partial View is a reusable View that can be used within other Views. It doesn't contain any HTML tags like `<head> or <body>` by default and is generally stored in the "Shared" folder for easier reuse.
+
+---
+
+### Q. How do we create a Partial View?
+
+---
+
+To create a Partial View, right-click on the "Shared" folder in the "Views" directory, choose Add -> View, and check the “Create as a Partial View” checkbox.
+
+---
+
+### Q. Why should Partial Views be stored in the Shared folder?
+
+---
+
+Partial Views are often stored in the Shared folder so that multiple Views in the application can use them, ensuring reusability.
+
+---
+
+### Q. How do you name a Partial View?
+
+---
+
+It is a best practice (optional) to prefix Partial View names with an underscore (\_) to differentiate them from regular Views.
+
+---
+
+### Q. How can you consume a Partial View in another View?
+
+---
+
+- You can use three methods of the HtmlHelper class:
+
+1. `@Html.Partial(string PartialViewName)`
+2. `@{ Html.RenderPartial(string PartialViewName); }`
+3. `@{ Html.RenderAction(string ActionMethodName); }`
+
+---
+
+### Q. What is the difference between Html.Partial and Html.RenderPartial?
+
+---
+
+- Html.Partial returns an MvcHtmlString, allowing manipulation of the output.
+- Html.RenderPartial returns void and doesn't allow the modification of the Partial View's content.
+
+---
+
+### Q. What is Html.RenderAction?
+
+---
+
+Html.RenderAction doesn't directly call a Partial View. Instead, it calls an Action method that renders the Partial View. It cannot be modified in the calling View.
+
+---
+
+### Q. Example of manipulating a Partial View's content using Html.Partial:
+
+---
+
+```c#
+@{
+    String strHeader = Html.Partial("_Header").ToString();
+    strHeader = strHeader.Replace("150", "200");
+    strHeader = strHeader.Replace("azure", "pink");
+    MvcHtmlString htmlString = new MvcHtmlString(strHeader);
+    @htmlString
+}
+
+```
+
+This code modifies the width and background color of the Partial View before rendering it.
+
+---
+
+### Q. Example of using Html.RenderPartial:
+
+---
+
+```c#
+@{ Html.RenderPartial("_Header"); }
+```
+
+---
+
+### Q. Example of using Html.RenderAction:
+
+---
+
+First, define an Action method in the controller:
+
+```c#
+@{ Html.RenderPartial("_Header"); }
+```
+
+Then, call this method in your View:
+
+```c#
+@{ Html.RenderAction("Header"); }
+```
+
+---
+
+### Q. Give me the example of Partial View?
+
+---
+
+Create Model class:
+`Customer.cs`
+
+```c#
+namespace PartialView_LayoutView.Models
+{
+  public class Customer
+  {
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public string Email { get; set; }
+    public double Balance { get; set; }
+    public bool Status { get; set; }
+    public string Image { get; set; }
+  }
+}
+```
+
+Create image folder and add seven photo in Image folder.
+Create action method:
+`CustomerForPartialController.cs`
+
+```c#
+using PartialView_LayoutView.Models;
+using System.Collections.Generic;
+using System.Web.Mvc;
+namespace PartialView_LayoutView.Controllers
+{
+    public class CustomerForPartialController : Controller
+    {
+        public ViewResult DisplayCustomer()
+        {
+            Customer c1 = new Customer { Id = 1, Name="Jon", Email="abc@gmail.com", Balance= 1000, Image="/Images/1.jpg", Status=true };
+            Customer c2 = new Customer { Id = 1, Name="Sunil", Email="abcd@gmail.com", Balance= 10000, Image="/Images/2.jpg", Status=true };
+            Customer c3 = new Customer { Id = 1, Name="Dhoni", Email="abce@gmail.com", Balance= 1070, Image="/Images/3.jpg", Status=true };
+            Customer c4 = new Customer { Id = 1, Name="Sachin", Email="abcf@gmail.com", Balance= 1500, Image="/Images/4.jpg", Status=true };
+            Customer c5 = new Customer { Id = 1, Name="Pk", Email="abgc@gmail.com", Balance= 1600, Image="/Images/5.jpg", Status=true };
+            Customer c6 = new Customer { Id = 1, Name="Samir", Email="abhc@gmail.com", Balance= 1200, Image="/Images/6.jpg", Status=true };
+            Customer c7 = new Customer { Id = 1, Name="Priya", Email="abci@gmail.com", Balance= 1000, Image="/Images/7.jpg", Status=true };
+            List<Customer> list = new List<Customer>() { c1, c2, c3, c4, c5, c6, c7 };
+            return View(list);
+        }
+    }
+}
+```
+
+Create View:
+`DisplayCustomer.cshtml`
+
+```html
+@model IEnumerable<PartialView_LayoutView.Models.Customer>
+  <!-- or
+@model List<PartialView_LayoutView.Models.Customer> -->
+
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <meta name="viewport" content="width=device-width" />
+      <title>DisplayCustomer</title>
+    </head>
+    <body>
+      <ul>
+        @foreach (PartialView_LayoutView.Models.Customer cus in Model) {
+        Html.RenderPartial("_CustomerPartialView", cus); }
+
+        <!-- or you can use
+          like that @foreach (var cus in Model) {
+          Html.RenderPartial("_CustomerPartialView", cus); } -->
+      </ul>
+    </body>
+  </html></PartialView_LayoutView.Models.Customer
+>
+```
+
+Create partial view:
+`_CustomerPartialView.cs`
+
+```html
+@model PartialView_LayoutView.Models.Customer
+<li>Id: @Model.Id</li>
+<li>Name: @Model.Name</li>
+<li>Email: @Model.Email</li>
+<li>Balance: @Model.Balance</li>
+<li>Image: <img src="@Model.Image" width="80px" /></li>
+<li>Status: @Model.Status</li>
+```
+
+---
+
+### Q. What is the difference between using `List<Customer>` and `IEnumerable<Customer>` in the model?
+
+---
+
+`List<Customer>` is a specific collection type that holds customer objects, while `IEnumerable<Customer>` is a more generic interface that can represent any collection of customer data. Using IEnumerable provides flexibility, allowing the code to work with various collection types like arrays, lists, etc.
+
+---
+
+## **`Layout View`**
+
+### Q. What is a Layout View in ASP.NET MVC?
+
+---
+
+A Layout View in ASP.NET MVC is similar to a Master Page in ASP.NET Web Forms. It serves as a template for the entire application, defining a consistent structure such as a Header, Footer, Menu Bar, and Navigation Bar, which is applied to multiple Content Pages (Views).
+
+---
+
+### Q. How is the Layout View different from a regular View?
+
+---
+
+A Layout View provides the structure for multiple Content Pages, while a regular View contains the specific content that is displayed within that structure. The Layout View defines common elements like headers and footers, whereas a View fills in the unique content for each page.
+
+---
+
+### Q. What is the file extension for Layout Views in ASP.NET MVC?
+
+---
+
+The file extension for Layout Views is .cshtml, the same as for regular Views in ASP.NET MVC.
+
+---
+
+### Q. What is the purpose of the `RenderBody` method in a Layout View?
+
+---
+
+The RenderBody method is used to insert the content from the Content Pages into the Layout View. There can only be one RenderBody method in a Layout View, and it defines where the Content Pages will be displayed within the layout.
+
+The RenderBody method is used to place the main content from other pages (Content Pages) into the Layout View. It shows where that content will appear in the layout. You can only have one RenderBody in a Layout View.
+
+---
+
+### Q. What is the `RenderSection` method used for in a Layout View?
+
+---
+
+The RenderSection method is used to include specific sections of content from the Content Pages into designated areas of the Layout View. Unlike RenderBody, which is required to display the main content, RenderSection allows more flexibility, and sections can be marked as mandatory or optional.
+
+The RenderSection method lets you add specific sections of content (like sidebars or banners) from Content Pages into the Layout View. You can make these sections required or optional, giving more flexibility in layout design.
+
+---
+
+### Q. How do you make a section mandatory or optional in a Layout View?
+
+---
+
+You can specify whether a section is mandatory or optional by passing a boolean value to the `RenderSection` method. For example, `RenderSection("sectionName", true)` makes the section mandatory, while `RenderSection("sectionName", false)` makes it optional.
+
+---
+
+### Q. Can a Layout View have multiple RenderSection method calls?
+
+---
+
+Yes, a Layout View can have multiple RenderSection method calls, each with a unique name to define different sections of content that can be included from the Content Pages.
+
+---
+
+### Q. What happens if a Content Page does not provide a required section in the RenderSection call?
+
+---
+
+If a Content Page does not provide content for a required section (where RenderSection is set to true), it will result in an error, because the Layout View expects that section to be populated with content.
+
+---
+
+### Q. How do Layout Views improve code reuse and organization?
+
+---
+
+Layout Views improve code reuse by allowing developers to define a consistent structure (like headers, footers, etc.) in one place, avoiding the need to repeat this structure in every View. This keeps the code more organized, reduces duplication, and simplifies maintenance.
+
+---
+
+### Q. How to create it Layout View?
+
+---
+
+1. Create MVC empty project and install bootstrap.
+2. Add new folder `Shared"` in View folder give the same name as it is. Because Partial and Layout view are generally available in `Shared` folder. When You create ant type of Partial and Layout view use prefixed with `_` Underscore character.
+3. Add a Layout View and give name (i.e:`_SiteMaster.cshtml`), uncheck the all CheckBox and click on the Add button. This action will add a new View and if we observe the code in this View, we find a statement on the top of the file as following to specify a Layout for this View:
+
+```c#
+@{
+  Layout = null;
+}
+```
+
+4. Now under the `<title>` section write the following there:
+   `@ViewBag.Title – NIT` so that we can send any value to this “Title” from the “Content Views”. Add `bootstrap.min.css` file from the content folder into the `<head>` section if you need.
+5. Add `RenderBody()` and RenderSection (i.e:`RenderSection("S1", false)`)
+
+```html
+@{Layout = null;}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Tiyle</title>
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              @Html.ActionLink("Home", "Index", "CustomerForPartial", new {
+              @class = "nav-link sr-only" })
+            </li>
+            <li class="nav-item">
+              @Html.ActionLink("Features", "Features", "CustomerForPartial", new
+              { @class = "nav-link sr-only" })
+            </li>
+            <li class="nav-item">
+              @Html.ActionLink("Disabled", "DispalayStudent",
+              "CustomerForPartial", new { @class = "nav-link disabled" })
+            </li>
+          </ul>
+        </div>
+      </nav>
+      @RenderBody() @RenderSection("S1", false)
+    </div>
+  </body>
+</html>
+```
+
+---
+
+### Q. How to bind view in layout view?
+
+---
+
+If we want to apply any Layout to a View, we can do that in 2 different ways:
+
+1. Page Level Binding,
+2. Application-Level Binding,
+
+---
+
+### Q. What is Page Level Binding?
+
+---
+
+We can do this by writing the below code on the top of every View Page:
+
+```c#
+@{
+Layout = "~/Views/Shared/_SiteMaster.cshtml";
+}
+```
+
+When adding a new View, you can check the "Use a layout page" checkbox and choose your layout(i.e: `_SiteMaster.cshtml`). This method applies the layout to each View individually, but requires repeating this for every View.
+
+---
+
+### Q. What is Application-Level Binding?
+
+---
+
+You can set a default Layout for all Views by adding the layout code in the `_ViewStart.cshtml` file, because this View will execute before execution of any other View, and this is called implicitly by MVC Framework. This file should be in the root folder of “Views” :
+
+1. Cretae `_ViewStart.cshtml` in directly under the `Views` folder. Let’s add this file in the Views folder and to do that right click on Views folder and select the option => Add => View, name the View as `_ViewStart.cshtml`, choose `Empty (Without model)` template and make sure `all the Checkboxes` are `un-checked` and click on the Add Button. Delete all the content present in the file and write the below code over there:
+
+```c#
+@{
+    Layout = "~/Views/Shared/_SiteMaster.cshtml";//You Layout View
+}
+```
+
+This code tells all views to use the layout from `_SiteMaster.cshtml` located in the `Views/Shared` folder.
+
+This method automatically applies the Layout to all Views in the project `unless you override it with Page-Level Binding`. If the `_ViewStart.cshtml` file is placed in a specific Controller’s folder, the layout will only apply to that Controller's Views.
+
+---
+
+### Q. What happen when `_ViewStart.cshtml` created automatically?
+
+---
+
+If you don't create \_ViewStart.cshtml yourself. Then, when whenever you create want to create the new view you check the box that says "Use a layout page" but don't pick a specific layout, the system will automatically: Add a layout file named `_Layout.cshtml`
+
+Default code:
+
+```c#
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+```
+
+---
+
+### Q. What happens if you create \_ViewStart.cshtml manually?
+
+---
+
+If you manually add `_ViewStart.cshtml` and specify `_SiteMaster.cshtml` as the layout, then:
+
+- Any new views will automatically use this layout if you check "Use a layout page" but don't choose a specific one.
+
+---
+
+### Q. Wher the first preference goes?
+
+---
+
+- If \_ViewStart.cshtml is located in the root Views folder, it applies to all views in the project.
+
+- If you have \_ViewStart.cshtml in both the root and controller-specific folders then first preference goes to local.
+
+---
+
+### Q. Give me Exampleof Using Layout View?
+
+---
+
+- Add a new Controller in Controllers folder naming it as “NareshITController”, delete the existing Action method in it and write the below code over there:
+
+```c#
+public ViewResult Home()
+{
+return View();
+}
+public ViewResult Register()
+{
+return View();
+}
+public ViewResult Login()
+{
+return View();
+}
+public ViewResult Courses()
+{
+return View();
+}
+public ViewResult About()
+{
+return View();
+}
+```
+
+- Add Views to all the Action methods and while adding them check the CheckBox “Use a layout page”. Or if explicity you define the Application lavel `_ViewStart.cshtml` the specific layout (i.e:`_SiteMaster.cshtml`).
+
+---
+
+## **`Action Results in MVC`**
+
+### Q. What are Action Results in MVC?
+
+---
+
+Action Results are the various types of responses an `Action Method` can return in an MVC application. The `ActionResult` class is the base class for all results, and it has several child classes that represent different types of responses.
+
+---
+
+### Q. What are the Action Results of Acrion method?
+
+---
+
+| **Helper Method**        | **Action Result**        |
+| ------------------------ | ------------------------ |
+| `File`                   | `FileResult`             |
+| `Json`                   | `JsonResult`             |
+| `View`                   | `ViewResult`             |
+| ---                      | `EmptyResult`            |
+| `Content`                | `ContentResult`          |
+| `Redirect`               | `RedirectResult`         |
+| `JavaScript`             | `JavaScriptResult`       |
+| `PartialView`            | `PartialViewResult`      |
+| `HttpNotFound`           | `HttpNotFoundResult`     |
+| `HttpStatusCodeResult`   | `HttpStatusCodeResult`   |
+| `HttpUnauthorizedResult` | `HttpUnauthorizedResult` |
+| `RedirectToRoute`        | `RedirectToRouteResult`  |
+| `RedirectToAction`       | `RedirectToRouteResult`  |
+
+---
+
+### Q. What is `ViewResult` and Give Example?
+
+---
+
+- **Returns a View** as a response **using View()**.
+- ViewResult is used when you want to render and `send a View (HTML page)` as the response to the client.
+
+**Example**:
+
+```c#
+public ViewResult AddEmployee(Employee emp)
+{
+    return View("DesineViewUsingHtmlControls", "DisplayEmployee", emp);
+    //or
+    return View("DisplayEmployee", emp);
+    //or
+    return View();
+    //or so one
+}
+```
+
+---
+
+### Q. What is `JsonResult` and Give Example?
+
+---
+
+- **Returns JSON-formatted content** using `Json()`.
+- `JsonResult` is used when you want to send a **JSON object** as the response to the client, often used in **AJAX** calls.
+
+**Example**:
+
+```c#
+public JsonResult GetEmployeeDetails()
+{
+    Employee emp = new Employee { Id = 1, Name = "John", Position = "Manager" };
+    return Json(emp, JsonRequestBehavior.AllowGet);
+    //or one more example
+    //Employee is a model
+    Employee e1 = new Employee { Id = 101, Name = "Scott", Job = "CEO", Salary = 25000, Status = true };
+    Employee e2 = new Employee { Id = 102, Name = "Smith", Job = "President", Salary = 22000, Status = true };
+    Employee e3 = new Employee { Id = 103, Name = "Parker", Job = "Manager", Salary = 18000, Status = true };
+    Employee e4 = new Employee { Id = 104, Name = "John", Job = "Salesman", Salary = 10000, Status = true };
+    Employee e5 = new Employee { Id = 105, Name = "David", Job = "Clerk", Salary = 5000, Status = true };
+    Employee e6 = new Employee { Id = 106, Name = "Maria", Job = "Analyst", Salary = 12000, Status = true };
+
+    List<Employee> Emps = new List<Employee> { e1, e2, e3, e4, e5, e6 };
+
+    return Json(Emps, JsonRequestBehavior.AllowGet);
+}
+```
+
+---
+
+### Q. What is FileResult and Give Example?
+
+---
+
+- **Returns a file as a response** using `File()`.
+- `FileResult` is used when you want to send a **file** as the response, like a PDF, image, or any other file type.
+
+**Example**:
+
+```c#
+public FileResult DownloadFile()
+{
+    string filePath = "~/Files/Report.pdf";
+    string contentType = "application/pdf";
+    return File(filePath, contentType, "Report.pdf");
+}
+public FileResult DownloadPdf()
+{
+return File("~/Downloads/Test.pdf", "application/pdf");
+}
+public FileResult DownloadWord()
+{
+return File("~/Downloads/Test.doc", "application/msword");
+}
+//etc
+```
+
+---
+
+### Q. What is EmptyResult and Give Example?
+
+---
+
+- **Does nothing and returns no response** using `EmptyResult()`.
+- `EmptyResult` is used when you don't want to return any data or response from an action.
+
+**Example**:
+
+```c#
+public ActionResult DoNothing()
+{
+    // Some logic
+    return new EmptyResult();
+}
+```
+
+---
+
+### Q. What is ContentResult and Give Example?
+
+---
+
+- **Returns plain content as a response** using `Content()`.
+- `ContentResult` is used when you want to send a **plain text**, **HTML**, or other content types directly as the response.
+
+**Example**:
+
+```c#
+//Normale way:-
+public string SendDate1()
+{
+  return "Current Date: " + DateTime.Now;
+  //Or
+  return "नमस्ते आप कैसे हैं";
+}
+//Using Action return:-
+public ContentResult ShowMessage()
+{
+  return Content("Hello, this is a simple message!", "text/plain");
+  //Or
+  return Content("Current Date: " + DateTime.Now.ToString());
+  //Or
+  return Content("नमस्ते आप कैसे हैं", "text/plain", Encoding.Unicode);
+}
+
+```
+
+---
+
+### Q. What is RedirectResult and Give Example?
+
+---
+
+- **Redirects to a specified URL** using `Redirect()`.
+- `RedirectResult` is used to **redirect** the client to a different URL.
+
+**Example**:
+
+```c#
+public RedirectResult GoToGoogle()
+{
+    return Redirect("https://www.google.com");
+}
+```
+
+---
+
+### Q. What is JavaScriptResult and Give Example?
+
+---
+
+- **Returns JavaScript code to be executed** using `JavaScript()`.
+- `JavaScriptResult` is used when you want to send a **JavaScript** command as the response. However, this is deprecated in MVC Core.
+- Not work this return type only print in screen, not support in my browser. In older versions of MVC, JavaScriptResult was used.
+  **Example**:
+
+```c#
+public JavaScriptResult ShowAlert()
+{
+    return JavaScript("alert('This is a JavaScript alert!');");
+}
+```
+
+---
+
+### Q. What is PartialViewResult and Give Example?
+
+---
+
+- **Returns a partial view** using `PartialView()`.
+- `PartialViewResult` is used when you want to **render** a portion of the page, typically for **partial updates**.
+
+**Example**:
+
+```c#
+public PartialViewResult LoadEmployeeDetails(int id)
+{
+    Employee emp = GetEmployeeById(id);
+    return PartialView("_EmployeeDetails", emp);
+}
+```
+
+---
+
+### Q. What is HttpStatusCodeResult and Give Example?
+
+---
+
+- provides a way to return an action result with a specific HTTP Status Code and Description.
+
+---
+
+### Q. What is RedirectToRouteResult and Give Example?
+
+---
+
+- **Redirects to a specified action or route** using `RedirectToRoute()`.
+- `RedirectToRouteResult` is used when you want to redirect the user to an **action** or **route** within the application.
+
+**Example**:
+
+```c#
+public RedirectToRouteResult RedirectToHome()
+{
+    return RedirectToRoute(new { controller = "Home", action = "Index" });
+}
+```
+
+---
+
+## **`Minification and Bundling`**
+
+### Q. What is Minification?
+
+---
+
+Minification is the process of optimizing code (CSS or JavaScript) by removing unnecessary characters like spaces, comments, line breaks, and shortening variable names. This reduces the file size, improving page load times.
+
+---
+
+### Q. What is the purpose of Bundling?
+
+---
+
+By default, a separate request for CSS or JavaScript sends each file of CSS and JavaScript, but bundling, a technique to combine multiple CSS or JavaScript files into a single file, reduces the number of requests made to the server. This helps speed up the loading of web pages by minimizing the number of round-trips to the server.
+
+---
+
+### Q. How does Minification improve performance?
+
+---
+
+By reducing the size of files, minification reduces the amount of data that needs to be downloaded by the browser. This leads to faster page load times and reduces the overall bandwidth usage.
+
+---
+
+### Q. What are the key elements removed in Minification?
+
+---
+
+- White spaces
+- Line breaks
+- Comments
+- Redundant characters
+- It may also shorten variable names.
+
+---
+
+### Q. What is the difference between Bundling and Minification?
+
+---
+
+**Bundling groups** multiple files into one, reducing the number of HTTP requests.
+
+**Minification** reduces the file size by removing unnecessary characters and optimizing the code.
+
+---
+
+### Q. Why is Minification important for modern web browsers?
+
+---
+
+Modern browsers limit simultaneous connections to a host (usually around 6). By reducing file sizes and bundling multiple files, Minification helps ensure that fewer requests are queued, improving overall page load performance.
+
+---
+
+### Q. What does the minified version of a JavaScript function look like?
+
+---
+
+- After minification, a JavaScript function:
+
+```c#
+function SayHello(name) {
+   //This function wishes the user with his given name
+   var msg = "Hello " + name;
+   alert(msg);
+}
+```
+
+- Will be transformed into:
+
+```C#
+function SayHello(n){var m="Hello "+n;alert(m);}
+```
+
+---
+
+### Q. Can minification break code functionality?
+
+---
+
+If not done carefully, minification might break code, especially if variable names or function names are shortened incorrectly. However, modern tools are designed to prevent this, ensuring that the functionality remains intact.
+
+---
+
+### Q. What are the benefits of minification and bundling?
+
+---
+
+- **Reduced file size**: Minified files are much smaller.
+
+- **Fewer HTTP requests**: Bundling combines files into one, reducing the number of requests.
+
+- **Improved page load times**: Smaller file sizes and fewer requests mean quicker load times.
+
+---
+
+### Q. How bundling bundle and minification work with files?
+
+---
+
+Consider you have three separate JavaScript files (script1.js, script2.js, and script3.js). Using bundling, you combine them into one file, bundle.js. Then, minification reduces its size further by removing unnecessary characters.
+
+---
+
+### Q. How to Perform Minification?
+
+---
+
+1. To perform Minification of assets (CSS and JS files) we need to take the help of some tool and there are various tools available in the industry to do this. In our code we are going to use `Portable Smalify` tool which can be download from this location: [Portable-Smalify-Tool-Linq](https://www.softpedia.com/get/PORTABLE-SOFTWARE/System/File-management/Portable-Smalify.shtml)
+
+2. After downloading, unzip the file into a folder and in that folder, we find “Smalify.exe”. Run it, which will open a User Interface, drag, and drop the `folder` in which we have placed the “.css” or “.js” files on the UI, which we want to minify and click on the `Minify now` button on the UI. Then add all those minfy file in the Project at same place.
+
+---
+
+### Q. What is `System.Web.Optimization`?
+
+---
+
+- To perform Bundling we need `Web Optimization Framework` library in our project. To `install`, go to `NuGet Package Manager` and browse and search for **`Web Optimization Framework`** that displays **`Microsoft.AspNet.Web.Optimization`**, select it and install it.
+
+- This library we are provided with a set of classes under `System.Web.Optimization` namespace:
+
+**StyleBundle**: Combines multiple CSS files into one bundle, reducing the number of requests for stylesheets.
+
+**ScriptBundle**: Combines multiple JavaScript files into one bundle, minimizing the number of script requests.
+
+**BundleCollection**: This represents a set of `StyleBundles` and `ScriptBundles`.
+
+**BundleTable**: This is a holder class for the `BundleCollection`.
+
+**Scripts**: This class is used for rendering the Script Bundles in our Web Pages i.e., “.cshtml” files and to do that we need to call a static method under the class i.e., Render to render the script files in ScriptBundles. Helps render the JavaScript bundles in .cshtml files by calling a method like `@Scripts.Render()` to include the script bundle in the webpage.
+
+**Styles**: This class is used for rendering the Style Bundles in our Web Pages i.e., “.cshtml” files and to do that we need to call a static method under the class i.e., Render to render the style files in StyleBundles. Similar to Scripts, this helps render CSS bundles in .cshtml files using `@Styles.Render()`.
+
+---
+
+### Q. How to perform Bundling?
+
+---
+
+1. To perform bundling, add a `Code File` under `App_Start` folder with the name `BundleConfig.cs` and write the below code in the file:
+
+```c#
+using System.Web.Optimization;
+namespace MinificationAndBundling
+{
+  public class BundleConfig
+  {
+    public static void RegisterBundles(BundleCollection bundles)
+    {
+      //Create a StyleBundle and include all the CSS files into it
+      StyleBundle styleBundle = new StyleBundle("~/Content/   MyStyleBundle");
+      styleBundle.Include("~/Content/Header.min.css", "~/Content/   Paragraph.min.css");
+      bundles.Add(styleBundle);
+      //Create a ScriptBundle and include all the Scripts files into  it (Example Code)
+      //ScriptBundle scriptBundle = new ScriptBundle("~/Scripts/      MyScriptBundle");
+      //scriptBundle.Include("~/Scripts/Test1.min.js", "~/Scripts/  Test2.  min.  js");
+      //bundles.Add(scriptBundle); //Example Code
+    }
+  }
+}
+```
+
+2. Now open the `Global.asax` file and call `RegisterBundles` method of `BundleConfig` class inside of `Application_Start` method by importing `System.Web.Optimization` namespace:
+
+```c#
+BundleConfig.RegisterBundles(BundleTable.Bundles);
+```
+
+3. Go to `View (i.e:“Index.cshtml”)` file import the namespace `System.Web.Optimization` as following on top of the file::
+
+```c#
+@using System.Web.Optimization;
+```
+
+4. Delete the 2 link `Paragraph.css, Header.css` and write `@Styles.Render("~/Content/NITStyleBundle")`.
+
+5. Bundling is not posible in developming mode, bundling is performed only in the `Release or Production` mode but not in `Debug or Development` mode. If we want to test bundling at the time of `Application Development` we can achieve that in 2 different
+   ways:
+
+- Open `Web.config` file and under `<system.web>` tag we find `<compilation>` tag with a boolean attribute `debug` and its value will be `true` by default, change in to `false` and run View.
+  ```c#
+  <compilation debug="false" targetFramework="4.8" />
+  ```
+- Go to “BundleConfig.cs” and write the below statement in the end of `RegisterBundles` method and run `Index.cshtml` page again.
+  ```c#
+    BundleTable.EnableOptimizations = true;
+  ```
+
+---
+
+### Q. Give me Steps to follow Minification and Bundling with example?
+
+---
+
+**Setup Minification**
+
+1. Create project and add Content folder next add CSS and Javascript files in you project and write some in CSS and Javscript file (i.e: Write now i am creating only two css file `Header.css`,`Paragraph.css`)
+2. Then Perform Minification with those foder where CSS and JS file available (When you convert the file name is: `Header.min.css`,`Paragraph.min.css`).
+3. Create a action method with view. In View, inside the header drag and drop the min file (`<file_Name>.min.<css/js>`). And Add the code in view folder and use this css class or whatever.
+
+- To see the request in browser: Inspect and go to network tab there are 3 requets `Index.cshtml`,`Header.min.css`,`Paragraph.min.css`.
+  **Setup Bundling**
+
+4. Install **`Microsoft.AspNet.Web.Optimization`**, form `NuGet Package Manager`.
+5. Add the `BundleConfig.cs` and write the code for bundling.
+6. Add `BundleConfig.RegisterBundles(BundleTable.Bundles);` in `GLobal.axpx`.
+7. Inport `@using System.Web.Optimization;` and add `@Styles.Render("~/Content/<File_Name_which_is_you_give_in_BundleConfig.cs>")` in Views.
+8. Convert in to Developer mode.
+9. Run and cheak, inspact > Network tab.
+
+---
+
+## **`Areas`**
+
+### Q. What are Areas in an MVC Application?
+
+---
+
+Areas in MVC are used to divide large applications into smaller, logical units. Each area can contain its own Controllers, Views, and Models, allowing better organization and separation of concerns. This makes it easier to develop, maintain, and manage different modules in an application.
+
+---
+
+### Q. Can you give an example of how Areas can be used in a real-world application?
+
+---
+
+- In a Hospital Management Application, areas can be used to separate different modules such as:
+
+1. Patient Module (with its own Controllers, Views, Models)
+2. Doctor Module
+3. Billing Module
+4. Insurance Module
+5. HR Module
+6. Medicine Module, etc. Each of these can be developed and maintained independently as separate areas.
+
+---
+
+### Q. How do you create an Area in an MVC application?
+
+---
+
+- To create an Area in an ASP.NET MVC project:
+
+1. Right-click on the project in Solution Explorer.
+2. Select Add > New Scaffolded Item.
+3. Expand MVC Node and select Area.
+4. Click Add, provide a name for the area (e.g., "Patient"), and click Add.
+5. This will create an Areas folder in the project with sub-folders for Controllers, Views, and Models for that specific area.
+
+---
+
+### Q. What is the purpose of the AreaRegistration class in an MVC Area?
+
+---
+
+When You create Area (i.e: Patient) then automaticaly one `<Area_Name>AreaRegistration.cs` class created (i.e: `PatientAreaRegistration.cs`) in `Area` folder > `Area_Name` folder(i.e: Patient).
+
+The AreaRegistration class is responsible for registering the routes specific to an area. The RegisterArea method inside this class maps the route for that area, allowing the application to correctly access controllers and actions within the area.
+
+---
+
+### Q. What does the RegisterArea method in an AreaRegistration class do?
+
+---
+
+The RegisterArea method maps the routes for the area. For example:
+
+```c#
+public override void RegisterArea(AreaRegistrationContext context)
+{
+    context.MapRoute(
+        "Patient_default",
+        "Patient/{controller}/{action}/{id}",
+        new { action = "Index", id = UrlParameter.Optional }
+    );
+}
+```
+
+In this case, it defines a default route for accessing actions in the **Patient** area, with optional parameters for action and ID.
+
+---
+
+### Q. Can I create multiple Areas in one MVC project?
+
+---
+
+Yes, an MVC project you can create multiple areas. Each area can have its own set of Controllers, Views, and Models, and they are organized independently under the Areas folder.
+
+---
+
+### Q. What happens if there are Controllers with the same name in different Areas?
+
+---
+
+If two areas have Controllers with the same name, the route definitions in the `AreaRegistration` class ensure that the correct controller from the appropriate area is used based on the route specified in the URL (e.g., `Patient/ControllerName` vs. `Doctor/ControllerName`).
+
+---
+
+### Q. How do Areas affect routing in an MVC application?
+
+---
+
+Each area has its own routing setup defined in its AreaRegistration class, meaning that routes inside an area are independent from the rest of the application. This allows better control over navigation within each module.
+
+---
+
+### Q. What are the benefits of using Areas in a large MVC application?
+
+---
+
+**Modular Development**: Different teams can work on different areas independently.
+
+**Better Organization**: Logical separation of concerns by grouping related Controllers, Views, and Models.
+
+**Scalability**: Easier to manage and maintain larger applications with multiple functional modules.
+
+---
+
+### Q. How do you add multiple areas in an MVC project?
+
+---
+
+- To add more areas in an MVC project, follow these steps:
+
+1. Right-click on the Areas folder in Solution Explorer.
+2. Select Add > Area.
+3. Choose MVC 5 Area, then name the new area (e.g., Doctor, Staff).
+4. This will create a folder for the new area, each containing subfolders for Controllers, Views, Data, and an AreaRegistration class.
+
+---
+
+### Q. What should be done after adding areas like Doctor and Staff?
+
+---
+
+- For each area (e.g., Doctor, Staff, Patient):
+
+1. Add a HomeController in the Controllers folder within each area.
+2. Add an `Index.cshtml layout view` for the `Index action` in the Views folder of each area’s HomeController.
+3. In the Index.cshtml, define a title and a link to navigate back to the site’s home page.
+
+Example for Doctor's Index.cshtml:
+
+```C#
+@{
+  ViewBag.Title = "Doctors - Index Page";
+}
+<h2>This is Home Page of Doctor's Area.</h2>
+@Html.ActionLink("Back to site home page", "Index", "Home", new { area = "" }, null)
+```
+
+---
+
+### Q. What needs to be done to make the root HomeController work properly?
+
+---
+
+Add a HomeController in the project’s root Controllers folder and create an Index.cshtml view for the Index action. Example for the root HomeController:
+
+```C#
+@{
+    ViewBag.Title = "Site - Index";
+}
+<h2>This is the Home Page of Site.</h2>
+@Html.ActionLink("Doctor Home Page", "Index", "Home", new { area = "Doctor" }, null)
+<br />
+@Html.ActionLink("Patient Home Page", "Index", "Home", new { area = "Patient" }, null)
+<br />
+@Html.ActionLink("Staff Home Page", "Index", "Home", new { area = "Staff" }, null)
+
+```
+
+---
+
+### Q. Why does running the project initially cause an error?
+
+---
+
+The project may initially throw an error because there are multiple HomeControllers (one in the root and others in different areas). The system cannot determine which HomeController to use for the Index action.
+
+---
+
+### Q. How do you resolve the error caused by multiple HomeControllers?
+
+---
+
+- To resolve the error, you need to specify the namespace for the root HomeController in the RouteConfig.cs file:
+
+```C#
+routes.MapRoute(
+    name: "Default",
+    url: "{controller}/{action}/{id}",
+    defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
+    namespaces: new string[] { "MultipleDepartmentWiseSepretPannelUsingArea.Controllers" } // This is for the root HomeController
+);
+```
+
+- `MultipleDepartmentWiseSepretPannelUsingArea`: Projct name.
+- `namespaces: new string[] { "MultipleDepartmentWiseSepretPannelUsingArea.Controllers" }` specifies the namespace for the controller to use when resolving routes. In this case, it tells the routing system to use the HomeController located in the `MultipleDepartmentWiseSepretPannelUsingArea.Controllers` namespace (the `root controller`), rather than a HomeController from one of the areas. This helps avoid conflicts when multiple controllers with the same name (like HomeController) exist in different areas.
+
+---
+
+### Q. How do the URLs look after fixing the errors?
+
+---
+
+- Once the errors are fixed, the URLs should work as follows:
+  - `http://localhost:port/Doctor` will launch the Doctor Home Page.
+  - `http://localhost:port/Patient` will launch the Patient Home Page.
+  - `http://localhost:port/Staff` will launch the Staff Home Page.
+  - `http://localhost:port will` launch the Site Home Page.
+
+---
+
+### Q. What is the purpose of specifying namespaces in the RouteConfig file?
+
+---
+
+Specifying the namespace ensures that the correct HomeController from the root of the project is used when no area is specified in the route. This avoids conflicts when there are multiple HomeControllers in different areas.
+
+---
+
+### Q. How does the AreaRegistration class help in routing for areas?
+
+---
+
+The AreaRegistration class maps routes specific to each area. It helps define the URL structure and ensures the area’s controllers are accessed correctly. By updating the route in the AreaRegistration.cs file, you ensure the correct HomeController is used within each area.
+
+---
+
+## **`Data Annotations`**
+
+### Q. What are Data Annotations?
+
+---
+
+Data Annotations are attributes used in ASP.NET MVC to validate models. They are similar to validation controls in ASP.NET Web Forms and help validate user input both on the client and server. They are applied to model properties and provide an easy way to enforce validation rules.
+
+---
+
+### Q. Where are Data Annotations defined?
+
+---
+
+They are defined in the `System.ComponentModel.DataAnnotations` namespace. Each Data Annotation is a class that inherits from the `Attribute` class.
+
+---
+
+### Q. What types of attributes can Data Annotations provide?
+
+---
+
+- Data Annotations can be divided into three categories:
+  1. **Display Attributes**: Control how properties are displayed.
+  2. **Validation Attributes**: Perform input validation (e.g., required fields, range checks).
+  3. **Modeling Attributes**: Control model relationships and constraints in Entity Framework.
+
+---
+
+### Q. What are the common Data Annotation classes?
+
+---
+
+**Attribute**
+
+- **DisplayAttribute**: Customizes how fields are displayed in the UI.
+- **DisplayFormatAttribute**:
+- **DisplayColumnAttribute**:
+- **ValidationAttribute**:
+  - **RequiredAttribute**: Specifies that a field is mandatory.
+  - **DataTypeAttribute**: Specifies the type of data (e.g., email, phone number).
+  - **CompareAttribute**: Compares two properties for equality (e.g., password confirmation).
+  - **RangeAttribute**: Ensures that a value falls within a specified range.
+  - **RegularExpressionAttribute**: Enforces a regular expression pattern.
+  - **RemoteAttribute**: Validates data by sending an asynchronous request to a server-side action method (found in `System.Web.Mvc`).
+
+---
+
+### Q. How does validation work with Data Annotations?
+
+---
+
+Validation is performed both on the client and the server. First, validation happens on the client side. If the validation fails, the form submission is blocked. If the client disables JavaScript, the validation will also run on the server side, ensuring that validation is enforced regardless of client-side settings.
+
+---
+
+### Q. How do Data Annotations differ from Validation Controls in ASP.NET Web Forms?
+
+---
+
+Data Annotations in MVC are attributes directly applied to the model properties, while Validation Controls in Web Forms are separate controls that are placed in the view. Data Annotations are simpler and more flexible since they validate both on the client and server.
+
+---
+
+### Q. Why is it important to validate on both the client and server?
+
+---
+
+Client-side validation enhances user experience by providing immediate feedback and reducing server load. However, server-side validation is crucial because the client may have disabled JavaScript, or an attacker may bypass client-side validation. Server-side validation ensures that the data is always valid when it reaches the server.
+
+---
+
+### Q. What happens if client-side validation fails?
+
+---
+
+If client-side validation fails, the form submission is prevented, and the user is informed about the validation errors. This prevents the data from being sent to the server unless it passes validation.
+
+---
+
+### Q. What is the purpose of the RemoteAttribute?
+
+---
+
+The RemoteAttribute allows you to perform server-side validation by sending an asynchronous request to an action method in the controller. It's often used for scenarios like checking if a username or email is already taken.
+
+---
+
+### Q. How do Data Annotations integrate with Entity Framework?
+
+---
+
+Data Annotations can be used in Entity Framework to `enforce validation rules` for database models.
+
+---
+
+### Q. How does client-side validation work with Data Annotations?
+
+---
+
+Client-side validation using Data Annotations is automatically performed through jQuery and jQuery Validate libraries. These libraries check the form fields before submitting the data to the server, providing instant feedback if there are validation errors.
+
+---
+
+### Q. Which jQuery libraries are required for client-side validation with Data Annotations?
+
+---
+
+- To enable client-side validation, the following jQuery libraries must be included in your view:
+  - `jquery-<version>.min.js`: The core jQuery library.
+  - `jquery.validate.min.js`: The library that handles the validation logic.
+  - `jquery.validate.unobtrusive.min.js`: This enables unobtrusive validation, allowing validation logic to be handled in the HTML markup without extra JavaScript.
+
+---
+
+### Q. Where do you include these libraries in the view?
+
+---
+
+The libraries are usually included in the layout page (shared by multiple views) or directly in the view pages themselves. The order of including these scripts is important; jQuery must be loaded before the validation libraries.
+
+---
+
+### Q. Example of including these libraries in a view page:
+
+---
+
+```html
+<script src="~/Scripts/jquery-3.6.0.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+```
+
+---
+
+### Q. Can client-side validation be bypassed?
+
+---
+
+Yes, client-side validation can be bypassed by disabling JavaScript in the browser. That's why it's important to also validate the data on the server side to ensure security.
+
+---
+
+### Q. What are the benefits of client-side validation?
+
+---
+
+Improved user experience, Reduced server load
+
+---
+
+### Q. What if the validation rules are not applying on the client-side?
+
+---
+
+If validation isn't working:
+
+- Ensure the jQuery libraries are included in the correct order.
+- Verify that the unobtrusive validation setting is enabled in Web.config:
+
+```html
+<appSettings>
+  <add key="ClientValidationEnabled" value="true" />
+  <add key="UnobtrusiveJavaScriptEnabled" value="true" />
+</appSettings>
+```
+
+---
+
+### Q. What is the purpose of the Display attribute?
+
+---
+
+The Display attribute allows you to specify a user-friendly name for a property, which will be used in the view, typically in form labels. For example:
+
+```C#
+[Display(Name = "First Name:")]
+public string FirstName { get; set; }
+```
+
+---
+
+### Q. How does the DisplayFormat attribute work?
+
+---
+
+The DisplayFormat attribute controls how data fields are displayed and formatted. It can format dates, numbers, and handle null values. Some examples:
+
+- Currency format
+
+```c#
+[DisplayFormat(DataFormatString = "{0:c}")]
+public double Salary { get; set; }
+```
+
+- Date Format (MM/dd/yyyy):
+
+```C#
+[DisplayFormat(DataFormatString = "{0:d}")]
+public DateTime DOB { get; set; }
+```
+
+- Custom date format:
+
+```C#
+[DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
+public DateTime DOB { get; set; }
+```
+
+- Specified Date & Time format (Time in 24 hour format):
+
+```C#
+[DisplayFormat(DataFormatString = "{0:dd/MM/yyyy HH:mm:ss}")]
+public DateTime DOB { get; set; }
+```
+
+- Specified Date & Time format (Time in 12 hour format with AM/PM):
+
+```C#
+[DisplayFormat(DataFormatString = "{0:dd/MM/yyyy hh:mm:ss tt}")]
+public DateTime DOB { get; set; }
+```
+
+- Handling null values:
+
+```C#
+[DisplayFormat(NullDisplayText = "Name not specified.")]
+public string Name { get; set; }
+```
+
+---
+
+### Q. What does the Required attribute do?
+
+---
+
+The Required attribute makes a property mandatory. It ensures that the user provides a value for the field, otherwise, an error message is shown. For example:
+
+```C#
+[Required(ErrorMessage = "Name field can't be left empty.")]
+public string Name { get; set; }
+```
+
+---
+
+### Q. How is the DataType attribute used?
+
+---
+
+The DataType attribute is used to specify the type of data expected, such as Password, Email, Date, etc. It helps with formatting and validation. For example:
+
+```C#
+[DataType(DataType.Password)]
+public string Password { get; set; }
+```
+
+---
+
+### Q. What is the purpose of the Compare attribute?
+
+---
+
+The Compare attribute is used to compare two properties of a model. It's often used to ensure that fields like password and confirm password match. For example:
+
+```C#
+[Compare("Password", ErrorMessage = "Confirm password should match with password.")]
+public string ConfirmPassword { get; set; }
+```
+
+---
+
+### Q. How is the Range attribute used?
+
+---
+
+The Range attribute ensures that a property’s value falls within a specified range. It's useful for numeric values like age. For example:
+
+```C#
+[Range(18, 60, ErrorMessage = "Age should be between 18 to 60 years.")]
+public int Age { get; set; }
+```
+
+---
+
+### Q. What does the RegularExpression attribute do?
+
+---
+
+The RegularExpression attribute validates a property’s value against a regular expression pattern. For example, to validate a mobile number:
+
+```C#
+[RegularExpression(@"[6-9]\d{9}", ErrorMessage = "Invalid mobile number.")]
+public string Mobile { get; set; }
+```
+
+---
+
+### Q. What is the Remote attribute?
+
+---
+
+The Remote attribute allows for server-side `validation without submitting the form`. It uses an `AJAX call` to validate the data asynchronously. For example:
+
+```C#
+[Remote("IsUsernameAvailable", "Account", ErrorMessage = "Username already taken.")]
+public string Username { get; set; }
+```
+
+This will call the `IsUsernameAvailable method` in the `Account controller` to check if the username is already in use.
+
+---
+
+### Q. Give me example of using DataAnnotations?
+
+---
+
+Creatre mode class, action method, view:
+`User.cs`
+
+```c#
+using System;
+using System.ComponentModel.DataAnnotations;
+
+namespace MVCAnnotations.Models
+{
+    public class User
+    {
+        [Display(Name="User name")]
+        [Required(ErrorMessage ="User Name Required")]
+        [RegularExpression(@"[A-Za-z\s]{3,}", ErrorMessage = "Name can have alphabets & spaces with min size of 3.")]
+        public string Name { get; set; }
+
+        [Required(ErrorMessage = "Password Required")]
+        [DataType(DataType.Password)]
+        [RegularExpression(@"(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$_-])(?=\S+$).{8,16}", ErrorMessage = "PasswordFormat: <br />-No spaces.<br />-Minimum 1 numeric.<br />-Minimum 1 upper case & lower case alphabet.<br />-Minimum 1, any of these Special characters: -, _, @, #, $.<br />-Should be ranging between 8 - 16 chars.")]
+        public string Password { get; set; }
+
+        [Required(ErrorMessage = "Confirm Password Required")]
+        [DataType(DataType.Password)]
+        [Compare("Password",ErrorMessage ="Bothe password shood not same")]
+        public string ConfirmPassword { get; set; }
+
+        [Display(Name="Data of birth")]
+        [Required(ErrorMessage = "DOB Required")]
+        [DataType(DataType.Date)]
+        [System.Web.Mvc.Remote("IsValidate", "Student", ErrorMessage = "User should attain 18 years age to register.")]
+        public DateTime DOB { get; set; }
+
+        [Required(ErrorMessage = "Mobile number Required")]
+        [DataType(DataType.PhoneNumber)]
+        public string Mobile { get; set; }
+
+        [Required(ErrorMessage = "Email Required")]
+        [DataType(DataType.EmailAddress)]
+        public string Email { get; set; }
+
+        [Required(ErrorMessage = "Address Required")]
+        [DataType(DataType.MultilineText)]
+        public string Address { get; set; }
+    }
+}
+```
+
+`StudentController.cs`
+
+```c#
+using MVCAnnotations.Models;
+using System;
+using System.Web.Mvc;
+
+namespace MVCAnnotations.Controllers
+{
+    public class StudentController : Controller
+    {
+        [HttpGet]
+        public ActionResult Index()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Index(User user)
+        {
+            return View();
+        }
+        public JsonResult IsValidate(DateTime DOB)
+        {
+            bool Status;
+            if (DOB > DateTime.Now.AddYears(-18))
+            {
+                Status = false;
+            }
+            else
+            {
+                Status = true;
+            }
+            return Json(Status, JsonRequestBehavior.AllowGet);
+        }
+    }
+}
+```
+
+`Index.cs`
+
+```c#
+@model MVCAnnotations.Models.User
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery-3.7.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+</head>
+
+<body>
+    <div>
+        @using (Html.BeginForm())
+        {
+            <div>
+                @Html.LabelFor(S => S.Name)
+                @Html.TextBoxFor(S => S.Name, null, new { @class = "form-control" })
+                @Html.ValidationMessageFor(S=>S.Name)
+            </div>
+            <div>
+                @Html.LabelFor(S => S.Password)
+                @Html.TextBoxFor(S => S.Password, null, new { @class = "form-control" })
+                @Html.ValidationMessageFor(S => S.Password)
+            </div>
+            <div>
+                @Html.LabelFor(S => S.ConfirmPassword)
+                @Html.TextBoxFor(S => S.ConfirmPassword, null, new { @class = "form-control" })
+                @Html.ValidationMessageFor(S => S.ConfirmPassword)
+            </div>
+            <div>
+                @Html.LabelFor(S => S.DOB)
+                @Html.TextBoxFor(S => S.DOB, null, new { @class = "form-control" })
+                @Html.ValidationMessageFor(S => S.DOB)
+            </div>
+            <div>
+                @Html.LabelFor(S => S.Mobile)
+                @Html.TextBoxFor(S => S.Mobile, null, new { @class = "form-control" })
+                @Html.ValidationMessageFor(S => S.Mobile)
+            </div>
+            <div>
+                @Html.LabelFor(S => S.Email)
+                @Html.TextBoxFor(S => S.Email, null, new { @class = "form-control" })
+                @Html.ValidationMessageFor(S => S.Email)
+            </div>
+            <div>
+                @Html.LabelFor(S => S.Address)
+                @Html.TextBoxFor(S => S.Address, null, new { @class = "form-control" })
+                @Html.ValidationMessageFor(S => S.Address)
+            </div>
+            <input type="submit" value="Submit" class="btn btn-primary"/>
+        }
+    </div>
+</body>
+</html>
+```
+
+- `@Html.ValidationMessageFor()`: Use for print the message.
+
+---
+
+### Q.Is that mandatory to use only json return type in **[System.Web.Mvc.Remote("Action_Name", "Conroller_Name", ErrorMessage = "")]**?
+
+---
+
+- No, it is not mandatory to return only JSON in the Remote attribute validation method. However, when using the Remote attribute in ASP.NET MVC, the standard practice is to return a JSON result because the validation is typically performed asynchronously using AJAX (without a full page reload), and the client expects a JSON response to decide whether the input is valid or not.
+
+You can use any type of return type:
+
+```c#
+public ActionResult MyAction(){return View();} // Could also return other types like Json(), Redirect(), etc.
+
+public ViewResult Index(){return View();} // Returns a View to the client.
+
+public RedirectResult RedirectToGoogle(){return Redirect("https://www.google.com");}
+
+public RedirectToRouteResult GoToHome(){return RedirectToRoute(new { controller = "Home", action = "Index" });}
+
+public PartialViewResult GetPartial(){return PartialView("_MyPartialView");}
+
+public FileResult DownloadFile()
+{
+  byte[] fileBytes = System.IO.File.ReadAllBytes(@"path-to-file");
+    return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, "downloadedFile.pdf");
+}
+
+public ContentResult GetContent(){return Content("This is some plain text content.");}
+
+public EmptyResult DoNothing(){return new EmptyResult();}
+
+public HttpStatusCodeResult NotFound(){return new HttpStatusCodeResult(404, "Page not found");}
+
+public FileContentResult DownloadImage()
+{
+    byte[] imageBytes = System.IO.File.ReadAllBytes(@"path-to-image");
+    return new FileContentResult(imageBytes, "image/jpeg");
+}
+
+public FileStreamResult DownloadFileStream()
+{
+    var fileStream = new FileStream("path-to-file", FileMode.Open);
+    return new FileStreamResult(fileStream, "application/pdf");
+}
+
+public FilePathResult DownloadFromPath(){return File("path-to-file", "application/pdf");}
+```
+
+---
+
+### Q. How do Data Annotations work in ASP.NET MVC?
+
+---
+
+Data Annotations are used to apply validation rules to model properties. They work with strongly-typed HTML helpers like LabelFor, TextBoxFor, and EditorFor in views. If a user enters invalid data, the validation attributes trigger error messages, and the page will not be submitted to the server.
+
+---
+
+### Q. What happens if JavaScript is disabled on the client's browser?
+
+---
+
+If JavaScript is disabled, client-side validation will not work, and the form may still submit even with invalid data. To handle this, you can use server-side validation by checking the `ModelState.IsValid` property in the controller's action method. If the model is invalid, you can return the view with the entered data and validation messages.
+
+```c#
+if (ModelState.IsValid)
+{
+    return View(obj);
+}
+else
+{
+    return View("AddUser", obj);
+}
+```
+
+---
+
+### Q. What is the role of ValidationSummary?
+
+---
+
+ValidationSummary collects all error messages in one place and displays them at the top of the form. This is helpful when you want to show all validation errors in a single area instead of displaying them next to each form field.
+
+```c#
+<div>@Html.ValidationSummary("", new { @class = "alert alert-danger" })</div>
+```
+
+---
+
+### Q. What is "Scaffolding" in ASP.NET MVC?
+
+---
+
+Scaffolding is a feature in ASP.NET MVC that automatically generates code for views based on the model class. For example, when you scaffold a view for the DisplayUser action, ASP.NET generates a form that displays user data. It uses HTML helpers like DisplayNameFor to show field names and DisplayFor to show field values in a `<dl>` (description list) format.
+
+---
+
+### Q. How do you generate automaticaly a view for an action method like DisplayUser?
+
+---
+
+To generate a view for an action method like DisplayUser, right-click on the method name, select Add View, choose Details from the Template dropdown, and select the model class (User). This will generate a view displaying the model's details.
+
+---
+
+### Q. What happens if ModelState.IsValid is false in server-side validation?
+
+---
+
+If ModelState.IsValid returns false, it means that one or more validation rules were violated. In that case, the view is re-rendered, and the validation messages will appear beside the fields with invalid input or in the ValidationSummary (if used).
+
+---
+
+## **`ASP.NET MVC Request Life Cycle`**
+
+### Q. What is the ASP.NET MVC Request Life Cycle?
+
+---
+
+![alt text](./ASP_MVC_RequestLifeCycle.png)
+
+1. **Routing**:
+
+- Routing is the first step in the MVC request cycle. When a user makes a request, ASP.NET MVC `matches the URL` against the `patterns registered` in the `Route Table`.
+- When a `match` is found, the `request is forwarded` to the `IRouteHandler`, which `calls` the `MvcHandler`.
+- If no match is found, a 404 HTTP status code is returned.
+- `Route patterns` are `registered` in the `Global.asax` file when the application starts.
+
+2. **MvcHandler**:
+
+- The `MvcHandler` is `responsible` for starting the actual MVC processing.
+- The `MvcHandler implements the IHttpHandler interface`.
+- `MvcHandler use the ProcessRequest method to process the request`.
+- The `request` is then `passed` to the `appropriate Controller by using a controller factory`.
+
+3. **Controller**:
+
+- The `controller` handles the request logic and is created by the `IControllerFactory` and it's `creates an instance of the controller class`.
+
+- Once the controller is created, its Execute method is called to handle the request.
+
+```C#
+public class HomeController : Controller{}
+```
+
+4. **Action Execution**:
+
+- The `controller's ActionInvoker` determines which action to `invoke based on the URL and parameters`.
+- The action method is chosen by matching the method name to the action name in the URL.
+- The ActionNameSelectorAttribute is used to select the correct action based on its name.
+- The ActionMethodSelectorAttribute helps if multiple methods match the action name (e.g., for different HTTP verbs like GET or POST).
+
+5. **Action Result**:
+
+- After the action method is executed, it `returns an ActionResult that defines what happens next` (e.g., rendering a view or redirecting or any aother return by Action meyhod).
+
+6. **View Engine**:
+
+- The View Engine` is responsible for locating and rendering the correct view.
+- `ASP.NET MVC uses IViewEngine` to `select` the `appropriate view engine`.
+- By default, MVC supports Razor and Web Forms view engines and priority go to Web Forms view engines. You can also create and register custom view engines.
+
+7. **View Rendering**:
+
+- After selecting the appropriate view engine, the ViewResult renders the final HTML response and sends it to the user's browser.
+- The view engine takes the model data passed from the controller and uses the view template to generate the HTML.
+- The `rendered HTML is sent back to the browser`.
+
+**Summary**:-
+
+- `Routing`: Matches the URL to a route and forwards the request to MvcHandler.
+- `MvcHandler`: Initializes the request and creates the controller.
+- `Controller`: Handles the logic, calls the appropriate action method.
+- `Action Execution`: The action method is executed based on the URL and parameters.
+- `Action Result`: The action returns a result like a view, JSON, or a redirect.
+- `View Engine`: Chooses the view engine (Razor or Web Forms) to render the view.
+- `View Rendering`: Renders the HTML and sends the response back to the browser.
+
+---
+
+## **`handle Request by the Web Server`**
+
+### Q. How to handle Request by the Web Server?
+
+---
+
+![alt text](ASP_NET_Web_Form_Request_Request.png)
+
+**Request Handling by the Web Server:**
+
+- When a client sends a request for the first time to a page, the ASPNET_ISAPI.dll on the Web Server takes the request.
+
+- The server generates a new class like ASP.hitcount_aspx that inherits from the class HitCount defined in the HitCount.aspx.cs and HitCount.aspx.designer.cs files.
+
+- The server compiles this class and loads the compiled code into memory.
+
+- For subsequent requests (postbacks), the compiled code in memory is used without recompiling the page, starting the page life cycle directly.
+
+---
+
+## **`Page Life Cycle of ASP.Net Web form`**
+
+### Q. What is the Page Life Cycle of ASP.Net Web form?
+
+---
+
+![alt text](ASP_NET_Web_Form_Request_Life_Cycle.png)
+
+2. **Page Life Cycle**:
+   The page life cycle describes how a web page is processed on the server after a request from a browser.
+
+   **Stages of the Page Life Cycle**:
+
+   **Stage 1: Start**
+
+   - **Page Properties Creation**: The request and response properties of the page are set.
+   - **IsPostBack Check**: Determines if the request is a postback (returns `true`) or a new request (returns `false`).
+
+   **Stage 2: Initialization**
+
+   - **Control Creation**: All the controls on the page are created.
+   - **Unique ID Assignment**: The `UniqueID` property of each control is assigned.
+
+   **Stage 3: Load**
+
+   - **Control Property Loading**: If the request is a postback, the control properties are loaded from the ViewState (or ControlState).
+
+   **Stage 4: Validation**
+
+   - **Server-Side Validation**: Server-side validations are performed, and the `IsValid` property of validator controls (and the page) is set.
+
+   **Stage 5: Event Handling**
+
+   - **Event Handlers Execution**: If it is a postback, the relevant event handlers for the controls and cached events are triggered.
+     - In the first request (GET), only page events fire.
+     - In a postback (POST), both page and control events fire.
+
+   **Stage 6: Rendering**
+
+   - **HTML Conversion**: The page is converted to HTML.
+   - **ViewState Saving**: ViewState and ControlState are saved.
+   - **Rendering Process**: Each control's `RenderControl` method is called, and its output is written to the output stream (`Response` property of the page).
+
+   **Stage 7: Unload**
+
+   - **Cleanup**: After rendering, the page is ready to discard. The `Unload` event is raised, and the request and response properties are destroyed, along with cleanup operations.
+
+---
+
+### Q. How to Handling Page Events with `AutoEventWireup` in Web form?
+
+---
+
+- **AutoEventWireup Attribute**: If this attribute in the `@Page` directive is set to `true` (default), ASP.NET automatically binds page events to their event handlers.
+  - **Naming Convention**: Event handler names must follow a convention, such as `Page_Load` for the `Load` event.
+  - **Manual Event Binding**: If `AutoEventWireup` is set to `false` or naming conventions are not followed, event handlers must be explicitly bound in the page’s constructor. For example:
+    ```csharp
+    public PageEvents()
+    {
+        this.Load += Page_Load;
+    }
+    ```
+
+---
+
+## **`Differences between ASP.Net WebForms and ASP.Net MVC`**
+
+### Q. What are the differences between ASP.Net WebForms and ASP.Net MVC?
+
+---
+
+| **Aspect**                   | **ASP.NET WebForms**                                             | **ASP.NET MVC**                                       |
+| ---------------------------- | ---------------------------------------------------------------- | ----------------------------------------------------- |
+| **Controller Approach**      | Page Controller (code-behind for each page)                      | Front Controller (common controller for all requests) |
+| **Postbacks**                | Lots of server-side interactions and postbacks                   | Minimal postbacks and server interactions             |
+| **URL Structure**            | File-based URLs (requires physical existence)                    | Route-based URLs (based on controllers and actions)   |
+| **Separation of Concerns**   | No clear separation (tight coupling between view and controller) | Clear separation between View, Model, and Controller  |
+| **Testability**              | Difficult to test (due to tight coupling)                        | Easier to test (supports Test-Driven Development)     |
+| **State Management**         | Uses ViewState (stateful behavior)                               | Stateless (no ViewState)                              |
+| **ViewState Size**           | Large ViewState can increase page size                           | Clean output, no ViewState concept                    |
+| **Syntax**                   | WebForms syntax                                                  | Supports both WebForms and Razor syntax               |
+| **Page Life Cycle**          | Complex Page Life Cycle                                          | Simple request cycle                                  |
+| **HTML & CSS Knowledge**     | Minimal knowledge required (uses server controls)                | Detailed knowledge of HTML and CSS required           |
+| **Control Over HTML/JS/CSS** | Limited control                                                  | Full control over HTML, JavaScript, and CSS           |
+| **Development Approach**     | RAD (Rapid Application Development)                              | Slower for beginners but better for large-scale apps  |
+| **Best Suited For**          | Small applications, smaller teams                                | Large applications, with multiple teams               |
+| **Response Type**            | HTML only (complex code needed for other types)                  | Supports multiple response types                      |
+
+---
+
+## **`Language Integrated Query`**
+
+### Q. What is LINQ?
+
+---
+
+LINQ stands for Language Integrated Query. It is a querying syntax introduced in C# 3.0 that allows you to query various data sources (like objects, databases, and XML) in a manner similar to SQL.
+
+---
+
+### Q. What are the types of data sources LINQ can query?
+
+---
+
+**LINQ can query data from:**
+
+- **`LINQ to Object`**: In-memory data, like arrays or collections.
+- **`Relational Databases`**:
+  - `LINQ to DataSets`: ADO.NET Data Tables.
+  - `LINQ to SQL`: Microsoft SQL Server.
+  - `LINQ to Entities`: Any relational database like SQL Server, Oracle, etc.
+- **`LINQ to XML`**: XML sources.
+
+---
+
+### Q. What are some key advantages of LINQ?
+
+---
+
+- Provides a unified way to query over data, whether it’s from databases, XML, or collections.
+- Compile-time syntax checking.
+- Allows querying in the application’s native language (C#, VB, etc.).
+
+---
+
+### Q. What is the difference between LINQ to SQL and LINQ to Entities?
+
+---
+
+- LINQ to SQL is specific to querying Microsoft SQL Server databases.
+- LINQ to Entities is more general and can be used to query any relational database (like SQL Server, Oracle, etc.).
+
+---
+
+### Q. How is LINQ similar to SQL?
+
+---
+
+LINQ uses a SQL-like syntax, making it familiar to developers who work with SQL. It provides similar query capabilities but is integrated into .NET languages like C#.
+
+---
+
+## **`LINQ to SQL`**
 
 ### Q. What is LINQ, and why is it important?
 
@@ -1191,7 +5784,7 @@ Now in the below, change the defaults as following:
 
 ---
 
-Visual Studio provides a feature called the Object-Relational **Designer (OR Designer)** to facilitate working with LINQ to SQL. <mark>**The OR Designer allows developers to create LINQ to SQL classes by visually mapping database tables, views, and stored procedures to C# objects.</mark>** When you add a LINQ to SQL class to your project (e.g., MVCDB.dbml), Visual Studio automatically generates the necessary code (like DataContext classes) that connects to the database and enables CRUD (Create, Read, Update, Delete) operations.
+Visual Studio provides a feature called the Object-Relational **Designer (OR Designer)** to facilitate working with LINQ to SQL. **`The OR Designer allows developers to create LINQ to SQL classes by visually mapping database tables, views, and stored procedures to C# objects.`** When you add a LINQ to SQL class to your project (e.g., MVCDB.dbml), Visual Studio automatically generates the necessary code (like DataContext classes) that connects to the database and enables CRUD (Create, Read, Update, Delete) operations.
 
 ---
 
@@ -1526,6 +6119,162 @@ The `SubmitChanges` method is important because it commits all pending changes (
 
 ---
 
+**Step 1**: Configure LINQ to SQL
+
+1. Open Visual Studio;
+2. Create project name it `MVCWithLinq1` use MVC;
+3. Select `Models` > `Add` > click on `New Item` > `Data` (LHS side) > `LINK to SQL Classes` > Name it and press `ok`.
+4. Open `MVCDB.dbml` next Open `Server Explorer` Add new connection and select table and drag and drop the table into left side of `MVCDB.dbml`.
+5. Create the Controllers name is `StudentController.cs`.
+
+**Step 2**: Read all data from database
+
+1. Create the `StudentDAL` class in Models class:
+
+`StudentDAL.cs`:
+
+```c#
+using System.Collections.Generic;
+using System.Linq;
+using System.Configuration; //For MVCDBDataContext > ConfigurationManager
+
+namespace MVCWithLinq1.Models
+{
+    public class StudentDAL
+    {
+        MVCDBDataContext db = new MVCDBDataContext(ConfigurationManager.ConnectionStrings["MVCDBConnectionString"].ConnectionString); //By using this instance of MVCDBDataContext class use to connect the database (ORM-> LINK to SQL)
+
+        public List<Student> GetStudents(bool? status)
+        {
+            List<Student> students;
+
+            if (status != null)
+                students = (from s in db.Students where s.Status == status select s).ToList();
+            else
+                students = (from s in db.Students select s).ToList();
+            return students;
+        }
+    }
+}
+```
+
+2. Create `Student` controller with `ShowStudent` action method with View:
+
+`StudentController.cs`:
+
+```c#
+using MVCWithLinq1.Models;
+using System.Web.Mvc;
+
+namespace MVCWithLinq1.Controllers
+{
+    public class StudentController : Controller
+    {
+        StudentDAL obj = new StudentDAL();
+        public ViewResult ShowStudents()
+        {
+            return View(obj.GetStudents(true));
+        }
+    }
+}
+```
+
+`ShowStudents.cshtml`:
+
+```html
+@model IEnumerable<MVCWithLinq1.Models.Student>
+  @{ ViewBag.Title = "ShowStudents"; }
+
+  <h2>ShowStudents</h2>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>@Html.DisplayNameFor(S => S.Sid)</th>
+        <th>@Html.DisplayNameFor(S => S.Name)</th>
+        <th>@Html.DisplayNameFor(S => S.Fees)</th>
+        <th>@Html.DisplayNameFor(S => S.Class)</th>
+        <th>@Html.DisplayNameFor(S => S.Photo)</th>
+        <th>Action's'</th>
+      </tr>
+    </thead>
+    <tbody>
+      @foreach(MVCWithLinq1.Models.Student student in Model) {
+      <tr>
+        <td>@Html.DisplayFor(S => student.Sid)</td>
+        <td>@Html.DisplayFor(S => student.Name)</td>
+        <td>@Html.DisplayFor(S => student.Fees)</td>
+        <td>@Html.DisplayFor(S => student.Class)</td>
+        <td>@Html.DisplayFor(S => student.Photo)</td>
+        <td>
+          @Html.ActionLink("View", "ShowStudent", new { Sid = student.Sid })
+          <!-- Sid = student.Sid: Sid name same as parameter of method -->
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table></MVCWithLinq1.Models.Student
+>
+```
+
+**Explain to Get data**:
+
+1. `MVCDBDataContext db = new MVCDBDataContext(ConfigurationManager.ConnectionStrings["MVCDBConnectionString"].ConnectionString);`
+   This line initializes a new instance of the `MVCDBDataContext` class, which represents the database context for connecting to the database.
+
+- **`MVCDBDataContext`**: This is a class generated by LINQ to SQL or Entity Framework that handles the connection to the database and allows you to query and manage the data.
+- **`ConfigurationManager.ConnectionStrings["MVCDBConnectionString"].ConnectionString`**: This retrieves the connection string named "MVCDBConnectionString" from the application's configuration file (`web.config`). The connection string contains the information needed to connect to the database, such as the server name, database name, and authentication details.
+
+2. `List<Student> students;`
+   This line declares a list of `Student` objects.
+
+- **`List<Student>`**: This is a generic list that will hold objects of type `Student`. `List` is a collection type in C# that allows you to store and manage a list of objects.
+- **`students`**: This is the variable name for the list. Later in the code, this list is populated with student records retrieved from the database.
+
+3. `StudentDAL obj = new StudentDAL();`
+   This line creates an instance of the `StudentDAL` class.
+
+- **`StudentDAL`**: This is a Data Access Layer class that is used to interact with the database and fetch data related to the `Student` entity.
+- **`obj`**: This is the variable name for the `StudentDAL` instance. It allows the controller to call methods from the `StudentDAL` class, like `GetStudents`.
+
+4. `@model IEnumerable<MVCWithLinq1.Models.Student>`
+   This line at the top of the Razor view specifies the model type that the view expects.
+
+- **`@model`**: A directive used in ASP.NET MVC Razor views to define the type of the data (model) that the view will use.
+- **`IEnumerable<MVCWithLinq1.Models.Student>`**: This means the view will work with a collection of `Student` objects (from the namespace `MVCWithLinq1.Models`). `IEnumerable` is a base interface for collections in .NET that allows simple iteration over a collection.
+
+5. `@{ ViewBag.Title = "ShowStudents"; }`
+   This line sets the title of the webpage.
+
+- **`ViewBag.Title`**: `ViewBag` is a dynamic object in ASP.NET MVC used to pass data from the controller to the view. Here, it sets the page's title to "ShowStudents".
+
+6. `@Html.DisplayNameFor(S => S.Sid)` (and similar lines for other fields)
+   These lines are used to display the column headers in the HTML table.
+
+- **`@Html.DisplayNameFor`**: A helper method in ASP.NET MVC that generates the display name (label) for a model property. It uses metadata or property names to generate the label.
+- **`S => S.Sid`**: A lambda expression that specifies the property (`Sid`, `Name`, `Fees`, `Class`, `Photo`) of the `Student` model for which the display name should be generated.
+
+7. `@foreach(MVCWithLinq1.Models.Student student in Model) { ... }`
+   This loop iterates through the collection of `Student` objects passed to the view.
+
+- **`@foreach`**: A Razor syntax to loop over each item in a collection.
+- **`MVCWithLinq1.Models.Student student`**: This defines the loop variable `student` of type `Student` for each iteration. The `Model` keyword refers to the collection of `Student` objects passed to the view.
+
+8. `MVCWithLinq1.Models.Student student in Model`
+   This part of the `foreach` loop statement specifies the type and variable name for each item being iterated over.
+
+- **`MVCWithLinq1.Models.Student`**: Specifies that each item in the collection (`Model`) is of type `Student` (from the namespace `MVCWithLinq1.Models`).
+- **`student`**: The loop variable that represents the current `Student` object in each iteration.
+
+9. `MVCWithLinq1.Models.Student student`
+   This is a declaration of a variable named `student` of type `Student`.
+
+- **`MVCWithLinq1.Models.Student`**: Indicates the type of the `student` variable, which is a `Student` object from the namespace `MVCWithLinq1.Models`.
+- **`student`**: The variable name used to reference each individual student object in the loop.
+
+**Summary**
+The provided code defines a basic MVC structure that uses a Data Access Layer (`StudentDAL`) to fetch student data from a database, a controller (`StudentController`) to handle the logic, and a Razor view to display the student data in an HTML table.
+
 Hear the answer: [Read_all_the_data](./MVCWithLinq1_project.md/#read-all-data-from-database)
 
 ---
@@ -1607,7 +6356,79 @@ This line declares a list named students that will store objects of type Student
 
 ---
 
-Hear the answer: [Read_Single_the_data](./MVCWithLinq1_project.md/#read-single-data-from-database)
+`StudentDAL.cs`:
+
+```c#
+using System.Collections.Generic;
+using System.Linq;
+using System.Configuration; //For MVCDBDataContext > ConfigurationManager
+
+namespace MVCWithLinq1.Models
+{
+    public class StudentDAL
+    {
+        MVCDBDataContext db = new MVCDBDataContext(ConfigurationManager.ConnectionStrings["MVCDBConnectionString"].ConnectionString); //By using this instance of MVCDBDataContext class use to connect the database (ORM-> LINK to SQL)
+
+        public Student GetStudent(int id, bool? status)
+        {
+            Student student;
+            if (status == null)
+                student = (from s in db.Students where s.Sid == id select s).Single();
+            else
+                student = (from s in db.Students where s.Sid == id && s.Status == status select s).Single();
+            return student;
+        }
+    }
+}
+```
+
+`StudentController.cs`:
+
+```c#
+using MVCWithLinq1.Models;
+using System.Web.Mvc;
+
+namespace MVCWithLinq1.Controllers
+{
+    public class StudentController : Controller
+    {
+        StudentDAL obj = new StudentDAL();
+        public ViewResult ShowStudent(int Sid, bool? Status)
+        {
+            return View(obj.GetStudent(Sid, true));
+        }
+    }
+}
+
+```
+
+`ShowStudent.cshtml`:
+
+```html
+@model MVCWithLinq1.Models.Student @{ ViewBag.Title = "ShowStudent"; }
+
+<h2>ShowStudent</h2>
+
+@Html.DisplayNameFor(S => S.Sid) @Html.DisplayFor(S => S.Sid)
+<br />
+
+@Html.DisplayNameFor(S => S.Name) @Html.DisplayFor(S => S.Name)
+<br />
+
+@Html.DisplayNameFor(S => S.Class) @Html.DisplayFor(S => S.Class)
+<br />
+
+@Html.DisplayNameFor(S => S.Fees) @Html.DisplayFor(S => S.Fees)
+<br />
+
+@Html.DisplayNameFor(S => S.Photo)
+<img
+  src="~/Uploads/@Model.Photo"
+  width="250px"
+  height="250px"
+  alt="@Model.Photo"
+/>
+```
 
 ---
 
@@ -1615,7 +6436,161 @@ Hear the answer: [Read_Single_the_data](./MVCWithLinq1_project.md/#read-single-d
 
 ---
 
-Hear the answer: [Add_the_data](./MVCWithLinq1_project.md/#add-data-in-database)
+```c#
+using System.Collections.Generic;
+using System.Linq;
+using System.Configuration; //For MVCDBDataContext > ConfigurationManager
+
+namespace MVCWithLinq1.Models
+{
+    public class StudentDAL
+    {
+        MVCDBDataContext db = new MVCDBDataContext(ConfigurationManager.ConnectionStrings["MVCDBConnectionString"].ConnectionString); //By using this instance of MVCDBDataContext class use to connect the database (ORM-> LINK to SQL)
+
+        public void AddStudent(Student student)
+        {
+            db.Students.InsertOnSubmit(student);
+            db.SubmitChanges();
+        }
+    }
+}
+```
+
+`StudentController.cs`:
+
+```c#
+using MVCWithLinq1.Models;
+using System.Web.Mvc;
+
+namespace MVCWithLinq1.Controllers
+{
+    public class StudentController : Controller
+    {
+        StudentDAL obj = new StudentDAL();
+
+        [HttpGet]
+        public ViewResult AddStudent()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public RedirectToRouteResult AddStudent(Student student, HttpPostedFileBase selectedFile)
+        {
+            if (selectedFile != null)
+            {
+                //Checking whether the folder "Uploads" is exists or not and creating it if not exists
+                string PhysicalPath = Server.MapPath("~/Uploads/");
+                if (!Directory.Exists(PhysicalPath))
+                {
+                    Directory.CreateDirectory(PhysicalPath);
+                }
+                selectedFile.SaveAs(PhysicalPath + selectedFile.FileName);
+                student.Photo = selectedFile.FileName;
+            }
+            student.Status = true;
+            obj.AddStudent(student);
+            return RedirectToAction("ShowStudents");
+        }
+    }
+}
+
+```
+
+`AddStudent.cshtml`:
+
+```html
+@model MVCWithLinq1.Models.Student @{ ViewBag.Title = "AddStudent"; }
+
+<h2>AddStudent</h2>
+
+@using (Html.BeginForm("AddStudent", "Student", FormMethod.Post, new { enctype =
+"multipart/form-data" })) {
+<div>@Html.LabelFor(S => S.Sid)<br />@Html.TextBoxFor(S => S.Sid)</div>
+<div>@Html.LabelFor(S => S.Name)<br />@Html.TextBoxFor(S => S.Name)</div>
+<div>@Html.LabelFor(S => S.Class)<br />@Html.TextBoxFor(S => S.Class)</div>
+<div>@Html.LabelFor(S => S.Fees)<br />@Html.TextBoxFor(S => S.Fees)</div>
+<div>
+  @Html.LabelFor(S => S.Photo)<br /><input type="file" name="selectedFile" />
+</div>
+<div>
+  <input type="submit" value="Save" />
+</div>
+} @Html.ActionLink("Back to Student Details", "DisplayStudents")
+```
+
+**Explain to add data**:
+
+1. `<img src='/Uploads/@student.Photo' width="40" height="25" alt="No Image" />`
+
+- This is an HTML tag that displays an image.
+- `src` specifies the source of the image file, which is located in the "Uploads" folder.
+- `@student.Photo` dynamically inserts the filename stored in the `Photo` property of the `student` object.
+- `width` and `height` set the dimensions of the displayed image.
+- `alt` provides alternate text ("No Image") to be shown if the image cannot be loaded.
+
+2. `@foreach (MVCWithLinq1.Models.Student student in Model)`
+
+- This is a loop in Razor syntax (used in ASP.NET MVC views).
+- `@foreach` iterates over each `Student` object in the `Model` collection.
+- `Model` is expected to be an `IEnumerable<Student>` type, containing a list of students.
+- For every iteration, it assigns a `Student` object to the variable `student`.
+
+3. `Student student, HttpPostedFileBase selectedFile`
+
+- These are parameters of the `[HttpPost]` method `AddStudent`.
+- `Student student` is an object representing a student's details (like Name, Fees, Class, etc.).
+- `HttpPostedFileBase selectedFile` represents the file uploaded by the user, such as an image or document.
+- `HttpPostedFileBase` is used to handle file uploads in ASP.NET MVC.
+
+4. `string PhysicalPath = Server.MapPath("~/Uploads/");`
+
+- This line converts a relative virtual path (like `~/Uploads/`) to a physical file system path on the server.
+- `Server.MapPath("~/Uploads/")` gets the absolute path to the "Uploads" directory on the server where the uploaded files will be stored.
+- `PhysicalPath` stores this converted path.
+
+5. `Directory.CreateDirectory(PhysicalPath);`
+
+- This line checks if the directory specified by `PhysicalPath` exists.
+- If the directory does not exist, it creates it.
+- Ensures that the "Uploads" folder exists before trying to save a file into it.
+
+6. `selectedFile.SaveAs(PhysicalPath + selectedFile.FileName);`
+
+- This line saves the uploaded file to the "Uploads" folder on the server.
+- `selectedFile.FileName` is the name of the uploaded file.
+- `PhysicalPath + selectedFile.FileName` concatenates the directory path with the file name to get the full path where the file will be saved.
+
+7. `student.Photo = selectedFile.FileName;`
+
+- This assigns the file name of the uploaded image to the `Photo` property of the `student` object.
+- This allows you to store just the file name in the database, rather than the full path.
+- Later, this file name is used to display the image on the web page.
+
+8. `student.Status = true;`
+
+- Sets the `Status` property of the `student` object to `true`.
+- This might indicate that the student record is active or valid.
+- It's a flag to determine the student's status in the system.
+
+9. `db.Students.InsertOnSubmit(student);`
+
+- This line prepares the `student` object to be inserted into the `Students` table in the database.
+- `InsertOnSubmit` is a method used in LINQ to SQL to mark the object for insertion when `SubmitChanges()` is called.
+
+10. `db.SubmitChanges();`
+
+- This method executes all pending changes to the database.
+- In this case, it inserts the new `student` record into the `Students` table.
+- `SubmitChanges()` is required to save the changes made by `InsertOnSubmit`.
+
+**Summary of Workflow**:
+
+- `Form Submission`: The user submits the form with student details and optionally uploads a file.
+- `Folder Check and File Save`: The server checks if the "Uploads" folder exists and saves the uploaded file.
+- `Student Object Update`: The `student` object is updated with the uploaded file name and status.
+- `Database Insert`: The new `student` object is added to the database and changes are saved.
+- `View Update`: The user is redirected to the "ShowStudents" view where the updated list of students, including the new one, is displayed.
 
 ---
 
@@ -1725,7 +6700,164 @@ Hear the answer: [Add_the_data](./MVCWithLinq1_project.md/#add-data-in-database)
 
 ---
 
-Hear the answer: [Delete_the_data](./MVCWithLinq1_project.md/#delete-data-in-database)
+`StudentDAL.cs`:
+
+```c#
+using System.Collections.Generic;
+using System.Linq;
+using System.Configuration; //For MVCDBDataContext > ConfigurationManager
+
+namespace MVCWithLinq1.Models
+{
+    public class StudentDAL
+    {
+        MVCDBDataContext db = new MVCDBDataContext(ConfigurationManager.ConnectionStrings["MVCDBConnectionString"].ConnectionString); //By using this instance of MVCDBDataContext class use to connect the database (ORM-> LINK to SQL)
+
+        public void DeleteStudent(int Sid, bool del)
+        {
+            Student oldValues = db.Students.First(S=>S.Sid == Sid);
+            if (del == true)
+                db.Students.DeleteOnSubmit(oldValues);
+            else
+                oldValues.Status = false;
+            db.SubmitChanges();
+        }
+    }
+}
+```
+
+`StudentController.cs`:
+
+```c#
+using MVCWithLinq1.Models;
+using System.Web.Mvc;
+
+namespace MVCWithLinq1.Controllers
+{
+    public class StudentController : Controller
+    {
+        StudentDAL obj = new StudentDAL();
+
+        public RedirectToRouteResult RemoveStudent(int Sid, bool del)
+        {
+            obj.DeleteStudent(Sid, del);
+            return RedirectToAction("ShowStudents");
+        }
+    }
+}
+
+```
+
+`ShowStudents.cshtml`:
+
+```html
+@model IEnumerable<MVCWithLinq1.Models.Student>
+  @{ ViewBag.Title = "ShowStudents"; }
+
+  <h2>ShowStudents</h2>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>@Html.DisplayNameFor(S => S.Sid)</th>
+        <th>@Html.DisplayNameFor(S => S.Name)</th>
+        <th>@Html.DisplayNameFor(S => S.Fees)</th>
+        <th>@Html.DisplayNameFor(S => S.Class)</th>
+        <th>@Html.DisplayNameFor(S => S.Photo)</th>
+        <th>Action's'</th>
+      </tr>
+    </thead>
+    <tbody>
+      @foreach (MVCWithLinq1.Models.Student student in Model) {
+      <tr>
+        <td>@Html.DisplayFor(S => student.Sid)</td>
+        <td>@Html.DisplayFor(S => student.Name)</td>
+        <td>@Html.DisplayFor(S => student.Fees)</td>
+        <td>@Html.DisplayFor(S => student.Class)</td>
+        <th>
+          <img
+            src="/Uploads/@student.Photo"
+            width="40"
+            height="25"
+            alt="No Image"
+          />
+        </th>
+        <td>
+          @Html.ActionLink("View", "ShowStudent", new { Sid = student.Sid })
+          @*Sid = student.Sid: Sid name same as parameter of method*@
+          @Html.ActionLink("Temporary delete", "RemoveStudent", new { Sid =
+          student.Sid, del = false }, new {onclick= "return confirm('Do you
+          realy want to delete this student temporary?')" })
+          @Html.ActionLink("Permanently delete", "RemoveStudent", new { Sid =
+          student.Sid, del = true }, new { onclick = "return confirm('Do you
+          realy want to delete this student permenantly?')" })
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+  @Html.ActionLink("Add Student's", "AddStudent")
+</MVCWithLinq1.Models.Student>
+```
+
+**`Explain to Delete data`**:
+
+1. **StudentDAL.cs** (Data Access Layer)
+
+- **`Student oldValues = db.Students.First(S => S.Sid == Sid);`**
+
+  - This line retrieves the first `Student` object from the `db.Students` collection where the `Sid` (Student ID) matches the `Sid` passed as a parameter to the `DeleteStudent` method.
+  - The `First` method is a LINQ (Language Integrated Query) method that returns the first element that satisfies the given condition. If no student matches the ID, it will throw an exception.
+
+- **`if (del == true) db.Students.DeleteOnSubmit(oldValues);`**
+
+  - This `if` statement checks whether the `del` parameter is `true`.
+  - If `del` is `true`, it calls `DeleteOnSubmit` on the `db.Students` table with `oldValues` (the `Student` object found earlier) as an argument.
+  - This means the student will be **permanently removed** from the database when `SubmitChanges` is called.
+
+- **`else oldValues.Status = false;`**
+  - If `del` is `false`, instead of deleting the student, it sets the `Status` property of the `Student` object (`oldValues`) to `false`.
+  - This is a way to **temporarily delete** or deactivate the student without removing their record from the database.
+- **`db.SubmitChanges();`**
+  - This line saves all the changes made to the database.
+  - Whether the student is permanently deleted or just deactivated, this line is necessary to commit those changes to the database.
+
+2. **`StudentController.cs`** (Controller)
+
+- **`public RedirectToRouteResult RemoveStudent(int Sid, bool del)`**
+
+  - This method is in the `StudentController` class and it handles the request to remove a student.
+  - It takes two parameters: `Sid` (the student ID) and `del` (a boolean indicating whether the deletion is permanent).
+  - Inside, it calls the `DeleteStudent` method from the `StudentDAL` class with these parameters.
+
+- **`return RedirectToAction("ShowStudents");`**
+  - After performing the delete or deactivate operation, this line redirects the user to the "ShowStudents" action, which displays the list of students.
+
+3. **`ShowStudents.cshtml`** (View)
+
+- **`@Html.ActionLink("Temporary delete", "RemoveStudent", new { Sid = student.Sid, del = false }, new { onclick = "return confirm('Do you really want to delete this student temporarily?')" })`**
+
+  - This line creates an HTML link that allows the user to **temporarily delete** (deactivate) a student.
+  - `@Html.ActionLink` is a helper method that generates a link to a specific action method in the controller.
+  - `"Temporary delete"` is the text shown on the link.
+  - `"RemoveStudent"` is the name of the action method in the `StudentController`.
+  - `new { Sid = student.Sid, del = false }` creates a set of parameters to pass to the `RemoveStudent` action; `Sid` is the ID of the student, and `del` is set to `false` to indicate a temporary deletion.
+  - `new { onclick = "return confirm('Do you really want to delete this student temporarily?')" }` adds an `onclick` event to the link that displays a confirmation dialog before proceeding with the action.
+
+- `@Html.ActionLink("Permanently delete", "RemoveStudent", new { Sid = student.Sid, del = true }, new { onclick = "return confirm('Do you really want to delete this student permanently?')" })`
+  - Similar to the "Temporary delete" link, this line creates an HTML link for **permanently deleting** a student.
+  - `"Permanently delete"` is the text shown on the link.
+  - `"RemoveStudent"` is the action method in the controller.
+  - `new { Sid = student.Sid, del = true }` passes the parameters to the `RemoveStudent` action; `Sid` is the student's ID, and `del` is set to `true` for permanent deletion.
+  - The `onclick` attribute adds a confirmation dialog to ensure the user wants to proceed with the permanent deletion.
+
+4. **`Additional Important Points`**:
+
+- **Data Access Layer (DAL):** The `StudentDAL` class acts as a bridge between the database and the controller, encapsulating all the logic required to interact with the `Students` table. It uses LINQ to SQL (`MVCDBDataContext`) for querying and modifying data.
+
+- **Confirmation Messages in Views:** Using `onclick` for confirmation prompts in the view helps prevent accidental deletions by asking the user to confirm their actions before proceeding.
+
+- **Using Redirect in Controller:** The `RedirectToAction("ShowStudents")` method call in the `RemoveStudent` action ensures that after any action is taken (temporary or permanent deletion), the user is redirected back to the list of students. This keeps the user experience consistent and provides immediate feedback on the action taken.
 
 ---
 
@@ -1797,7 +6929,115 @@ The RedirectToAction("ShowStudents") method is used to redirect the user to the 
 
 ---
 
-Hear the answer: [Update_the_data](./MVCWithLinq1_project.md/#update-data-in-database)
+`StudentDAL.cs`:
+
+```c#
+using System.Collections.Generic;
+using System.Linq;
+using System.Configuration; //For MVCDBDataContext > ConfigurationManager
+
+namespace MVCWithLinq1.Models
+{
+    public class StudentDAL
+    {
+        MVCDBDataContext db = new MVCDBDataContext(ConfigurationManager.ConnectionStrings["MVCDBConnectionString"].ConnectionString); //By using this instance of MVCDBDataContext class use to connect the database (ORM-> LINK to SQL)
+
+        public void EditStudent(Student student)
+        {
+            Student oldValues = db.Students.First(S => S.Sid == student.Sid);
+            oldValues.Name = student.Name;
+            oldValues.Fees = student.Fees;
+            oldValues.Class = student.Class;
+            oldValues.Photo = student.Photo;
+            db.SubmitChanges();
+        }
+    }
+}
+```
+
+`StudentController.cs`:
+
+```c#
+using MVCWithLinq1.Models;
+using System.Web.Mvc;
+
+namespace MVCWithLinq1.Controllers
+{
+    public class StudentController : Controller
+    {
+        StudentDAL obj = new StudentDAL();
+
+        [HttpGet]
+        public ViewResult UpdateStudent(int Sid)
+        {
+            Student student = obj.GetStudent(Sid, true);
+            return View(student);
+        }
+
+        [HttpPost]
+        public RedirectToRouteResult UpdateStudent(Student student, HttpPostedFileBase selectedFile)
+        {
+            if (selectedFile != null)
+            {
+                string PhysicalPath = Server.MapPath("~/Uploads/");
+
+                if (!Directory.Exists(PhysicalPath))
+                    Directory.CreateDirectory(PhysicalPath);
+
+                selectedFile.SaveAs(PhysicalPath + selectedFile.FileName);
+                student.Photo = selectedFile.FileName;
+            }
+
+            obj.EditStudent(student);
+            return RedirectToAction("ShowStudents");
+        }
+    }
+}
+
+```
+
+`UpdateStudent.cshtml`:
+
+```html
+@model MVCWithLinq1.Models.Student @{ ViewBag.Title = "UpdateStudent"; }
+
+<h2>UpdateStudent</h2>
+
+@using (Html.BeginForm("UpdateStudent", "Student", FormMethod.Post, new {
+enctype ="multipart/form-data"})) {
+<div>
+  @Html.LabelFor(S => S.Sid)<br />@Html.TextBoxFor(S => S.Sid, new { @readOnly =
+  true })
+</div>
+<div>@Html.LabelFor(S => S.Name)<br />@Html.TextBoxFor(S => S.Name)</div>
+<div>@Html.LabelFor(S => S.Class)<br />@Html.TextBoxFor(S => S.Class)</div>
+<div>@Html.LabelFor(S => S.Fees)<br />@Html.TextBoxFor(S => S.Fees)</div>
+<div>
+  @Html.LabelFor(S => S.Photo)<br />
+  <img
+    src="~/Uploads/@Model.Photo"
+    width="250px"
+    height="250px"
+    alt="@Model.Photo"
+  />
+  <input type="file" name="selectedFile" />
+</div>
+<div>
+  <input type="submit" value="Update" />
+</div>
+} @Html.ActionLink("Back to Student Details", "DisplayStudents")
+```
+
+**Explain to Delete data**:
+
+- `Student student = obj.GetStudent(Sid, true);`
+
+  - Retrieves the Student object with the given Sid using the GetStudent method of the StudentDAL class.
+  - The true parameter might indicate whether to include related data or perform additional operations, but it depends on the implementation of GetStudent (not provided in your code).
+
+- `return View(student);`
+  - Returns the UpdateStudent view with the Student object passed as the model.
+  - This model will be used to populate the form fields with the existing data for the student.
 
 ---
 
@@ -1805,11 +7045,294 @@ Hear the answer: [Update_the_data](./MVCWithLinq1_project.md/#update-data-in-dat
 
 ---
 
-Hear the answer: [CRUD](./MVCWithLinq1_project.md/#crud-with-data-in-database)
+1. Create MVC Project in Visual Studio name it `MVCWithLinq1`.
+2. Add MVCDB database and Student table in SQL.
+3. In MVC Projectand add LINQ to SQL and name it `MVCDB`.
+4. Create `Uploads` folder in `MVCWithLinq1` project.
+5. Next create `StudentDAL.cs` in `Models` folder.
+
+`StudentDAL.cs` :-
+
+```C#
+using System.Collections.Generic;
+using System.Linq;
+using System.Configuration;
+using System.Data.OleDb;
+using System.Security.Cryptography;
+
+namespace MVCWithLinq1.Models
+{
+    public class StudentDAL
+    {
+        MVCDBDataContext db = new MVCDBDataContext(ConfigurationManager.ConnectionStrings["MVCDBConnectionString"].ConnectionString);
+
+        public List<Student> GetStudents(bool? status)
+        {
+            List<Student> students;
+
+            if (status != null)
+                students = (from s in db.Students where s.Status == status select s).ToList();
+            else
+                students = (from s in db.Students select s).ToList();
+            return students;
+        }
+
+        public Student GetStudent(int id, bool? status)
+        {
+            Student student;
+            if (status == null)
+                student = (from s in db.Students where s.Sid == id select s).Single();
+            else
+                student = (from s in db.Students where s.Sid == id && s.Status == status select s).Single();
+            return student;
+        }
+
+        public void AddStudent(Student student)
+        {
+            db.Students.InsertOnSubmit(student);
+            db.SubmitChanges();
+        }
+
+        public void DeleteStudent(int Sid, bool del)
+        {
+            Student oldValues = db.Students.First(S=>S.Sid == Sid);
+            if (del == true)
+                db.Students.DeleteOnSubmit(oldValues);
+            else
+                oldValues.Status = false;
+            db.SubmitChanges();
+        }
+
+        public void EditStudent(Student student)
+        {
+            Student oldValues = db.Students.First(S => S.Sid == student.Sid);
+            oldValues.Name = student.Name;
+            oldValues.Fees = student.Fees;
+            oldValues.Class = student.Class;
+            oldValues.Photo = student.Photo;
+            db.SubmitChanges();
+        }
+    }
+}
+```
+
+6. And create the `StudentController.cs` in Controller folder and create all controller all code is below:
+
+StudentController.cs :-
+
+```C#
+using MVCWithLinq1.Models;
+using System.IO;
+using System.Web;
+using System.Web.Mvc;
+
+namespace MVCWithLinq1.Controllers
+{
+    public class StudentController : Controller
+    {
+        StudentDAL obj = new StudentDAL();
+        public ViewResult ShowStudents()
+        {
+            return View(obj.GetStudents(true));
+        }
+
+        public ViewResult ShowStudent(int Sid, bool? Status)
+        {
+            return View(obj.GetStudent(Sid, true));
+        }
+
+        [HttpGet]
+        public ViewResult AddStudent()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public RedirectToRouteResult AddStudent(Student student, HttpPostedFileBase selectedFile)
+        {
+            if (selectedFile != null)
+            {
+                string PhysicalPath = Server.MapPath("~/Uploads/");
+                if (!Directory.Exists(PhysicalPath))
+                {
+                    Directory.CreateDirectory(PhysicalPath);
+                }
+                selectedFile.SaveAs(PhysicalPath + selectedFile.FileName);
+                student.Photo = selectedFile.FileName;
+            }
+
+            student.Status = true;
+            obj.AddStudent(student);
+            return RedirectToAction("ShowStudents");
+        }
+
+        public RedirectToRouteResult RemoveStudent(int Sid, bool del)
+        {
+            obj.DeleteStudent(Sid, del);
+            return RedirectToAction("ShowStudents");
+        }
+
+        [HttpGet]
+        public ViewResult UpdateStudent(int Sid)
+        {
+            Student student = obj.GetStudent(Sid, true);
+            return View(student);
+        }
+
+        [HttpPost]
+        public RedirectToRouteResult UpdateStudent(Student student, HttpPostedFileBase selectedFile)
+        {
+            if (selectedFile != null)
+            {
+                string PhysicalPath = Server.MapPath("~/Uploads/");
+
+                if (!Directory.Exists(PhysicalPath))
+                    Directory.CreateDirectory(PhysicalPath);
+
+                selectedFile.SaveAs(PhysicalPath + selectedFile.FileName);
+                student.Photo = selectedFile.FileName;
+            }
+
+            obj.EditStudent(student);
+            return RedirectToAction("ShowStudents");
+        }
+    }
+}
+
+```
+
+7. Create `Layout page Views` :-
+
+AddStudent.cshtml :-
+
+```html
+@model MVCWithLinq1.Models.Student @{ ViewBag.Title = "AddStudent"; }
+
+<h2>AddStudent</h2>
+
+@using (Html.BeginForm("AddStudent", "Student", FormMethod.Post, new { enctype =
+"multipart/form-data" })) {
+<div>@Html.LabelFor(S => S.Sid)<br />@Html.TextBoxFor(S => S.Sid)</div>
+<div>@Html.LabelFor(S => S.Name)<br />@Html.TextBoxFor(S => S.Name)</div>
+<div>@Html.LabelFor(S => S.Class)<br />@Html.TextBoxFor(S => S.Class)</div>
+<div>@Html.LabelFor(S => S.Fees)<br />@Html.TextBoxFor(S => S.Fees)</div>
+<div>
+  @Html.LabelFor(S => S.Photo)<br /><input type="file" name="selectedFile" />
+</div>
+<div>
+  <input type="submit" value="Save" />
+</div>
+} @Html.ActionLink("Back to Student Details", "DisplayStudents")
+```
+
+ShowStudent.cshtml:-
+
+```html
+@model MVCWithLinq1.Models.Student @{ ViewBag.Title = "ShowStudent"; }
+
+<h2>ShowStudent</h2>
+
+@Html.DisplayNameFor(S => S.Sid) @Html.DisplayFor(S => S.Sid)
+<br />
+
+@Html.DisplayNameFor(S => S.Name) @Html.DisplayFor(S => S.Name)
+<br />
+
+@Html.DisplayNameFor(S => S.Class) @Html.DisplayFor(S => S.Class)
+<br />
+
+@Html.DisplayNameFor(S => S.Fees) @Html.DisplayFor(S => S.Fees)
+<br />
+
+@Html.DisplayNameFor(S => S.Photo)
+<img
+  src="~/Uploads/@Model.Photo"
+  width="250px"
+  height="250px"
+  alt="@Model.Photo"
+/>
+```
+
+`ShowStudents.cshtml` :-
+
+```sql
+@model IEnumerable<MVCWithLinq1.Models.Student>
+
+@{
+    ViewBag.Title = "ShowStudents";
+}
+
+<h2>ShowStudents</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(S => S.Sid)</th>
+            <th>@Html.DisplayNameFor(S => S.Name)</th>
+            <th>@Html.DisplayNameFor(S => S.Fees)</th>
+            <th>@Html.DisplayNameFor(S => S.Class)</th>
+            <th>@Html.DisplayNameFor(S => S.Photo)</th>
+            <th>Action's'</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (MVCWithLinq1.Models.Student student in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(S => student.Sid)</td>
+                <td>@Html.DisplayFor(S => student.Name)</td>
+                <td>@Html.DisplayFor(S => student.Fees)</td>
+                <td>@Html.DisplayFor(S => student.Class)</td>
+                <th><img src='/Uploads/@student.Photo' width="40" height="25" alt="No Image" /></th>
+                <td>
+                    @Html.ActionLink("View", "ShowStudent", new { Sid = student.Sid }) @*Sid = student.Sid: Sid name same as parameter of method*@ |
+                    @Html.ActionLink("Update", "UpdateStudent", new { Sid = student.Sid }) |
+                    @Html.ActionLink("Temporary delete", "RemoveStudent", new { Sid = student.Sid, del = false }, new { onclick = "return confirm('Do you realy want to delete this student temporary?')" })  |
+                    @Html.ActionLink("Permanently delete", "RemoveStudent", new { Sid = student.Sid, del = true }, new { onclick = "return confirm('Do you realy want to delete this student permenantly?')" })
+                </td>
+            </tr>
+         }
+    </tbody>
+</table>
+@Html.ActionLink("Add Student's", "AddStudent")
+
+```
+
+`UpdateStudents.cshtml`:-
+
+```html
+@model MVCWithLinq1.Models.Student @{ ViewBag.Title = "UpdateStudent"; }
+
+<h2>UpdateStudent</h2>
+
+@using (Html.BeginForm("UpdateStudent", "Student", FormMethod.Post, new {
+enctype ="multipart/form-data"})) {
+<div>
+  @Html.LabelFor(S => S.Sid)<br />@Html.TextBoxFor(S => S.Sid, new { @readOnly =
+  true })
+</div>
+<div>@Html.LabelFor(S => S.Name)<br />@Html.TextBoxFor(S => S.Name)</div>
+<div>@Html.LabelFor(S => S.Class)<br />@Html.TextBoxFor(S => S.Class)</div>
+<div>@Html.LabelFor(S => S.Fees)<br />@Html.TextBoxFor(S => S.Fees)</div>
+<div>
+  @Html.LabelFor(S => S.Photo)<br />
+  <img
+    src="~/Uploads/@Model.Photo"
+    width="250px"
+    height="250px"
+    alt="@Model.Photo"
+  />
+  <input type="file" name="selectedFile" />
+</div>
+<div>
+  <input type="submit" value="Update" />
+</div>
+} @Html.ActionLink("Back to Student Details", "DisplayStudents")
+```
 
 ---
 
-### Calling Stored Procedures using LINQ
+## **`Calling Stored Procedures using LINQ`**
 
 ### Q. How can we call stored procedures using LINQ in an ASP.NET MVC application?
 
@@ -1905,20 +7428,20 @@ The Student_Select stored procedure is designed to retrieve student records from
 
 - If both @Sid and @Status are NULL, it fetches all records.
 
-      ```SQL
-      CREATE Procedure Student_Select(@Sid Int=Null, @Status Bit=Null)
-      As
-      Begin
-        If @Sid Is Null And @Status Is Null --Fetches all the records of table
-          Select Sid, Name, Class, Fees, Photo From Student Order By Sid;
-        Else If @Sid Is Null And @Status Is Not Null --Fetches records based on Status
-          Select Sid, Name, Class, Fees, Photo From Student Where Status=@Status Order By Sid;
-        Else If @Sid Is Not Null And @Status Is Null --Fetches a single record based on Sid
-          Select Sid, Name, Class, Fees, Photo From Student Where Sid=@Sid;
-        Else If @Sid Is Not Null And @Status Is Not Null --Fetches a single record based on Sid & Status
-          Select Sid, Name, Class, Fees, Photo From Student Where Sid=@Sid And Status=@Status;
-      End;
-      ```
+  ```SQL
+  CREATE Procedure Student_Select(@Sid Int=Null, @Status Bit=Null)
+  As
+  Begin
+    If @Sid Is Null And @Status Is Null --Fetches all the records of table
+      Select Sid, Name, Class, Fees, Photo From Student Order By Sid;
+    Else If @Sid Is Null And @Status Is Not Null --Fetches records based on Status
+      Select Sid, Name, Class, Fees, Photo From Student Where Status=@Status Order By Sid;
+    Else If @Sid Is Not Null And @Status Is Null --Fetches a single record based on Sid
+      Select Sid, Name, Class, Fees, Photo From Student Where Sid=@Sid;
+    Else If @Sid Is Not Null And @Status Is Not Null --Fetches a single record based on Sid & Status
+      Select Sid, Name, Class, Fees, Photo From Student Where Sid=@Sid And Status=@Status;
+  End;
+  ```
 
 - If @Sid is NULL and @Status is not NULL, it fetches records filtered by Status.
 
@@ -2224,22 +7747,227 @@ HttpPostedFileBase is used to handle file uploads in ASP.NET MVC. In the AddStud
 
 ---
 
-### Q. How to use Stored Procedures in MVC Project?
+### Q. Create CRUD Operation Using Store Procedures?
 
 ---
 
-- Add LINQ to SQL project in MVC project's.
-- Configure the the database same way.
-- Drag and drop the stored procedures in right hand side of ".dbml" file
--
+`Project_Formate`
+![StoredProcedures](./StoredProcedures.png)
+![StoredProcedures1](./StoredProcedures1.png)
+![StoredProcedures2](./StoredProcedures2.png)
 
-[CRUD_Operation_using_Store_Procedures](./MVCWithLinq1_project.md/#crud-operation-using-store-procedures)
+`StudentController.cs`
+
+```c#
+using MVCWithLinq3.Models;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using System.Configuration;
+using System.IO;
+
+namespace MVCWithLinq3.Controllers
+{
+    public class StudentController : Controller
+    {
+        MVCDBDataContext db = new MVCDBDataContext(ConfigurationManager.ConnectionStrings["MVCDBConnectionString"].ConnectionString);
+
+        public ViewResult Students()
+        {
+            List<Student_SelectResult> students = db.Student_Select(null, true).ToList();
+            return View(students);
+        }
+
+        public ViewResult DisplayStudent(int Sid)
+        {
+            Student_SelectResult student = db.Student_Select(Sid, true).ToList()[0];
+            return View(student);
+        }
+
+        [HttpGet]
+        public ViewResult AddStudent()
+        {
+            //Send empty object
+            Student_SelectResult student = new Student_SelectResult();
+            return View(student);
+        }
+
+        [HttpPost]
+        public RedirectToRouteResult AddStudent(Student_SelectResult student, HttpPostedFileBase selectedFile)
+        {
+            if (selectedFile != null)
+            {
+                string folderPath = Server.MapPath("~/Uploads/");
+                if (!Directory.Exists(folderPath))
+                    Directory.CreateDirectory(folderPath);
+
+                selectedFile.SaveAs(folderPath + selectedFile.FileName);
+                student.Photo = selectedFile.FileName;
+            }
+            db.Student_Insert(student.Sid, student.Name, student.Class, student.Fees, student.Photo);
+            return RedirectToAction("Students");
+        }
+
+        [HttpGet]
+        public ViewResult Update(int Sid)
+        {
+            Student_SelectResult student = db.Student_Select(Sid, true).ToList()[0];
+            TempData["Photo"] = student.Photo;
+            return View(student);
+        }
+
+        [HttpPost]
+        public RedirectToRouteResult Update(Student_SelectResult student, HttpPostedFileBase selectedFile)
+        {
+            if (selectedFile != null)
+            {
+                string folderPath = Server.MapPath("~/Uploads/");
+                if (!Directory.Exists(folderPath))
+                    Directory.CreateDirectory(folderPath);
+
+                selectedFile.SaveAs(folderPath + selectedFile.FileName);
+                student.Photo = selectedFile.FileName;
+            }
+            else if (TempData["Photo"] != null)
+                student.Photo = TempData["Photo"].ToString();
+
+            db.Student_Update(student.Sid, student.Name, student.Class, student.Fees, student.Photo);
+            return RedirectToAction("Students");
+        }
+
+        public RedirectToRouteResult Delete(int Sid)
+        {
+            db.Student_Delete(Sid);
+            return RedirectToAction("Students");
+        }
+    }
+}
+```
+
+`AddStudent.cshtml`
+
+```c#
+@model MVCWithLinq3.Models.Student_SelectResult
+@{
+    ViewBag.Title = "AddStudent";
+}
+
+<h2>AddStudent</h2>
+
+<h2 style="text-align:center;background-color:yellowgreen;color:orangered">Add New Student</h2>
+@using (Html.BeginForm("AddStudent", "Student", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div>@Html.LabelFor(S => S.Sid)<br />@Html.TextBoxFor(S => S.Sid)</div>
+    <div>@Html.LabelFor(S => S.Name)<br />@Html.TextBoxFor(S => S.Name)</div>
+    <div>@Html.LabelFor(S => S.Class)<br />@Html.TextBoxFor(S => S.Class)</div>
+    <div>@Html.LabelFor(S => S.Fees)<br />@Html.TextBoxFor(S => S.Fees)</div>
+    <div>@Html.LabelFor(S => S.Photo)<br /><input type="file" name="selectedFile" /></div>
+    <div>
+        <input type="submit" value="Save" name="btnSave" />
+        <input type="reset" value="Reset" name="btnReset" />
+    </div>
+}
+@Html.ActionLink("Back to Student Details", "Students")
+
+```
+
+`Students.cshtml`
+
+```c#
+@model IEnumerable<MVCWithLinq3.Models.Student_SelectResult>
+@{
+    ViewBag.Title = "Students";
+}
+
+<h2>Students</h2>
+
+<h2 style="text-align:center;background-color:yellowgreen;color:orangered">Students Details</h2>
+<table border="1" align="center" class="table-condensed">
+    <tr>
+        <th>@Html.DisplayNameFor(S => S.Sid)</th>
+        <th>@Html.DisplayNameFor(S => S.Name)</th>
+        <th>@Html.DisplayNameFor(S => S.Class)</th>
+        <th>@Html.DisplayNameFor(S => S.Fees)</th>
+        <th>@Html.DisplayNameFor(S => S.Photo)</th>
+        <th>Actions</th>
+    </tr>
+    @foreach (MVCWithLinq3.Models.Student_SelectResult student in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(S => student.Sid)</td>
+            <td>@Html.DisplayFor(S => student.Name)</td>
+            <td>@Html.DisplayFor(S => student.Class)</td>
+            <td>@Html.DisplayFor(S => student.Fees)</td>
+            <td><img src='/Uploads/@student.Photo' width="40" height="25" alt="No Image" /></td>
+            <td>
+                @Html.ActionLink("View", "DisplayStudent", new { Sid = student.Sid })
+                @Html.ActionLink("Edit", "Update", new { Sid = student.Sid })
+                @Html.ActionLink("Delete", "Delete", new { Sid = student.Sid },
+                new { onclick = "return confirm('Are you sure of deleting the record?')" })
+            </td>
+        </tr>
+    }
+    <tr><td colspan="6" align="center">@Html.ActionLink("Add New Student", "AddStudent")</td></tr>
+</table>
+```
+
+`DisplayStudent.cshtml`
+
+```c#
+@model MVCWithLinq3.Models.Student_SelectResult
+@{
+    ViewBag.Title = "DisplayStudent";
+}
+
+<h2>DisplayStudent</h2>
+
+<h2 style="text-align:center;background-color:yellowgreen;color:orangered">Student Details</h2>
+<table border="1" align="center">
+    <tr>
+        <td rowspan=4><img src='~/Uploads/@Model.Photo' width="200" height="200" alt="No Image" /></td>
+        <td>Sid: @Model.Sid</td>
+    </tr>
+    <tr><td>Name: @Model.Name</td></tr>
+    <tr><td>Class: @Model.Class</td></tr>
+    <tr><td>Fees: @Model.Fees</td></tr>
+    <tr><td colspan="2" align="center">@Html.ActionLink("Back to Student Details", "Students")</td></tr>
+</table>
+```
+
+`Update.cshtml`
+
+```c#
+@model MVCWithLinq3.Models.Student_SelectResult
+@{
+    ViewBag.Title = "Update";
+}
+
+<h2>Update</h2>
+
+<h2 style="text-align:center;background-color:yellowgreen;color:orangered">Edit Student Details</h2>
+@using (Html.BeginForm("Update", "Student", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div>@Html.LabelFor(S => S.Sid)<br />@Html.TextBoxFor(S => S.Sid, new { @readonly = "true" })</div>
+    <div>@Html.LabelFor(S => S.Name)<br />@Html.TextBoxFor(S => S.Name)</div>
+    <div>@Html.LabelFor(S => S.Class)<br />@Html.TextBoxFor(S => S.Class)</div>
+    <div>@Html.LabelFor(S => S.Fees)<br />@Html.TextBoxFor(S => S.Fees)</div>
+    <div>
+        @Html.LabelFor(S => S.Photo)
+        <br />
+        <img src='~/Uploads/@Model.Photo' width="50" height="50" alt="No Image" style="border:dashed 2px red" />
+        <input type="file" name="selectedFile" />
+    </div>
+    <div>
+        <input type="submit" value="Update" name="btnUpdate" />
+        @Html.ActionLink("Cancel", "Students")
+    </div>
+}
+```
 
 ---
 
----
-
-**`Working with multiple tables using Linq to SQL`**
+## **`Working with multiple tables using Linq to SQL`**
 
 ### Q. How can we work with multiple related tables in LINQ to SQL?
 
@@ -2391,7 +8119,449 @@ This property is typically populated in the controller and passed to the view to
 
 ---
 
-[Hear_is_the_example](./MVCWithLinq1_project.md/#working-with-multiple-tables-using-linq-to-sql)
+1. Create MVC project `ShowMultipleTableDataInView`.
+2. SQL Work:
+
+```sql
+  --Create database
+  Create database MVCDB
+
+  --Use this database
+  use MVCDB
+
+  -- Creating Department Table
+  Create Table Department (
+      Did Int Constraint Did_PK Primary Key Identity(10, 10),
+      Dname Varchar(50),
+      Location Varchar(50)
+  );
+
+  -- Inserting Records into Department Table
+  Insert Into Department Values
+  ('Marketing', 'Mumbai'),('Sales', 'Chennai'),
+  ('Accounting', 'Hyderabad'),('Finance', 'Delhi');
+
+  -- Creating Employee Table
+  Create Table Employee (
+      Eid Int Constraint Eid_PK Primary Key Identity(1001, 1),
+      Ename Varchar(50),
+      Job Varchar(50),
+      Salary Money,
+      Did Int Constraint Did_FK References Department(Did),
+      Status Bit Not Null Default 1
+  );
+```
+
+3. Setup Linq to SQL (Drag and drop the Department and student table).
+4. Create combo model class of both Database table `DepEmp.cs`
+
+```C#
+using System.Collections.Generic;
+
+namespace ShowMultipleTableDataInView.Models
+{
+  public class DepEmp
+  {
+    public int Eid { get; set; }
+    public string Ename { get; set; }
+    public string Job { get; set; }
+    public decimal? Salary { get; set; }
+    public int Did { get; set; }
+    public string Dname { get; set; }
+    public string Location { get; set; }
+    public List<System.Web.Mvc.SelectListItem> Departments { get; set; } //A list of departments (List<SelectListItem>) used to populate dropdowns in views for selecting departments.
+  }
+}
+```
+
+5. Add model Class(`EmployeeDAL.cs`) where you place all type of database comunication function. In that class, Create instance of `<DatabaseName>DataContext`(i.e: MVCDBDataContext) using the connection string defined in your configuration file, allowing you to interact with the database throughout Linq to Sql in your MVC application.
+
+```c#
+using System.Collections.Generic;
+using System.Linq;
+
+namespace ShowMultipleTableDataInView.Models
+{
+    public class EmployeeDAL
+    {
+        MVCDBDataContext db = new MVCDBDataContext(System.Configuration.ConfigurationManager.ConnectionStrings["MVCDBConnectionString"].ConnectionString);
+    }
+}
+```
+
+6. Write Code in model Class(`EmployeeDAL.cs`) for preform CRUD operation and Get all departments:-
+
+```c#
+//1) Get Generic list of all department name & value for show in dropdown
+public List<System.Web.Mvc.SelectListItem> GetDepartment()
+{
+    List<System.Web.Mvc.SelectListItem> DepList = new List<System.Web.Mvc.SelectListItem>();//list of department
+    foreach (var item in db.Departments)
+    {
+        System.Web.Mvc.SelectListItem d = new System.Web.Mvc.SelectListItem { Text = item.Dname, Value = item.Did.ToString() };
+        DepList.Add(d);
+    }
+    return DepList;
+}
+
+
+//2) Return the employee on the basis of id and status then (filter data and inslize data in DepEmp and return the DepEmp).
+//(bool? status:- status can be true, false, or null)
+public DepEmp GetDepEmp(int Eid, bool? status)
+{
+    dynamic Record;
+    if (status == null)
+        Record = (from e in db.Employees join d in db.Departments on e.Did equals d.Did where e.Eid == Eid select new {e.Eid, e.Ename, e.Job, e.Salary, e.Did, d.Dname, d.Location}).Single();//based on id only
+    else
+        Record = (from e in db.Employees join d in db.Departments on e.Did equals d.Did where e.Eid == Eid && e.Status == status select new { e.Eid, e.Ename, e.Job, e.Salary, e.Did, d.Dname, d.Location }).Single(); //based on id & status
+    //Instance of DepEmp
+    DepEmp emp = new DepEmp{ Eid=Record.Eid, Ename = Record.Ename, Job = Record.Job, Salary = Record.Salary, Did = Record.Did, Dname = Record.Dname, Location = Record.Location };
+    //return this instance
+    return emp;
+}
+
+//3) return multiple in the form of list of employee
+public List<DepEmp> GetDepEmps(bool? status)
+{
+    List<DepEmp> depEmps = new List<DepEmp>();
+    dynamic Record;
+    if (status != null)
+        Record = (from e in db.Employees join d in db.Departments on e.Did equals d.Did where e.Status == status select new { e.Eid, e.Ename, e.Job, e.Salary, e.Did, d.Dname, d.Location }).ToList();
+    else
+        Record = (from e in db.Employees join d in db.Departments on e.Did equals d.Did select new { e.Eid, e.Ename, e.Job, e.Salary, e.Did, d.Dname, d.Location }).ToList();
+    foreach (var item in Record)
+    {
+        DepEmp emp = new DepEmp { Eid = item.Eid, Ename = item.Ename, Job = item.Job, Salary = item.Salary, Did = item.Did, Dname = item.Dname, Location =  item.Location };
+        depEmps.Add(emp);
+    }
+    return depEmps;
+}
+
+//4) Add Employee
+public void AddEmp(DepEmp emp)
+{
+    Employee e = new Employee
+    {
+        Ename = emp.Ename,
+        Job = emp.Job,
+        Salary = emp.Salary,
+        Did = emp.Did,
+        Status = true,
+    };
+    db.Employees.InsertOnSubmit(e);
+    db.SubmitChanges();
+}
+
+//5) Update Employee
+public void UpdateEmp(DepEmp e)
+{
+    Employee emp =  db.Employees.Single(E=>E.Eid== e.Eid);
+    emp.Ename = e.Ename;
+    emp.Job = e.Job;
+    emp.Salary = e.Salary;
+    emp.Did = e.Did;
+    db.SubmitChanges();
+}
+
+//6) Delete Employee(Only change status)
+public void DeleteEmp(int Eid)
+{
+    Employee emp = db.Employees.Single(E => E.Eid == Eid);
+    emp.Status = false;
+    db.SubmitChanges();
+}
+```
+
+7. Create controller for show to intract with mode and view(user):
+
+```c#
+using ShowMultipleTableDataInView.Models;
+using System.Web.Mvc;
+
+namespace ShowMultipleTableDataInView.Controllers
+{
+    public class HomeController : Controller
+    {
+        EmployeeDAL obj = new EmployeeDAL();//Create object
+
+        //Display all employees:-
+        public ActionResult Index()
+        {
+            return View(obj.GetDepEmps(true));
+        }
+
+        //Display Employee:-
+        public ActionResult Employee(int id)
+        {
+            return View(obj.GetDepEmp(id, true));
+        }
+
+        //Add Employee:-
+        [HttpGet]
+        public ViewResult AddEmployee()
+        {
+            //Create instance of DepEmp and inslize all department name and value
+            DepEmp emp = new DepEmp();
+            emp.Departments = obj.GetDepartment();
+            //Return it
+            return View(emp);
+        }
+
+        [HttpPost]
+        public RedirectToRouteResult AddEmployee(DepEmp de)
+        {
+            obj.AddEmp(de);
+            return RedirectToAction("Index");
+        }
+
+        //Edit Employee:-
+        public ViewResult EditEmployee(int id)
+        {
+            DepEmp emp = obj.GetDepEmp(id, true);
+            emp.Departments = obj.GetDepartment();
+            return View(emp);
+        }
+        [HttpPost]
+        public RedirectToRouteResult EditEmployee(DepEmp de)
+        {
+            obj.UpdateEmp(de);
+            return RedirectToAction("Index");
+        }
+
+        //Delete Employee:-
+        public RedirectToRouteResult DeleteEmployee(int id)
+        {
+            obj.DeleteEmp(id);
+            return RedirectToAction("Index");
+        }
+    }
+}
+```
+
+8. Create view for all this action methods:-
+
+```html
+<!-- Index.cshtml -->
+@model IEnumerable<ShowMultipleTableDataInView.Models.DepEmp>
+  <p>@Html.ActionLink("Create New", "AddEmployee")</p>
+  <table class="table">
+    <tr>
+      <th>@Html.DisplayNameFor(model => model.Eid)</th>
+      <th>@Html.DisplayNameFor(model => model.Ename)</th>
+      <th>@Html.DisplayNameFor(model => model.Job)</th>
+      <th>@Html.DisplayNameFor(model => model.Salary)</th>
+      <th>@Html.DisplayNameFor(model => model.Did)</th>
+      <th>@Html.DisplayNameFor(model => model.Dname)</th>
+      <th>@Html.DisplayNameFor(model => model.Location)</th>
+      <th></th>
+    </tr>
+    @foreach (var item in Model) {
+    <tr>
+      <td>@Html.DisplayFor(modelItem => item.Eid)</td>
+      <td>@Html.DisplayFor(modelItem => item.Ename)</td>
+      <td>@Html.DisplayFor(modelItem => item.Job)</td>
+      <td>@Html.DisplayFor(modelItem => item.Salary)</td>
+      <td>@Html.DisplayFor(modelItem => item.Did)</td>
+      <td>@Html.DisplayFor(modelItem => item.Dname)</td>
+      <td>@Html.DisplayFor(modelItem => item.Location)</td>
+      <td>
+        @Html.ActionLink("View", "Employee", new { id = item.Eid }) |
+        @Html.ActionLink("Edit", "EditEmployee", new { id = item.Eid }) |
+        @Html.ActionLink("Delete", "DeleteEmployee", new { id = item.Eid })
+      </td>
+    </tr>
+    }
+  </table>
+  <!-- EditEmployee.cshtml -->
+  @model ShowMultipleTableDataInView.Models.DepEmp @using (Html.BeginForm()) {
+  <div class="form-group">
+    @Html.LabelFor(model => model.Eid, htmlAttributes: new { @class =
+    "control-label col-md-2", @readOnly=true }) @Html.EditorFor(model =>
+    model.Eid, new { htmlAttributes = new { @class = "form-control" } })
+  </div>
+  <div class="form-group">
+    @Html.LabelFor(model => model.Ename, htmlAttributes: new { @class =
+    "control-label col-md-2" }) @Html.EditorFor(model => model.Ename, new {
+    htmlAttributes = new { @class = "form-control" } })
+  </div>
+  <div class="form-group">
+    @Html.LabelFor(model => model.Job, htmlAttributes: new { @class =
+    "control-label col-md-2" }) @Html.EditorFor(model => model.Job, new {
+    htmlAttributes = new { @class = "form-control" } })
+  </div>
+  <div class="form-group">
+    @Html.LabelFor(model => model.Salary, htmlAttributes: new { @class =
+    "control-label col-md-2" }) @Html.EditorFor(model => model.Salary, new {
+    htmlAttributes = new { @class = "form-control" } })
+  </div>
+  <div class="form-group">
+    @Html.LabelFor(model => model.Did, htmlAttributes: new { @class =
+    "control-label col-md-2" }) @Html.EditorFor(model => model.Did, new {
+    htmlAttributes = new { @class = "form-control" } })
+  </div>
+  <div class="form-group">
+    @Html.LabelFor(model => model.Dname, htmlAttributes: new { @class =
+    "control-label col-md-2" }) @Html.EditorFor(model => model.Dname, new {
+    htmlAttributes = new { @class = "form-control" } })
+  </div>
+  <div class="form-group">
+    @Html.LabelFor(model => model.Location, htmlAttributes: new { @class =
+    "control-label col-md-2" }) @Html.EditorFor(model => model.Location, new {
+    htmlAttributes = new { @class = "form-control" } })
+  </div>
+  <input type="submit" value="Save" class="btn btn-default" />
+  }
+  <!-- AddEmployee.cshtml -->
+  @model ShowMultipleTableDataInView.Models.DepEmp
+  <div>
+    @using (Html.BeginForm()) {
+    <div>@Html.LabelFor(S => S.Ename) @Html.TextBoxFor(S => S.Ename)</div>
+    <div>@Html.LabelFor(S => S.Job) @Html.TextBoxFor(S => S.Job)</div>
+    <div>@Html.LabelFor(S => S.Salary) @Html.TextBoxFor(S => S.Salary)</div>
+    <div>
+      @Html.LabelFor(S => S.Did) @Html.DropDownListFor(S=>S.Did,
+      Model.Departments, "-Select Department-")
+    </div>
+    <input type="submit" value="Submit" />
+    }
+  </div>
+  <!-- Employee.cshtml -->
+  @model ShowMultipleTableDataInView.Models.DepEmp
+  <dl class="dl-horizontal">
+    <dt>@Html.DisplayNameFor(model => model.Eid)</dt>
+    <dd>@Html.DisplayFor(model => model.Eid)</dd>
+    <dt>@Html.DisplayNameFor(model => model.Ename)</dt>
+    <dd>@Html.DisplayFor(model => model.Ename)</dd>
+    <dt>@Html.DisplayNameFor(model => model.Job)</dt>
+    <dd>@Html.DisplayFor(model => model.Job)</dd>
+    <dt>@Html.DisplayNameFor(model => model.Salary)</dt>
+    <dd>@Html.DisplayFor(model => model.Salary)</dd>
+    <dt>@Html.DisplayNameFor(model => model.Did)</dt>
+    <dd>@Html.DisplayFor(model => model.Did)</dd>
+    <dt>@Html.DisplayNameFor(model => model.Dname)</dt>
+    <dd>@Html.DisplayFor(model => model.Dname)</dd>
+    <dt>@Html.DisplayNameFor(model => model.Location)</dt>
+    <dd>@Html.DisplayFor(model => model.Location)</dd>
+  </dl>
+  <p>
+    @Html.ActionLink("Back to List", "Index")
+  </p></ShowMultipleTableDataInView.Models.DepEmp
+>
+```
+
+**Department and Employee how are they related**: The Department and Employee tables represent two entities in the database with a relationship:
+
+- `Department Table`: Contains information about departments, such as Did (Department ID), Dname (Department Name), and Location.
+- `Employee Table`: Contains information about employees, such as Eid (Employee ID), Ename (Employee Name), Job, Salary, and Did (Foreign Key referencing the Department).
+
+The two tables are related by the Did column in the Employee table, which acts as a foreign key referencing the Did column in the Department table.
+
+---
+
+### Q. How are the Employee and Department tables related?
+
+---
+
+They are related by the Did column in the Employee table, which is a foreign key referencing the Did column in the Department table.
+
+---
+
+### Q. What is a foreign key?
+
+---
+
+A foreign key is a column or a set of columns in one table that refers to the primary key of another table, establishing a relationship between the two.
+
+---
+
+### Q. What role does the Did column play in the Employee table?
+
+---
+
+The Did column in the Employee table links each employee to their corresponding department in the Department table.
+
+---
+
+### Q. Why is the foreign key relationship important?
+
+---
+
+It ensures referential integrity, meaning each employee is assigned to a valid department, preventing orphan records.
+
+---
+
+### Q. What is the purpose of Model binding class like(i.e:`EmpDept.cs`)?
+
+---
+
+The EmpDept.cs class is a combined model that brings together the properties of both Employee and Department entities. It helps in creating a unified representation of data from both tables, making it easier to work with and display combined data in views
+
+---
+
+### Q. What are SelectListItem and Departments in the EmpDept class?
+
+---
+
+SelectListItem is a class in ASP.NET MVC used to represent an item in a dropdown list. The Departments property is a list of SelectListItem objects that can be used in the view to create a dropdown for selecting a department:
+
+```c#
+public List<SelectListItem> Departments { get; set; }
+```
+
+This property is typically populated in the controller and passed to the view to allow users to select a department when adding or editing an employee.
+
+---
+
+### Q. How do we display data from multiple tables in a view?
+
+---
+
+To display data from multiple tables, we create a view that uses a model combining the properties of both entities (like the EmpDept class). In the controller, we populate the model with data from both tables using LINQ to SQL queries and pass it to the view. The view then uses this model to display the combined data.
+
+---
+
+### Q. What is List&ltSelectListItem&gt Depts = new List&ltSelectListItem&gt();?
+
+---
+
+The line `List<SelectListItem> Depts = new List<SelectListItem>();` is creating a new list to store `SelectListItem` objects. Here's a breakdown of what each part does:
+
+1. `List<SelectListItem>`: This defines a list that will hold multiple `SelectListItem` objects.
+
+- `SelectListItem`: A class in ASP.NET MVC that represents an item in a dropdown list (or any other list-based HTML element). Each `SelectListItem` has properties like:
+- `Text`: The text displayed to the user (e.g., "Marketing").
+- `Value`: The value associated with the option (e.g., the department ID).
+- `Selected`: Indicates if this item should be selected by default.
+
+2. `Depts`: The name of the list being created. It will store the collection of `SelectListItem` objects that represent different departments.
+
+3. `new List<SelectListItem>()`: This part is instantiating (creating) a new empty list of `SelectListItem` objects.
+
+**Purpose**:
+
+This line initializes an empty list that can be populated with `SelectListItem` objects. Later in the code, you might populate this list with department names and IDs so that it can be used to display a dropdown list in an ASP.NET MVC view.
+
+**Example Usage**:
+
+Here’s how this list might be used in context:
+
+```csharp
+List<SelectListItem> Depts = new List<SelectListItem>();
+
+foreach (var item in context.Departments)
+{
+  SelectListItem li = new SelectListItem
+  {
+    Text = item.Dname,     // Department name
+    Value = item.Did.ToString() // Department ID
+  };
+  Depts.Add(li); // Adding each department to the list
+}
+
+return Depts;
+```
+
+In this example, the `Depts` list is populated with `SelectListItem` objects, each representing a department. This list can then be passed to a view to render a dropdown menu for selecting a department.
 
 ---
 
@@ -2500,177 +8670,3781 @@ This code retrieves an employee's details and populates a list of departments:
 
 In short, it fetches an employee's details and fills a list of departments for use, possibly in a form dropdown.
 
-### Q.
+---
+
+## **`Entity Framework`**
+
+189
+
+### Q. What is Entity Framework?
 
 ---
 
-- ***
+Entity Framework (EF) is an Object-Relational Mapper (ORM) for .NET applications. It allows developers to work with databases using .NET objects, eliminating the need to write most of the data-access code. It provides a higher level of abstraction to simplify database interactions.
+
+Prior to .NET 3.5.
+
+Entity Framework is an open source “ORM Framework” for .NET Applications supported by Microsoft. It enables developers to work with data using objects of domain specific classes without focusing on the underlying Database or Tables and Columns where this data is stored. With Entity Framework, developers can work at a higher level of abstraction when they deal with data and can create and maintain data-oriented applications with less code compared with traditional applications.
 
 ---
 
-### Q.
+### Q. What are the key differences between EF 6 and EF Core?
 
 ---
 
-- ***
+- EF 6:
+  - Released in 2008 with .NET Framework 3.5 SP1.
+  - Stable and feature-rich.
+  - Windows-only support.
+  - Works with .NET Framework 3.5+.
+- EF Core:
+  - Released in June 2016 with .NET Core 1.0.
+  - New and evolving.
+  - Cross-platform (Windows, Linux, OSX).
+  - Works with .NET Framework 4.5+ and .NET Core.
 
 ---
 
-### Q.
+### Q. What are the features of Entity Framework?
 
 ---
 
-- ***
+- **Cross-platform**: EF Core can run on Windows, Linux, and macOS.
+
+- **Modelling**: EF (Entity Framework) creates an EDM (Entity Data Model) based on POCO (Plain Old CLR Object) entities with get/set properties of different data types. It uses this model when querying or saving entity data to the underlying Database.
+
+- **Querying**: : EF allows us to use LINQ queries to retrieve data from the underlying database. The database provider will translate this LINQ queries to the database-specific query language (e.g., SQL for a relational database). EF also allows us to execute raw SQL queries directly to the database.
+
+- **Change Tracking**: Tracks changes to entity properties for database updates.
+
+- **Saving**: Executes database commands like INSERT, UPDATE, DELETE using SaveChanges().
+
+- **Concurrency**: Uses Optimistic Concurrency by default to avoid data overwrites.
+
+- **Transactions**: Provides automatic transaction management.
+
+- **Caching**: Includes first-level caching to optimize querying. So, repeated querying will return data from the cache
+  instead of hitting the Database.
+
+- **Built-in Conventions**: EF follows conventions over the configuration programming pattern and includes a set of default rules which automatically configure the EF model.
+
+- **Configurations**: EF follows conventions over the configuration programming pattern and includes a set of default rules which automatically configure the EF model.
+
+- **Migrations**: EF provides a set of migration commands that can be executed on the NuGet Package Manager Console or the Command Line Interface to create or manage underlying database Schema.
 
 ---
 
-### Q.
+### Q. What are the development approaches supported by Entity Framework?
 
 ---
 
-- ***
+1. **Database-First Approach**: in this approach we generate the context and entity classes (model classes) for an existing Database using EDM Wizard which is integrated into Visual Studio or executing EF commands.
+
+- **Note**: EF 6 supports the database-first approach extensively whereas EF Core includes limited support for this.
+
+2. **Code-First Approach**: in this approach we don’t have any existing Database for our application and in such case, we start writing our entities (model) and context classes first, and then generate the Database from these classes using migration commands. Developers who follow the “Domain-Driven Design (DDD)” principles, prefer to begin with coding their domain classes first and then generate the Database required to persist their data.
+3. **Model-First Approach**: In this approach, you create entities, relationships, and inheritance hierarchies directly on the visual designer integrated in Visual Studio and then generate entities, context class, and the Database script from your visual model.
+
+- **Note**: EF 6 includes limited support for this, and EF Core does not support this approach.
+
+```mathematica
+                      Context and Entity Classs
+                                ^
+                                |
+    Design Database --------> Entity ---------> Tables
+Modelon Visual Designer     Framework         (Database)
+```
 
 ---
 
-### Q.
+### Q. How Development Choosing Approach for our Application?
 
 ---
 
-- ***
+Use the following flow chart to decide which will be the
+right approach to develop an application using Entity Framework:
+
+![alt text](DevelopmentApproachInEntityFramework.png)
 
 ---
 
-### Q.
+### Q. What project template is used for creating an ASP.NET project in the Database First Approach?
 
 ---
 
-- ***
+Use the "ASP.NET Web Application" project template, name the project "MVCWithEFDBF1", and choose the "MVC Project Template".
 
 ---
 
-### Q.
+### Q. What item should be added to the Models folder in Solution Explorer to integrate Entity Framework?
 
 ---
 
-- ***
+Right-click on the Models folder, choose Add => New Item, and select `ADO.NET Entity Data Model`. Name it ``TestEF.edmx`.
 
 ---
 
-### Q.
+### Q. What option should be chosen in the wizard when adding the `ADO.NET Entity Data Model`?
 
 ---
 
-- ***
+Select the option "EF Designer from database".
 
 ---
 
-### Q.
+### Q. What are the other option of the `wizard` when adding the `ADO.NET Entity Data Model` and when we use?
 
 ---
 
-- ***
+- **EF Designer from database**: Use when you have an existing database and want to work with a visual model (Database First approach).
+
+- **Empty Model**: Use when you plan to manually design the model first and generate a database later (Model First).
+
+- **Code First from database**: Use when you have an existing database but prefer working in code without a visual model (Code First with an existing database).
+
+- **Code First (Empty)**: Use when you are starting from scratch and want to define your database schema purely in code (Code First without an existing database).
 
 ---
 
-### Q.
+### Q. How do you configure a new database connection in this setup?
 
 ---
 
-- ***
+- Click "New Connection", enter the connection details for the database (i.e: "MVCDB"), and click "Ok".
+
+- Select the option "Yes, include the sensitive data in the connection string."
 
 ---
 
-### Q.
+### Q. How to configure other setting?
 
 ---
 
-- ***
+1. Select the option "Yes, include the sensitive data in the connection string."
+
+2. Choose "Entity Framework 6.x".
+
+3. Select the tables (i.e: "Department" and "Employee"). This generates all necessary classes to work with the tables and click Finish.
 
 ---
 
-### Q.
+### Q. What files and classes are generated under the .edmx (i.e:TestEF.edmx) item in Solution Explorer?
 
 ---
 
-- ***
+- `TestEF.Context.tt` contains `TestEF.context.cs`.
+- `TestEF.context.cs` contains the `MVCDBEntities` class, which inherits from `DbContext`.
 
 ---
 
-### Q.
+### Q. What is the role of the MVCDBEntities class?
 
 ---
 
-- ***
+- The `MVCDBEntities` class is responsible for interacting with the database. It inherits from `DbContext`, enabling querying, change tracking, persisting data, caching, managing relationships, and object materialization.
 
 ---
 
-### Q.
+### Q. How does the `MVCDBEntities` constructor look like?
 
 ---
 
-- ***
+```c#
+public partial class MVCDBEntities : DbContext
+{
+    public MVCDBEntities() : base("name=MVCDBEntities")
+    {
+    }
+    protected override void OnModelCreating(DbModelBuilder modelBuilder)
+    {
+        throw new UnintentionalCodeFirstException();
+    }
+    public virtual DbSet<Department> Departments { get; set; }
+    public virtual DbSet<Employee> Employees { get; set; }
+}
+
+```
 
 ---
 
-### Q.
+### Q. What is the responsablity of DbContext?
 
 ---
 
-- ***
+DbContext is the main class that is responsible for interacting with the Database and
+it can perform the following activities:
+
+- **Querying**: Converts “LINQ-to-Entities” Queries to SQL Queries and sends them to the Database.
+- **Change Tracking**: Keeps track of changes that occurred on the entities after Querying from the Database.
+- **Persisting Data**: Performs the Insert, Update and Delete operations to the Database, based on entity states.
+- **Caching**: Provides first level caching by default. It stores the entities which have been retrieved during the life
+  time of a context class.
+- **Manage Relationship**: Manages relationships using CSDL, MSL and SSDL in Db-First or Model-First approach,
+  and using fluent API configurations in Code-First approach.
+- **Object Materialization**: Converts raw data from the Database into Entity Objects.
+
+```mathematica
+Domain class <------------> DbContext <--------------> Database
+ (Entities)         (Querying, Change Tracking,
+                     Persisting Data, Caching,
+                     Manage Relationship,
+                     Object Materialization)
+```
 
 ---
 
-### Q.
+### Q. How can we access data using the MVCDBEntities class?
 
 ---
 
-- ***
+Using `DbSet<TEntity>` (i.e:`DbSet<Department>` and `DbSet<Employee>`) properties provide access to the `Department` and `Employee` tables, allowing CRUD operations on these tables.
 
 ---
 
-### Q.
+### Q. What files are generated for the Department and Employee classes?
 
 ---
 
-- ***
+- `Department.cs` represents the `Department` table.
+- `Employee.cs` represents the `Employee` table and includes a navigation property to the `Department` class.
 
 ---
 
-### Q.
+### Q. What is the relationship between the Department and Employee classes?
 
 ---
 
-- ***
+- `Department` has a **1-to-many** relationship with Employee.
+- The `Department` class contains a `virtual ICollection<Employee> Employees` property to represent its employees.
+- The `Employee` class has a `virtual Department` navigation property representing its department.
 
 ---
 
-### Q.
+### Q. What is the structure of the Department class?
 
 ---
 
-- ***
+```c#
+public partial class Department
+{
+    public Department() {
+        this.Employees = new HashSet<Employee>();
+    }
+    public int Did { get; set; }
+    public string Dname { get; set; }
+    public string Location { get; set; }
+    public virtual ICollection<Employee> Employees { get; set; }
+}
+```
 
 ---
 
-### Q.
+### Q. What is the structure of the Employee class?
 
 ---
 
-- ***
+```c#
+public partial class Employee
+{
+    public int Eid { get; set; }
+    public string Ename { get; set; }
+    public string Job { get; set; }
+    public Nullable<decimal> Salary { get; set; }
+    public Nullable<int> Did { get; set; }
+    public bool Status { get; set; }
+    public virtual Department Department { get; set; }
+}
+```
 
 ---
 
-### Q.
+### Q. How do you generate controllers, action methods, and views using scaffolding in Entity Framework?
 
 ---
 
-- ***
+By using Scaffolding and to do that first build the project
+
+Right-click on the Controllers folder, select Add => Controller, choose "MVC5 Controller with views, using Entity Framework", and click "Add".
+
+- Select Model class as "Employee".
+- Select Data context class as "MVCDBEntities".
+- The controller will be named "EmployeesController" (or change it to "EmployeeController" if desired).
+
+It generates the controller with all necessary action methods (for CRUD operations) and corresponding views.
+
+Run the project and test the CRUD operations by interacting with the generated controller and views.
 
 ---
 
-## 244
+### Q. How do you create a new ASP.NET MVC project to perform CRUD operations manually without scaffolding?
 
-**`MVC Filters`**
+---
+
+1. Open Visual Studio and create a new "ASP.NET Web Application" project.
+2. Name the project “MVCWithEFDBF2”.
+3. Choose the "MVC Project Template".
+4. Click the “Create” button.
+
+---
+
+### Q. What is the next step after creating the MVC project?
+
+---
+
+1. Open the **Solution Explorer**.
+2. Right-click on the **Models** folder.
+3. Select “Add New Item” and choose “ADO.NET Entity Data Model”.
+4. Name the model as “TestEF.edmx” and click “OK”.
+5. Select the option **"EF Designer from database"**.
+6. Click “Next”.
+7. In the wizard, click the **"New Connection"** button.
+8. Enter the connection details for the **MVCDB** database.
+9. Select the radio button **"Yes, include the sensitive data in the connection string."**.
+10. Click “Next”.
+11. Select **Entity Framework 6.x** in the wizard and click “Next”.
+12. Once connected to the data source, select the **"Department"** and **"Employee"** tables.
+13. Click "Finish" to generate the required classes.
+
+---
+
+### Q. What are the steps to create an EmployeeController manually?
+
+---
+
+1. Right-click on the **Controllers** folder and choose "Add Controller".
+2. Name the controller as **EmployeeController.cs**.
+3. Add the necessary action methods in the controller for CRUD operations.
+
+---
+
+### Q. How to connect this EmployeeController to the Entity (i.e:`MVCDBEntities`)?
+
+---
+
+```C#
+using System.Data.Entity;
+using MVCWithEFDBF2.Models;
+public class EmployeeController : Controller
+{
+  MVCDBEntities dc = new MVCDBEntities();
+}
+```
+
+---
+
+### Q. What is the code to display all employees in the EmployeeController?
+
+---
+
+```csharp
+public ViewResult DisplayEmployees()
+{
+    var Emps = dc.Employees.Where(E => E.Status == true);
+    return View(Emps);
+}
+```
+
+---
+
+### Q. How do you display details of a specific employee?
+
+---
+
+```csharp
+public ViewResult DisplayEmployee(int Eid)
+{
+    var Emp = dc.Employees.Find(Eid);
+    return View(Emp);
+}
+```
+
+---
+
+### Q. How do you add a new employee in the EmployeeController?
+
+---
+
+```csharp
+public ViewResult AddEmployee()
+{
+    ViewBag.Did = new SelectList(dc.Departments, "Did", "Dname");
+    return View();
+}
+
+[HttpPost]
+public RedirectToRouteResult AddEmployee(Employee Emp)
+{
+    Emp.Status = true;
+    dc.Employees.Add(Emp);
+    dc.SaveChanges();
+    return RedirectToAction("DisplayEmployees");
+}
+```
+
+---
+
+### Q. How do you update an employee's details?
+
+---
+
+```csharp
+public ViewResult EditEmployee(int Eid)
+{
+    Employee Emp = dc.Employees.Find(Eid);
+    ViewBag.Did = new SelectList(dc.Departments, "Did", "Dname", Emp.Did);
+    return View(Emp);
+}
+
+[HttpPost]
+public RedirectToRouteResult UpdateEmployee(Employee Emp)
+{
+    Emp.Status = true;
+    dc.Entry(Emp).State = EntityState.Modified;
+    dc.SaveChanges();
+    return RedirectToAction("DisplayEmployees");
+}
+```
+
+---
+
+### Q. How do you delete an employee in the EmployeeController?
+
+---
+
+```csharp
+public ViewResult DeleteEmployee(int Eid)
+{
+    Employee Emp = dc.Employees.Find(Eid);
+    return View(Emp);
+}
+
+[HttpPost]
+public RedirectToRouteResult DeleteEmployee(Employee Emp)
+{
+    dc.Entry(Emp).State = EntityState.Modified;
+    // To delete permanently, use this instead:
+    // dc.Entry(Emp).State = EntityState.Deleted;
+    dc.SaveChanges();
+    return RedirectToAction("DisplayEmployees");
+}
+```
+
+---
+
+### Q. What is the view code for displaying employees?
+
+---
+
+```html
+@model IEnumerable<MVCWithEFDBF2.Models.Employee>
+  <h2 style="text-align:center;background-color:yellowgreen;color:orangered">
+    Employee Details
+  </h2>
+  <table border="1" align="center">
+    <tr>
+      <th>@Html.DisplayNameFor(E => E.Eid)</th>
+      <th>@Html.DisplayNameFor(E => E.Ename)</th>
+      <th>@Html.DisplayNameFor(E => E.Job)</th>
+      <th>@Html.DisplayNameFor(E => E.Salary)</th>
+      <th>@Html.DisplayNameFor(E => E.Status)</th>
+      <th>@Html.DisplayNameFor(E => E.Did)</th>
+      <th>@Html.DisplayNameFor(E => E.Department.Dname)</th>
+      <th>@Html.DisplayNameFor(E => E.Department.Location)</th>
+      <th>Actions</th>
+    </tr>
+    @foreach (var Employee in Model) {
+    <tr>
+      <td>@Html.DisplayFor(E => Employee.Eid)</td>
+      <td>@Html.DisplayFor(E => Employee.Ename)</td>
+      <td>@Html.DisplayFor(E => Employee.Job)</td>
+      <td align="right">@Html.DisplayFor(E => Employee.Salary)</td>
+      <td align="center">@Html.DisplayFor(E => Employee.Status)</td>
+      <td align="center">@Html.DisplayFor(E => Employee.Did)</td>
+      <td>@Html.DisplayFor(E => Employee.Department.Dname)</td>
+      <td>@Html.DisplayFor(E => Employee.Department.Location)</td>
+      <td>
+        @Html.ActionLink("View", "DisplayEmployee", new { Eid = Employee.Eid })
+        @Html.ActionLink("Edit", "EditEmployee", new { Eid = Employee.Eid })
+        @Html.ActionLink("Delete", "DeleteEmployee", new { Eid = Employee.Eid })
+      </td>
+    </tr>
+    }
+    <tr>
+      <td colspan="9" align="center">
+        @Html.ActionLink("Add New Employee", "AddEmployee")
+      </td>
+    </tr>
+  </table></MVCWithEFDBF2.Models.Employee
+>
+```
+
+---
+
+### Q. How do you generate views for displaying employee details, adding, editing, and deleting employees?
+
+---
+
+1. **For DisplayEmployee**: Add a new empty view and choose **Employee** as the model class.
+
+   - Use the following code:
+
+   ```html
+   <table border="1" align="center">
+     <tr>
+       <td>Eid:</td>
+       <td>@Model.Eid</td>
+     </tr>
+     <tr>
+       <td>Ename:</td>
+       <td>@Model.Ename</td>
+     </tr>
+     <tr>
+       <td>Job:</td>
+       <td>@Model.Job</td>
+     </tr>
+     <tr>
+       <td>Salary:</td>
+       <td>@Model.Salary</td>
+     </tr>
+     <tr>
+       <td>Status:</td>
+       <td>@Html.DisplayFor(E => E.Status)</td>
+     </tr>
+     <tr>
+       <td>Did:</td>
+       <td>@Model.Did</td>
+     </tr>
+     <tr>
+       <td>Dname:</td>
+       <td>@Model.Department.Dname</td>
+     </tr>
+     <tr>
+       <td>Location:</td>
+       <td>@Model.Department.Location</td>
+     </tr>
+     <tr>
+       <td colspan="2" align="center">
+         @Html.ActionLink("Back to Employee Details", "DisplayEmployees")
+       </td>
+     </tr>
+   </table>
+   ```
+
+2. **For AddEmployee**: Add a new empty view and choose **Employee** as the model class.
+
+   - Use the following code:
+
+   ```html
+   @using (Html.BeginForm("AddEmployee", "Employee")) {
+   <div>@Html.LabelFor(E => E.Ename)<br />@Html.TextBoxFor(E => E.Ename)</div>
+   <div>@Html.LabelFor(E => E.Job)<br />@Html.TextBoxFor(E => E.Job)</div>
+   <div>@Html.LabelFor(E => E.Salary)<br />@Html.TextBoxFor(E => E.Salary)</div>
+   <div>
+     <label>Department</label><br />@Html.DropDownList("Did", "-Select
+     Department-")
+   </div>
+   <div>
+     <input type="submit" value="Save" name="btnSave" /><input
+       type="reset"
+       value="Reset"
+       name="btnReset"
+     />
+   </div>
+   } @Html.ActionLink("Back to Employee Details", "DisplayEmployees")
+   ```
+
+3. **For EditEmployee**: Add a new empty view and choose **Employee** as the model class.
+   - Use the following code:
+   ```html
+   @using (Html.BeginForm("UpdateEmployee", "Employee")) { @Html.HiddenFor(E =>
+   E.Eid)
+   <div>@Html.LabelFor(E => E.Ename)<br />@Html.TextBoxFor(E => E.Ename)</div>
+   <div>@Html.LabelFor(E => E.Job)<br />@Html.TextBoxFor(E => E.Job)</div>
+   <div>@Html.LabelFor(E => E.Salary)<br />@Html.TextBoxFor(E => E.Salary)</div>
+   <div><label>Department</label><br />@Html.DropDownList("Did")</div>
+   <div>
+     <input
+       type="submit"
+       value="Update"
+       name="btnUpdate"
+     />@Html.ActionLink("Cancel", "DisplayEmployees")
+   </div>
+   }
+   ```
+
+---
+
+### Q. What is Eager Loading in Entity Framework?
+
+---
+
+Eager loading is the process where a query for one type of entity also loads related entities as part of the query. This eliminates the need to execute separate queries for related entities. Eager loading is achieved using the **`Include()`** method.
+
+---
+
+### Q. How can we implement Eager Loading in the "DisplayEmployees" action method?
+
+---
+
+In our above project under the “`DisplayEmployees`” action method we have accessed data of Employee entity as following: `var Emps = dc.Employees.Where(E => E.Status == true);`
+
+Default loading is lazy loading only and if we want to use eager loading then we need to first set “`<DbContextClass>.Configuration.LazyLoadingEnabled = false`”, and the above code should be replaced as below:
+
+```c#
+dc.Configuration.LazyLoadingEnabled = false; // Disable lazy loading
+var Emps = dc.Employees.Where(E => E.Status == true).Include(E => E.Department); // Eager loading
+```
+
+---
+
+### Q. What is Lazy Loading in Entity Framework?
+
+---
+
+Example of Lazy Loading with the Employee and Department entities:
+
+```c#
+MVCDBEntities dc = new MVCDBEntities();
+List<Employee> Emps = dc.Employees.ToList(); // Loads Employee details only
+Department Dept = Emps[0].Department; // Loads Department for a particular Employee only
+```
+
+---
+
+### Q. How can we convert the Lazy Loading example to Eager Loading?
+
+---
+
+To convert the above Lazy Loading code to Eager Loading, you can rewrite it as follows:
+
+```c#
+MVCDBEntities dc = new MVCDBEntities();
+dc.Configuration.LazyLoadingEnabled = false; // Disable lazy loading
+List<Employee> Emps = dc.Employees.Include(E => E.Department).ToList(); // Eager loading
+Department Dept = Emps[0].Department; // Now loads Department for the first Employee eagerly
+```
+
+---
+
+### Q. What should be set to enable Eager Loading in Entity Framework?
+
+---
+
+To enable Eager Loading, you need to set the following configuration in your context:
+
+```C#
+dc.Configuration.LazyLoadingEnabled = false; // This disables lazy loading
+```
+
+This configuration allows you to explicitly load related entities using the Include() method in your queries.
+
+---
+
+### Q. How to work with Stored Procedures with Entity Data Model for the database connection?
+
+---
+
+1. Create `ASP.NET Web Application` project name it MVCWithEFDBF3.
+2. Right click on `Models` folder > `Add` > `ADO.NET Entity Data Model` > name it as `TestEF.edmx`, and click Ok.
+   - select `EF Designer from Database` and click `Next`.
+   - Click `New Connection` and enter the database connection details for `MVCDB`.
+   - Select `Yes, include the sensitive data in the connection string` and click `Next`.
+   - In the next window, select `Entity Framework 6.x` and click Next.
+   - Under `Stored Procedures`, `select Student_Select`, `Student_Insert`, `Student_Update`, and `Student_Delete`. Click `Finish`.
+3.
+
+---
+
+### Q. How to handle stored procedure in Entity Framework?
+
+---
+
+When you map a stored procedure, Entity Framework will generate a method inside the `MVCDBEntities` class with the same name as the stored procedure. For the `Student_Select` procedure, the mapping generates a class named `Student_Select_Result` containing the columns returned by the stored procedure. The class contains properties corresponding to the columns, such as:
+
+```c#
+public partial class Student_Select_Result {
+    public int Sid { get; set; }
+    public string Name { get; set; }
+    public Nullable<int> Class { get; set; }
+    public Nullable<decimal> Fees { get; set; }
+    public string Photo { get; set; }
+}
+```
+
+**Note**: even if we are fetching all 6 columns of the table also, still it creates this class and in such cases we can delete
+this class and map the results with original `Student` class.
+
+---
+
+### Q. How are methods generated for the stored procedures in Entity Framework?
+
+---
+
+When stored procedures are selected, methods are automatically mapped to those procedures under the `MVCDBEntities` class. These methods will have the same names as the procedures, e.g., `Student_Select`, `Student_Insert`, `Student_Update`, and `Student_Delete`.
+
+---
+
+### Q. What is the purpose of the Student_Select_Result class?
+
+---
+
+The `Student_Select_Result` class is generated to map the results of the `Student_Select` stored procedure. Since `Student_Select` fetches 5 out of 6 columns, this class contains 5 properties for those columns: `Sid`, `Name`, `Class`, `Fees`, and `Photo`.
+
+---
+
+### Q. Can the Student_Select_Result class be deleted?
+
+---
+
+Yes, if the stored procedure fetches all the columns of the table, you can delete this class and map the results to the original `Student` class.
+
+---
+
+### Q. How do you create the StudentController to handle CRUD operations?
+
+---
+
+Create a new controller named `StudentController.cs` and add the following methods:
+
+- **DisplayStudents**: Fetches and displays a list of students using the `Student_Select` stored procedure.
+
+```csharp
+public ViewResult DisplayStudents() {
+    return View(dc.Student_Select(null, true));
+}
+```
+
+- **DisplayStudent**: Displays details of a single student.
+
+```csharp
+public ViewResult DisplayStudent(int sid) {
+    return View(dc.Student_Select(sid, true).Single());
+}
+
+```
+
+- **AddStudent** (GET and POST): Displays a form to add a student and handles form submission. If a file is uploaded, it is saved in the Uploads folder.
+
+```csharp
+public ViewResult AddStudent() {
+    Student_Select_Result student = new Student_Select_Result();
+    return View(student);
+}
+
+[HttpPost]
+public RedirectToRouteResult AddStudent(Student_Select_Result student, HttpPostedFileBase selectedFile) {
+    if (selectedFile != null) {
+        string PhysicalPath = Server.MapPath("~/Uploads/");
+        if (!Directory.Exists(PhysicalPath))
+            Directory.CreateDirectory(PhysicalPath);
+        selectedFile.SaveAs(PhysicalPath + selectedFile.FileName);
+        student.Photo = selectedFile.FileName;
+    }
+    dc.Student_Insert(student.Sid, student.Name, student.Class, student.Fees, student.Photo);
+    return RedirectToAction("DisplayStudents");
+}
+
+```
+
+- **EditStudent (`GET and POST`)**: Displays a form to edit a student’s details and handles the update.
+
+```csharp
+public ViewResult EditStudent(int sid) {
+    var student = dc.Student_Select(sid, true).Single();
+    TempData["Photo"] = student.Photo;
+    return View(student);
+}
+
+[HttpPost]
+public RedirectToRouteResult UpdateStudent(Student_Select_Result student, HttpPostedFileBase selectedFile) {
+    if (selectedFile != null) {
+        string PhysicalPath = Server.MapPath("~/Uploads/");
+        if (!Directory.Exists(PhysicalPath))
+            Directory.CreateDirectory(PhysicalPath);
+        selectedFile.SaveAs(PhysicalPath + selectedFile.FileName);
+        student.Photo = selectedFile.FileName;
+    } else if (TempData["Photo"] != null)
+        student.Photo = TempData["Photo"].ToString();
+    dc.Student_Update(student.Sid, student.Name, student.Class, student.Fees, student.Photo);
+    return RedirectToAction("DisplayStudents");
+}
+
+```
+
+- **DeleteStudent (`GET and POST`)**: Displays a form to confirm deletion of a student and handles the deletion.
+
+```csharp
+public ViewResult DeleteStudent(int sid) {
+    return View(dc.Student_Select(sid, true).Single());
+}
+
+[HttpPost]
+public RedirectToRouteResult DeleteStudent(Student_Select_Result student) {
+    dc.Student_Delete(student.Sid);
+    return RedirectToAction("DisplayStudents");
+}
+
+```
+
+---
+
+### Q. How do you create a view to display all students, single student, delete and update?
+
+---
+
+- Create a view named `DisplayStudents.cshtml` for the DisplayStudents method.
+- Use the following code to display a table of students:
+
+```html
+@model IEnumerable<MVCWithEFDBF3.Models.Student_Select_Result>
+  <h2 style="text-align:center;background-color:yellowgreen;color:orangered">
+    Student Details
+  </h2>
+  <table border="1" align="center">
+    <tr>
+      <th>@Html.DisplayNameFor(S => S.Sid)</th>
+      <th>@Html.DisplayNameFor(S => S.Name)</th>
+      <th>@Html.DisplayNameFor(S => S.Class)</th>
+      <th>@Html.DisplayNameFor(S => S.Fees)</th>
+      <th>@Html.DisplayNameFor(S => S.Photo)</th>
+      <th>Actions</th>
+    </tr>
+    @foreach (var Student in Model) {
+    <tr>
+      <td>@Html.DisplayFor(S => Student.Sid)</td>
+      <td>@Html.DisplayFor(S => Student.Name)</td>
+      <td>@Html.DisplayFor(S => Student.Class)</td>
+      <td>@Html.DisplayFor(S => Student.Fees)</td>
+      <td>
+        <img
+          src="/Uploads/@Student.Photo"
+          width="85"
+          height="30"
+          alt="No Image"
+        />
+      </td>
+      <td>
+        @Html.ActionLink("View", "DisplayStudent", new { Sid = Student.Sid })
+        @Html.ActionLink("Edit", "EditStudent", new { Sid = Student.Sid })
+        @Html.ActionLink("Delete", "DeleteStudent", new { Sid = Student.Sid })
+      </td>
+    </tr>
+    }
+    <tr>
+      <td colspan="6" align="center">
+        @Html.ActionLink("Add New Student", "AddStudent")
+      </td>
+    </tr>
+  </table></MVCWithEFDBF3.Models.Student_Select_Result
+>
+```
+
+- **DisplayStudent**: Use this code to show a student's details.
+
+```html
+<h2 style="text-align:center;background-color:yellowgreen;color:orangered">
+  Student Details
+</h2>
+<table border="1" align="center">
+  <tr>
+    <td rowspan="4">
+      <img
+        src="/Uploads/@Model.Photo"
+        width="200"
+        height="200"
+        alt="No Image"
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>Sid: @Model.Sid</td>
+  </tr>
+  <tr>
+    <td>Name: @Model.Name</td>
+  </tr>
+  <tr>
+    <td>Class: @Model.Class</td>
+  </tr>
+  <tr>
+    <td>Fees: @Model.Fees</td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center">
+      @Html.ActionLink("Back to Student Details", "DisplayStudents")
+    </td>
+  </tr>
+</table>
+```
+
+- **AddStudent**: Use this code to create a form for adding a new student.
+
+```html
+<h2 style="text-align:center;background-color:yellowgreen;color:orangered">
+  Add New Student
+</h2>
+@using (Html.BeginForm("AddStudent", "Student", FormMethod.Post, new { enctype =
+"multipart/form-data" })) {
+<div>@Html.LabelFor(S => S.Sid)<br />@Html.TextBoxFor(S => S.Sid)</div>
+<div>@Html.LabelFor(S => S.Name)<br />@Html.TextBoxFor(S => S.Name)</div>
+<div>@Html.LabelFor(S => S.Class)<br />@Html.TextBoxFor(S => S.Class)</div>
+<div>@Html.LabelFor(S => S.Fees)<br />@Html.TextBoxFor(S => S.Fees)</div>
+<div>
+  @Html.LabelFor(S => S.Photo)<br /><input type="file" name="selectedFile" />
+</div>
+<div>
+  <input type="submit" value="Save" /><input type="reset" value="Reset" />
+</div>
+@Html.ActionLink("Back to Student Details", "DisplayStudents") }
+```
+
+- **EditStudent**: Use this code to create a form for editing a student's details.
+
+```html
+<h2 style="text-align:center;background-color:yellowgreen;color:orangered">
+  Edit Student
+</h2>
+@using (Html.BeginForm("UpdateStudent","Student",FormMethod.Post, new { enctype
+= "multipart/form-data"})) {
+<div>
+  @Html.LabelFor(S => S.Sid)<br />@Html.TextBoxFor(S => S.Sid, new { @readonly =
+  true }) )
+</div>
+<div>@Html.LabelFor(S => S.Name)<br />@Html.TextBoxFor(S => S.Name)</div>
+<div>@Html.LabelFor(S => S.Class)<br />@Html.TextBoxFor(S => S.Class)</div>
+<div>@Html.LabelFor(S => S.Fees)<br />@Html.TextBoxFor(S => S.Fees)</div>
+<div>
+  @Html.LabelFor(S => S.Photo)<br />
+  <img src="/Uploads/@Model.Photo" width="100" height="100" />
+  <input type="file" name="selectedFile" />
+</div>
+<div>
+  <input type="submit" value="Update" name="btnUpdate" />
+  @Html.ActionLink("Cancel", "DisplayStudents")
+</div>
+}
+```
+
+- **DeleteStudent**:
+
+```html
+<h2 style="text-align:center;background-color:yellowgreen;color:orangered">
+  Delete Student
+</h2>
+@using (Html.BeginForm("DeleteStudent", "Student")) {
+<table border="1">
+  <caption>
+    Student Details
+  </caption>
+  <tr>
+    <td rowspan="4">
+      <img src="/Uploads/@Model.Photo" width="200" height="200" />
+    </td>
+    <td>Sid: @Model.Sid @Html.HiddenFor(S => S.Sid)</td>
+  </tr>
+  <tr>
+    <td>Name: @Model.Name</td>
+  </tr>
+  <tr>
+    <td>Class: @Model.Class</td>
+  </tr>
+  <tr>
+    <td>Fees: @Model.Fees</td>
+  </tr>
+</table>
+<font color="red">Are you sure of deleting the current record?</font>
+<input type="submit" value="Yes" />
+} @using (Html.BeginForm("DisplayStudents", "Student")) {
+<text>Click</text> <input type="submit" value="No" /> @:for going back to
+Student Details. }
+```
+
+---
+
+### Q. What is the Code-First approach in Entity Framework?
+
+---
+
+- The Code-First approach in Entity Framework allows developers to focus on the domain of the application by creating C# or VB.NET classes (domain entities) first, rather than designing the database initially. Entity Framework will automatically create a database based on these domain classes and their configurations.
+
+- The Code-First approach was introduced in Entity Framework 4.1.
+
+---
+
+### Q. The Code-First approach is particularly useful in Domain-Driven Design (DDD), as it allows developers to define their application domain entities first in the code, without needing to create a database schema manually. This simplifies the development process.
+
+---
+
+The Code-First approach is particularly useful in **`Domain-Driven Design (DDD)`**, as it allows developers to define their application domain entities first in the code, without needing to create a database schema manually. This simplifies the development process.
+
+---
+
+### Q. How does Entity Framework work with the Code-First approach?
+
+---
+
+In the Code-First approach, Entity Framework (EF) automatically generates the database schema based on the domain classes that developers define in the code. This includes the creation of tables, columns, and relationships as per the class structure.
+
+---
+
+### Q. Can you describe the Code-First Workflow?
+
+---
+
+The Code-First Workflow involves:
+
+1. **`Create Classes`**: Start by creating domain classes in C# or VB.NET.
+2. **`Configure Mappings`**: Optionally, configure class-to-table mappings using Data Annotations or Fluent API.
+3. **`Database Creation`**: Entity Framework automatically generates the database based on these classes and mappings.
+
+---
+
+### Q. How do you start a new project for Code-First development in ASP.NET?
+
+---
+
+Create a new "ASP.NET Web Application" project named "MVCWithEFCF1". Choose "MVC Project Template" and click the "Create" button.
+
+---
+
+### Q. What is the first step to work with Entity Framework in the project?
+
+---
+
+Install Entity Framework by going to "NuGet Package Manager", selecting the Browse tab, searching for "`Entity Framework by Microsoft`", and installing it. This adds the necessary references to work with Entity Framework.
+
+---
+
+### Q. What domain classes need to be created in the Models folder?
+
+---
+
+Add the following three classes:
+
+- Category.cs
+- Product.cs
+- StoreDbContext.cs
+
+---
+
+### Q. What is the code for the Category and Product classes?
+
+---
+
+```c#
+public class Category
+{
+    public int CategoryId { get; set; }
+    public string CategoryName { get; set; }
+    public string Description { get; set; }
+    public ICollection<Product> Products { get; set; }
+}
+```
+
+```c#
+public class Product
+{
+    public int Id { get; set; }
+    public string ProductName { get; set; }
+    public int CategoryId { get; set; }
+    public decimal UnitPrice { get; set; }
+    public byte[] ProductImage { get; set; }
+    public string ProductImageName { get; set; }
+    public bool Discontinued { get; set; }
+    public Category Category { get; set; }
+}
+```
+
+---
+
+### Q. How should the StoreDbContext class be defined?
+
+---
+
+```c#
+using System.Data.Entity;
+
+public class StoreDbContext : DbContext
+{
+    public DbSet<Category> Categories { get; set; }
+    public DbSet<Product> Products { get; set; }
+}
+```
+
+---
+
+### Q. How connection string should be added in the `Web.config` file?
+
+---
+
+- Add the following inside the `<configuration>` tag:
+
+```xml
+<connectionStrings>
+    <add name="StoreDbContext" connectionString="Data Source=Server;User Id=Sa;Password=123;Database=StoreDB" providerName="System.Data.SqlClient" />
+</connectionStrings>
+```
+
+---
+
+### Q. How do you add links to Categories and Products in the \_Layout.cshtml file for display?
+
+---
+
+- Add these links under the "Contact" menu item:
+
+```html
+<li>@Html.ActionLink("Categories", "DisplayCategories", "Category")</li>
+<li>@Html.ActionLink("Products", "DisplayProducts", "Product")</li>
+```
+
+---
+
+### Q. How do you create the `CategoryController` and define action methods for CRUD operations?
+
+---
+
+- Create a controller named `CategoryController` and add the following actions:
+
+```c#
+using System.Data.Entity;
+using MVCWithEFCF1.Models;
+
+public class CategoryController : Controller
+{
+    StoreDbContext dc = new StoreDbContext();
+
+    public ViewResult DisplayCategories() => View(dc.Categories);
+
+    public ViewResult AddCategory() => View();
+
+    [HttpPost]
+    public RedirectToRouteResult AddCategory(Category category)
+    {
+        dc.Categories.Add(category);
+        dc.SaveChanges();
+        return RedirectToAction("DisplayCategories");
+    }
+
+    public ViewResult EditCategory(int CategoryId) => View(dc.Categories.Find(CategoryId));
+
+    public RedirectToRouteResult UpdateCategory(Category category)
+    {
+        dc.Entry(category).State = EntityState.Modified;
+        dc.SaveChanges();
+        return RedirectToAction("DisplayCategories");
+    }
+
+    public RedirectToRouteResult DeleteCategory(int CategoryId)
+    {
+        var category = dc.Categories.Find(CategoryId);
+        dc.Categories.Remove(category);
+        dc.SaveChanges();
+        return RedirectToAction("DisplayCategories");
+    }
+}
+```
+
+---
+
+### Q. How do you create the `DisplayCategories.cshtml` view for displaying categories?
+
+---
+
+- Generate a view for the `DisplayCategories` action method and use the following code:
+
+```html
+@model IEnumerable<MVCWithEFCF1.Models.Category>
+  @{ ViewBag.Title = "Display Categories"; }
+  <h2 style="text-align:center;background-color:yellowgreen;color:orangered">
+    Categories List
+  </h2>
+  <table border="1" align="center">
+    <tr>
+      <th>@Html.DisplayNameFor(C => C.CategoryId)</th>
+      <th>@Html.DisplayNameFor(C => C.CategoryName)</th>
+      <th>@Html.DisplayNameFor(C => C.Description)</th>
+      <th>Actions</th>
+    </tr>
+    @foreach (var Category in Model) {
+    <tr>
+      <td>@Html.DisplayFor(C => Category.CategoryId)</td>
+      <td>@Html.DisplayFor(C => Category.CategoryName)</td>
+      <td>@Html.DisplayFor(C => Category.Description)</td>
+      <td>
+        @Html.ActionLink("Edit", "EditCategory", new { CategoryId =
+        Category.CategoryId }) @Html.ActionLink("Delete", "DeleteCategory", new
+        { CategoryId = Category.CategoryId }, new { onclick = "return
+        confirm('Are you sure of deleting the record?')" })
+      </td>
+    </tr>
+    }
+    <tr>
+      <td colspan="4" align="center">
+        @Html.ActionLink("Add New Category", "AddCategory")
+      </td>
+    </tr>
+  </table>
+</MVCWithEFCF1.Models.Category>
+```
+
+---
+
+### Q. How do you create the view for adding a category?
+
+---
+
+- Generate a view for `AddCategory` action method and add the following code:
+
+```c#
+<h2 style="text-align:center;background-color:yellowgreen;color:orangered">Add New Category</h2>
+
+@using (Html.BeginForm("AddCategory", "Category"))
+{
+    <div>@Html.LabelFor(C => C.CategoryName)<br />@Html.TextBoxFor(C => C.CategoryName)</div>
+    <div>@Html.LabelFor(C => C.Description)<br />@Html.TextAreaFor(C => C.Description)</div>
+    <div>
+        <input type="submit" value="Save" name="btnSave" />
+        <input type="reset" value="Reset" name="btnReset" />
+    </div>
+}
+
+@Html.ActionLink("Back to Category Details", "DisplayCategories")
+```
+
+---
+
+### Q. How do you create the view for editing a category?
+
+---
+
+- Generate a view for `EditCategory` action method and add the following code:
+
+```html
+<h2 style="text-align:center;background-color:yellowgreen;color:orangered">
+  Update Category
+</h2>
+
+@using (Html.BeginForm("UpdateCategory", "Category")) {
+<div>
+  @Html.LabelFor(C => C.CategoryId)<br />
+  @Html.TextBoxFor(C => C.CategoryId, new { @readonly = "true" })
+</div>
+<div>
+  @Html.LabelFor(C => C.CategoryName)<br />@Html.TextBoxFor(C => C.CategoryName)
+</div>
+<div>
+  @Html.LabelFor(C => C.Description)<br />@Html.TextAreaFor(C => C.Description)
+</div>
+<div>
+  <input type="submit" value="Save" name="btnSave" />
+  @Html.ActionLink("Cancel", "DisplayCategories")
+</div>
+}
+```
+
+---
+
+### Q. How do you create the `ProductController` and define actions for CRUD operations on products?
+
+---
+
+- Create a controller named `ProductController` and add the following actions:
+
+```c#
+using System.IO;
+using System.Data.Entity;
+using MVCWithEFCF1.Models;
+
+public class ProductController : Controller
+{
+  StoreDbContext dc = new StoreDbContext();
+
+  public ViewResult DisplayProducts()
+  {
+    dc.Configuration.LazyLoadingEnabled = false;
+    var products = dc.Products.Include(P => P.Category).Where(P => P.Discontinued == false);
+    return View(products);
+  }
+
+  public ViewResult DisplayProduct(int Id)
+  {
+    dc.Configuration.LazyLoadingEnabled = false;
+    Product product = (dc.Products.Include(P => P.Category).Where(
+    P => P.Id == Id && P.Discontinued == false)).Single();
+    return View(product);
+  }
+
+  public ViewResult AddProduct()
+  {
+    ViewBag.CategoryId = new SelectList(dc.Categories, "CategoryId", "CategoryName");
+    return View();
+  }
+
+  [HttpPost]
+  public RedirectToRouteResult AddProduct(Product product, HttpPostedFileBase selectedFile)
+  {
+    if(selectedFile != null)
+    {
+      string DirectoryPath = Server.MapPath("~/Uploads/");
+      if (!Directory.Exists(DirectoryPath))
+      {
+        Directory.CreateDirectory(DirectoryPath);
+      }
+
+      selectedFile.SaveAs(DirectoryPath + selectedFile.FileName);
+      BinaryReader br = new BinaryReader(selectedFile.InputStream);
+      product.ProductImage = br.ReadBytes(selectedFile.ContentLength);
+      product.ProductImageName = selectedFile.FileName;
+    }
+    dc.Products.Add(product);
+    dc.SaveChanges();
+    return RedirectToAction("DisplayProducts");
+  }
+
+  public ViewResult EditProduct(int Id)
+  {
+    Product product = dc.Products.Find(Id);
+    TempData["ProductImage"] = product.ProductImage;
+    TempData["ProductImageName"] = product.ProductImageName;
+    ViewBag.CategoryId = new SelectList(dc.Categories, "CategoryId", "CategoryName", product.CategoryId);
+    return View(product);
+  }
+
+  public RedirectToRouteResult UpdateProduct(Product product, HttpPostedFileBase selectedFile)
+  {
+    if (selectedFile != null)
+    {
+      string DirectoryPath = Server.MapPath("~/Uploads/");
+
+      if (!Directory.Exists(DirectoryPath))
+      {
+      Directory.CreateDirectory(DirectoryPath);
+      }
+
+      selectedFile.SaveAs(DirectoryPath + selectedFile.FileName);
+      BinaryReader br = new BinaryReader(selectedFile.InputStream);
+      product.ProductImage = br.ReadBytes(selectedFile.ContentLength);
+      product.ProductImageName = selectedFile.FileName;
+    }
+    else if(TempData["ProductImage"] != null && TempData["ProductImageName"] != null) {
+      product.ProductImage = (byte[])TempData["ProductImage"];
+      product.ProductImageName = (string)TempData["ProductImageName"];
+    }
+    dc.Entry(product).State = EntityState.Modified;
+    dc.SaveChanges();
+    return RedirectToAction("DisplayProducts");
+  }
+
+  public RedirectToRouteResult DeleteProduct(int Id)
+  {
+    Product product = dc.Products.Find(Id);
+    product.Discontinued = true;
+    dc.Entry(product).State = EntityState.Modified;
+    dc.SaveChanges();
+    return RedirectToAction("DisplayProducts");
+  }
+}
+```
+
+---
+
+### Q. How do you create the view for DisplayProducts, DisplayProduct, AddProduct, EditProduct & DeleteProduct a category?
+
+---
+
+- **DisplayProducts**
+
+```html
+@model IEnumerable
+<MVCWithEFCF1.Models.Product>
+  @{ ViewBag.Title = "Display Products"; }
+  <h2 style="text-align:center;background-color:yellowgreen;color:orangered">
+    Display Products
+  </h2>
+  <table border="1" align="center">
+    <tr>
+      <th>@Html.DisplayNameFor(P => P.Id)</th>
+      <th>@Html.DisplayNameFor(P => P.ProductName)</th>
+      <th>@Html.DisplayNameFor(P => P.UnitPrice)</th>
+      <th>@Html.DisplayNameFor(P => P.ProductImage)</th>
+      <th>@Html.DisplayNameFor(P => P.CategoryId)</th>
+      <th>@Html.DisplayNameFor(P => P.Category.CategoryName)</th>
+      <th>@Html.DisplayNameFor(P => P.Category.Description)</th>
+      <th>Actions</th>
+    </tr>
+    @foreach (var Product in Model) {
+    <tr>
+      <td>@Html.DisplayFor(P => Product.Id)</td>
+      <td>@Html.DisplayFor(P => Product.ProductName)</td>
+      <td>@Html.DisplayFor(P => Product.UnitPrice)</td>
+      <td>
+        <img
+          src="/Uploads/@Product.ProductImageName"
+          width="40"
+          height="25"
+          alt="No Image"
+        />
+      </td>
+      <td>@Html.DisplayFor(P => Product.CategoryId)</td>
+      <td>@Html.DisplayFor(P => Product.Category.CategoryName)</td>
+      <td>@Html.DisplayFor(P => Product.Category.Description)</td>
+      <td>
+        @Html.ActionLink("View", "DisplayProduct", new { Id = Product.Id })
+        @Html.ActionLink("Edit", "EditProduct", new { Id = Product.Id })
+        @Html.ActionLink("Delete", "DeleteProduct", new { Id = Product.Id }, new
+        { onclick = "return confirm('Are you sure of deleting the record?')" })
+      </td>
+    </tr>
+    }
+    <tr>
+      <td colspan="9" align="center">
+        @Html.ActionLink("Add New Product", "AddProduct")
+      </td>
+    </tr>
+  </table>
+</MVCWithEFCF1.Models.Product>
+```
+
+- **DisplayProduct**
+
+```html
+<h2 style="text-align:center;background-color:yellowgreen;color:orangered">
+  Display Product
+</h2>
+<table border="1" align="center">
+  <tr>
+    <td rowspan="7">
+      <img
+        src="~/Uploads/@Model.ProductImageName"
+        width="200"
+        height="200"
+        alt="No Image"
+      />
+    </td>
+    <td>ProductId: @Model.Id</td>
+  </tr>
+  <tr>
+    <td>ProductName: @Model.ProductName</td>
+  </tr>
+  <tr>
+    <td>UnitPrice: @Model.UnitPrice</td>
+  </tr>
+  <tr>
+    <td>CategoryId: @Model.CategoryId</td>
+  </tr>
+  <tr>
+    <td>CategoryName: @Model.Category.CategoryName</td>
+  </tr>
+  <tr>
+    <td>Description: @Model.Category.Description</td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center">
+      @Html.ActionLink("Back to Product Details", "DisplayProducts")
+    </td>
+  </tr>
+</table>
+```
+
+- **AddProduct**
+
+```html
+<h2 style="text-align:center;background-color:yellowgreen;color:orangered">
+  Add New Product
+</h2>
+@using (Html.BeginForm("AddProduct", "Product", FormMethod.Post, new { enctype =
+"multipart/form-data" })) {
+<div>
+  @Html.LabelFor(P => P.ProductName)<br />@Html.TextBoxFor(P => P.ProductName)
+</div>
+<div>
+  @Html.LabelFor(P => P.UnitPrice)<br />@Html.TextBoxFor(P => P.UnitPrice)
+</div>
+<div>
+  @Html.LabelFor(P => P.ProductImage)<br /><input
+    type="file"
+    name="selectedFile"
+  />
+</div>
+<div>
+  @Html.Label("Category Name")<br />@Html.DropDownList("CategoryId", "-Select
+  Category-")
+</div>
+<div>
+  <input type="submit" value="Save" name="btnSave" />
+  <input type="reset" value="Reset" />
+</div>
+} @Html.ActionLink("Back to Product Details", "DisplayProducts")
+```
+
+- **EditProduct**
+
+```html
+<h2 style="text-align:center;background-color:yellowgreen;color:orangered">
+  Update Product
+</h2>
+@using (Html.BeginForm("UpdateProduct", "Product", FormMethod.Post, new
+{enctype="multipart/form-data" })) {
+<div>
+  @Html.LabelFor(P => P.Id)<br />@Html.TextBoxFor(P => P.Id, new { @readonly =
+  "true" })
+</div>
+<div>
+  @Html.LabelFor(P => P.ProductName)<br />@Html.TextBoxFor(P => P.ProductName)
+</div>
+<div>
+  @Html.LabelFor(P => P.UnitPrice)<br />@Html.TextBoxFor(P => P.UnitPrice)
+</div>
+<div>
+  @Html.LabelFor(P => P.ProductImage)<br />
+  <img src="/Uploads/@Model.ProductImageName" width="100" height="100" /><br />
+  <input type="file" name="selectedFile" />
+</div>
+<div>
+  @Html.LabelFor(P => P.CategoryId)<br />@Html.DropDownList("CategoryId")
+</div>
+<div>
+  <input type="submit" value="Update" name="btnUpdate" />
+  @Html.ActionLink("Cancel", "DisplayProducts")
+</div>
+}
+```
+
+---
+
+### Q. What is Migration in Entity Framework Code First?
+
+---
+
+- Migration is a feature of Entity Framework Code First that ensures the Domain Classes and the Database remain synchronized. It allows changes in the model to be reflected in the database schema.
+
+- Now if we want the Database and Tables to be created on the Database Server, we need to perform Migrations. Migration is a feature “Entity Framework Code First” provides which is used to keep the “Domain
+  Classes” and “Database” in sync with each other.
+
+---
+
+### Q. What happens when we run the application and click on the "Categories" link?
+
+---
+
+When we run the application and click on the "Categories" link, the database named "StoreDB" is created on the server if it doesn't already exist. The database contains "Categories" and "Products" tables, based on the `DbSet` properties in the `DbContext` class.
+
+---
+
+### Q. How is the database name specified?
+
+---
+
+- The database name is specified in the `Web.config` file through the connection string. In this case, the name "StoreDB" is used, and it matches the `DbContext` class name, so no additional code is needed to retrieve it.
+
+- In our “Web.config” file we specified the name of “`Connection String`” as “`StoreDbContext`” and this name is the same name of our “DbContext” class, so we don’t require writing any code to read the “ConnectionString” into our application. If we want to give our own name for Connection String in “`Web.config`” without using the name “`StoreDbContext`”, we need to explicitly specify that name by defining a default constructor in “`StoreDbContext`” class and call its base class constructor using “`base`” keyword and pass the “`Connection String`” name as a parameter to it. For example, in “`Web.config`”, if we give the name of “`Connection String`” as “`ConStr`” but not “`StoreDbContext`”, then we need to define a constructor in our Context class as below:
+
+```c#
+public StoreDbContext() : base("ConStr")
+{
+}
+```
+
+---
+
+### Q. How can we specify a custom connection string name?
+
+---
+
+- If a custom connection string name is used in the Web.config file (e.g., "`ConStr`" instead of "`StoreDbContext`"), a constructor must be defined in the DbContext class like this:
+
+```c#
+public StoreDbContext() : base("ConStr")
+{
+}
+```
+
+---
+
+### Q. What are Database Initialization Strategies in Entity Framework?
+
+---
+
+Database Initialization Strategies determine how the database is created or recreated when the application runs. It means, right now, when we run the project for first time it will create the “Database and Tables” and from next time on wards it will use the same “Database and Tables” when we run the application. There are various options to decide for us whether we want to use the existing Database next time or re-create it every time, and that is based on Database Initialization Strategies. To handle this, we have to use one of the Database Initialization Strategies which should be specified in our Context class constructor as following: `Database.SetInitializer(new CreateDatabaseIfNotExists<ContextClassName>());`
+
+**There are three strategies**:
+
+1. **`CreateDatabaseIfNotExists` (default)**: `Creates the database if it doesn't already exist. However, "if the model changes, an exception is thrown"`. It means, this is the `default initializer`. As the name suggests, it will create the `Database` if none exists as per the configuration. However, if you change the model class and then run the application with this initializer, then it will throw an `Exception`.
+
+2. **`DropCreateDatabaseIfModelChanges`**: `Drops and recreates the database "if the model classes have changed"`. It means, this initializer drops an existing `Database` and creates a new if your model classes (entity classes) have been changed. So, you don’t have to worry about maintaining your `Database` schema when your model classes change.
+
+3. **`DropCreateDatabaseAlways`**: `Drops and recreates the database every time the application is run, regardless of changes`. It means, as the name suggests, this initializer drops an existing `Database` every time you run the application, irrespective of whether your `model` classes have changed or not.
+
+---
+
+### Q. How do you apply a Database Initialization Strategy in the `StoreDbContext` class?
+
+---
+
+The initialization strategy can be specified in the StoreDbContext class constructor like this:
+
+```c#
+Database.SetInitializer(new CreateDatabaseIfNotExists<StoreDbContext>());  // Default Strategy
+Database.SetInitializer(new DropCreateDatabaseIfModelChanges<StoreDbContext>());
+Database.SetInitializer(new DropCreateDatabaseAlways<StoreDbContext>());
+```
+
+---
+
+### Q. How can we turn off the Database initializer?
+
+---
+
+- The Database initializer can be turned off, especially in a `production environment` to prevent data loss, by using:
+
+```c#
+Database.SetInitializer<StoreDbContext>(null);
+```
+
+## **`Code-First Conventions`**
+
+---
+
+### Q. What are EF 6 Code-First Conventions?
+
+---
+
+Conventions are a set of default rules which automatically configure a conceptual model based on our domain classes when working with the Code-First approach. As you have seen in the previous example, EF API configured Primary Keys, Foreign Keys, Relationships, and Column Data Types etc. from the domain classes without any additional configurations. This is because of the EF Code-First conventions. If they are followed in domain classes, then the Database schema will be configured based on the conventions. These EF 6.x Code-First conventions are defined in the “System.Data.Entity.ModelConfiguration.Conventions” namespace.
+
+---
+
+### Q. What are the default conventions?
+
+---
+
+| **Default Convention For**    | **Description**                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Schema**                    | By default, EF creates all the database objects in the `dbo` schema.                                                                                                                                                                                                                                                                                                                                                                                                          |
+| **Table Name**                | EF will create a database table with the entity class name suffixed by 's'. For example, the `Student` class maps to `Students` table.                                                                                                                                                                                                                                                                                                                                        |
+| **Primary Key Name**          | 1) A property named `Id`. <br> 2) `<Entity Class Name> + Id` (case-insensitive). <br/> EF will create a primary key column for the property named Id or <Entity Class Name> + “Id” (case in-sensitive).                                                                                                                                                                                                                                                                       |
+| **Foreign Key Property Name** | By default, EF looks for the foreign key property with the same name as the principal entity’s primary key. If the `foreign key` property does not exist, then EF creates an `Forein Key` Column in the table with `<Dependent Navigation Property Name> + "_" + <Principal Entity Primary Key Property Name>`. For example, EF will create `Category_CategoryId` ” foreign key column in `Products` table if the `Product` entity does not contain a `foreign key` property. |
+| **Null Column**               | EF creates a null column for all reference type properties and nullable value properties (e.g., `string`, `Nullable<int>` or `int?`), etc.                                                                                                                                                                                                                                                                                                                                    |
+| **Not Null Column**           | EF creates Not Null columns for primary key properties and non-nullable value type properties (e.g., `int`, `float`, `bool`, `decimal`, `DateTime`).                                                                                                                                                                                                                                                                                                                          |
+| **DB Columns Order**          | EF creates database columns in the same order as the properties in an entity class, but primary key columns are moved first.                                                                                                                                                                                                                                                                                                                                                  |
+| **Properties Mapping to DB**  | By default, all properties map to the database. Use the `[NotMapped]` attribute to exclude a property or class from mapping.                                                                                                                                                                                                                                                                                                                                                  |
+| **Cascade Delete & Update**   | Enabled by default for all types of relationships.                                                                                                                                                                                                                                                                                                                                                                                                                            |
+
+---
+
+## **`Data types mapped with SQL Server data types`**
+
+### Q. How to list C# data types mapped with SQL Server data types
+
+---
+
+| **C# Data Type** | **Mapped SQL Server Data Type** |
+| ---------------- | ------------------------------- |
+| **int**          | Int                             |
+| **string**       | nvarchar(Max)                   |
+| **decimal**      | decimal(18,2)                   |
+| **float**        | Real                            |
+| **byte[]**       | varbinary(Max)                  |
+| **datetime**     | Datetime                        |
+| **bool**         | Bit                             |
+| **byte**         | Tinyint                         |
+| **short**        | Smallint                        |
+| **long**         | Bigint                          |
+| **double**       | float                           |
+| **char**         | No Mapping (Throws Exception)   |
+| **sbyte**        | No Mapping (Throws Exception)   |
+| **object**       | No Mapping (Throws Exception)   |
+
+---
+
+## **`Data Annotations`**
+
+### Q. What are Data Annotations in .NET?
+
+---
+
+Data Annotations are .NET attributes used to override default conventions in Entity Framework 6 and Entity Framework Core. They allow developers to define additional metadata for entity classes and properties.
+
+---
+
+### Q. In which namespaces are Data Annotations provided?
+
+---
+
+Data Annotations are provided in the following namespaces:
+
+- `System.ComponentModel.DataAnnotations`
+- `System.ComponentModel.DataAnnotations.Schema`
+
+---
+
+### Q. Where can Data Annotations be applied?
+
+---
+
+- Data Annotations can be applied to entity classes and their properties.
+
+---
+
+### Q. Can Data Annotations be used with ASP.NET MVC Data Controls?
+
+---
+
+- Yes, Data Annotations can be used with ASP.NET MVC Data Controls `to provide metadata for validation and formatting`.
+
+---
+
+### Q. What is the purpose of using Data Annotations in Entity Framework?
+
+---
+
+- The purpose of using Data Annotations in Entity Framework is to override default conventions such as column names, primary key definitions, relationships, and validation rules to customize how classes and properties are mapped to a database schema.
+
+---
+
+### Q. What are the attributs in `System.ComponentModel.DataAnnotations Attributes`?
+
+---
+
+| **Attribute**    | **Description**                                                                                                                               |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Key**          | Can be applied to a property to specify a key property in an entity and make the corresponding column a “Primary Key” column in the Database. |
+| **Timestamp**    | Can be applied to a property to specify the data type of a corresponding column in the Database as “Row Version”.                             |
+| **Required**     | Can be applied to a property to specify that the corresponding column is a “Not Null” column in the Database.                                 |
+| **MinLength**    | Can be applied to a property to specify the minimum string length allowed in the corresponding column in the Database.                        |
+| **MaxLength**    | Can be applied to a property to specify the maximum string length allowed in the corresponding column in the Database.                        |
+| **StringLength** | Can be applied to a property to specify the maximum string length allowed in the corresponding column in the Database.                        |
+
+---
+
+### Q. What are the attributs in `System.ComponentModel.DataAnnotations.Schema Attributes`?
+
+---
+
+| **Attribute**         | **Description**                                                                                                                                                 |
+| --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Table**             | Can be applied to an entity class to configure the corresponding table name and schema in the Database.                                                         |
+| **Column**            | Can be applied to a property to configure the corresponding column name, order, and data type in the Database.                                                  |
+| **Index**             | Can be applied to a property to configure that the corresponding column should have an Index in the Database. (EF 6.1 onwards only)                             |
+| **ForeignKey**        | Can be applied to a property to mark it as a foreign key property.                                                                                              |
+| **NotMapped**         | Can be applied to a property or entity class which should be excluded from the model and should not generate a corresponding column or table in the database.   |
+| **DatabaseGenerated** | Can be applied to a property to configure how the underlying database should generate the value for the corresponding column e.g., identity, computed, or none. |
+| **InverseProperty**   | Can be applied to a property to specify the inverse of a navigation property that represents the other end of the same relationship.                            |
+| **ComplexType**       | Marks the class as complex type in EF 6. EF Core 2.0 does not support this attribute.                                                                           |
+
+---
+
+### Q. How to create an ASP.Net Web Application project to test overriding default Code-First Conventions with Data Annotations?
+
+---
+
+1. Create a new project with the name "MVCWithEFCF2" and choose the MVC Project Template.
+2. Click "Create" to finish creating the project.
+3. Install `Entity Framework` in the project using NuGet Package Manager.
+4. Add three new classes in the Models folder named `Supplier.cs`, `Customer.cs`, and `CompanyDbContext.cs`.
+5. Write the specified code in each class (as given in the provided steps).
+6. `Web.config` file and write the connection string.
+
+`Supplier.cs`:
+
+```c#
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+[Table("Supplier")] //Specifying Name for the table being created in database.
+public class Supplier
+{
+  [Key] //Setting this column as Primary Key column.
+  [DatabaseGenerated(DatabaseGeneratedOption.None)] //Setting identity off, so will not autogenerate values.
+  public int Sid { get; set; }
+  [MaxLength(100)] //Setting MaxLength as 100 for this column.
+  [Column("Sname", TypeName = "Varchar")] //Setting column name and data type of the column.
+  public string SupplierName { get; set; }
+  public ICollection<Customer> Customers { get; set; }
+}
+```
+
+`Customer.cs`:
+
+```c#
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+[Table("Customer")]
+public class Customer
+{
+  [Column(TypeName = "Money")]
+  public decimal? Balance { get; set; }
+  [Index] //Setting Index attribute for this column in database.
+  [Required] //Setting not null constraint for this column in database.
+  [MaxLength(50)]
+  [Column("Cname", TypeName = "Varchar")]
+  public string CustomerName { get; set; }
+  [StringLength(1000)]
+  [Column(TypeName = "Varchar")]
+  public string Address { get; set; }
+  [Key]
+  [DatabaseGenerated(DatabaseGeneratedOption.None)]
+  public int Custid { get; set; }
+  public int SupplierId { get; set; }
+  [ForeignKey("SupplierId")] //Setting the foreign key column for the table.
+  public Supplier Supplier { get; set; }
+}
+```
+
+`CompanyDbContext.cs`:
+
+```c#
+using System.Data.Entity;
+public class CompanyDbContext : DbContext
+{
+  public CompanyDbContext() : base("ConStr")
+  {
+  Database.SetInitializer(new DropCreateDatabaseAlways<CompanyDbContext>());
+  }
+
+  public DbSet<Supplier> Suppliers { get; set; }
+  public DbSet<Customer> Customers { get; set; }
+}
+```
+
+- The `[Table]` attribute is used to specify the table name for the entity being created in the database. In the example, `[Table("Supplier")]` maps the `Supplier` class to a table named `Supplier` in the database.
+
+- The `[Key]` attribute is applied to the `Sid` property to mark it as the primary key in the `Supplier` class. The `DatabaseGenerated` attribute is set to `DatabaseGeneratedOption.None` to turn off the identity property for this key.
+
+- The `[ForeignKey]` attribute specifies that the `SupplierId` property in the `Customer` class is a foreign key pointing to the primary key in the `Supplier` class.
+
+- The connection string is provided in the `Web.config` file under the `<connectionStrings>` section with the name `"ConStr"`. In `CompanyDbContext`, the constructor calls the base constructor with `"ConStr"`, linking it to the specified connection string.
+
+  ```xml
+  <connectionStrings>
+    <add name="ConStr" connectionString="Data Source=Server;Database=CompanyDB;User Id=Sa;Password=123" providerName="System.Data.SqlClient" />
+  </connectionStrings>
+  ```
+
+---
+
+### Q. How is the `CompanyDbContext` class initialized to drop and recreate the database each time?
+
+---
+
+The `CompanyDbContext` constructor sets the initializer using `Database.SetInitializer(new DropCreateDatabaseAlways<CompanyDbContext>());`, which drops and recreates the database on every run.
+
+---
+
+### Q. In previous, how wo show default data?
+
+---
+
+Add a controller naming it as SupplierController and write the below code under it by deleting existing code:
+
+```c#
+using MVCWithEFCF2.Models;
+public class SupplierController : Controller
+{
+  CompanyDbContext dc = new CompanyDbContext();
+  public ActionResult Index()
+  {
+    //Without seed data we use in previous project:
+    Supplier s1 = new Supplier { Sid = 101, SupplierName = "Ashok Distributors." };
+    Supplier s2 = new Supplier { Sid = 102, SupplierName = "Meghna Distributors." };
+    Supplier s3 = new Supplier { Sid = 103, SupplierName = "Diamond Distributors." };
+    Supplier s4 = new Supplier { Sid = 104, SupplierName = "Prasad Distributors." };
+    dc.Suppliers.Add(s1); dc.Suppliers.Add(s2);
+    dc.Suppliers.Add(s3); dc.Suppliers.Add(s4);
+    dc.SaveChanges();
+    return View(dc.Suppliers);
+  }
+}
+```
+
+Add a view to the `Index` action method and while adding the View, in “`Add View`” window choose “`Template:`” as “`List`”, “`Model class:`” as “`Supplier (MVCWithEFCF2.Models)`”, “`Data context class:`” as “`CompanyDbContext (MVCWithEFCF2.Models)`” and click on “`Add`” button. Run the view we have created which will create the Database and Tables under SQL Server.
+
+**`But no need now in this project`**.
+
+---
+
+### Q. How is the default data seeded into the database tables?
+
+---
+
+A new custom initializer class `CompanyDBInitializer` is created by inheriting from `DropCreateDatabaseIfModelChanges<CompanyDbContext>`. The `Seed` method is overridden to insert default supplier data into the `Suppliers` table.
+
+We can insert data into our Database tables during the Database initialization process. This will be important when we want to provide some “default - master data” for any table in the application, for example in our previous application if we want to insert default data into “Department” table then we need to use the concept of “Seed” and insert default data into the table. To seed data into any table, we need to implement the logic in “Seed” method of any 3 DBInitializer classes (“CreateDatabaseIfNotExists”, “DropCreateDatabaseAlways”, “DropCreateDatabaseIfModelChanges”) and to do that we have to define a custom “DBInitializer” class inheriting from any of the above 3 “DBInitializer” classes and then override the “Seed” method. To test this process, add a new class in Models folder of our previous project with the name “CompanyDBInitializer.cs” and write the below code in it:
+
+```c#
+using System.Data.Entity;
+public class CompanyDBInitializer : DropCreateDatabaseIfModelChanges<CompanyDbContext>
+{
+  protected override void Seed(CompanyDbContext context)
+  {
+    Supplier s1 = new Supplier { Sid = 101, SupplierName = "Ashok Distributors." };
+    Supplier s2 = new Supplier { Sid = 102, SupplierName = "Meghna Distributors." };
+    Supplier s3 = new Supplier { Sid = 103, SupplierName = "Diamond Distributors." };
+    Supplier s4 = new Supplier { Sid = 104, SupplierName = "Prasad Distributors." };
+    context.Suppliers.Add(s1); context.Suppliers.Add(s2);
+    context.Suppliers.Add(s3); context.Suppliers.Add(s4);
+    context.SaveChanges();
+  }
+}
+
+```
+
+---
+
+### Q. How do you change the `CompanyDbContext` class to use the new custom initializer?
+
+---
+
+Rewrite the constructor of `CompanyDbContext` as:
+
+```csharp
+public CompanyDbContext() : base("ConStr")
+{
+    Database.SetInitializer(new CompanyDBInitializer());
+}
+```
+
+---
+
+### Q. What code should be removed from the `SupplierController` class after using the `Seed` method in the initializer?
+
+---
+
+Remove the following code from the `Index` action method in `SupplierController`:
+
+```csharp
+Supplier s1 = new Supplier { Sid = 101, SupplierName = "Ashok Distributors." };
+Supplier s2 = new Supplier { Sid = 102, SupplierName = "Meghna Distributors." };
+Supplier s3 = new Supplier { Sid = 103, SupplierName = "Diamond Distributors." };
+Supplier s4 = new Supplier { Sid = 104, SupplierName = "Prasad Distributors." };
+dc.Suppliers.Add(s1); dc.Suppliers.Add(s2);
+dc.Suppliers.Add(s3); dc.Suppliers.Add(s4);
+```
+
+---
+
+### Q. What will happen when you run the application after making these changes?
+
+---
+
+When you run the application, it will automatically create the database and tables based on the `CompanyDbContext` and seed the default data in the `Suppliers` table using the `CompanyDBInitializer`. The seeded data will be displayed in the `Index` view.
+
+---
+
+## **`Migrations`**
+
+### Q. What is the purpose of Entity Framework Code-First Migrations?
+
+---
+
+Entity Framework Code-First Migrations automatically updates the database schema whenever a model changes without losing existing data or other database objects (e.g., stored procedures, triggers, views).
+
+It overcomes the limitations of traditional database initialization strategies like `CreateDatabaseIfNotExists`, `DropCreateDatabaseIfModelChanges`, and `DropCreateDatabaseAlways`, which either fail to update the database or drop the entire database and recreate it.
+
+Entity Framework Code-First has different Database initialization strategies like “`CreateDatabaseIfNotExists`”, “`DropCreateDatabaseIfModelChanges`”, “`DropCreateDatabaseAlways`” however, there are `problems` with these strategies. In the first case `Model` changes will not be updated to the Database and also throws an error when we run the project, whereas in the second and third cases `Model` changes will be updated to the Database but if we already have data (other than seed data) or we created our own `Stored Procedures, Triggers`, Views etc. in our `Database` then these strategies will drop the entire `Database` and recreates it, so we will lose the Data and `Database Objects` also.
+
+To overcome the above problems “`Entity Framework`” introduced “`Migrations`” that automatically updates the `Database` schema whenever our `model` changes without losing any existing `Data` or other `Database Objects`. To do that we need to use a new `Database Initializer` called “`MigrateDatabaseToLatestVersion`”.
+
+---
+
+### Q. What are the different types of migrations available in Entity Framework?
+
+---
+
+There are two types of migrations available:
+
+- **Automated Migration:** Automatically applies changes to the database schema without manual intervention.
+
+  - `Entity Framework` provides `automated migration` option so that you don’t have to process `Database` migration `manually` for each change you make in your domain classes. The `automated migrations` can be implemented by executing the “**`enable-migrations`**” command in the `Package Manager Console`.
+
+- **Code-based Migration:** Allows more control over the schema changes using custom migration scripts.
+
+  - Code-based migration provides more control on the `migration` and allows you to configure additional things such as setting a default value to a column, `change data type of a column, add not null constraints on a column, configure a computed column` etc.
+
+---
+
+### Q. How do you create a new project for testing automated migrations?
+
+---
+
+1. Create a new `ASP.NET Web Application project` named “`MVCWithEFCF3`” and choose the `MVC Project Template`.
+2. Click "`Create`" to finish creating the project.
+3. Install `Entity Framework` by microsoft in the project using NuGet Package Manager.
+4. Add two new classes in the Models folder named `Student` and `SchoolDbContext`.
+5. Write the specified code in each class.
+
+---
+
+### Q. How is the `Student` class defined in this project?
+
+---
+
+The `Student` class has two properties:
+
+```csharp
+public class Student
+{
+    public int StudentId { get; set; }
+    public string Name { get; set; }
+}
+```
+
+---
+
+### Q. How is the database context defined in this project?
+
+---
+
+The `SchoolDbContext` class is defined as follows:
+
+```csharp
+public class SchoolDbContext : DbContext
+{
+    public SchoolDbContext() : base("ConStr")
+    {
+    }
+
+    public DbSet<Student> Students { get; set; }
+}
+```
+
+---
+
+### Q. How do you configure the database connection in `Web.config`?
+
+---
+
+Add the following code between the `<configuration></configuration>` tags in `Web.config`:
+
+```xml
+<connectionStrings>
+	<add name="ConStr" providerName="System.Data.SqlClient" connectionString="Data Source=DESKTOP-HOOMVQE\MSSQLSERVER02; Database=SchoolDB; User Id=mk; Password=123;"/>
+</connectionStrings>
+```
+
+---
+
+### Q. How do you add a controller to insert a record into the `Student` table?
+
+---
+
+1. Add a controller named `SchoolController`.
+2. Write the following code inside it:
+
+```csharp
+using MVCWithEFCF3.Models;
+public class StudentController : Controller
+{
+    SchoolDbContext dc = new SchoolDbContext();
+    public ActionResult Index()
+    {
+        Student s = new Student { Name = "Raju" };
+        dc.Students.Add(s);
+        dc.SaveChanges();
+        var students = dc.Students.ToList();
+        return View(students);
+    }
+}
+```
+
+---
+
+### Q. What problem occurs when making changes to the model class in the default initialization strategy?
+
+---
+
+If changes are made to the `Student` class, the project will throw an error because the default database initialization strategy (`CreateDatabaseIfNotExists`) does not support updating the database schema for existing databases. Other strategies like `DropCreateDatabaseIfModelChanges` or `DropCreateDatabaseAlways` would drop the existing database, leading to data loss.
+
+---
+
+### Q. How do you enable automatic migrations?
+
+---
+
+**Ensure Entity Framework is Installed**: Make sure that the Entity Framework NuGet package is installed in your project. You can check this in the _Package Manager Console_: `PM> Install-Package EntityFramework`
+
+1. Open the Package Manager Console from `Tools Menu` → `Nuget Package Manager` → `Package Manager Console`.
+2. Run the following command:
+
+```powershell
+PM> Enable-Migrations -EnableAutomaticMigration:$true
+```
+
+3. A `Migrations` folder will be added to the project containing a file `Configuration.cs`.
+
+---
+
+### Q. What changes are needed in the `Configuration` class for enabling automatic migrations?
+
+---
+
+The `Configuration` class should look like this:
+
+```csharp
+internal sealed class Configuration : DbMigrationsConfiguration<MVCWithEFCF3.Models.SchoolDbContext>
+{
+    public Configuration()
+    {
+        AutomaticMigrationsEnabled = true;
+        ContextKey = "MVCWithEFCF3.Models.SchoolDbContext";
+    }
+
+    protected override void Seed(MVCWithEFCF3.Models.SchoolDbContext context)
+    {
+        // Code to seed data, if necessary.
+    }
+}
+```
+
+---
+
+### Q. How do you set the initializer to use automatic migrations in the `SchoolDbContext` class?
+
+---
+
+Add the following line to the `SchoolDbContext` constructor:
+
+```csharp
+Database.SetInitializer(new MigrateDatabaseToLatestVersion<SchoolDbContext, Configuration>());
+```
+
+And import Migration folder:- `using MVCWithEFCF3.Migrations;`
+
+---
+
+### Q. What should you do if an error occurs due to data loss during a migration?
+
+---
+
+In the `Configuration` class constructor, set `AutomaticMigrationDataLossAllowed = true` to handle potential data loss scenarios:
+
+```csharp
+public Configuration()
+{
+    AutomaticMigrationsEnabled = true;
+    AutomaticMigrationDataLossAllowed = true;
+    ContextKey = "MVCWithEFCF3.Models.SchoolDbContext";
+}
+```
+
+---
+
+### Q. How can you test automatic migrations?
+
+---
+
+Make changes to the `Student` class (e.g., add new properties) or add new model classes. Run the project, and the changes should be reflected in the database automatically.
+
+---
+
+### Q. What is the advantage of Code-Based Migrations in Entity Framework?
+
+---
+
+- Code-Based Migrations provides more control over database `migrations` and allows for configurations like setting default values for columns, changing data types, adding NOT NULL constraints, and configuring computed columns.
+
+---
+
+### Q. What commands do you need to execute in the Package Manager Console to use Code-Based Migrations?
+
+---
+
+The commands to execute are:
+
+- `Enable-Migrations`: Enables migrations and creates a Configuration class.
+
+- `Add-Migration <Name>`: Creates a new migration class with specified name, containing `Up()` and `Down()` methods.
+
+- `Update-Database`: Applies the last migration file created by the `Add-Migration` command to the database schema.
+
+---
+
+### Q. How do you create a new ASP.NET Web Application project to test Code-Based Migrations?
+
+---
+
+1. Create a new `ASP.NET Web Application` project named “MVCWithEFCF4” and choose the MVC Project Template.
+2. Click "Create" to finish setting up the project.
+3. Install `Entity Framework` in the project.
+4. Add two classes in the Models folder named `Student` and `SchoolDbContext`.
+
+---
+
+### Q. How is the Student class defined in this project?
+
+---
+
+The `Student` class is defined as follows:
+
+```c#
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+public class Student
+{
+    public int StudentId { get; set; }
+    public string Name { get; set; }
+    public int Class { get; set; }
+
+    [MaxLength(1)]
+    [Column(TypeName = "Varchar")]
+    public string Section { get; set; }
+}
+```
+
+---
+
+### Q. How is the SchoolDbContext class defined?
+
+---
+
+The `SchoolDbContext` class is defined as follows:
+
+```c#
+using System.Data.Entity;
+
+public class SchoolDbContext : DbContext
+{
+    public SchoolDbContext() : base("ConStr")
+    {
+    }
+    public DbSet<Student> Students { get; set; }
+}
+
+```
+
+---
+
+### Q. How do you configure the database connection in Web.config?
+
+---
+
+Add the following code between the `<configuration></configuration>` tags in `Web.config`:
+
+```xml
+<connectionStrings>
+	<add name="ConStr" providerName="System.Data.SqlClient" connectionString="Data Source=DESKTOP-HOOMVQE\MSSQLSERVER02; Database=SchoolDB; User Id=mk; Password=123;"/>
+</connectionStrings>
+```
+
+---
+
+### Q. How do you add a controller to insert records into the Student table?
+
+---
+
+- Add a controller named `SchoolController`.
+- Write the following code inside it:
+
+```c#
+using MVCWithEFCF4.Models;
+
+public class StudentController : Controller
+{
+    SchoolDbContext dc = new SchoolDbContext();
+
+    public ActionResult Index()
+    {
+        Student s1 = new Student { Name = "Raju", Class = 10, Section = "A" };
+        Student s2 = new Student { Name = "Venkat", Class = 10, Section = "B" };
+        Student s3 = new Student { Name = "Srinivas", Class = 10, Section = "C" };
+
+        dc.Students.Add(s1);
+        dc.Students.Add(s2);
+        dc.Students.Add(s3);
+        dc.SaveChanges();
+
+        return View();
+    }
+}
+```
+
+---
+
+### Q. What happen when i add view and run this project?
+
+---
+
+Add a `View` to `Index` action method and run the project which will create “`SchoolDB`” Database on SQL `Server` and under that `Database`, “`Student`” Table is created with 4 `columns` in it.
+
+---
+
+### Q. After that how to Working with Code Based Migrations?
+
+---
+
+- Open the Package Manager Console from `Tools Menu` → `Nuget Package Manager` → `Package Manager Console`.
+
+- To work with code-based migrations, first execute the “enable-migrations” command in the “Package Manager Console” and to do that go to Tools menu => Nuget Package Manager => Package Manager Console and run the below command over there: `PM>Enable-Migrations`
+
+---
+
+### Q. What should you do after enabling migrations in Code-Based Migrations?
+
+---
+
+- After executing `Enable-Migrations`, the `Configuration` class will be created with `AutomaticMigrationsEnabled = false` because we are using Code Based Migrations now, and this command also creates a `<timestamp>_InitialCreate.cs` will be generated with `Up()` and `Down()` methods.
+
+```c#
+public partial class InitialCreate : DbMigration
+{
+  public override void Up()
+  {
+    CreateTable("dbo.Students", c => new
+    {
+      StudentId = c.Int(nullable: false, identity: true),
+      Name = c.String(),
+      Class = c.Int(nullable: false),
+      Section = c.String(maxLength: 1, unicode: false),
+    }).PrimaryKey(t => t.StudentId);
+  }
+  public override void Down()
+  {
+    DropTable("dbo.Students");
+  }
+}
+```
+
+---
+
+### Q. What do the `Up()` and `Down()` methods in the migration file do?
+
+---
+
+- **`Up()` method**: Contains code for creating database objects (e.g., tables, columns).
+
+- **`Down()` method**: Contains code for dropping or deleting database objects.
+
+---
+
+### Q. How do you set the database initializer in the SchoolDbContext class?
+
+---
+
+In the SchoolDbContext constructor, add the following line:
+
+```c#
+Database.SetInitializer(new MigrateDatabaseToLatestVersion<SchoolDbContext, Configuration>());
+```
+
+---
+
+### Q. How do you create a new migration class after making changes to the model?
+
+---
+
+- Use the `Add-Migration <Name>` command in the Package Manager Console. For example:
+
+```powershell
+PM> Add-Migration SchoolDB-V1
+```
+
+---
+
+### Q. What happens when you create a new migration file?
+
+---
+
+- A new migration file named `<timestamp>_SchoolDB-V1.cs` will be created, which contains the migration code for the changes made to the model class.
+
+---
+
+### Q. How do you apply the migrations to the database?
+
+---
+
+- After creating a migration file, execute the following command in the Package Manager Console:
+
+```powershell
+PM> Update-Database
+```
+
+- To view the SQL statements being applied, use the -Verbose option:
+
+```powershell
+PM> Update-Database -Verbose
+```
+
+---
+
+### Q. How do you check which migrations have been applied to the database?
+
+---
+
+- Use the `Get-Migrations` command in the Package Manager Console:
+
+```powershell
+PM> Get-Migrations
+```
+
+---
+
+### Q. How do you roll back the database schema to a previous migration?
+
+---
+
+- Execute the `Update-Database` command with the `-TargetMigration` parameter to roll back to a specific migration. For example, to roll back to `SchoolDB-V1`, run:
+
+```powershell
+PM> Update-Database -TargetMigration:SchoolDB-V1
+```
+
+- This will execute the `Down()` method of the specified migration, reverting the changes without deleting the migration file.
+
+---
+
+### Q. How to test all this migration?
+
+---
+
+- Go to `Student` class and add a new property into the class as following: `public float? Fees { get; set; }`.
+  - Open Package Manager Console (PMC) and create a new migration file by executing the following statement `PM> Add-Migration SchoolDB-V1`.
+- After creating a migration file as above, we must execute the “`Update-Database`” command in the “`Package Manager Console`” and update the `Database` as below: `PM>Update-Database`
+- Let’s now add another 2 properties in the “Student” class and to do that go to “Student.cs” file and write the below code in the class:
+  ```C#
+  public float Marks { get; set; }
+  public string Address { get; set; }
+  ```
+  - Create another migration file at the Package Manager Console as following: `PM> Add-Migration SchoolDB-V2`. This action will create a new migration file with the name “`<timestamp>_SchoolDB-v2.cs`”
+- Get Migrations: `PM>Get-Migrations`.
+- Now let’s apply the 3rd migration file also to the Database i.e. “SchoolDB-V2” and to do that run the following statement at Package Manager Console: `PM>Update-Database -Verbose`.
+- Rollback Migration: `PM>Update-Database -TargetMigration:SchoolDB-V1`.
+
+---
+
+## **`Model-First Approach in Entity Framework`**
+
+### Q. What is the Model-First Approach in Entity Framework?
+
+---
+
+- In the Model-First approach, we create entities, relationships, and inheritance hierarchies using the Visual Designer in Visual Studio. It generates model classes, a context class, and the database script based on the visual model. Note that EF 6 has limited support for this approach, while EF Core does not support it at all.
+
+---
+
+### Q. How do you start a new project using the Model-First approach?
+
+---
+
+1. Create a new ASP.NET Web Application project named “MVCWithEFMF”.
+2. Choose the MVC Project Template and click “Create”.
+
+---
+
+### Q. How do you add an Entity Data Model in the Model-First approach?
+
+---
+
+1. Open Solution Explorer, right-click on the Models folder, and select Add → New Item.
+2. Select ADO.NET Entity Data Model, name it “TestEF”, and click on “Add”.
+3. In the next window, select Empty EF Designer Model and click on “Finish”.
+4. This action adds “TestEF.edmx” under the Models folder with “TestEF.Designer.cs” and “TestEF.edmx.diagram”.
+
+---
+
+### Q. How do you add a “Department” entity?
+
+---
+
+1. Right-click on **TestEF.edmx [Diagram1]** in the document window and choose **Add New → Entity**.
+2. In the **Add Entity** window, enter the **Entity name** as “Department”.
+3. The other details will be automatically filled, then click on “Ok” to add the “Department” entity with an “Id” attribute.
+
+---
+
+### Q. How do you add properties to the “Department” entity?
+
+---
+
+1. Right-click on the **Department** entity and choose **Add New → Scalar** Property.
+2. Name the new property **Dname**.
+3. Right-click on **Dname** and choose **Properties** to open the Property Window.
+4. Set the following attribute values for **Dname**:
+
+- **Type**: String
+- **Max Length**: 50
+- **Unicode**: False
+- **Nullable**: False
+
+5. Repeat the same steps to add another property named **Location** with the following attributes:
+
+- **Type**: String
+- **Max Length**: 50
+- **Unicode**: False
+- **Nullable**: True
+
+---
+
+### Q. How do you create an “Employee” entity?
+
+---
+
+1. Right-click on the document window and select **Add New → Entity**.
+2. In the **Add Entity** window, enter the **Entity name** as “Employee”.
+3. The other details will be filled automatically, so click on “Ok” to add the “Employee” entity with an “Id” attribute.
+
+---
+
+### Q. How do you add properties to the “Employee” entity?
+
+---
+
+Add the following properties with their respective attribute values:
+
+- **Ename**:
+  - **Type**: String
+  - **Max Length**: 50
+  - **Unicode**: False
+  - **Nullable**: False
+- **Job**:
+  - **Type**: String
+  - **Max Length**: 50
+  - **Unicode**: False
+  - **Nullable**: True
+- **Salary**:
+  - **Type**: Decimal
+  - **Precision**: 9
+  - **Scale**: 2
+  - **Nullable**: True
+- **Status**:
+  - **Type**: Boolean
+  - **Default Value**: True
+  - **Nullable**: False
+
+---
+
+### Q. How do you add a relationship between the tables in the Model-First approach?
+
+---
+
+1. Right-click on the document window and select **Add New → Association**.
+2. A window will open, displaying details of the association. Verify the details and adjust if needed.
+3. Click on **Ok** to establish the relationship.
+
+This action will add a **DepartmentId** column to the Employee entity and navigation properties in both entities, creating the relationship between the tables.
+
+---
+
+### Q. How do you generate database tables from the Visual Model?
+
+---
+
+1. Right-click on the document window and select **Generate Database from Model**.
+2. Click on the **New Connection** button and enter the following details:
+
+- `Server Name`
+- `Authentication Details`
+- In the **Select or enter a database name** field, enter “`CompanyDB`”.
+
+3. If “CompanyDB” does not exist, it will prompt you to create it. Click `Yes` to create the database.
+4. In the next window, select `Yes`, `include the sensitive data in the connection string`, and click `Next`.
+5. Choose `Entity Framework version 6.x` and click `Next`.
+6. A SQL script is generated, which will be saved as “`TestEF.edmx.sql`” in the `Models` folder.
+7. Click Finish to complete the configuration. This will install Entity Framework in the project.
+
+---
+
+### Q. How do you create tables on the Database Server?
+
+---
+
+After all the above actions i.e., `Entity Framework` generating required `Context` and `Model Classes`, now we need to create the tables under our `Database` i.e., “`CompanyDB`” and to create the tables, inside of the `Model’s` folder we find a `SQL Script` file with name “`TestEF.edmx.sql`” which is generated by “`Entity Framework Code First`” which we need to execute and to do that, open the script file, right click on it in document window and select the option “`Execute`” which will open “`Connect`” window, in that expand the node “`Local`” and under that we find our “`Server Name`” `(Server in my case)` select it, and in the below specify the `Authentication Details` and choose the Database as “`CompanyDB`” under “`Database Name`” DropDownList and click connect which will create the tables on `Database`.
+
+Now open “`Solution Explorer`” and watch the “`TestEF.edmx`” item under “`Models`” folder there we find new items added with the names “`TestEF.Context.tt`” and “`TestEF.tt`”. We find a “`Context`” class with the name “`TestEFContainer`” under the file “`TestEF.Context.cs`” which is present under “`TestEF.Context.tt`” item, and we also find `Model` classes under “`TestEF.tt`” item, which when expanded will show “`Department.cs`” and “`Employee.cs`” files containing “`Department`” and “`Employee`” classes.
+
+**`Note`**: In the Context class i.e., “`TestEFContainer`” Constructor, we find a call to its base or parent class `Constructor` and under that we find the name of “`Connection String`” which is nothing but “`TestEFContainer`”, so in the “`Web.config`” file we will find the “`Connection String`” with this name. Even if it is not required to specify the name and call base class constructor because we have already learnt that if the “`Context`” class name and “`Connection String`” name are same no need to specify that explicitly, but “`Entity Framework Model First`” will include that code in `Constructor`.
+
+**`Note`**: Now we can start working with those `Tables` and `Domain Classes` by creating the required `Controllers`, `Action Methods`, and `Views`.
+
+1. Open the SQL script file named `TestEF.edmx.sql` in the `Models` folder.
+2. Right-click on the script file and select Execute.
+3. In the `Connect` window, expand `Local` and select your `Server Name`.
+4. Specify the authentication details and select `CompanyDB` under the `Database Name` dropdown.
+5. Click `Connect` to create the tables in the database.
+
+---
+
+### Q. What changes occur in the Solution Explorer after executing the SQL script?
+
+---
+
+- You will find two new items under `TestEF.edmx`:
+  - `TestEF.Context.tt`
+  - `TestEF.tt`
+- `TestEF.Context.tt` contains a `Context` class named `TestEFContainer` in the `TestEF.Context.cs` file.
+- `TestEF.tt` contains the generated model classes `Department.cs` and `Employee.cs`.
+
+---
+
+### Q. What is significant about the constructor of the Context class, “TestEFContainer”?
+
+---
+
+In the `TestEFContainer` constructor, there is a call to its base class constructor that includes the name of the connection string, which is “`TestEFContainer.`” In the `Web.config` file, the connection string will have the same name. Although specifying the name explicitly is not necessary if the context class and connection string names match, the Entity Framework Model-First approach includes it in the constructor by default.
+
+---
+
+### Q. What can you do after the tables and domain classes are generated?
+
+---
+
+You can start working with the tables and domain classes by creating the necessary controllers, action methods, and views.
+
+---
+
+## \*`ADO.NET`\*\*
+
+### Q. What is a Data Source or Data Store?
+
+---
+
+A Data Source or Data Store is a location where data is stored, such as a file, database, address book, or indexing server.
+
+---
+
+### Q. Why can't programming languages communicate with Data Sources directly?
+
+---
+
+Each Data Source adopts a different protocol (set of rules) for communication, making direct interaction difficult.
+
+---
+
+### Q. What intermediate technologies did Microsoft introduce to bridge the gap between Applications and Data Sources?
+
+---
+
+Microsoft introduced intermediate technologies like ODBC (Open Database Connectivity) and Ole DB to act as a bridge between Applications and Data Sources.
+
+---
+
+### Q. What is ODBC?
+
+---
+
+- ODBC stands for **Open Database Connectivity**.
+- It is a standard C programming language middleware API for accessing database management systems (DBMS).
+- ODBC provides DBMS independence by using an ODBC driver as a translation layer between the application and the DBMS.
+- An ODBC driver manager links the application to the DBMS by passing queries to the respective DBMS.
+
+---
+
+### Q. What does an ODBC-Compliant application mean?
+
+---
+
+An ODBC-Compliant application can access any DBMS for which an ODBC driver is installed.
+
+---
+
+### Q. Are there ODBC drivers available for different data sources?
+
+---
+
+Yes, ODBC drivers exist for all major DBMSs and other data sources like Microsoft Excel, Text files, and CSV files.
+
+---
+
+### Q. When was ODBC developed, and by whom?
+
+---
+
+ODBC was developed by Microsoft in 1992.
+
+---
+
+### Q. What are ODBC drivers, and what is their purpose?
+
+---
+
+- ODBC drivers are a collection of drivers that sit between Applications and Data Sources to enable communication.
+- They require a separate driver for each data source.
+
+---
+
+### Q. Where can you find ODBC drivers in Windows OS?
+
+---
+
+ODBC drivers can be found in:
+**Control Panel → Administrative Tools → ODBC Data Sources**
+
+---
+
+### Q. How do you consume ODBC drivers?
+
+---
+
+First, configure them with the data source by creating a **DSN** (Data Source Name).
+
+---
+
+### Q. Are ODBC drivers open source?
+
+---
+
+Yes, ODBC drivers are open source and available for all leading operating systems in the market.
+
+---
+
+### Q. What is a drawback of ODBC drivers?
+
+---
+
+ODBC drivers must be installed on every machine where the application is running. The application, driver, and data source need to be manually configured with each other.
+
+---
+
+### Q. Are ODBC drivers designed to communicate with all types of databases?
+
+---
+
+No, ODBC drivers are initially designed for communication with **relational databases only**.
+
+---
+
+### Q. What is OLE DB?
+
+---
+
+- Microsoft introduced OLE DB Providers around **1996**.
+- **OLE DB** stands for **Object Linking and Embedding, Database**.
+- It is an API designed by Microsoft to allow data access from various data sources in a uniform manner.
+- It provides a set of interfaces implemented using **Component Object Model (COM)** and **SQL**.
+
+---
+
+### Q. Why did Microsoft introduce OLE DB?
+
+---
+
+Microsoft intended OLE DB as a **higher-level replacement** for ODBC, extending its feature set to support **non-relational databases** such as object databases and spreadsheets that do not necessarily implement SQL.
+Microsoft originally intended OLE DB as a higher-level replacement for, and successor to, ODBC, extending its feature set to support a wider variety of non-relational databases, such as object databases and spreadsheets that do not necessarily implement SQL. OLE DB is conceptually divided into consumers and providers.
+
+---
+
+### Q. How is OLE DB conceptually divided?
+
+---
+
+OLE DB is conceptually divided into:
+
+- **Consumers:** The applications that need access to the data.
+- **Providers:** The software components that implement the interface and provide the data to the consumer.
+
+The consumers are the applications that need access to the data, and the providers are the software components that implement the interface and thereby provide the data to the consumer.
+
+---
+
+### Q. What is an OLE DB Provider?
+
+---
+
+An OLE DB Provider is a software component enabling an OLE DB Consumer to interact with a data source, similar to how ODBC drivers work.
+
+---
+
+### Q. Can OLE DB Providers interact with non-relational data sources?
+
+---
+
+Yes, OLE DB Providers are designed to communicate with **relational and non-relational data sources**, providing support for a variety of data sources.
+
+---
+
+### Q. What data sources can OLE DB Providers interact with?
+
+---
+
+OLE DB Providers can access data from **text files, spreadsheets, complex databases (e.g., Oracle, SQL Server)**, and even **hierarchical data stores**.
+
+---
+
+### Q. Where do OLE DB Providers sit, and what advantage does this provide?
+
+---
+
+OLE DB Providers sit on the **server machine** and are already configured with the data source, aiding in the process of communication when connected to a data source.
+
+---
+
+### Q. How are OLE DB Providers developed?
+
+---
+
+OLE DB Providers are developed using **COM and SQL**, making them **un-managed**.
+
+---
+
+### Q. What was the purpose of introducing OLE DB for Windows Systems?
+
+---
+
+Microsoft introduced OLE DB as a **replacement for ODBC** in its Windows systems.
+
+---
+
+### Q. Does OLE DB work on all platforms?
+
+---
+
+No, OLE DB is a pure **Microsoft technology** and works **only on the Windows platform**.
+
+---
+
+### Q. Are ODBC and OLE DB managed or platform-independent?
+
+---
+
+No, ODBC and OLE DB are unmanaged and platform-dependent.
+
+---
+
+### Q. Can ODBC and OLE DB be consumed by any programming language?
+
+---
+
+Yes, ODBC and OLE DB can be consumed by any language, such as C, C++, Visual Basic, Visual C++, Java, C#, etc.
+
+---
+
+### Q. How can languages consume ODBC Drivers or OLE DB Providers?
+
+---
+
+Languages can consume ODBC Drivers or OLE DB Providers by using the built-in libraries of the language without writing complex code.
+
+---
+
+### Q. What did COM language use for data source communication without complex coding?
+
+---
+
+COM language used RDOs (Remote Data Objects) and ADOs (ActiveX Data Objects) for data source communication.
+
+```mermaid
+  flowchart LR
+    COM_Language-->RDOs-->ODBC_Drivers-->Data_Sources
+    COM_Language-->ADOs-->OLEDB_Providers-->Data_Sources
+```
+
+---
+
+### Q. What is the .NET Framework Data Provider for SQL Server?
+
+---
+
+It is a provider that uses its own protocol to communicate directly with SQL Server, making it lightweight and high-performing without needing an OLE DB or ODBC layer. It supports SQL Server version 7.0 or later.
+
+---
+
+### Q. What does the .NET Framework Data Provider for Oracle (Oracle Client) do?
+
+---
+
+It enables data access to Oracle data sources through Oracle client connectivity software, supporting Oracle client software version 8.1.7 or later.
+
+---
+
+### Q. What is ADO.NET?
+
+---
+
+ADO.NET is a set of types that provide data access services to .NET programmers. It offers consistent access to data sources such as SQL Server, OLE DB, and XML. ADO.NET supports data access for relational data, XML, and application data.
+
+---
+
+### Q. What are the primary namespaces provided by ADO.NET for data source communication?
+
+---
+
+ADO.NET provides the following namespaces:
+
+- System.Data
+- System.Data.Odbc
+- System.Data.Oledb
+- System.Data.SqlClient
+- System.Data.OracleClient
+
+---
+
+### Q. Which assemblies are the ADO.NET namespaces contained in?
+
+---
+
+- System.Data, System.Data.Odbc, System.Data.Oledb, and System.Data.SqlClient are in the System.Data.dll assembly.
+- System.Data.OracleClient is in the System.Data.OracleClient.dll assembly.
+
+---
+
+### Q. What does the System.Data namespace provide?
+
+---
+
+The System.Data namespace provides classes for holding and managing data on client machines, such as DataSet, DataTable, DataRow, DataColumn, DataView, DataRelation, etc.
+
+---
+
+### Q. How do the types in System.Data.Odbc and System.Data.Oledb work?
+
+---
+
+- **System.Data.Odbc**: types of this namespace can communicate with any Relational Data Source using Un-Managed
+  Odbc Drivers.
+
+- **System.Data.Oledb**: types of this namespace can communicate with any Data Source using Oledb Providers
+  (Un-Managed COM Providers).
+
+- **System.Data.Odbc** communicates with relational data sources using unmanaged ODBC drivers.
+- **System.Data.Oledb** communicates with data sources using OLEDB providers (unmanaged COM providers).
+
+---
+
+### Q. What is special about System.Data.SqlClient and System.Data.OracleClient?
+
+---
+
+- **System.Data.SqlClient** is designed to communicate purely with SQL Server using the SqlClient Provider (managed .NET Framework provider).
+- **System.Data.OracleClient** is designed to communicate purely with Oracle using the OracleClient Provider (managed .NET Framework provider).
+
+---
+
+### Q. What are the main classes provided by each namespace?
+
+---
+
+Each namespace contains similar classes for connection, command, data reading, data adaptation, parameter handling, and command building. They are named with appropriate prefixes, such as:
+
+- **Odbc**: OdbcConnection, OdbcCommand, OdbcDataReader, OdbcDataAdapter, OdbcCommandBuilder, OdbcParameter.
+- **Oledb**: OledbConnection, OledbCommand, OledbDataReader, OledbDataAdapter, OledbCommandBuilder, OledbParameter.
+- **Sql**: SqlConnection, SqlCommand, SqlDataReader, SqlDataAdapter, SqlCommandBuilder, SqlParameter.
+- **Oracle**: OracleConnection, OracleCommand, OracleDataReader, OracleDataAdapter, OracleCommandBuilder, OracleParameter.
+
+---
+
+### Q. What are the three steps involved in performing operations on a data source?
+
+---
+
+- **Establishing a connection** with the data source.
+- **Sending a request** to the data source using SQL.
+- **Capturing the results** given by the data source.
+
+---
+
+### Q. What is the process of establishing a connection with a data source?
+
+---
+
+It involves opening a channel for communication between the application and the data source (either local or remote) using the Connection class.
+
+---
+
+### Q. What are the constructors of the Connection class?
+
+---
+
+- Connection()
+- Connection(string ConnectionString)
+
+---
+
+### Q. What is a ConnectionString?
+
+---
+
+A ConnectionString is a collection of attributes required for connecting with a data source, such as:
+
+- **`DSN`**: **DSN** is used to connect to a data source using **ODBC Drivers**. It specifies the **DSN Name**.
+- **`Provider`**: The **Provider** attribute is used when connecting to a data source using **OLEDB Providers**. It specifies the **provider’s name**.
+- **`Data Source`**: **Data Source** specifies the **server name** for a database or the **path** of a file, required in case of any provider communication.
+- **`User Id and Password`**: These attributes are used to specify `credentials` for connecting with a database and are required in case of any provider communication.
+- **`Integrated Security`**: `Integrated Security` is used while connecting to a SQL Server database using `Windows Authentication`, omitting the User Id and Password attributes.
+- **`Database or Initial Catalog`**: hese attributes are used while connecting to a SQL Server database to specify the **name of the database**.
+- **`Extended Properties`**: It is required only when connecting to **MS-Excel** using an **OLEDB Provider**.
+
+---
+
+### Q. How do you specify the Provider attribute for different data sources?
+
+---
+
+- **Oracle**: Msdaora or ORAOLEDB.ORACLE
+- **SQL Server**: SqlOledb
+- **MS-Access or MS-Excel**: Microsoft.Jet.Oledb.4.0
+- **MS-Indexing Server**: Msidxs
+
+---
+
+### Q. What attributes are needed for different connection methods?
+
+---
+
+- **ODBC Driver**: DSN
+- **OLEDB Provider**: Provider, Data Source, User Id and Password, Integrated Security, Database or Initial Catalog, Extended Properties
+- **.NET Framework Provider**: Data Source, User Id and Password, Integrated Security, Database or Initial Catalog
+
+---
+
+### Q. Give me the List of attributes which are required in case of Odbc Drivers, Oledb and .Net Framework Providers.
+
+---
+
+| **Attribute**                      | **ODBC Driver** | **OLEDB Provider** | **.NET Framework Provider** |
+| ---------------------------------- | --------------- | ------------------ | --------------------------- |
+| **DSN**                            | Yes             | No                 | No                          |
+| **Provider**                       | No              | Yes                | No                          |
+| **Data Source**                    | No              | Yes                | Yes                         |
+| **User Id and Password**           | No              | Yes                | Yes                         |
+| **Integrated Security** \*         | No              | Yes                | Yes                         |
+| **Database or Initial Catalog** \* | No              | Yes                | Yes                         |
+| **Extended Properties** \*\*       | No              | Yes                | -                           |
+
+\* Only for SQL Server  
+\*\* Only for Microsoft Excel
+
+---
+
+### Q. Provide connection strings for SQL Server using different options.
+
+---
+
+- **ODBC Connection**: `OdbcConnection con = new OdbcConnection("Dsn=<Dsn Name>");`
+- **OLEDB Connection**: `OledbConnection con = new OledbConnection("Provider=SqlOledb;Data Source=<Server Name>; Database=<DB Name>; User Id=<User Name>; Password=<Pwd>");`
+- **SQL Server Connection**: `SqlConnection con = new SqlConnection("Data Source=<Server Name>; Database=<DB Name>; User Id=<User Name>; Password=<Pwd>");`
+  For Windows Authentication, use **Integrated Security = SSPI**.
+
+---
+
+### Q. Provide connection strings for Oracle using different options.
+
+---
+
+- **ODBC Connection**: `OdbcConnection con = new OdbcConnection("Dsn=<Dsn Name>");`
+- **OLEDB Connection**: `OledbConnection con = new OledbConnection("Provider=Msdaora or ORAOLEDB.ORACLE; Data Source=<Server Name>; User Id=<User Name>; Password=<Pwd>");`
+- **Oracle Connection**: `OracleConnection con = new OracleConnection("Data Source=<Server Name>; User Id=<User Name>; Password=<Pwd>");`
+
+---
+
+### Q. Provide connection strings for MS-Excel using different options.
+
+---
+
+- **ODBC Connection**: `OdbcConnection con = new OdbcConnection("Dsn=<Dsn Name>");`
+- **OLEDB Connection**: `OledbConnection con = new OledbConnection("Provider=Microsoft.Jet.Oledb.4.0; Data Source=<Path of Excel Document>; Extended Properties=Excel 8.0”);`
+
+---
+
+### Q. What are the main members of the Connection class?
+
+---
+
+- **Open()**: Opens a connection with the data source.
+- **Close()**: Closes the open connection.
+- **State**: An enumerated property used to get the status of the connection.
+- **ConnectionString**: A property used to get or set the connection string associated with the connection object.
+
+---
+
+### Q. How can an object of the Connection class be created?
+
+---
+
+- `Connection con = new Connection();` followed by setting the `ConnectionString` property.
+- `Connection con = new Connection("<connection string>");`
+
+---
+
+### Q. How do you send a request to a data source using SQL?
+
+---
+
+By using the _`Command`_ class to specify the SQL statement or stored procedure.
+
+---
+
+### Q. What are the constructors of the Command class?
+
+---
+
+- Command()
+- Command(string CommandText, Connection con)
+
+---
+
+### Q. What are the properties of the Command class?
+
+---
+
+- **Connection**: Gets or sets the connection object associated with the command.
+- **CommandText**: Gets or sets the SQL statement or stored procedure name associated with the command.
+- **CommandType**: Specifies whether the command is configured to execute a SQL statement or stored procedure.
+
+---
+
+### Q. How can an object of the Command class be created?
+
+---
+
+- `Command cmd = new Command(); cmd.Connection = <con>; cmd.CommandText = "<SQL Stmt or SP Name>";`
+- `Command cmd = new Command("<SQL Stmt or SP Name>", <con>);`
+
+---
+
+### Q. What are the methods of the Command class?
+
+---
+
+- **ExecuteReader()**: Returns a _DataReader_ object for executing a SELECT statement.
+- **ExecuteScalar()**: Returns a single _object_ result for executing a SELECT statement returning a single value.
+- **ExecuteNonQuery()**: Returns an _integer_ indicating the number of rows affected by executing an INSERT, UPDATE, or DELETE statement.
+
+---
+
+### Q. What is the purpose of the ExecuteReader(), ExecuteScalar() & ExecuteNonQuery() method?
+
+---
+
+- **`ExecuteReader()`**: It is used to execute a SELECT statement that returns **data as rows and columns**.
+- **`ExecuteScalar()`**: It is used to execute a SELECT statement that returns a **single value** result.
+- **`ExecuteNonQuery()`**: It is used to execute **SQL statements** like INSERT, UPDATE, or DELETE, returning the number of rows affected.
+
+---
+
+### Q. What is a DataReader class designed for?
+
+---
+
+The `DataReader` class is designed for holding data on client machines in the form of rows and columns.
+
+---
+
+### Q. What are the features of DataReader?
+
+---
+
+- It can hold multiple tables at a time. To load multiple tables, pass multiple select statements as “CommandText” separated by a semi-colon.
+- It provides faster access to data because it is “Connection Oriented”.
+
+---
+
+### Q. What are the drawbacks of DataReader?
+
+---
+
+- It requires a continuous connection with the data source while accessing data, which may lead to performance issues if many clients are accessing it simultaneously.
+- It allows only forward-only access to the data (you can only move to the next record or table).
+- It is read-only, which means it does not allow changes to data.
+
+---
+
+### Q. How do you access data from a DataReader?
+
+---
+
+To access data from a DataReader, it provides the following members:
+
+1. **GetName(int ColumnIndex)** `string`- Returns the name of the column at the specified index.
+2. **Read()** `bool`- Moves the record pointer to the next row and returns a boolean indicating whether the row contains data (true if it does).
+3. **GetValue(int ColumnIndex)** `object`- Retrieves the value from the specified column index.
+4. **Indexer[int ColumnIndex]** `object`- Retrieves the value using a column index.
+5. **Indexer[string ColumnName]** `object`- Retrieves the value using a column name.
+6. **FieldCount** `int`- Returns the number of columns fetched into the DataReader.
+7. **NextResult()** `bool`- Moves the record pointer from the current table to the next table and returns a boolean indicating whether there is a table.
+
+---
+
+### Q. What are the two different models for accessing data from Data Sources in ADO.NET?
+
+---
+
+The two models are:
+
+1. **Connection Oriented Architecture** - Requires a continuous connection with the data source. In this case, the DataReader class is used for holding data on client machines.
+2. **Disconnected Architecture** - Does not require a continuous connection. In this case, the DataSet class is used for holding data on client machines.
+
+---
+
+### Q. What is a DataSet class in ADO.NET?
+
+---
+
+The `DataSet` class, present in the `System.Data` namespace, is designed for holding and managing data on client machines, apart from DataReader. It provides a disconnected architecture for accessing data.
+
+---
+
+### Q. What are the features of DataSet?
+
+---
+
+- Can hold multiple tables from different data sources.
+- Supports disconnected architecture (requires a connection only for loading data).
+- Provides scrollable navigation to data, allowing movement in any direction.
+- Updatable, enabling changes to be made and sent back to the database.
+- Offers options for searching and sorting data.
+- Allows establishing relationships between tables.
+
+---
+
+### Q. How do you load data into a DataSet?
+
+---
+
+Data loading into a DataSet is handled by the `DataAdapter` class, which acts as an intermediary between the DataSource and DataSet.
+
+The class which is responsible for loading data into DataReader from a DataSource is Command, in the same way DataAdapter class is required for communication between DataSource and DataSet.
+
+**`DataSource <= Command => DataReader`**
+**`DataSource <=> DataAdapter <=> DataSet`**
+
+---
+
+### Q. What is the role of DataAdapter in ADO.NET?
+
+---
+
+The `DataAdapter` class facilitates communication between a DataSource and a DataSet. It consists of four commands:
+
+1. SelectCommand
+2. InsertCommand
+3. UpdateCommand
+4. DeleteCommand
+
+These commands are instances of the `Command` class and perform their respective operations on a table.
+
+---
+
+### Q. What are the constructors of the DataAdapter class?
+
+---
+
+1. **`DataAdapter()`** - Default constructor.
+2. **`DataAdapter(Command SelectCmd)`** - Takes a command instance.
+3. **`DataAdapter(string SelectCommandText, Connection con)`** - Takes a select command string and a connection.
+4. **`DataAdapter(string SelectCommandText, string ConnectionString)`** - Takes a select command string and a connection string.
+
+**`Note`**: Select Command Text means it can be a Select Stmt or a Stored Procedure which contains a Select Stmt.
+
+---
+
+### Q. How can you create an instance of DataAdapter class?
+
+---
+
+You can create an instance in the following ways:
+
+1.
+
+```c#
+  Connection con = new Connection("<Connection String>");
+  Command cmd = new Command("<Select Stmt or SP Name>", con);
+  DataAdapter da = new DataAdapter();
+  da.SelectCommand = cmd;
+```
+
+2.
+
+```c#
+Connection con = new Connection("<Connection String>");
+Command cmd = new Command("<Select Stmt or SP Name>", con);
+DataAdapter da = new DataAdapter(cmd);
+```
+
+3.
+
+```c#
+Connection con = new Connection("<Connection String>");
+DataAdapter da = new DataAdapter("<Select Stmt or SPName>", con);
+```
+
+4.
+
+```c#
+DataAdapter da = new DataAdapter("<Select Stmt or SPName>", "<Connection String>");
+```
+
+---
+
+### Q. What are the properties of the DataAdapter class?
+
+---
+
+- SelectCommand
+- InsertCommand
+- UpdateCommand
+- DeleteCommand
+
+---
+
+### Q. What are the methods of DataAdapter?
+
+---
+
+1. **`Fill(DataSet ds, string tableName)`** - Loads data from the DataSource into the DataSet.
+2. **`Update(DataSet ds, string tableName)`** - Updates changes made in the DataSet back to the DataSource.
+
+Fill method is used for loading data from DataSource into the DataSet and Update method is used for updating any changes made in the DataSet back to DataSource:
+`Fill: DataSource => DataAdapter => DataSet`
+`Update: DataSource <= DataAdapter <= DataSet`
+
+---
+
+### Q. How does the Fill method work in DataAdapter?
+
+---
+
+- The **`Fill`** method follows the process: DataSource ⇒ DataAdapter ⇒ DataSet.
+
+---
+
+### Q. How does the Update method work in DataAdapter?
+
+---
+
+- The **`Update`** method follows the process: DataSource ⇐ DataAdapter ⇐ DataSet.
+
+---
+
+### Q. What happens when the Fill method is called on the DataAdapter class?
+
+---
+
+When the Fill method is called, the following actions occur internally:
+
+1. **DataAdapter opens a connection** with the Data Source.
+2. Executes the **SelectCommand** on the Data Source and loads data from the table into the DataSet.
+3. **Closes the connection** after loading the data.
+
+---
+
+### Q. How is data loade into the DataSet after calling the Fill method?
+
+---
+
+Once the execution of the Fill method is completed, data is loaded into the DataSet as a collection of tables, where each table is represented as a class called `DataTable`.
+
+---
+
+### Q. Is DataSet updatable, and if so, how can changes be made to the DataSet?
+
+---
+
+Yes, the DataSet is updatable. Changes such as adding, modifying, and deleting records can be made to the data in the DataSet.
+
+---
+
+### Q. What happens when the Update method is called on the DataAdapter class?
+
+---
+
+When the Update method is called, the following actions occur internally:
+
+1. **DataAdapter** re-opens the connection with the Data Source.
+2. Changes made to the DataSet are **sent back to the corresponding table** using the Insert, Update, and Delete commands of the DataAdapter.
+3. **Closes the connection** once the changes are updated.
+
+---
+
+### Q. How is data in the DataSet reloaded after calling the Update method?
+
+---
+
+After executing the Update method, data gets re-loaded into the DataSet, including any unchanged rows.
+
+---
+
+### Q. How does DataReader access data versus DataSet?
+
+---
+
+- **DataReader** provides **pointer-based** access, which means data can be accessed in a sequential order only.
+- **DataSet** provides **index-based** access, allowing random access to data from any location.
+
+---
+
+### Q. What is DataSet composed of, and how are its components represented?
+
+---
+
+DataSet is a collection of tables, where each table is represented as a class `DataTable`, identified by its index position or name. Every DataTable is further composed of rows and columns:
+
+- Each row is represented as a class `DataRow` and identified by its index position.
+- Each column is represented as a class `DataColumn` and identified by its index position or name.
+
+---
+
+### Q. How do you access a DataTable from a DataSet?
+
+---
+
+You can access a DataTable from a DataSet using:
+
+`<dataset>.Tables[index] or <dataset>.Tables[name]`
+**Example**: `ds.Tables[0] or ds.Tables["Employee"]`
+
+---
+
+### Q. How do you access a DataRow from a DataTable?
+
+---
+
+You can access a DataRow from a DataTable using:
+
+`<datatable>.Rows[index]`
+**Example**: `ds.Tables[0].Rows[0]`
+
+---
+
+### Q. How do you access a DataColumn from a DataTable?
+
+---
+
+You can access a DataColumn from a DataTable using:
+
+`<datatable>.Columns[index] or <datatable>.Columns[name]`
+**Example**: `ds.Tables[0].Columns[0] or ds.Tables[0].Columns["Eno"]`
+
+---
+
+### Q. How do you access a cell from a DataTable?
+
+---
+
+You can access a cell from a DataTable using:
+
+`<datatable>.Rows[row][col]`
+**Example**: `ds.Tables[0].Rows[0][0] or ds.Tables[0].Rows[0]["Eno"]`
+
+---
+
+### Q. Create a new ASP.NET Web Application project naming it as “MVCWithADO” using the ADO.Net?
+
+---
+
+1. Create `ASP.NET Web Application` project name it `MVCWithADO` use `MVC` Project Template.
+
+2. Add class in Models folder to represent the `Student` entity:
+   `Student.cs`
+
+```c#
+using System.ComponentModel.DataAnnotations;
+public class Student
+{
+    [Display(Name = "Student Id")]
+    public int Sid { get; set; }
+    public string Name { get; set; }
+    public int? Class { get; set; }
+    public decimal? Fees { get; set; }
+    public string Photo { get; set; }
+}
+```
+
+3. Add connection string in web.config file:
+   `web.config`
+
+```xml
+<connectionStrings>
+	  <add name="ConStr" providerName="System.Data.SqlClient" connectionString="Data Source=DESKTOP-HOOMVQE\MSSQLSERVER02; Database=MVCDB; User Id=mk; Password=123;"/>
+</connectionStrings>
+```
+
+4. Add another class in Model’s folder with the name “`StudentDAL.cs`”
+   The following code is written in `StudentDAL.cs`:
+
+```c#
+using System.Data;
+using System.Configuration;
+using System.Data.SqlClient;
+
+public class StudentDAL
+{
+    SqlCommand cmd;
+    SqlConnection con;
+
+    public StudentDAL()
+    {
+        string ConStr = ConfigurationManager.ConnectionStrings["ConStr"].ConnectionString;
+        con = new SqlConnection(ConStr);
+        cmd = new SqlCommand();
+        cmd.Connection = con;
+        cmd.CommandType = CommandType.StoredProcedure;
+    }
+
+    public List<Student> SelectStudent(int? Sid, bool? Status)
+    {
+        List<Student> students = new List<Student>();
+        try
+        {
+            cmd.Parameters.Clear();
+            cmd.CommandText = "Student_Select";
+            if (Sid != null && Status != null)
+            {
+                cmd.Parameters.AddWithValue("@Sid", Sid);
+                cmd.Parameters.AddWithValue("@Status", Status);
+            }
+            else if (Sid != null && Status == null)
+                cmd.Parameters.AddWithValue("@Sid", Sid);
+            else if (Sid == null && Status != null)
+                cmd.Parameters.AddWithValue("@Status", Status);
+            con.Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                Student student = new Student {
+                    Sid = (int)dr["Sid"],
+                    Name = (string)dr["Name"],
+                    Class = (int)dr["Class"],
+                    Fees = (decimal)dr["Fees"],
+                    Photo = (string)dr["Photo"]
+                };
+                students.Add(student);
+            }
+        }
+        catch(Exception ex)
+        { throw ex; }
+        finally
+        { con.Close(); }
+        return students;
+    }
+
+    public int InsertStudent(Student student)
+    {
+        int Count = 0;
+        try
+        {
+            cmd.CommandText = "Student_Insert";
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@Sid", student.Sid);
+            cmd.Parameters.AddWithValue("@Name", student.Name);
+            cmd.Parameters.AddWithValue("@Class", student.Class);
+            cmd.Parameters.AddWithValue("@Fees", student.Fees);
+            if (student.Photo != null && student.Photo.Length != 0)
+                cmd.Parameters.AddWithValue("@Photo", student.Photo);
+            con.Open();
+            Count = cmd.ExecuteNonQuery();
+        }
+        catch (Exception ex)
+        { throw ex; }
+        finally
+        { con.Close(); }
+        return Count;
+    }
+
+    public int UpdateStudent(Student student)
+    {
+        int Count = 0;
+        try
+        {
+            cmd.CommandText = "Student_Update";
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@Sid", student.Sid);
+            cmd.Parameters.AddWithValue("@Name", student.Name);
+            cmd.Parameters.AddWithValue("@Class", student.Class);
+            cmd.Parameters.AddWithValue("@Fees", student.Fees);
+            if (student.Photo != null && student.Photo.Length != 0)
+                cmd.Parameters.AddWithValue("@Photo", student.Photo);
+            con.Open();
+            Count = cmd.ExecuteNonQuery();
+        }
+        catch (Exception ex)
+        { throw ex; }
+        finally
+        { con.Close(); }
+        return Count;
+    }
+
+    public int DeleteStudent(int Sid)
+    {
+        int Count = 0;
+        try
+        {
+            cmd.CommandText = "Student_Delete";
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@Sid", Sid);
+            con.Open();
+            Count = cmd.ExecuteNonQuery();
+        }
+        catch (Exception ex)
+        { throw ex; }
+        finally
+        { con.Close(); }
+        return Count;
+    }
+}
+```
+
+5. Add a Controller under Controllers folder with the name “`StudentController`” and write the following code in i
+   `StudentController.cs`
+
+```c#
+using System.IO;
+using MVCWithADO.Models;
+
+public class StudentController : Controller
+{
+    StudentDAL obj = new StudentDAL();
+
+    public ViewResult DisplayStudents()
+    {
+        return View(obj.SelectStudent(null, true));
+    }
+
+    public ViewResult DisplayStudent(int Sid)
+    {
+        return View(obj.SelectStudent(Sid, true)[0]);
+    }
+
+    public ViewResult AddStudent()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    public RedirectToRouteResult AddStudent(Student student, HttpPostedFileBase selectedFile)
+    {
+        if (selectedFile != null)
+        {
+            string PhysicalPath = Server.MapPath("~/Uploads/");
+            if (!Directory.Exists(PhysicalPath)) {
+                Directory.CreateDirectory(PhysicalPath);
+            }
+            selectedFile.SaveAs(PhysicalPath + selectedFile.FileName);
+            student.Photo = selectedFile.FileName;
+        }
+        obj.InsertStudent(student);
+        return RedirectToAction("DisplayStudents");
+    }
+
+    public ViewResult EditStudent(int Sid)
+    {
+        Student student = obj.SelectStudent(Sid, true).Single();
+        TempData["Photo"] = student.Photo;
+        return View(student);
+    }
+
+    public RedirectToRouteResult UpdateStudent(Student student, HttpPostedFileBase selectedFile)
+    {
+        if (selectedFile != null)
+        {
+            string PhysicalPath = Server.MapPath("~/Uploads/");
+            if (!Directory.Exists(PhysicalPath)) {
+                Directory.CreateDirectory(PhysicalPath);
+            }
+            selectedFile.SaveAs(PhysicalPath + selectedFile.FileName);
+            student.Photo = selectedFile.FileName;
+        }
+        else
+        {
+            student.Photo = TempData["Photo"].ToString();
+        }
+        obj.UpdateStudent(student);
+        return RedirectToAction("DisplayStudents");
+    }
+
+    public RedirectToRouteResult DeleteStudent(int Sid)
+    {
+        obj.DeleteStudent(Sid);
+        return RedirectToAction("DisplayStudents");
+    }
+}
+```
+
+6. **`Add a view's`**:
+
+- `DisplayStudents.cshtml`: Selecting layout `Checkbox`.
+
+```c#
+@model IEnumerable<MVCWithADO.Models.Student>
+<h2 style="text-align:center;background-color:yellowgreen;color:orangered">Student Details</h2>
+<table border="1" align="center" class="table-condensed">
+    <tr>
+        <th>@Html.DisplayNameFor(S => S.Sid)</th>
+        <th>@Html.DisplayNameFor(S => S.Name)</th>
+        <th>@Html.DisplayNameFor(S => S.Class)</th>
+        <th>@Html.DisplayNameFor(S => S.Fees)</th>
+        <th>@Html.DisplayNameFor(S => S.Photo)</th>
+        <th align="center">Actions</th>
+    </tr>
+    @foreach (MVCWithADO.Models.Student student in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(S => student.Sid)</td>
+            <td>@Html.DisplayFor(S => student.Name)</td>
+            <td>@Html.DisplayFor(S => student.Class)</td>
+            <td>@Html.DisplayFor(S => student.Fees)</td>
+            <td><img src='/Uploads/@student.Photo' width="40" height="25" alt="No Image" /></td>
+            <td>
+                @Html.ActionLink("View", "DisplayStudent", new { Sid = student.Sid })
+                @Html.ActionLink("Edit", "EditStudent", new { Sid = student.Sid })
+                @Html.ActionLink("Delete", "DeleteStudent", new { Sid = student.Sid },
+                new { onclick = "return confirm('Are you sure of deleting the record?')" })
+            </td>
+        </tr>
+    }
+    <tr><td colspan="6" align="center">@Html.ActionLink("Add New Student", "AddStudent")</td></tr>
+</table>
+```
+
+- `DisplayStudent.cshtml`: Choose the `Template` as `Empty`, `Model Class` as `Student`, choose “`Use a layout page`” CheckBox in the “Add View” window
+
+```c#
+<h2 style="text-align:center;background-color:yellowgreen;color:orangered">Student Details</h2>
+<table border="1" align="center">
+  <tr>
+    <td rowspan=4><img src='~/Uploads/@Model.Photo' width="200" height="200" alt="No Image" /> </td>
+    <td>Sid: @Model.Sid</td>
+  </tr>
+  <tr><td>Name: @Model.Name</td></tr>
+  <tr><td>Class: @Model.Class</td></tr>
+  <tr><td>Fees: @Model.Fees</td></tr>
+  <tr><td colspan="2" align="center">@Html.ActionLink("Back to Student Details", "DisplayStudents")</td></tr>
+</table>
+```
+
+- `AddStudent.cshtml`: Choose the Template as Empty, Model Class as Student, choose “Use a layout page” CheckBox in the “Add View” window
+
+```c#
+<h2 style="text-align:center;background-color:yellowgreen;color:orangered">Add New Student</h2>
+@using (Html.BeginForm("AddStudent", "Student", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div>@Html.LabelFor(S => S.Sid)<br />@Html.TextBoxFor(S => S.Sid)</div>
+    <div>@Html.LabelFor(S => S.Name)<br />@Html.TextBoxFor(S => S.Name)</div>
+    <div>@Html.LabelFor(S => S.Class)<br />@Html.TextBoxFor(S => S.Class)</div>
+    <div>@Html.LabelFor(S => S.Fees)<br />@Html.TextBoxFor(S => S.Fees)</div>
+    <div>@Html.LabelFor(S => S.Photo)<br /><input type="file" name="selectedFile" /></div>
+    <div>
+        <input type="submit" value="Save" name="btnSave" />
+        <input type="reset" value="Reset" name="btnReset" />
+    </div>
+}
+@Html.ActionLink("Back to Student Details", "DisplayStudents")
+```
+
+- `EditStudent.cshtml`: Choose the Template as Empty, Model Class as Student, choose “Use a layout page” CheckBox in the “Add View” window
+
+```c#
+<h2 style="text-align:center;background-color:yellowgreen;color:orangered">Edit Student Details</h2>
+@using (Html.BeginForm("UpdateStudent", "Student", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div>@Html.LabelFor(S => S.Sid)<br />@Html.TextBoxFor(S => S.Sid, new { @readonly = "true" })</div>
+    <div>@Html.LabelFor(S => S.Name)<br />@Html.TextBoxFor(S => S.Name)</div>
+    <div>@Html.LabelFor(S => S.Class)<br />@Html.TextBoxFor(S => S.Class)</div>
+    <div>@Html.LabelFor(S => S.Fees)<br />@Html.TextBoxFor(S => S.Fees)</div>
+    <div>
+        @Html.LabelFor(S => S.Photo)<br />
+        <img src='~/Uploads/@Model.Photo' width="100" height="100" alt="No Image" style="border:dashed red" />
+        <input type="file" name="selectedFile" />
+    </div>
+    <div>
+        <input type="submit" value="Update" name="btnUpdate" />
+        @Html.ActionLink("Cancel", "DisplayStudents")
+    </div>
+}
+```
+
+---
+
+## **`MVC Filters`**
 
 ### Q. What is MVC filter in ASP.NET?
 
@@ -2776,177 +12550,1396 @@ Filters can be applied globally, at the controller level, or at the action metho
 
 ---
 
-## List of pre-defined filters provided by ASP.NET MVC:
+## **`List of pre-defined filters provided by ASP.NET MVC`**
 
-245
-
-### Q.
+### Q. What is the purpose of the `ChildActionOnly` filter?
 
 ---
 
-- ***
+- The `ChildActionOnly` filter ensures that an action method can only be invoked as a child method from another action’s view. It prevents the direct invocation of the action method, and any attempt to call it directly will result in an error.
+
+- This filter ensures that an action method can be called only as a child method from a view of another action method. We tend to use this filter to prevent action methods from being invoked directly and if we try to do that it will throw an error.
 
 ---
 
-### Q.
+### Q. How does the `OutputCache` filter improve application performance?
 
 ---
 
-- ***
+- The `OutputCache` filter enhances application performance by enabling caching at either the action method level or the entire controller level. It helps to minimize server and database round trips, which improves response times and reduces server load.
+
+- One of the best ways to improve the performance of an ASP.NET MVC Application is by caching. With the help of caching, we can reduce hosting server and database Server round trips. We can apply `OutputCache Action` Filter to achieve caching either on an `Action Method` or on the whole `Controller`. `OutputCache` filter has several properties like `CacheProfile`, `Duration`, `Location`, `VaryByParam`, `VaryByHeader`, `VaryByCustom` etc.
 
 ---
 
-### Q.
+### Q. What are some key properties of the `OutputCache` filter, and their uses?
 
 ---
 
-- ***
+- `Duration`:
+
+  - Specifies the cache duration in seconds.
+  - Gets or sets the cache duration in seconds.
+
+- `VaryByParam`:
+  - Determines the parameters that should vary the cache output. Default is `none`.
+  - Gets or sets the vary-by-param value and if not specified default value is non
+- `VaryByCustom`:
+  - Allows custom variations in caching.
+  - Gets or sets the vary-by-custom value
+- `Location`:
+  - Specifies where the output should be cached. It can be `Server`, `Client`, `Downstream`, `ServerAndClient`, `Any`, or `None`. Default is `Any`.
+  - Gets or sets the location value which is to specify where the output must be cached, it takes an Enum value which can be Server, Client, Downstream (Proxy Server), ServerAndClient, Any and None, default is Any
+- `CacheProfile`:
+  - References a cache profile defined in the `Web.config` file.
+  - Gets or Sets the cache profile value from Web.config file
 
 ---
 
-### Q.
+### Q. What is the purpose of the ValidateInput attribute in ASP.NET MVC?
 
 ---
 
-- ***
+- The `ValidateInput` attribute prevents cross-site scripting (CSS/XSS) attacks by disallowing HTML elements as form input. It prevents HTML or JavaScript code injection by default, but developers can explicitly control this behavior using `[ValidateInput(true/false)]`.
+
+- Cross Site Scripting (CSS/XSS) attack is very common and is a well-known attack for web applications, for example a CSS/XSS attack is basically the result of poor form validation. How CSS/XSS attacks work is at first the hacker does inject some HTML code into a HTML input field and the data along with the HTML tag is saved to the database. Now, when there is a need to display the data in a user interface then we will get it from the Database and a legitimate browser will parse it as HTML code. If the hacker then injects a normal HTML string, then there is no problem at all but if they inject harmful Java Script code from an input field that might steal valuable information from the user’s computer, but we are very sure that we never want to allow a user to inject a HTML element through a form. In traditional Web Forms applications, we use a form validation script (in Java Script very often) to validate user’s input whereas in MVC the library has done all the job for us, so we need not validate or write lengthy code externally. In MVC by default it prevents the HTML element as form data, anyway we can use the ValidateInput attribute to prevent HTML explicitly in this way: [ValidateInput (true)] which can be used either on controller or action method.
 
 ---
 
-### Q.
+### Q. Explain how the `ValidateAntiForgeryToken` attribute works to prevent CSRF attacks?
 
 ---
 
-- ***
+- The `ValidateAntiForgeryToken` attribute is used to prevent Cross-Site Request Forgery (CSRF) attacks. It ensures that form submissions come from the legitimate source by checking for a server-generated token on the client side. If the token does not match, the server rejects the request as a potential forgery attempt.
+
+- This is a built-in functionality provided by `Microsoft` which developers often use in their applications for security purposes i.e., to stop `CSRF` (Cross Site Request Forgery) from hackers. Cross Site Request Forgery can be defined as, a forgery request, i.e., a `fraud` or `fake` request, which comes on an authenticated site from a cross site and is treated as an authenticated request. For avoiding this situation, Microsoft provides `ValidateAntiForgeryToken` functionality which we can use in our application so that no one can hack our site or `invade` some critical information.
 
 ---
 
-### Q.
+### Q. What is the `HandleError` filter used for, and at what levels can it be applied?
 
 ---
 
-- ***
+- The `HandleError` filter is an exception filter used for handling errors in ASP.NET MVC applications. It can be applied at the action method level, the controller level, or globally. It provides properties to customize the error handling experience.
 
 ---
 
-### Q.
+### Q. What does the `Authorize` attribute do in an MVC application?
 
 ---
 
-- ***
+- The Authorize attribute restricts access to controllers or action methods to only those users who meet the specified authorization criteria. It can be applied to individual action methods or entire controllers, ensuring only authenticated users can access them.
 
 ---
 
-### Q.
+### Q. Can you apply the `Authorize` attribute to a base controller class?
 
 ---
 
-- ***
+- Yes, the `Authorize` attribute is inheritable, meaning it can be applied to a base controller class. All derived controller classes and their action methods will automatically inherit this authorization requirement.
 
 ---
 
-### Q.
+### Q. When would you use the `AllowAnonymous` attribute in an MVC application?
 
 ---
 
-- ***
+- The `AllowAnonymous` attribute allows unauthenticated users to access specific action methods. This is particularly useful when the `Authorize` attribute is applied at the class level, but you want to allow free access to certain actions like login or registration methods.
 
 ---
 
-### Q.
+### Q. What database table should be created for testing filters, and what are its columns?
 
 ---
 
-- ***
+- You should create a table named **Customer** with the following columns:
+  - `Custid` (Primary Key, Int)
+  - `Name` (Varchar(50))
+  - `Balance` (Money)
+  - `City` (Varchar(50))
+  - `Status` (Bit, Default 1, Not Null)
 
 ---
 
-### Q.
+### Q. What project template should be selected in the new ASP.NET project?
 
 ---
 
-- ***
+- Choose **“Empty Project Template”** and select the `empty` **“MVC”** checkbox while creating the new ASP.NET Web Application project named **“MVCFilters”**.
 
 ---
 
-### Q.
+### Q. What data model should be added to the project?
 
 ---
 
-- ***
+- Add an **“ADO.NET Entity Data Model”** named **“TestEF”** under the `Model` folder. Choose **“EF Designer from Database”** (DB First approach), provide connection details to the **“MVCDB”** database, and select the **“Department”**, **“Employee”**, and **“Customer”** tables.
 
 ---
 
-### Q.
+### Q. Add "Home" controller and apply filter on it to text the filter ?
 
 ---
 
-- ***
+- Add a controller named **“HomeController”** under the `Controller` folder. Delete the existing content within the class and implement the provided code:
+
+```csharp
+using System.Web.UI;
+using MVCFilters.Models;
+public class HomeController : Controller
+{
+    MVCDBEntities dc = new MVCDBEntities();
+
+    #region 1)ChildActionOnly Filter
+    public ViewResult DisplayDepts()
+    {
+        return View(dc.Departments);
+    }
+
+    public ViewResult DisplayEmpsByDept(int Did)
+    {
+        var Emps = from E in dc.Employees where E.Did == Did select E;
+        return View(Emps);
+    }
+    #endregion
+
+    #region 2)OutputCache Filter
+    public ViewResult DisplayCustomers1()
+    {
+        return View(dc.Customers);
+    }
+
+    [OutputCache(Duration = 45, Location = OutputCacheLocation.Server)]
+    public ViewResult DisplayCustomers2()
+    {
+        return View(dc.Customers);
+    }
+
+    [OutputCache(Duration = 45, Location = OutputCacheLocation.Server, VaryByParam = "City")]
+    public ViewResult DisplayCustomers3(string City)
+    {
+        return View(from C in dc.Customers where C.City == City select C);
+    }
+
+    [OutputCache(Duration = 45, Location = OutputCacheLocation.Server, VaryByCustom = "browser")]
+    public ViewResult DisplayCustomers4()
+    {
+        return View(dc.Customers);
+    }
+
+    public ViewResult DisplayCustomers5()
+    {
+        return View(dc.Customers);
+    }
+    #endregion
+
+    #region 3)ValidateInput Filter
+    public ViewResult GetComments()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    public string GetComments(string txtComments)
+    {
+        return txtComments;
+    }
+    #endregion
+
+    #region 4)ValidateAntiForgeryToken Filter
+    public ViewResult AddEmployee()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    public string AddEmployee(Employee Emp)
+    {
+        Emp.Status = true;
+        dc.Employees.Add(Emp);
+        dc.SaveChanges();
+        return "Record Inserted";
+    }
+    #endregion
+
+    #region 5)HandleError Filter
+    public ViewResult DivideNums()
+    {
+        return View();
+    }
+
+    [HttpPost, HandleError]//"HandleError" Method level Exception hnadler
+    public string DivideNums(int num1, int num2)
+    {
+        int result = num1 / num2;//if input come zero, non-integer values, or values beyond the size of an integer, an exception occurs. This is displayed as a "Yellow screen of death" (error details with code on the browser screen).
+        return "Result is: " + result;
+    }
+    #endregion
+
+}
+```
 
 ---
 
-### Q.
+### Q. Create views & update action method in home controller for test `ChildActionOnly` Filter?
 
 ---
 
-- ***
+1. Update `DisplayEmpsByDept` method:
+
+```c#
+[ChildActionOnly]
+public ViewResult DisplayEmpsByDept(int Did)
+{
+    var Emps = from E in dc.Employees where E.Did == Did select E;
+    return View(Emps);
+}
+```
+
+2. **`[ChildActionOnly]` attribute be used**:
+
+- `DisplayDepts.cshtml`:
+
+```html
+@model IEnumerable<MVCFilters.Models.Department>
+  @{ ViewBag.Title = "Display Depts"; }
+  <table border="1" align="center">
+    <caption>
+      Department Details
+    </caption>
+    <tr>
+      <th>@Html.DisplayNameFor(D => D.Did)</th>
+      <th>@Html.DisplayNameFor(D => D.Dname)</th>
+      <th>@Html.DisplayNameFor(D => D.Location)</th>
+      <th>Employees</th>
+    </tr>
+    @foreach (var Dept in Model) {
+    <tr>
+      <td>@Html.DisplayFor(D => Dept.Did)</td>
+      <td>@Html.DisplayFor(D => Dept.Dname)</td>
+      <td>@Html.DisplayFor(D => Dept.Location)</td>
+      <!-- Hear i invoke "DisplayEmpsByDept" by link:  @Html.Action("DisplayEmpsByDept", new { Did = Dept.Did }) -->
+      <td>@Html.Action("DisplayEmpsByDept", new { Did = Dept.Did })</td>
+    </tr>
+    }
+  </table></MVCFilters.Models.Department
+>
+```
+
+- `DisplayEmpsByDept.cshtml`:
+
+```html
+@model IEnumerable<MVCFilters.Models.Employee>
+  @{ Layout = null; }
+  <table align="center">
+    <tr>
+      <th>@Html.DisplayNameFor(E => E.Eid)</th>
+      <th>@Html.DisplayNameFor(E => E.Ename)</th>
+      <th>@Html.DisplayNameFor(E => E.Job)</th>
+      <th>@Html.DisplayNameFor(E => E.Salary)</th>
+      <th>@Html.DisplayNameFor(E => E.Status)</th>
+    </tr>
+    @foreach (var Emp in Model) {
+    <tr>
+      <td>@Html.DisplayFor(E => Emp.Eid)</td>
+      <td>@Html.DisplayFor(E => Emp.Ename)</td>
+      <td>@Html.DisplayFor(E => Emp.Job)</td>
+      <td align="right">@Html.DisplayFor(E => Emp.Salary)</td>
+      <td align="center">@Html.CheckBoxFor(E => Emp.Status)</td>
+    </tr>
+    }
+  </table></MVCFilters.Models.Employee
+>
+```
+
+3. **How does it work**
+
+- The `[ChildActionOnly]` attribute is used to **restrict the action method from being directly accessed** through the browser. It ensures that the action method can only be called as a child action within a view, enhancing security and preventing unauthorized direct access.
+- In the example, adding `[ChildActionOnly]` to the **`DisplayEmpsByDept`** method restricts it from being accessed directly. Instead, it can only be called internally within the **`DisplayDepts`** view.
+- If you try to access **`DisplayEmpsByDept`** directly from the browser, such as through the URL `http://localhost/MVCFilters/Home/DisplayEmpsByDept/10`, you will receive an **error** indicating that the action is restricted to child actions only.
+- To access it we need invoked by child method like in this example(i.e:`@Html.Action("DisplayEmpsByDept", new { Did = Dept.Did })`) or you can access by child action method another want.
 
 ---
 
-### Q.
+### Q. Create views for test `OutputCache` Filter?
 
 ---
 
-- ***
+- `DisplayCustomers1.cshtml`:
+
+```html
+@model IEnumerable<MVCFilters.Models.Customer>
+  @{ ViewBag.Title = "Display Customer"; }
+  <table align="center" border="1">
+    <tr>
+      <td colspan="5">
+        <h3 style="text-align:center">
+          Request Processed Time: @DateTime.Now.ToString("T")
+        </h3>
+      </td>
+    </tr>
+    <tr>
+      <th>@Html.DisplayNameFor(C => C.Custid)</th>
+      <th>@Html.DisplayNameFor(C => C.Name)</th>
+      <th>@Html.DisplayNameFor(C => C.Balance)</th>
+      <th>@Html.DisplayNameFor(C => C.City)</th>
+      <th>@Html.DisplayNameFor(C => C.Status)</th>
+    </tr>
+    @foreach (var Customer in Model) {
+    <tr>
+      <td>@Html.DisplayFor(C => Customer.Custid)</td>
+      <td>@Html.DisplayFor(C => Customer.Name)</td>
+      <td align="right">@Html.DisplayFor(C => Customer.Balance)</td>
+      <td>@Html.DisplayFor(C => Customer.City)</td>
+      @if (Customer.Status == true) {
+      <td>Active</td>
+      } else {
+      <td>In-Active</td>
+      }
+    </tr>
+    }
+  </table></MVCFilters.Models.Customer
+>
+```
+
+- Same as the above `create views for the remaining 4` “`DisplayCustomers`” action methods also with the same code.
+- **`DisplayCustomers1.chhtml`** to create views for **`DisplayCustomers2`**, **`DisplayCustomers3`**, **`DisplayCustomers4`**, and **`DisplayCustomers5`**. Use the same code content provided above for all these views.
 
 ---
 
-### Q.
+### Q. What is OutputCache?
 
 ---
 
-- ***
+**`OutputCache`** is an attribute in `ASP.NET MVC` `used` to `cache the output` of an `action method` to `improve performance`. It `stores a copy of the rendered page`, `reducing server processing on repeated requests`. You can `set` its `duration` and s`pecify conditions` for `caching`, like by `parameter` or `browser` type. This `helps deliver faster responses by avoiding unnecessary re-processing of data`.
+
+- In short, `OutputCache saves and reuses the output to speed up your app`.
+
+- **`OutputCache`** is an `ASP.NET MVC feature` that `helps improve performance` by `storing a copy of a page's result`. `When you use it, instead` of reprocessing the page every time it's requested, the `stored result (cache)` is shown `for a specific amount of time`. This `reduces the load on the server and database`.
+
+- For example:
+  - **Duration**: How long to store the cache.
+  - **Location**: Where to store it (server, client, etc.).
+    - `Location` attribute is used on “`DisplayCustomers2`” action method to specify the cache copy should be created on the server because the default value is “Any” and in this case server decides where to store the cache copy, but when changed to Server then cache copy will be stored on the `Server Machine only`.
+  - **VaryByParam**: Store different versions based on parameter values.
+    - `VaryByParam` attribute is used on “`DisplayCustomers3`” action method to specify that there should be a `separate cache copy created for each parameter value` that is sent to the “City” attribute.
+    - `VaryByCustom` attribute is used on “`DisplayCustomers4`” action method to specify that there should be a `separate cache copy created for each type of browser` i.e., `1 copy for Edge` and `1 copy for IE`, etc.
 
 ---
 
-### Q.
+### Q. How does the `OutputCache` filter work with the `DisplayCustomers` action methods?
 
 ---
 
-- ***
+- **`DisplayCustomers1`** is not cached, so each time you refresh the view, the **processed time** displayed at the top will change, indicating the page is being processed again.
+
+- **`DisplayCustomers2`** is cached for **45 seconds** with the `Duration` property, which means that during this period, any request will display the cached result.
+- **`DisplayCustomers3`** uses the **`VaryByParam`** property, specifying a different cache copy based on the **`City`** parameter. For example:
+  - **`http://localhost/MVCFilters/Home/DisplayCustomers3?City=Bengaluru`**
+  - **`http://localhost/MVCFilters/Home/DisplayCustomers3?City=Chennai`**
+  - **`http://localhost/MVCFilters/Home/DisplayCustomers3?City=Delhi`**
+- **`DisplayCustomers4`** uses the **`VaryByCustom`** property, creating separate cache copies based on the browser type.
 
 ---
 
-### Q.
+### Q. How to use a cache profile from the `Web.config` file?
 
 ---
 
-- ***
+- In the **`Web.config`** file, under the **`<system.web>`** tag, add the following configuration:
+
+```xml
+<caching>
+  <outputCacheSettings>
+    <outputCacheProfiles>
+      <add name="MyCacheProfile" duration="45" />
+    </outputCacheProfiles>
+  </outputCacheSettings>
+</caching>
+```
+
+- Apply this cache profile to the **`DisplayCustomers5`** action method as follows:
+
+```csharp
+[OutputCache(CacheProfile = "MyCacheProfile")]
+public ViewResult DisplayCustomers5()
+{
+    return View(dc.Customers);
+}
+```
 
 ---
 
-### Q.
+### Q. Create views for test `ValidateInput` Filter?
 
 ---
 
-- ***
+1. Add a View to “`GetComments`” action method:
+
+```c#
+@using (Html.BeginForm())
+{
+    <div>
+        @Html.Label("Comments:")<br />
+        @Html.TextArea("txtComments")
+    </div>
+    <div>
+        <input type="submit" value="Submit" name="btnComment" />
+    </div>
+}
+```
+
+- Run the above view, enter `some input into the TextArea` and click on the “`Submit`” button which will `display` the `output on browser`. Whereas if we `try to enter` the `comments` with `any Html tags`, for example “`<b>Hello World</b>`” we `get an error` as following: “A potentially dangerous Request.Form value was detected from the client (txtComments="`<b>Hello</b>`").”.
+- Because by default “`ValidateInput`” filters value is “`true`” only which will `not allow` any `Html Elements`.
 
 ---
 
-### Q.
+### Q. What can we do for allow Html Elements as input?
 
 ---
 
-- ***
+- If we want to allow Html Elements as input then set the “ValidateInput” filter value as “false” for “GetComments” Post action method as following:
+
+```c#
+[HttpPost, ValidateInput(false)]
+public string GetComments(string txtComments){/*Your Code*/}
+```
 
 ---
 
-### Q.
+### Q. What is the problom without using `ValidateAntiForgeryToken` Filter and how to solve it using `ValidateAntiForgeryToken` filter?
 
 ---
 
-- ***
+- `AddEmployee.cshtml`
 
-265
+```c#
+@model MVCFilters.Models.Employee
+@using (Html.BeginForm())
+{
+    <div>@Html.LabelFor(E => E.Ename)<br />@Html.TextBoxFor(E => E.Ename)</div>
+    <div>@Html.LabelFor(E => E.Job)<br />@Html.TextBoxFor(E => E.Job)</div>
+    <div>@Html.LabelFor(E => E.Salary)<br />@Html.TextBoxFor(E => E.Salary)</div>
+    <div>@Html.LabelFor(E => E.Did)<br />@Html.TextBoxFor(E => E.Did)</div>
+    <div>
+        <input type="submit" value="Save" name="btnSave" />
+        <input type="reset" value="Reset" />
+    </div>
+}
+```
+
+**`Problem`**: If a user `copies the source code` of the `<form> tag`, `saves` it to a file in **`html`** formate like `AddEmployee.html`, and `changes` the `form action` to `http://localhost/MVCFilters/Home/AddEmployee`, they can `open this file using a physical path` and `add a new employee without restriction`, It's posible any one take the code and chage the action url and use it save bulk amout of data in database it geting problom.
+
+**`Solution`**: To prevent this, use the [ValidateAntiForgeryToken] attribute in the `AddEmployee` action method and include `@Html.AntiForgeryToken()` in the view.
+
+- Update the POST method for `AddEmployee` as follows:
+
+  ```c#
+  [HttpPost, ValidateAntiForgeryToken] //New line
+  public string AddEmployee(Employee Emp){/*Your Code*/}
+  ```
+
+- update the view for `AddEmployee` to include the `AntiForgeryToken`:
+  `AddEmployee.cshtml`
+  ```C#
+  @model MVCFilters.Models.Employee
+  @using (Html.BeginForm())
+  {
+      @Html.AntiForgeryToken() //New line
+      <div>@Html.LabelFor(E => E.Ename)<br />@Html.TextBoxFor(E => E.Ename)</div>
+      <div>@Html.LabelFor(E => E.Job)<br />@Html.TextBoxFor(E => E.Job)</div>
+      <div>@Html.LabelFor(E => E.Salary)<br />@Html.TextBoxFor(E => E.Salary)</div>
+      <div>@Html.LabelFor(E => E.Did)<br />@Html.TextBoxFor(E => E.Did)</div>
+      <div>
+          <input type="submit" value="Save" name="btnSave" />
+          <input type="reset" value="Reset" />
+      </div>
+  }
+  ```
+
+---
+
+### Q. What is the problom with when server error come & when come?
+
+---
+
+- Create a view `DivideNums.cshtml`:
+
+```c#
+@using (Html.BeginForm())
+{
+    <div>@Html.Label("Enter 1st Number: ")<br />@Html.TextBox("num1")</div>
+    <div>@Html.Label("Enter 2nd Number: ")<br />@Html.TextBox("num2")</div>
+    <div>
+        <input type="submit" value="Divide" name="btnDiv" />
+        <input type="reset" value="Reset" />
+    </div>
+}
+```
+
+If invalid inputs are entered in the DivideNums form, it means if user enter `zero, non-integer` values or values `beyond the size of an integer`, an `exception occurs`. This is `displayed` as a "**`Yellow screen of death`**" (`error details with code on the browser screen`).
+
+---
+
+### Q. How to handle error to stop showing the `Yellow screen of death`?
+
+---
+
+1. Add a view named `Error.cshtml` in the `Shared` folder:
+
+```html
+<h1
+  style="background-color:lightgoldenrodyellow;color:orangered;text-align:center;text-decoration:underline"
+>
+  Server Error Page
+</h1>
+<h3>
+  An error occurred while processing your request. Re-check your input or
+  contact customer support.
+</h3>
+```
+
+- This view run when any error come like page not found & etc.
+
+2. Go to the `Web.config` file and set `<customErrors mode="On" />` under the `<system.web>` tag.
+
+- Now if we get any `Internal Server Errors (Exceptions)` in “`DivideNums`” methods, it will automatically redirect to “`Error.cshtml`”.
+
+---
+
+### Q. How to handle method level error?
+
+---
+
+- Add a new action method in `HomeController`:
+
+```c#
+[HandleError]
+public ViewResult ShowView()
+{
+    return View();
+}
+```
+
+---
+
+### Q. How to handle client errors with appropriate HTTP status codes?
+
+---
+
+1. Create an `ErrorController` and define methods for handling various HTTP errors:
+
+```c#
+public class ErrorController : Controller
+{
+    public ActionResult BadRequest() { return View(); }
+    public ActionResult Unauthorized() { return View(); }
+    public ActionResult PaymentRequired() { return View(); }
+    public ActionResult Forbidden() { return View(); }
+    public ActionResult NotFound() { return View(); }
+}
+```
+
+2. Add a view named `NotFound.cshtml` under the `Shared` folder without a layout and write the following code:
+
+```c#
+<h1 style="background-color:lightgoldenrodyellow;color:orangered;text-align:center;text-decoration:underline">
+  Page Not Found
+</h1>
+<h3>The requested page is either not available, moved to a different location, or under maintenance.</h3>
+```
+
+- Add a view named `BadRequest.cshtml` under the `Shared` folder without a layout and write the following code:
+
+```c#
+<h1 style="background-color:lightgoldenrodyellow;color:orangered;text-align:center;text-decoration:underline">
+  Bad Request
+</h1>
+<h3>The requested page is either not available, moved to a different location, or under maintenance.</h3>
+```
+
+3. Update the `Web.config` file to handle client errors:
+
+```c#
+<customErrors mode="On">
+  <error statusCode="400" redirect="/Error/BadRequest"/>
+  <error statusCode="401" redirect="/Error/Unauthorized"/>
+  <error statusCode="402" redirect="/Error/PaymentRequired"/>
+  <error statusCode="403" redirect="/Error/Forbidden"/>
+  <error statusCode="404" redirect="/Error/NotFound"/>
+</customErrors>
+```
+
+---
+
+### Q. How to handle errors at the controller level using HandleError?
+
+---
+
+- Apply the `[HandleError]` attribute at the controller level instead of each action method. For example:
+  ```c#
+  [HandleError]
+  public class HomeController : Controller
+  {
+      // Action methods here will be covered by HandleError
+  }
+  ```
+
+---
+
+### Q. How to handle errors globally in the application?
+
+---
+
+1. Add a code file named `FilterConfig.cs` under the `App_Start` folder and write the following code:
+
+```c#
+using System.Web.Mvc;
+namespace MVCFilters
+{
+    public class FilterConfig
+    {
+        public static void RegisterGlobalFilters(GlobalFilterCollection filters)
+        {
+            filters.Add(new HandleErrorAttribute());
+        }
+    }
+}
+```
+
+2. Go to `Global.asax.cs` and write the following statement in the `Application_Start` method:
+
+```c#
+FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+```
+
+---
+
+### Q. What is Authentication?
+
+---
+
+- **Authentication** is the process of obtaining and validating user credentials (like **username** and **password**) against an authority. If credentials are valid, the user is considered **authenticated**.
+
+- **`Authentication`** is the process of obtaining identification `credentials` such as `username` (Id) and `password` from a user and validating those `credentials` against some `authority`. If the `credentials` are valid, the user that submitted the `credentials` is considered an `authenticated` user and once the user has been `authenticated`, the `authorization` process determines whether that user has access to a resource or not.
+
+---
+
+### Q. What is Authorization?
+
+---
+
+- **`Authorization`** occurs after authentication. It determines whether an `authenticated user` has permission to access a particular `resource` or `action`.
+
+---
+
+### Q. What types of Authentication does ASP.NET support?
+
+---
+
+- ASP.NET supports the following types of authentication:
+  - Anonymous Authentication
+  - Windows Authentication
+  - Forms Authentication
+  - Open Authentication (OAuth)
+
+---
+
+### Q. What is Anonymous Authentication?
+
+---
+
+- **Anonymous Authentication** allows users to access public areas of the application without providing a username or password. By default, the **IUSR** account (introduced in IIS 7.0) is used to allow anonymous access.
+
+---
+
+### Q. How to check and edit Anonymous Authentication settings in IIS?
+
+---
+
+This gives users access to the public areas of our `Application` without asking them for a `username` or `password`. By default, the “`IUSR`” account, which was introduced in `IIS 7.0`, is used to allow anonymous access. By default, `IIS` uses `Anonymous` authentication for every `Application`. To test this, open “`IIS Manager`” and in the `LHS` we find “`Connections Panel`” and under that we find the “`Server Name`” (which will be same as our computer name), expand it and under that we find a node “`Sites`”, expand it and under that we find a node “`Default Web Site`”, expand it and under that we find our project “`MVCFilters`” (because we hosted it in `IIS` from our `Visual Studio` by creating a `Virtual Directory`), select it and then in the `RHS` we find “`Authentication`” icon, click on it which display the various authentication modes available and under that we can see “`Anonymous Authentication`” is `enabled`. Right click on the “`Anonymous Authentication`” and select “Edit” which display the user account i.e., “`IUSR`” which is used for “`Anonymous Authentication`” as below:
+
+- ASP.NET supports the following types of authentication:
+  - Anonymous Authentication
+  - Windows Authentication
+  - Forms Authentication
+  - Open Authentication (OAuth)
+
+---
+
+### Q. What is Windows Authentication?
+
+---
+
+- **Windows Authentication** is used when an **IIS server** runs on a **corporate network** using **Microsoft Active Directory** or other Windows accounts to identify users. It is a secure form of authentication because it sends **hashed credentials** over the network.
+
+- We use `Windows authentication` when our “`IIS Server`” runs on a corporate network that is using `Microsoft Active Directory` service domain identities or other `Windows` accounts to identify users. `Windows Authentication` is a secure form of `Authentication` because the `username` and `password` are hashed before being sent across the network. When you enable `Windows Authentication`, the client browser sends a strongly hashed version of the password in a `cryptographic exchange` to the `Web Server`. This `Authentication` mode is best suitable for `Intranet Applications` only.
+
+---
+
+### Q. How does Windows Authentication work?
+
+---
+
+- When `Windows Authentication` is enabled, the client browser sends a strongly `hashed version of the password` in a `cryptographic exchange` to the web server. This authentication method is best suited for `intranet applications`.
+
+---
+
+### Q. Which authentication type is suitable for public websites and why?
+
+---
+
+- **Anonymous Authentication** is suitable for public websites since it provides **open access** without requiring user credentials. It allows users to view content without logging in.
+
+---
+
+### Q. Which authentication type is most suitable for intranet applications?
+
+---
+
+- **Windows Authentication** is the most suitable for intranet applications because it works securely with **Microsoft Active Directory** or **Windows accounts** on a **corporate network**.
+
+---
+
+### Q. What are the key advantages of using Windows Authentication?
+
+---
+
+- Key advantages of Windows Authentication include:
+  - **Security**: Credentials are securely hashed.
+  - **Integration**: Works seamlessly with **Active Directory**.
+  - **Convenience**: Suitable for **intranet applications** where users already have **Windows accounts**.
+
+---
+
+### Q. How to create a new ASP.NET project for implementing Windows Authentication?
+
+---
+
+1. Create a new **ASP.NET Web Application** project named **MVCAppWithWindowsAuth**.
+2. Choose **Empty Project Template** and select **MVC Checkbox**.
+3. Click on **Create** to create the project.
+4. Host the project under **IIS** by creating a **Virtual Directory**.
+
+- Run Visual Studio as an Administrator
+- Right-Click on Project > `Properties` > `Web` Tab left sidebar.
+- Change Server from `IIS Express` to `Local IIS` & `Create Virtual Directory`.
+- Build and Run Your Project.
+
+---
+
+### Q. How to configure IIS for Windows Authentication?
+
+---
+
+- Open `IIS Manager` and select your project `MVCAppWithWindowsAuth` under `Default Web Site`.
+- On the `right-hand side`, select `Authentication`.
+- By default, `Anonymous Authentication` is enabled. Right-click on it and select `Disable`.
+- Right-click on `Windows Authentication` and select `Enable`.
+
+---
+
+### Q. Create a HomeController, and add a view for the Index Action Method and also create ManagerController and StaffController with their action methods with view?
+
+---
+
+1. Add a **controller** named **HomeController**.
+2. Add an **Index** action method in **HomeController** using a layout.
+3. Write the **`Index.cshtml`** view:
+   `Index.cshtml`
+
+```C#
+@{
+    ViewBag.Title = "Site - Home Page";
+}
+<h2>Site Home Page</h2>
+<h3>
+    @Html.ActionLink("Manager Home Page", "Home", "Manager") <br />
+    @Html.ActionLink("Manager Help Page", "Help", "Manager") <br />
+    @Html.ActionLink("Staff Home Page", "Home", "Staff") <br />
+    @Html.ActionLink("Staff Help Page", "Help", "Staff")
+</h3>
+```
+
+4. Create two controllers named `ManagerController` and `StaffController`.
+
+- In `ManagerController`, add action methods as follows:
+
+```c#
+public class ManagerController : Controller
+{
+    public ActionResult Home()
+    {
+        return View();
+    }
+
+    public ActionResult Help()
+    {
+        return View();
+    }
+}
+```
+
+`Home.cshtml`
+
+```C#
+@{
+  ViewBag.Title = "Manager - Home Page";
+}
+<h2>Manager Home Page</h2>
+<h3>This page is accessible only to Managers.</h3>
+<h4>Current User: @HttpContext.Current.User.Identity.Name</h4>
+<br />
+Back to site @Html.ActionLink("home page", "Index", "Home")
+```
+
+`Help.cshtml`
+
+```C#
+@{
+  ViewBag.Title = "Manager - Help Page";
+}
+<h2>Manager Help Page</h2>
+<h3>This page is accessible to everyone.</h3>
+<h4>Current User: @HttpContext.Current.User.Identity.Name</h4><br />
+Back to site @Html.ActionLink("home page", "Index", "Home")
+
+```
+
+- In `StaffController`, add action methods as follows:
+
+```c#
+public class StaffController : Controller
+{
+    public ActionResult Home()
+    {
+        return View();
+    }
+
+    public ActionResult Help()
+    {
+        return View();
+    }
+}
+```
+
+`Home.cshtml`
+
+```C#
+@{
+  ViewBag.Title = "Staff - Home Page";
+}
+<h2>Staff Home Page</h2>
+<h3>This page is accessible only to Staff Members.</h3>
+<h4>Current User: @HttpContext.Current.User.Identity.Name</h4><br />
+Back to site @Html.ActionLink("home page", "Index", "Home")
+```
+
+`Help.cshtml`
+
+```C#
+@{
+  ViewBag.Title = "Staff - Help Page";
+}
+<h2>Staff Help Page</h2>
+<h3>This page is accessible to everyone.</h3>
+<h4>Current User: @HttpContext.Current.User.Identity.Name</h4><br />
+Back to site @Html.ActionLink("home page", "Index", "Home")
+```
+
+---
+
+### Q. How to restrict access to Manager and Staff Home Pages using the Authorize filter?
+
+---
+
+1. Create user accounts on your machine using **Computer Management** under **Local Users** and **Groups**.
+
+- Create accounts such as Manager1, Manager2, Staff1, Staff2, Staff3, Staff4, Staff5, Staff6.
+
+2. In `ManagerController`, restrict the Home action method as follows:
+
+```c#
+[Authorize(Users = "Server\\Manager1, Server\\Manager2")]
+public ActionResult Home()
+{
+    return View();
+}
+```
+
+3. In `StaffController`, restrict the Home action method as follows
+
+```c#
+[Authorize(Users = "Server\\Staff1, Server\\Staff2, Server\\Staff3, Server\\Staff4, Server\\Staff5, Staff6")]
+public ActionResult Home()
+{
+    return View();
+}
+```
+
+---
+
+### Q. How to apply the Authorize filter at the controller level?
+
+---
+
+1. Apply the `Authorize` filter to the **ManagerController class**:
+
+```csharp
+[Authorize(Users = "Server\\Manager1, Server\\Manager2")]
+public class ManagerController : Controller
+{
+}
+```
+
+2. Apply the `Authorize` filter to the **StaffController** class:
+
+```csharp
+[Authorize(Users = "Server\\Staff1, Server\\Staff2, Server\\Staff3, Server\\Staff4, Server\\Staff5, Server\\Staff6")]
+public class StaffController : Controller
+{
+}
+```
+
+---
+
+### Q. How to allow anonymous access to specific action methods?
+
+---
+
+- Use the `AllowAnonymous` attribute for action methods that should be accessible without authentication.
+
+```c#
+[AllowAnonymous]
+public ActionResult Help()
+{
+    return View();
+}
+```
+
+---
+
+### Q. What is Role-Based Authentication and why do we need it?
+
+---
+
+- `Role-Based Authentication` allows us to control access based on roles rather than specifying individual users. This is helpful when we have multiple users under the same role, like 5 Managers or 20 Staff Members, avoiding the need to list every user under the Authorize filter.
+
+---
+
+### Q. How to create user groups (roles) in Windows?
+
+---
+
+- Open `Computer Management` and expand `Local Users and Groups`.
+- Select `Groups`, and right-click to choose `New Group`.
+- In the `New Group window`, enter the group name, e.g., `ManagerGroup`.
+- Click on `Add`, enter the username in the textbox (e.g., `Manager1`), and click `Check Names` to confirm.
+- Repeat the process to add `Manager2` to `ManagerGroup`.
+- Create another group called `StaffGroup` and add all 6 staff members to it.
+
+---
+
+### Q. How to apply role-based authorization in the controllers?
+
+---
+
+- Replace the `Users` property in the `Authorize` filter with the `Roles` property and specify the group name.
+
+  ```c#
+  [Authorize(Roles = "ManagerGroup")]
+  public class ManagerController : Controller  {  }
+
+  [Authorize(Roles = "StaffGroup")]
+  public class StaffController : Controller{  }
+  ```
+
+---
+
+### Q. What are custom filters in ASP.NET MVC?
+
+---
+
+- Custom Filters allow developers to inject custom logic at different stages of request processing. Filters can be used for activities like logging, handling errors, or implementing custom security logic.
+
+- We are provided with various filters in MVC which we have used above and apart from that we can also create our own filters to implement logic at various levels and we call them as “Custom Filters”.
+
+---
+
+### Q. What are the types of filters and their execution sequence?
+
+---
+
+1. **`Authentication Filter`**: Runs first to authenticate the user.
+
+- The Authentication filter runs before any other filter or action method.
+
+2. **`Authorization Filter`**: Runs after the authentication filter to authorize the user.
+
+- The Authorization filter runs after the Authentication filter and before any other filter or action method.
+
+3. **`Action Filter`**: Runs before and after an action method.
+4. **`Result Filter`**: Runs before and after an action result execution.
+5. **`Exception Filter`**: Runs if any exception occurs in filters, action methods, or results.
+
+- The Exception filter runs only if filters or action methods or action results throw an exception.
+
+---
+
+### Q. How to create a custom filter in ASP.NET MVC?
+
+---
+
+To create a custom filter, follow these steps:
+
+1. **Define a class inheriting from `FilterAttribute`**:
+
+```csharp
+public class CustomLogFilter : FilterAttribute, IActionFilter
+{
+}
+```
+
+2. **Override methods of the chosen filter interface**:
+
+```csharp
+public class CustomLogFilter : FilterAttribute, IActionFilter
+{
+    public void OnActionExecuting(ActionExecutingContext filterContext)
+    {
+        // Logic before action executes (logging, validation, etc.)
+    }
+
+    public void OnActionExecuted(ActionExecutedContext filterContext)
+    {
+        // Logic after action executes (logging, tracking, etc.)
+    }
+}
+```
+
+3. **Apply the custom filter to controllers or action methods**:
+
+```csharp
+[CustomLogFilter]
+public class HomeController : Controller
+{
+    public ActionResult Index()
+    {
+        return View();
+    }
+}
+```
+
+---
+
+### Q. How to implement different filter interfaces based on requirements?
+
+---
+
+- If implementing an `Authentication Filter`, use the `IAuthenticationFilter` interface.
+- If implementing an Authorization Filter, use the `IAuthorizationFilter` interface.
+- Similarly, for action-level logic, use the `IActionFilter` interface, and for exception handling, use `IExceptionFilter`.
+
+---
+
+### Q. How do we start implementing Forms Authentication in an ASP.NET MVC project?
+
+---
+
+- Create a new ASP.NET Web Application project named "`MVCAppWithFormsAuth`". Select `Empty Project Template` and check `MVC`. Then, host the project on IIS by creating a Virtual Directory.
+
+---
+
+---
+
+### Q. How do we create the HomeController?
+
+---
+
+- Add a `HomeController` in the `Controllers` folder. Then, add a view to the `Index` action method with the following code:
+
+  ```html
+  <h1 style="background-color:red;color:yellow;text-align:center">Home Page</h1>
+  <h4>This is Home Page of the site.</h4>
+  ```
+
+---
+
+### Q. How do we create the Users table?
+
+---
+
+- Create the Users table in the `MVCDB` database with this schema:
+
+  ```c#
+  Create Table Users (
+    UserId Varchar(20) Primary Key,
+    Name Varchar(50),
+    Password Varchar(16),
+    Email Varchar(50),
+    Mobile Varchar(10),
+    Status Bit Not Null Default 1
+  )
+  ```
+
+---
+
+### Q. How do we add ADO.NET Entity Data Model?
+
+---
+
+Add an `ADO.NET Entity Data Model` (DB First) in the `Models` folder and name it `TestEF`. Choose `EF Designer from database` and select the `Users` table. This will generate necessary classes, and the model class representing `Users` will be named `User`.
+
+---
+
+### Q. How do we design the Register and Login forms?
+
+---
+
+Add two classes in the **Models** folder named **RegisterModel.cs** and **LoginModel.cs**. Write the following code:
+`RegisterModel.cs`:
+
+```c#
+using System.ComponentModel.DataAnnotations;
+public class RegisterModel
+{
+  [Display(Name = "User Id")]
+  [Required(ErrorMessage = "Can't leave the field empty.")]
+  [RegularExpression("[A-Za-z0-9]{6,20}", ErrorMessage = "User Id value is invalid.")]
+  public string UserId { get; set; }
+
+  [Required(ErrorMessage = "Can't leave the field empty.")]
+  [RegularExpression("[A-Za-z\\s]{3,50}", ErrorMessage = "Name value is invalid.")]
+  public string Name { get; set; }
+
+  [DataType(DataType.Password)]
+  [Required(ErrorMessage = "Can't leave the field empty.")]
+  [RegularExpression("[A-Z]{1}[a-z0-9@#$%_-]{7,15}", ErrorMessage = "Password is invalid.")]
+  public string Password { get; set; }
+
+  [Display(Name = "Confirm Password")]
+  [DataType(DataType.Password)]
+  [Compare("Password")]
+  public string ConfirmPassword { get; set; }
+
+  [Required(ErrorMessage = "Can't leave the field empty.")]
+  [DataType(DataType.EmailAddress)]
+  public string Email { get; set; }
+
+  [Required(ErrorMessage = "Can't leave the field empty.")]
+  [RegularExpression("[6-9]\\d{9}", ErrorMessage = "Phone is invalid.")]
+  public string Mobile { get; set; }
+}
+```
+
+`LoginModel.cs`
+
+```c#
+using System.ComponentModel.DataAnnotations;
+public class LoginModel
+{
+  [Display(Name = "User Id")]
+  [Required(ErrorMessage = "Can't leave the field empty.")]
+  [RegularExpression("[A-Za-z0-9]{6,20}", ErrorMessage = "User Id value is invalid.")]
+  public string UserId { get; set; }
+
+  [DataType(DataType.Password)]
+  [Required(ErrorMessage = "Can't leave the field empty.")]
+  [RegularExpression("[A-Z]{1}[a-z0-9@#$%_-]{7,16}", ErrorMessage = "Password is invalid.")]
+  public string Password { get; set; }
+}
+```
+
+---
+
+### Q. How do we create the AccountController?
+
+---
+
+Create an AccountController in the Controllers folder and write the following code:
+
+```c#
+using MVCAppWithFormsAuth.Models;
+public class AccountController : Controller
+{
+  MVCDBEntities dc = new MVCDBEntities();
+
+  public ViewResult Register()
+  {
+    return View();
+  }
+
+  [HttpPost, ValidateAntiForgeryToken]
+  public ActionResult Register(RegisterModel model)
+  {
+    if (!ModelState.IsValid)
+    {
+      return View(model);
+    }
+    else
+    {
+      User user = new User
+      {
+        UserId = model.UserId,
+        Name = model.Name,
+        Password = model.Password,
+        Email = model.Email,
+        Mobile = model.Mobile,
+        Status = true
+      };
+      dc.Users.Add(user);
+      dc.SaveChanges();
+      return RedirectToAction("Login");
+    }
+  }
+
+  public ViewResult Login()
+  {
+    return View();
+  }
+
+  [HttpPost, ValidateAntiForgeryToken]
+  public ActionResult Login(LoginModel model)
+  {
+    if (!ModelState.IsValid)
+    {
+      return View(model);
+    }
+    else
+    {
+      var user = from u in dc.Users
+                 where u.UserId == model.UserId && u.Password == model.Password && u.Status == true
+                 select u;
+
+      if (user.Count() == 0)
+      {
+        ModelState.AddModelError("", "Invalid Credentials");
+        return View(model);
+      }
+      else
+      {
+        Session["UserKey"] = Guid.NewGuid();
+        return RedirectToAction("Index", "Home");
+      }
+    }
+  }
+}
+```
+
+---
+
+### Q. How do we create the Register and Login views?
+
+---
+
+Add views for Register and Login action methods. For each view:
+
+- Choose Create under the Template: dropdown.
+- Choose the corresponding model class, i.e., RegisterModel or LoginModel.
+- Uncheck all checkboxes and click on Add.
+
+---
+
+### Q. What scripts and libraries are needed?
+
+---
+
+Install `Bootstrap, jQuery, jQuery.Validation`, and `Microsoft.jQuery.Unobtrusive.Validation` via NuGet Package Manager. Drag and drop the following files into the `<head>` section of `Register.cshtml` and `Login.cshtml`:
+
+- jquery-3.7.0.min.js
+- jquery.validate.min.js
+- jquery.validate.unobtrusive.min.js
+- bootstrap.min.css
+
+---
+
+### Q. How do we create a custom authentication filter?
+
+---
+
+Add a folder named `Filters`. In it, add a class `AuthenticateFilter.cs` with this code:
+
+```c#
+using System.Web.Mvc;
+using System.Web.Mvc.Filters;
+
+public class AuthenticateFilter : FilterAttribute, IAuthenticationFilter
+{
+  public void OnAuthentication(AuthenticationContext filterContext)
+  {
+    if (string.IsNullOrEmpty(Convert.ToString(filterContext.HttpContext.Session["UserKey"])))
+    {
+      filterContext.Result = new HttpUnauthorizedResult();
+    }
+  }
+
+  public void OnAuthenticationChallenge(AuthenticationChallengeContext filterContext)
+  {
+    if (filterContext.Result == null || filterContext.Result is HttpUnauthorizedResult)
+    {
+      filterContext.Result = new RedirectResult("~/Account/Login");
+    }
+  }
+}
+```
+
+---
+
+### Q. How do we apply the custom authentication filter?
+
+---
+
+In `HomeController.cs`, import `MVCAppWithFormsAuth.Filters` and apply the filter as follows:
+
+```c#
+[AuthenticateFilter]
+public class HomeController : Controller
+{
+  // Existing code
+}
+```
+
+---
+
+### Q. How can we apply this behavior to other controllers?
+
+---
+
+To apply authentication across the project, add the `AuthenticateFilter` attribute to all controller classes, except the `AccountController`.
+
+---
+
+### Q: How do we handle user sessions after logging in?
+
+---
+
+Upon successful login, a unique **UserKey** is generated and stored in the session:
+
+```csharp
+Session["UserKey"] = Guid.NewGuid();
+```
+
+This key is checked in the **AuthenticateFilter** to determine if the user is logged in.
+
+---
+
+### Q: What should be done if the user wants to log out?
+
+---
+
+To implement a logout functionality:
+
+1. **Add a Logout Action Method:** In the **AccountController**, add a method to clear the session and redirect to the login page.
+   ```csharp
+   public ActionResult Logout()
+   {
+       Session.Clear();
+       return RedirectToAction("Login");
+   }
+   ```
+2. Create a Logout Link: Add a logout link in the Layout or Index View that points to the Logout action method.
+
+---
 
 ## **`Ajax and JQuery`**
 
@@ -3498,7 +14491,7 @@ ASP.NET Web API is a framework built to simplify the creation of RESTful service
 
   - Why Only Use It with string, why Not Use [FromBody] for int id?: In that case, `[FromBody]` string is used because the POST and PUT requests expect the data (new or updated color value) to be sent in the body of the request, typically in formats like JSON, XML, etc. For the id parameter, you're not using [FromBody] because it's typically part of the URL (e.g., api/colors/1). By default, Web API looks for parameters in the URL, so you don't need to explicitly specify [FromBody] for int id.
 
-  ***
+---
 
 ### Q. When we use [FromBody]?
 
@@ -9788,7 +20781,9 @@ public IActionResult ClientErrorHandler(int StatusCode) {
 
 ---
 
-## The application will redirect to the `ErrorController` and invoke the `ClientErrorHandler` method, which then loads the `ClientErrorView`. The URL in the browser will change to `/ClientError/404` (or any relevant status code).
+The application will redirect to the `ErrorController` and invoke the `ClientErrorHandler` method, which then loads the `ClientErrorView`. The URL in the browser will change to `/ClientError/404` (or any relevant status code).
+
+---
 
 ### Q. What is the drawback of `UseStatusCodePagesWithRedirects`?
 
@@ -11190,9 +22185,9 @@ To register the application with Facebook:
 5. Now click on `Facebook Login` in `LHS` and under that `choose Settings`, now on the `RHS` select the option to configure the client `OAuth Login`, if is already selected `Yes`, so leave the same and under `Valid OAuth Redirect URL’s` enter the `URL` as “`YourSiteURL/signin-facebook`” and click on `Save Changes` Button.
 6. Now in the `LHS` on the top we find `App Settings` option, expand it and under it choose `Basic` which will display “`App Id`” and “`App Secret`” in `RHS`, copy and save because we need to use them in our application.
 
-App Id: `562070513022931`
+App Id: `1342369543407251`
 
-App Secret: `014489c5ca9828af036a911612839342`
+App Secret: `5ead694eb4b17369eaf7a3d0551d0c08`
 
 ---
 
@@ -11419,12 +22414,11 @@ public async Task<IActionResult> CallBack(string returnUrl)
 
 1. **AspNetUserLogins**:
 
-
-    - Stores mappings between users and their external login providers (e.g., Google, Facebook).
-    - **Contains**:
-      - `LoginProvider`: The name of the external provider (e.g., Google).
-      - `ProviderKey`: The provider's unique identifier for the user.
-      - `UserId`: The user’s ID in AspNetUsers.
+   - Stores mappings between users and their external login providers (e.g., Google, Facebook).
+   - **Contains**:
+     - `LoginProvider`: The name of the external provider (e.g., Google).
+     - `ProviderKey`: The provider's unique identifier for the user.
+     - `UserId`: The user’s ID in AspNetUsers.
 
 2. **AspNetUsers**:
 
@@ -11446,372 +22440,2153 @@ Url.Action("CallBack", "Account", new { ReturnUrl = returnUrl });
 
 ---
 
-366
+### Q. What is Entity Framework Core DB First, and how does it differ from EF 6?
 
-### Q.
-
 ---
 
----
+This was available in Entity Framework Core also but with a very limited support.
 
-### Q.
+In EF Core we don’t have any designer support for creating DB First project just like what we have in EF 6. So here we need to use Scaffolding commands to generate Model and Context classes.
 
 ---
+
+### Q. How do you create a new project for DB First in EF Core?
 
 ---
 
-### Q.
+1. Create a new ASP.NET Core Web App (Model-View-Controller) project.
+2. Name the project, e.g., MVCCoreDBF.
+3. Choose .NET 8.0 (Long Term Support).
+4. Select the checkbox for Configure for HTTPS.
+5. Select the checkbox for Do not use top-level statements.
+6. Click the Create button.
 
----
+**Summary**: To work with DB First, create a new “ASP.NET Core Web App (Model-View-Controller)” Project, naming it as “MVCCoreDBF”, choose “.NET 8.0 (Long Term Support)”, Select the Checkbox “Configure for HTTPS”, Select the Checkbox “Do not use top-level statements” and click on “Create” button.
 
 ---
 
-### Q.
+### Q. How do you generate the model and context classes using scaffolding in EF Core?
 
 ---
 
----
+1. Open **NuGet Package Manager** and install:
 
-### Q.
+   - `Microsoft.EntityFrameworkCore.SqlServer`
+   - `Microsoft.EntityFrameworkCore.Tools`
 
----
+2. Open **Package Manager Console (PMC)** and run the following command:
 
----
+```c#
+PM> Scaffold-DbContext "Data Source=DESKTOP-HOOMVQE\MSSQLSERVER02; Initial Catalog=MVCDB; User Id=mk; Password=123; TrustServerCertificate=True" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Tables Student
+```
 
-### Q.
+This command generates the Student model and MVCDBContext context classes.
 
 ---
 
+### Q. What if you don’t specify the -Tables option in the scaffold command?
+
 ---
 
-### Q.
+If you omit the -Tables option, EF Core will generate models for all tables in the database.
 
 ---
+
+### Q. Can you give me example of model class which is represent the database table when you run the "Scaffold-DbContext" Command?
 
 ---
 
-### Q.
+```c#
+public partial class Student
+{
+    public int Sid { get; set; }
+    public string Name { get; set; }
+    public int? Class { get; set; }
+    public decimal? Fees { get; set; }
+    public string Photo { get; set; }
+    public bool? Status { get; set; }
+}
+```
 
 ---
 
+### Q. What is the purpose of the `<DataBaseName>Context` class whic is created when you run the "Scaffold-DbContext" Command?
+
 ---
 
-### Q.
+`<DataBaseName>Context` is the DbContext class responsible for managing the database connection and interacting with the Student table. It includes configurations for the table and its fields.
 
----
+Example: `MvcdbContext.cs`
 
 ---
 
-### Q.
+### Q. Which package is use to enable Razor runtime compilation in an ASP.NET Core project?
 
 ---
 
----
+To enable Razor runtime compilation in an ASP.NET Core project, you need to install the `Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation` NuGet package.
 
-### Q.
+1. **Install the NuGet Package Manager Console**: `Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation`.
 
----
+2. **Enable Razor Runtime Compilation in `Program.cs`**
 
----
+- After installing the package, you need to configure the runtime compilation in the `Program.cs` file (for ASP.NET Core 6.0 and above).
 
-### Q.
+- In the `Program.cs` file, modify the `AddControllersWithViews` call to include **Razor runtime compilation** as follows:
 
----
+```c#
+builder.Services.AddControllersWithViews()
+  .AddRazorRuntimeCompilation();
+```
+
+3. Rebuild the Project
 
 ---
 
-### Q.
+### Q. How do you create a Controller and Views using scaffolding in an MVC project?
 
 ---
 
+1. Right-click the **Controllers** folder.
+2. Select **Add > Controller**.
+3. Choose **MVC Controller with views, using Entity Framework**.
+4. Select the **Model class as `Student`**.
+5. Select the **Data context class as `MVCDBContext (MVCCoreDBF.Models)`**.
+6. Click **Add** to generate the controller and views.
+
 ---
 
-### Q.
+### Q. How do you register `<DatabaseName>Context` (i.e:`MVCDBContext`) in the Program class?
 
 ---
 
----
+In ASP.NET Core 6.0 and above, add the following statement in the `Program` class before the line var `app = builder.Build();`:
 
-### Q.
+Syntax:
 
----
+```bash
+builder.Services.AddDbContext<DatabaseNameContext>();
+```
 
+```c#
+//Example:
+builder.Services.AddDbContext<MVCDBContext>();
+```
+
 ---
 
-### Q.
+### Q. How do you handle image uploads for the Photo field in Views like Create, Edit, and Display?
 
 ---
 
----
+1. Create an `images` folder under `wwwroot`.
+2. Copy image files of students into this folder.
+3. Update the following views to handle image upload and display:
 
-### Q.
+- **Index View**: Use `<img>` tag to display images.
+  Go to “`Index.cshtml`” and replace the code of Photo property with new code as following:
 
----
+  - Add `enctype="multipart/form-data"` in form tag.
 
----
+  ```html
+  <!-- Old Code: -->
+  @Html.DisplayFor(modelItem => item.Photo)
+  <!-- New Code: -->
+  <img src="/images/@item.Photo" width="30" height="30" alt="No Image" />
+  ```
 
-### Q.
+- **Details View**: Display image using `<img>` tag with larger size.
+  Go to “`Details.cshtml`” and replace the code of Photo property with new code as following:
+  ```html
+  <!-- Old Code:  -->
+  @Html.DisplayFor(model => model.Photo)
+  <!-- New Code:  -->
+  <img src="/Images/@Model.Photo" width="200" height="200" alt="No Image" />
+  ```
+- **Create View**: Use an `<input type="file">` for file upload.
+  Go to “`Create.cshtml`” and replace the code of Photo property with new code as following:
 
----
+  - Add `enctype="multipart/form-data"` in form tag.
 
----
+  ```html
+  <!-- Old Code:  -->
+  <input asp-for="Photo" class="form-control" />
+  <!-- New Code:  -->
+  <input type="file" name="selectedFile" />
+  ```
 
-### Q.
+- **Edit View**: Use `<img>` tag for existing images and an `<input type="file">` for updating the image.
+  Go to “`Edit.cshtml`” and replace the code of Photo property with new code as following:
 
----
+  - Add `enctype="multipart/form-data"` in form tag.
 
----
+  ```html
+  <!-- Old Code:  -->
+  <input asp-for="Photo" class="form-control" />
+  <!-- New Code:  -->
+  <img src="/images/@Model.Photo" width="100" height="100" alt="No Image" />
 
-### Q.
+  <input type="file" name="selectedFile" />
+  ```
 
----
+  **Note**: in “`Create.cshtml`” and “`Edit.cshtml`”, add “`enctype`” attribute to “`<form>`” tag which should look as below:
 
----
+  ```html
+  <!-- Old Code:  -->
+  @Html.DisplayFor(model => model.Photo)
+  <!-- New Code:  -->
+  <img src="/images/@Model.Photo" width="100" height="100" alt="No Image" />
+  ```
 
-### Q.
+8. Ensure `Create.cshtml` and `Edit.cshtml` forms include the `enctype="multipart/form-data"` attribute for file uploads.
 
 ---
 
+### Q. How to target the folder path(like:`images` folder in `wwwroot`) in Core by using C#?
+
 ---
 
-### Q.
+To target the folder path we need to create property and type is `IWebHostEnvironment` and inslize it.
 
----
+**Example**:
 
----
+```c#
+public class StudentsController : Controller
+{
+  //Declare:
+  private readonly IWebHostEnvironment _environment;
 
-### Q.
+  public StudentsController(IWebHostEnvironment environment)
+  {
+      _environment = environment;//Inslize
+  }
 
----
+  public IActionResult Create(IFormFile selectedFile)
+  {
+    if(selectedFile != null)
+    {
+      //Consume
+      string FolderPath = _environment.WebRootPath + "\\images";
+    }
+  }
+}
+```
 
 ---
 
-### Q.
+### Q. How to create `Directory`?
 
 ---
 
----
+```c#
+public class StudentsController : Controller
+{
+  //Declare:
+  private readonly IWebHostEnvironment _environment;
 
-### Q.
+  public StudentsController(IWebHostEnvironment environment)
+  {
+      _environment = environment;//Inslize
+  }
 
----
+  public IActionResult Create(IFormFile selectedFile)
+  {
+    if(selectedFile != null)
+    {
+      //Consume
+      string FolderPath = _environment.WebRootPath + "\\images";
 
+      //Cheak Folder is exist or not
+      if (!Directory.Exists(FolderPath))
+      {
+        Directory.CreateDirectory(FolderPath);
+      }
+    }
+  }
+}
+```
+
 ---
 
-### Q.
+### Q. How to `map` folder path with file name, creates a new file and uploaded/Save file in project?
 
 ---
 
----
+```c#
+public class StudentsController : Controller
+{
+  //Declare:
+  private readonly IWebHostEnvironment _environment;
 
-### Q.
+  public StudentsController(IWebHostEnvironment environment)
+  {
+      _environment = environment;//Inslize
+  }
 
----
+  public IActionResult Create(IFormFile selectedFile)
+  {
+    if(selectedFile != null)
+    {
+      //Consume
+      string FolderPath = _environment.WebRootPath + "\\images";
 
----
+      //Map the folder and file
+      string FilePath = FolderPath + "\\" + selectedFile.Name;
 
-### Q.
+      //Creates a new file at the location specified by FilePath
+      FileStream fs = new FileStream(FilePath, FileMode.Create);
 
----
+      //Uploaded file to the server's file system
+      selectedFile.CopyTo(fs);
+    }
+  }
+}
+```
 
----
+- This code creates the full path to save the uploaded file. It combines the folder path (FolderPath) where files will be stored and the name of the uploaded file (selectedFile.FileName), separating them with a backslash (\), which is the directory separator in Windows.
+  `string FilePath = FolderPath + "\\" + selectedFile.FileName;`
 
-### Q.
+  So, it results in something like:`...\Images\uploadedFile.jpg`
 
----
+- This creates a new file at the location specified by FilePath. If the file already exists, it will be overwritten. The FileMode.Create ensures that the file is created if it doesn't exist or replaced if it does. The FileStream (fs) object is used to write the file's content later.
+  `FileStream fs = new FileStream(FilePath, FileMode.Create);`
 
+- This copies the content of the selectedFile (the file uploaded by the user) to the fs (FileStream) object, which writes it to the specified location on the server. In short, it saves the uploaded file to the server's file system.
+  `selectedFile.CopyTo(fs);`
+
 ---
 
-### Q.
+### Q. How do you handle image processing in Controller (i.e:`StudentsController`)?
 
 ---
 
----
+1. Inject `IWebHostEnvironment` into the controller to **`manage file paths`**.
 
-### Q.
+```c#
+private readonly IWebHostEnvironment _environment;
+public StudentsController(MVCDBContext context, IWebHostEnvironment environment) {
+    _context = context;
+    _environment = environment;
+}
+```
 
----
+2. **For Create**:
 
----
+- Check if a file is uploaded and save it to the `images` folder.
+- Set the `student.Photo` property to the uploaded file's name.
 
-### Q.
+**Example**:
 
----
+```c#
+public async Task<IActionResult> Create([Bind("Sid,Name,Class,Fees,Photo,Status")] Student student,
+IFormFile selectedFile)
+{
+  if (ModelState.IsValid)
+  {
+    if (selectedFile != null)
+    {
+      string FolderPath = _environment.WebRootPath + "\\images";
 
----
+      if (!Directory.Exists(FolderPath))
+      {
+        Directory.CreateDirectory(FolderPath);
+      }
 
-### Q.
+      string FilePath = FolderPath + "\\" + selectedFile.FileName;
+      FileStream fs = new FileStream(FilePath, FileMode.Create);
+      selectedFile.CopyTo(fs);
+      student.Photo = selectedFile.FileName;
+    }
 
----
+    student.Status = true;
+    _context.Add(student);
+    await _context.SaveChangesAsync();
 
----
+    return RedirectToAction(nameof(Index));
+  }
+  return View(student);
+}
+```
 
-### Q.
+3. **For Edit**:
 
----
+- If a new image is uploaded, replace the existing one.
+- If no new image is uploaded, keep the old image using `TempData`.
 
----
+**Example**:
 
-### Q.
+```c#
+public async Task<IActionResult> Edit(int id, [Bind("Sid,Name,Class,Fees,Photo,Status")] Student student,
+IFormFile selectedFile)
+{
+  if (id != student.Sid)
+  {
+      return NotFound();
+  }
+  if (ModelState.IsValid || (ModelState.ErrorCount == 1 && ModelState["selectedFile"].ValidationState == ModelValidationState.Invalid))
+  {
+      try
+      {
+          if (selectedFile != null)
+          {
+              string FolderPath = Path.Combine(_environment.WebRootPath, "images");
+              if (!Directory.Exists(FolderPath))
+              {
+                  Directory.CreateDirectory(FolderPath);
+              }
+              string ImagePath = Path.Combine(FolderPath, selectedFile.FileName);
+              FileStream fs = new FileStream(ImagePath, FileMode.Create);
+              selectedFile.CopyTo(fs);
+              student.Photo = selectedFile.FileName;
+          }
+          else if (TempData["Photo"] != null)
+          {
+              student.Photo = TempData["Photo"].ToString();
+          }
+          _context.Update(student);
+          await _context.SaveChangesAsync();
+      }
+      catch (DbUpdateConcurrencyException)
+      {
+          if (!StudentExists(student.Sid))
+          {
+              return NotFound();
+          }
+          else
+          {
+              throw;
+          }
+      }
+      return RedirectToAction(nameof(Index));
+  }
+  return View(student);
+}
 
----
+// GET: Students/Delete/5
+public async Task<IActionResult> Delete(int? id)
+{
+  if (id == null)
+  {
+      return NotFound();
+  }
 
+  var student = await _context.Students.FirstOrDefaultAsync(m => m.Sid == id);
+  if (student == null)
+  {
+      return NotFound();
+  }
+  return View(student);
+}
+```
+
 ---
 
-### Q.
+### Q. What other changes are required in the `Edit` and `Delete` methods?
 
 ---
 
+- In the **Edit** method, handle both new image uploads and existing images using `TempData` to store the old image.
+- In the **Delete** method, ensure the image is properly displayed before confirming deletion.
+
 ---
 
-### Q.
+### Q. What namespaces are needed for handling file uploads in the controller?
 
 ---
 
----
+Ensure you import these namespaces:
 
-### Q.
+```c#
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
+```
 
 ---
 
----
+## **`Web API Core`**
 
-### Q.
+### Q. Which project name is select for creating Web API Core?
 
 ---
 
+ASP.NET Core Web API
+
 ---
 
-### Q.
+### Q. How to create `ASP.NET Core Web API`?
 
 ---
+
+Create a new project of type “`ASP.NET Core Web API`”, name the project as `CoreWebApiService`, choose Target Framework as “`.NET 8.0 (Long-Term support)`” and check these Checkbox’s “`Configure for HTTPS`”, “`Use controllers (uncheck to use minimal APIs)`”, “`Enable Open API Support(No need to test the api on Post man directly test on same web server using Swagger)`” and “`Do not use top-level statements`”.
 
 ---
 
-### Q.
+### Q. How to create an API Service that uses XML as Data Source?
 
 ---
 
----
+1. add an XML File in the project naming it as “`Customer.xml`” and write the below code in it:
 
-### Q.
+```xml
+<Customers>
+  <Customer>
+    <Custid>101</Custid>
+    <Name>Scott</Name>
+    <Balance>25000</Balance>
+    <City>Hyderabad</City>
+    <Status>True</Status>
+  </Customer>
+  <Customer>
+    <Custid>102</Custid>
+    <Name>Smith</Name>
+    <Balance>35000</Balance>
+    <City>Kolkata</City>
+    <Status>True</Status>
+  </Customer>
+  <Customer>
+    <Custid>103</Custid>
+    <Name>David</Name>
+    <Balance>45000</Balance>
+    <City>Bengaluru</City>
+    <Status>True</Status>
+  </Customer>
+  <Customer>
+    <Custid>104</Custid>
+    <Name>Sofia</Name>
+    <Balance>55000</Balance>
+    <City>Mumbai</City>
+    <Status>True</Status>
+  </Customer>
+</Customers>
+```
 
----
+2. Add a new folder under the project naming it as “`Models`” and then under the folder add a `class` naming it as “`Customer`” and write the below code in it:
 
----
+```c#
+public class Customer
+{
+  public int Custid { get; set; }
+  public string Name { get; set; }
+  public decimal? Balance { get; set; }
+  public string City { get; set; }
+  public bool Status { get; set; }
+}
+```
 
-### Q.
+3. Add an `interface` in the `Models` folder naming it as “`ICustomerDAL`” so that `DAL Class` implementation can use `Dependency Injection Pattern`, and write the below code in the `interface`. This is for in future we can use diffrent type of DataSource.
 
----
+```c#
+public interface ICustomerDAL
+{
+	List<Customer> Customers_Select();
+	Customer Customer_Select(int Custid);
+	void Customer_Insert(Customer customer);
+	void Customer_Update(Customer customer);
+	void Customer_Delete(int Custid);
+}
+```
 
----
+4. Add a class in the Models folder naming it as “`CustomerXmlDAL`”, and right now we are `implementing the DAL class logic` to work with `XML Data Source`, and to do that write the below code in the class:
 
-### Q.
+```c#
+using System.Data;
+public class CustomerXmlDAL : ICustomerDAL
+{
+  DataSet ds;
 
----
+  public CustomerXmlDAL()
+  {
+    ds = new DataSet();
+    ds.ReadXml("Customer.xml");
+    ds.Tables[0].PrimaryKey = new DataColumn[] { ds.Tables[0].Columns ["Custid"] };
+  }
+
+  public List<Customer> Customers_Select()
+  {
+    List<Customer> Customers = new List<Customer>();
+    foreach (DataRow dr in ds.Tables[0].Rows)
+    {
+      Customer obj = new Customer
+      {
+        Custid = Convert.ToInt32(dr["Custid"]),
+        Name = (string)dr["Name"],
+        Balance = Convert.ToDecimal(dr["Balance"]),
+        City = (string)dr["City"],
+        Status = Convert.ToBoolean(dr["Status"])
+      };
+      Customers.Add(obj);
+    }
+    return Customers;
+  }
+
+  public Customer Customer_Select(int Custid)
+  {
+    DataRow dr = ds.Tables[0].Rows.Find(Custid);
+    if (dr != null)
+    {
+      Customer obj = new Customer
+      {
+        Custid = Convert.ToInt32(dr["Custid"]),
+        Name = (string)dr["Name"],
+        Balance = Convert.ToDecimal(dr["Balance"]),
+        City = (string)dr["City"],
+        Status = Convert.ToBoolean(dr["Status"])
+      };
+      return obj;
+    }
+    return null;
+  }
+
+  public void Customer_Insert(Customer customer)
+  {
+    DataRow dr = ds.Tables[0].NewRow();
+    dr[0] = customer.Custid;
+    dr[1] = customer.Name;
+    dr[2] = customer.Balance;
+    dr[3] = customer.City;
+    dr[4] = customer.Status;
+    ds.Tables[0].Rows.Add(dr);
+    ds.WriteXml("Customer.xml");
+  }
+
+  public void Customer_Update(Customer customer)
+  {
+    DataRow dr = ds.Tables[0].Rows.Find(customer.Custid);
+    int Index = ds.Tables[0].Rows.IndexOf(dr);
+    ds.Tables[0].Rows[Index]["Name"] = customer.Name;
+    ds.Tables[0].Rows[Index]["Balance"] = customer.Balance;
+    ds.Tables[0].Rows[Index]["City"] = customer.City;
+    ds.Tables[0].Rows[Index]["Status"] = customer.Status;
+    ds.WriteXml("Customer.xml");
+  }
+
+  public void Customer_Delete(int Custid)
+  {
+    DataRow dr = ds.Tables[0].Rows.Find(Custid);
+    int Index = ds.Tables[0].Rows.IndexOf(dr);
+    ds.Tables[0].Rows[Index].Delete();
+    ds.WriteXml("Customer.xml");
+  }
+}
+```
+
+5. Go to “`Startup.cs`” file in case `ASP.Net Core 5.0` and `Program.cs` file in case of `ASP.NET Core 6.0` and write the
+   below statement by importing “`CoreWebApiService.Models`” namespace:
+
+**ASP.NET Core 5.0**: Go to ConfigureServices method in `Startup` class and write the below statement over there:
+
+```c#
+builder.Services.AddScoped(typeof(ICustomerDAL), typeof(CustomerXmlDAL));
+```
+
+**ASP.NET Core 6.0 and above**: Go to Main method in `Program` class and write the below statement just above the
+statement “`var app = builder.Build();`”:
+
+```C#
+builder.Services.AddScoped(typeof(ICustomerDAL), typeof(CustomerXmlDAL));
+//Or
+builder.Services.AddScoped<ICustomerDAL, CustomerXmlDAL>();
+```
+
+- This is simply a shorthand for the same registration. Both forms are valid, but the second form is more concise and commonly used when registering types with a corresponding interface. It tells the dependency injection system that `ICustomerDAL` should be resolved with an instance of `CustomerXmlDAL` whenever it is requested.
+
+6. : Add an “`ApiController`” in the `Controllers` folder and to do that right click on the “`Controllers`” folder, select `Add` => `Controller`, in the window opened select `API` in `LHS` and then on the `RHS` select “`API Controller` - `Empty`”, click `Add` button, name the class as “`CustomerController`” and write the below code in the `class`:
+
+```c#
+using CoreWebApiService.Models;
+using Microsoft.AspNetCore.Mvc;
+using System.Net;
+
+namespace CoreWebApiService.Controllers
+{
+	[Route("api/[controller]")]
+	[ApiController]
+	public class CustomerController : Controller
+	{
+		private readonly ICustomerDAL dal;
+		public CustomerController(ICustomerDAL dal)
+		{
+			this.dal = dal;
+		}
+		[HttpGet]
+		public List<Customer> Index()
+		{
+			return dal.Customers_Select();
+		}
+		[HttpGet("{Custid}")]
+		public Customer GetCustomer(int Custid)
+		{
+			return dal.Customer_Select(Custid);
+		}
+		[HttpPost]
+		public HttpResponseMessage Post(Customer c)
+		{
+			dal.Customer_Insert(c);
+			return new HttpResponseMessage(HttpStatusCode.Created);
+		}
+		[HttpPut]
+		public HttpResponseMessage Put(Customer c)
+		{
+			Customer customer = dal.Customer_Select(c.Custid);
+			if (customer != null)
+			{
+				dal.Customer_Update(c);
+				return new HttpResponseMessage(HttpStatusCode.OK);
+			}
+			else
+			{
+				return new HttpResponseMessage(HttpStatusCode.NotFound);
+			}
+		}
+		[HttpDelete("{Custid}")]
+		public HttpResponseMessage Delete(int Custid)
+		{
+			Customer customer = dal.Customer_Select(Custid);
+			if (customer != null)
+			{
+				dal.Customer_Delete(Custid);
+				return new HttpResponseMessage(HttpStatusCode.OK);
+			}
+			else
+			{
+				return new HttpResponseMessage(HttpStatusCode.NotFound);
+			}
+		}
+	}
+}
+```
+
+To test `Web API Core`, we are provided with a built-in tool known as “`Swagger`”, so we don’t require using
+any web debugging tools like `Postman` or `Fiddler` etc. Run the “`APIController`” we have defined and test all the
+functionalities by using Swagger.
+
+---
+
+### Q. How to Consuming our Core API Service in an MVC Controller using JQuery-Ajax with-in the Same Project
+
+---
+
+Add a new Controller in the current project and it should be an “`MVC Controller`”, naming it as “`HomeController`” and add a `View` to the default `Index` action method and write the below code in it:
+
+```html
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Web Api Core</title>
+    <script
+      src="https://code.jquery.com/jquery-3.7.0.min.js"
+      integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $(document).ready(() => {
+        getCustomers();
+      });
+
+      const getCustomers = () => {
+        $.ajax({
+          url: "http://localhost/CoreWebApiService/api/Customer",
+          type: "GET",
+          dataType: "json",
+          success: (Customers) => {
+            $("#tblCustomers tbody").empty();
+            $("#tblCustomers").append(
+              "<tr><td><input id='custid' type='text' style='width: 50px'/></td><td><input id = 'name' type = 'text' /> </td><td><input id='balance' type='text' / > </td><td><input id='city' type='text' / > </td><td align = 'center' > <input id='status' type = 'checkbox' /> </td><td align='center'><input type='button' id='insert' value = 'Insert' onclick = 'AddCustomer()' /> </td></tr > "
+            );
+            $.each(Customers, function (index, Customer) {
+              $("#tblCustomers").append(BuildCustomerRow(Customer));
+            });
+          },
+          error: function (request) {
+            HandleException(request);
+          },
+        });
+      };
+
+      function BuildCustomerRow() {
+        var NewRow =
+          "<tr>" +
+          "<td align='center'>" +
+          Customer.custid +
+          "</td>" +
+          "<td><input type='text' class='input-name' value='" +
+          Customer.name +
+          "'/></td>" +
+          "<td><input type='text' class='input-balance' value='" +
+          Customer.balance +
+          "'/></td>" +
+          "<td><input type='text' class='input-city' value='" +
+          Customer.city +
+          "'/></td>";
+        if (Customer.status == true)
+          NewRow +=
+            "<td align='center'><input class='input-status' type = 'checkbox' checked /></td>";
+        else
+          NewRow +=
+            "<td align='center'><input class='input-status' type = 'checkbox' /></td>";
+        NewRow +=
+          "<td><button type='button' onclick='UpdateCustomer(this);' data-custid='" +
+          Customer.custid +
+          "'>Update</button>";
+        NewRow +=
+          "<button type='button' onclick='DeleteCustomer(this);' data-custid='" +
+          Customer.custid +
+          "'>Delete</button>";
+        NewRow += "</td></tr>";
+        return NewRow;
+      }
+
+      const HandleException = (request) => {
+        var msg = "";
+        msg += "Code: " + request.status + "\n";
+        msg += "Text: " + request.statusText + "\n";
+        if (request.responseJSON != null) {
+          msg += "Message" + request.responseJSON.Message + "\n";
+        }
+        alert(msg);
+      };
+
+      var Customer = {
+        custid: 0,
+        name: "",
+        balance: 0,
+        city: "",
+        status: false,
+      };
+
+      function AddCustomer() {
+        var obj = Customer;
+        obj.custid = $("#custid").val();
+        obj.name = $("#name").val();
+        obj.balance = $("#balance").val();
+        obj.city = $("#city").val();
+        obj.status = $("#status").is(":checked");
+
+        var options = {};
+        options.url = "http://localhost/CoreWebApiService/api/Customer";
+        options.type = "POST";
+        options.contentType = "application/json";
+        options.dataType = "json";
+        options.data = JSON.stringify(obj);
+        options.success = function () {
+          GetCustomers();
+          $("#divMsgs").html("Insert operations is successful.");
+        };
+        options.error = function () {
+          $("#divMsgs").html("Error while performing insert operation!");
+        };
+
+        $.ajax(options);
+      }
+
+      function UpdateCustomer(button) {
+        var obj = Customer;
+        obj.custid = $(button).data("custid");
+        obj.name = $(".input-name", $(button).parent().parent()).val();
+        obj.balance = $(".input-balance", $(button).parent().parent()).val();
+        obj.city = $(".input-city", $(button).parent().parent()).val();
+        obj.status = $(".input-status", $(button).parent().parent()).is(
+          ":checked"
+        );
+
+        var options = {};
+        options.url = "http://localhost/CoreWebApiService/api/customer";
+        options.type = "PUT";
+        options.contentType = "application/json";
+        options.dataType = "json";
+        options.data = JSON.stringify(obj);
+        options.success = function () {
+          GetCustomers();
+          $("#divMsgs").html("Update operations is successful.");
+        };
+        options.error = function () {
+          $("#divMsgs").html("Error while performing update operation!");
+        };
+
+        $.ajax(options);
+      }
+
+      function DeleteCustomer(button) {
+        $.ajax({
+          url:
+            "http://localhost/CoreWebApiService/api/customer/" +
+            $(button).data("custid"),
+          type: "DELETE",
+          dataType: "json",
+          success: function () {
+            GetCustomers();
+            $("#divMsgs").html("Delete operations is successful.");
+          },
+          error: function () {
+            $("#divMsgs").html("Error while performing delete operation!");
+          },
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <form>
+      <table align="center" id="tblCustomers" border="1">
+        <thead>
+          <tr>
+            <th>Custid</th>
+            <th>Name</th>
+            <th>Balance</th>
+            <th>City</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <br />
+      <div id="divMsgs" style="color:red"></div>
+    </form>
+  </body>
+</html>
+```
+
+Right now, our project is a “`WebApiProject`” so we can run only “`ApiControllers`” whereas if we want to run our “`MVCController`” we need some step:
+
+1. Go to “Startup.cs” file upto ASP.NET Core 5.0 or “Program.cs” file from ASP.Net Core 6.0 and change the
+   method call “AddControllers” as “AddControllersWithViews” as below:
+
+**ASP.NET Core 5.0**: go to `ConfigureServices` method in `Startup` class and do the below `change`:
+`Old Code` => services.AddControllers();
+`New Code` => services.AddControllersWithViews();
+
+**ASP.NET Core 6.0 and above**: go to `Program` class and do the below change:
+`Old Code` => builder.Services.AddControllers();
+`New Code` => builder.Services.AddControllersWithViews();
+
+2. Change the “`EndPoint`” configuration code as below:
+
+**ASP.NET Core 5.0:**
+
+`Old Code`:
+
+```C#
+  app.UseEndpoints(endpoints =>
+  {
+  endpoints.MapControllers();
+  });
+```
+
+`New Code`:
+
+```c#
+  app.UseEndpoints(endpoints =>
+  {
+    endpoints.MapControllerRoute(
+      name: "default",
+      pattern: "{controller=Home}/{action=Index}/{id?}"
+    );
+    endpoints.MapControllers();
+  });
+```
+
+**ASP.NET Core 6.0 and above**: add this code just above the method call “`app.MapControllers();`”:
+
+```c#
+  app.MapControllerRoute(
+  name: "default",
+  pattern: "{controller=Home}/{action=Index}/{id?}");
+```
+
+3. We need `Web.config` file in `ASP.NET Core 6.0 and above`, to get the `Web.cofig` file run you projrct in `IIS Web Server`.
+
+- Steps follow to run in `IIS Web Server`.
+
+  - Run the Visual Studio as a `Administrator` mode.
+  - Right click on Project & click on `Property`, Go to `Debug`.
+  - Click on `Open debug lounch profiles URL`.
+  - Click on `Create a new profile` icon which located on top-left cornor and select **`IIS`**(not IIS Express) in dropdown to create a new `IIS` profile. You show `Profile 1` is created in `Lounch Profile`.
+  - Click on `Profile 1` and click on `Rename icon` whic is locaten in top-left side and name it `Local IIS`.
+  - **App URL**: Set the URL where your application will be hosted. Typically for local development, you can use http://localhost/[YourAppName] (i.e: http://localhost/CoreWebApiService).
+  - Click on `Launch Browser`(If you want the browser to open automatically when you run the application, you can enable this option and specify the URL (same as the App URL)).
+  - Fille the Environment Variables i.e: `ASPNETCORE_ENVIRONMENT=Development`
+  - One more option is showing `Local IIS` in project run place, select `Local IIS` and run it which generate automaticaly `web.config` file.
+
+- Go to “`Web.config`” file in the project and there we find a node “`<system.webServer>`” and under that we find “`<handlers>`” node, write the below statement inside of that `<handlers>` node: `<remove name="WebDAV" />`
+  - Now under “`<system.webServer>`” node if you find “`<modules>`” node, add the below statement inside of it: `<remove name="WebDAVModule" />`
+  - If you don’t find “`<modules>`” node, then write the below statements: `<modules><remove name="WebDAVModule" /></modules>`
+
+4. Host the “`API Service on IIS`” and then run the project using “`IIS Web Server`”(Local IIS) `http://localhost/CoreWebApiService1/api/Customer`.
+
+---
+
+### Q. How to install Web API Core? and why we need?
+
+---
+
+We need to install `Web API Core` seperatly only in `.Net core`. No need to install speratly in .Net.
+
+- Launch `Visual Studio Installer` > `Modify` > `ASP.NET and web development` > Cheak the `Development time IIS support` > Install it.
+
+---
+
+### Q. How do we create an MVC Controller to consume our Web API Core using JQuery-Ajax within the same project?
+
+---
+
+- Add a new `HomeController` in the current project & add a View to the default `Index` action method and write the below code in it:
+
+```c#
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Web Api Core</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+            integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+            crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            GetCustomers();
+        });
+        function GetCustomers() {
+        $.ajax({
+            url: 'http://localhost/CoreWebApiService/api/Customer',
+            type: 'GET',
+            dataType: 'json',
+            success: function (Customers) {
+                $("#tblCustomers tbody").empty();
+                $("#tblCustomers").append("<tr><td><input id='custid' type='text' style='width: 50px'/></td><td><input id='name' type='text' /></td><td><input id='balance' type='text' /></td><td><input id='city' type='text' /></td><td align='center'><input id='status' type='checkbox' /></td><td align='center'><input type='button' id='insert' value='Insert' onclick='AddCustomer()' /></td></tr>");
+                    $.each(Customers, function (index, Customer) {
+                        $("#tblCustomers").append(BuildCustomerRow(Customer));
+                    });
+                },
+            error: function (request) {
+                HandleException(request);
+            }
+            });
+        }
+
+        function BuildCustomerRow(Customer) {
+        	var NewRow = "<tr>" + "<td align='center'>" + Customer.custid + "</td>" +
+            "<td><input type='text' class='input-name' value='" + Customer.name + "'/></td>" +
+            "<td><input type='text' class='input-balance' value='" + Customer.balance + "'/></td>" +
+            "<td><input type='text' class='input-city' value='" + Customer.city + "'/></td>";
+            if (Customer.status == true)
+                NewRow += "<td align='center'><input class='input-status' type = 'checkbox' checked /></td>";
+            else
+                NewRow += "<td align='center'><input class='input-status' type = 'checkbox' /></td>";
+
+            NewRow += "<td><button type='button' onclick='UpdateCustomer(this);' data-custid='" +
+            Customer.custid + "'>Update</button>";
+            NewRow += "<button type='button' onclick='DeleteCustomer(this);' data-custid='" +
+            Customer.custid + "'>Delete</button>";
+            NewRow += "</td></tr>";
+
+            return NewRow;
+        }
+
+        function HandleException(request) {
+            var msg = "";
+            msg += "Code: " + request.status + "\n";
+            msg += "Text: " + request.statusText + "\n";
+
+            if (request.responseJSON != null) {
+                msg += "Message" + request.responseJSON.Message + "\n";
+            }
+
+            alert(msg);
+        }
+
+        var Customer = {
+            custid: 0,
+            name: "",
+            balance: 0,
+            city: "",
+            status: false
+        }
+
+        function AddCustomer() {
+            var obj = Customer;
+            obj.custid = $("#custid").val();
+            obj.name = $("#name").val();
+            obj.balance = $("#balance").val();
+            obj.city = $("#city").val();
+            obj.status = $("#status").is(":checked");
+
+            var options = {};
+            options.url = "http://localhost/CoreWebApiService/api/Customer";
+            options.type = "POST";
+            options.contentType = "application/json";
+            options.dataType = "json";
+            options.data = JSON.stringify(obj);
+            options.success = function () {
+                GetCustomers();
+                $("#divMsgs").html("Insert operations is successful.");
+            }
+            options.error = function () {
+                $("#divMsgs").html("Error while performing insert operation!");
+            }
+            $.ajax(options);
+        }
+
+        function UpdateCustomer(button) {
+            var obj = Customer;
+            obj.custid = $(button).data("custid");
+            obj.name = $(".input-name", $(button).parent().parent()).val();
+            obj.balance = $(".input-balance", $(button).parent().parent()).val();
+            obj.city = $(".input-city", $(button).parent().parent()).val();
+            obj.status = $(".input-status", $(button).parent().parent()).is(":checked");
+
+            var options = {};
+            options.url = "http://localhost/CoreWebApiService/api/customer";
+            options.type = "PUT";
+            options.contentType = "application/json";
+            options.dataType = "json";
+            options.data = JSON.stringify(obj);
+            options.success = function () {
+                GetCustomers();
+                $("#divMsgs").html("Update operations is successful.");
+            }
+            options.error = function () {
+                $("#divMsgs").html("Error while performing update operation!");
+            }
+            $.ajax(options);
+        }
+
+        function DeleteCustomer(button) {
+            $.ajax({
+                url: 'http://localhost/CoreWebApiService/api/customer/' + $(button).data("custid"),
+                type: 'DELETE',
+                dataType: 'json',
+                success: function () {
+                    GetCustomers();
+                    $("#divMsgs").html("Delete operations is successful.");
+                },
+                error: function () {
+                    $("#divMsgs").html("Error while performing delete operation!");
+                }
+            });
+        }
+    </script>
+</head>
+<body style="background-color:cornflowerblue">
+    <form>
+        <table align="center" id="tblCustomers" border="1">
+            <thead>
+                <tr>
+                    <th>Custid</th>
+                    <th>Name</th>
+                    <th>Balance</th>
+                    <th>City</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <br />
+        <div id="divMsgs" style="color:red"></div>
+    </form>
+</body>
+</html>
+```
+
+---
+
+### Q. How do we configure the project to support both API and MVC controllers?
+
+---
+
+Update the **Startup.cs** or **Program.cs** file based on the version of ASP.NET Core:
+
+- Replace this `builder.Services.AddControllers();` with `builder.Services.AddControllersWithViews();`
+
+1. **ASP.NET Core 5.0**:
+
+- In **ConfigureServices** method of **Startup.cs**, replace `services.AddControllers();` with `services.AddControllersWithViews();`.
+- In **Configure** method of **Startup.cs**, update the **Endpoint Configuration**:
+
+```csharp
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllerRoute(
+        name: "default",
+        pattern: "{controller=Home}/{action=Index}/{id?}");
+    endpoints.MapControllers();
+});
+```
+
+2. **ASP.NET Core 6.0 and above**:
+
+- In **Program.cs**, replace `builder.Services.AddControllers();` with `builder.Services.AddControllersWithViews();`.
+- Just above `app.MapControllers();` in `Program.cs`, add:
+
+```csharp
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
+```
+
+---
+
+### Q. How do we handle WebDAV in the Web.config file?
+
+---
+
+Modify **Web.config** to disable WebDAV:
+
+1. Under the `<system.webServer>` node, find `<handlers>` and add:
+
+```xml
+<remove name="WebDAV" />
+```
+
+2.
+
+- If you find a `<modules>` node, add:
+
+```xml
+<remove name="WebDAVModule" />
+```
+
+- If the `<modules>` node doesn’t exist, add:
+
+```xml
+<modules><remove name="WebDAVModule" /></modules>
+```
+
+---
+
+### Q. How do we host the Web API service on IIS(Local IIS) and run the project?
+
+---
+
+- Host the “`API Service on IIS`” and then run the project using “`IIS Web Server`”. It means, host the API Service on IIS using the project’s publishing settings. Then, run the project using IIS Web Server.
+
+---
+
+### Q. How do we enable CORS to consume our API service from another project?
+
+---
+
+- Create any project MVC project and create any view and `copy past` the `previour Index.cshtml` which `consume the api in same project with api`.
+
+Add `CORS` support in the Web API Core project:
+
+- **ASP.NET Core 5.0**:
+
+  - In `ConfigureServices` method of `Startup.cs`, add `services.AddCors();`.
+  - In `Configure` method of `Startup.cs`, add `app.UseCors(options => { options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader(); });` just after `app.UseRouting();`.
+
+- **ASP.NET Core 6.0 and above**:
+  - In `Program.cs`, add` builder.Services.AddCors();` before `var app = builder.Build();`.
+  - After `var app = builder.Build();`, add `app.UseCors(options => { options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader(); });`.
+
+---
+
+### Q. How to consume a Web API Core service from an MVC Controller using C# code?
+
+---
+
+1. **Create a New Project**:
+
+- Create a new project using **ASP.NET Core Web App (Model-View-Controller)** and name it **CoreWebApiConsumer2**.
+
+2. **Add a Customer Model**:
+
+- Add a class in the **Models** folder named `Customer` and write the following code:
+
+  ```csharp
+  public class Customer
+  {
+      public int Custid { get; set; }
+      public string Name { get; set; }
+      public decimal? Balance { get; set; }
+      public string City { get; set; }
+      public bool Status { get; set; }
+  }
+  ```
+
+3. **Install Required Library**:
+
+- Install `Microsoft.AspNet.WebApi.Client` library using **NuGet Package Manager**.
+
+4. **Add a TestApiController**:
+
+- Add a new controller named `TestApiController`. Delete all the existing code in it and replace it with the following code:
+
+  ```csharp
+  using Newtonsoft.Json;
+  using CoreWebApiConsumer2.Models;
+  using System.Net.Http;
+  using System.Threading.Tasks;
+
+  public class TestApiController : Controller
+  {
+      HttpClient client = new HttpClient();
+      String serviceUri = "http://localhost/CoreWebApiService/api/";
+
+      public async Task<IActionResult> DisplayCustomers()
+      {
+          List<Customer> customers = new List<Customer>();
+          client.BaseAddress = new Uri(serviceUri);
+          HttpResponseMessage response = await client.GetAsync("Customer");
+
+          if (response.IsSuccessStatusCode)
+          {
+              string result = response.Content.ReadAsStringAsync().Result;
+              customers = JsonConvert.DeserializeObject<List<Customer>>(result);
+          }
+          return View(customers);
+      }
+
+      public async Task<IActionResult> DisplayCustomer(int Custid)
+      {
+          Customer customer = new Customer();
+          client.BaseAddress = new Uri(serviceUri);
+          HttpResponseMessage response = await client.GetAsync("Customer/" + Custid);
+
+          if (response.IsSuccessStatusCode)
+          {
+              string result = response.Content.ReadAsStringAsync().Result;
+              customer = JsonConvert.DeserializeObject<Customer>(result);
+          }
+          return View(customer);
+      }
+
+      public IActionResult AddCustomer()
+      {
+          return View();
+      }
+
+      [HttpPost]
+      public async Task<IActionResult> AddCustomer(Customer customer)
+      {
+          client.BaseAddress = new Uri(serviceUri);
+          HttpResponseMessage response = await client.PostAsJsonAsync("Customer", customer);
+
+          if (response.IsSuccessStatusCode)
+              return RedirectToAction("DisplayCustomers");
+          else
+              return View();
+      }
+
+      public async Task<IActionResult> EditCustomer(int Custid)
+      {
+          Customer customer = new Customer();
+          client.BaseAddress = new Uri(serviceUri);
+          HttpResponseMessage response = await client.GetAsync("Customer/" + Custid);
+
+          if (response.IsSuccessStatusCode)
+          {
+              string result = response.Content.ReadAsStringAsync().Result;
+              customer = JsonConvert.DeserializeObject<Customer>(result);
+          }
+          return View(customer);
+      }
+
+      public async Task<IActionResult> UpdateCustomer(Customer customer)
+      {
+          client.BaseAddress = new Uri(serviceUri);
+          HttpResponseMessage response = await client.PutAsJsonAsync("Customer", customer);
+
+          if (response.IsSuccessStatusCode)
+              return RedirectToAction("DisplayCustomers");
+          else
+              return View("EditCustomer");
+      }
+
+      public async Task<IActionResult> DeleteCustomer(int Custid)
+      {
+          client.BaseAddress = new Uri(serviceUri);
+          HttpResponseMessage response = await client.DeleteAsync("Customer/" + Custid);
+
+          if (!response.IsSuccessStatusCode)
+              ModelState.AddModelError("", "Delete action resulted in an error");
+
+          return RedirectToAction("DisplayCustomers");
+      }
+  }
+  ```
+
+5. **Create Views for Action Methods**:
+
+- Add Views for the following action methods
+
+  - **DisplayCustomers.cshtml**:
+
+    ```html
+    @model IEnumerable<Customer>
+      <h2 style="text-align:center;background-color:yellowgreen;color:red">
+        Customer Details
+      </h2>
+      <table border="1" align="center" class="table-condensed">
+        <tr>
+          <th>@Html.DisplayNameFor(C => C.Custid)</th>
+          <th>@Html.DisplayNameFor(C => C.Name)</th>
+          <th>@Html.DisplayNameFor(C => C.Balance)</th>
+          <th>@Html.DisplayNameFor(C => C.City)</th>
+          <th>@Html.DisplayNameFor(C => C.Status)</th>
+          <th>Actions</th>
+        </tr>
+        @foreach (Customer customer in Model) {
+        <tr>
+          <td align="center">@Html.DisplayFor(C => customer.Custid)</td>
+          <td>@Html.DisplayFor(C => customer.Name)</td>
+          <td>@Html.DisplayFor(C => customer.Balance)</td>
+          <td>@Html.DisplayFor(C => customer.City)</td>
+          <td align="center">@Html.DisplayFor(C => customer.Status)</td>
+          <td>
+            <a asp-action="DisplayCustomer" asp-route-Custid="@customer.Custid"
+              >View</a
+            >
+            &nbsp;
+            <a asp-action="EditCustomer" asp-route-Custid="@customer.Custid"
+              >Edit</a
+            >
+            &nbsp;
+            <a
+              asp-action="DeleteCustomer"
+              asp-route-Custid="@customer.Custid"
+              onclick="return confirm('Are you sure of deleting the record?')"
+              >Delete</a
+            >
+          </td>
+        </tr>
+        }
+        <tr>
+          <td colspan="6" align="center">
+            <a asp-action="AddCustomer">Add New Customer</a>
+          </td>
+        </tr>
+      </table></Customer
+    >
+    ```
+
+  - **DisplayCustomer.cshtml**:
+
+    ```html
+    @model Customer
+    <h2 style="text-align:center;background-color:yellowgreen;color:red">
+      Customer Details
+    </h2>
+    <table border="1" align="center">
+      <tr>
+        <td>Custid:</td>
+        <td>@Model.Custid</td>
+      </tr>
+      <tr>
+        <td>Name:</td>
+        <td>@Model.Name</td>
+      </tr>
+      <tr>
+        <td>Balance:</td>
+        <td>@Model.Balance</td>
+      </tr>
+      <tr>
+        <td>City:</td>
+        <td>@Model.City</td>
+      </tr>
+      <tr>
+        <td>Status:</td>
+        <td>@Model.Status</td>
+      </tr>
+    </table>
+    <div style="text-align:center">
+      <a asp-action="DisplayCustomers" align="center"
+        >Back to Customer Details</a
+      >
+    </div>
+    ```
+
+  - **AddCustomer.cshtml**:
+
+    ```html
+    @model Customer
+    <form asp-controller="TestApi" asp-action="AddCustomer" method="post">
+      <div>
+        <label asp-for="Custid"></label><br /><input asp-for="Custid" />
+      </div>
+      <div><label asp-for="Name"></label><br /><input asp-for="Name" /></div>
+      <div>
+        <label asp-for="Balance"></label><br /><input asp-for="Balance" />
+      </div>
+      <div><label asp-for="City"></label><br /><input asp-for="City" /></div>
+      <div>
+        <label asp-for="Status"></label><br /><input asp-for="Status" />
+      </div>
+      <div>
+        <input type="submit" value="Save" />
+        <input type="reset" value="Reset" />
+      </div>
+    </form>
+    <div>
+      <a asp-action="DisplayCustomers" align="center"
+        >Back to Customer Details</a
+      >
+    </div>
+    ```
+
+  - **EditCustomer.cshtml**:
+    ```html
+    @model Customer
+    <form asp-controller="TestApi" asp-action="UpdateCustomer" method="post">
+      <div>
+        <label asp-for="Custid"></label><br /><input
+          asp-for="Custid"
+          readonly
+        />
+      </div>
+      <div><label asp-for="Name"></label><br /><input asp-for="Name" /></div>
+      <div>
+        <label asp-for="Balance"></label><br /><input asp-for="Balance" />
+      </div>
+      <div><label asp-for="City"></label><br /><input asp-for="City" /></div>
+      <div>
+        <label asp-for="Status"></label><br /><input asp-for="Status" />
+      </div>
+      <div>
+        <input type="submit" value="Update" />
+        <input type="reset" value="Reset" />
+      </div>
+    </form>
+    <div>
+      <a asp-action="DisplayCustomers" align="center"
+        >Back to Customer Details</a
+      >
+    </div>
+    ```
+
+---
+
+### Q. How does consuming Web API service from MVC Controller using C# differ from using JQuery AJAX?\*\*
+
+---
+
+- In the above example, C# code uses an **HttpClient** to interact with the Web API. It sends HTTP requests and processes the response data directly within the controller’s methods.
+- Using **JQuery AJAX** interacts with the API on the client-side (browser) by sending HTTP requests through Javascript and processing the response asynchronously in the client browser.
+
+---
+
+## **`ASP.NET Razor Pages (Web Apps.)`**
+
+### Q. What is Razor Pages in ASP.NET Core?
+
+---
+
+- Razor Pages is a lightweight and flexible server-side framework that provides developers with full control over rendered HTML. It is part of ASP.NET Core and is focused on building dynamic, data-driven websites with a page-centric approach.
+
+- Each page having own single model & controller like if a Razor page name if `Index.cshtml` the single Controll and model in same page name is `Index.cshtml.cs`. No seperate controller and model.
+
+- Simler to ASP.Net Web Form, but it's work on cross platfrom.
+
+- Razor Pages in ASP.NET Core is use for `small scale web aplication`.
+
+- For each operation/work you need seperate page. Imaging 1 Crud operation then 5 Page with seperate model class.
+
+- The PageModel is the only this which is access throo the view page.
+
+---
+
+### Q. What is the purpose of Razor Pages?
+
+---
+
+Razor Pages enables building dynamic, data-driven websites while maintaining a clean separation of concerns. It is designed for cross-platform server-side HTML generation.
+
+---
+
+### Q. Who should use Razor Pages?
+
+---
+
+Razor Pages is suitable for all kinds of developers, from beginners to enterprise-level professionals. It provides a simple learning curve for beginners while supporting advanced features for large, scalable projects.
+
+---
+
+### Q. When was Razor Pages introduced, and which .NET Core version includes it?
+
+---
+
+Razor Pages was introduced in .NET Core 2.0. It is available as part of the .NET Core framework, which can be downloaded as an SDK or runtime.
+
+---
+
+### Q. How does Razor Pages support cross-platform development?
+
+---
+
+Razor Pages supports cross-platform development and can be deployed on Windows, UNIX, and macOS operating systems. It is part of ASP.NET Core, which is designed for cross-platform compatibility.
+
+---
+
+### Q. Why is Razor Pages recommended for dynamic websites?
+
+---
+
+Razor Pages is recommended for dynamic websites due to its clean, page-centric development model, flexibility, and support for dynamic, data-driven content using C# and Razor syntax.
+
+---
+
+### Q. What are the advantages of using Razor Pages for beginners?
+
+---
+
+Razor Pages is easy for beginners to learn, supports C# programming, and uses the simple Razor templating syntax. It provides a robust framework with advanced features and cross-platform deployment options.
+
+---
+
+### Q. What options are available for building a dynamic website?
+
+---
+
+You can use a Content Management System (CMS) like WordPress, Umbraco, Joomla, Drupal, or Orchard CMS. Alternatively, you can build your own site using frameworks like ASP.NET Core with Razor Pages or hire someone to build it for you.
+
+---
+
+### Q. Can developers still use ASP.NET Core MVC for web applications?
 
 ---
 
-### Q.
+Yes, developers can still use ASP.NET Core MVC. If porting an existing MVC5 or earlier application to .NET Core, sticking with MVC might be easier. However, Razor Pages offers a simpler and more maintainable experience by reducing unnecessary complexity.
 
 ---
 
+### Q. What is the key difference between Razor Pages and ASP.NET Core MVC?
+
 ---
 
-### Q.
+Razor Pages implements the Page Controller pattern, while ASP.NET Core MVC follows the Front Controller pattern. This difference leads to a simpler and more maintainable development experience in Razor Pages.
 
 ---
 
+### Q. How do you create a Razor Pages project in Visual Studio?
+
 ---
 
-### Q.
+To create a Razor Pages project in Visual Studio:
 
----
+1. Open Visual Studio and create a new project.
+2. Select the “`ASP.NET Core Web App`” project template.
+3. Name the project as “`CoreRazorPagesDemo`”.
+4. Choose “.NET 8.0 (Long Term Support)” as the framework.
+5. Select the checkboxes “Configure for HTTPS” and “Do not use top-level statements”.
+6. Click the “Create” button.
 
----
+**Project structure**:-
 
-### Q.
+- CoreRazorPagesDemo
+  - Connected Services
+  - Dependencies
+  - Properties
+  - wwwroot
+  - Pages
+    - Shared
+      - Layout.cshtml
+      - \_ValidationScriptsPartial.cshtml
+    - Viewlmports.cshtml
+    - ViewStart.cshtml
+    - Error.cshtml
+      - C# Error.cshtml.cs
+    - Index.cshtml
+      - C# Index.cshtml.cs
+    - Privacy.cshtml
+      - C# Privacy.cshtml.cs
+  - appsettings.json
+  - C# Program.cs
 
 ---
 
+### Q. What difference do you find in the folder structure of a Razor Pages project compared to an ASP.NET Core MVC project?
+
 ---
 
-### Q.
+In a Razor Pages project, you won’t find “Controllers”, “Models”, and “Views” folders. Instead, you’ll find a “Pages” folder where all the Razor Pages are stored. The rest of the folders and files are similar to an ASP.NET Core MVC project.
 
 ---
+
+### Q. What code is used to enable Razor Pages in the “Program.cs” file?
 
 ---
 
-### Q.
+The code in the “Program.cs” file to enable Razor Pages is:
 
----
+```c#
+builder.Services.AddRazorPages(); //Use top of the var app = builder.Build();
+app.MapRazorPages(); //Use top of the app.Run();
+```
 
+- `AddRazorPages` adds services for Razor Pages to the application.
+- `MapRazorPages` adds endpoints for Razor Pages to the `IEndpointRouteBuilder`.
+
 ---
 
-### Q.
+### Q. What does the @page directive do in a Razor Page?
 
 ---
+
+The `@page` directive turns the Razor file into an MVC action. This means it can handle requests directly without needing a controller. The `@page` directive must be the first Razor directive on a page.
 
 ---
 
-### Q.
+### Q. What files are associated with a Razor Page?
 
 ---
 
----
+Each Razor Page has two associated files:
 
-### Q.
+- The Razor Page file (e.g., `Index.cshtml`)
+- The Page Model file (e.g., `Index.cshtml.cs`)
 
 ---
+
+### Q. What is a PageModel class in Razor Pages?
 
 ---
 
-### Q.
+A PageModel class is associated with each Razor Page and allows for the separation of page logic from its presentation. It inherits from the `PageModel` class defined in the `Microsoft.AspNetCore.Mvc.RazorPages` namespace. The class name follows the `<PageName>Model` convention.
 
 ---
 
+### Q. What code does the Page Model class for “Index” contain by default?
+
 ---
 
-### Q.
+The `Index.cshtml.cs` file contains
 
----
+```C#
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 
----
+namespace CoreRazorPagesDemo.Pages
+{
+    public class IndexModel : PageModel
+    {
+        private readonly ILogger<IndexModel> _logger;
 
-### Q.
+        public IndexModel(ILogger<IndexModel> logger)
+        {
+            _logger = logger;
+        }
 
----
+        public void OnGet()
+        {
+        }
+    }
+}
+```
 
 ---
 
-### Q.
+### Q. What does the OnGet method do in a Razor Page?
 
 ---
 
----
+The OnGet method initializes the state needed for the page and displays the Razor Page when a GET request is received. It is used to process and handle GET requests.
 
-### Q.
+Means whenpage load the OnGet method will call. And any request come back to the OnPost method run.
 
 ---
 
+### Q. How are form submissions handled in Razor Pages?
+
 ---
 
-### Q.
+Form submissions are handled using the `OnPost` or `OnPostAsync` methods. These methods are executed when a user submits a form with a POST request. The “Async” suffix is optional but is used by convention for asynchronous functions.
 
+- OnGet to initialize state needed for the page. The OnGet method displays the Index.cshtml Razor Page.
+- `OnPost` or `OnPostAsync` to handle form submissions. The Async naming suffix is optional but is often used by convention for asynchronous functions.
+
 ---
+
+### Q. What similarities do OnPost/OnPostAsync methods share with ASP.NET MVC action methods?
 
 ---
 
-### Q.
+The `OnPost` and `OnPostAsync` methods in Razor Pages are similar to controller action methods in ASP.NET MVC. They `support most of the same primitives such as model binding, validation, and action results`.
 
 ---
 
+### Q. Preform Crud operation by ASP.NET Razor Pages (Web Apps) ?
+
 ---
+
+1. To use Scaffold Commands and Entity Framework Core for SQL Server you need to install the following packages using NuGet Package Manager:
+
+- `Microsoft.EntityFrameworkCore.Tools`
+- `Microsoft.EntityFrameworkCore.SqlServer`
+
+2. This command generates a Customer model class and a MvcdbContext context class within a "Models" folder.
+
+```shell
+PM> Scaffold-DbContext "Data Source=DESKTOP-HOOMVQE\MSSQLSERVER02;User Id=mk;Password=123;Database=MVCDB; TrustServerCertificate=True" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Tables Customer
+```
+
+- The above statement will add `Models` folder in the project and generate a `Model` class with the name “`Customer`” and also a Context class with the name “`MvcdbContext`”.
+
+3. Register the `MvcdbContext` class in the project:
 
-### Q.
+- **`For ASP.NET Core 5.0`**: Add the following code under the `ConfigureServices` method of the `Startup` class:
 
+```c#
+services.AddDbContext<MvcdbContext>();
+```
+
+- **`For ASP.NET Core 6.0 and above`**: Add the following code in the `Program` class, just above `var app = builder.Build();`:
+
+```c#
+builder.Services.AddDbContext<MvcdbContext>();
+```
+
 ---
 
+### Q. How do you create the Razor Page to preform all CRUD operation with customers?
+
 ---
+
+1. Displat all customer:
+
+- In `Index.cshtml.cs` (code-behind for `Index.cshtml`):
+  ```c#
+  using CoreRazorPagesDemo.Models;
+  public class IndexModel : PageModel
+  {
+      private readonly MvcdbContext context;
+      public IndexModel(MvcdbContext context)
+      {
+          this.context = context;
+      }
+      public List<Customer>? Customers { get; set; }
+      public void OnGet()
+      {
+          Customers = context.Customers.Where(C => C.Status == true).ToList();
+      }
+  }
+  ```
+- In `Index.cshtml` (Razor Page):
+
+```c#
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Display Customers";
+}
+<h2 style="text-align:center;background-color:yellowgreen;color:red">Customer Details</h2>
+<table border="1" class="table table-bordered">
+    <tr>
+        <th>Custid</th>
+        <th>Name</th>
+        <th>Balance</th>
+        <th>City</th>
+        <th>Status</th>
+        <th>Actions</th>
+    </tr>
+    @foreach (var customer in Model.Customers)
+    {
+        <tr>
+            <td align="center">@customer.Custid</td>
+            <td>@customer.Name</td>
+            <td>@customer.Balance</td>
+            <td>@customer.City</td>
+            <td align="center"><input type="checkbox" asp-for="@customer.Status" disabled/></td>
+            <td>
+                <a asp-page="DisplayCustomer" asp-route-Custid="@customer.Custid">View</a> &nbsp;
+                <a asp-page="EditCustomer" asp-route-Custid="@customer.Custid">Edit</a> &nbsp;
+                <a asp-page="DeleteCustomer" asp-route-Custid="@customer.Custid">Delete</a>
+            </td>
+        </tr>
+    }
+    <tr>
+        <td colspan="6" align="center">
+            <a asp-page="AddCustomer">Add New Customer</a>
+        </td>
+    </tr>
+</table>
+```
 
-ASP.NET Core Identity Framework 348
+2. Display Customer
+
+- In `DisplayCustomer.cshtml.cs`:
+
+```c#
+using CoreRazorPagesDemo.Models;
+
+public class DisplayCustomerModel : PageModel
+{
+    public Customer Customer { get; set; }
+    private readonly MvcdbContext context;
+    public DisplayCustomerModel(MvcdbContext context)
+    {
+        this.context = context;
+    }
+    public void OnGet(int Custid)
+    {
+        Customer = context.Customers.Find(Custid);
+    }
+}
+```
+
+- In `DisplayCustomer.cshtml`:
+
+```c#
+@page "{Custid}"
+@model CoreRazorPagesDemo.Pages.DisplayCustomerModel
+@{
+    ViewData["Title"] = "Display Customer";
+}
+<h2 style="text-align:center;background-color:yellowgreen;color:red">Customer Details</h2>
+<table border="1" align="center" class="table-condensed">
+    <tr><td>Custid:</td><td>@Model.Customer.Custid</td></tr>
+    <tr><td>Name:</td><td>@Model.Customer.Name</td></tr>
+    <tr><td>Balance:</td><td>@Model.Customer.Balance</td></tr>
+    <tr><td>City:</td><td>@Model.Customer.City</td></tr>
+    <tr><td>Status:</td><td><input type="checkbox" asp-for="@Model.Customer.Status" disabled/></td></tr>
+    <tr><td colspan="2" align="center">
+        <a asp-page="Index">Back to Customer Details</a>
+    </td></tr>
+</table>
+```
+
+3. Add Customer
+
+- In `AddCustomer.cshtml.cs`:
+
+```c#
+using CoreRazorPagesDemo.Models;
+
+public class AddCustomerModel : PageModel
+{
+    public Customer Customer { get; set; }
+    private readonly MvcdbContext context;
+    public AddCustomerModel(MvcdbContext context)
+    {
+        this.context = context;
+    }
+    public RedirectResult OnPost(Customer customer)
+    {
+        context.Customers.Add(customer);
+        context.SaveChanges();
+        return Redirect("Index");
+    }
+}
+```
+
+- In `AddCustomer.cshtml`:
+
+```c#
+@page
+@model CoreRazorPagesDemo.Pages.AddCustomerModel
+@{
+    ViewData["Title"] = "Add Customer";
+}
+<h2 style="text-align:center;background-color:yellowgreen;color:red">Customer Details</h2>
+<form method="post">
+    <div><label>Custid:</label><br /><input asp-for="@Model.Customer.Custid" /></div>
+    <div><label>Name:</label><br /><input asp-for="@Model.Customer.Name" /></div>
+    <div><label>Balance:</label><br /><input asp-for="@Model.Customer.Balance" /></div>
+    <div><label>City:</label><br /><input asp-for="@Model.Customer.City" /></div>
+    <div><label>Status:</label><br /><input asp-for="@Model.Customer.Status" /></div>
+    <div><input type="submit" value="Save" /><input type="reset" value="Reset" /></div>
+    <div><a asp-page="Index" align="center">Back to Customer Details</a></div>
+</form>
+```
+
+4. Edit Customer
+
+- In `EditCustomer.cshtml.cs`:
+
+```c#
+using CoreRazorPagesDemo.Models;
+
+public class EditCustomerModel : PageModel
+{
+    public Customer Customer { get; set; }
+    private readonly MvcdbContext context;
+    public EditCustomerModel(MvcdbContext context)
+    {
+        this.context = context;
+    }
+    public void OnGet(int Custid)
+    {
+        Customer = context.Customers.Find(Custid);
+    }
+    public RedirectResult OnPost(Customer customer)
+    {
+        customer.Status = true;
+        context.Customers.Update(customer);
+        context.SaveChanges();
+        return Redirect("Index");
+    }
+}
+```
+
+- `EditCustomer.cshtml`:
+
+```c#
+@page "{Custid}"
+@model CoreRazorPagesDemo.Pages.EditCustomerModel
+@{
+    ViewData["Title"] = "Edit Customer";
+}
+<h2 style="text-align:center;background-color:yellowgreen;color:red">Customer Details</h2>
+<form method="post">
+    <div><label>Custid:</label><br /><input asp-for="@Model.Customer.Custid" readonly /></div>
+    <div><label>Name:</label><br /><input asp-for="@Model.Customer.Name" /></div>
+    <div><label>Balance:</label><br /><input asp-for="@Model.Customer.Balance" /></div>
+    <div><label>City:</label><br /><input asp-for="@Model.Customer.City" /></div>
+    <div><label>Status:</label><br /><input asp-for="@Model.Customer.Status" disabled /></div>
+    <div><input type="submit" value="Update" /><a asp-page="Index" align="center">Cancel</a></div>
+</form>
+```
+
+5. Deleting customer
+
+-
+
+```c#
+public class DeleteCustomerModel : PageModel
+{
+  public Customer Customer { get; set; }
+  private readonly MvcdbContext context;
+
+  public DeleteCustomerModel(MvcdbContext context)
+  {
+    this.context = context;
+  }
+  public void OnGet(int Custid)
+  {
+    Customer = context.Customers.Find(Custid);
+  }
+  public RedirectResult OnPost(Customer customer)
+  {
+    context.Customers.Update(customer);
+    context.SaveChanges();
+    return Redirect("Index");
+}
+}
+```
+
+-
+
+```c#
+@page "{Custid}"
+@model CoreRazorPagesDemo.Pages.DeleteCustomerModel
+@{
+  ViewData["Title"] = "Delete Customer";
+}
+<form method="post">
+  <div>
+    <label>Custid:</label><br />
+    <input asp-for="@Model.Customer.Custid" readonly />
+  </div>
+  <div>
+    <label>Name:</label><br />
+    <input asp-for="@Model.Customer.Name" readonly />
+  </div>
+  <div>
+    <label>Balance:</label><br />
+    <input asp-for="@Model.Customer.Balance" readonly />
+  </div>
+  <div>
+    <label>City:</label><br />
+    <input asp-for="@Model.Customer.City" readonly />
+  </div>
+  <div>
+    <label>Status:</label><br />
+    <input asp-for="@Model.Customer.Status" disabled />
+  </div>
+  <div>
+    <input type="submit" value="Delete" />
+    <a asp-page="Index" align="center">Cancel</a>
+  </div>
+</form>
+```
+
+**`Note`**:
+
+- **`public Customer Customer { get; set; }`**: It allows you to **store** and **access** information about a customer in this page model.
+- All class inherit the **`PageModel`**, `PageModel` is a class in ASP.NET Core `Razor Pages` that acts as a code-behind file for a Razor Page. It inherits from the `PageModel` class, which provides methods for handling HTTP requests (`OnGet`, `OnPost`, etc.).
+- `private readonly MvcdbContext context;`: This line defines a private field called `context` of type `MvcdbContext`. The `readonly` keyword ensures that the value of `context` can't be changed after it’s set in the constructor. to create a private field that holds an instance of the `MvcdbContext` class. This allows the class to interact with the database using Entity Framework Core.
+- `public ConstructorName(MvcdbContext context){this.context = context;}`: . It takes an instance of `MvcdbContext` (named `context`) as a parameter and assigns it to the private `context` field. This is done to allow database access in other methods of this class.
+- `PageModel`: Is a Model of Page and also it's Controller.
+  - Like when you call the customer 1st it go to PageModel then inside page model Customer Model class is call.
+
+---
+
+### Q. Realtion bitween ASP.Net & .Net CORE?
+
+---
+
+- Web Form => Razor Pages(Web App's)
+- MVC 5 => MVC Core
+- Web Api => Web Api Core
+
+---
+
+### Q. What is PageModel and How it's work?
+
+---
+
+- `PageModel` is a class provided by ASP.NET Core Razor Pages that serves as the base class for the model associated with a Razor Page. It contains properties and methods that allow you to handle page-specific data and logic.
+- `PageModel` is a base class for Razor Pages that helps manage data and handle requests.
+- It supports data binding, request handling, and dependency injection.
+- By using `PageModel`, you achieve a clear separation between business logic and presentation.
+- Only `PageModel` will intract with View, not like a MVC web application View also intract with controller & Model.
+- If you want to access any thing in you page you need to define Property in that `PageModel`. That way extra work come.
+- View shood never access directly model withou creating property in PageModel.
+- You can use every thing like Entity framework but problome is you need to add property in all pages.
+- Razor Pages not sutable of bige project.
+- Razor Pages and Web Form almost same.
+
+**How Does `PageModel` Work**:
+
+1. **Inherit from `PageModel`:**
+   When you create a Razor Page, you typically have two files: the `.cshtml` file (the view) and the `.cshtml.cs` file (the model). The model file contains a class that inherits from `PageModel`.
+
+   ```csharp
+   public class IndexModel : PageModel
+   {
+       // Properties and methods go here
+   }
+   ```
+
+2. **Binding Data:**
+   You can define properties in your `PageModel` class to hold data that you want to display on the page. For example, if you have a `Customer` model, you might have a property to hold a list of customers.
+
+   ```csharp
+   public List<Customer> Customers { get; set; }
+   ```
+
+3. **Handling Requests:**
+   The `PageModel` class provides methods (called handler methods) to respond to HTTP requests. Commonly used methods include:
+
+   - `OnGet()`: Executes when a GET request is made to the page.
+   - `OnPost()`: Executes when a POST request is made (like form submissions).
+
+   Example:
+
+   ```csharp
+   public void OnGet()
+   {
+       // Code to fetch data when the page is accessed
+   }
+
+   public RedirectResult OnPost(Customer customer)
+   {
+       // Code to handle form submission
+   }
+   ```
+
+4. **Dependency Injection:**
+   You can inject services (like a database context) into the `PageModel` via the constructor. This allows you to perform database operations within your page model.
+
+   ```csharp
+   public class IndexModel : PageModel
+   {
+       private readonly MvcdbContext _context;
+
+       public IndexModel(MvcdbContext context)
+       {
+           _context = context;
+       }
+   }
+   ```
+
+5. **Separation of Concerns:**
+   The `PageModel` separates the logic (C# code) from the presentation (HTML/Razor). This makes your code cleaner and easier to manage.
+
+---
