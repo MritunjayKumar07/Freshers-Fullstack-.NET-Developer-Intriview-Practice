@@ -5326,6 +5326,7 @@ INSERT INTO Employee VALUES (108, 'Olivia Garcia', 'Sales Associate', 47000.00, 
   </details>
 - <details>
     <summary>Identify the primary key for the SALES table and write the CREATE TABLE script:
+
      ```sql
      DATEID    | PRODID | CUSTID | QTY | AMT
      --------------------------------------
@@ -5334,6 +5335,7 @@ INSERT INTO Employee VALUES (108, 'Olivia Garcia', 'Sales Associate', 47000.00, 
      2023-10-05 | 101    | 10     | 1   | 2000
      2023-10-06 | 100    | 10     | 1   | 1000
      ```
+     
     </summary>
 
     <hr/>

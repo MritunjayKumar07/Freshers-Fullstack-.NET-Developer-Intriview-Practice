@@ -407,11 +407,11 @@ VB Source Code => Compiled by using VB Compiler => Generates CIL Code => Which c
      <hr/>
    </details>
 10. <details>
-      <summary>Can you provide examples of value types and reference types in C#?</summary>
-      <hr/>
-      <p>Examples of value types: int, double, and enum, while examples of reference types: string, object, and class.</p>
-      <hr/>
-  </details>
+        <summary>Can you provide examples of value types and reference types in C#?</summary>
+        <hr/>
+        <p>Examples of value types: int, double, and enum, while examples of reference types: string, object, and class.</p>
+        <hr/>
+    </details>
 
 <hr/>
 
@@ -2731,6 +2731,7 @@ LTS (long-term support) releases have an extended support period. Use this if yo
 
   <hr/>
   </details>
+
   ```
 
 - <details>
@@ -3611,7 +3612,7 @@ LTS (long-term support) releases have an extended support period. Use this if yo
     <hr/>
   </details>
 
-#### type casting
+## **`Type casting`**
 
 - <details>
     <summary>What is type casting in C#?</summary>
@@ -3908,7 +3909,7 @@ LTS (long-term support) releases have an extended support period. Use this if yo
     <hr/>
   </details>
 
-#### OOP's
+## **`OOPs`**
 
 - <details>
     <summary> What are the two main programming approaches used in the industry?</summary>
@@ -4843,7 +4844,7 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
     - A namespace is a logical container that groups related types (like classes, structures, interfaces, enums, and delegates) in C#. It helps organize code and avoid naming conflicts in large projects.
 
-    - Example: `System` is a predefined namespace in C# that contains many classes and types, including `Console`, `String`, `Math`, etc.
+  - Example: `System` is a predefined namespace in C# that contains many classes and types, including `Console`, `String`, `Math`, etc.
 
     <hr/>
   </details>
@@ -5301,14 +5302,15 @@ Life cycle means from the starting of execution to the end of execution.
 
   - **Example**:
 
-        - **x = 100**: The integer value `100` is stored directly on the stack.
+          - **x = 100**: The integer value `100` is stored directly on the stack.
 
-        - **ch = 'A'**: The character `A` is also stored directly on the stack.
+          - **ch = 'A'**: The character `A` is also stored directly on the stack.
 
-        - **d = 45.83**: The double value `45.83` is stored directly on the stack.
+          - **d = 45.83**: The double value `45.83` is stored directly on the stack.
 
-      <hr/>
-  </details>
+        <hr/>
+
+    </details>
 
 - <details>
     <summary>What is Reference Types?</summary>
@@ -5330,8 +5332,9 @@ Life cycle means from the starting of execution to the end of execution.
 
     - **s = "Hello"**: The string "Hello" is stored in the Managed Heap, and the reference (or address) pointing to "Hello" is stored on the Stack.
 
-      <hr/>
-  </details>
+          <hr/>
+
+      </details>
 
 - <details>
     <summary>What is Nullable value type?</summary>
@@ -5539,14 +5542,15 @@ Life cycle means from the starting of execution to the end of execution.
 
   - `double.Parse()`:
 
-        ```c#
-        double d2 = double.Parse(Console.ReadLine());
-        ```
+          ```c#
+          double d2 = double.Parse(Console.ReadLine());
+          ```
 
-        etc...
+          etc...
 
-      <hr/>
-  </details>
+        <hr/>
+
+    </details>
 
 - <details>
     <summary>What is the Parse() method used for?</summary>
@@ -5556,20 +5560,21 @@ Life cycle means from the starting of execution to the end of execution.
 
   - Example conversions:
 
-        ```c#
-        string s1 = "100";
-        int i = int.Parse(s1);   // Converts to int
+          ```c#
+          string s1 = "100";
+          int i = int.Parse(s1);   // Converts to int
 
-        string s2 = "34.56";
-        double d = double.Parse(s2);   // Converts to double
+          string s2 = "34.56";
+          double d = double.Parse(s2);   // Converts to double
 
-        string s3 = "true";
-        bool b = bool.Parse(s3);   // Converts to bool
+          string s3 = "true";
+          bool b = bool.Parse(s3);   // Converts to bool
 
-        ```
+          ```
 
-      <hr/>
-  </details>
+        <hr/>
+
+    </details>
 
 - <details>
     <summary>What is string interpolation?</summary>
@@ -5634,8 +5639,10 @@ Life cycle means from the starting of execution to the end of execution.
     5. **Unary Operators**: `++`, `--`
     6. **Miscellaneous Operators**: `sizeof()`, `typeof()`, `is`, `as`, `?: (Ternary)`, `?? (Coalesce)`
 
-      <hr/>
-  </details>
+
+        <hr/>
+
+    </details>
 
 - <details>
     <summary>What does the `sizeof()` operator do?</summary>
@@ -5990,8 +5997,9 @@ Life cycle means from the starting of execution to the end of execution.
     </Project>
     ```
 
-      <hr/>
-  </details>
+        <hr/>
+
+    </details>
 
 - <details>
     <summary>What if we don't want to set the StartupObject manually?</summary>
@@ -6797,6 +6805,93 @@ Life cycle means from the starting of execution to the end of execution.
   static void AssignOut(out int x)
   {
       x = 30; // Must assign a value before returning
+  }
+  ```
+
+    <hr/>
+  </details>
+
+- <details>
+    <summary>Can it is also possible to send arguments with the "key: value" formate?</summary>
+    <hr/>
+    It is also possible to send arguments with the key: value syntax. That way, the order of the arguments does not matter:
+
+  **Example**:
+
+  ```c#
+  static void MyMethod(string child1, string child2, string child3)
+  {
+    Console.WriteLine("The youngest child is: " + child3);
+  }
+
+  static void Main(string[] args)
+  {
+    MyMethod(child3: "John", child1: "Liam", child2: "Liam");
+  }
+
+  // The youngest child is: John
+  ```
+
+    <hr/>
+  </details>
+
+- <details>
+    <summary>How to passing an array to a method & Return an array from a method?</summary>
+    <hr/>
+    **`Pass an array to a method`**: you provide the method with the array reference. The method can then access and modify the elements of the array.
+
+  **syntex**:-`ReturnType MethodName(DataType[] arrayParameter) { // Method body }`
+  **Example**:
+
+  ```c#
+  class Program
+  {
+      // Method that takes an array as a parameter and prints its elements
+      static void PrintArray(int[] array)
+      {
+          foreach (int item in array)
+          {
+              Console.WriteLine(item);
+          }
+      }
+
+      static void Main()
+      {
+          int[] numbers = { 1, 2, 3, 4, 5 };
+          PrintArray(numbers);
+      }
+  }
+  ```
+
+  **`Returning an Array from a Method`**: The return type of the method should be the array type.
+
+  **syntex**:-`DataType[] MethodName() { // Method body that creates and returns an array }`
+  **Example**:
+
+  ```c#
+  class Program
+  {
+      // Method that returns an array of integers
+      static int[] GenerateArray(int size)
+      {
+          int[] array = new int[size];
+          for (int i = 0; i < size; i++)
+          {
+              array[i] = i * 2; // Just an example of initialization
+          }
+          return array;
+      }
+
+      static void Main()
+      {
+          int[] generatedArray = GenerateArray(5);
+
+          // Print the returned array
+          foreach (int item in generatedArray)
+          {
+              Console.WriteLine(item);
+          }
+      }
   }
   ```
 
@@ -8388,91 +8483,96 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
     Constructor Overloading is the concept of defining multiple constructors within a class with different sets of parameters. These constructors can initialize the attributes of the class in various ways. It allows the creation of an object by calling different constructors based on the parameters provided. It's just like a method Overloading.
 
-    Example:-
-    ```c#
-    internal class OverloadCons
+  Example:-
+
+  ```c#
+  internal class OverloadCons
+  {
+    int i; bool b;
+
+    public OverloadCons()
     {
-      int i; bool b;
-
-      public OverloadCons()
-      {
-        //Initializes i & b with default values
-      }
-
-      public OverloadCons(int i)
-      {
-        //Initializes b with default value and i with given value
-        this.i = i;
-      }
-
-      public OverloadCons(bool b)
-      {
-        //Initializes i with default value and b with given value
-        this.b = b;
-      }
-
-      public OverloadCons(int i, bool b)
-      {
-        //Initializes both i & b with given values
-        this.i = i;
-        this.b = b;
-      }
-      public void Display()
-      {
-      Console.WriteLine($"Value of i is: {i} and value of b is: {b}");
-      }
-    }
-    internal class TestOverloadCons
-    {
-      static void Main()
-      {
-        OverloadCons c1 = new OverloadCons();//Calls the default constructor.
-        c1.Display();
-
-        OverloadCons c2 = new OverloadCons(10);//Calls the constructor with an int parameter.
-        c2.Display();
-
-        OverloadCons c3 = new OverloadCons(true);//Calls the constructor with a bool parameter.
-        c3.Display();
-
-        OverloadCons c4 = new OverloadCons(10, true);//Calls the constructor with both int and bool parameters.
-        c4.Display();
-
-      }
+      //Initializes i & b with default values
     }
 
-    ```
+    public OverloadCons(int i)
+    {
+      //Initializes b with default value and i with given value
+      this.i = i;
+    }
+
+    public OverloadCons(bool b)
+    {
+      //Initializes i with default value and b with given value
+      this.b = b;
+    }
+
+    public OverloadCons(int i, bool b)
+    {
+      //Initializes both i & b with given values
+      this.i = i;
+      this.b = b;
+    }
+    public void Display()
+    {
+    Console.WriteLine($"Value of i is: {i} and value of b is: {b}");
+    }
+  }
+  internal class TestOverloadCons
+  {
+    static void Main()
+    {
+      OverloadCons c1 = new OverloadCons();//Calls the default constructor.
+      c1.Display();
+
+      OverloadCons c2 = new OverloadCons(10);//Calls the constructor with an int parameter.
+      c2.Display();
+
+      OverloadCons c3 = new OverloadCons(true);//Calls the constructor with a bool parameter.
+      c3.Display();
+
+      OverloadCons c4 = new OverloadCons(10, true);//Calls the constructor with both int and bool parameters.
+      c4.Display();
+
+    }
+  }
+
+  ```
+
     <hr/>
   </details>
+
 - <details>
     <summary>How does Constructor Overloading work?</summary>
     <hr/>
     Constructor Overloading works by defining multiple constructors with different parameter lists. When creating an instance of the class, the appropriate constructor is called based on the arguments passed. If no arguments are passed, the default (parameter-less) constructor is called.
 
-    In the provided example:
+  In the provided example:
 
-    - A constructor with no parameters initializes all fields (i and b) to their default values.
+  - A constructor with no parameters initializes all fields (i and b) to their default values.
 
-    - A constructor with an int parameter initializes i with the given value and b with its default value.
+  - A constructor with an int parameter initializes i with the given value and b with its default value.
 
-    - A constructor with a bool parameter initializes b with the given value and i with its default value.
+  - A constructor with a bool parameter initializes b with the given value and i with its default value.
 
-    - A constructor with both int and bool parameters initializes both i and b with the given values.
+  - A constructor with both int and bool parameters initializes both i and b with the given values.
 
     <hr/>
   </details>
+
 - <details>
     <summary> What are the ways to initialize the fields in the Overloading Constructor class?</summary>
     <hr/>
     There are 3 ways to initialize the fields of the Overloading Constructor class:
 
-    1. Using the default constructor (parameter-less), which initializes all fields with default values.
+  1. Using the default constructor (parameter-less), which initializes all fields with default values.
 
-    2. Using a parameterized constructor to initialize all fields with given values.
+  2. Using a parameterized constructor to initialize all fields with given values.
 
-    3. Using a parameterized constructor to initialize some fields with given values and others with default values.
+  3. Using a parameterized constructor to initialize some fields with given values and others with default values.
     <hr/>
   </details>
+
 - <details>
     <summary>What is the purpose of using this keyword in the constructors?</summary>
     <hr/>
@@ -8513,61 +8613,64 @@ Life cycle means from the starting of execution to the end of execution.
      string Name;
      double Balance;
 
-     public CopyConDemo(int Id)
-     {
-      this.Id = Id;
-      Name = "Vijay";
-      Balance = 5000.00;
-     }
+  public CopyConDemo(int Id)
+  {
+  this.Id = Id;
+  Name = "Vijay";
+  Balance = 5000.00;
+  }
 
-     public CopyConDemo(CopyConDemo cd)
-     {
-      this.Id = cd.Id;
-      this.Name = cd.Name;
-      this.Balance = cd.Balance;
-     }
+  public CopyConDemo(CopyConDemo cd)
+  {
+  this.Id = cd.Id;
+  this.Name = cd.Name;
+  this.Balance = cd.Balance;
+  }
 
-     public void Display()
-     {
-      Console.WriteLine($"Id: {Id}; Name: {Name}; Balance: {Balance}");
-     }
+  public void Display()
+  {
+  Console.WriteLine($"Id: {Id}; Name: {Name}; Balance: {Balance}");
+  }
 
-     static void Main()
-     {
-     CopyConDemo cd1 = new CopyConDemo(1005);
-     cd1.Display();// Id: 1005; Name: Vijay; Balance: 5000
+  static void Main()
+  {
+  CopyConDemo cd1 = new CopyConDemo(1005);
+  cd1.Display();// Id: 1005; Name: Vijay; Balance: 5000
 
-     CopyConDemo cd2 = new CopyConDemo(cd1);
-     cd2.Display();// Id: 1005; Name: Vijay; Balance: 5000
+  CopyConDemo cd2 = new CopyConDemo(cd1);
+  cd2.Display();// Id: 1005; Name: Vijay; Balance: 5000
 
-     cd1.Balance = 10000;
-     cd1.Display();// Id: 1005; Name: Vijay; Balance: 10000
-     cd2.Display();// Id: 1005; Name: Vijay; Balance: 5000
+  cd1.Balance = 10000;
+  cd1.Display();// Id: 1005; Name: Vijay; Balance: 10000
+  cd2.Display();// Id: 1005; Name: Vijay; Balance: 5000
 
-     cd2.Balance = 20000;
-     cd1.Display();// Id: 1005; Name: Vijay; Balance: 10000
-     cd2.Display();// Id: 1005; Name: Vijay; Balance: 20000
-     }
-    }
-    ```
+  cd2.Balance = 20000;
+  cd1.Display();// Id: 1005; Name: Vijay; Balance: 10000
+  cd2.Display();// Id: 1005; Name: Vijay; Balance: 20000
+  }
+  }
 
-    This constructor copies the Id, Name, and Balance fields from the existing instance cd into the new instance.
+  ```
 
-    **Copy Constructor work in the example**:
-    1. `CopyConDemo cd1 = new CopyConDemo(1005);` - Creates the first instance cd1 and initializes it with `Id = 1005`, `Name = "Vijay"`, and `Balance = 5000.00`.
-    2. `CopyConDemo cd2 = new CopyConDemo(cd1);` - Creates the second instance `cd2` by copying the values from `cd1`.
+  This constructor copies the Id, Name, and Balance fields from the existing instance cd into the new instance.
 
-    Changes to one instance’s members (like updating Balance for cd1 or cd2) will not affect the other instance because they have separate memory.
+  **Copy Constructor work in the example**:
+  1. `CopyConDemo cd1 = new CopyConDemo(1005);` - Creates the first instance cd1 and initializes it with `Id = 1005`, `Name = "Vijay"`, and `Balance = 5000.00`.
+  2. `CopyConDemo cd2 = new CopyConDemo(cd1);` - Creates the second instance `cd2` by copying the values from `cd1`.
 
-    When values in either cd1 or cd2 are changed, the changes do not affect the other instance. For example:
+  Changes to one instance’s members (like updating Balance for cd1 or cd2) will not affect the other instance because they have separate memory.
 
-    - After `cd1.Balance = 10000;`, `cd2` still retains its original balance of `5000.00`.
+  When values in either cd1 or cd2 are changed, the changes do not affect the other instance. For example:
 
-    - Similarly, after `cd2.Balance = 20000;`, `cd1` still retains its balance of 10000.
+  - After `cd1.Balance = 10000;`, `cd2` still retains its original balance of `5000.00`.
 
-    This shows that `both` `cd1` and `cd2` have their `own separate memory`, and changes to one do not reflect in the other.
-    <hr/>
+  - Similarly, after `cd2.Balance = 20000;`, `cd1` still retains its balance of 10000.
+
+  This shows that `both` `cd1` and `cd2` have their `own separate memory`, and changes to one do not reflect in the other.
+  <hr/>
   </details>
+  ```
+
 - <details>
     <summary>What is the main feature of a Copy Constructor that distinguishes it from creating a reference?</summary>
     <hr/>
@@ -8590,51 +8693,49 @@ Life cycle means from the starting of execution to the end of execution.
     <summary>What are the 5 types of constructors, and what do they do?</summary>
     <hr/>
 
-    1. **`Default Constructor`**:
+  1. **`Default Constructor`**:
 
-    - **Definition**: A constructor without any parameters.
+  - **Definition**: A constructor without any parameters.
 
-    - **Purpose**: Initializes the fields of a class with default values.
+  - **Purpose**: Initializes the fields of a class with default values.
 
-    - **Implicit/Explicit**: If no constructor is defined in the class, the compiler provides an implicit default constructor.
+  - **Implicit/Explicit**: If no constructor is defined in the class, the compiler provides an implicit default constructor.
 
-    2. **`Parameterized Constructor`**:
+  2. **`Parameterized Constructor`**:
 
-    - **Definition**: A constructor that takes one or more parameters.
+  - **Definition**: A constructor that takes one or more parameters.
 
-    - **Purpose**: Initializes fields with specific values provided during object creation.
+  - **Purpose**: Initializes fields with specific values provided during object creation.
 
-    - **Implicit/Explicit**: These constructors are always explicitly defined by the programmer and not provided by the compiler.
+  - **Implicit/Explicit**: These constructors are always explicitly defined by the programmer and not provided by the compiler.
 
-    
-    3. **`Copy Constructor`**:
+  3. **`Copy Constructor`**:
 
-    - **Definition**: A constructor that takes an object of the same class as its parameter.
+  - **Definition**: A constructor that takes an object of the same class as its parameter.
 
-    - **Purpose**: Copies the field values from an existing instance to a new instance.
+  - **Purpose**: Copies the field values from an existing instance to a new instance.
 
-    - **Behavior**: It creates a new instance with its own memory, so changes to the original instance do not affect the new instance and vice versa.
+  - **Behavior**: It creates a new instance with its own memory, so changes to the original instance do not affect the new instance and vice versa.
 
-    
-    4. **`Static Constructor`**:
+  4. **`Static Constructor`**:
 
-    - **Definition**: A constructor declared with the static modifier.
+  - **Definition**: A constructor declared with the static modifier.
 
-    - **Purpose**: Initializes static fields of a class and is executed only once when the class is first loaded.
+  - **Purpose**: Initializes static fields of a class and is executed only once when the class is first loaded.
 
-    - **Implicit/Explicit**: It is called implicitly before any instance is created or any static members are accessed. It cannot be overloaded or parameterized.
+  - **Implicit/Explicit**: It is called implicitly before any instance is created or any static members are accessed. It cannot be overloaded or parameterized.
 
-    
-    5. **`Private Constructor`**:
+  5. **`Private Constructor`**:
 
-    - **Definition**: A constructor declared with the private modifier.
+  - **Definition**: A constructor declared with the private modifier.
 
-    - **Purpose**: Prevents other classes from creating instances of the class.
+  - **Purpose**: Prevents other classes from creating instances of the class.
 
-    - **Use Case**: Typically used in singleton classes where only one instance of the class is allowed.
+  - **Use Case**: Typically used in singleton classes where only one instance of the class is allowed.
 
     <hr/>
   </details>
+
 - <details>
     <summary>What is a Sealed Class?</summary>
     <hr/>
@@ -8653,17 +8754,19 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
     No, a Sealed Class cannot be inherited by any other class. Attempting to inherit from a sealed class results in a compile-time error. For example:`class Class2 : Class1 => Invalid`.
 
-    Here, `Class2` attempting to inherit `Class1` will be invalid since `Class1` is sealed.
+  Here, `Class2` attempting to inherit `Class1` will be invalid since `Class1` is sealed.
     <hr/>
   </details>
+
 - <details>
     <summary>Can the members of a Sealed Class be used in other classes?</summary>
     <hr/>
     Yes, the members of a Sealed Class can still be used in other classes by creating an instance of the sealed class. For example:`String str = new String("example");`
 
-    Here, `String` is a sealed class, **`but you can still create an instance of it and use its members`**.
+  Here, `String` is a sealed class, **`but you can still create an instance of it and use its members`**.
     <hr/>
   </details>
+
 - <details>
     <summary>What is a Sealed Method?</summary>
     <hr/>
@@ -8675,49 +8778,52 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
     No, only methods that are explicitly marked as `virtual` in the parent class can be overridden by a child class. Methods that are not `virtual` cannot be overridden. For example:
 
-    ```c#
-    public virtual void Show() { /* ... */ }
-    ```
+  ```c#
+  public virtual void Show() { /* ... */ }
+  ```
 
-    This `Show` method can be overridden in any child class.
+  This `Show` method can be overridden in any child class.
     <hr/>
   </details>
+
 - <details>
     <summary>What happens when a `virtual` method is overridden in a child class?</summary>
     <hr/>
     When a virtual method is overridden in a child class, the child class provides its own implementation of that method, replacing the parent's implementation. For example:
 
-    ```c#
-    class Class1
-    {
-       public virtual void Show() { /* Parent Implementation */ }
-    }
+  ```c#
+  class Class1
+  {
+     public virtual void Show() { /* Parent Implementation */ }
+  }
 
-    class Class2 : Class1
-    {
-       public override void Show() { /* Child Implementation */ }
-    }
-    ```
+  class Class2 : Class1
+  {
+     public override void Show() { /* Child Implementation */ }
+  }
+  ```
 
-    Here, `Class2` overrides the Show method of `Class1`.
+  Here, `Class2` overrides the Show method of `Class1`.
 
     <hr/>
   </details>
+
 - <details>
     <summary>Can a child class seal an overridden method?</summary>
     <hr/>
     Yes, a child class can seal an overridden method using the sealed modifier to prevent further overriding by any classes derived from it. For example:
 
-    ```c#
-    class Class2 : Class1
-    {
-       public sealed override void Show() { /* Child Implementation */ }
-    }
-    ```
+  ```c#
+  class Class2 : Class1
+  {
+     public sealed override void Show() { /* Child Implementation */ }
+  }
+  ```
 
-    In this case, any further derived class (like `Class3`) cannot override the `Show` method.
+  In this case, any further derived class (like `Class3`) cannot override the `Show` method.
     <hr/>
   </details>
+
 - <details>
     <summary>Can a method be sealed without being overridden first?</summary>
     <hr/>
@@ -8729,80 +8835,87 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
     The sealed modifier can only be applied to methods that already override a virtual or abstract method from a base class. This means you can only "seal" a method that was initially meant to be overridden, preventing further overrides in any derived classes.
 
-    **Example**:
-    ```c#
-    class Parent
-    {
-        public virtual void Show() { /* can be overridden */ }
-    }
+  **Example**:
 
-    class Child : Parent
-    {
-        public sealed override void Show() { /* cannot be overridden further */ }
-    }
-    ```
-    n this case, `Child` can override `Show`, but any class inheriting from `Child` cannot override `Show` again because it’s sealed.
+  ```c#
+  class Parent
+  {
+      public virtual void Show() { /* can be overridden */ }
+  }
+
+  class Child : Parent
+  {
+      public sealed override void Show() { /* cannot be overridden further */ }
+  }
+  ```
+
+  n this case, `Child` can override `Show`, but any class inheriting from `Child` cannot override `Show` again because it’s sealed.
     <hr/>
   </details>
+
 - <details>
     <summary>Can a method sealed in one class be overridden in a class further down the hierarchy?</summary>
     <hr/>
     No, once a method is sealed in a class, it cannot be overridden in any class further down the inheritance hierarchy. For example:
 
-    ```c#
-    class Class2 : Class1
-    {
-       public sealed override void Show() { /* Implementation */ }
-    }
+  ```c#
+  class Class2 : Class1
+  {
+     public sealed override void Show() { /* Implementation */ }
+  }
 
-    class Class3 : Class2
-    {
-       public override void Show() => Invalid // This will cause a compile-time error.
-    }
-    ```
+  class Class3 : Class2
+  {
+     public override void Show() => Invalid // This will cause a compile-time error.
+  }
+  ```
 
-    Here, `Class3` cannot override the `Show` method because it has been sealed in `Class2`.
+  Here, `Class3` cannot override the `Show` method because it has been sealed in `Class2`.
     <hr/>
   </details>
+
 - <details>
     <summary>Why would you use a Sealed Class or a Sealed Method?</summary>
     <hr/>
 
-    - **Sealed Class**: You use a sealed class when you want to prevent other developers from extending or modifying its behavior through inheritance. This is often used for security, stability, or optimization reasons.
+  - **Sealed Class**: You use a sealed class when you want to prevent other developers from extending or modifying its behavior through inheritance. This is often used for security, stability, or optimization reasons.
 
-    - **Sealed Method**: You use a sealed method when you want to allow a method to be overridden once (in a child class), but prevent further overriding by future subclasses.
+  - **Sealed Method**: You use a sealed method when you want to allow a method to be overridden once (in a child class), but prevent further overriding by future subclasses.
     <hr/>
   </details>
+
 - <details>
     <summary>What is an Abstract Method?</summary>
     <hr/>
     An abstract method is a method without a body, meaning it has only a declaration but no implementation. To declare a method as abstract, the `abstract` modifier must be used. For example:
 
-    ```c#
-    public abstract void Mul(int a, int b);
-    ```
+  ```c#
+  public abstract void Mul(int a, int b);
+  ```
 
-    In this example, `Mul` is an abstract method, and any class that inherits this must provide its implementation.
+  In this example, `Mul` is an abstract method, and any class that inherits this must provide its implementation.
 
     <hr/>
   </details>
+
 - <details>
     <summary>What is an Abstract Class?</summary>
     <hr/>
     An abstract class is a class that contains one or more abstract methods and is declared using the `abstract` modifier. It can `also contain non-abstract (concrete) members`. For example:
 
-    ```c#
-    abstract class AbsParent
-    {
-       public abstract void Mul(int a, int b);
-       public void Add(int a, int b) { /* Implementation */ }
-    }
-    ```
+  ```c#
+  abstract class AbsParent
+  {
+     public abstract void Mul(int a, int b);
+     public void Add(int a, int b) { /* Implementation */ }
+  }
+  ```
 
-    Here, `AbsParent` is an abstract class because it contains the abstract method Mul.
+  Here, `AbsParent` is an abstract class because it contains the abstract method Mul.
 
     <hr/>
   </details>
+
 - <details>
     <summary>Do child classes need to implement all abstract methods of an abstract class?</summary>
     <hr/>
@@ -8814,72 +8927,124 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
     Yes, an abstract class can contain both abstract and non-abstract methods. For example:
 
-    ```c#
-    abstract class AbsParent
-    {
-       public abstract void Mul(int a, int b);
-       public void Add(int a, int b) { /* Implementation */ }
-    }
-    ```
-    Here, `Add` is a concrete method and can be directly used by the child class.
+  ```c#
+  abstract class AbsParent
+  {
+     public abstract void Mul(int a, int b);
+     public void Add(int a, int b) { /* Implementation */ }
+  }
+  ```
+
+  Here, `Add` is a concrete method and can be directly used by the child class.
     <hr/>
   </details>
+
 - <details>
     <summary>Can we create an instance of an abstract class?</summary>
     <hr/>
     No, we cannot create an instance of an abstract class. However, we can create a reference to the abstract class using an instance of its child class. For example:
 
-    ```c#
-    using System;
+  ```c#
+  using System;
 
-    internal abstract class AbsParent
-    {
-        public void Add(int a, int b){}
-        public void Sub(int a, int b){}
-    
-        public abstract void Mul(int a, int b);
-        public abstract void Div(int a, int b);
-    }
-    
-    internal class AbsChild : AbsParent
-    {
-        // Implementing the abstract method
-        public override void Mul(int a, int b){}
-        public override void Div(int a, int b){}
+  internal abstract class AbsParent
+  {
+      public void Add(int a, int b){}
+      public void Sub(int a, int b){}
 
-        public void Mod(int a, int b){}
-        static void Main(string[] args)
-        {
-            // Creating an instance of the child class
-            AbsChild c = new AbsChild();
-            c.Add(100, 50);
-            c.Sub(75, 17); 
-            c.Mul(12, 13); 
-            c.Div(870, 15);
-            c.Mod(121, 5); 
-    
-            // Creating a reference to abstract class using the child class instance
-            AbsParent p = c;
-            p.Add(100, 50); 
-            p.Sub(75, 17);  
-            p.Mul(12, 13);  
-            p.Div(870, 15); 
-    
-            // The following line is invalid, since `Mod` is not part of AbsParent
-            // p.Mod(121, 5);  // Uncommenting this line will cause a compilation error
-        }
-     }
-    ```
+      public abstract void Mul(int a, int b);
+      public abstract void Div(int a, int b);
+  }
+
+  internal class AbsChild : AbsParent
+  {
+      // Implementing the abstract method
+      public override void Mul(int a, int b){}
+      public override void Div(int a, int b){}
+
+      public void Mod(int a, int b){}
+      static void Main(string[] args)
+      {
+          // Creating an instance of the child class
+          AbsChild c = new AbsChild();
+          c.Add(100, 50);
+          c.Sub(75, 17);
+          c.Mul(12, 13);
+          c.Div(870, 15);
+          c.Mod(121, 5);
+
+          // Creating a reference to abstract class using the child class instance
+          AbsParent p = c;
+          p.Add(100, 50);
+          p.Sub(75, 17);
+          p.Mul(12, 13);
+          p.Div(870, 15);
+
+          // The following line is invalid, since `Mod` is not part of AbsParent
+          // p.Mod(121, 5);  // Uncommenting this line will cause a compilation error
+      }
+   }
+  ```
+
     <hr/>
   </details>
+
+- <details>
+    <summary>Is that posible to create object of abstract class?</summary>
+    <hr/>
+    <p>No, it is not possible to create an object (or instance) of an abstract class directly in C#. Abstract classes are designed to be base classes that provide a common definition of a base class that derived classes can share. They can include abstract methods, which must be implemented by non-abstract derived classes, as well as methods with actual implementation.</p>
+    <hr/>
+  </details>
+- <details>
+    <summary>How to call abstract class Constructor?</summary>
+    <hr/>
+    <p>You cannot directly instantiate an abstract class, but you can call its constructor from a derived class. The abstract class's constructor is called implicitly when an instance of a derived class is created.</p>
+    <br/>
+
+  ```C#
+
+  //Abstract class
+  public abstract class Mrk
+  {
+    // Protected constructor so it can be calledby     derived classes
+    protected Mrk()
+    {
+        Console.WriteLine("Hello baby");
+    }
+  }
+
+  //Derived class
+  class Go : Mrk
+  {
+    // Protected constructor that calls the baseclass     constructor
+    protected Go() : base()
+    {
+        Console.WriteLine("Go class...");
+    }
+  }
+
+  class Constructor
+  {
+        static void Main()
+        {
+            // Creating an instance of the derivedclass
+            Go og = new Go();
+        }
+  }
+  ```
+
+  <hr/>
+  </details>
+
 - <details>
     <summary>What is the use of abstract methods in application development?</summary>
     <hr/>
     Abstract methods are used to define common behaviors across various classes but allow each class to provide its specific implementation. This ensures that while the method's signature remains the same, the functionality can differ based on the class.
 
-    For example, in a mathematical application, different shapes can have a method to calculate the area (GetArea()), but the calculation logic will vary depending on the shape (Circle, Cone, etc.).
+  For example, in a mathematical application, different shapes can have a method to calculate the area (GetArea()), but the calculation logic will vary depending on the shape (Circle, Cone, etc.).
     <hr/>
   </details>
+
 - <details>
     <summary>What happens if a child class does not implement all the abstract methods from the parent class?</summary>
     <hr/>
@@ -8891,95 +9056,98 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
      Yes, an abstract class can have a constructor. This constructor is used to initialize members that are shared by child classes, but it cannot be called directly since you cannot instantiate an abstract class. Instead, the child class will call the constructor of the abstract class.
 
-     ```c#
-     abstract class Animal
-    {
-        public string Name;
-    
-        // Constructor of the abstract class
-        public Animal(string name)
-        {
-            Name = name;
-        }
-    
-        // Abstract method
-        public abstract void MakeSound();
-    }
-    
-    class Dog : Animal
-    {
-        // Constructor of the child class
-        public Dog(string name) : base(name) { }
-    
-        // Implementing the abstract method
-        public override void MakeSound()
-        {
-            Console.WriteLine($"{Name} says: Woof!");
-        }
-    }
-    
-    class Program
-    {
-        static void Main()
-        {
-            Dog dog = new Dog("Buddy");
-            dog.MakeSound();  // Output: Buddy says: Woof!
-        }
-    }
-     ```
+  ```c#
+  abstract class Animal
+  {
+     public string Name;
 
-     In this example, the `Animal` abstract class has a constructor that initializes the `Name` property. The `Dog` class inherits from `Animal` and uses the `base(name)` to call the constructor of the abstract class.
+     // Constructor of the abstract class
+     public Animal(string name)
+     {
+         Name = name;
+     }
+
+     // Abstract method
+     public abstract void MakeSound();
+  }
+
+  class Dog : Animal
+  {
+     // Constructor of the child class
+     public Dog(string name) : base(name) { }
+
+     // Implementing the abstract method
+     public override void MakeSound()
+     {
+         Console.WriteLine($"{Name} says: Woof!");
+     }
+  }
+
+  class Program
+  {
+     static void Main()
+     {
+         Dog dog = new Dog("Buddy");
+         dog.MakeSound();  // Output: Buddy says: Woof!
+     }
+  }
+  ```
+
+  In this example, the `Animal` abstract class has a constructor that initializes the `Name` property. The `Dog` class inherits from `Animal` and uses the `base(name)` to call the constructor of the abstract class.
     <hr/>
   </details>
+
 - <details>
     <summary>Can abstract classes have fields?</summary>
     <hr/>
     Yes, abstract classes can have fields, both static and instance fields. These fields can be used by the child classes.
 
-    ```C#
-    abstract class Shape
-    {
-        // Instance field
-        public double Width;
+  ```C#
+  abstract class Shape
+  {
+      // Instance field
+      public double Width;
 
-        // Static field
-        public static int ShapeCount = 0;
+      // Static field
+      public static int ShapeCount = 0;
 
-        // Abstract method
-        public abstract double GetArea();
+      // Abstract method
+      public abstract double GetArea();
 
-        // Constructor to initialize instance field
-        public Shape(double width)
-        {
-            Width = width;
-            ShapeCount++; // Increment static field
-        }
-    }
+      // Constructor to initialize instance field
+      public Shape(double width)
+      {
+          Width = width;
+          ShapeCount++; // Increment static field
+      }
+  }
 
-    class Circle : Shape
-    {
-        public Circle(double radius) : base(radius) { }
+  class Circle : Shape
+  {
+      public Circle(double radius) : base(radius) { }
 
-        // Implement abstract method
-        public override double GetArea()
-        {
-            return 3.14 * Width * Width; // Area of a circle = π * r²
-        }
-    }
+      // Implement abstract method
+      public override double GetArea()
+      {
+          return 3.14 * Width * Width; // Area of a circle = π * r²
+      }
+  }
 
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            Circle circle = new Circle(5);
-            Console.WriteLine($"Area of the circle: {circle.GetArea()}");
-            Console.WriteLine($"Total shapes created: {Shape.ShapeCount}");
-        }
-    }
-    ```
-    In this example, the abstract class `Shape` has an instance field `Width` and a static field `ShapeCount`. The `Circle` class inherits from `Shape` and provides an implementation for the abstract method `GetArea()`.
+  class Program
+  {
+      static void Main(string[] args)
+      {
+          Circle circle = new Circle(5);
+          Console.WriteLine($"Area of the circle: {circle.GetArea()}");
+          Console.WriteLine($"Total shapes created: {Shape.ShapeCount}");
+      }
+  }
+  ```
+
+  In this example, the abstract class `Shape` has an instance field `Width` and a static field `ShapeCount`. The `Circle` class inherits from `Shape` and provides an implementation for the abstract method `GetArea()`.
     <hr/>
   </details>
+
 - <details>
     <summary>What is the difference between abstract methods and virtual methods?</summary>
     <hr/>
@@ -9000,11 +9168,12 @@ Life cycle means from the starting of execution to the end of execution.
         }
 
         public abstract double GetArea(); // Abstract method
-    }
 
-    class Circle : Shape
-    {
-        public double Radius { get; set; }
+  }
+
+  class Circle : Shape
+  {
+  public double Radius { get; set; }
 
         public Circle(double radius)
         {
@@ -9015,26 +9184,29 @@ Life cycle means from the starting of execution to the end of execution.
         {
             return Math.PI * Radius * Radius; // Implementation of the abstract method
         }
-    }
 
-    // Usage
-    class Program
-    {
-        static void Main()
-        {
-            Shape.DisplayInfo(); // Call the static method without creating an instance
-            Circle circle = new Circle(5);
-            Console.WriteLine($"Area of Circle: {circle.GetArea()}");
-        }
-    }
+  }
 
-    ```
+  // Usage
+  class Program
+  {
+  static void Main()
+  {
+  Shape.DisplayInfo(); // Call the static method without creating an instance
+  Circle circle = new Circle(5);
+  Console.WriteLine($"Area of Circle: {circle.GetArea()}");
+  }
+  }
 
-    - **Abstract Classes** can have static methods that can be called without an instance.
+  ```
 
-    - **Abstract methods** must be implemented by derived classes, but static methods cannot be declared as abstract because they do not participate in inheritance the same way instance methods do.
-    <hr/>
+  - **Abstract Classes** can have static methods that can be called without an instance.
+
+  - **Abstract methods** must be implemented by derived classes, but static methods cannot be declared as abstract because they do not participate in inheritance the same way instance methods do.
+  <hr/>
   </details>
+  ```
+
 - <details>
     <summary>Give me example of Abstract class & method?</summary>
     <hr/>
@@ -9115,10 +9287,14 @@ Life cycle means from the starting of execution to the end of execution.
           Console.WriteLine($"Area of Rectangle is: {rect.GetArea()}\n");
         }
       }
-    }
-    ```
-    <hr/>
+
+  }
+
+  ```
+  <hr/>
   </details>
+  ```
+
 - <details>
     <summary>Can it's mendatry if any abstract method in a class is there, then class shood automatically be abstract class and it's mendatry to use abstract modifier in class?</summary>
     <hr/>
@@ -9135,21 +9311,23 @@ Life cycle means from the starting of execution to the end of execution.
     <summary>How is an interface different from a non-abstract class and an abstract class?</summary>
     <hr/>
 
-    - **Non-Abstract Class**: Contains only non-abstract (concrete) members.
+  - **Non-Abstract Class**: Contains only non-abstract (concrete) members.
 
-    - **Abstract Class**: Contains both abstract and non-abstract members.
+  - **Abstract Class**: Contains both abstract and non-abstract members.
 
-    - **Interface**: Contains only abstract members.
+  - **Interface**: Contains only abstract members.
     <hr/>
   </details>
+
 - <details>
     <summary>What is the difference between inheriting a class and implementing an interface?</summary>
     <hr/>
     - **Inheriting a class** is called **Implementation Inheritance**, where the child class can reuse the parent class's members.
 
-    - **Implementing an interface** is called **Interface Inheritance**, where the child class must implement all abstract members of the interface but cannot consume any.
+  - **Implementing an interface** is called **Interface Inheritance**, where the child class must implement all abstract members of the interface but cannot consume any.
     <hr/>
   </details>
+
 - <details>
     <summary>Why does .NET not support multiple inheritance through classes, but supports it through interfaces?</summary>
     <hr/>
@@ -9171,73 +9349,75 @@ Life cycle means from the starting of execution to the end of execution.
     <summary>What are the key points about interfaces?</summary>
     <hr/>
 
-    - We cannot declare fields in an interface.
-    - Members in an interface are public by default.
-    - Every member in an interface is abstract by default, so the "abstract" modifier is not required.
-    - An interface can inherit another interface, but not a class.
-    - A class can implement more than one interface.
+  - We cannot declare fields in an interface.
+  - Members in an interface are public by default.
+  - Every member in an interface is abstract by default, so the "abstract" modifier is not required.
+  - An interface can inherit another interface, but not a class.
+  - A class can implement more than one interface.
 
-    ```c#
-    // Defining two interfaces
-    public interface IShape
-    {
-        // By default, all members are public and abstract
-        void Draw(); // No need to use 'public' or 'abstract' keyword
-    }
+  ```c#
+  // Defining two interfaces
+  public interface IShape
+  {
+      // By default, all members are public and abstract
+      void Draw(); // No need to use 'public' or 'abstract' keyword
+  }
 
-    public interface IColor
-    {
-        // Abstract method in interface (no 'abstract' keyword needed)
-        void Fill();
-    }
+  public interface IColor
+  {
+      // Abstract method in interface (no 'abstract' keyword needed)
+      void Fill();
+  }
 
-    // Interface inheritance: One interface can inherit from another
-    public interface IColoredShape : IShape, IColor
-    {
-        // No new members, but this interface combines both IShape and IColor
-    }
+  // Interface inheritance: One interface can inherit from another
+  public interface IColoredShape : IShape, IColor
+  {
+      // No new members, but this interface combines both IShape and IColor
+  }
 
-    //Interface inherit class that is wrong
-    public interface ColoredShape : "<InheritClass>"{} // Error ❎
+  //Interface inherit class that is wrong
+  public interface ColoredShape : "<InheritClass>"{} // Error ❎
 
-    // A class can implement more than one interface
-    public class Circle : IColoredShape
-    {
-        // Implementing the Draw method from IShape
-        public void Draw()
-        {
-            Console.WriteLine("Drawing a Circle.");
-        }
+  // A class can implement more than one interface
+  public class Circle : IColoredShape
+  {
+      // Implementing the Draw method from IShape
+      public void Draw()
+      {
+          Console.WriteLine("Drawing a Circle.");
+      }
 
-        // Implementing the Fill method from IColor
-        public void Fill()
-        {
-            Console.WriteLine("Filling the Circle with color.");
-        }
-    }
+      // Implementing the Fill method from IColor
+      public void Fill()
+      {
+          Console.WriteLine("Filling the Circle with color.");
+      }
+  }
 
-    class Program
-    {
-        static void Main()
-        {
-            // Creating an instance of Circle class
-            Circle circle = new Circle();
+  class Program
+  {
+      static void Main()
+      {
+          // Creating an instance of Circle class
+          Circle circle = new Circle();
 
-            // Calling the methods defined in interfaces
-            circle.Draw();  // From IShape
-            circle.Fill();  // From IColor
+          // Calling the methods defined in interfaces
+          circle.Draw();  // From IShape
+          circle.Fill();  // From IColor
 
-            // Using interface references to access members
-            IShape shape = circle;
-            shape.Draw();   // Calls IShape's method using interface    reference
+          // Using interface references to access members
+          IShape shape = circle;
+          shape.Draw();   // Calls IShape's method using interface    reference
 
-            IColor color = circle;
-            color.Fill();   // Calls IColor's method using interface reference
-        }
-    }
-    ```
+          IColor color = circle;
+          color.Fill();   // Calls IColor's method using interface reference
+      }
+  }
+  ```
+
     <hr/>
   </details>
+
 - <details>
     <summary>Can an interface be instantiated?</summary>
     <hr/>
@@ -9249,51 +9429,54 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
      No, an interface cannot be instantiated. However, you can create a reference of an interface using an instance of the class that implements it.
 
-    ```c#
-    // Define an interface
-    public interface IAnimal
-    {
-        void Speak();
-    }
+  ```c#
+  // Define an interface
+  public interface IAnimal
+  {
+      void Speak();
+  }
 
-    // Implement the interface in a class
-    public class Dog : IAnimal
-    {
-        public void Speak()
-        {
-            Console.WriteLine("Woof!");
-        }
-    }
+  // Implement the interface in a class
+  public class Dog : IAnimal
+  {
+      public void Speak()
+      {
+          Console.WriteLine("Woof!");
+      }
+  }
 
-    class Program
-    {
-        static void Main()
-        {
-            // Cannot instantiate the interface directly
-            // IAnimal animal = new IAnimal(); // This would cause a compile error
+  class Program
+  {
+      static void Main()
+      {
+          // Cannot instantiate the interface directly
+          // IAnimal animal = new IAnimal(); // This would cause a compile error
 
-            // Create an instance of the class that implements the    interface
-            Dog dog = new Dog();
+          // Create an instance of the class that implements the    interface
+          Dog dog = new Dog();
 
-            // Create a reference of the interface using the class instance
-            IAnimal animal = dog;
+          // Create a reference of the interface using the class instance
+          IAnimal animal = dog;
 
-            // Call the method using the interface reference
-            animal.Speak(); // Output: Woof!
-        }
-    }
-    ```
+          // Call the method using the interface reference
+          animal.Speak(); // Output: Woof!
+      }
+  }
+  ```
+
     <hr/>
   </details>
+
 - <details>
     <summary>How can multiple inheritance be implemented using interfaces in .NET?</summary>
     <hr/>
     A class can implement multiple interfaces without ambiguity issues. There are two approaches for implementing methods of multiple interfaces:
 
-    1. **Shared Implementation**: The same method is implemented once, and both interfaces assume it belongs to them. 
-    2. **Explicit Implementation**: Methods are implemented separately for each interface using the interface name as a prefix.
+  1. **Shared Implementation**: The same method is implemented once, and both interfaces assume it belongs to them.
+  2. **Explicit Implementation**: Methods are implemented separately for each interface using the interface name as a prefix.
     <hr/>
   </details>
+
 - <details>
     <summary>Provide an example of implementing multiple interfaces in .NET.</summary>
     <hr/>
@@ -9304,83 +9487,90 @@ Life cycle means from the starting of execution to the end of execution.
         void Show();  
     }
 
-    internal interface Interface2  
-    {  
-        void Test();  
-        void Show();  
-    }
+  internal interface Interface2  
+   {  
+   void Test();  
+   void Show();  
+   }
 
-    internal class ImplClass : Interface1, Interface2  
-    {  
-        // Shared implementation for both interfaces  
-        public void Test()  
-        {  
-            Console.WriteLine("Method declared under 2 interfaces.");  
+  internal class ImplClass : Interface1, Interface2  
+   {  
+   // Shared implementation for both interfaces  
+   public void Test()  
+   {  
+   Console.WriteLine("Method declared under 2 interfaces.");  
+   }
+
+        // Explicit implementation for Interface1
+        void Interface1.Show()
+        {
+            Console.WriteLine("Method declared under Interface1.");
         }
 
-        // Explicit implementation for Interface1  
-        void Interface1.Show()  
-        {  
-            Console.WriteLine("Method declared under Interface1.");  
+        // Explicit implementation for Interface2
+        void Interface2.Show()
+        {
+            Console.WriteLine("Method declared under Interface2.");
         }
 
-        // Explicit implementation for Interface2  
-        void Interface2.Show()  
-        {  
-            Console.WriteLine("Method declared under Interface2.");  
-        }
-
-        static void Main()  
-        {  
-            ImplClass c = new ImplClass();  
+        static void Main()
+        {
+            ImplClass c = new ImplClass();
             c.Test();  // Shared implementation
 
-            Interface1 i1 = c;  
-            Interface2 i2 = c;  
+            Interface1 i1 = c;
+            Interface2 i2 = c;
 
-            i1.Show();  // Interface1's Show method  
-            i2.Show();  // Interface2's Show method  
-        }  
-    }
-    ```
-    <hr/>
+            i1.Show();  // Interface1's Show method
+            i2.Show();  // Interface2's Show method
+        }
+
+  }
+
+  ```
+  <hr/>
   </details>
+  ```
+
 - <details>
     <summary>How can you use interface references to call methods implemented in a class?</summary>
     <hr/>
     You can create an instance of the implementing class and assign it to an interface reference. Then, using the interface reference, you can call the methods that were implemented by the class. Example:
 
-    ```c#
-    ClsMath obj = new ClsMath();  
-    IMath1 i1 = obj;  
-    IMath2 i2 = obj;
+  ```c#
+  ClsMath obj = new ClsMath();
+  IMath1 i1 = obj;
+  IMath2 i2 = obj;
 
-    i1.Add(150, 25);  // Calls Add method from IMath1
-    i1.Sub(97, 47);   // Calls Sub method from IMath1
-    i2.Mul(12, 17);   // Calls Mul method from IMath2
-    i2.Div(870, 15);  // Calls Div method from IMath2
-    ```
+  i1.Add(150, 25);  // Calls Add method from IMath1
+  i1.Sub(97, 47);   // Calls Sub method from IMath1
+  i2.Mul(12, 17);   // Calls Mul method from IMath2
+  i2.Div(870, 15);  // Calls Div method from IMath2
+  ```
+
     <hr/>
   </details>
+
 - <details>
     <summary>How can a class inherit from an interface and a base class at the same time in C#?</summary>
     <hr/>
      In C#, a class can inherit from one base class and implement one or more interfaces simultaneously. This is achieved by specifying the base class first, followed by the interfaces in the class declaration. For example:
 
-     ```c#
-     internal class BaseClass{/*Base class members*/}
-    
-    internal interface IExample{void ExampleMethod();}
-    
-    internal class DerivedClass : BaseClass, IExample
-    {
-        public void ExampleMethod(){/* Implementation of the interface method*/}
-    }
-     ```
+  ```c#
+  internal class BaseClass{/*Base class members*/}
 
-     In this example, DerivedClass inherits from BaseClass and implements the IExample interface.
+  internal interface IExample{void ExampleMethod();}
+
+  internal class DerivedClass : BaseClass, IExample
+  {
+     public void ExampleMethod(){/* Implementation of the interface method*/}
+  }
+  ```
+
+  In this example, DerivedClass inherits from BaseClass and implements the IExample interface.
     <hr/>
   </details>
+
 - <details>
     <summary>Why is the "I" prefix commonly used for interfaces in C#?</summary>
     <hr/>
@@ -9403,84 +9593,86 @@ Life cycle means from the starting of execution to the end of execution.
     <summary>What are the differences in Class and Structure?</summary>
     <hr/>
 
-    | **Feature**                                | **Class**                                                          | **Structure**                                                      |
-    |--------------------------------------------|-------------------------------------------------------------------|-------------------------------------------------------------------|
-    | **Type**                                   | Reference type                                                    | Value type                                                         |
-    | **Memory Allocation**                       | Instances allocated on the Managed Heap                           | Instances allocated on the Stack                                   |
-    | **Memory Management**                       | Automatic memory management through Garbage Collector              | No automatic memory management, but faster access                 |
-    | **Data Volume**                             | Recommended for larger volumes of data                           | Recommended for smaller volumes of data                           |
-    | **Pre-defined Types**                       | Pre-defined reference types like `string` and `object`          | Pre-defined value types like `int`, `float`, `bool`, etc.       |
-    | **Instance Creation**                       | `new` keyword is mandatory for creating instances                 | `new` keyword is optional; default constructor is called implicitly |
-    | **Default Constructor**                     | Contains an implicit default constructor if no constructor is defined | Contains a default constructor which can be implicit or explicit   |
-    | **Field Initialization**                    | Fields can be declared and initialized at the time of declaration | Fields can be declared but cannot be initialized at declaration unless there’s an explicit constructor |
-    | **Field Initialization Methods**            | Fields can be initialized through a constructor or instance      | Fields can only be initialized through a constructor or instance   |
-    | **Constructor Requirement**                 | Constructors (default or parameterized) are mandatory for instance creation | Default constructor is mandatory for instance creation without `new` |
-    | **Constructor Definition**                  | Developers can define any type of constructor                    | Developers can define parameterized constructors; C# 10.0 allows default constructors |
-    | **Constructor Compilation**                 | After compilation, if defined with `0` constructors, there will be `1` constructor; if `n` constructors, `n` will exist | After compilation, if defined with `0` constructors, there will be `1`; if `n`, `n + 1` will exist |
-    | **Inheritance**                             | Supports both implementation and interface inheritance            | Supports only interface inheritance (cannot inherit from another structure) |
+  | **Feature**                      | **Class**                                                                                                               | **Structure**                                                                                          |
+  | -------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
+  | **Type**                         | Reference type                                                                                                          | Value type                                                                                             |
+  | **Memory Allocation**            | Instances allocated on the Managed Heap                                                                                 | Instances allocated on the Stack                                                                       |
+  | **Memory Management**            | Automatic memory management through Garbage Collector                                                                   | No automatic memory management, but faster access                                                      |
+  | **Data Volume**                  | Recommended for larger volumes of data                                                                                  | Recommended for smaller volumes of data                                                                |
+  | **Pre-defined Types**            | Pre-defined reference types like `string` and `object`                                                                  | Pre-defined value types like `int`, `float`, `bool`, etc.                                              |
+  | **Instance Creation**            | `new` keyword is mandatory for creating instances                                                                       | `new` keyword is optional; default constructor is called implicitly                                    |
+  | **Default Constructor**          | Contains an implicit default constructor if no constructor is defined                                                   | Contains a default constructor which can be implicit or explicit                                       |
+  | **Field Initialization**         | Fields can be declared and initialized at the time of declaration                                                       | Fields can be declared but cannot be initialized at declaration unless there’s an explicit constructor |
+  | **Field Initialization Methods** | Fields can be initialized through a constructor or instance                                                             | Fields can only be initialized through a constructor or instance                                       |
+  | **Constructor Requirement**      | Constructors (default or parameterized) are mandatory for instance creation                                             | Default constructor is mandatory for instance creation without `new`                                   |
+  | **Constructor Definition**       | Developers can define any type of constructor                                                                           | Developers can define parameterized constructors; C# 10.0 allows default constructors                  |
+  | **Constructor Compilation**      | After compilation, if defined with `0` constructors, there will be `1` constructor; if `n` constructors, `n` will exist | After compilation, if defined with `0` constructors, there will be `1`; if `n`, `n + 1` will exist     |
+  | **Inheritance**                  | Supports both implementation and interface inheritance                                                                  | Supports only interface inheritance (cannot inherit from another structure)                            |
 
-    ```c#
-    // Define a structure
-    public struct Point
-    {
-        // Field declaration
-        public int X { get; set; }
-        public int Y { get; set; }
+  ```c#
+  // Define a structure
+  public struct Point
+  {
+      // Field declaration
+      public int X { get; set; }
+      public int Y { get; set; }
 
-        // Constructor (default constructor is implicit)
-        public Point(int x, int y)
-        {
-            X = x;
-            Y = y;
-        }
+      // Constructor (default constructor is implicit)
+      public Point(int x, int y)
+      {
+          X = x;
+          Y = y;
+      }
 
-        // Method
-        public void DisplayCoordinates()
-        {
-            Console.WriteLine($"Point coordinates: X = {X}, Y = {Y}");
-        }
-    }
+      // Method
+      public void DisplayCoordinates()
+      {
+          Console.WriteLine($"Point coordinates: X = {X}, Y = {Y}");
+      }
+  }
 
-    // Example of a structure implementing an interface
-    public interface IShape
-    {
-        double Area();
-    }
+  // Example of a structure implementing an interface
+  public interface IShape
+  {
+      double Area();
+  }
 
-    public struct Rectangle : IShape
-    {
-        public double Width { get; set; }
-        public double Height { get; set; }
+  public struct Rectangle : IShape
+  {
+      public double Width { get; set; }
+      public double Height { get; set; }
 
-        public Rectangle(double width, double height)
-        {
-            Width = width;
-            Height = height;
-        }
+      public Rectangle(double width, double height)
+      {
+          Width = width;
+          Height = height;
+      }
 
-        public double Area()
-        {
-            return Width * Height;
-        }
-    }
+      public double Area()
+      {
+          return Width * Height;
+      }
+  }
 
-    class Program
-    {
-        static void Main()
-        {
-            // Create an instance of Point structure
-            Point p = new Point(5, 10);
-            p.DisplayCoordinates(); // Outputs: Point coordinates: X = 5, Y = 10
+  class Program
+  {
+      static void Main()
+      {
+          // Create an instance of Point structure
+          Point p = new Point(5, 10);
+          p.DisplayCoordinates(); // Outputs: Point coordinates: X = 5, Y = 10
 
-            // Create an instance of Rectangle structure
-            Rectangle rect = new Rectangle(4.5, 3.2);
-            Console.WriteLine($"Rectangle Area: {rect.Area()}"); // Outputs: Rectangle Area: 14.4
-        }
-    }
+          // Create an instance of Rectangle structure
+          Rectangle rect = new Rectangle(4.5, 3.2);
+          Console.WriteLine($"Rectangle Area: {rect.Area()}"); // Outputs: Rectangle Area: 14.4
+      }
+  }
 
-    ```
+  ```
+
     <hr/>
   </details>
+
 - <details>
     <summary>What is the syntax to define a structure in C#?</summary>
     <hr/>
@@ -9498,12 +9690,13 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
     Unlike classes and interfaces, there is no dedicated Structure Item template in the "Add New Item" window. Instead, you should use the Code File item template.
 
-    1. Add a Code File under your project.
+  1. Add a Code File under your project.
 
-    2. Name it, for example, MyStruct.cs.
+  2. Name it, for example, MyStruct.cs.
 
     <hr/>
   </details>
+
 - <details>
     <summary>Provide an example of a simple structure definition in C#.</summary>
     <hr/>
@@ -9514,35 +9707,38 @@ Life cycle means from the starting of execution to the end of execution.
         {
             int x;
 
-            public MyStruct(int x)  
+            public MyStruct(int x)
             {
-                this.x = x;  
+                this.x = x;
             }
 
-            public void Display()  
+            public void Display()
             {
-                Console.WriteLine("Method defined under a structure: " + x);  
+                Console.WriteLine("Method defined under a structure: " + x);
             }
 
-            static void Main()  
+            static void Main()
             {
-                MyStruct m1 = new MyStruct();  
-                m1.Display();  
+                MyStruct m1 = new MyStruct();
+                m1.Display();
 
-                MyStruct m2;  
-                m2.x = 10;  
-                m2.Display();  
+                MyStruct m2;
+                m2.x = 10;
+                m2.Display();
 
-                MyStruct m3 = new MyStruct(20);  
-                m3.Display();  
-                Console.ReadLine();  
-            }  
-        }  
-    }
+                MyStruct m3 = new MyStruct(20);
+                m3.Display();
+                Console.ReadLine();
+            }
+        }
 
-    ```
-    <hr/>
+  }
+
+  ```
+  <hr/>
   </details>
+  ```
+
 - <details>
     <summary>How can a structure be consumed in C#?</summary>
     <hr/>
@@ -9554,31 +9750,34 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
     Here’s an example of consuming a structure named MyStruct from another structure named TestStruct:
 
-    ```c#
-    internal struct TestStruct  
-    {
-        static void Main()  
-        {
-            MyStruct obj1 = new MyStruct();  
-            obj1.Display();  
+  ```c#
+  internal struct TestStruct
+  {
+      static void Main()
+      {
+          MyStruct obj1 = new MyStruct();
+          obj1.Display();
 
-            MyStruct obj2 = new MyStruct(30);  
-            obj2.Display();  
-            Console.ReadLine();  
-        }  
-    }
+          MyStruct obj2 = new MyStruct(30);
+          obj2.Display();
+          Console.ReadLine();
+      }
+  }
 
-    ```
+  ```
+
     <hr/>
   </details>
+
 - <details>
     <summary>Can structures support inheritance?</summary>
     <hr/>
     No, structures do not support inheritance in C#. You can create instances of structures but cannot inherit from other structures or classes. This means that you cannot create a new structure based on an existing one.
 
-    **Example**: If you create a structure called Point, you can't create another structure called ColoredPoint that inherits from Point. Instead, ColoredPoint would need to be a separate structure that has its own fields.
+  **Example**: If you create a structure called Point, you can't create another structure called ColoredPoint that inherits from Point. Instead, ColoredPoint would need to be a separate structure that has its own fields.
     <hr/>
   </details>
+
 - <details>
     <summary>What types of members can be defined in a structure?</summary>
     <hr/>
@@ -9601,63 +9800,67 @@ Life cycle means from the starting of execution to the end of execution.
       - Character (char): '\0' (the null character)
       - Reference types (like strings or objects): null
 
-    However, if you try to access a field of a structure without initializing it first, you will get a compile-time error. This is because structures in C# do not allow uninitialized fields to be accessed.
+  However, if you try to access a field of a structure without initializing it first, you will get a compile-time error. This is because structures in C# do not allow uninitialized fields to be accessed.
 
-    **Example**:
+  **Example**:
 
-    ```c#
-    namespace OOPSProject
-    {
-        internal struct MyStruct
-        {
-            public int number;      // Will default to 0
-            public bool isActive;   // Will default to false
-            public string name;     // Will default to null
-            // Method to display the values of the fields
-            public void Display()
-            {
-                Console.WriteLine($"Number: {number}, IsActive: {isActive}, Name: {name}");
-            }
-        }
-        internal class Program
-        {
-            static void Main()
-            {
-                MyStruct myStruct; // Declare a structure variable
-                // Display method can be called directly, fields will have default values
-                myStruct.Display(); // Output: Number: 0, IsActive: False, Name: 
-                // Uncommenting the line below will cause a compile-time error
-                // Console.WriteLine(myStruct.name.Length); // Error: Use of unassigned local variable 'myStruct'
-                // Explicitly initializing fields
-                myStruct.number = 10;
-                myStruct.isActive = true;
-                myStruct.name = "Test";
-                // Now displaying the initialized values
-                myStruct.Display(); // Output: Number: 10, IsActive: True, Name: Test
-                Console.ReadLine();
-            }
-        }
-    }
-    ```
+  ```c#
+  namespace OOPSProject
+  {
+      internal struct MyStruct
+      {
+          public int number;      // Will default to 0
+          public bool isActive;   // Will default to false
+          public string name;     // Will default to null
+          // Method to display the values of the fields
+          public void Display()
+          {
+              Console.WriteLine($"Number: {number}, IsActive: {isActive}, Name: {name}");
+          }
+      }
+      internal class Program
+      {
+          static void Main()
+          {
+              MyStruct myStruct; // Declare a structure variable
+              // Display method can be called directly, fields will have default values
+              myStruct.Display(); // Output: Number: 0, IsActive: False, Name:
+              // Uncommenting the line below will cause a compile-time error
+              // Console.WriteLine(myStruct.name.Length); // Error: Use of unassigned local variable 'myStruct'
+              // Explicitly initializing fields
+              myStruct.number = 10;
+              myStruct.isActive = true;
+              myStruct.name = "Test";
+              // Now displaying the initialized values
+              myStruct.Display(); // Output: Number: 10, IsActive: True, Name: Test
+              Console.ReadLine();
+          }
+      }
+  }
+  ```
 
-    **Explanation**
+  **Explanation**
 
-    1. **Structure Declaration**: The MyStruct structure has three fields: number, isActive, and name. They have not been explicitly initialized.
-    
-    2. **Default Values**: When an instance of MyStruct is declared (i.e., MyStruct myStruct;), its fields are automatically assigned default values:
+  1. **Structure Declaration**: The MyStruct structure has three fields: number, isActive, and name. They have not been explicitly initialized.
+
+  2. **Default Values**: When an instance of MyStruct is declared (i.e., MyStruct myStruct;), its fields are automatically assigned default values:
+
+
       - number will be 0
       - isActive will be false
       - name will be null
-    3. **Display Method**: When the Display() method is called, it outputs the default values of the fields.
-    
-    4. **Compile-time Error**: If you try to access an uninitialized field directly (like calling myStruct.name.Length), it will result in a compile-time error. This is because you cannot access the Length property of name since it is null.
-    
-    5. **Explicit Initialization**: After assigning values to the fields (number, isActive, name), calling the Display() method again shows the updated values.
 
-    Structures in C# automatically assign default values to their fields if not initialized, but trying to access these fields before assignment can lead to compile-time errors. Always ensure to initialize fields before accessing them to avoid errors.
+  3. **Display Method**: When the Display() method is called, it outputs the default values of the fields.
+
+  4. **Compile-time Error**: If you try to access an uninitialized field directly (like calling myStruct.name.Length), it will result in a compile-time error. This is because you cannot access the Length property of name since it is null.
+
+  5. **Explicit Initialization**: After assigning values to the fields (number, isActive, name), calling the Display() method again shows the updated values.
+
+  Structures in C# automatically assign default values to their fields if not initialized, but trying to access these fields before assignment can lead to compile-time errors. Always ensure to initialize fields before accessing them to avoid errors.
 
     <hr/>
   </details>
+
 - <details>
     <summary>Can you create a default constructor in a structure?</summary>
     <hr/>
@@ -9705,14 +9908,15 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
     An assembly is the output file generated after compiling a project. It contains the Common Intermediate Language (CIL) code of the types defined in the project. An assembly is also a unit of deployment.
 
-    - It’s an output file that is generated after compilation of a project which contains CIL Code in it.
-    - Assembly file contains the CIL Code of each type that is defined under the project.
-    - An Assembly is a unit of deployment, because when we need to install an application on client machines what we install is these Assemblies only and all the .NET Libraries are installed on our machines in the form of Assemblies when we install Visual Studio.
-    - The name of an assembly file is the same name of the project and can’t be changed.
-    - In .NET Framework the assembly files of a project will be present under the project folder’s “bin\debug” folder. In .NET Core, assembly file of a project will be present under `bin\debug\netcoreapp<Version>` folder and here version represents the Core Runtime version. From .NET 5, assembly file of a project will be present under `bin\debug\net<Version>` folder and here also version represents the Runtime version.
-    - In .NET Framework the extension of an assembly file can either be a “.exe” or “.dll” which is based on the type of project we open, for example if the project is an “Application Project” then it will generate “.exe” assembly whereas if it is a “Library Project” then it will generate “.dll” assembly. From .NET Core every project will generate “.dll” assembly and apart from that “Application Project’s” will generate an additional “.exe” assembly also i.e., “Library Projects” will be generating “.dll” only now also where as “Application Project’s” will generate both “.exe” and “.dll” also.
+  - It’s an output file that is generated after compilation of a project which contains CIL Code in it.
+  - Assembly file contains the CIL Code of each type that is defined under the project.
+  - An Assembly is a unit of deployment, because when we need to install an application on client machines what we install is these Assemblies only and all the .NET Libraries are installed on our machines in the form of Assemblies when we install Visual Studio.
+  - The name of an assembly file is the same name of the project and can’t be changed.
+  - In .NET Framework the assembly files of a project will be present under the project folder’s “bin\debug” folder. In .NET Core, assembly file of a project will be present under `bin\debug\netcoreapp<Version>` folder and here version represents the Core Runtime version. From .NET 5, assembly file of a project will be present under `bin\debug\net<Version>` folder and here also version represents the Runtime version.
+  - In .NET Framework the extension of an assembly file can either be a “.exe” or “.dll” which is based on the type of project we open, for example if the project is an “Application Project” then it will generate “.exe” assembly whereas if it is a “Library Project” then it will generate “.dll” assembly. From .NET Core every project will generate “.dll” assembly and apart from that “Application Project’s” will generate an additional “.exe” assembly also i.e., “Library Projects” will be generating “.dll” only now also where as “Application Project’s” will generate both “.exe” and “.dll” also.
     <hr/>
   </details>
+
 - <details>
     <summary>What types of assembly files are generated in .NET Framework and .NET Core?</summary>
     <hr/>
@@ -9729,9 +9933,10 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
     - **`.exe`**: In-process components, loaded into memory for execution. Used by application projects.
 
-    - **`.dll`**: Out-process components, providing support to `.exe` assemblies. In .NET Framework, they cannot run on their own; from .NET Core, `.dll` assemblies from application projects can run on Linux and Mac using .NET Core CLI (dotnet `<Assembly_Name>.dll`).
+  - **`.dll`**: Out-process components, providing support to `.exe` assemblies. In .NET Framework, they cannot run on their own; from .NET Core, `.dll` assemblies from application projects can run on Linux and Mac using .NET Core CLI (dotnet `<Assembly_Name>.dll`).
     <hr/>
   </details>
+
 - <details>
     <summary>Can you consume classes from one project in another project?</summary>
     <hr/>
@@ -9749,17 +9954,18 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
     Intermediate Language Dis-Assembler. We use it to dis-assemble an Assembly file and view the contents of it. To check it out, open Visual Studio Developer Command Prompt, go to the location where the assembly files of the project are present and use it as following: `ildasm <name of the .dll assembly file>`.
 
-    **Note**: in .NET Framework we can dis-assemble both “.exe” and “.dll” assemblies also whereas from .NET Core we can dis-assemble only “.dll” assemblies.
+  **Note**: in .NET Framework we can dis-assemble both “.exe” and “.dll” assemblies also whereas from .NET Core we can dis-assemble only “.dll” assemblies.
 
-    **E.g.**: Open Visual Studio Developer Command Prompt, go to the below location and try the following:
+  **E.g.**: Open Visual Studio Developer Command Prompt, go to the below location and try the following:
 
-    ```bash
-    <drive>:\<our_folder>\OOPSProject\OOPSProject\bin\Debug\net8.0> ildasm OOPSProject.dll
-    <drive>:\<our_folder>\OOPSProject\SecondProject\bin\Debug\net8.0> ildasm SecondProject.dll
-    ```
+  ```bash
+  <drive>:\<our_folder>\OOPSProject\OOPSProject\bin\Debug\net8.0> ildasm OOPSProject.dll
+  <drive>:\<our_folder>\OOPSProject\SecondProject\bin\Debug\net8.0> ildasm SecondProject.dll
+  ```
 
     <hr/>
   </details>
+
 - <details>
     <summary>Can we consume the classes of a project from other projects?</summary>
     <hr/>
@@ -9770,32 +9976,33 @@ Life cycle means from the starting of execution to the end of execution.
     <summary>How do you add a reference to an assembly in a project?</summary>
     <hr/>
 
-    To add reference of an assembly to a project open solution explorer, right click on the project to whom reference must be added, select “Add => Project Reference” option, which opens a window “Reference Manager” and in that window select “Browse” option in LHS, then click on “Browse” button below, select the assembly we want to consume from its physical location and click ok. Now we can consume types of that assembly by prefixing with their namespace or importing the namespace.
+  To add reference of an assembly to a project open solution explorer, right click on the project to whom reference must be added, select “Add => Project Reference” option, which opens a window “Reference Manager” and in that window select “Browse” option in LHS, then click on “Browse” button below, select the assembly we want to consume from its physical location and click ok. Now we can consume types of that assembly by prefixing with their namespace or importing the namespace.
 
-    **Note**: In .NET Framework we can add reference to “.exe” or “.dll” assemblies also and consume them in other projects, whereas from .NET Core onwards we can’t add reference to “.exe” assemblies i.e., we can add reference only to “.dll” assemblies.
+  **Note**: In .NET Framework we can add reference to “.exe” or “.dll” assemblies also and consume them in other projects, whereas from .NET Core onwards we can’t add reference to “.exe” assemblies i.e., we can add reference only to “.dll” assemblies.
 
-    **Example**:To test this, go to “OOPSProject” Solution, right click on the “SecondProject” we have newly added, select add reference and add the reference of “OOPSProject.dll” assembly from its physical location (`<drive>:\<our_folder>\OOPSProject\OOPSProject\bin\Debug\net8.0>`). Now add a new class under the `“SecondProject”` naming it as “`Class1.cs`” and write the below code in it:
+  **Example**:To test this, go to “OOPSProject” Solution, right click on the “SecondProject” we have newly added, select add reference and add the reference of “OOPSProject.dll” assembly from its physical location (`<drive>:\<our_folder>\OOPSProject\OOPSProject\bin\Debug\net8.0>`). Now add a new class under the `“SecondProject”` naming it as “`Class1.cs`” and write the below code in it:
 
-    ```c#
-    using OOPSProject;
-    internal class Class1
+  ```c#
+  using OOPSProject;
+  internal class Class1
+  {
+    static void Main()
     {
-      static void Main()
-      {
-        Cone cone = new Cone(18.92, 34.12);
-        Console.WriteLine($"Area of Cone is: {cone.GetArea()}\n");
-        Circle circ = new Circle(45.36);
-        Console.WriteLine($"Area of Circle is: {circ.GetArea()}\n");
-        Triangle trin = new Triangle(34.98, 27.87);
-        Console.WriteLine($"Area of Triangle is: {trin.GetArea()}\n");
-        Rectangle rect = new Rectangle(45.29, 76.12);
-        Console.WriteLine($"Area of Rectangle is: {rect.GetArea()}\n");
-      }
+      Cone cone = new Cone(18.92, 34.12);
+      Console.WriteLine($"Area of Cone is: {cone.GetArea()}\n");
+      Circle circ = new Circle(45.36);
+      Console.WriteLine($"Area of Circle is: {circ.GetArea()}\n");
+      Triangle trin = new Triangle(34.98, 27.87);
+      Console.WriteLine($"Area of Triangle is: {trin.GetArea()}\n");
+      Rectangle rect = new Rectangle(45.29, 76.12);
+      Console.WriteLine($"Area of Rectangle is: {rect.GetArea()}\n");
     }
-    ```
+  }
+  ```
 
     <hr/>
   </details>
+
 - <details>
     <summary>What are Access Specifiers in C#?</summary>
     <hr/>
@@ -9813,9 +10020,10 @@ Life cycle means from the starting of execution to the end of execution.
     6. **`Private protected`**: if private or internal access.
     7. **`File`**: within the file scope.
 
-    **Note**: members that are defined in a type with any scope or specifier are always accessible with in the type, restrictions come into picture only when we try to access them outside of the type.
+  **Note**: members that are defined in a type with any scope or specifier are always accessible with in the type, restrictions come into picture only when we try to access them outside of the type.
     <hr/>
   </details>
+
 - <details>
     <summary>What is the default access modifier of inside the namespace?</summary>
     <hr/>
@@ -9831,13 +10039,14 @@ Life cycle means from the starting of execution to the end of execution.
 - <details>
     <summary>Can we declare a types(like: class) as private, protected, or protected internal of namespace?</summary>
     <hr/>
-    No, types cannot be declared as `Private`, `Protected`, or `Protected Internal`. 
+    No, types cannot be declared as `Private`, `Protected`, or `Protected Internal`.
 
-    If you do not define a class as public, it is internal by default.
+  If you do not define a class as public, it is internal by default.
 
-    These specifiers only apply to the members of the types, such as methods, properties, and fields.
+  These specifiers only apply to the members of the types, such as methods, properties, and fields.
     <hr/>
   </details>
+
 - <details>
     <summary>What is the default access modifier of constructor?</summary>
     <hr/>
@@ -9854,169 +10063,171 @@ Life cycle means from the starting of execution to the end of execution.
     <summary>Whic access modifier where accessable?</summary>
     <hr/>
 
-    | Case | Private | Internal | Protected | Private Protected | Protected Internal | Public |
-    |------|---------|----------|-----------|-------------------|--------------------|--------|
-    | Same Class, Same Project | Yes | Yes | Yes | Yes | Yes | Yes |
-    | Child Class, Same Project | No  | Yes | Yes | Yes | Yes | Yes |
-    | Non-Child Class, Same Project | No | Yes | No  | No  | Yes | Yes |
-    | Child Class, Another Project | No | No  | Yes | No  | Yes | Yes |
-    | Non-Child Class, Another Project | No | No  | No  | No  | No  | Yes |
+  | Case                             | Private | Internal | Protected | Private Protected | Protected Internal | Public |
+  | -------------------------------- | ------- | -------- | --------- | ----------------- | ------------------ | ------ |
+  | Same Class, Same Project         | Yes     | Yes      | Yes       | Yes               | Yes                | Yes    |
+  | Child Class, Same Project        | No      | Yes      | Yes       | Yes               | Yes                | Yes    |
+  | Non-Child Class, Same Project    | No      | Yes      | No        | No                | Yes                | Yes    |
+  | Child Class, Another Project     | No      | No       | Yes       | No                | Yes                | Yes    |
+  | Non-Child Class, Another Project | No      | No       | No        | No                | No                 | Yes    |
 
     <hr/>
   </details>
+
 - <details>
     <summary>Give me example of using all access modifier?</summary>
     <hr/>
 
-    1. Create console project name it(i.e:`AccessDemo1`) and name the solution(i.e:`MySolution`).
+  1. Create console project name it(i.e:`AccessDemo1`) and name the solution(i.e:`MySolution`).
 
-    2. `Progeam.cs` (By creating object)
+  2. `Progeam.cs` (By creating object)
+
+  ```c#
+  namespace AccessDemo1
+  {
+  	public class Program //use Public access modifier
+  	{
+  		private void Test1_Private()
+  		{
+  			Console.WriteLine("Private Method");
+  		}
+  		internal void Test2_Internal()
+  		{
+  			Console.WriteLine("Internal Method");
+  		}
+  		protected void Test3_Protected()
+  		{
+  			Console.WriteLine("Protected Method");
+  		}
+  		protected internal void Test4_ProtecedInternal()
+  		{
+  			Console.WriteLine("Protected Internal Method");
+  		}
+  		public void Test5_Public()
+  		{
+  			Console.WriteLine("Public Method");
+  		}
+  		private protected void Test6_PrivateProtected()
+  		{
+  			Console.WriteLine("Private Protected Method");
+  		}
+
+  		static void Main(string[] args)
+  		{
+  			Program p = new Program();
+  			p.Test1_Private();
+  			p.Test2_Internal();
+  			p.Test3_Protected();
+  			p.Test4_ProtecedInternal();
+  			p.Test5_Public();
+  			p.Test6_PrivateProtected();
+  		}
+  	}
+  }
+
+  /*Output:
+
+  Private Method
+  Internal Method
+  Protected Method
+  Protected Internal Method
+  Public Method
+  Private Protected Method
+
+  */
+  ```
+
+  - All type of access modifier accessable in same class.
+
+  3. Create one more class name it(i.e: `Two.cs`) & consume it by Inheritance
+
+  - `Two.cs` (By Inheriting).
+
+  - **Right-click on the project** in Solution Explorer and select **Properties**.
+
+  - In the **Application** tab, look for the **Startup object dropdown**. This dropdown lists all the classes that contain a `Main` method.
+
+  - Select the class(i.e:`Two.cs`) that has the `Main` method you want to execute
+
+  - Save the changes and run the project.
+
+  ```c#
+  namespace AccessDemo1
+  {
+  	class Two:Program
+  	{
+  		static void Main(string[] args)
+  		{
+  			Two t = new Two();
+        //t.Test1_Private();//Give error
+  			t.Test2_Internal();
+  			t.Test3_Protected();
+  			t.Test4_ProtecedInternal();
+  			t.Test5_Public();
+  			t.Test6_PrivateProtected();
+  		}
+  	}
+  }
+
+  /*Output:
+
+  Internal Method
+  Protected Method
+  Protected Internal Method
+  Public Method
+  Private Protected Method
+  */
+  ```
+
+  - Except private method all are acceble in child class
+
+  4. Create another class name it(i.e:`Three.cs`) & consume using object:
+
+  ```c#
+  namespace AccessDemo1
+  {
+  	class Three
+  	{
+  		static void Main(string[] args)
+  		{
+  			Program p = new Program();
+  			//p.Test1_Private();//Error
+  			p.Test2_Internal();
+  			//p.Test3_Protected();//Error
+  			p.Test4_ProtecedInternal();
+  			p.Test5_Public();
+  			//p.Test6_PrivateProtected();//Error
+  		}
+  	}
+  }
+  ```
+
+  5. Add a new `Console App` project under `MySolution`, name it as `AccessDemo2`, rename the default file `Program.cs` as `Four.cs` so that class name also changes to Four, add a reference to `AccessDemo1` assembly from its physical location to the new project and write the below code in the class Four:
+
+  - Rrite click on `Add` > Click `Refrence Manager` > New windows open > Right hand side Click `Browse` > Browser(`AccessDemo1\bin\Debug\net8.0\AccessDemo1.dll`) the Project(`AccessDemo1`) accembly `AccessDemo1.dll`.
 
     ```c#
-    namespace AccessDemo1
+    namespace AccessDemo2
     {
-    	public class Program //use Public access modifier
+    	internal class Four : AccessDemo1.Program
     	{
-    		private void Test1_Private()
-    		{
-    			Console.WriteLine("Private Method");
-    		}
-    		internal void Test2_Internal()
-    		{
-    			Console.WriteLine("Internal Method");
-    		}
-    		protected void Test3_Protected()
-    		{
-    			Console.WriteLine("Protected Method");
-    		}
-    		protected internal void Test4_ProtecedInternal()
-    		{
-    			Console.WriteLine("Protected Internal Method");
-    		}
-    		public void Test5_Public()
-    		{
-    			Console.WriteLine("Public Method");
-    		}
-    		private protected void Test6_PrivateProtected()
-    		{
-    			Console.WriteLine("Private Protected Method");
-    		}
-
     		static void Main(string[] args)
     		{
-    			Program p = new Program();
-    			p.Test1_Private();
-    			p.Test2_Internal();
+    			Four p = new Four();
+    			//p.Test1_Private(); //Error
+    			//p.Test2_Internal(); //Error
     			p.Test3_Protected();
     			p.Test4_ProtecedInternal();
     			p.Test5_Public();
-    			p.Test6_PrivateProtected();
-    		}
-    	}
-    }
-
-    /*Output:
-
-    Private Method
-    Internal Method
-    Protected Method
-    Protected Internal Method
-    Public Method
-    Private Protected Method
-
-    */
-    ```
-
-    - All type of access modifier accessable in  same class.
-
-    3. Create one more class name it(i.e: `Two.cs`) & consume it by Inheritance
-
-    - `Two.cs` (By Inheriting).
-
-    - **Right-click on the project** in Solution Explorer and select **Properties**.
-
-    - In the **Application** tab, look for the **Startup object dropdown**. This dropdown lists all the classes that contain a `Main` method.
-
-    - Select the class(i.e:`Two.cs`) that has the `Main` method you want to execute
-
-    - Save the changes and run the project.
-
-    ```c#
-    namespace AccessDemo1
-    {
-    	class Two:Program
-    	{
-    		static void Main(string[] args)
-    		{
-    			Two t = new Two();
-          //t.Test1_Private();//Give error
-    			t.Test2_Internal();
-    			t.Test3_Protected();
-    			t.Test4_ProtecedInternal();
-    			t.Test5_Public();
-    			t.Test6_PrivateProtected();
-    		}
-    	}
-    }
-
-    /*Output: 
-
-    Internal Method
-    Protected Method
-    Protected Internal Method
-    Public Method
-    Private Protected Method
-    */
-    ```
-
-    - Except private method all are acceble in child class
-
-    4. Create another class name it(i.e:`Three.cs`) & consume using object:
-
-    ```c#
-    namespace AccessDemo1
-    {
-    	class Three
-    	{
-    		static void Main(string[] args)
-    		{
-    			Program p = new Program();
-    			//p.Test1_Private();//Error
-    			p.Test2_Internal();
-    			//p.Test3_Protected();//Error
-    			p.Test4_ProtecedInternal();
-    			p.Test5_Public();
-    			//p.Test6_PrivateProtected();//Error
+    			//p.Test6_PrivateProtected(); //Error
     		}
     	}
     }
     ```
-
-    5. Add a new `Console App` project under `MySolution`, name it as `AccessDemo2`, rename the default file `Program.cs` as `Four.cs` so that class name also changes to Four, add a reference to `AccessDemo1` assembly from its physical location to the new project and write the below code in the class Four:
-
-    - Rrite click on `Add` > Click `Refrence Manager` > New windows open > Right hand side Click `Browse` > Browser(`AccessDemo1\bin\Debug\net8.0\AccessDemo1.dll`) the Project(`AccessDemo1`)  accembly `AccessDemo1.dll`.
-
-      ```c#
-      namespace AccessDemo2
-      {
-      	internal class Four : AccessDemo1.Program
-      	{
-      		static void Main(string[] args)
-      		{
-      			Four p = new Four();
-      			//p.Test1_Private(); //Error
-      			//p.Test2_Internal(); //Error
-      			p.Test3_Protected();
-      			p.Test4_ProtecedInternal();
-      			p.Test5_Public();
-      			//p.Test6_PrivateProtected(); //Error
-      		}
-      	}
-      }
-      ```
 
     <hr/>
   </details>
+
 - <details>
     <summary>What is Language Interoperability in .NET?</summary>
     <hr/>
@@ -10044,89 +10255,91 @@ Life cycle means from the starting of execution to the end of execution.
     <summary>How to create a Visual Basic project to test interoperability?</summary>
     <hr/>
 
-    - Add a new Visual Basic **Console App** project named **AccessDemo3** under MySolution using Visual Basic.
+  - Add a new Visual Basic **Console App** project named **AccessDemo3** under MySolution using Visual Basic.
 
-    - Delete the default file **Module1.vb** and add a new class called **TestCS.vb**.
+  - Delete the default file **Module1.vb** and add a new class called **TestCS.vb**.
 
-    - Reference the **AccessDemo1** assembly and write the following code in **TestCS.vb**:
+  - Reference the **AccessDemo1** assembly and write the following code in **TestCS.vb**:
 
-    ```vb
-    Imports AccessDemo1
+  ```vb
+  Imports AccessDemo1
 
-    Public Class TestCS : Inherits Program
-        Shared Sub Main()
-            ' Creating instance of the class
-            Dim obj As New TestCS()
-            obj.Test3_Protected()
-            obj.Test4_ProtecedInternal()
-            obj.Test5_Public()
-            Console.ReadLine()
-        End Sub
-    End Class
+  Public Class TestCS : Inherits Program
+      Shared Sub Main()
+          ' Creating instance of the class
+          Dim obj As New TestCS()
+          obj.Test3_Protected()
+          obj.Test4_ProtecedInternal()
+          obj.Test5_Public()
+          Console.ReadLine()
+      End Sub
+  End Class
 
-    ```
+  ```
 
-    - Set **AccessDemo3** as the startup project to run it.
+  - Set **AccessDemo3** as the startup project to run it.
 
     <hr/>
   </details>
+
 - <details>
     <summary>How to consume VB.NET code in C#?</summary>
     <hr/>
 
-    - Add a new project named **AccessDemo4** as a **Class Library** under **MySolution** using Visual Basic.
+  - Add a new project named **AccessDemo4** as a **Class Library** under **MySolution** using Visual Basic.
 
-    - The project contains a class named **Class1**. Implement the following code:
+  - The project contains a class named **Class1**. Implement the following code:
 
-    ```vb
-    Public Class Class1
-      Public Function SayHello(Name As String) As String
-          Return "Hello " & Name
-      End Function
+  ```vb
+  Public Class Class1
+    Public Function SayHello(Name As String) As String
+        Return "Hello " & Name
+    End Function
 
-      Public Sub AddNums(x As Integer, y As Integer)
-          Console.WriteLine($"Sum of given 2 no's is: {x + y}")
-      End Sub
+    Public Sub AddNums(x As Integer, y As Integer)
+        Console.WriteLine($"Sum of given 2 no's is: {x + y}")
+    End Sub
 
-      Public Sub Math(a As Integer, b As Integer, ByRef c As Integer,   ByRef d As Integer)
-          c = a + b
-          d = a * b
-      End Sub
-    End Class
+    Public Sub Math(a As Integer, b As Integer, ByRef c As Integer,   ByRef d As Integer)
+        c = a + b
+        d = a * b
+    End Sub
+  End Class
 
-    ```
+  ```
 
-    - Build the **AccessDemo4** project to generate `AccessDemo4.dll`.
+  - Build the **AccessDemo4** project to generate `AccessDemo4.dll`.
 
-    - In the `AccessDemo1` project, add a new class called `TestVB.cs`.
+  - In the `AccessDemo1` project, add a new class called `TestVB.cs`.
 
-    - Add a reference to `AccessDemo3.dll` and write the following code in `TestVB.cs`:
+  - Add a reference to `AccessDemo3.dll` and write the following code in `TestVB.cs`:
 
-    ```c#
-    using AccessDemo3;
+  ```c#
+  using AccessDemo3;
 
-    internal class TestVB
-    {
-        static void Main()
-        {
-            Class1 obj = new Class1();
-            obj.AddNums(100, 50);
-            string str = obj.SayHello("Raju");
-            Console.WriteLine(str);
-            int Sum = 0, Product = 0;
-            obj.Math(100, 25, ref Sum, ref Product);
-            Console.WriteLine("Sum of the given 2 no's is: " + Sum);
-            Console.WriteLine("Product of the given 2 no's is: " +  Product);
-            Console.ReadLine();
-        }
-    }
+  internal class TestVB
+  {
+      static void Main()
+      {
+          Class1 obj = new Class1();
+          obj.AddNums(100, 50);
+          string str = obj.SayHello("Raju");
+          Console.WriteLine(str);
+          int Sum = 0, Product = 0;
+          obj.Math(100, 25, ref Sum, ref Product);
+          Console.WriteLine("Sum of the given 2 no's is: " + Sum);
+          Console.WriteLine("Product of the given 2 no's is: " +  Product);
+          Console.ReadLine();
+      }
+  }
 
-    ```
+  ```
 
-    Set both the `Startup Project` and `Startup Object` properties correctly to run the project.
+  Set both the `Startup Project` and `Startup Object` properties correctly to run the project.
 
     <hr/>
   </details>
+
 - <details>
     <summary>. How to restrict a class not to be accessible for any other class to consume?</summary>
     <hr/>
@@ -10150,10 +10363,11 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
     The two types of assemblies in .NET are:
 
-    1. Private Assembly
-    2. Shared Assembly
+  1. Private Assembly
+  2. Shared Assembly
     <hr/>
   </details>
+
 - <details>
     <summary>What is a private assembly?</summary>
     <hr/>
@@ -10167,46 +10381,49 @@ Life cycle means from the starting of execution to the end of execution.
     1. Create a new project of type **Class Library**.
     2. Name the project, for example, "**PAssembly**".
 
-    A default class (e.g., `Class1`) will be created. Write the following code in the class:
+  A default class (e.g., `Class1`) will be created. Write the following code in the class:
 
-    ```c#
-    public string SayHello() {
-    return "Hello from private assembly.";
-    }
-    ```
+  ```c#
+  public string SayHello() {
+  return "Hello from private assembly.";
+  }
+  ```
 
-    Compile the project by right-clicking on the project in **Solution Explorer** and selecting "Build". This will generate the private assembly `PAssembly.dll`.
+  Compile the project by right-clicking on the project in **Solution Explorer** and selecting "Build". This will generate the private assembly `PAssembly.dll`.
     <hr/>
   </details>
+
 - <details>
     <summary>How can you check the location of the generated assembly?</summary>
     <hr/>
     The path of the generated assembly can be found in the Output window at the bottom of Visual Studio after building the project.
 
-    **Example**: `1>PAssembly -> D:\dotnet\CSharpCode\PAssembly\PAssembly\bin\Debug\net8.0\PAssembly.dll`
+  **Example**: `1>PAssembly -> D:\dotnet\CSharpCode\PAssembly\PAssembly\bin\Debug\net8.0\PAssembly.dll`
     <hr/>
   </details>
+
 - <details>
     <summary>How do you consume a private assembly in multiple projects?</summary>
     <hr/>
     To consume a private assembly in multiple projects:
 
-    1. Create two new projects of type **Console App**, for example, "TestPAssembly1" and "TestPAssembly2".
+  1. Create two new projects of type **Console App**, for example, "TestPAssembly1" and "TestPAssembly2".
 
-    2. Add a reference to the `PAssembly.dll` file from its physical location to both projects.
+  2. Add a reference to the `PAssembly.dll` file from its physical location to both projects.
 
-    3. In each project's `Main` method, write the following code:
+  3. In each project's `Main` method, write the following code:
 
-    ```c#
-    PAssembly.Class1 obj = new PAssembly.Class1();
-    Console.WriteLine(obj.SayHello());
-    Console.ReadLine();
-    ```
+  ```c#
+  PAssembly.Class1 obj = new PAssembly.Class1();
+  Console.WriteLine(obj.SayHello());
+  Console.ReadLine();
+  ```
 
-    4. Run both projects to test them.
+  4. Run both projects to test them.
 
     <hr/>
   </details>
+
 - <details>
     <summary>How can you verify that multiple copies of the private assembly were created?</summary>
     <hr/>
@@ -10230,12 +10447,13 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
     If we want to use an assembly in multiple applications, private assemblies are not the best option. In this case, we can install the assembly into a central location called the **Global Assembly Cache (GAC)**. Every computer that has the ".NET Runtime" installed has this system-wide cache.
 
-    The **Global Assembly Cache** is where assemblies (like ".dll" files) are stored when they need to be shared by several applications on the same computer. For example, all .NET Libraries are shared assemblies, and they are stored in the GAC.
+  The **Global Assembly Cache** is where assemblies (like ".dll" files) are stored when they need to be shared by several applications on the same computer. For example, all .NET Libraries are shared assemblies, and they are stored in the GAC.
 
-    The key benefit of a shared assembly is that it doesn't create multiple copies, even if several projects use it. Only **one copy** of the assembly is kept in the GAC, and it serves all the projects that reference it.
+  The key benefit of a shared assembly is that it doesn't create multiple copies, even if several projects use it. Only **one copy** of the assembly is kept in the GAC, and it serves all the projects that reference it.
 
     <hr/>
   </details>
+
 - <details>
     <summary>What is the Global Assembly Cache (GAC)?</summary>
     <hr/>
@@ -10265,43 +10483,45 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
     To install an assembly into the GAC, use the **Gacutil.exe** tool from the **Visual Studio Command Prompt**. The syntax to manage assemblies is:
 
-    ```css
-    gacutil -i | -u | -l [<assembly name>]
-    or
-    gacutil /i | /u | /l [<assembly name>]
+  ```css
+  gacutil -i | -u | -l [<assembly name>]
+  or
+  gacutil /i | /u | /l [<assembly name>]
 
-    Example: Install an Assembly into GAC
-    gacutil /i MyAssembly.dll
+  Example: Install an Assembly into GAC
+  gacutil /i MyAssembly.dll
 
-    Example: Uninstall an Assembly from GAC
-    gacutil /u MyAssembly
-    (Note: You don't need to include .dll for uninstalling.)
+  Example: Uninstall an Assembly from GAC
+  gacutil /u MyAssembly
+  (Note: You don't need to include .dll for uninstalling.)
 
-    Example: List All Assemblies in GAC:
-    gacutil /l
-    ```
+  Example: List All Assemblies in GAC:
+  gacutil /l
+  ```
 
-    **Where**:
+  **Where**:
 
-    - `-i` is for installing the assembly.
-    - `-u` is for uninstalling the assembly.
-    - `-l` is for listing assemblies.
+  - `-i` is for installing the assembly.
+  - `-u` is for uninstalling the assembly.
+  - `-l` is for listing assemblies.
     <hr/>
   </details>
+
 - <details>
     <summary>How to open Visual/Developer Studio Command Prompt?</summary>
     <hr/>
 
-    1. **Open Visual Studio**.
+  1. **Open Visual Studio**.
 
-    2. Go to **Tools** in the top menu.
+  2. Go to **Tools** in the top menu.
 
-    3. Select **Command Line**.
+  3. Select **Command Line**.
 
-    4. Click on **Developer Command Prompt** from the submenu.
+  4. Click on **Developer Command Prompt** from the submenu.
 
     <hr/>
   </details>
+
 - <details>
     <summary>What type of assembly can be installed into the GAC?</summary>
     <hr/>
@@ -10312,24 +10532,26 @@ Life cycle means from the starting of execution to the end of execution.
     <summary>What is a strong-named assembly?</summary>
     <hr/>
 
-    Assemblies deployed in the global assembly cache must have a strong name. When an assembly is added to the global assembly cache, integrity checks are performed on all files that make up the assembly.
+  Assemblies deployed in the global assembly cache must have a strong name. When an assembly is added to the global assembly cache, integrity checks are performed on all files that make up the assembly.
 
-    A strong-named assembly is an assembly with a strong name that ensures integrity and uniqueness. Assemblies in the GAC must have a strong name. The strong name consists of the assembly's `name`, `version number`, and `public key`.
+  A strong-named assembly is an assembly with a strong name that ensures integrity and uniqueness. Assemblies in the GAC must have a strong name. The strong name consists of the assembly's `name`, `version number`, and `public key`.
 
     <hr/>
   </details>
+
 - <details>
     <summary>What are the components of a strong name?</summary>
     <hr/>
 
-    The components of a strong name are:
+  The components of a strong name are:
 
-    1. **Name**: The assembly's identifier.
-    2. **Version**: The version number of the assembly (default is `1.0.0.0`).
-    3. **Public Key**: A unique identifier for the assembly, generated and associated with the assembly to ensure global uniqueness.
+  1. **Name**: The assembly's identifier.
+  2. **Version**: The version number of the assembly (default is `1.0.0.0`).
+  3. **Public Key**: A unique identifier for the assembly, generated and associated with the assembly to ensure global uniqueness.
 
     <hr/>
   </details>
+
 - <details>
     <summary>Why is a public key required for a strong name?</summary>
     <hr/>
@@ -10340,115 +10562,123 @@ Life cycle means from the starting of execution to the end of execution.
     <summary>What are the benefits of a strong name?</summary>
     <hr/>
 
-    The benefits of a strong name are:
+  The benefits of a strong name are:
 
-    - Guarantees **name uniqueness** using unique key pairs.
+  - Guarantees **name uniqueness** using unique key pairs.
 
-    - Protects the **version lineage** of the assembly.
+  - Protects the **version lineage** of the assembly.
 
-    - Ensures that only the original publisher can release new versions of the assembly.
+  - Ensures that only the original publisher can release new versions of the assembly.
 
-    - Provides a **strong integrity check** to ensure that the assembly's contents have not been altered.
+  - Provides a **strong integrity check** to ensure that the assembly's contents have not been altered.
 
     <hr/>
   </details>
+
 - <details>
     <summary>How do you generate a public key for a strong name?</summary>
     <hr/>
 
-    To sign an assembly with a strong name, you must have a public `key pair`. This public cryptographic key pair is used during compilation to create a strong-named assembly. You can create a key pair using the Strong Name tool (`Sn.exe`) from visual studio command prompt as following:
+  To sign an assembly with a strong name, you must have a public `key pair`. This public cryptographic key pair is used during compilation to create a strong-named assembly. You can create a key pair using the Strong Name tool (`Sn.exe`) from visual studio command prompt as following:
 
-    To generate a public key pair for a **strong name**, use the Strong Name tool (**Sn.exe**) in the Visual Studio Command Prompt with the following syntax:
+  To generate a public key pair for a **strong name**, use the Strong Name tool (**Sn.exe**) in the Visual Studio Command Prompt with the following syntax:
 
-    ```c#
-    sn -k <file name>
-    ```
+  ```c#
+  sn -k <file name>
+  ```
 
-    For example, to create a key file:
+  For example, to create a key file:
 
-    ```c#
-    sn -k Key.snk
-    ```
+  ```c#
+  sn -k Key.snk
+  ```
 
-    This generates a key-value pair and stores it in a file with a `.snk` (strong name key) extension.
+  This generates a key-value pair and stores it in a file with a `.snk` (strong name key) extension.
 
-    **Note**: the above statement generates a key-value and writes it into the file “**`Key.snk. Key/Value`**" pair files usually have the extension of “**`.snk`**” (strong name key).
+  **Note**: the above statement generates a key-value and writes it into the file “**`Key.snk. Key/Value`**" pair files usually have the extension of “**`.snk`**” (strong name key).
 
-    **Note**: to open Developer command prompt in VS (" ctr + ` ") press.
+  **Note**: to open Developer command prompt in VS (" ctr + ` ") press.
 
     <hr/>
   </details>
+
 - <details>
     <summary>How do you generate a public key for a shared assembly?</summary>
     <hr/>
     To generate a public key, open the Visual Studio Command Prompt, navigate to your personal folder, and run the following command:
 
-    ```c#
-    <drive>:\<CSharp> sn -k Key.snk //Run it
-    ```
+  ```c#
+  <drive>:\<CSharp> sn -k Key.snk //Run it
+  ```
 
-    This generates a strong name key file named `Key.snk`.
+  This generates a strong name key file named `Key.snk`.
 
     <hr/>
   </details>
+
 - <details>
     <summary>How do you create a shared assembly?</summary>
     <hr/>
     To create a shared assembly:
 
-    1. Create a new project of type **Class Library** and name it **SAssembly**.
-    2. Add the public key (`Key.snk`) to the project to make the assembly strong-named:
+  1. Create a new project of type **Class Library** and name it **SAssembly**.
+  2. Add the public key (`Key.snk`) to the project to make the assembly strong-named:
+
 
       - Open **Solution Explorer**.
       - Right-click on the project and select **Properties**.
       - In the **Build** tab, check the option **Sign the output assembly**.
       - Browse and select the **Key.snk** file you generated.
 
-    3. Write the following code under Class1:
+  3. Write the following code under Class1:
 
-    ```c#
-    public string SayHello1()
-    {
-       return "Hello from shared assembly => 1.0.0.0";
-    }
-    ```
+  ```c#
+  public string SayHello1()
+  {
+     return "Hello from shared assembly => 1.0.0.0";
+  }
+  ```
 
-    4. Compile the project using the Build option to generate SAssembly.dll.
+  4. Compile the project using the Build option to generate SAssembly.dll.
 
     <hr/>
   </details>
+
 - <details>
     <summary>How do you install the assembly into GAC?</summary>
     <hr/>
     To install the shared assembly into GAC:
 
-    1. Open the **Visual Studio - Developer Command Prompt in Administrator Mode**.
-    2. Navigate to the location where `SAssembly.dll` is located (e.g., `bin\Debug\net8.0`).
-    3. Run the following command to install the assembly:
+  1. Open the **Visual Studio - Developer Command Prompt in Administrator Mode**.
+  2. Navigate to the location where `SAssembly.dll` is located (e.g., `bin\Debug\net8.0`).
+  3. Run the following command to install the assembly:
 
-    ```c#
-    <drive>:\<folder\SAssembly\SAssembly\bin\Debug\net8.0> gacutil -i SAssembly.dll
-    ```
+  ```c#
+  <drive>:\<folder\SAssembly\SAssembly\bin\Debug\net8.0> gacutil -i SAssembly.dll
+  ```
+
     <hr/>
   </details>
+
 - <details>
     <summary>How do you test the shared assembly?</summary>
     <hr/>
     To test the shared assembly:
 
-    1. Create a new `Console App` project named `TestSAssembly1`.
-    2. Add a reference to `SAssembly.dll` from its physical location.
-    3. Write the following code under the `Main` method.
+  1. Create a new `Console App` project named `TestSAssembly1`.
+  2. Add a reference to `SAssembly.dll` from its physical location.
+  3. Write the following code under the `Main` method.
 
-    ```c#
-    SAssembly.Class1 obj = new SAssembly.Class1();
-    MessageBox.Show(obj.SayHello1());
-    ```
+  ```c#
+  SAssembly.Class1 obj = new SAssembly.Class1();
+  MessageBox.Show(obj.SayHello1());
+  ```
 
-    4. Run the project. The `TestSAssembly1` project will use the `SAssembly.dll` from the **GAC**, and no local copy of `SAssembly.dll` is required in the project folder.
+  4. Run the project. The `TestSAssembly1` project will use the `SAssembly.dll` from the **GAC**, and no local copy of `SAssembly.dll` is required in the project folder.
 
     <hr/>
   </details>
+
 - <details>
     <summary>What is versioning in assemblies?</summary>
     <hr/>
@@ -10460,14 +10690,17 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
     To view and edit assembly attributes in the `.csproj` file:
 
-    1. Right-click on the project in **Solution Explorer**.
-    2. Select **Edit Project File**.
-    3. The .csproj file is an XML file where you can find the default information. You can add or edit attributes like **Company** or **Version** inside the `<PropertyGroup>` tag, e.g.:
-    ```xml
-    <Company>NIT</Company>
-    ```
+  1. Right-click on the project in **Solution Explorer**.
+  2. Select **Edit Project File**.
+  3. The .csproj file is an XML file where you can find the default information. You can add or edit attributes like **Company** or **Version** inside the `<PropertyGroup>` tag, e.g.:
+
+  ```xml
+  <Company>NIT</Company>
+  ```
+
     <hr/>
   </details>
+
 - <details>
     <summary>Where do you find the key file information in the .csproj file?</summary>
     <hr/>
@@ -10480,68 +10713,77 @@ Life cycle means from the starting of execution to the end of execution.
 
   Why do we maintain version numbers to an assembly?
   128
+
 - <details>
     <summary>Why do we maintain version numbers for an assembly?</summary>
     <hr/>
     Version numbers are maintained to distinguish the changes made over time. If any modifications or enhancements are made to the assembly code, the version number changes to reflect the updates. The default version of every assembly is 1.0.0.0. The version number is a combination of four values:
 
-    1. Major Version
-    2. Minor Version
-    3. Build Number
-    4. Revision
+  1. Major Version
+  2. Minor Version
+  3. Build Number
+  4. Revision
 
     <hr/>
   </details>
+
 - <details>
     <summary>What are the criteria for changing the version number of an assembly?</summary>
     <hr/>
     The version number of an assembly changes based on the following criteria:
 
-    1. Major Version: Change when new types are added to the assembly.
-    2. Minor Version: Change when existing types are modified.
-    3. Build Number: Change when new members are added to the types.
-    4. Revision: Change when existing members are modified.
+  1. Major Version: Change when new types are added to the assembly.
+  2. Minor Version: Change when existing types are modified.
+  3. Build Number: Change when new members are added to the types.
+  4. Revision: Change when existing members are modified.
     <hr/>
   </details>
+
 - <details>
     <summary>Where do you change the version number of an assembly?</summary>
     <hr/>
     To change the version number of an assembly, you need to modify the project’s property file:
 
-    1. Open Solution **Explorer**.
-    2. Right-click the project and select **Edit Project File**.
-    3. Inside the `<PropertyGroup>` tag, add the following statements:
+  1. Open Solution **Explorer**.
+  2. Right-click the project and select **Edit Project File**.
+  3. Inside the `<PropertyGroup>` tag, add the following statements:
 
-    ```xml
-      <AssemblyVersion>1.0.1.0</AssemblyVersion>
-      <FileVersion>1.0.1.0</FileVersion>
-    ```
+  ```xml
+    <AssemblyVersion>1.0.1.0</AssemblyVersion>
+    <FileVersion>1.0.1.0</FileVersion>
+  ```
+
     <hr/>
   </details>
+
 - <details>
     <summary>How do you test the process of changing the version number of an assembly?</summary>
     <hr/>
     To test the versioning:
 
-    1. Open the **SAssembly** project.
-    2. Add a new method to **Class1**:
-    ```c#
-    public string SayHello2()
-    {
-      return "Hello from shared assembly => 1.0.1.0";
-    }
-    ```
-    3. Update the project property file with the following attributes:
-    ```xml
-      <Company>NIT</Company>
-      <Description>This is a shared assembly developed by Naresh I Technologies.</Description>
-      <AssemblyVersion>1.0.1.0</AssemblyVersion>
-      <FileVersion>1.0.1.0</FileVersion>
-    ```
+  1. Open the **SAssembly** project.
+  2. Add a new method to **Class1**:
 
-    4. Rebuild the project and add the new version of SAssembly.dll (version 1.0.1.0) to the GAC using the Gacutil Tool.
+  ```c#
+  public string SayHello2()
+  {
+    return "Hello from shared assembly => 1.0.1.0";
+  }
+  ```
+
+  3. Update the project property file with the following attributes:
+
+  ```xml
+    <Company>NIT</Company>
+    <Description>This is a shared assembly developed by Naresh I Technologies.</Description>
+    <AssemblyVersion>1.0.1.0</AssemblyVersion>
+    <FileVersion>1.0.1.0</FileVersion>
+  ```
+
+  4. Rebuild the project and add the new version of SAssembly.dll (version 1.0.1.0) to the GAC using the Gacutil Tool.
     <hr/>
   </details>
+
 - <details>
     <summary>Can the Global Assembly Cache (GAC) store multiple versions of the same assembly?</summary>
     <hr/>
@@ -10577,47 +10819,49 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
     The Assembly Manifest contains:
 
-    - Assembly Name
-    - Assembly Version
-    - File Version
-    - Company Information
-    - Strong Name Information
-    - List of files in the assembly
+  - Assembly Name
+  - Assembly Version
+  - File Version
+  - Company Information
+  - Strong Name Information
+  - List of files in the assembly
     <hr/>
   </details>
+
 - <details>
     <summary>What information does Type Metadata provide?</summary>
     <hr/>
     Type Metadata describes every type and member defined in your code in a language-neutral manner. Metadata stores the following information:
 
-    - Description of the assembly.
-      - Identity (name, version, culture, public key).
-      - Other assemblies that this assembly depends on.
-      - Security permissions needed to run.
-    - Description of types.
-      - Name, visibility, base class, and interfaces implemented.
-      - Members (methods, fields, properties, events, nested types)
+  - Description of the assembly.
+    - Identity (name, version, culture, public key).
+    - Other assemblies that this assembly depends on.
+    - Security permissions needed to run.
+  - Description of types. - Name, visibility, base class, and interfaces implemented. - Members (methods, fields, properties, events, nested types)
     <hr/>
   </details>
+
 - <details>
     <summary>What are the benefits of metadata in assemblies?</summary>
     <hr/>
     Metadata provides the following benefits:
 
-    1. Self-describing files: Assemblies are self-describing, containing all the necessary information.
+  1. Self-describing files: Assemblies are self-describing, containing all the necessary information.
 
-    2. Language interoperability: Metadata enables seamless interaction between different programming languages.
+  2. Language interoperability: Metadata enables seamless interaction between different programming languages.
     <hr/>
   </details>
+
 - <details>
     <summary>What is the role of CIL (Common Intermediate Language) in the compilation of .NET programming languages, and how does it ensure platform independence?</summary>
     <hr/>
     during compilation of any .NET programming languages, the source code is translated into CIL code rather than platform or processor-specific code. CIL is a CPU and platform-independent instruction set that can be executed in any environment supporting the Common Language Infrastructure, such as the .NET runtime on Windows, or the cross-platform Mono runtime.
 
-    ![alt text](CompileAndExecutionProcess.png)
+  ![alt text](CompileAndExecutionProcess.png)
 
     <hr/>
   </details>
+
 - <details>
     <summary>What is a finalizer used for?</summary>
     <hr/>
@@ -10629,15 +10873,17 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
     Both have the same name as the class, but the finalizer is prefixed with a tilde (~). Example:
 
-    ```c#
-    class Test
-    {
-        Test() { /* Constructor*/ }
-        ~Test() { /* Finalizer*/ }
-    }
-    ```
+  ```c#
+  class Test
+  {
+      Test() { /* Constructor*/ }
+      ~Test() { /* Finalizer*/ }
+  }
+  ```
+
     <hr/>
   </details>
+
 - <details>
     <summary>Can a finalizer be defined in a struct?</summary>
     <hr/>
@@ -10679,9 +10925,10 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
     - **Constructors** are called in a **top-to-bottom hierarchy** (parent first, then child).
 
-    - **Finalizers** are called in a **bottom-to-top** hierarchy (child first, then parent).
+  - **Finalizers** are called in a **bottom-to-top** hierarchy (child first, then parent).
     <hr/>
   </details>
+
 - <details>
     <summary>How does memory management differ in C# compared to languages like C++?</summary>
     <hr/>
@@ -10711,10 +10958,11 @@ Life cycle means from the starting of execution to the end of execution.
     
     ```
 
-    Output (before ReadLine): 3 constructors called.
-    Output (after ReadLine): 3 finalizers called as program ends.
+  Output (before ReadLine): 3 constructors called.
+  Output (after ReadLine): 3 finalizers called as program ends.
     <hr/>
   </details>
+
 - <details>
     <summary>What happens when you explicitly call the garbage collector (GC.Collect())?</summary>
     <hr/>
@@ -10726,25 +10974,26 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
     When a child class is destroyed, its finalizer is called first, followed by the finalizer of the parent class. Example:
 
-    ```c#
-    internal class DestDemo2 : DestDemo1
-    {
-        public DestDemo2() => Console.WriteLine("Instance2 is created.");
-        
-        ~DestDemo2() => Console.WriteLine("Instance2 is destroyed.");
-    
-        static void Main() {
-            DestDemo2 obj = new DestDemo2();
-            Console.ReadLine();
-        }
-    }
-    
-    ```
+  ```c#
+  internal class DestDemo2 : DestDemo1
+  {
+      public DestDemo2() => Console.WriteLine("Instance2 is created.");
 
-    **Output**: Child instance destroyed first, then the parent instance.
+      ~DestDemo2() => Console.WriteLine("Instance2 is destroyed.");
+
+      static void Main() {
+          DestDemo2 obj = new DestDemo2();
+          Console.ReadLine();
+      }
+  }
+
+  ```
+
+  **Output**: Child instance destroyed first, then the parent instance.
 
     <hr/>
   </details>
+
 - <details>
     <summary>Why are finalizers important when dealing with unmanaged resources?</summary>
     <hr/>
@@ -10762,11 +11011,12 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
     You can expose a private field's value by defining a property for it. This property can give access to the value in three ways:
 
-    1. Read-only (only get access).
-    2. Write-only (only set access).
-    3. Read/Write (both get and set access).
+  1. Read-only (only get access).
+  2. Write-only (only set access).
+  3. Read/Write (both get and set access).
     <hr/>
   </details>
+
 - <details>
     <summary>What is the syntax to define a property in C#?</summary>
     <hr/>
@@ -10778,18 +11028,20 @@ Life cycle means from the starting of execution to the end of execution.
     }
     ```
 
-    - The get accessor is used to read a value.
-    - The set accessor is used to assign a value.
+  - The get accessor is used to read a value.
+  - The set accessor is used to assign a value.
     <hr/>
   </details>
+
 - <details>
     <summary>What is the purpose of the get and set accessors?</summary>
     <hr/>
     - The `get` accessor **returns the value** of a private field. It behaves like a value-returning method.
 
-    - The `set` accessor **assigns a new value** to a private field. It has an implicit parameter called `value`, which refers to the value being assigned.
+  - The `set` accessor **assigns a new value** to a private field. It has an implicit parameter called `value`, which refers to the value being assigned.
     <hr/>
   </details>
+
 - <details>
     <summary>What are the different types of properties in terms of accessors?</summary>
     <hr/>
@@ -10799,6 +11051,7 @@ Life cycle means from the starting of execution to the end of execution.
 
     <hr/>
   </details>
+
 - <details>
     <summary>Can a property have different access modifiers for the get and set accessors?</summary>
     <hr/>
@@ -10832,13 +11085,14 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
     An **auto property initializer** (introduced in C# 6.0) allows a property to be initialized with a value at declaration:
 
-    ```c#
-    public string Continent { get; } = "Asia";
-    ```
+  ```c#
+  public string Continent { get; } = "Asia";
+  ```
 
-    This initializes the `Continent` property to "Asia" and makes it read-only.
+  This initializes the `Continent` property to "Asia" and makes it read-only.
     <hr/>
   </details>
+
 - <details>
     <summary>What does the value keyword do in the set accessor?</summary>
     <hr/>
@@ -10850,38 +11104,40 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
     Yes, properties can be used with enumerations. For example, you can define a property of an enumerated type like Cities:
 
-    ```c#
-    public enum Cities
+  ```c#
+  public enum Cities
+  {
+  Bengaluru, Chennai, Delhi, Hyderabad, Kolkata, Mumbai
+  }
+  public Cities City { get; set; }
+  ```
+
+  Or
+
+  ```c#
+  public enum Cities
+  {
+  Bengaluru, Chennai, Delhi, Hyderabad, Kolkata, Mumbai
+  }
+
+  private string _city;
+
+  public Cities City
+  {
+    get { return _City; }
+    set
     {
-    Bengaluru, Chennai, Delhi, Hyderabad, Kolkata, Mumbai
-    }
-    public Cities City { get; set; }
-    ```
-
-    Or
-
-    ```c#
-    public enum Cities
-    {
-    Bengaluru, Chennai, Delhi, Hyderabad, Kolkata, Mumbai
-    }
-
-    private string _city;
-
-    public Cities City
-    {
-      get { return _City; }
-      set
+      if(_Status)
       {
-        if(_Status)
-        {
-          _City = value;
-        }
+        _City = value;
       }
     }
-    ```
+  }
+  ```
+
     <hr/>
   </details>
+
 - <details>
     <summary>How do you create a read-only property?</summary>
     <hr/>
@@ -10899,29 +11155,33 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
      **Yes**, both `get` and `set` accessors can have conditions. For example, restricting access based on a status:
 
-     ```c#
-     public string Name
-     {
-         get { return _Name; }
-         set { if (_Status) _Name = value; }
-     }
-     ```
+  ```c#
+  public string Name
+  {
+      get { return _Name; }
+      set { if (_Status) _Name = value; }
+  }
+  ```
+
     <hr/>
   </details>
+
 - <details>
     <summary>Can a property have different access levels for get and set?</summary>
     <hr/>
     Yes, you can define a property where get is public and set is protected or private. For example:
 
-    ```c#
-    public string State
-    {
-        get { return _State; }
-        protected set { if (_Status) _State = value; }
-    }
-    ```
+  ```c#
+  public string State
+  {
+      get { return _State; }
+      protected set { if (_Status) _State = value; }
+  }
+  ```
+
     <hr/>
   </details>
+
 - <details>
     <summary>Give me example using property with condition, access level, enumerations and etc?</summary>
     <hr/>
@@ -10972,4738 +11232,3478 @@ Life cycle means from the starting of execution to the end of execution.
             set { if (_Status && value >= 500) _Balance = value; }
         }
 
-        // Enumerated Property
+        ///Read-Write Property (Enumerated Property)
         public Cities City
         {
             get { return _City; }
             set { if (_Status) _City = value; }
         }
 
-        // Read-Write Property with different access modifiers for Get/Set
+        // Read-Write Property with different access modifiers for Get/Set  (With a different scope to each property accessor (C# 2.0))
         public string State
         {
             get { return _State; }
             protected set { if (_Status) _State = value; }
         }
 
-        // Auto-Implemented Property
+        // Auto-Implemented Property (Automatic or Auto-Implemented property (C# 3.0))
         public string Country { get; private set; }
 
-        // Read-Only Property with initializer
+        // Read-Only Property with initializer (Auto property initializer (C# 6.0))
         public string Continent { get; } = "Asia";
-    }
-    ```
 
-    **Note**: The contextual keyword value is used in the set accessor in ordinary property declarations. It is like an input parameter of a method. The word value references the value that client code is attempting to assign to the property.
-
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary>Is that posible to create object of abstract class?</summary>
-    <hr/>
-    <p>No, it is not possible to create an object (or instance) of an abstract class directly in C#. Abstract classes are designed to be base classes that provide a common definition of a base class that derived classes can share. They can include abstract methods, which must be implemented by non-abstract derived classes, as well as methods with actual implementation.</p>
-    <hr/>
-  </details>
-- <details>
-    <summary>How to call abstract class Constructor?</summary>
-    <hr/>
-    <p>You cannot directly instantiate an abstract class, but you can call its constructor from a derived class. The abstract class's constructor is called implicitly when an instance of a derived class is created.</p>
-    <br/>
-
-  ```C#
-
-  //Abstract class
-  public abstract class Mrk
-  {
-    // Protected constructor so it can be calledby     derived classes
-    protected Mrk()
-    {
-        Console.WriteLine("Hello baby");
-    }
-  }
-
-  //Derived class
-  class Go : Mrk
-  {
-    // Protected constructor that calls the baseclass     constructor
-    protected Go() : base()
-    {
-        Console.WriteLine("Go class...");
-    }
-  }
-
-  class Constructor
-  {
-        static void Main()
-        {
-            // Creating an instance of the derivedclass
-            Go og = new Go();
-        }
   }
 
   ```
 
+  **Note**: The contextual keyword value is used in the set accessor in ordinary property declarations. It is like an input parameter of a method. The word value references the value that client code is attempting to assign to the property.
+
+  <hr/>
+  </details>
+  ```
+
+- <details>
+    <summary>What is a contextual keyword `value` and how is it used?</summary>
+    <hr/>
+    The keyword `value` is used in the set accessor of a property to represent the value being assigned. It works like an input parameter of a method, allowing you to set the value for the property.
+    ```c#
+    public bool Status
+    {
+        get { return _Status; }
+        set { _Status = value; }
+    }
+    ```
+    <hr/>
+  </details>
+- <details>
+    <summary>What is an Enumerated Property?</summary>
+    <hr/>
+    An Enumerated Property is a property that allows a **set of predefined constants to be chosen**. For example, you can set the `BackgroundColor` property of the `Console` class with one of the values from the `ConsoleColor` enumeration like `ConsoleColor.Blue`.
+    <hr/>
+  </details>
+- <details>
+    <summary>What is an Enum in C#?</summary>
+    <hr/>
+    An Enum is a distinct type containing a set of named constants called an enumerator list. It provides an easy way to work with a group of related constants, typically with integer values.
+    <hr/>
+  </details>
+- <details>
+    <summary>How is an Enum defined in C#?</summary>
+    <hr/>
+    The syntax to define an Enum is as follows:
+    ```c#
+    public enum Days
+    {
+        Monday, Tuesday, Wednesday, Thursday, Friday
+    }
+    ```
+    Here, each item starts at index `0` by default, so `Monday` = 0, Tu`esday = 1, and so on.
+    <hr/>
+  </details>
+- <details>
+    <summary>How do you define an Enumerated Property?</summary>
+    <hr/>
+    Follow these steps:
+    1. `Define an Enum`:
+      ```C#
+      public enum Days { Monday, Tuesday, Wednesday, Thursday, Friday }
+      ```
+    2. `Declare a field of type Enum`:
+      ```c#
+      private Days _Day = Days.Monday;
+      ```
+    3. `Define a property for the Enum field`:
+      ```c#
+      public Days Day
+      {
+          get { return _Day; }
+          set { _Day = value; }
+      }
+      ```
+    <hr/>
+  </details>
+- <details>
+    <summary>What are Auto-Implemented Properties?</summary>
+    <hr/>
+    Auto-implemented properties provide a shorthand way to declare properties when no extra logic is needed. From C# 6.0 onwards, they can be initialized at the time of declaration. For example:
+
+  ```c#
+  public string Country { get; } = "India";
+  ```
+
+    <hr/>
+  </details>
+
+- <details>
+    <summary>How do you test and consume properties in a class(i.e:`TestCustomer` class)?</summary>
+    <hr/>
+    In a class named TestCustomer, you can create an instance of the Customer class and use it to demonstrate different property usages. Here is the provided code:
+
+  ```c#
+  internal class TestCustomer
+  {
+      static void Main()
+      {
+          Customer obj = new Customer(1001);
+          Console.WriteLine("Custid: " + obj.Custid + "\n");
+
+          if (obj.Status)
+              Console.WriteLine("Customer Status: Active");
+          else
+              Console.WriteLine("Customer Status: In-Active");
+
+          Console.WriteLine("Customer Name: " + obj.Name);
+          obj.Name += " Smith"; //Update fails because status is in-active
+          Console.WriteLine("Name when update failed: " + obj.Name);
+          Console.WriteLine("Balance when status is in-active: " + obj.Balance + "\n");
+
+
+          obj.Status = true; //Activating the status
+          if (obj.Status)
+            Console.WriteLine("Customer Status: Active");
+          else
+            Console.WriteLine("Customer Status: In-Active");
+
+          Console.WriteLine("Customer Name: " + obj.Name);
+          obj.Name += " Smith"; //Update succeds because status is in-active
+          Console.WriteLine("Name when update succeded: " + obj.Name);
+          Console.WriteLine("Balance when status is active: " + obj.Balance + "\n");
+          obj.Balance -= 4600; //Transaction failed
+          Console.WriteLine("Balance when transaction failed: " + obj.Balance);
+          obj.Balance -= 4500; //Transaction succeds
+          Console.WriteLine("Balance when transaction succeded: " + obj.Balance + "\n");
+          Console.WriteLine($"Customer City: {obj.City}");
+          obj.City = Cities.Hyderabad;
+          Console.WriteLine($"Modified City: {obj.City}");
+          Console.WriteLine("Customer State: " + obj.State);
+          //obj.State = "Telangana"; //Invalid because set accessor is accessible only to child classes
+          Console.WriteLine("Customer Country: " + obj.Country);
+          Console.WriteLine("Customer Continent: " + obj.Continent);
+
+          // Testing property usage with valid and invalid cases
+          // For example:
+          // - Updating name based on status
+          // - Activating status
+          // - Validating balance transactions
+          // - Modifying city, and checking readonly properties like State, Country, etc.
+
+          // Additional implementation for each check provided in the initial code.
+      }
+  }
+  ```
+
+    <hr/>
+  </details>
+
+- <details>
+    <summary>How do you restrict access to properties like 'State'?</summary>
+    <hr/>
+    You can make a property read-only by implementing only the `get` accessor, which prevents modification:
+
+  ```c#
+  public string State { get; } = "DefaultState";
+  ```
+
+  If a property has only a `get` accessor, attempting to set its value will result in a compilation error.
+    <hr/>
+  </details>
+
+- <details>
+    <summary>What are the key differences between traditional and auto-implemented properties?</summary>
+    <hr/>
+    Traditional properties require explicit backing fields, whereas auto-implemented properties create backing fields automatically and offer a more concise syntax.
+    <hr/>
+  </details>
+- <details>
+    <summary>Why is initializing properties at the declaration time useful in C# 6.0+?</summary>
+    <hr/>
+    It simplifies code by allowing default values to be set directly within the property declaration, eliminating the need for separate constructors or explicit backing fields.
+    <hr/>
+  </details>
+
+## **`Object Initializers`**
+
+- <details>
+    <summary>What are Object Initializers in C#?</summary>
+    <hr/>
+    Object initializers allow you to `assign values` to accessible `properties` of an `object` at the time of creation, without `explicitly invoking a parameterized constructor`. They provide a declarative way to `initialize objects` `using the default constructor`.
+
+  Object initializers let you assign values to any accessible **`properties`** of an `instance` at creation time without having to `explicitly invoke` a `parameterized constructor`. You can use `object initializers` to initialize type objects in a `declarative manner` without explicitly invoking a `constructor` for the `type`. Object Initializers will use the `default constructor` for initializing `fields` thru `properties`.
+    <hr/>
+  </details>
+
+- <details>
+    <summary>Why are Object Initializers useful?</summary>
+    <hr/>
+    They let you set properties directly without the need for multiple constructor overloads or creating explicit parameterized constructors. This improves code readability and reduces boilerplate code.
+    <hr/>
+  </details>
+- <details>
+    <summary>How do Object Initializers work internally?</summary>
+    <hr/>
+    Object initializers use the default constructor to create the object and then assign values to properties via their setters.
+    <hr/>
+  </details>
+- <details>
+    <summary>Give me the example of obect initializers?</summary>
+    <hr/>
+     To test these, add a new Code File naming it as “`TestStudent.cs`” and write the following code in it:
+     ```c#
+      namespace OOPSProject
+      {
+        public class Student
+        {
+          int? _Id, _Class;
+          string? _Name;
+          float? _Marks, _Fees;
+
+          public int? Id
+          {
+          get { return _Id; }
+          set { _Id = value; }
+          }
+
+          public int? Class
+          {
+            get { return _Class; }
+            set { _Class = value; }
+          }
+
+          public string? Name
+          {
+            get { return _Name; }
+            set { _Name = value; }
+          }
+
+          public float? Marks
+          {
+            get { return _Marks; }
+            set { _Marks = value; }
+          }
+
+          public float? Fees
+          {
+            get { return _Fees; }
+            set { _Fees = value; }
+          }
+
+          public override string ToString()
+          {
+            return "Id: " + _Id + "\nName: " + _Name + "\nClass: " + _Class + "\nMarks: " + _Marks + "\nFees: " + _Fees;
+          }
+        }
+        internal class TestStudent {
+          static void Main()
+          {
+            Student s1 = new Student { Id = 101, Name = "Raju", Class = 10, Marks = 575.00f, Fees = 5000.00f };
+            Student s2 = new Student { Id = 102, Name = "Vijay", Class = 10 };
+            Student s3 = new Student { Id = 103, Marks = 560.00f, Fees = 5000.00f };
+            Student s4 = new Student { Id = 104, Class = 10, Fees = 5000.00f };
+            Student s5 = new Student { Id = 105, Name = "Raju", Marks = 575.00f };
+            Student s6 = new Student { Id = 106, Class = 10, Marks = 575.00f };
+            Console.WriteLine(s1); Console.WriteLine(s2); Console.WriteLine(s3);
+            Console.WriteLine(s4); Console.WriteLine(s5); Console.WriteLine(s6);
+            Console.ReadLine();
+          }
+        }
+      }
+
+  ```
+  <hr/>
+  </details>
+  ```
+
+- <details>
+    <summary>How many way to initialize an object?</summary>
+    <hr/>
+    1. **`Using a Constructor`**: You can initialize an object using a `parameterized` or `default` `constructor`.
+      ```C#
+      Student s1 = new Student(101, "Raju", 10, 575.00f, 5000.00f);
+      ```
+    2. **`Using Object Initializers`**: Introduced in C# 3.0, object initializers allow you to set properties without explicitly invoking a constructor.
+      ```c#
+      Student s2 = new Student { Id = 101, Name = "Raju", Class = 10, Marks = 575.00f, Fees = 5000.00f };
+      ```
+    3. **`Using Collection Initializers`**: If you're working with collections, you can initialize the collection and its elements simultaneously.
+      ```c#
+      List<Student> students = new List<Student> {
+        new Student { Id = 101, Name = "Raju", Class = 10 },
+        new Student { Id = 102, Name = "Vijay", Class = 12 }
+      };
+      ```
+    4. **`Using new Keyword with Properties`**: You can set properties directly after creating an instance using the `new` keyword.
+      ```c#
+      Student s3 = new Student();
+      s3.Id = 103;
+      s3.Name = "Rahul";
+      ```
+    5. **`Using Anonymous Types`**: For read-only objects with a specific set of properties, you can use anonymous types.
+      ```c#
+      var student = new { Id = 101, Name = "Raju", Class = 10 };
+      ```
+    <hr/>
+  </details>
+
+## **`Indexers`**
+
+- <details>
+    <summary>What are Indexers in C#?</summary>
+    <hr/>
+     Indexers allow instances of a class or struct to be accessed using an array-like syntax. They are like properties but have parameters. This provides syntactic convenience, making it possible to treat classes and structs as "virtual arrays."
+    <hr/>
+  </details>
+- <details>
+    <summary>How do Indexers work in C#?</summary>
+    <hr/>
+    Indexers use the `this` keyword to allow the class or struct to be indexed with `[]`. The indexers can have `get` and `set` accessors, where:
+    - The `get` accessor returns a value.
+    - The `set` accessor assigns a value using the `value` keyword.
+    <hr/>
+  </details>
+- <details>
+    <summary>What is the syntax to define an Indexer in C#?</summary>
+    <hr/>
+    ```C#
+    [<modifiers>] <type> this[<Parameter List>]
+    {
+        get { /* statements */ }
+        set { /* statements */ }
+    }
+    ```
+    <hr/>
+  </details>
+- <details>
+    <summary>Can you list the main points of Indexers?</summary>
+    <hr/>
+    - Uses the `this` keyword for defining the indexers.
+    - Parameters cannot be `out` or `ref`. The `out` and `ref` keyword are not allowed on parameters.
+    - `get` accessor returns a value.
+    - `set` accessor assigns a value using the `value` keyword.
+    - The `value` keyword is only used to define the value being assigned by the set indexer.
+    - Indexers do not have to be `indexed` by an `integer` value; it is up to you how to define the `look-up` mechanism..
+    - Indexers can be `overloaded`.
+    - Indexers cannot be defined as `static`.
+    - Indexers can have multiple parameters (for multi-dimensional indexing).
+    <hr/>
+  </details>
+- <details>
+    <summary>How do you test an Indexer in C#?</summary>
+    <hr/>
+    Create an `Employee` class with an indexer, and in the `TestEmployee` class, demonstrate how to access and modify the `Employee` properties using indexers. Here is the example code:
+
+  **`Employee` Class**:
+
+  ```c#
+  namespace OOPSProject
+  {
+      public class Employee
+      {
+          int? _Id;
+          string? _Name, _Job;
+          double? _Salary;
+          bool? _Status;
+
+          public Employee(int Id)
+          {
+              _Id = Id;
+              _Name = "Nicholas";
+              _Job = "Manager";
+              _Salary = 50000.00;
+              _Status = true;
+          }
+
+          public object? this[int Index]
+          {
+              get
+              {
+                  if (Index == 1) return _Id;
+                  else if (Index == 2) return _Name;
+                  else if (Index == 3) return _Job;
+                  else if (Index == 4) return _Salary;
+                  else if (Index == 5) return _Status;
+                  else return null;
+              }
+              set
+              {
+                  if (Index == 2) _Name = (string?)value;
+                  else if (Index == 3) _Job = (string?)value;
+                  else if (Index == 4) _Salary = (double?)value;
+                  else if (Index == 5) _Status = (bool?)value;
+              }
+          }
+
+          public object? this[string Key]
+          {
+              get
+              {
+                  if (Key.ToUpper() == "ID") return _Id;
+                  else if (Key.ToUpper() == "NAME") return _Name;
+                  else if (Key.ToUpper() == "JOB") return _Job;
+                  else if (Key.ToUpper() == "SALARY") return _Salary;
+                  else if (Key.ToUpper() == "STATUS") return _Status;
+                  else return null;
+              }
+              set
+              {
+                  if (Key.ToLower() == "name") _Name = (string?)value;
+                  else if (Key.ToLower() == "job") _Job = (string?)value;
+                  else if (Key.ToLower() == "salary") _Salary = (double?)value;
+                  else if (Key.ToLower() == "status") _Status = (bool?)value;
+              }
+          }
+      }
+  }
+  ```
+
+  **`TestEmployee` Class**:
+
+  ```c#
+  internal class TestEmployee
+  {
+      static void Main()
+      {
+          Employee Emp = new Employee(1005);
+          Console.WriteLine("Employee ID: " + Emp[1]);
+          Console.WriteLine("Employee Name: " + Emp[2]);
+          Console.WriteLine("Employee Job: " + Emp[3]);
+          Console.WriteLine("Employee Salary: " + Emp[4]);
+          Console.WriteLine("Employee Status: " + Emp[5]);
+          Console.WriteLine();
+
+          Emp[3] = "Sr. Manager";
+          Emp["Salary"] = 75000.00;
+
+          Console.WriteLine("Employee ID: " + Emp["Id"]);
+          Console.WriteLine("Employee Name: " + Emp["name"]);
+          Console.WriteLine("Employee Job: " + Emp["JOB"]);
+          Console.WriteLine("Employee Salary: " + Emp["SaLaRy"]);
+          Console.WriteLine("Employee Status: " + Emp["Status"]);
+          Console.ReadLine();
+      }
+  }
+  ```
+
+    <hr/>
+  </details>
+
+- <details>
+    <summary>Why can’t we assign a new value to Emp["Id"]?</summary>
+    <hr/>
+    The ID field in the code does not have a setter defined in the indexer, so it remains read-only.
+    <hr/>
+  </details>
+- <details>
+    <summary>What is the purpose of using Indexers in C#?</summary>
+    <hr/>
+    Indexers allow classes or structs to be accessed like arrays. This makes them convenient for classes that act like collections or arrays, making them easier to use and improving code readability.
+    <hr/>
+  </details>
+- <details>
+    <summary>How does the Indexer code work? When is this invoked?</summary>
+    <hr/>
+    One indexer uses an int parameter, and the other uses a string parameter to access or modify specific properties of the Employee object.
+
+  - The `get` accessor of this indexer is invoked when you access the employee properties using an integer (e.g., `Emp[1]`).
+  - The `get` accessor of this indexer is invoked when you access employee properties using a string key (e.g., `Emp["ID"]`).
+
+  - The `set` accessor is invoked when you assign a value using an integer index (e.g., `Emp[3] = "Sr. Manager"`).
+  - The `set` accessor is invoked when you assign a value using a string key (e.g., `Emp["Salary"] = 75000.00`).
+
+  - **Two indexers**: One accepts an integer, and one accepts a string key.
+  - **Get/Set Access**: You can access and modify properties based on the index or key provided.
+  - **Advantages**: Provides a way to access class properties like an array or dictionary, improving code readability and flexibility.
+    <hr/>
+  </details>
+
+## **`Deconstructor`**
+
+- <details>
+    <summary>What are Deconstructors in C#?</summary>
+    <hr/>
+    Deconstructors were introduced in C# 7.0 to provide read-only access to the values (attributes) of a class. They allow you to expose values outside a class using a special method named `Deconstruct`. Deconstructors are `useful for breaking down an object into multiple components without exposing its internal state directly`.
+
+  These are newly introduced in `C# 7.0` which can also be used to provide access to the values or expose the values associated with a class to the outside environment, apart from `public fields`, `properties`, and `indexers`. `Deconstructor` is a special method with the name “`Deconstruct`” that is defined under the class to expose (`Read Only`) the attributes of a class and this will be defined with a code that is `reverse` to a `constructor`.
+    <hr/>
+  </details>
+
+- <details>
+    <summary>How is a Deconstructor defined?</summary>
+    <hr/>
+    A Deconstructor is defined as a special method named `Deconstruct` inside a class. It uses the `out` keyword to pass values back to the caller. Here's an example of the syntax:
+
+  ```c#
+  public void Deconstruct(out int? Id, out string? Name, out string? Subject, out string? Designation, out double? Salary)
+  {
+      Id = this.Id;
+      Name = this.Name;
+      Subject = this.Subject;
+      Designation = this.Designation;
+      Salary = this.Salary;
+  }
+  ```
+
+    <hr/>
+  </details>
+
+- <details>
+    <summary>What is the purpose of a Deconstructor?</summary>
+    <hr/>
+    The purpose of a Deconstructor is to expose the values (attributes) of a class as read-only to the outside environment. This is helpful for classes that want to return multiple values without making their fields public.
+    <hr/>
+  </details>
+- <details>
+    <summary>How can we capture values from a Deconstructor?</summary>
+    <hr/>
+    You can use tuple deconstruction syntax to capture the values exposed by a Deconstructor. For example:
+
+  ```c#
+  (int? Id1, string? Name1, string? Subject1, string? Designation1, double? Salary1) = obj;
+  ```
+
+    <hr/>
+  </details>
+
+- <details>
+    <summary>Can you use the var keyword for Deconstructor output?</summary>
+    <hr/>
+     Yes, you can use `var` to capture values from a Deconstructor, which simplifies the code:
+
+  ```c#
+  var (Id2, Name2, Subject2, Designation2, Salary2) = obj;
+  ```
+
+    <hr/>
+  </details>
+
+- <details>
+    <summary>How does Deconstruction provide read-only access?</summary>
+    <hr/>
+    Deconstructors only return values, without giving direct write access to the private fields. This way, they maintain data encapsulation while allowing safe exposure of the values.
+    <hr/>
+  </details>
+- <details>
+    <summary>Can Deconstructors be overloaded?</summary>
+    <hr/>
+    Yes, you can overload Deconstructors to expose specific values. For example:
+    ```c#
+    public void Deconstruct(out int? Id, out string? Name, out string? Subject)
+    {
+        Id = this.Id;
+        Name = this.Name;
+        Subject = this.Subject;
+    }
+    ```
+    <hr/>
+  </details>
+- <details>
+    <summary>How can we test an overloaded Deconstructor?</summary>
+    <hr/>
+    You can call the overloaded Deconstructor to capture fewer attributes:
+    ```c#
+    var (Id3, Name3, Subject3) = obj;
+    Console.WriteLine("Teacher Id: " + Id3);
+    Console.WriteLine("Teacher Name: " + Name3);
+    Console.WriteLine("Teacher Subject: " + Subject3);
+    ```
+    <hr/>
+  </details>
+- <details>
+    <summary>How do you skip certain values while deconstructing?</summary>
+    <hr/>
+       You can use an **underscore** `_` to skip attributes that you don't want to capture. For example:
+
+       ```c#
+       var (Id4, _, Subject4, _, Salary4) = obj;
+       Console.WriteLine("Teacher Id: " + Id4);
+       Console.WriteLine("Teacher Subject: " + Subject4);
+       Console.WriteLine("Teacher Salary: " + Salary4);
+       ```
+
+    <hr/>
+  </details>
+
+- <details>
+    <summary>How can you deconstruct and skip values for specific attributes?</summary>
+    <hr/>
+     To skip multiple values, use _ at the corresponding position:
+
+  ```c#
+  var (Id5, _, _, Designation5, Salary5) = obj;
+  Console.WriteLine("Teacher Id: " + Id5);
+  Console.WriteLine("Teacher Designation: " + Designation5);
+  Console.WriteLine("Teacher Salary: " + Salary5);
+  ```
+
+    <hr/>
+  </details>
+
+- <details>
+    <summary>Can you provide a complete example code for Deconstructors?</summary>
+    <hr/>
+    Below is a complete code for the Teacher class with Deconstructors:
+
+  Code for the `Teacher` Class
+
+  ```c#
+  namespace OOPSProject
+  {
+      public class Teacher
+      {
+          int? Id;
+          string? Name, Subject, Designation;
+          double? Salary;
+
+          public Teacher(int? Id, string? Name, string? Subject, string? Designation, double? Salary)
+          {
+              this.Id = Id;
+              this.Name = Name;
+              this.Subject = Subject;
+              this.Designation = Designation;
+              this.Salary = Salary;
+          }
+
+          public void Deconstruct(out int? Id, out string? Name, out string? Subject, out string? Designation, out double? Salary)
+          {
+              Id = this.Id;
+              Name = this.Name;
+              Subject = this.Subject;
+              Designation = this.Designation;
+              Salary = this.Salary;
+          }
+
+          public void Deconstruct(out int? Id, out string? Name, out string? Subject)
+          {
+              Id = this.Id;
+              Name = this.Name;
+              Subject = this.Subject;
+          }
+      }
+
+      class TestTeacher
+      {
+          static void Main()
+          {
+              Teacher obj = new Teacher(1005, "Suresh", "English", "Lecturer", 25000.00);
+
+              // Full deconstruction
+              (int? Id1, string? Name1, string? Subject1, string? Designation1, double? Salary1) = obj;
+              Console.WriteLine("Teacher Id: " + Id1);
+              Console.WriteLine("Teacher Name: " + Name1);
+              Console.WriteLine("Teacher Subject: " + Subject1);
+              Console.WriteLine("Teacher Designation: " + Designation1);
+              Console.WriteLine("Teacher Salary: " + Salary1 + "\n");
+
+              // Using var keyword
+              var (Id2, Name2, Subject2, Designation2, Salary2) = obj;
+              Console.WriteLine("Teacher Id: " + Id2);
+              Console.WriteLine("Teacher Name: " + Name2);
+              Console.WriteLine("Teacher Subject: " + Subject2);
+              Console.WriteLine("Teacher Designation: " + Designation2);
+              Console.WriteLine("Teacher Salary: " + Salary2 + "\n");
+
+              // Using overloaded deconstructor
+              var (Id3, Name3, Subject3) = obj;
+              Console.WriteLine("Teacher Id: " + Id3);
+              Console.WriteLine("Teacher Name: " + Name3);
+              Console.WriteLine("Teacher Subject: " + Subject3 + "\n");
+
+              // Skipping values using `_`
+              var (Id4, _, Subject4, _, Salary4) = obj;
+              Console.WriteLine("Teacher Id: " + Id4);
+              Console.WriteLine("Teacher Subject: " + Subject4);
+              Console.WriteLine("Teacher Salary: " + Salary4 + "\n");
+
+              var (Id5, _, _, Designation5, Salary5) = obj;
+              Console.WriteLine("Teacher Id: " + Id5);
+              Console.WriteLine("Teacher Designation: " + Designation5);
+              Console.WriteLine("Teacher Salary: " + Salary5 + "\n");
+          }
+      }
+  }
+  ```
+
+    <hr/>
+  </details>
+
+- <details>
+    <summary>Can you change the name of “Deconstructors”?</summary>
+    <hr/>
+    In the above case “`Deconstruct`” (name cannot be changed) is a special method which will expose the attributes of `Teacher` class. We can capture the values exposed by “`Deconstructors`” by using `Tuples`, through the instance of class we have created.
+    <hr/>
+  </details>
+
+## **`Exceptions and Exception Handling`**
+
+- <details>
+    <summary>What are the two types of errors in C#?</summary>
+    <hr/>
+    In C#, there are two types of errors:
+
+  1. **Compile-time errors**: Occur due to syntactical mistakes at the time of program compilation and are not considered dangerous. Not dangerous and can be fixed during development.
+  2. **Runtime errors**: Occur while the program is running and can be due to wrong logic, wrong input, or missing resources. Runtime errors are dangerous because they cause abnormal program termination.
+
+    <hr/>
+  </details>
+
+- <details>
+    <summary>What happens when a "runtime error occurs" in a program?</summary>
+    <hr/>
+    When a runtime error occurs, the **`program terminates`** and the program gets **`abnormally terminated`** without executing the next line of code when the error happened.
+
+  Whenever any error occurs in the program, the exception class is triggered, and it abnormally terminates the program.
+    <hr/>
+  </details>
+
+- <details>
+    <summary>What is an Exception in C#?</summary>
+    <hr/>
+    An Exception is a mechanism in C# to handle errors that occur during runtime. Exceptions are classes derived from the `Exception` class of the `System` namespace. They are thrown by the .NET CLR or by code in the program using the `throw` keyword.
+    <hr/>
+  </details>
+- <details>
+    <summary>What happens when a runtime error occurs in a program?</summary>
+    <hr/>
+     When a runtime error occurs, the program terminates abnormally at the line where the error happened without executing the following lines of code.
+    <hr/>
+  </details>
+- <details>
+    <summary>What is responsible for the abnormal termination of a program?</summary>
+    <hr/>
+    The exception is responsible for a program's abnormal termination. An exception is a class that gets triggered when a runtime error occurs. This class abnormally terminates the program by creating and throwing an instance of the specific exception class.
+    <hr/>
+  </details>
+- <details>
+    <summary>Is an exception itself a runtime error?</summary>
+    <hr/>
+    No, an exception is not a runtime error itself. It is a mechanism triggered when runtime errors occur. When a runtime error happens, an exception arises, and due to this exception, the program abnormally terminates.
+
+  An exception is not a run-time error itself. When run-time errors happen in the code, an exception occurs and causes of exception the program abnormally terminates. An exception is a class, and there are different classes for each type of run-time error.
+    <hr/>
+  </details>
+
+- <details>
+    <summary>Can you give an example of an exception class and its related error?</summary>
+    <hr/>
+     For example, IndexOutOfRangeException is an exception class that occurs when you try to access an index outside the bounds of an array. Because of the IndexOutOfRangeException class, your program terminates abnormally.
+    Example: `IndexOutOfBoundsException` is a run-time error and the name of a class. This error occurs when you try to add more values than the size of the array. Because of the `IndexOutOfBoundsException` class, your program abnormally terminates. 
+    <hr/>
+  </details>
+- <details>
+    <summary>What are some other predefined exception classes?</summary>
+    <hr/>
+    Some predefined exception classes include `DivideByZeroException`, `OverflowException`, `FormatException`, and more. All these classes come under the base `Exception` class.
+    For program abnormally terminates lot's of predefine class are available like `DivideByZeroException`, `OverflowException`, `FormatException` and etc. And all this class present in Exception class.
+    <hr/>
+  </details>
+- <details>
+    <summary>How are predefined exception classes implemented in C#?</summary>
+    <hr/>
+    There is a class named `Exception` which contains the logic for abnormal termination. It includes a `Message` property (declared as `virtual`) to display error messages. Child classes can override this property to customize error messages.
+    <hr/>
+  </details>
+- <details>
+    <summary>How are exceptions categorized in C#?</summary>
+    <hr/>
+    Exceptions are categorized into:
+    1. **`SystemExceptions`**: Pre-defined exceptions that occur on specific error conditions, like `DivideByZeroException`, `FormatException`, `NullReferenceException`, etc.
+      - The base class for exceptions thrown by the .NET runtime. It includes common errors such as memory access violations or arithmetic overflows, like `NullReferenceException` or `IndexOutOfRangeException`.
+
+  2. **`ApplicationExceptions`**: Non-fatal errors that are explicitly caused by the program.
+
+
+      - The base class for exceptions that are defined specifically by your application. Custom exception classes can be derived from `ApplicationException` to handle errors unique to the application.
+
+    <hr/>
+  </details>
+
+- <details>
+    <summary>What is the exception class hierarchy in C#?</summary>
+    <hr/>
+    The hierarchy of exception classes is as follows:
+    - Exception
+      1. SystemException
+        - FormatException
+        - NullReferenceException
+        - IndexOutOfRangeException
+        - ArithmeticException
+          - DivideByZeroException
+          - OverflowException
+      2. ApplicationException
+    <hr/>
+  </details>
+- <details>
+    <summary>What is Exception Handling in C#?</summary>
+    <hr/>
+     Exception Handling is a process to stop the abnormal termination of a program whenever a runtime error occurs. It provides the following benefits:
+     1. Allows the execution of unaffected statements even after an error occurs.
+     2. Enables taking corrective actions to resolve errors.
+     3. Provides user-friendly error messages instead of pre-defined error messages.
+    <hr/>
+  </details>
+- <details>
+    <summary>What is the difference between "ApplicationException" and "SystemException"?</summary>
+    <hr/>
+    `ApplicationException` is used to handle custom errors specific to your code, while `SystemException` is used for general errors that are handled by the .NET runtime.
+    <hr/>
+  </details>
+- <details>
+    <summary>How does an exception arise during program execution?</summary>
+    <hr/>
+    All .NET applications run under the supervision of the **CLR (Common Language Runtime)**, which monitors the application during execution. When the CLR detects an error (e.g., division by zero), it stops the program and checks the mistake. Then, the CLR selects the associated exception class (like `DivideByZeroException`) and creates an instance of that class. The CLR throws this instance (object), causing the program to terminate abnormally.
+    <hr/>
+  </details>
+- <details>
+    <summary>How do you handle abnormal termination caused by exceptions?</summary>
+    <hr/>
+    We use `exception handling` to prevent the abnormal termination of a program by enclosing the error-prone code in `try` and `catch` blocks.
+    ```c#
+    try
+    {
+        // Statements that may cause runtime errors.
+    }
+    catch(ExceptionType ex)
+    {
+        // Statements to execute when the error occurs.
+    }
+    ```
+    <hr/>
+  </details>
+- <details>
+    <summary>Can you provide an example code for handling exceptions using try-catch blocks?</summary>
+    <hr/>
+     Below is the code in TryCatchDemo.cs for handling exceptions:
+     ```c#
+     internal class TryCatchDemo
+     {
+         static void Main()
+         {
+             try
+             {
+                 Console.Write("Enter 1st number: ");
+                 int x = int.Parse(Console.ReadLine());
+                 Console.Write("Enter 2nd number: ");
+                 int y = int.Parse(Console.ReadLine());
+                 int z = x / y;
+                 Console.WriteLine("The result of division is: " + z);
+             }
+             catch (DivideByZeroException)
+             {
+                 Console.ForegroundColor = ConsoleColor.Red;
+                 Console.WriteLine("Value of divisor can't be zero.");
+                 Console.ForegroundColor = ConsoleColor.White;
+             }
+             catch (FormatException)
+             {
+                 Console.ForegroundColor = ConsoleColor.Red;
+                 Console.WriteLine("Input values must be integers.");
+                 Console.ForegroundColor = ConsoleColor.White;
+             }
+             catch (Exception ex)
+             {
+                 Console.ForegroundColor = ConsoleColor.Red;
+                 Console.WriteLine(ex.Message);
+                 Console.ForegroundColor = ConsoleColor.White;
+             }
+             Console.WriteLine("End of the Program.");
+         }
+     }
+     ```
+    <hr/>
+  </details>
+- <details>
+    <summary>What does each catch block in the example do?</summary>
+    <hr/>
+    1. `catch (DivideByZeroException)`: Catches errors when dividing by zero and displays a user-friendly message.
+    2. `catch (FormatException)`: Catches errors when the input is not a valid integer and displays a user-friendly message.
+    3. `catch (Exception ex)`: Catches all other types of errors and displays the error message using `ex.Message`.
+    <hr/>
+  </details>
+- <details>
+    <summary>How do exceptions work in the example program TryCatchDemo.cs?</summary>
+    <hr/>
+    In the example, the program prompts the user for two numbers. If:
+    - The user enters `0` as the second number, a `DivideByZeroException` is caught.
+    - The user enters a non-integer value, a `FormatException` is caught.
+    - Any other error is caught by the general `Exception` block.
+    <hr/>
+  </details>
+- <details>
+    <summary>What happens if code is enclosed in try and catch blocks?</summary>
+    <hr/>If all the statements inside the try block are successfully executed without any error, then control jumps directly to the first statement after all the catch blocks. If an error occurs, control immediately jumps to the catch block capable of handling that specific exception. If a catch block is found, the code inside that catch block is executed, and then control jumps to the statement after all catch blocks. If no matching catch block is found, abnormal termination occurs.<p></p>
+    <hr/>
+  </details>
+- <details>
+    <summary>What is the purpose of the Message property in the Exception class?</summary>
+    <hr/>
+    The Message property under the Exception class gets the error message associated with the exception. It is declared as `virtual` and is overridden by child exception classes to display specific error messages.
+    <hr/>
+  </details>
+- <details>
+    <summary>What is the purpose of the finally block?</summary>
+    <hr/>
+    The finally block is used to execute code regardless of whether an exception occurs or not. It guarantees that the code inside it will be executed no matter what happens in the try or catch blocks.
+    <hr/>
+  </details>
+- <details>
+    <summary>What are the different combinations of try, catch, and finally blocks?</summary>
+    <hr/>
+    - try and catch: The exceptions that occur in the program are caught by the catch block, preventing abnormal termination.
+    - try, catch, and finally: Works like above but with the addition that the finally block always executes.
+    - try and finally: If no catch block is present, the exceptions are not caught, causing abnormal termination, but the finally block still executes.
+    <hr/>
+  </details>
+- <details>
+    <summary>How can you test the behavior of the finally block?</summary>
+    <hr/>
+    ```c#
+    internal class FinallyDemo
+    {
+        static void Main()
+        {
+            try
+            {
+                Console.Write("Enter 1st number: ");
+                int x = int.Parse(Console.ReadLine());
+                Console.Write("Enter 2nd number: ");
+                int y = int.Parse(Console.ReadLine());
+                if (y == 1)
+                {
+                    return;
+                }
+                int z = x / y;
+                Console.WriteLine("The result of division is: " + z);
+            }
+            catch (Exception ex)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(ex.Message);
+                Console.ForegroundColor = ConsoleColor.White;
+            }
+            finally
+            {
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("Finally block got executed.");
+                Console.ForegroundColor = ConsoleColor.White;
+            }
+            Console.WriteLine("End of the Program.");
+        }
+    }
+
+  ```
+  `Scenario 1`: Input values that do not cause errors. Both finally and "End of the Program." will be executed.
+  `Scenario 2`: Input values that cause an error (like dividing by zero). The finally block executes even when an exception occurs.
+  `Scenario 3`: Input divisor as 1 to trigger the return statement. The finally block will still execute before the method exits.
+
+  <hr/>
+  </details>
+  ```
+
+- <details>
+    <summary>What are application exceptions?</summary>
+    <hr/>
+    Application exceptions are non-fatal errors explicitly `caused by the programmer` based on custom error conditions. They are `raised explicitly` using the **`throw`** statement.
+    <hr/>
+  </details>
+- <details>
+    <summary>How do you throw an exception explicitly?</summary>
+    <hr/>
+    To throw an exception explicitly, you need to:
+    1. Create an instance of any exception class.
+    2. Throw that instance using the `throw` keyword. Example:
+      ```c#
+      throw new ApplicationException("Error message");
+      ```
+    <hr/>
+  </details>
+- <details>
+    <summary>What are the different options when throwing an exception?</summary>
+    <hr/>
+    - Use a predefined exception class if it matches the error condition.
+    - Create an instance of ApplicationException and pass an error message.
+    - Define a custom exception class by inheriting from a predefined exception class (like ApplicationException) and override the Message property.
+    <hr/>
+  </details>
+- <details>
+    <summary>How do you define a custom exception class?</summary>
+    <hr/>
+    Define a new class inheriting from `ApplicationException` or any other predefined exception class. Override the `Message` property to provide a custom error message. Example:
+    ```C#
+    public class DivideByOddNoException : ApplicationException
+    {
+        public override string Message
+        {
+            get { return "Attempted to divide by odd number."; }
+        }
+    }
+    ```
+    <hr/>
+  </details>
+- <details>
+    <summary>How do you test a custom exception?</summary>
+    <hr/>
+    ```c#
+    internal class ThrowDemo
+    {
+        static void Main()
+        {
+            Console.Write("Enter 1st number: ");
+            int x = int.Parse(Console.ReadLine());
+            Console.Write("Enter 2nd number: ");
+            int y = int.Parse(Console.ReadLine());
+            if (y % 2 > 0)
+            {
+                throw new DivideByOddNoException();  // Custom exception
+            }
+            int z = x / y;
+            Console.WriteLine("The result of division is: " + z);
+            Console.WriteLine("End of the Program.");
+        }
+    }
+    ```
+    <hr/>
+  </details>
+- <details>
+    <summary>What if there is an unknown exception?</summary>
+    <hr/>
+    You can use a generic catch block that catches the base Exception class at the end:
+    ```c#
+    catch (Exception ex2)
+    {
+        Console.WriteLine(ex2.Message);
+    }
+    ```
+    <hr/>
+  </details>
+- <details>
+    <summary>What happens if no exceptions occur in the try block?</summary>
+    <hr/>
+    If no exceptions occur, none of the catch blocks will execute. The program will continue with the statements following the try-catch block.
+    <hr/>
+  </details>
+- <details>
+    <summary>Why do we use the finally block?</summary>
+    <hr/>
+    To ensure cleanup actions, like closing files or releasing resources, happen regardless of whether an exception occurs.
+    <hr/>
+  </details>
+- <details>
+    <summary>What combinations of try-catch-finally are possible?</summary>
+    <hr/>
+    - **try and catch**: Catches exceptions and prevents abnormal termination.
+    - **try, catch, and finally**: Handles exceptions and ensures cleanup actions run.
+    - **try and finally**: Handles cleanup without catching exceptions, which may still lead to abnormal termination.
+    - You can use miltiple catch block but make suore use trye bloc without try block not it give error.
+    - 
+    <hr/>
+  </details>
+- <details>
+    <summary>What happen if parent class of all exceptions use first catch block then child exception catch block?</summary>
+    <hr/>
+
+  - compilation error
+
+  ```c#
+  try
+  {
+      // DivideByZeroException error occurs
+  }
+  catch (Exception ex)
+  {
+      // Handles any exception including DivideByZeroException
+  }
+  catch (DivideByZeroException ex)
+  {
+      // This catch block will never execute
+  }
+  ```
+
+  - In your code, catch (Exception ex) handles all exceptions, including DivideByZeroException.
+  - Because Exception is the base class of all exceptions, any catch block for a more specific exception type (like DivideByZeroException) after the base class catch will be unreachable.
+  - The C# compiler identifies that the second catch block for DivideByZeroException will never be executed, leading to a compilation error.
+    <hr/>
+  </details>
+
+## **`Delegate`**
+
+- <details>
+    <summary>What is a delegate in C#?</summary>
+    <hr/>
+    A delegate is a type that `holds references of methods`. It acts as a `type-safe` and `secure function pointer`, which can encapsulate both `static` and `non-static` methods for execution.
+    <hr/>
+  </details>
+- <details>
+    <summary>How are delegates different from function pointers in C++?</summary>
+    <hr/>
+    Delegates are type-safe and secure, whereas function pointers in C++ are not. Delegates ensure that the method signature matches, providing safer method calls.
+    <hr/>
+  </details>
+- <details>
+    <summary>How does using a delegate improve application performance?</summary>
+    <hr/>
+    Effective use of delegates can help in asynchronous programming, event handling, and passing methods as parameters, which improves application flexibility and performance.
+    <hr/>
+  </details>
+- <details>
+    <summary>How can methods be called in C#?</summary>
+    <hr/>
+    Methods can be called in two ways:
+    1. By creating an instance of a class (for non-static methods) or directly using the class name (for static methods).
+    2. Using a delegate, which can encapsulate both static and non-static methods.
+    <hr/>
+  </details>
+- <details>
+    <summary>What are the three steps to call a method using a delegate?</summary>
+    <hr/>
+    The three steps are:
+
+  1. **`Define a delegate`**.
+
+
+      - **Syntax to define a delegate**:
+      ```c#
+      [<modifiers>] delegate void|<type> DelegateName([<Parameter List>]);
+      ```
+      - The delegate's parameters and return type must match the method's signature.
+
+      - **Example definitions**:
+      ```c#
+      public delegate void AddDel(int x, int y);
+      public delegate string SayDel(string name);
+      ```
+
+  2. Instantiate the delegate & bind with method.
+
+
+      - Create an instance of a delegate and bind it to a method. Example:
+      ```c#
+      AddDel ad = new AddDel(AddNums); // Or simply: AddDel ad = AddNums;
+      SayDel sd = new SayDel(SayHello); // Or simply: SayDel sd = SayHello;
+      ```
+
+  3. Call the delegate with the required parameters.
+
+
+      ```c#
+      ad(10, 20); // Executes AddNums method with parameters 10 and 20
+      string result = sd("Raju"); // Executes SayHello method with "Raju"
+      ```
+
+    <hr/>
+  </details>
+
+- <details>
+    <summary>Where can you define a delegate?</summary>
+    <hr/>
+    Delegates can be `defined within` a `class`, `structure`, or `namespace`, just like `any other type`.
+    <hr/>
+  </details>
+- <details>
+    <summary>Give me an example of defining and using delegates?</summary>
+    <hr/>
+    1. **Defining Delegates in a Namespace**:
+      ```c#
+      namespace OOPSProject
+      {
+        public delegate void MathDelegate(int x, int y);
+        public delegate string WishDelegate(string str);
+        public delegate void CalculatorDelegate(int a, int b, int c);
+      }
+      ```
+    
+    2. **Class Definition with Delegates**:
+      ```c#
+      internal class DelDemo1
+      {
+          public void AddNums(int x, int y, int z)
+          {
+              Console.WriteLine($"Sum of given 3 no's is: {x + y + z}");
+          }
+
+          public static string SayHello(string name)
+          {
+              return $"Hello {name}, have a nice day!";
+          }
+
+          static void Main()
+          {
+              DelDemo1 obj = new DelDemo1();
+              CalculatorDelegate cd = obj.AddNums;
+              cd(10, 20, 30); // Output: Sum of given 3 no's is: 60
+              cd(40, 50, 60); // Output: Sum of given 3 no's is: 150
+
+              WishDelegate wd = DelDemo1.SayHello;
+              Console.WriteLine(wd("Raju"));  // Output: Hello Raju, have a nice day!
+              Console.WriteLine(wd("Vijay")); // Output: Hello Vijay, have a nice day!
+          }
+      }
+      ```
+
+    <hr/>
+  </details>
+
+- <details>
+    <summary>Why should delegate parameters and return types match with the method’s signature?</summary>
+    <hr/>
+     This is required for type-safety. Delegates enforce that the parameters and return type of the bound method match the delegate’s signature, ensuring safer and predictable method calls.
+    <hr/>
+  </details>
+- <details>
+    <summary>What is a multicast delegate in C#?</summary>
+    <hr/>
+    A multicast delegate holds references to multiple methods, allowing them to be called sequentially. All methods must have the **`same parameter types`** and return type (**`which must be void`**).
+    <hr/>
+  </details>
+- <details>
+    <summary>What is the requirement for methods in a multicast delegate?</summary>
+    <hr/>
+    Methods must have the same parameter types and must return void.
+    <hr/>
+  </details>
+- <details>
+    <summary>How do you add methods to a multicast delegate?</summary>
+    <hr/>
+    Use the `+=` operator to `add methods` and the `-=` operator to `remove methods`.
+    <hr/>
+  </details>
+- <details>
+    <summary>Provide an example of a multicast delegate in C#.</summary>
+    <hr/>
+    ```c#
+    // Define the delegate that matches the signature of the methods
+    public delegate void MathDelegate(int x, int y);
+
+  internal class DelDemo2
+  {
+  public void Add(int x, int y)
+  {
+  Console.WriteLine($"Add: {x + y}");
+  }
+
+        public void Sub(int x, int y)
+        {
+            Console.WriteLine($"Sub: {x - y}");
+        }
+
+        public void Mul(int x, int y)
+        {
+            Console.WriteLine($"Mul: {x * y}");
+        }
+
+        public void Div(int x, int y)
+        {
+            Console.WriteLine($"Div: {x / y}");
+        }
+
+        static void Main()
+        {
+            DelDemo2 obj = new DelDemo2();
+            MathDelegate md = obj.Add;
+            md += obj.Sub;
+            md += obj.Mul;
+            md += obj.Div;
+
+            md(100, 25); // Calls Add, Sub, Mul, and Div
+            Console.WriteLine();
+
+            md(760, 20); // Calls Add, Sub, Mul, and Div again
+            Console.WriteLine();
+
+            md -= obj.Mul; // Removes Mul from the delegate
+            md(930, 15); // Calls Add, Sub, and Div
+            Console.ReadLine();
+        }
+
+  }
+
+  ```
+  <hr/>
+  </details>
+  ```
+
+- <details>
+    <summary>What are the predefine delegate? How to use it?</summary>
+    <hr/>
+    C# provides three predefined generic delegates in the base class library: `Func`, `Action`, and `Predicate`. These delegates simplify the usage of methods as parameters, especially when working with collections and LINQ.
+
+  1. **`Func Delegate`**: Used when the method has a return value. It can have up to 16 input parameters, with the last type parameter representing the return type.
+
+
+      - **Syntax**:
+        ```c#
+        Func<in T1, in T2, in T3, in T4, in T5, in T6, in T7, in T8, in T9, in T10, in T11, in T12, in T13, in T4, in T5, in T6, out TResult> obj1 = <MethodName>;
+        ```
+        - How much you want to use use it because all are optional
+      - **Example**:
+      ```c#
+      Func<int, float, double, double> funcDelegate = AddNums1;
+      double result1 = funcDelegate.Invoke(100, 34.5f, 193.465);//Call the AddNums1 by delegate
+      ```
+        - `int`, `float`, `double`, are **input parameter** and `double` is **output parameter**
+
+  2. **`Action Delegate`**: Used when the method does `not return a value` (i.e., it returns void). It can take up to 16 input parameters.
+
+
+      - **Example**:
+        ```c#
+         Action<int, float, double> actionDelegate = AddNums2;
+         actionDelegate.Invoke(100, 34.5f, 193.465);
+        ```
+
+  3. **`Predicate Delegate`**: Specifically used for methods that `return a bool`. It is often used in scenarios where a condition needs to be checked. - **Example**:
+  `c#
+      Predicate<string> predicateDelegate = CheckLength;
+      bool result2 = predicateDelegate.Invoke("Hello World");
+      `
+    <hr/>
+  </details>
+
+- <details>
+    <summary>What are anonymous methods?</summary>
+    <hr/>
+    Anonymous methods allow writing in-line `unnamed methods` in code using the `delegate` keyword. `They do not require modifiers, names, or explicit return types`.
+    <hr/>
+  </details>
+- <details>
+    <summary>How do anonymous methods differ from regular methods?</summary>
+    <hr/>
+    - Introduced in C# 2.0.
+    Anonymous methods are `unnamed` and `defined inline`, whereas regular methods have names and are defined separately in the class.
+
+  - We can say an anonymous method has only body without name, return type and optional parameters. An anonymous method behaves like a regular method and allows us to write in-line code in place of explicit named methods.
+    <hr/>
+  </details>
+
+- <details>
+    <summary>Provide an example of using anonymous methods in C#.</summary>
+    <hr/>
+    ```c#
+    internal class DelDemo3
+    {
+        static void Main()
+        {
+            //Define delegate without defining using name function
+            CalculatorDelegate cd = delegate (int a, int b, int c)
+            {
+                Console.WriteLine($"Product of given numbers: {a * b * c}");
+            };
+
+            cd(10, 20, 30); // Output: Product of given numbers: 6000
+            cd(40, 50, 60); // Output: Product of given numbers: 120000
+            cd(70, 80, 90); // Output: Product of given numbers: 504000
+
+            //Define delegate without defining using name function
+            WishDelegate wd = delegate (string user)
+            {
+                return $"Hello {user}, welcome to the application.";
+            };
+
+            Console.WriteLine(wd("Raju"));    // Output: Hello Raju, welcome to the application.
+            Console.WriteLine(wd("Pooja"));   // Output: Hello Pooja, welcome to the application.
+            Console.WriteLine(wd("Praveen")); // Output: Hello Praveen, welcome to the application.
+            Console.ReadLine();
+        }
+
+  }
+
+  ```
+  <hr/>
+  </details>
+  ```
+
+- <details>
+    <summary>What are lambda expressions in C#?</summary>
+    <hr/>
+     - Introduced in CSharp 3.0
+     - `Lambda expressions` provide a `concise syntax` for anonymous methods using the `=>` operator, which replaces the `delegate` keyword.
+     - Lambda Operator “`=>`” was introduced so that there is no longer a need to use the `delegate` keyword or provide the type of the parameters. The types can usually be `inferred` by `compiler` from usage based on the `delegate`.
+    <hr/>
+  </details>
+- <details>
+    <summary>How do lambda expressions improve upon anonymous methods?</summary>
+    <hr/>
+    Lambda expressions are shorter, remove the need for specifying parameter types explicitly, and can infer parameter types from the context.
+    <hr/>
+  </details>
+- <details>
+    <summary>Provide an example of using lambda expressions in C#.</summary>
+    <hr/>
+    ```c#
+    internal class DelDemo4
+    {
+        static void Main()
+        {
+            CalculatorDelegate cd = (a, b, c) =>
+            {
+                Console.WriteLine($"Product of given numbers: {a * b * c}");
+            };
+
+            cd(10, 20, 30); // Output: Product of given numbers: 6000
+            cd(40, 50, 60); // Output: Product of given numbers: 120000
+            cd(70, 80, 90); // Output: Product of given numbers: 504000
+
+            WishDelegate wd = user =>
+            {
+                return $"Hello {user}, welcome to the application.";
+            };
+
+            Console.WriteLine(wd("Raju"));    // Output: Hello Raju, welcome to the application.
+            Console.WriteLine(wd("Pooja"));   // Output: Hello Pooja, welcome to the application.
+            Console.WriteLine(wd("Praveen")); // Output: Hello Praveen, welcome to the application.
+            Console.ReadLine();
+        }
+
+  }
+
+  ```
+  <hr/>
+  </details>
+  ```
+
+- <details>
+    <summary>What are expression-bodied members in C#?</summary>
+    <hr/>
+    - Introduced in C# 6.0 & 7.0
+    - Expression-bodied members allow you to implement members in a concise and readable way using a `single` expression instead of a full method body.
+    <hr/>
+  </details>
+- <details>
+    <summary>What is the general syntax for an expression-bodied member?</summary>
+    <hr/>
+    The syntax is as follows:
+    ```c#
+    member => expression;
+    ```
+    <hr/>
+  </details>
+- <details>
+    <summary>What are the benefits of using expression-bodied members?</summary>
+    <hr/>
+    - **`Convenience`**: Allows writing methods inline, making the code shorter and easier to read.
+    - **`Reduced Typing`**: No need to specify the method name, return type, or access modifier.
+    - **`Code Clarity`**: Keeps related code together, reducing the need to look elsewhere for method definitions.
+    - **`Ideal for Short Methods`**: Suitable for methods that are only used once and have simple logic.
+
+    <hr/>
+  </details>
+
+- <details>
+    <summary>Which type members support expression-bodied definitions?</summary>
+    <hr/>
+    - `Methods`: Supported since C# 6.0
+    - `Read-only Properties`: Supported since C# 6.0
+    - `Properties`: Supported since C# 7.0
+    - `Constructors`: Supported since C# 7.0
+    - `Finalizers`: Supported since C# 7.0
+    - `Indexers`: Supported since C# 7.0
+    - `Deconstructors`: Supported since C# 7.0
+    <hr/>
+  </details>
+- <details>
+    <summary>Provide an example of using expression-bodied members with a calculator.</summary>
+    <hr/>
+    ```c#
+    internal class DelDemo5
+    {
+      static void Main()
+      {
+        CalculatorDelegate cd = (a, b, c) => Console.WriteLine($"Product of given numbers: {a * b * c}");
+        cd(10, 20, 30);
+        cd(40, 50, 60);
+        cd(70, 80, 90);
+
+        WishDelegate wd = user => $"Hello {user}, welcome to the application.";
+        Console.WriteLine(wd("Raju"));
+        Console.WriteLine(wd("Pooja"));
+        Console.WriteLine(wd("Praveen"));
+      }
+
+  }
+
+  ```
+  <hr/>
+  </details>
+  ```
+
+- <details>
+    <summary>Provide an Class Definition Without and With Expression Bodied Members.</summary>
+    <hr/>
+    Example of a class defined without expression-bodied members:
+    ```c#
+    internal class Circle1
+    {
+        double _Radius;
+        const float _Pi = 3.14f;
+
+        public Circle1(double Radius)
+        {
+            _Radius = Radius;
+        }
+
+        public void Deconstruct(out double Radius)
+        {
+            Radius = _Radius;
+        }
+
+        ~Circle1()
+        {
+            Console.WriteLine("Instance is destroyed.");
+        }
+
+        public float Pi
+        {
+            get { return _Pi; }
+        }
+
+        public double Radius
+        {
+            get { return _Radius; }
+            set { _Radius = value; }
+        }
+
+        public double GetRadius()
+        {
+            return _Pi * _Radius * _Radius;
+        }
+
+        public double GetPerimeter()
+        {
+            return 2 * _Pi * _Radius;
+        }
+
+  }
+
+  ````
+
+  Same class definition using expression-bodied members:
+  ```c#
+  internal class Circle2
+  {
+      const float _Pi = 3.14f;
+      double _Radius;
+
+      public Circle2(double Radius) => _Radius = Radius; // C# 7.0
+      public void Deconstruct(out double Radius) => Radius = _Radius; // C# 7.0
+      ~Circle2() => Console.WriteLine("Instance is destroyed."); // C# 7.0
+      public float Pi => _Pi; // C# 6.0
+      public double Radius // C# 7.0
+      {
+          get => _Radius;
+          set => _Radius = value;
+      }
+      public double GetRadius() => _Pi * _Radius * _Radius; // C# 6.0
+      public double GetPerimeter() => 2 * _Pi * _Radius; // C# 6.0
+  }
+  ````
+
+    <hr/>
+  </details>
+
+- <details>
+    <summary>What are anonymous types in C#?</summary>
+    <hr/>
+    Anonymous types allow you to create an instance of a type without explicitly defining its class. It is created using the `new` keyword along with object initializer syntax.
+    <hr/>
+  </details>
+- <details>
+    <summary>How can you define an anonymous type?</summary>
+    <hr/>
+    ```c#
+    var Emp = new { Id = 1001, Name = "Raju", Job = "Manager", Salary = 25000.00, Status = true };
+    ```
+    <hr/>
+  </details>
+- <details>
+    <summary>Which keywords can be used to hold an anonymous type?</summary>
+    <hr/>
+    You can use either `var` or `dynamic` to hold an anonymous type.
+    <hr/>
+  </details>
+- <details>
+    <summary>Are the properties of anonymous types read-only?</summary>
+    <hr/>
+   Yes, the properties of anonymous types are read-only. You cannot modify their values after the anonymous type is created.
+    <hr/>
+  </details>
+- <details>
+    <summary>How does the compiler handle the types of properties in anonymous types?</summary>
+    <hr/>
+    The compiler infers the type of each property based on the assigned values. For example, `Id` is inferred as `int`, `Name` as `string`, `Salary` as `double`, and `Status` as `bool`.
+    <hr/>
+  </details>
+- <details>
+    <summary>Are anonymous types derived from the Object class?</summary>
+    <hr/>
+    Yes, anonymous types are derived from the `Object` class and are sealed classes.
+    <hr/>
+  </details>
+- <details>
+    <summary>What is the scope of an anonymous type?</summary>
+    <hr/>
+    The scope of an anonymous type is local to the method where it is defined.
+    <hr/>
+  </details>
+- <details>
+    <summary>Can you pass an anonymous type to another method?</summary>
+    <hr/>
+     You usually cannot pass it directly, but you can pass it to methods that accept parameters of `dynamic` type.
+    <hr/>
+  </details>
+- <details>
+    <summary>Can anonymous types be nested?</summary>
+    <hr/>
+    Yes, an anonymous type can have another anonymous type as a property.
+    <hr/>
+  </details>
+- <details>
+    <summary>Could you provide me an example for Testing Anonymous Types?</summary>
+    <hr/>
+    ```c#
+    namespace OOPSProject
+    {
+        internal class TestAnonymousTypes
+        {
+            static void Main()
+            {
+                var Emp = new { Id = 1001, Name = "Raju", Job = "Manager", Salary = 50000.00, Status = true,
+                                Dept = new { Id = 10, Name = "Sales", Location = "Hyderabad" } };
+
+                Console.WriteLine(Emp.GetType() + "\n");
+                Printer.Print(Emp);
+                Console.ReadLine();
+            }
+        }
+
+        internal class Printer
+        {
+            public static void Print(dynamic d)
+            {
+                Console.WriteLine($"Employee Id: {d.Id}");
+                Console.WriteLine($"Employee Name: {d.Name}");
+                Console.WriteLine($"Employee Job: {d.Job}");
+                Console.WriteLine($"Employee Salary: {d.Salary}");
+                Console.WriteLine($"Employee Status: {d.Status}");
+                Console.WriteLine($"Department Id: {d.Dept.Id}");
+                Console.WriteLine($"Department Name: {d.Dept.Name}");
+                Console.WriteLine($"Department Location: {d.Dept.Location}");
+            }
+        }
+
+  }
+
+  ```
+  <hr/>
+  </details>
+  ```
+
+- <details>
+    <summary>What are partial types in C#?</summary>
+    <hr/>
+    Partial types allow you to split the definition of a class, struct, or interface over multiple source files.
+    <hr/>
+  </details>
+- <details>
+    <summary>Why would you want to use partial classes?</summary>
+    <hr/>
+    - It enables multiple developers to work on different parts of the same class in large projects.
+    - It is used by Visual Studio for auto-generated code in Windows Forms Apps, WPF Apps, Web Forms Apps, etc.
+    <hr/>
+  </details>
+- <details>
+    <summary> What does the partial keyword indicate?</summary>
+    <hr/>
+    It indicates that other parts of the class, struct, or interface can be defined elsewhere in the same namespace.
+    <hr/>
+  </details>
+- <details>
+    <summary>What are some important points to remember about partial types?</summary>
+    <hr/>
+    - All parts must use the partial keyword.
+    - All parts must be present at compile time to form the final type.
+    - All parts must have the same accessibility level.
+    - If any part is declared as abstract, the whole type is considered abstract.
+    - If any part is declared as sealed, the whole type is considered sealed.
+    - If any part declares a base type, the whole type inherits that base type.
+    - Different parts can specify different base interfaces, and the final type will implement all of them.
+    - Members declared in one partial definition are accessible in all other parts.
+    - The final type is the combination of all the parts at compile time.
+    - The partial modifier cannot be applied to delegate or enumeration declarations.
+    <hr/>
+  </details>
+- <details>
+    <summary>Could me provide me an exampleto shoe the Partial class?</summary>
+    <hr/>
+    `Part1.cs`
+    ```c#
+    namespace OOPSProject
+    {
+        partial class Parts
+        {
+            public void Method1()
+            {
+                Console.WriteLine("Part1 - Method1");
+            }
+
+            public void Method2()
+            {
+                Console.WriteLine("Part1 - Method2");
+            }
+        }
+
+  }
+
+  ````
+  `Part2.cs`
+  ```c#
+  namespace OOPSProject
+  {
+      partial class Parts
+      {
+          public void Method3()
+          {
+              Console.WriteLine("Part2 - Method3");
+          }
+
+          public void Method4()
+          {
+              Console.WriteLine("Part2 - Method4");
+          }
+      }
+  }
+  ````
+
+  `TestParts.cs`
+
+  ```c#
+  internal class TestParts
+  {
+      static void Main()
+      {
+          Parts p = new Parts();
+          p.Method1();
+          p.Method2();
+          p.Method3();
+          p.Method4();
+          Console.ReadLine();
+      }
+  }
+  ```
+
+    <hr/>
+  </details>
+
+## **`Extension Methods`**
+
+[Extension Methods](https://codecomponents.hashnode.dev/advance-c-sharp-proggramming-language#heading-extension-methods)
+
+- <details>
+    <summary>What is extension methods?</summary>
+    <hr/>
+    - Introduced in C# 3.0
+    - Add new methods to existing types without changing the original source code or creating a new derived type. This is helpful for extending classes, structures, or interfaces you can't modify, like those in third-party libraries or the .NET framework.
+    <hr/>
+  </details>
+
+## **`Diffrence bitwwen String & StringBuilder`**
+
+[Diffrence bitwwen String & StringBuilder](https://codecomponents.hashnode.dev/advance-c-sharp-proggramming-language#heading-diffrence-bitwwen-string-amp-stringbuilder)
+
+## **`File System: Managing Folders and Files`**
+
+[File System: Managing Folders and Files](https://codecomponents.hashnode.dev/learn-c-sharp#heading-file-system-managing-folders-and-files)
+
+## **`Multitherading`**
+
+[Multitherading](https://codecomponents.hashnode.dev/advance-c-sharp-proggramming-language#heading-multitherading)
+
+## **`Constructor of the Thread Class`**
+
+[Constructor of the Thread Class](https://codecomponents.hashnode.dev/advance-c-sharp-proggramming-language#heading-constructor-of-the-thread-class)
+
+## **`Collections`**
+
+- <details>
+    <summary>What is Collection?</summary>
+    <hr/>
+    A collection is a dynamic array that can automatically resize itself and manage its elements, providing greater flexibility compared to a traditional array.
+
+  Collections are pre-packaged data structures that provide dynamic resizing and additional functionalities compared to arrays. They automatically increase their size at execution time and support various operations like inserting, update and removing elements.
+    <hr/>
+  </details>
+
+- <details>
+    <summary>Why use Collections instead of arrays?</summary>
+    <hr/>
+    Arrays have limitations, such as fixed size, which cannot be changed at runtime. Collections, on the other hand, provide:
+
+  - **Dynamic resizing** – Automatically adjust size at execution time.
+  - **Easy insertion, update and removal** of elements.
+  - Greater flexibility and powerful operations.
+    <hr/>
+  </details>
+
+- <details>
+    <summary>What namespaces and classes are provided for "Collections" in .NET?</summary>
+    <hr/>
+    In .NET, collections are defined under the `System.Collections` namespace. Common classes include:
+
+  - **`Stack`** (Last in first out(LIFO))
+  - **`Queue`** (First in first out(FIFO))
+  - **`ArrayList`**
+  - **`Hashtable`**
+  - **`SortedList`**
+  - **`LinkedList`**
+    <hr/>
+  </details>
+
+- <details>
+    <summary>How does the "Stack" class work in C#?</summary>
+    <hr/>
+
+  The Stack class works on the principle of First In **Last Out (FILO)**. You can **push and pop** items into/from a stack. Here’s an example:
+
+  - We cannot `update` the `specific` `element` in a Stack collection because it follows the Last In, First Out (LIFO) principle. The Stack class in C# only provides methods to add (Push), remove (Pop), and peek (Peek) elements.
+  - **`LIFO`** highlights that the last element added will be the first to be removed.
+
+  ```c#
+  using System.Collections;
+  internal class Program
+  {
+      static void Main(string[] args)
+      {
+          Stack s = new Stack();
+          s.Push('A'); s.Push(100); s.Push(false); s.Push(34.56); s.Push("Hello");
+
+          foreach (object obj in s) { Console.Write(obj + " "); } // Display all elements
+
+          Console.WriteLine();
+          Console.WriteLine(s.Pop()); // Remove the top element
+          foreach (object obj in s) { Console.Write(obj + " "); }
+
+          Console.WriteLine();
+          Console.WriteLine(s.Peek()); // Check the top element without removing it
+          foreach (object obj in s) { Console.Write(obj + " "); }
+
+          Console.WriteLine();
+          Console.WriteLine($"No. of items in the Stack: {s.Count}");
+
+          s.Clear();
+          Console.WriteLine($"No. of items in the Stack: {s.Count}");
+      }
+  }
+  ```
+
+    <hr/>
+  </details>
+
+- <details>
+    <summary>How does the "Queue" class work in C#?</summary>
+    <hr/>
+    The `Queue` class works on the principle of **First In First Out (FIFO)**. You can enqueue and dequeue items into/from a queue. Here’s an example:
+    - We cannot `update` the `specific` `element` in a Queue collection because it follows the FIFO principle. The Queue class in C# only provides methods to add (Enqueue) and remove (Dequeue) elements.
+    - **`FILO`** emphasizes that the first element added will be the last to be removed.
+
+  ```c#
+  using System.Collections;
+
+  internal class Class1
+  {
+      static void Main()
+      {
+          Queue q = new Queue();
+          q.Enqueue('A'); q.Enqueue(100); q.Enqueue(false); q.Enqueue(34.56); q.Enqueue("Hello");
+
+          foreach (object obj in q) { Console.Write(obj + " "); } // Display all elements
+
+          Console.WriteLine();
+          Console.WriteLine(q.Dequeue()); // Remove the front element
+          foreach (object obj in q) { Console.Write(obj + " "); }
+      }
+  }
+  ```
+
+    <hr/>
+  </details>
+
+- <details>
+    <summary>What are the different constructors available for Collection classes?</summary>
+    <hr/>
+    The `capacity` of a collection increases dynamically i.e., when we add new `elements` to a Collection the size keeps on `incrementing` automatically. Every `collection` class has 3 `constructors` to it and the behavior of `collections` will be as following when the instance is created using different `constructor`:
+
+  1. **`Default Constructor`**: Initializes an `empty instance` with `default capacity`. The `initial capacity is zero`, `which becomes 4 after adding the first element`. Then, it `doubles as needed.`
+  1. **`Collection(int Capacity)`**: Initializes an `empty instance` with the `specified initial capacity`. If `more capacity is required`, `it doubles`.
+  1. **`Collection(Collection c)`**: A `copy constructor` that `initializes` a `new instance with elements copied from an old collection`. The `initial capacity` is the `same as the number of elements copied` and `doubles if required`.
+    <hr/>
+  </details>
+
+- <details>
+    <summary>What are the key points to remember about Collections in C#?</summary>
+    <hr/>
+    - Collections provide dynamic resizing.
+    - Collections are more flexible and powerful compared to arrays.
+    - They support various operations like insertion, deletion, and dynamic resizing.
+    - Collections are defined in the `System.Collections` namespace.
+    <hr/>
+  </details>
+- <details>
+    <summary>Diffrence bitween Array & ArrayList?</summary>
+    <hr/>
+
+  **`Arrays`**:
+
+  - Arrays have a fixed size. Once declared, their size cannot be changed.
+  - You can resize an array using `Array.Resize`, but this creates a new array with the new size and destroys the old one.
+
+  `Example`: Resizing an Array
+
+  ```c#
+  internal class Program
+  {
+      static void Main(string[] args)
+      {
+          int[] arr = new int[10];
+          Array.Resize(ref arr, 12); // This uses an output parameter (ref)
+      }
+  }
+  ```
+
+  In this example, the old array is destroyed, and a new array with a size of 12 is created.
+
+  **`Limitations of Arrays`**: - The size of an array cannot be increased directly. - You cannot add a value in the middle of an array if it already contains values. - To add a new value, you need to increase the array's size, which involves creating a new array. - Similarly, you cannot delete a value in the middle of an array directly.
+
+  **`Collections`**:
+
+  - Automatically increase its size when new values are added.
+  - Insert and delete values in the middle of the collection.
+
+  | **Array**                    | **ArrayList**                       |
+  | ---------------------------- | ----------------------------------- |
+  | Fixed Length                 | Variable Length                     |
+  | Not possible to insert items | We can insert item into the middle  |
+  | Not posible to delete items  | We can delete items from the middle |
+
+    <hr/>
+  </details>
+
+- <details>
+    <summary>What is an "ArrayList" in C#?</summary>
+    <hr/>
+    An `ArrayList` is a collection class that functions similarly to an array but offers additional features such as `auto-resizing`, `inserting`, and `deleting items`. It can store elements of different types and automatically adjusts its size as new elements are added.
+    - In an `ArrayList`, you can directly update values by using an `index`, just like an array.
+    <hr/>
+  </details>
+- <details>
+    <summary>How to work with an ArrayList?</summary>
+    <hr/>
+    Below is a sample code to demonstrate the use of an ArrayList:
+
+  ```c#
+  using System.Collections;
+  internal class Class2
+  {
+      static void Main()
+      {
+          // Create an empty ArrayList and check its initial capacity
+          ArrayList Coll1 = new ArrayList();
+
+          //check capacity
+          Console.WriteLine($"Initial capacity: {Coll1.Capacity}");
+
+          Coll1.Add('A'); // Add elements to the ArrayList
+          //check capacity
+          Console.WriteLine($"Capacity after adding 1st item: {Coll1.Capacity}");
+
+          Coll1.Add(100); Coll1.Add(false); Coll1.Add(34.56); // Add elements to the ArrayList
+          //check capacity
+          Console.WriteLine($"Capacity after adding 4th item: {Coll1.Capacity}");
+
+          Coll1.Add("Hello"); // Add elements to the ArrayList
+          //check capacity
+          Console.WriteLine($"Capacity after adding 5th item: {Coll1.Capacity}");
+
+          // Display all elements in ArrayList
+          for (int i = 0; i < Coll1.Count; i++)
+          {
+              Console.Write(Coll1[i] + " ");
+          }
+          Console.WriteLine();
+
+          // Remove elements from ArrayList
+          Coll1.RemoveRange(2, 1);
+          foreach (object obj in Coll1)
+          {
+              Console.Write(obj + " ");
+          }
+          Console.WriteLine();
+
+          // Insert an element at a specific position
+          Coll1.Insert(2, true);
+          foreach (object obj in Coll1)
+          {
+              Console.Write(obj + " ");
+          }
+          Console.WriteLine("\n");
+
+          // Create a new ArrayList from an existing one (Copy Constructor)
+          ArrayList Coll2 = new ArrayList(Coll1);
+          foreach (object obj in Coll2)
+          {
+              Console.Write(obj + " ");
+          }
+          Console.WriteLine();
+
+          // Display capacity changes
+          Console.WriteLine($"Initial capacity of new collection: {Coll2.Capacity}");
+          Coll2.Add(false);
+          Console.WriteLine($"Capacity after adding new item: {Coll2.Capacity}");
+
+          // Trim capacity to the current size
+          Coll2.TrimToSize();
+          Console.WriteLine($"Capacity after calling TrimToSize: {Coll2.Capacity}");
+      }
+  }
+
+  ```
+
+    <hr/>
+  </details>
+
+- <details>
+    <summary>What is a Hashtable in C#?</summary>
+    <hr/>
+    A `Hashtable` is a collection that stores elements in `Key/Value pairs`. Unlike arrays or ArrayLists, which use numeric indices, the keys in a Hashtable can be of any data type and can be defined by the user.
+    - You can update values in a `Hashtable` by using its key. Just access the key and assign a new value.
+    - Stores key/value pairs, allowing custom keys (not just indices) of any data type. It enables faster lookup and retrieval based on keys.
+    <hr/>
+  </details>
+- <details>
+    <summary>How to work with a Hashtable?</summary>
+    <hr/>
+    ```c#
+    using System.Collections;
+
+  internal class Class3
+  {
+  static void Main()
+  {
+  // Create a Hashtable and add key/value pairs
+  Hashtable Emp = new Hashtable();
+  Emp.Add("Emp-Id", 1001);
+  Emp.Add("Emp-Name", "Scott");
+  Emp.Add("Job", "CEO");
+  Emp.Add("Mgr-Id", null);
+  Emp.Add("Salary", 50000.00);
+  Emp.Add("Commission", 0.00f);
+  Emp.Add("Dept-Id", 10);
+  Emp.Add("Dept-Name", "Administration");
+  Emp.Add("Location", "Mumbai");
+  Emp.Add("Status", true);
+  Emp.Add("PAN", "AKYPM 1234K");
+  Emp.Add("Aadhar No.", "1234 5678 9012");
+  Emp.Add("Mobile", "98392 14256");
+  Emp.Add("Home Phone", "2718 6547");
+  Emp.Add("Email", "Scott@gmail.com");
+
+            // Update "Emp-Name" and "Location"
+            Emp["Emp-Name"] = "John";      // Updating the employee's name to "John"
+            Emp["Location"] = "Bangalore"; // Updating the location to "Bangalore"
+
+            // Remove the entry with the key "Home Phone"
+            Emp.Remove("Home Phone"); // Deletes the key "Home Phone" and its value
+
+            // Display all key/value pairs
+            foreach (object key in Emp.Keys)
+            {
+                Console.WriteLine($"{key}: {Emp[key]}");
+            }
+        }
+
+  }
+
+  ```
+  <hr/>
+  </details>
+  ```
+
+## **`Generics`**
+
+- <details>
+    <summary>What are Generics in C#?</summary>
+    <hr/>
+    `Generics` were introduced in C# 2.0. They allow you to define classes, methods, interfaces, or delegates with `type parameters`, which means the specific type is not specified until the class or method is `declared and instantiated` in client code. `Generics enable type safety` and eliminate the need for `runtime casting or boxing/unboxing`.
+    <hr/>
+  </details>
+- <details>
+    <summary>How do Generics work in methods?</summary>
+    <hr/>
+    You can pass a type parameter to a method. Here's a sample implementation:
+
+  ```C#
+  internal class GenericMethods
+  {
+      public bool AreEqual<T>(T a, T b)
+      {
+          return a.Equals(b);
+      }
+
+      static void Main()
+      {
+          GenericMethods obj = new GenericMethods();
+          Console.WriteLine(obj.AreEqual<int>(100, 200));
+          Console.WriteLine(obj.AreEqual<bool>(true, true));
+          Console.WriteLine(obj.AreEqual<double>(34.56, 87.12));
+          Console.WriteLine(obj.AreEqual<string>("Hello", "Hello"));
+      }
+  }
+
+  ```
+
+  **Explanation**: The `AreEqual<T>` method uses `<T>` to accept any `type`. This way, you don't need separate methods for comparing different types.
+    <hr/>
+  </details>
+
+- <details>
+    <summary>Can Generics be used in classes as well?</summary>
+    <hr/>
+    Yes, you can create a `generic class` by passing a type parameter to it. Here's a sample code for a generic class:
+    ```c#
+    namespace CollectionsProject
+    {
+        class Math<T>
+        {
+            public T Add(T a, T b) { return (dynamic)a + (dynamic)b; }
+            public T Sub(T a, T b) { return (dynamic)a - (dynamic)b; }
+            public T Mul(T a, T b) { return (dynamic)a * (dynamic)b; }
+            public T Div(T a, T b) { return (dynamic)a / (dynamic)b; }
+        }
+
+        internal class TestGenericClass
+        {
+            static void Main()
+            {
+                Math<int> mi = new Math<int>();
+                Console.WriteLine(mi.Add(100, 200));
+                Console.WriteLine(mi.Sub(234, 123));
+                Console.WriteLine(mi.Mul(12, 46));
+                Console.WriteLine(mi.Div(900, 45));
+
+                Math<double> md = new Math<double>();
+                Console.WriteLine(md.Add(145.35, 12.5));
+                Console.WriteLine(md.Sub(45.6, 23.3));
+                Console.WriteLine(md.Mul(15.67, 3.4));
+                Console.WriteLine(md.Div(168.2, 14.5));
+                Console.ReadLine();
+            }
+        }
+
+  }
+
+  ```
+
+  **Explanation**: The class `Math<T>` can perform arithmetic operations on different types like `int` and `double` by utilizing the `<T>` placeholder.
+  <hr/>
+  </details>
+  ```
+
+## **`Generic Collections`**
+
+- <details>
+    <summary>What are Generic Collections?</summary>
+    <hr/>
+    `Generic Collections` were also introduced in C# 2.0. They extend the collections we discussed earlier and provide `type safety` by allowing only specified types. They `avoid` the need for `boxing and unboxing` since the types are known at compile-time.
+    <hr/>
+  </details>
+- <details>
+    <summary>What is the difference between "Collection classes" and "Generic Collections"?</summary>
+    <hr/>
+    - In `non-generic collections`, elements are stored as `objects`, which means any type of value can be stored. This requires `boxing and unboxing` when working with value types.
+    - In `generic collections`, you must `explicitly specify the type` of elements, providing `type safety` and avoiding unnecessary casting.
+
+  | **Feature**              | **Collection Classes**                     | **Generic Collections**                                |
+  | ------------------------ | ------------------------------------------ | ------------------------------------------------------ |
+  | Namespace                | System.Collections                         | System.Collections.Generic                             |
+  | Type Safety              | Not type-safe (stores elements as object). | Type-safe (elements are strongly typed).               |
+  | Performance              | Lower performance due to boxing/unboxing.  | Higher performance due to type safety.                 |
+  | Usage of Boxing/Unboxing | Boxing/unboxing occurs for value types.    | No boxing/unboxing required.                           |
+  | Flexibility              | Can store mixed types of elements.         | Stores elements of a specified type only.              |
+  | Examples                 | ArrayList, Hashtable, Stack, Queue.        | List<T>, Dictionary<TKey, TValue>, Stack<T>, Queue<T>. |
+  | Type Checking            | Done at runtime.                           | Done at compile-time.                                  |
+  | Introduced in            | .NET Framework 1.0 (2002).                 | .NET Framework 2.0 (2005).                             |
+
+    <hr/>
+  </details>
+
+- <details>
+    <summary>What are the generic classes provided in the "System.Collections.Generic" namespace?</summary>
+    <hr/>
+
+  Microsoft re-implemented all existing collection classes as generic collections. Some of the key classes in `System.Collections.Generic` are:
+
+  - _`Stack<T>`_: Stores elements of a specific type and follows `LIFO` (Last In, First Out) principle.
+  - _`Queue<T>`_: Stores elements of a specific type and follows `FIFO` (First In, First Out) principle.
+  - _`LinkedList<T>`_: Implements a `doubly linked` list to store elements of a specific type.
+  - _`SortedList<T>`_: Stores elements in a `sorted order` based on their values.
+  - _`List<T>`_: A dynamic array that stores elements of a specific type.
+  - _`Dictionary<TKey, TValue>`_: Stores elements as `key/value pairs`.
+    <hr/>
+  </details>
+
+- <details>
+    <summary>How to use Generic Collections in C#?</summary>
+    <hr/>
+    ```c#
+    // Stack to store integer values
+    Stack<int> si = new Stack<int>();
+    si.Push(10);
+    si.Push(20);
+
+  // Stack to store string values
+  Stack<string> ss = new Stack<string>();
+  ss.Push("Hello");
+  ss.Push("World");
+
+  ```
+  **Explanation**: In this example, `Stack<int>` stores only integers, and `Stack<string>` stores only strings, enforcing `type safety`.
   <hr/>
   </details>
 
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <p></p>
+  ```
+
+- <details>
+    <summary>What is the "List&ltT&gt" class in C#?</summary>
+    <hr/>
+    The `List<T>` class is a generic collection that is similar to `ArrayList` but offers `type safety`. You can specify the type of elements it will store when you create a `List`. This eliminates the need for boxing/unboxing and provides better performance.
+    <hr/>
+  </details>
+- <details>
+    <summary>How to work with a List&ltint&gt in C#?</summary>
+    <hr/>
+    ```c#
+    internal class Class4
+    {
+        static void Main()
+        {
+            List<int> Coll = new List<int>();
+            Coll.Add(10); 
+            Coll.Add(20); 
+            Coll.Add(30); 
+            Coll.Add(40); 
+            Coll.Add(50);
+            
+            for (int i = 0; i < Coll.Count; i++) 
+            {
+                Console.Write(Coll[i] + " ");
+            }
+            Console.WriteLine();
+    
+            Coll.Insert(3, 35); // Inserting 35 at index 3
+            foreach (int i in Coll) 
+            {
+                Console.Write(i + " ");
+            }
+            Console.WriteLine();
+    
+            Coll.Remove(30); // Removing the item with value 30
+            foreach (int i in Coll) 
+            {
+                Console.Write(i + " ");
+            }
+            Console.WriteLine();
+    
+            Console.ReadLine();
+        }
+    }
+    ```
+    **Explanation**: The above code demonstrates adding elements to a `List`, inserting an element, removing an element, and iterating through the list.
+    <hr/>
+  </details>
+- <details>
+    <summary>What is the Dictionary&ltTKey, TValue&gt class in C#?</summary>
+    <hr/>
+    The `Dictionary<TKey, TValue>` class is a generic collection that stores elements as `key/value pairs`. Unlike `Hashtable`, both keys and values must have specified types.
+    <hr/>
+  </details>
+- <details>
+    <summary>How to work with a Dictionary in C#?</summary>
+    <hr/>
+    ```c#
+    internal class Class5
+    {
+        static void Main()
+        {
+            Dictionary<string, object?> Emp = new Dictionary<string, object?>();
+            Emp.Add("Emp-Id", 1001);
+            Emp.Add("Emp-Name", "Scott");
+            Emp.Add("Job", "CEO");
+            Emp.Add("Mgr-Id", null);
+            Emp.Add("Salary", 50000.00);
+            Emp.Add("Commission", 0.00f);
+            Emp.Add("Dept-Id", 10);
+            Emp.Add("Dept-Name", "Administration");
+            Emp.Add("Location", "Mumbai");
+            Emp.Add("Status", true);
+            Emp.Add("PAN", "AKYPM 1234K");
+            Emp.Add("Aadhar No.", "1234 5678 9012");
+            Emp.Add("Mobile", "98392 14256");
+            Emp.Add("Home Phone", "2718 6547");
+            Emp.Add("Email", "Scott@gmail.com");
+            
+            foreach (string key in Emp.Keys) 
+            {
+                Console.WriteLine($"{key}: {Emp[key]}");
+            }
+    
+            Console.ReadLine();
+        }
+    }
+    
+    ```
+    **Explanation**: This code initializes a dictionary with employee information and iterates through the keys to display the corresponding values.
+    <hr/>
+  </details>
+- <details>
+    <summary>What are Collection Initializers in C#?</summary>
+    <hr/>
+    Collection Initializers were introduced in C# 3.0 and allow for the initialization of collections directly at the time of declaration, similar to arrays.
+    <hr/>
+  </details>
+- <details>
+    <summary>How to use Collection Initializers for List&ltint&gt?</summary>
+    <hr/>
+    ```c#
+    internal class Class6
+    {
+        static void Main()
+        {
+            // Copying values > 40 from one list to another and arranging them in descending order
+            List<int> coll1 = new List<int>() { 13, 56, 29, 98, 24, 54, 79, 39, 8, 42, 22, 93, 6, 73, 35, 67, 48, 18, 61, 32, 86, 15, 21, 81, 2 };
+            List<int> coll2 = new List<int>();
+            
+            foreach (int i in coll1) 
+            {
+                if (i > 40) 
+                {
+                    coll2.Add(i); // Adding values greater than 40 to coll2
+                }
+            }
+            
+            coll2.Sort(); // Sorting coll2 in ascending order
+            coll2.Reverse(); // Reversing for descending order
+            Console.WriteLine(String.Join(", ", coll2));
+        }
+    }
+    ```
+    **Explanation**: In this example, we copy values greater than 40 from one list to another, sort them, and then display them in descending order.
+    <hr/>
+  </details>
+- <details>
+    <summary>How would filtering values work using an Array instead of a List?</summary>
+    <hr/>
+    Here’s how you would filter values greater than 40 from an array:
+    ```c#
+    internal class Class7
+    {
+        static void Main()
+        {
+            // Copying values > 40 from one array to another array and arranging them in descending order
+            int[] arr = { 13, 56, 29, 98, 24, 54, 79, 39, 8, 42, 22, 93, 6, 73, 35, 67, 48, 18, 61, 32, 86, 15, 21, 81, 2 };
+            int Count = 0, Index = 0;
+    
+            foreach (int i in arr) 
+            {
+                if (i > 40) 
+                {
+                    Count += 1; // Counting items greater than 40
+                }
+            }
+    
+            int[] brr = new int[Count]; // Creating a new array
+            foreach (int i in arr) 
+            {
+                if (i > 40) 
+                {
+                    brr[Index] = i; // Storing values greater than 40
+                    Index += 1;
+                }
+            }
+    
+            Array.Sort(brr); // Sorting brr in ascending order
+            Array.Reverse(brr); // Reversing for descending order
+            Console.WriteLine(String.Join(", ", brr));
+    
+            Console.ReadLine();
+        }
+    }
+    
+    ```
+
+  **Explanation**: This code counts the number of items greater than 40, creates a new array, stores the qualifying values, sorts, and reverses them to show in descending order.
     <hr/>
   </details>
 
+- <details>
+    <summary>Why are Collections and Collection Initializers beneficial compared to traditional arrays?</summary>
+    <hr/>
+    - **`Less Code`**: Using collections like `List<T>` reduces the amount of code needed for operations like filtering and sorting.
+    - **`Type Safety`**: Generics allow for type-specific collections that prevent runtime errors related to type casting.
+    - **`Flexibility`**: Collections provide dynamic resizing and easier manipulation compared to fixed-size arrays.
+    <hr/>
+  </details>
+
+## **`There are two interfaces generally used in collections`**
+
+[There are two interfaces generally used in collections](https://codecomponents.hashnode.dev/advance-c-sharp-proggramming-language#heading-there-are-two-interfaces-generally-used-in-collections)
+
+## **`Sort() Method Overloads`**
+
+[Sort() Method Overloads](https://codecomponents.hashnode.dev/advance-c-sharp-proggramming-language#heading-sort-method-overloads)
+
+## **`IEnumerable Interface`**
+
+[IEnumerable Interface](https://codecomponents.hashnode.dev/advance-c-sharp-proggramming-language#heading-ienumerable-interface)
+
+## **`LINQ`**
+
+- <details>
+    <summary>What is LINQ?</summary>
+    <hr/>
+    LINQ stands for **Language Integrated Query**. It is a querying methodology introduced in C# 3.0 that `allows developers to write query expressions similar to SQL to retrieve information from various data sources`, *`including objects`*, `databases`, and `XML`.
+    <hr/>
+  </details>
+- <details>
+    <summary>What are the different types of LINQ?</summary>
+    <hr/>
+     LINQ is divided into three main types based on the data source:
+     1. **LINQ to Objects**:
+      - Used for performing queries on `in-memory data such as collections and arrays`.
+     2. **LINQ to XML (XLinq)**:
+      - Used for performing queries on `XML data sources`.
+     3. **LINQ to Databases:**
+      - *`LINQ to SQL`*: Used to perform queries specifically against Microsoft `SQL Server`.
+      - *`LINQ to Entities`*: Used to perform queries on relational `databases` like `SQL Server, Oracle, etc`.
+    <hr/>
+  </details>
+- <details>
+    <summary>What are the advantages of LINQ?</summary>
+    <hr/>
+    - **`Object-based, Language-integrated Querying`**: LINQ allows querying across data sources like databases, XML, and collections using the same syntax.
+
+  - **`Compile-time Syntax Checking`**: LINQ queries are checked at compile time, reducing the chances of runtime errors.
+
+  - **`Native Language Support`**: LINQ allows querying data sources in the application’s native language, such as C# or VB, making code easier to understand and maintain.
+    <hr/>
+  </details>
+
+- <details>
+    <summary>Can LINQ work with multiple data sources?</summary>
+    <hr/>
+     Yes, LINQ can work with multiple data sources, including:
+     - **`Collections and Arrays`**: Using `LINQ to Objects`.
+     - **`XML`**: Using `LINQ to XML`.
+     - **`Databases`**: Using `LINQ to SQL` and `LINQ to Entities`.
+    <hr/>
+  </details>
+- <details>
+    <summary> How is LINQ different from traditional querying methods?</summary>
+    <hr/>
+    Unlike `traditional methods` that `require separate query languages (like SQL for databases)`, LINQ integrates querying capabilities into the programming language. This integration improves code readability and consistency and allows developers to use familiar language constructs for querying.
+    <hr/>
+  </details>
+- <details>
+    <summary>Why is compile-time syntax checking important in LINQ?</summary>
+    <hr/>
+    Compile-time syntax checking catches errors during compilation rather than at runtime. This helps developers identify and fix issues early, leading to fewer runtime errors and more reliable applications.
+    <hr/>
+  </details>
+
+## **`LINQ to Objects`**
+
+- <details>
+    <summary>What is LINQ to Objects?</summary>
+    <hr/>
+    INQ to Objects is a feature in LINQ that allows writing queries against in-memory data, such as arrays and collections, to filter or sort the information.
+    <hr/>
+  </details>
+- <details>
+    <summary>What is the syntax of a LINQ query on objects?</summary>
+    <hr/>
+    The syntax for a LINQ query is as follows:
+    ```c#
+    from <alias> in <array name | collection name> [<clauses>] select <alias> | new {<Column List>}
+    ```
+    - Starts with `from` and ends with `select`.
+    - Clauses include where, `group by`, and `order by`.
+    <hr/>
+  </details>
+- <details>
+    <summary>What are the key elements of a LINQ query?</summary>
+    <hr/>
+    The key elements are:
+
+  - **from**: Specifies the source of data and declares an alias.
+  - **clauses**: Includes conditions such as `where`, `group by`, and `order by`.
+  - **select**: Specifies the data to retrieve, which can be the alias or a set of columns.
+    <hr/>
+  </details>
+
+- <details>
+    <summary>What are the clauses in LINQ?</summary>
+    <hr/>
+    - **where**: Specifies a filter condition.
+    - **group by**: Groups data based on a key.
+    - **order by**: Sorts the data in ascending or descending order.
+    <hr/>
+  </details>
+- <details>
+    <summary>How can you use LINQ in your application?</summary>
+    <hr/>
+    To use LINQ, you need to import the **`System.Linq`** namespace.
+    <hr/>
+  </details>
+- <details>
+    <summary>How does LINQ differ from traditional filtering methods?</summary>
+    <hr/>
+    In traditional filtering, we use loops to iterate and manually apply conditions. LINQ, however, specifies the conditions declaratively, focusing on what results to obtain rather than how to achieve them. This is known as `declarative programming`, unlike the `imperative programming` approach of traditional methods.
+    <hr/>
+  </details>
+- <details>
+    <summary>How does LINQ handle collections and arrays?</summary>
+    <hr/>
+    LINQ can query collections and arrays using a straightforward syntax, filtering, sorting, and retrieving data based on specified conditions without manually iterating over elements.
+    <hr/>
+  </details>
+- <details>
+    <summary>What are LINQ Providers?</summary>
+    <hr/>
+    LINQ providers are a set of classes that implement LINQ operations to allow interaction with different data sources. The `System.Linq` namespace is the LINQ provider or library required for writing LINQ queries in your code.
+    <hr/>
+  </details>
+- <details>
+    <summary>Can you give an example of a LINQ query on a collection?</summary>
+    <hr/>
+    Example using a string array:
+    ```c#
+    internal class Class9
+    {
+        static void Main()
+        {
+            string[] colors = { "Red", "Blue", "Green", "Black", "White", "Brown", "Orange", "Purple", "Yellow", "Aqua" };
+
+            //Gets the list of all colors as is
+            var coll1 = from s in colors select s;
+            Console.WriteLine(String.Join(" ", coll1) + "\n");
+
+            //Gets the list of all colors in ascending order
+            var coll2 = from s in colors orderby s select s;
+            Console.WriteLine(String.Join(" ", coll2) + "\n");
+
+            //Gets the list of all colors in descending order
+            var coll3 = from s in colors orderby s descending select s;
+            Console.WriteLine(String.Join(" ", coll3) + "\n");
+
+            //Gets the list of colors whose length is 5 characters
+            var coll4 = from s in colors where s.Length == 5 select s;
+            Console.WriteLine(String.Join(" ", coll4) + "\n");
+
+            //Getting the list of colors whose name starts with character "B":
+            var coll5 = from s in colors where s[0] == 'B' select s;
+            Console.WriteLine(String.Join(" ", coll5));
+            var coll6 = from s in colors where s.IndexOf("B") == 0 select s;
+            Console.WriteLine(String.Join(" ", coll6));
+            var coll7 = from s in colors where s.StartsWith("B") select s;
+            Console.WriteLine(String.Join(" ", coll7));
+            var coll8 = from s in colors where s.Substring(0, 1) == "B" select s;
+            Console.WriteLine(String.Join(" ", coll8) + "\n");
+
+            //Getting the list of colors whose name ends with character "e":
+            var coll9 = from s in colors where s[s.Length - 1] == 'e' select s;
+            Console.WriteLine(String.Join(" ", coll9));
+            var coll10 = from s in colors where s.IndexOf("e") == s.Length - 1 select s;
+            Console.WriteLine(String.Join(" ", coll10));
+            var coll11 = from s in colors where s.EndsWith("e") select s;
+            Console.WriteLine(String.Join(" ", coll11));
+            var coll12 = from s in colors where s.Substring(s.Length - 1) == "e" select s;
+            Console.WriteLine(String.Join(" ", coll12) + "\n");
+
+            //Getting the list of colors whose name contains character "a" at 3rd place:
+            var coll13 = from s in colors where s[2] == 'a' select s;
+            Console.WriteLine(String.Join(" ", coll13));
+            var coll14 = from s in colors where s.IndexOf("a") == 2 select s;
+            Console.WriteLine(String.Join(" ", coll14));
+            var coll15 = from s in colors where s.Substring(2, 1) == "a" select s;
+            Console.WriteLine(String.Join(" ", coll15) + "\n");
+
+            //Getting the list of colors whose name contains character "O or o" in it:
+            var coll16 = from s in colors where s.Contains('O') || s.Contains('o') select s;
+            Console.WriteLine(String.Join(" ", coll16));
+            var coll17 = from s in colors where s.IndexOf('O') >= 0 || s.IndexOf('o') >= 0 select s;
+            Console.WriteLine(String.Join(" ", coll17));
+            var coll18 = from s in colors where s.ToUpper().Contains('O') select s;
+            Console.WriteLine(String.Join(" ", coll18));
+            var coll19 = from s in colors where s.ToLower().IndexOf('o') >= 0 select s;
+            Console.WriteLine(String.Join(" ", coll19) + "\n");
+
+            //Getting the list of colors whose name doesn’t contains character "O or o" in it:
+            var coll20 = from s in colors where s.Contains('O') == false && s.Contains('o') == false select s;
+            Console.WriteLine(String.Join(" ", coll20));
+            var coll21 = from s in colors where s.IndexOf('O') == -1 && s.IndexOf('o') == -1 select s;
+            Console.WriteLine(String.Join(" ", coll21));
+            var coll22 = from s in colors where s.ToUpper().Contains('O') == false select s;
+            Console.WriteLine(String.Join(" ", coll22));
+            var coll23 = from s in colors where s.ToLower().IndexOf('o') == -1 select s;
+            Console.WriteLine(String.Join(" ", coll23) + "\n");
+        }
+
+  }
+
+  ```
+  <hr/>
+  </details>
+  ```
+
+- <details>
+    <summary>Can generic collections store user-defined types in LINQ?</summary>
+    <hr/>
+    Yes, the values stored in a generic collection can include user-defined types such as classes or structures. 
+    The type of values being stored in a generic collection can be of user-defined type values also like a class type or structure type that is defined to represent an entity as following:
+    `List<Customer> Customers = new List<Customer>();`
+    <hr/>
+  </details>
+- <details>
+    <summary>Can you show an example of LINQ with in-memory data like List and Array?</summary>
+    <hr/>
+
+  ```c#
+  List<int> coll1 = new List<int>() { 13, 56, 29, 98, 24, 54, 79 };
+  var coll2 = from i in coll1 where i > 40 orderby i descending select i;
+  Console.WriteLine(String.Join(", ", coll2));
+  ```
+
+  This example filters `coll1` to include only elements greater than 40, and sorts them in descending order.
+    <hr/>
+  </details>
+
+- <details>
+    <summary>How does LINQ simplify filtering data compared to traditional methods?</summary>
+    <hr/>
+    In traditional methods, we often write repetitive loops to filter and sort data. LINQ focuses on what the result should look like by specifying `conditions` rather than describing `how` to achieve it, making it a `simpler` and `declarative` approach.
+    <hr/>
+  </details>
+- <details>
+    <summary>How can we test LINQ queries on collections?</summary>
+    <hr/>
+    ```c#
+    string[] colors = { "Red", "Blue", "Green" };
+    var coll = from s in colors where s.StartsWith("B") select s;
+    Console.WriteLine(String.Join(" ", coll));
+    ```
+    This example filters colors starting with the letter "B".
+    <hr/>
+  </details>
+- <details>
+    <summary>Can LINQ queries work with user-defined types like classes?</summary>
+    <hr/>
+    Yes, LINQ can query collections of custom objects, like a list of `Customer` objects. Here’s an example:
+
+  1. Customer user-defined types:
+
+  ```c#
+  public class Customer {
+      public int Id { get; set; }
+      public string? Name { get; set; }
+      public string? City { get; set; }
+      public double Balance { get; set; }
+      public bool Status { get; set; }
+      public override string ToString() => $"Id: {Id}; Name: {Name}; City: {City}; Balance: {Balance}; Status: {Status}";
+  }
+  ```
+
+  2. Create a list of "Customer" objects and query them:
+
+  ```c#
+  List<Customer> Customers = new List<Customer> {
+    new Customer { Id = 101, Name = "Scott", City = "Delhi", Balance = 15000.00, Status = true },
+    new Customer { Id = 102, Name = "Dave", City = "Mumbai", Balance = 10000.00, Status = true }
+    // Add more customers as needed
+  };
+
+  //Or
+  Customer c1 = new Customer { Id = 101, Name = "Scott", City = "Delhi", Balance = 15000.00, Status = true };
+  Customer c2 = new Customer { Id = 102, Name = "Dave", City = "Mumbai", Balance = 10000.00, Status = true };
+  Customer c3 = new Customer { Id = 103, Name = "Sunitha", City = "Chennai", Balance = 15600.00, Status = false };
+  Customer c4 = new Customer { Id = 104, Name = "David", City = "Delhi", Balance = 22000.00, Status = true };
+  Customer c5 = new Customer { Id = 105, Name = "John", City = "Kolkata", Balance = 34000.00, Status = true };
+  Customer c6 = new Customer { Id = 106, Name = "Jane", City = "Hyderabad", Balance = 19000.00, Status = true };
+  Customer c7 = new Customer { Id = 107, Name = "Kavitha", City = "Mumbai", Balance = 16500.00, Status = true };
+  Customer c8 = new Customer { Id = 108, Name = "Steve", City = "Bengaluru", Balance = 34600.00, Status = false };
+  Customer c9 = new Customer { Id = 109, Name = "Sophia", City = "Chennai", Balance = 6300.00, Status = true };
+  Customer c10 = new Customer { Id = 110, Name = "Rehman", City = "Delhi", Balance = 9500.00, Status = true };
+  Customer c11 = new Customer { Id = 111, Name = "Raj", City = "Hyderabad", Balance = 9800.00, Status = false };
+  Customer c12 = new Customer { Id = 112, Name = "Rupa", City = "Kolkata", Balance = 13200.00, Status = true };
+  Customer c13 = new Customer { Id = 113, Name = "Ram", City = "Bengaluru", Balance = 47700.00, Status = true };
+  Customer c14 = new Customer { Id = 114, Name = "Joe", City = "Hyderabad", Balance = 26900.00, Status = false };
+  Customer c15 = new Customer { Id = 115, Name = "Peter", City = "Delhi", Balance = 17400.00, Status = true }
+
+  //Created a List of Customers and added all the Customer instances into the List
+  List<Customer> Customers = new List<Customer>()
+  {
+    c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15
+  };
+
+  ```
+
+  3. Perform queries on the list of Customer objects using LINQ
+
+  ```c#
+  //Fetching all customers:
+  var Coll = from c in Customers select c;
+
+  //Selecting specific columns with alias names to columns:
+  var Coll = from c in Customers select new { c.Id, c.Name, IsActive = c.Status };
+
+  //Sorting customers by Name(Order By Clause):
+  var Coll = from c in Customers orderby c.Name select c;
+
+  //Filtering customers based on Balance
+  var Coll = from c in Customers orderby c.Balance descending select c;
+  var Coll = from c in Customers where c.Balance > 25000 select c;
+
+  //Grouping customers by City and counting them(Where Clause):
+  var Coll = from c in Customers where c.City == "Hyderabad" select c;
+  var Coll = from c in Customers where c.City == "Bengaluru" && c.Balance > 40000 select c;
+  var Coll = from c in Customers where c.City == "Chennai" || c.Balance > 30000 select c;
+
+  //Group By Clause:
+  var Coll = from c in Customers group c by c.City into G select new { City = G.Key, Customers = G.Count() };
+  var Coll = from c in Customers group c by c.City into G select new { City = G.Key, MaxBalance = G.Max(c => c.Balance) };
+  var Coll = from c in Customers group c by c.City into G select new { City = G.Key, MinBalance = G.Min(c => c.Balance) };
+  var Coll = from c in Customers group c by c.City into G select new { City = G.Key, AvgBalance = G.Average(c => c.Balance) };
+  var Coll = from c in Customers group c by c.City into G select new { City = G.Key, TotalBalance = G.Sum(c => c.Balance) };
+
+  //Use LINQ to filter groups like the SQL HAVING (Where) clause:
+  var Coll = from c in Customers group c by c.City into G where G.Count() > 2 select new { City = G.Key, Customers = G.Count() };
+  var Coll = from c in Customers group c by c.City into G where G.Max(c => c.Balance) > 25000 select new { City = G.Key, MaxBalance = G.Max(c => c.Balance) };
+  var Coll = from c in Customers group c by c.City into G where G.Min(c => c.Balance) < 10000 select new { City = G.Key, MinBalance = G.Min(c => c.Balance) };
+
+  foreach (var customer in Coll) {
+  Console.WriteLine(customer);
+  }
+
+  ```
+
+    <hr/>
+  </details>
+
+- <details>
+    <summary>In LINQ having clause are there?</summary>
+    <hr/>
+     We don’t have “`having`” clause in `LINQ`.
+    <hr/>
+  </details>
+- <details>
+    <summary>If i need having clause funcanality, then what we do?</summary>
+    <hr/>
+    Wherever you need the functionality of “`having`”, use “`where`” overthere, because both are used for filtering only. LINQ has not given us 2 separate clauses i.e., if we use “`where`” before “`group by`” it works like “`where`” clause whereas if we use “`where`” after “`group by`” it works like “`having`”.
+    <hr/>
+  </details>
+
+## **`Task Parallel Library (TPL)`**
+
+- <details>
+    <summary>What is the Task Parallel Library (TPL)?</summary>
+    <hr/>
+    The Task Parallel Library (TPL) is a set of public types in the `System.Threading` and `System.Threading`.Tasks namespaces that simplifies adding multitasking and handling multiple operations at the same time to applications.
+
+  Means, The Task Parallel Library (TPL) is a set of public types “System.Threading” and “System.Threading.Tasks” namespaces. The purpose of TPL is to make developers more productive by simplifying the process of adding parallelism and concurrency to applications. The TPL scales the degree of concurrency dynamically to most efficiently use all the processors that are available. In addition, the TPL handles the partitioning of the work, the scheduling of Threads on the Thread Pool, cancellation support, state management, and other low-level details. By using TPL, you can maximize the performance of your code while focusing on the work that your program is designed to accomplish.
+
+    <hr/>
+  </details>
+
+- <details>
+    <summary>What is the purpose of the TPL?</summary>
+    <hr/>
+    The purpose of TPL is to make developers more productive by making it easier to write code that executes in parallel, utilizing all available processors effectively.
+    <hr/>
+  </details>
+- <details>
+    <summary>How does TPL help in maximizing performance?</summary>
+    <hr/>
+    TPL scales concurrency dynamically, efficiently utilizing all available processors. It handles work partitioning, thread scheduling, cancellation support, state management, and other low-level details automatically.
+    <hr/>
+  </details>
+- <details>
+    <summary>When did TPL become the preferred method for writing multithreaded code?</summary>
+    <hr/>
+    Starting with .NET Framework 4, the TPL became the preferred way to write multithreaded and parallel code.
+
+  Means, Starting with .NET Framework 4, the TPL is the preferred way to write multithreaded and parallel code. However, not all code is suitable for parallelization. For example, if a loop performs only a small amount of work on each iteration, or it doesn't run for many iterations, then the overhead of parallelization can cause the code to run more slowly. Furthermore, parallelization like any multithreaded code adds complexity to your program execution. Although the TPL simplifies multithreaded scenarios, it is recommended that you have a basic understanding of threading concepts, for example, locks, deadlocks, and race conditions, so that you can use the TPL effectively.
+
+    <hr/>
+  </details>
+
+- <details>
+    <summary>Is all code suitable for parallelization using TPL?</summary>
+    <hr/>
+    No, not all code is suitable for parallelization. For example, if a loop does very little work in each step or has only a few steps, using parallelization might make it slower because of the extra overhead.
+    <hr/>
+  </details>
+- <details>
+    <summary>Does TPL handle low-level threading complexities?</summary>
+    <hr/>
+      Yes, TPL takes care of splitting tasks, managing thread pool scheduling, handling cancellation, and other low-level details automatically, so developers can focus on the main logic.
+    <hr/>
+  </details>
+- <details>
+    <summary>What are some basic threading concepts that developers should understand before using TPL?</summary>
+    <hr/>
+    However, developers should know basic threading concepts like locks, deadlocks, and race conditions because parallel processing can make programs more complex.
+    <hr/>
+  </details>
+- <details>
+    <summary>What namespaces are associated with the TPL?</summary>
+    <hr/>
+    TPL is primarily associated with the `System.Threading` and `System.Threading`.Tasks namespaces.
+    <hr/>
+  </details>
+- <details>
+    <summary>Give me the summary of TPL.</summary>
+    <hr/>
+    - TPL simplifies parallelism and concurrency by handling low-level details.
+    - It dynamically scales concurrency to efficiently utilize processors.
+    - It became the preferred way for parallel code with .NET Framework 4.
+    <hr/>
+  </details>
+- <details>
+      <summary>What are we trying to demonstrate in this exercise?</summary>
+      <hr/>
+      We are demonstrating how to execute three methods sequentially (single-threaded), using multiple threads (multi-threaded), and finally using the Task Parallel Library (TPL) for parallelism in a console application.
+      <hr/>
+    </details>
+  *`Single-Threaded Example`*:
+- <details>
+      <summary>How does the single-threaded version of the program work?</summary>
+      <hr/>
+      The single-threaded program runs all three methods (`Print1`, `Print2`, and `Print3`) sequentially, one after the other, using the main thread. It prints the thread ID of the main thread executing each method.
+
+      Code demonstrates this single-threaded execution:
+      `single-threaded` execution in `Program.cs`:
+      ```c#
+      internal class Program
+      {
+          static void Print1()
+          {
+              for (int i = 1; i <= 100; i++)
+              {
+                  Console.WriteLine($"Thread Id: {Thread.CurrentThread.ManagedThreadId}; Print1 Method: {i}");
+              }
+          }
+          static void Print2()
+          {
+              for (int i = 1; i <= 100; i++)
+              {
+                  Console.WriteLine($"Thread Id: {Thread.CurrentThread.ManagedThreadId}; Print2 Method: {i}");
+              }
+          }
+          static void Print3()
+          {
+              for (int i = 1; i <= 100; i++)
+              {
+                  Console.WriteLine($"Thread Id: {Thread.CurrentThread.ManagedThreadId}; Print3 Method: {i}");
+              }
+          }
+          static void Main(string[] args)
+          {
+              Print1(); Print2(); Print3();
+          }
+      }
+
+      ```
+      <hr/>
+
+    </details>
+  *`Multi-Threaded Example:`*
+
+- <details>
+      <summary>How does the multi-threaded version of the program work?</summary>
+      <hr/>
+      In the multi-threaded version, we create three separate threads to execute each of the three methods concurrently. This creates four threads in total (including the main thread). The `Join()` method ensures that the main thread waits until all other threads complete.
+
+      Code demonstrates this multi-threaded execution:
+      `multi-threaded` execution in `Class1.cs`:
+      ```c#
+      internal class Class1
+      {
+          static void Print1()
+          {
+              for (int i = 1; i <= 100; i++) {
+                  Console.WriteLine($"Thread Id: {Thread.CurrentThread.ManagedThreadId}; Print1 Method: {i}");
+              }
+          }
+          static void Print2()
+          {
+              for (int i = 1; i <= 100; i++) {
+                  Console.WriteLine($"Thread Id: {Thread.CurrentThread.ManagedThreadId}; Print2 Method: {i}");
+              }
+          }
+          static void Print3()
+          {
+              for (int i = 1; i <= 100; i++) {
+                  Console.WriteLine($"Thread Id: {Thread.CurrentThread.ManagedThreadId}; Print3 Method: {i}");
+              }
+          }
+          static void Main()
+          {
+              Thread t1 = new Thread(Print1);
+              Thread t2 = new Thread(Print2);
+              Thread t3 = new Thread(Print3);
+              t1.Start(); t2.Start(); t3.Start();
+              t1.Join(); t2.Join(); t3.Join();
+              Console.WriteLine($"Main thread with Id: {Thread.CurrentThread.ManagedThreadId} is exiting.");
+          }
+      }
+
+      ```
+      <hr/>
+
+    </details>
+  *`Task Parallel Library (TPL) Example:`*
+
+- <details>
+    <summary>How does the TPL version of the program work?</summary>
+    <hr/>
+    The TPL version uses tasks to execute the three methods concurrently. It creates three tasks using `new Task()`, starts them using `Start()`, and waits for them to complete using `Wait()`. This approach uses threads internally but manages them automatically.
+    
+    Code demonstrates this TPL execution using basic tasks:
+    `Using basic` tasks in `Class2.cs`:
+    ```c#
+    internal class Class2
+    {
+        static void Print1()
+        {
+            for (int i = 1; i <= 100; i++) {
+                Console.WriteLine($"Thread Id: {Thread.CurrentThread.ManagedThreadId}; Print1 Method: {i}");
+            }
+        }
+        static void Print2()
+        {
+            for (int i = 1; i <= 100; i++) {
+                Console.WriteLine($"Thread Id: {Thread.CurrentThread.ManagedThreadId}; Print2 Method: {i}");
+            }
+        }
+        static void Print3()
+        {
+            for (int i = 1; i <= 100; i++) {
+                Console.WriteLine($"Thread Id: {Thread.CurrentThread.ManagedThreadId}; Print3 Method: {i}");
+            }
+        }
+        static void Main()
+        {
+            Task t1 = new Task(Print1);
+            Task t2 = new Task(Print2);
+            Task t3 = new Task(Print3);
+            t1.Start(); t2.Start(); t3.Start();
+            t1.Wait(); t2.Wait(); t3.Wait();
+            Console.WriteLine($"Main thread with Id: {Thread.CurrentThread.ManagedThreadId} is exiting.");
+        }
+    }
+    ```
+    **Note**: in the above code also, we have defined 3 `methods` and called them by using 3 `separate` tasks, so each `task` will execute 1 `method` concurrently. In this program also we will be having 4 `threads` along with the `Main thread` and we can see the `Id` of those `Threads` in the output.
+    <hr/>
+  </details>
+- <details>
+    <summary>How can we simplify task creation and execution using Task Factory?</summary>
+    <hr/>
+    The simplified version uses `Task.Factory.StartNew()` to create and start tasks in a single line. We then call `Task.WaitAll()` to wait for all tasks to complete.
+
+  Code demonstrates this simplified TPL execution using Task Factory:
+
+  ```c#
+  Task t1 = Task.Factory.StartNew(Print1);
+  Task t2 = Task.Factory.StartNew(Print2);
+  Task t3 = Task.Factory.StartNew(Print3);
+  Task.WaitAll(t1, t2, t3);
+  Console.WriteLine($"Main thread with Id: {Thread.CurrentThread.ManagedThreadId} is exiting.");
+  ```
+
+  In the above code Factory is a static property of the Task class which will refer to TaskFactory class and the StartNew method of TaskFactory class will create a new Thread, starts it, and returns the reference of it.
+    <hr/>
+  </details>
+
+- <details>
+    <summary>In all the above TPL example which calling method by using `Task` are value returing or non-value returing? Can they take parameter.</summary>
+    <hr/>
+    In the above programs the methods that we called by using `Tasks` are all non-value returning as well as they do not take any parameters also.
+    <hr/>
+  </details>
+- <details>
+    <summary>How does TPL internally manage threads compared to manual thread creation?</summary>
+    <hr/>
+     TPL internally uses the thread pool and manages thread scheduling, avoiding the need to manually create and start threads. It reduces the complexity of handling concurrency and enhances performance by optimizing thread usage.
+    <hr/>
+  </details>
+- <details>
+    <summary>How to call value-returing method using `Task`?</summary>
+    <hr/>
+    We use the `Task<int>` and `Task<string>` classes to call `value-returning methods` (GetLength and ToUpper). These methods do `not take any parameters` and `return results of types int and string`, respectively.
+
+  In the above programs the methods that we called by using `Tasks` are all `non-value returning` as well as they do `not take any parameters` also.
+
+  `Now` let’s learn how to call `value returning methods` by using `Task` and to do that add a new class in the project naming it as “Class3.cs” and write the below code in it:
+
+  ```c#
+  internal class Class3
+  {
+      static int GetLength()
+      {
+          string str = "";
+          for (int i = 1; i <= 100000; i++) {
+              str += i;
+          }
+          return str.Length;
+      }
+      static string ToUpper()
+      {
+          string str = "Hello World";
+          return str.ToUpper();
+      }
+      static void Main()
+      {
+          // Creating and starting tasks
+          Task<int> t1 = new Task<int>(GetLength);
+          Task<string> t2 = new Task<string>(ToUpper);
+          t1.Start(); t2.Start();
+
+          // Alternative using Task.Factory
+          // Task<int> t1 = Task.Factory.StartNew(GetLength);
+          // Task<string> t2 = Task.Factory.StartNew(ToUpper);
+
+          // Capturing results
+          int Result1 = t1.Result;
+          string Result2 = t2.Result;
+
+          // Displaying results
+          Console.WriteLine($"Value of Result1 is: {Result1}");
+          Console.WriteLine($"Value of Result2 is: {Result2}");
+      }
+  }
+
+  ```
+
+  - `Task<int> t1` and `Task<string> t2` are created to run the value-returning methods.
+  - The results are captured using the `Result` property of each task after completion.
+    <hr/>
+  </details>
+
+- <details>
+    <summary>How to call value-returing method using `Task` with Parameters?</summary>
+    <hr/>
+    In this case, we use the `Task<int>` and `Task<string>` classes, but the methods (`GetLength` and `ToUpper`) take parameters. We pass these parameters using lambda expressions in the task creation.
+    ```c#
+    internal class Class4
+    {
+        static int GetLength(int ub)
+        {
+            string str = "";
+            for (int i = 1; i <= ub; i++)
+                str += i;
+            return str.Length;
+        }
+        static string ToUpper(string str)
+        {
+            return str.ToUpper();
+        }
+        static void Main()
+        {
+            // Creating and starting tasks with parameters using lambda expressions
+            Task<int> t1 = new Task<int>(() => GetLength(50000));
+            Task<string> t2 = new Task<string>(() => ToUpper("Hello India"));
+            t1.Start(); t2.Start();
+
+            // Alternative using Task.Factory
+            // Task<int> t1 = Task.Factory.StartNew(() => GetLength(50000));
+            // Task<string> t2 = Task.Factory.StartNew(() => ToUpper("Hello India"));
+
+            // Capturing results
+            int Result1 = t1.Result;
+            string Result2 = t2.Result;
+
+            // Displaying results
+            Console.WriteLine($"Value of Result1 is: {Result1}");
+            Console.WriteLine($"Value of Result2 is: {Result2}");
+        }
+
+  }
+
+  ```
+
+  - `Task<int>` t1 and `Task<string>` t2 are created using lambda expressions to pass parameters to the methods.
+  - We capture the results using the `Result` property of each task after completion.
+  <hr/>
+  </details>
+  ```
+
+- <details>
+      <summary>Why do we use delegates or lambda expressions in "value-returing method using `Task` with Parameters" examples?</summary>
+      <hr/>
+      We use delegates or lambda expressions to pass parameters to the tasks while creating them. This allows the methods to receive values dynamically when the tasks are executed.
+      <hr/>
+    </details>
+  **`Thread synchronization`**
+- <details>
+    <summary>What is thread synchronization in C#?</summary>
+    <hr/>
+    Thread synchronization is a technique that allows only one thread to access a shared resource at a time. It ensures that no other thread can interrupt until the assigned thread finishes its task. This helps avoid conflicts or system halts due to simultaneous access to shared resources.
+    -  It is mainly used in case of transactions like `deposit`, `withdraw` etc
+    - Accessing shared resources (data) is critical task that sometimes may halt the system. We deal with it by making threads synchronized.
+    -  In multithreading program, threads are allowed to access any resource for the required execution time. Threads share resources and executes asynchronously
+    -  No other thread can interrupt until the assigned thread finishes its task.
+    <hr/>
+  </details>
+- <details>
+    <summary>How is thread synchronization achieved using the lock keyword in C#?</summary>
+    <hr/>
+    In C#, the `lock` keyword is used to synchronize access to shared resources. It locks the resource for the current thread, executes the task, and then releases the lock. This prevents other threads from interrupting until the task is completed.
+
+  `Example`:
+
+  ```c#
+  class Class5
+  {
+      public static void Print()
+      {
+          lock (typeof(Class5))  // Locking to synchronize threads
+          {
+              Console.Write("[CSharp Is ");
+              Thread.Sleep(5000);  // Simulate work
+              Console.WriteLine("Object Oriented]");
+          }
+      }
+
+      static void Main()
+      {
+          Thread t1 = new Thread(Print);
+          Thread t2 = new Thread(Print);
+          Thread t3 = new Thread(Print);
+
+          // Starting threads
+          t1.Start();
+          t2.Start();
+          t3.Start();
+
+          // Wait for threads to complete
+          t1.Join();
+          t2.Join();
+          t3.Join();
+      }
+  }
+
+  ```
+
+  - `lock (typeof(Class5))` ensures only one thread can execute the code inside the `lock` block at a time.
+
+    <hr/>
+  </details>
+
+- <details>
+      <summary>How can synchronization be performed using tasks?</summary>
+      <hr/>
+      We can achieve synchronization using the `lock` keyword with tasks, similar to how it is done with threads. This ensures that only one task executes the critical section at a time.
+
+      `Example`:
+      ```c#
+        class Class6
+        {
+            public static void Print()
+            {
+                lock (typeof(Class6))// Locking to synchronize tasks
+                {
+                    Console.Write("[CSharp Is ");
+                    Task.Delay(5000).Wait();  // Simulate work
+                    Console.WriteLine("Object Oriented]");
+                }
+            }
+
+            static void Main()
+            {
+                // Creating and starting tasks
+                Task t1 = new Task(Print);
+                Task t2 = new Task(Print);
+                Task t3 = new Task(Print);
+
+                t1.Start();
+                t2.Start();
+                t3.Start();
+
+                // Alternative using Task.Factory
+                // Task t1 = Task.Factory.StartNew(Print);
+                // Task t2 = Task.Factory.StartNew(Print);
+                // Task t3 = Task.Factory.StartNew(Print);
+
+                // Waiting for all tasks to complete
+                Task.WaitAll(t1, t2, t3);
+            }
+        }
+
+      ```
+
+      - `lock (typeof(Class6))` ensures only one task can execute the critical section at a time.
+      - `Task.Delay(5000).Wait()` simulates a delay in execution.
+      <hr/>
+
+    </details>
+  **`Data Parallelism`**
+
+- <details>
+    <summary>What is data parallelism?</summary>
+    <hr/>
+
+  - Data parallelism refers to performing the same operation concurrently on elements in a source like an array or collection. In this approach, the source is partitioned so that multiple threads can operate on different segments simultaneously.
+  - The `Task Parallel Library (TPL)` supports data parallelism through “`Parallel`” class which is present under `System.Threading.Tasks` namespace.
+  - This class provides method-based parallel implementations of for and foreach loops. You write the loop logic for a “Parallel.For” or “Parallel.ForEach” loops much as you would write a sequential loop. You do not have to create threads or queue the work items i.e., TPL handles all the low-level work for you.
+
+    <hr/>
+  </details>
+
+- <details>
+    <summary>How does the Parallel class in TPL support data parallelism?</summary>
+    <hr/>
+    The `Parallel` class in TPL provides method-based parallel implementations of `for` and `foreach` loops. This allows you to perform data parallelism easily without manually creating threads.
+    <hr/>
+  </details>
+- <details>
+    <summary>What code demonstrates the difference between "sequential" and "parallel" for loops?</summary>
+    <hr/>
+    ```c#
+    using System.Diagnostics;
+
+  class Class7
+  {
+  static void Main()
+  {
+  // Sequential for loop
+  Stopwatch sw1 = new Stopwatch();
+  sw1.Start();
+  string str1 = "";
+  for (int i = 1; i < 200000; i++)
+  {
+  str1 += i;
+  }
+  sw1.Stop();
+  Console.WriteLine("Time taken to execute the code by using sequential for loop: " + sw1.ElapsedMilliseconds);
+
+            // Parallel for loop
+            Stopwatch sw2 = new Stopwatch();
+            sw2.Start();
+            string str2 = "";
+            Parallel.For(1, 200000, i =>
+            {
+                str2 += i;
+            });
+            sw2.Stop();
+            Console.WriteLine("Time taken to execute the code by using parallel for loop: " + sw2.ElapsedMilliseconds);
+        }
+
+  }
+
+  ```
+
+  - Sequential for loop: Each iteration is executed one by one.
+
+  - Parallel for loop: Iterations are executed concurrently on different threads.
+  <hr/>
+  </details>
+  ```
+
+- <details>
+    <summary>What code demonstrates the difference between sequential and parallel foreach loops?</summary>
+    <hr/>
+    ```c#
+    using System.Diagnostics;
+
+  class Class8
+  {
+  static void Main()
+  {
+  int[] arr = { 1, 2, 3, 4, 5, ..., 50 };
+
+            // Sequential foreach loop
+            Stopwatch sw1 = new Stopwatch();
+            sw1.Start();
+            foreach (int i in arr)
+            {
+                Console.WriteLine($"Thread Id: {Thread.CurrentThread.ManagedThreadId}; i value: {i}");
+            }
+            sw1.Stop();
+            Console.WriteLine();
+
+            // Parallel foreach loop
+            Stopwatch sw2 = new Stopwatch();
+            sw2.Start();
+            Parallel.ForEach(arr, i => {
+                Console.WriteLine($"Thread Id: {Thread.CurrentThread.ManagedThreadId}; i value: {i}");
+            });
+            sw2.Stop();
+
+            Console.WriteLine("Time taken to execute code by using sequential foreach loop: " + sw1.ElapsedMilliseconds);
+            Console.WriteLine("Time taken to execute code by using parallel foreach loop: " + sw2.ElapsedMilliseconds);
+        }
+
+  }
+
+  ```
+
+  - `Sequential foreach loop`: Executes each iteration one after another on the same thread.
+  - `Parallel foreach loop`: Executes multiple iterations concurrently on different threads.
+  <hr/>
+  </details>
+  ```
+
+- <details>
+      <summary>When Parallel loops faster and may not faster?</summary>
+      <hr/>
+      Parallel loops are generally faster for bulk tasks but may not always be faster for small or light operations.
+      <hr/>
+    </details>
+  *`continuation task`*:
+- <details>
+    <summary>What is a continuation task?</summary>
+    <hr/>
+
+  A continuation task is an asynchronous task that is invoked by another task (called an antecedent) when it finishes. Continuations allow a second operation to run once the first one is complete. This is useful when you want one task to depend on the result or completion of another task.
+
+  In asynchronous programming, it's common for one asynchronous operation, on completion, to invoke a second operation. Continuations allow descendant operations to consume the results of the first operation. A continuation task (also known just as a continuation) is an asynchronous task that's invoked by another task, known as the antecedent, when the antecedent finishes. To test this, add a new class in the project naming it as “Class9.cs” and write the below code in it:
+    <hr/>
+  </details>
+
+- <details>
+      <summary>How can you chain tasks in C# using continuation tasks?</summary>
+      <hr/>
+      You can chain tasks using the `ContinueWith` method. This method allows a task to be executed as a continuation of a previously completed task.
+
+      Demonstrates chaining tasks using continuation tasks:
+      ```c#
+      class Class9
+      {
+          static void Method1(int x, int ub)
+          {
+              // Prints multiplication table from 1 to ub
+              for (int i = 1; i <= ub; i++)
+                  Console.WriteLine($"{x} * {i} = {x * i}");
+          }
+
+          static void Method2(int x, int ub)
+          {
+              // Prints multiplication table from ub to 1
+              for (int i = ub; i > 0; i--)
+                  Console.WriteLine($"{x} * {i} = {x * i}");
+          }
+
+          static void Main()
+          {
+              // Create a task and chain continuation tasks
+              Task t = Task.Factory.StartNew(() => Method1(5, 12))
+                                   .ContinueWith((antecedent) => Console.WriteLine()) // Add a blank line
+                                   .ContinueWith((antecedent) => Method2(5, 12));
+
+              // Wait for the task to complete
+              t.Wait();
+              Console.ReadLine();
+          }
+      }
+      ```
+
+      - Method1 prints a multiplication table from 1 to a specified upper bound (ub).
+      - ContinueWith is used to chain tasks so that Method2 runs after Method1 completes.
+      - The t.Wait() ensures that the program waits for all tasks to complete before exiting.
+      <hr/>
+
+    </details>
+  *`Asynchronous Programming with async and await`*:
+
+- <details>
+    <summary>What are async and await in C#?</summary>
+    <hr/>
+    - `async` and `await` are code markers used in C# to handle asynchronous programming. They allow for non-blocking execution, which prevents an application from getting blocked while waiting for a long-running operation to complete.
+
+  - async and await in C# are the code markers, which marks code positions from where the control should resume after a task completes. When we are dealing with UI, and on a button click we called a long-running method like reading a large file or something else which will take a long time and, in that case, the entire application must wait to complete the task. In other words, if a process is blocked in a synchronous application, the whole application gets blocked and stops responding until the whole task completes.
+    <hr/>
+  </details>
+
+- <details>
+    <summary> How do async and await work together?</summary>
+    <hr/>
+
+  - `async` marks a method as asynchronous and allows the use of the `await` keyword inside it.
+  - `await` pauses the execution of the method until the awaited task is complete, allowing other tasks or code to run in the meantime.
+
+  ```c#
+  class Class10
+  {
+      static async void Test1()
+      {
+          // Simulates reading values from a database
+          Console.WriteLine("Started reading values from DB.....");
+          await Task.Delay(10000); // Simulate a 10-second delay for a long-running operation
+          Console.WriteLine("Completed reading values from DB.....");
+      }
+
+      static void Test2()
+      {
+          // Accepts user input
+          Console.Write("Please enter your name: ");
+          string Name = Console.ReadLine();
+          Console.WriteLine($"Name you entered is: {Name}");
+      }
+
+      static void Main()
+      {
+          // Start both methods
+          Test1(); // Asynchronous call
+          Test2(); // Synchronous call
+
+          // Wait for user input before closing
+          Console.ReadLine();
+      }
+  }
+  ```
+
+  - `Test1` is an asynchronous method that simulates reading from a database using await `Task.Delay(10000)`.
+  - `Test2` is a synchronous method that takes user input.
+  - In `Main()`, `Test1` runs asynchronously without blocking the execution of `Test2`.
+    <hr/>
+  </details>
+
+- <details>
+    <summary>What is the benefit of using async and await in UI applications?</summary>
+    <hr/>
+    When dealing with UI applications, using `async` and `await` prevents the entire application from being blocked. For instance, if a long-running task like reading from a database is called, the UI remains responsive and doesn't freeze.
+    <hr/>
+  </details>
+- <details>
+    <summary>What happens if a synchronous long-running task is called without "async" and "await"?</summary>
+    <hr/>
+    If a synchronous long-running task is called, the entire application may get blocked or become unresponsive until the task completes, leading to a poor user experience.
+    <hr/>
+  </details>
+
+# **`END Theory`**
+
+# **`Logical Programs`**
+
+- <details>
+    <summary></summary>
+    <hr/>
+    <p></p>
+    <hr/>
+  </details>
+- <details>
+    <summary></summary>
+    <hr/>
+    <p></p>
+    <hr/>
+  </details>
 What is Association, Composition, hasA and useA? understand it clearly.
 
 OOPs 60B 79M
 Collection 160B 183M
+
+C# finish at 208

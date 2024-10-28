@@ -36,9 +36,9 @@
 
 - According to the GOF book, design patterns are classified into three categories:
 
-- **Creational Patterns:** Deal with object creation mechanisms, trying to create objects in a manner suitable to the situation.
-- \*\*Structural Patterns: These design patterns focus on how classes and objects can be combined and structured to form larger, more complex systems. They use concepts like inheritance and composition to create new functionalities by combining existing interfaces and objects.
-  - **Behavioral Patterns:** Focused on the communication between objects, defining the patterns of interaction.
+- **Creational Patterns:** : These design patterns provide a way to create objects while hiding the creation logic, rather than instantiating objects directly using new operator. This gives program more flexibility in deciding which objects need to be created for a given use case.
+- **Structural Patterns**: These design patterns concern class and object composition. Concept of inheritance is used to compose interfaces and define ways to compose objects to obtain new functionalities.
+- **Behavioral Patterns:** : These design patterns are specifically concerned with communication between objects
 
 ---
 
