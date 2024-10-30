@@ -2766,6 +2766,42 @@ INSERT INTO Employee VALUES (108, 'Olivia Garcia', 'Sales Associate', 47000.00, 
   </details>
 
 - <details>
+    <summary>What is Constraints?</summary>
+    <hr/>
+    Constraints in a database are rules or conditions applied to columns in a table to enforce data integrity, consistency, and accuracy. They ensure that only valid data is entered into a table.
+    <hr/>
+  </details>
+- <details>
+    <summary>What are the type of Constraints?</summary>
+    <hr/>
+
+    1. **Primary Key Constraint**: Ensures that each row in a table is uniquely identified. A column (or set of columns) defined as a primary key cannot contain `NULL` values and must be unique.
+
+    2. **Foreign Key Constraint**: Establishes a relationship between two tables by linking a column (or columns) in one table to a primary key column in another table. It ensures referential integrity by making sure that a value in the foreign key column must exist in the referenced primary key column.
+
+    3. **Unique Constraint**: Ensures that all values in a column (or a combination of columns) are unique, but unlike a primary key, it allows one `NULL` value in the column.
+
+    4. **Check Constraint**: Validates that data entered into a column meets a specific condition. For example, it can ensure that salaries in a column are greater than 3000.
+
+    5. **Not Null Constraint**: Prevents `NULL` values from being inserted into a column.
+
+    6. **Default Constraint**: Assigns a default value to a column if no value is specified during data insertion.
+
+    <hr/>
+  </details>
+- <details>
+    <summary>What is the purpuse of Constraints?</summary>
+    <hr/>
+
+    - **Data Integrity**: Constraints ensure the accuracy and consistency of the data in a database.
+
+    - **Data Validation**: They validate the data entered, helping to maintain quality.
+
+    - **Referential Integrity**: Foreign keys maintain relationships between tables, enforcing referential integrity.
+    <hr/>
+  </details>
+
+- <details>
     <summary>What are Built-in Functions in SQL Server?</summary>
     <hr/>
     Built-in functions in SQL Server are predefined functions that perform calculations and return a single value based on the input provided. They are useful for data manipulation, querying, and analysis.
@@ -5356,162 +5392,475 @@ INSERT INTO Employee VALUES (108, 'Olivia Garcia', 'Sales Associate', 47000.00, 
     <hr/>
 
   </details>
+- <details>
+    <summary>What is a composite foreign key?</summary>
+    <hr/>
+    A composite foreign key is a `combination of multiple columns that serve as a foreign key` and refer to a composite primary key in another table.
 
-  [Start](https://codecomponents.hashnode.dev/sql-server-tutorials#heading-composite-foreign-key)
-- <details>
-    <summary></summary>
-    <hr/>
-    <li></li>
+    - If a combination of columns declared as a foreign key, it is called a composite foreign key.
+
+    - A composite foreign key refers to a composite primary key.
     <hr/>
   </details>
 - <details>
-    <summary></summary>
+    <summary>Can you give an example of a composite foreign key?</summary>
     <hr/>
-    <li></li>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <li></li>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <li></li>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <li></li>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <li></li>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <li></li>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <ol>
-    <li><b></b>: </li>
-    <li><b></b>: </li>
-    <li><b></b>: </li>
-    <li><b></b>: </li>
-    </ol>
+    - create the REGISTRATIONS table with a composite primary key.
+    ```sql
+    CREATE TABLE REGISTRATIONS (
+        SID INT REFERENCES STUDENT(SID),
+        CID INT REFERENCES COURSE(CID),
+        DOR DATE,
+        FEE MONEY,
+        PRIMARY KEY (SID, CID)
+    );
+    ```
+
+    - create the CERTIFICATES table with a composite foreign key.
+    ```sql
+    CREATE TABLE CERTIFICATES (
+        CERTNO INT PRIMARY KEY,
+        DOI DATE,
+        SID INT,
+        CID INT,
+        FOREIGN KEY (SID, CID) REFERENCES REGISTRATIONS(SID, CID)
+    );
+    ```
+
+    - This results in an error because the combination of SID = 2 and CID = 11 does not exist in the REGISTRATIONS table:
+    ```sql
+    INSERT INTO CERTIFICATES VALUES (1000, GETDATE(), 2, 11); -- ERROR
+    ```
+
+    - SID,CID combination should match with registrations table SID,CID combination
+    -  In the REGISTRATIONS table:
+      - **Primary Key**: A combination of SID and CID.
+      - **Foreign Key in CERTIFICATES Table**: A combination of SID and CID in the CERTIFICATES table refers to the SID and CID combination in the REGISTRATIONS table.
+
     <hr/>
   </details>
 - <details>
-    <summary></summary>
+    <summary>Which constraint cannot be declared at the table level?</summary>
     <hr/>
-    <li></li>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <li></li>
+    The NOT NULL constraint can only be declared at the column level, not the table level.
     <hr/>
   </details>
 - <details>
-    <summary></summary>
+    <summary>Which statements are true regarding constraints?
+    
+    A.) A foreign key cannot contain NULL value - F (A foreign key can contain NULL if not explicitly disallowed).
+
+    B.) A column with UNIQUE constraint can contain NULL value - T (A UNIQUE column can have one NULL value).
+
+    C.) A constraint is enforced only for the INSERT operation on a table - F (Constraints are enforced for INSERT, UPDATE, and DELETE).
+
+    D.) All constraints can be defined at the column level and table level - F (NOT NULL can only be defined at the column level).
+
+    </summary>
     <hr/>
-    <li></li>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <li></li>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <li></li>
+    <li>Ans: </li>
     <hr/>
   </details>
 - <details>
-    <summary></summary>
+    <summary>Which CREATE TABLE statement is valid?
+
+    ```sql
+    --A.
+    CREATE TABLE ord_details (
+        ord_no NUMERIC(2) PRIMARY KEY,
+        item_no NUMERIC(3) PRIMARY KEY,
+        ord_date DATE NOT NULL
+    );
+
+    --B
+    CREATE TABLE ord_details (
+        ord_no NUMERIC(2) UNIQUE, NOT NULL,
+        item_no NUMERIC(3),
+        ord_date DATE DEFAULT GETDATE() NOT NULL
+    );
+
+    --C
+    CREATE TABLE ord_details (
+        ord_no NUMERIC(2),
+        item_no NUMERIC(3),
+        ord_date DATE DEFAULT NOT NULL,
+        UNIQUE (ord_no),
+        PRIMARY KEY (ord_no)
+    );
+
+    --D
+    CREATE TABLE ord_details (
+        ord_no NUMERIC(2),
+        item_no NUMERIC(3),
+        ord_date DATE DEFAULT GETDATE() NOT NULL,
+        PRIMARY KEY (ord_no, item_no)
+    );
+    ```
+
+    </summary>
     <hr/>
-    <li></li>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <li></li>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <li></li>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <li></li>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <li></li>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <li></li>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <li></li>
-    <hr/>
-  </details>
-- <details>
-    <summary></summary>
-    <hr/>
-    <li></li>
+    <li>D</li>
     <hr/>
   </details>
 - <details>
-    <summary></summary>
+    <summary>How can you add constraints to an existing table using the ALTER command?</summary>
     <hr/>
-    <li></li>
+    1. Create the Table:
+    ```sql
+    CREATE TABLE EMP33 (
+        EMPNO INT,
+        ENAME VARCHAR(10),
+        SAL MONEY,
+        DNO INT,
+        EMAILID VARCHAR(20)
+    );
+    ```
+
+    2. Use the ALTER command to add constraints (if needed).
     <hr/>
   </details>
 - <details>
-    <summary></summary>
+    <summary>Can a primary key be added to a nullable column?</summary>
     <hr/>
-    <ol>
-    <li><b></b>: </li>
-    <li><b></b>: </li>
-    <li><b></b>: </li>
-    <li><b></b>: </li>
-    </ol>
+    No, a primary key cannot be added to a nullable column. The column must first be changed to `NOT NULL`.
     <hr/>
   </details>
 - <details>
-    <summary></summary>
+    <summary>How do you add a primary key to a column?</summary>
     <hr/>
-    <li></li>
+    1. **Step 1**: Change the column to `NOT NULL`:
+    ```sql
+    ALTER TABLE EMP33
+    ALTER COLUMN EMPNO INT NOT NULL;
+    ```
+
+    2. **Step 2**: Add the primary key:
+    ```sql
+    ALTER TABLE EMP33
+    ADD PRIMARY KEY (EMPNO);
+    ```
     <hr/>
   </details>
+- <details>
+    <summary>How do you add a check constraint to ensure that the `SAL` column is greater than or equal to 3000?</summary>
+    <hr/>
+
+    Use the `ALTER TABLE` statement:
+
+    ```sql
+    ALTER TABLE EMP33
+    ADD CHECK (SAL >= 3000);
+    ```
+    <hr/>
+  </details>
+- <details>
+    <summary>What happens if existing data violates the check constraint?</summary>
+    <hr/>
+
+    If existing data violates the constraint, SQL Server returns an error. For example:
+
+    ```sql
+    ALTER TABLE EMP
+    ADD CHECK (SAL >= 3000); -- ERROR
+    ```
+
+    **Note**: The command below returns an error if existing data violates the constraint (above command returns error because in table some of the employee salaries are less than 3000 . While adding constraint sql server also validates existing data).
+
+    **Solution**: Add the check constraint with `WITH NOCHECK` to avoid validation of existing data.
+
+    <hr/>
+  </details>
+- <details>
+    <summary>What is the purpose of WITH NOCHECK?</summary>
+    <hr/>
+    `WITH NOCHECK` adds a constraint without validating existing data. It only validates new data.
+
+    If a check constraint is added "WITH NOCHECK," SQL Server will not validate existing data; it will only validate new data.
+    <hr/>
+  </details>
+- <details>
+    <summary>How do you add a check constraint using WITH NOCHECK?</summary>
+    <hr/>
+
+    ```sql
+    ALTER TABLE EMP
+    WITH NOCHECK
+    ADD CHECK (SAL >= 3000);
+    ```
+
+    <hr/>
+  </details>
+- <details>
+    <summary>How do you add a foreign key to a column in SQL?</summary>
+    <hr/>
+    - Add a foreign key to `DNO` that references the primary key `DNO` of `DEPT55` table.
+
+    - To add a foreign key, use the `ALTER TABLE` statement. For example, to add a foreign key on the `DNO` column that references the primary key `DNO` in the `DEPT55` table:
+
+    ```sql
+    ALTER TABLE EMP33
+    ADD FOREIGN KEY (DNO) REFERENCES DEPT55 (DNO);
+    ```
+
+    <hr/>
+  </details>
+- <details>
+    <summary>How do you add a unique constraint to a column?</summary>
+    <hr/>
+    Add a unique constraint to `EMAILID`.
+
+    Use the `ALTER TABLE` statement to add a unique constraint. For example, to add a unique constraint on the `EMAILID` column:
+
+    ```sql
+    ALTER TABLE EMP33
+    ADD UNIQUE (EMAILID);
+    ```
+
+    <hr/>
+  </details>
+- <details>
+    <summary>How do you change a column from `NULL` to `NOT NULL`?</summary>
+    <hr/>
+    Modify the column `ENAME` to `NOT NULL`.
+
+    Use the `ALTER TABLE` statement. For example, to modify the column `ENAME` to `NOT NULL`:
+
+    ```sql
+    ALTER TABLE EMP33
+    ALTER COLUMN ENAME VARCHAR(10) NOT NULL;
+    ```
+
+    <hr/>
+  </details>
+- <details>
+    <summary>What is the syntax to drop a constraint?</summary>
+    <hr/>
+    The syntax to drop a constraint is:
+
+    ```sql
+    ALTER TABLE <tabname>
+    DROP CONSTRAINT <name>;
+    ```
+    <hr/>
+  </details>
+- <details>
+    <summary>How do you drop a check constraint in a table?</summary>
+    <hr/>
+    For example, to drop a check constraint in EMP33:
+
+    ```sql
+    ALTER TABLE <tabname>
+    DROP CONSTRAINT <name>;
+    ```
+
+    Example:
+
+    ```sql
+    ALTER TABLE EMP33
+    DROP CONSTRAINT CK__EMP33__SAL__693CA210;
+    ```
+    <hr/>
+  </details>
+- <details>
+    <summary>What happens when trying to drop a primary key that is referenced by a foreign key?</summary>
+    <hr/>
+    Dropping a primary key that is referenced by a foreign key results in an error. For example:
+
+    ```sql
+    ALTER TABLE DEPT55
+    DROP CONSTRAINT PK__DEPT55__C035B8C2CC99E6C6; -- ERROR
+    ```
+
+    <hr/>
+  </details>
+- <details>
+    <summary>What happens if you try to drop or truncate a table referenced by a foreign key?</summary>
+    <hr/>
+     If a table is referenced by a foreign key, dropping or truncating it results in an error. For example:
+
+     ```sql
+     DROP TABLE DEPT55; -- ERROR
+     
+     TRUNCATE TABLE DEPT55; -- ERROR
+     ```
+
+    <hr/>
+  </details>
+
+- A primary key cannot be dropped if it is referenced by a foreign key.
+
+- A primary key table cannot be dropped if it is referenced by a foreign key.
+
+- A primary key table cannot be truncated if it is referenced by a foreign key.
+
+- <details>
+    <summary>What are the different types of DELETE rules that can be declared with foreign keys?</summary>
+    <hr/>
+    The following DELETE rules can be declared with foreign keys:
+
+    - ON DELETE NO ACTION
+    - ON DELETE CASCADE
+    - ON DELETE SET NULL
+    - ON DELETE SET DEFAULT
+
+
+    <hr/>
+  </details>
+- <details>
+    <summary>What do DELETE rules specify?</summary>
+    <hr/>
+
+    These rules are declared with foreign keys.
+
+    DELETE rules specify how child rows are affected when a parent row is deleted.
+
+    <hr/>
+  </details>
+- <details>
+    <summary>What happens when the rule "ON DELETE NO ACTION" is applied?</summary>
+    <hr/>
+    Parent row cannot be deleted if associated with child rows.
+
+    The parent row cannot be deleted if it is associated with any child rows. This rule prevents deletion.
+
+    **Example**:
+    1. Create tables and insert values:
+      ```sql
+      CREATE TABLE DEPT88 (
+          DNO INT PRIMARY KEY,
+          DNAME VARCHAR(10) UNIQUE NOT NULL
+      );
+
+      INSERT INTO DEPT88 VALUES (10, 'HR'), (20, 'IT');
+
+      CREATE TABLE EMP88 (
+          EMPNO INT PRIMARY KEY,
+          ENAME VARCHAR(10) NOT NULL,
+          DNO INT REFERENCES DEPT88(DNO)
+      );
+
+      INSERT INTO EMP88 VALUES (1, 'A', 10), (2, 'B', 10);
+
+      ```
+
+    2. Attempt to delete a parent row:
+      ```sql
+      DELETE FROM DEPT88 WHERE DNO = 10; -- ERROR
+      ```
+
+    ACCOUNTS Table
+
+    | ACCNO | ACTYPE |	BAL |
+    |-------|--------|------|
+    | 100 |	S |	10000 |
+
+    LOANS Table
+
+    | ID | TYPE |	AMT |	ACCNO |
+    |----|------|-----|-------|
+    | 1	| H |	30 | 100 |
+    | 2	| C |	10 | 100 |
+
+    *`Scenario`*: If an account has loans, it cannot be closed.
+    <hr/>
+  </details>
+- <details>
+    <summary>What happens when the rule "ON DELETE SET NULL" is applied?</summary>
+    <hr/>
+    Parent row is deleted along with child rows.
+
+    When a parent row is deleted, the child rows are not deleted, but the foreign key in child rows is set to `NULL`.
+
+    **Example**:
+
+    1. Create tables and insert values:
+    ```sql
+    CREATE TABLE DEPT88 (
+        DNO INT PRIMARY KEY,
+        DNAME VARCHAR(10) UNIQUE NOT NULL
+    );
+    
+    INSERT INTO DEPT88 VALUES (10, 'HR'), (20, 'IT');
+    
+    CREATE TABLE EMP88 (
+        EMPNO INT PRIMARY KEY,
+        ENAME VARCHAR(10) NOT NULL,
+        DNO INT REFERENCES DEPT88(DNO) ON DELETE SET NULL
+    );
+    
+    INSERT INTO EMP88 VALUES (1, 'A', 10), (2, 'B', 10);
+    ```
+
+    2. Delete a parent row:
+    ```sql
+    DELETE FROM DEPT88 WHERE DNO = 10; -- 1 ROW AFFECTED
+    ```
+
+    3. Verify child rows:
+    ```sql
+    SELECT * FROM EMP88;
+    -- Result:
+    -- EMPNO | ENAME | DNO
+    -- ------|-------|-----
+    -- 1     | A     | NULL
+    -- 2     | B     | NULL
+    ```
+
+    **Scenario**: When a project is completed (deleted), the project ID for employees is set to `NULL`.
+
+    ACCOUNTS Table
+
+    | **ACCNO** |	**ACTYPE** |	**BAL** |
+    |-----------|------------|----------|
+    | 100 |	S |	10000 |
+
+    TRANS Table
+
+    | **TRID** |	**TTYPETDATE** |	**TAMT** |	**ACCNO** |
+    |----------|-----------------|-----------|------------|
+    | 1 |	W |	100 |	ON | DELETE | CASCADE |
+    | 2 |	D |	100 | | | |
+
+    <hr/>
+  </details>
+- <details>
+    <summary>What happens when the rule "ON DELETE SET DEFAULT" is applied?</summary>
+    <hr/>
+    Parent row is deleted but child rows are not deleted; foreign key will be set to default value.
+
+    When a parent row is deleted, the child rows are not deleted, but the foreign key in child rows is set to the default value.
+
+    `Example`:
+    1. Create tables and insert values:
+    ```sql
+    CREATE TABLE DEPT88 (
+        DNO INT PRIMARY KEY,
+        DNAME VARCHAR(10) UNIQUE NOT NULL
+    );
+
+    INSERT INTO DEPT88 VALUES (10, 'HR'), (20, 'IT');
+
+    CREATE TABLE EMP88 (
+        EMPNO INT PRIMARY KEY,
+        ENAME VARCHAR(10) NOT NULL,
+        DNO INT DEFAULT 20 REFERENCES DEPT88(DNO) ON DELETE SET DEFAULT
+    );
+
+    INSERT INTO EMP88 VALUES (1, 'A', 10), (2, 'B', 10);
+    ```
+    <hr/>
+  </details>
+
+- **ON DELETE NO ACTION**: Prevents deletion of the parent row if child rows exist.
+
+- **ON DELETE CASCADE**: Deletes child rows when the parent row is deleted.
+
+- **ON DELETE SET NULL**: Sets the foreign key in child rows to `NULL` when the parent row is deleted.
+
+- **ON DELETE SET DEFAULT**: Sets the foreign key in child rows to the default value when the parent row is deleted.
+
+## **`JOINS`**
+
 - <details>
     <summary></summary>
     <hr/>

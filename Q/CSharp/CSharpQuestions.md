@@ -1,7 +1,6 @@
 # CSharp Question:
 
 ## 01: Compilation, History, Articture
-
 - <details>
     <summary>What is .NET?</summary>
     <hr/>
@@ -40,9 +39,9 @@
     <hr/>
   </details>
 - <details>
-    <summary>What is Framework?⭐ </summary>
+    <summary>What is Framework?</summary>
     <hr/>
-    <p>Framework is a runtime environment which provides many features & will allow to run multiple programming language code.</p>
+    <p>Framework is a `runtime environment` which provides many features & will allow to run multiple programming language code.</p>
     <hr/>
   </details>
 - <details>
@@ -59,13 +58,13 @@
     <hr/>
   </details>
 - <details>
-    <summary>How does .NET solve the problem of communication between languages?⭐</summary>
+    <summary>How does .NET solve the problem of communication between languages?</summary>
     <hr/>
     <p>.NET solves the problem of communication between different programming languages by making sure that all languages compile down to the same kind of code called CIL or MSIL. It also avoids problems with different data types by using the 'Common Type System' (CTS), <mark><b>CTS makes sure that similar data types are the same size and work the same way across all .NET languages.</mark></b></p>
     <hr/>
   </details>
 - <details>
-    <summary>How to execute C language code?</summary>
+    <summary>How to execute C language code?⭐</summary>
     <hr/>
     <p>The program we write in C is called source code.</p>
     <p>The C compiler compiles the source code and generates native code. Usually, this native code can only run on the machine where it was generated, and the operating system executes the code.</p>
@@ -145,9 +144,9 @@ VB Source Code => Compiled by using VB Compiler => Generates CIL Code => Which c
     <hr/>
   </details>
 - <details>
-    <summary>How did .NET expand to support operating systems other than Windows?</summary>
+    <summary>How did .NET expand to support operating systems other than Windows?⭐</summary>
     <hr/>
-    <p>When .NET was first launched by Microsoft in 2002, the .NET Runtime was only available for Windows. However, Microsoft made the specifications for developing the runtime open, allowing third-party companies to create runtimes for other operating systems. This led to the development of the ".NET Framework," starting with version 1.0 and ending with version 4.8.
+    <p>When .NET was first launched by Microsoft in 2002, the .NET Runtime was only available for Windows. However, Microsoft made the specifications for developing the runtime open, <mark><b>allowing third-party companies to create runtimes for other operating systems</b></mark>. This led to the development of the ".NET Framework," starting with version 1.0 and ending with version 4.8.
     </p>
     <hr/>
   </details>
@@ -172,7 +171,35 @@ VB Source Code => Compiled by using VB Compiler => Generates CIL Code => Which c
 - <details>
     <summary>What is the significance of the .NET 5.0 release in 2020?</summary>
     <hr/>
-    <p>On November 10, 2020, Microsoft released .NET Core 5.0". .NET Framework" and ".NET Core" were merged into a single platform, and it's a continuation of `.NET Core`, not both.</b> This new version, starting from .NET Core 5.0, continues the evolution of .NET Core and is now simply called “.NET”. As of November 2021, the latest version is .NET 6.0.</p>
+    <p>On November 10, 2020, Microsoft released ".NET Core 5.0". <mark><b>.NET Framework</mark></b> and <mark><b>.NET Core</mark></b> were <mark><b>merged into a single platform</mark></b>, and it's a "continuation" of `<mark><b>.NET Core</mark></b>`, not both. This new version, starting from <mark><b>.NET Core 5.0</mark></b>, continues the evolution of .NET Core and is now simply called “<mark><b>.NET</mark></b>”. Every November microsoft release version of .NET.</p>
+    <hr/>
+  </details>
+- <details>
+    <summary>What is starting, ending & last version of .Net framework, .Net Core and .Net?</summary>
+    <hr/>
+
+    .Net Framework: 
+
+    - Starting Version: 1.0 (released in February 2002)
+
+    - Ending Version: 4.8.1 (released in August 2021)
+
+    - Latest Version: 4.8.1
+
+    .NET Core
+
+    - Starting Version: 1.0 (released in June 2016)
+
+    - Ending Version: 3.1 (released in December 2019) — .NET Core is succeeded by .NET 5.
+
+    - Latest Version: 3.1 (LTS - Long Term Support)
+
+    .NET (also known as .NET 5 and beyond)
+
+    - Starting Version: 5.0 (released in November 2020)
+
+    - Current Version: 8.0 (released in November 2022)
+      
     <hr/>
   </details>
 - <details>
@@ -190,9 +217,9 @@ VB Source Code => Compiled by using VB Compiler => Generates CIL Code => Which c
 - <details>
     <summary>When the program comes to a running state?</summary>
     <hr/>
-    <p>When we double-click the .exe file of the program, it is moved from secondary memory to primary memory, and then the program starts running.</p>
-    <p>Memory allocation always happens in primary memory.</p>
-    <p>Saving the program always happens in secondary memory.</p>
+    <p>When we double-click the .exe file of the program, it is <mark><b>moved from secondary memory to primary memory</mark></b>, and then the <mark><b>program starts running</mark></b>.</p>
+    <li>Memory allocation always happens in primary memory.</li>
+    <li>Saving the program always happens in secondary memory.</li>
     <hr/>
   </details>
 - <details>
@@ -204,7 +231,8 @@ VB Source Code => Compiled by using VB Compiler => Generates CIL Code => Which c
 - <details>
     <summary>What is Managed and Un-Managed App's?</summary>
     <hr/>
-    <p>Applications that run directly under the operating system are called Unmanaged Apps, while those that run under the .NET Runtime are called Managed Apps.</p>
+    <p>Applications that <mark><b>run directly under the operating system</mark></b> are called Unmanaged Apps, while those that <mark><b>run under the .NET Runtime</mark></b> are called Managed Apps.</p>
+    <li><mark><b>Managed code generally runs faster and more securely</mark></b>, while unmanaged code can be slower and less safe due to the lack of CLR management.</li>
     <hr/>
   </details>
 - <details>
@@ -220,8 +248,7 @@ VB Source Code => Compiled by using VB Compiler => Generates CIL Code => Which c
     <hr/>
     <p>Unmanaged code is not in MSIL code and is not managed by the CLR but can still be used in a .NET environment.</p>
     <p>The CLR does not provide .NET features (like garbage collection or security) for unmanaged code.</p>
-    <p>Examples of unmanaged code include COM components, Win32 APIs, and ActiveX controls.</p>
-    <p>Managed code generally runs faster and more securely, while unmanaged code can be slower and less safe due to the lack of CLR management.</p>
+    <p>Examples of unmanaged code include "COM components", "<mark><b>Win32 APIs</mark></b>", and "<mark><b>ActiveX controls</mark></b>".</p>
     <hr/>
   </details>
 - <details>
@@ -347,87 +374,6 @@ VB Source Code => Compiled by using VB Compiler => Generates CIL Code => Which c
     <p>The automatic memory management process is handled by the Garbage Collector. The Garbage Collector provides automatic memory management only for Managed code, not for Unmanaged code.</p>
     <hr/>
   </details>
-
----
-
-#### Diffrence bitween value type and refrence type:
-
-1. <details>
-     <summary>Who allocate memory for Value type and where it's placed?</summary>
-     <hr/>
-     <p>Usually, memory allocation for value types is done using static memory allocation, and these data types are placed in stack memory.</p>
-     <hr/>
-   </details>
-2. <details>
-     <summary>Who allocate memory for refrence type and where it's placed?</summary>
-     <hr/>
-     <p>Memory allocation for reference types is done using dynamic memory allocation, and these are placed in heap memory.</p>
-     <hr/>
-   </details>
-3. <details>
-     <summary>How is data stored for value types and reference types in memory?</summary>
-     <hr/>
-     <p>Value types store data directly in their memory location, whereas reference types store a reference to another memory location where the data is stored.</p>
-     <hr/>
-   </details>
-4. <details>
-     <summary>When is memory allocated for value types compared to reference types?</summary>
-     <hr/>
-     <p>Memory allocated for value types is at compile time, while for reference types allocated the memory at runtime.</p>
-     <hr/>
-   </details>
-5. <details>
-     <summary>Where are value types and reference types stored in memory?</summary>
-     <hr/>
-     <p>Value types are stored in stack memory, while reference types are stored in heap memory.</p>
-     <hr/>
-   </details>
-6. <details>
-     <summary>How does memory allocation differ between value types and reference types?</summary>
-     <hr/>
-     <p>Memory allocation for value types occurs in <mark><b> contiguous memory locations in the stack </b></mark>, whereas for reference types, it occurs in <mark><b> non-contiguous (random) memory locations in the heap </b></mark>.</p>
-     <hr/>
-   </details>
-7. <details>
-     <summary>How does the CLR handle memory management for value types versus reference types?</summary>
-     <hr/>
-     <p>The CLR does not provide automatic memory management for value types, whereas it does provide automatic memory management ( such as garbage collection ) for reference types.</p>
-     <hr/>
-   </details>
-8. <details>
-     <summary>How does the amount of memory occupied by value types compare to reference types?</summary>
-     <hr/>
-     <p>Value types generally occupy less memory, whereas reference types can occupy more memory, with a single reference type variable potentially using up to 2GB.</p>
-     <hr/>
-   </details>
-9. <details>
-     <summary>What happens if a value type or reference type variable is not initialized?</summary>
-     <hr/>
-     <p>If a value type variable is not initialized, it stores a default value (e.g., int a; defaults to 0). If a reference type variable is not initialized, it stores a null reference (e.g., string s; defaults to null).</p>
-     <hr/>
-   </details>
-10. <details>
-        <summary>Can you provide examples of value types and reference types in C#?</summary>
-        <hr/>
-        <p>Examples of value types: int, double, and enum, while examples of reference types: string, object, and class.</p>
-        <hr/>
-    </details>
-
-<hr/>
-
-| **Serial Number** | **Value Type**                                                                         | **Reference Type**                                                                                   |
-| ----------------- | -------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| 1                 | Store the data directly into their memory location.                                    | Do not store the data directly; instead, they refer to another memory location where data is stored. |
-| 2                 | Memory is allocated at compile time.                                                   | Memory is allocated at runtime.                                                                      |
-| 3                 | Memory is allocated by stack memory allocation.                                        | Memory is allocated by dynamic memory allocation.                                                    |
-| 4                 | Memory allocation is made within the stack, i.e., in a contiguous memory location.     | Memory allocation is made within the heap, i.e., in a random memory location.                        |
-| 5                 | CLR does not provide automatic memory management.                                      | CLR provides automatic memory management.                                                            |
-| 6                 | Occupies less memory.                                                                  | Occupies more memory; a single reference type variable can occupy a maximum of up to 2GB.            |
-| 7                 | If data is not initialized, stores the default value in the variable (e.g., `int a;`). | If data is not initialized, stores a null reference in the variable (e.g., `string S;`).             |
-| 8                 | Examples of value types: `int`, `double`, `enum`, etc.                                 | Examples of reference types: `string`, `object`, `class`, etc.                                       |
-
-<hr/>
-
 - <details>
     <summary>How many times is code compiled in .NET?</summary>
     <hr/>
@@ -517,9 +463,80 @@ VB Source Code => Compiled by using VB Compiler => Generates CIL Code => Which c
     <hr/>
   </details>
 - <details>
-    <summary>What is Application Software?</summary>
+    <summary>What is a collection in the context of the Garbage Collector?</summary>
+    <hr/>
+    <p>A collection is the process the Garbage Collector uses to free memory. It involves two phases:</p>
+    <ol>
+    <li>Marking Phase: Identifies reachable (in use) and unreachable (not in use) objects in Generations 0 and 1.</li>
+    <li>Compact Phase: Removes unreachable objects, promotes reachable objects to Generation 2, and places newly created objects in Generation 0.</li>
+    </ol>
+    <hr/>
+  </details>
+- <details>
+    <summary>What phases are involved in the collection process?</summary>
+    <hr/>
+     Garbage Collector will perform collection of both Generations - 0 & Generation - 1
+    <p>The collection process has two phases:</p>
+    <ol>
+    <li>Marking Phase</li>
+    <li>Compact Phase</li>
+    </ol>
+    <hr/>
+  </details>
+- <details>
+    <summary>What is Application Software?⭐</summary>
     <hr/>
     <p><mark><b> Application software refers to programs designed for end-users to perform specific tasks. </b></mark> This includes individual applications like Notepad, Microsoft Word, Excel, or web browsers. Essentially, any program you use on a computer, <mark><b>other than the operating system, is considered application software.</b></mark> Over time, the term has expanded to include mobile apps and complex software environments, highlighting the role of these programs in modern computing.</p>
+    <hr/>
+  </details>
+- <details>
+    <summary>Explain the compact phase in the collection process.</summary>
+    <hr/>
+    <p>In Compact phase Garbage Collector will perform following tasks:</p>
+    <ul>
+    <li>Destroy unreachable objects from Generations 0 and 1.</li>
+    <li>Reachable objects are promoted to next Generation ie. Generation - 2</li>
+    <li>Newly created object is placed in Generation - 0</li>
+    </ul>
+    <hr/>
+  </details>
+- <details>
+    <summary>How long does the Garbage Collector take for a collection?</summary>
+    <hr/>
+    <p>The Garbage Collector takes approximately 1/10th of a nanosecond to perform a collection of Generation 0.</p>
+    <hr/>
+  </details>
+- <details>
+    <summary>Why there are only 3 Generations maintained?⭐</summary>
+    <hr/>
+    <ul>
+    <li>It has been absorbed that in total application lifetime 95% (or) more collections will perform with generation - 0 only</li>
+    <li>4 to 5% of collections will be performed with Generation - 0 & Generation - 1</li>
+    <li>0 to 1% of collections will be performed with Generation - 0, Generation - 1 & Generation - 2</li>
+    </ul>
+    <p>Three generations are enough to efficiently manage memory for most applications.</p>
+    <hr/>
+  </details>
+- <details>
+    <summary>Why are generations arranged in the increasing order of their memory sizes?</summary>
+    <hr/>
+    <ul>
+    <li>Most collections (95%) happen in Generation 0, which has the smallest size.</li>
+    <li>Fewer collections are needed for Generations 1 and 2, which have larger sizes.</li>
+    </ul>
+    <p>So they are arranged in increasing order</p>
+    <hr/>
+  </details>
+- <details>
+    <summary>Is it possible to trigger garbage collection manually?</summary>
+    <hr/>
+    <p>Yes, you can trigger garbage collection manually using the GC.Collect() method in .NET.</p>
+    <hr/>
+  </details>
+- <details>
+    <summary>Why does the Garbage Collector manage memory for reference types only, not value types?</summary>
+    <hr/>
+    <p>The Common Language Runtime (CLR) provides automatic memory management only for reference types. Value types are managed directly on the stack and do not require garbage collection.</p>
     <hr/>
   </details>
 - <details>
@@ -745,13 +762,13 @@ VB Source Code => Compiled by using VB Compiler => Generates CIL Code => Which c
     <hr/>
   </details>
 - <details>
-    <summary>Where is MSIL used, and where is CIL used?</summary>
+    <summary>Where is MSIL used, and where is CIL used?⭐</summary>
     <hr/>
     <p>MSIL is used in Microsoft's .NET Framework, while CIL is used in the wider Common Language Infrastructure (CLI).</p>
     <hr/>
   </details>
 - <details>
-    <summary>Are MSIL and CIL interchangeable?</summary>
+    <summary>Are MSIL and CIL interchangeable?⭐</summary>
     <hr/>
     <p>Yes, they are different names for the same intermediate language.</p>
     <hr/>
@@ -760,25 +777,6 @@ VB Source Code => Compiled by using VB Compiler => Generates CIL Code => Which c
     <summary>Which term describes the intermediate language in the overall .NET ecosystem?</summary>
     <hr/>
     <p>CIL (Common Intermediate Language) is used in the .NET ecosystem.</p>
-    <hr/>
-  </details>
-- <details>
-    <summary>What is .NET Framework used for?</summary>
-    <hr/>
-    <p>.NET Framework is used to create and run software applications on Windows. It provides the environment for running .NET apps.</p>
-    <hr/>
-  </details>
-- <details>
-    <summary>Who uses .NET Framework?</summary>
-    <hr/>
-    <p><b>Users:</b> Need .NET Framework to run applications built with it. It is often pre-installed with Windows but can be downloaded if needed.<br/>
-    <b>Developers:</b> Use .NET Framework to build various applications, such as websites, services, and desktop apps, using tools like Visual Studio.</p>
-    <hr/>
-  </details>
-- <details>
-    <summary>How does .NET Framework work?</summary>
-    <hr/>
-    <p>.NET Framework applications are written in languages like C#, F#, or Visual Basic and are compiled to Common Intermediate Language (CIL). The Common Language Runtime (CLR) converts CIL to machine code and runs the application.</p>
     <hr/>
   </details>
 - <details>
@@ -802,13 +800,13 @@ VB Source Code => Compiled by using VB Compiler => Generates CIL Code => Which c
     <hr/>
   </details>
 - <details>
-    <summary>What is the architecture of .NET Core and what are the two main components of .NET Core,</summary>
+    <summary>What is the architecture of .NET Core and what are the two main components of .NET Core?⭐</summary>
     <hr/>
     <p>The two main components of .NET Core are CoreCLR and CoreFX. CoreCLR is comparable to the Common Language Runtime (CLR) in the .NET Framework, while CoreFX is comparable to the Framework Class Library (FCL).</p>
     <hr/>
   </details>
 - <details>
-    <summary>What is CoreFX in .NET Core?</summary>
+    <summary>What is CoreFX?⭐</summary>
     <hr/>
     <p>CoreFX is the set of basic class libraries in .NET Core. It includes types for collections, file systems, console, JSON, XML, and other common functions. It is known as the Unified Base Class Library and includes the System.* namespaces (and some Microsoft.* namespaces).</p>
     <hr/>
@@ -836,13 +834,13 @@ VB Source Code => Compiled by using VB Compiler => Generates CIL Code => Which c
     <hr/>
   </details>
 - <details>
-    <summary>What is Roslyn in the context of .NET development?</summary>
+    <summary>What is Roslyn in the context of .NET development?⭐</summary>
     <hr/>
     <p>Roslyn is the open-source compiler platform for C# and Visual Basic.NET. It is cross-platform and provides rich code analysis APIs, enabling developers to write powerful code analysis and refactoring tools.</p>
     <hr/>
   </details>
 - <details>
-    <summary>What are the main features of Roslyn?</summary>
+    <summary>What are the main features of Roslyn?⭐</summary>
     <hr/>
     <p>Roslyn provides a compiler-as-a-service API for C# and VB.NET, offering capabilities such as syntax analysis, semantic analysis, code generation, and refactoring. It allows developers to access and manipulate code in a more powerful way than traditional compilers.</p>
     <hr/>
@@ -880,7 +878,7 @@ VB Source Code => Compiled by using VB Compiler => Generates CIL Code => Which c
     <hr/>
   </details>
 - <details>
-    <summary>What are the characteristics of .NET Core?</summary>
+    <summary>What are the characteristics of .NET Core?⭐</summary>
     <hr/>
     The key characteristics of .NET Core are:
     <ul>
@@ -897,7 +895,7 @@ VB Source Code => Compiled by using VB Compiler => Generates CIL Code => Which c
     <hr/>
   </details>
 - <details>
-    <summary>What is the composition of .NET Core?</summary>
+    <summary>What is the composition of .NET Core?⭐</summary>
     <hr/>
     .NET Core is composed of the following parts:
     <ul>
@@ -915,7 +913,7 @@ VB Source Code => Compiled by using VB Compiler => Generates CIL Code => Which c
     <hr/>
   </details>
 - <details>
-    <summary>Why is .NET Core considered modern?</summary>
+    <summary>Why is .NET Core considered modern?⭐</summary>
     <hr/>
     <p>.NET Core is considered modern because it uses current software development practices like asynchronous programming, no-copy patterns with structs, and resource management for container environments. It also aims for high performance and works across different platforms.</p>
     <hr/>
@@ -927,7 +925,7 @@ VB Source Code => Compiled by using VB Compiler => Generates CIL Code => Which c
     <hr/>
   </details>
 - <details>
-    <summary>What is the .NET Core SDK?</summary>
+    <summary>What is the .NET Core SDK?⭐</summary>
     <hr/>
     <p>The .NET Core SDK (Software Development Kit) includes all the tools and libraries needed to build and run .NET Core applications. It provides:</p>
     <ul>
@@ -955,13 +953,13 @@ VB Source Code => Compiled by using VB Compiler => Generates CIL Code => Which c
   </details>
 
 - <details>
-    <summary>What's the difference between the SDK and Runtime in .NET Core?</summary>
+    <summary>What's the difference between the SDK and Runtime in .NET Core?⭐</summary>
     <hr/>
     <p>The SDK provides all the tools required for development, including the CLI and compilers. The Runtime is the environment where the application runs, handling the execution of the code and abstracting interaction with the base operating system.</p>
     <hr/>
   </details>
 - <details>
-    <summary>What is the difference between .NET Core and .NET Framework?</summary>
+    <summary>What is the difference between .NET Core and .NET Framework?⭐</summary>
     <hr/>
     <p>The key differences between .NET Core and .NET Framework are:</p>
     <ul>
@@ -973,13 +971,13 @@ VB Source Code => Compiled by using VB Compiler => Generates CIL Code => Which c
     <hr/>
   </details>
 - <details>
-    <summary>What is the difference between .NET Core and Mono?</summary>
+    <summary>What is the difference between .NET Core and Mono?⭐</summary>
     <hr/>
     <p>Mono is a third-party implementation of the .NET Framework designed to run on Linux, Android, and iOS. .NET Core is Microsoft's own implementation designed to be cross-platform, running on Windows, macOS, and Linux.</p>
     <hr/>
   </details>
 - <details>
-    <summary>What's the difference between .NET Core, .NET Framework, and Xamarin?</summary>
+    <summary>What's the difference between .NET Core, .NET Framework, and Xamarin?⭐</summary>
     <hr/>
     <ul>
     <li><b>.NET Framework: </b>The traditional .NET implementation for Windows, used for desktop and UWP apps, and older ASP.NET applications.</li>
@@ -989,7 +987,7 @@ VB Source Code => Compiled by using VB Compiler => Generates CIL Code => Which c
     <hr/>
   </details>
 - <details>
-    <summary>What is included in the .NET Core SDK?</summary>
+    <summary>What is included in the .NET Core SDK?⭐</summary>
     <hr/>
     <p>The .NET Core SDK includes the .NET Core CLI, essential libraries, runtime, and the dotnet command for building and running .NET Core applications. </p>
     <hr/>
@@ -1021,9 +1019,8 @@ VB Source Code => Compiled by using VB Compiler => Generates CIL Code => Which c
 
     <hr/>
   </details>
-
 - <details>
-    <summary>What is the release schedule for .NET Core?</summary>
+    <summary>What is the release schedule for .NET Core?c</summary>
     <hr/>
     <p>NET Core 2.1 and .NET Core 3.1 are the current LTS releases made available on August 2018 and December 2019, respectively. After .NET Core 3.1, the product will be renamed to .NET and LTS releases will be made available every other year in November. So, the next LTS release will be .NET 6, which will ship in November 2021. This will help customers plan upgrades more effectively. </p>
     <hr/>
@@ -1050,23 +1047,23 @@ LTS (long-term support) releases have an extended support period. Use this if yo
 - <details>
     <summary>What is the difference between LTS and EOL versions of .NET Core?</summary>
     <hr/>
-    <p> LTS (Long-Term Support) versions have a longer support period and are suitable for production environments. EOL (End of Life) versions have reached their end of support and are no longer maintained. It is recommended to upgrade to a supported version if you are using an EOL version.</p>
+    <p> LTS  versions have a longer support period and are suitable for production environments. EOL (End of Life) versions have reached their end of support and are no longer maintained. It is recommended to upgrade to a supported version if you are using an EOL version.</p>
     <hr/>
   </details>
 - <details>
-    <summary>Why is it important to use an LTS version of .NET Core?</summary>
+    <summary>Why is it important to use an LTS version of .NET Core?⭐</summary>
     <hr/>
-    <p>LTS versions offer extended support periods, ensuring stability and long-term maintenance, which is critical for production applications that require consistent performance and security updates.</p>
+    <p>LTS((Long-Term Support)) versions offer extended support periods, ensuring stability and long-term maintenance, which is critical for production applications that require consistent performance and security updates.</p>
     <hr/>
   </details>
 - <details>
-    <summary>What is .NET 5, and why is it significant?</summary>
+    <summary>What is .NET 5, and why is it significant?⭐</summary>
     <hr/>
     <p>.NET 5 is the next major version of the .NET platform, unifying .NET Core, .NET Framework, Xamarin, and Mono into a single platform. It provides a consistent runtime, API, and language capabilities across all types of applications, simplifying development and improving compatibility. The release marks a significant step towards having a single .NET runtime and framework for all types of development.</p>
     <hr/>
   </details>
 - <details>
-    <summary>Why did Microsoft skip the version number 4 for .NET 5?</summary>
+    <summary>Why did Microsoft skip the version number 4 for .NET 5?⭐</summary>
     <hr/>
     <p>Microsoft skipped version 4 to avoid confusion with the existing .NET Framework, which has been using the 4.x series for a long time. They also wanted to communicate clearly that .NET 5 represents the future of the .NET platform and to simplify the naming by dropping “Core” from the name.</p>
     <hr/>
@@ -1080,7 +1077,7 @@ LTS (long-term support) releases have an extended support period. Use this if yo
     <hr/>
   </details>
 - <details>
-    <summary>What benefits does .NET 5 offer to developers?</summary>
+    <summary>What benefits does .NET 5 offer to developers?⭐</summary>
     <hr/>
     <p>.NET 5 offers a unified platform that ensures consistency across different types of applications. It provides a single runtime, consistent API, and language capabilities, simplifying the development process. Developers benefit from uniform behaviors, improved performance, and the ability to leverage a single code base for different platforms.</p>
     <hr/>
@@ -1092,7 +1089,7 @@ LTS (long-term support) releases have an extended support period. Use this if yo
     <hr/>
   </details>
 - <details>
-    <summary>What does it mean that .NET 5 is built out of a single code base?</summary>
+    <summary>What does it mean that .NET 5 is built out of a single code base?⭐</summary>
     <hr/>
     <p>Building .NET 5 from a single code base means that both Microsoft and the community can contribute to the development of the platform, enhancing all scenarios and use cases. This approach promotes collaboration and ensures that improvements benefit the entire .NET ecosystem.</p>
     <hr/>
@@ -1110,7 +1107,7 @@ LTS (long-term support) releases have an extended support period. Use this if yo
     <hr/>
   </details>
 - <details>
-    <summary>What is Mono, and what is its primary purpose in the .NET ecosystem?</summary>
+    <summary>What is Mono, and what is its primary purpose in the .NET ecosystem?⭐</summary>
     <hr/>
     <p>Mono is the original cross-platform implementation of .NET, initially developed as an open-source alternative to the .NET Framework. Over time, it evolved to target mobile devices, particularly iOS and Android, as part of the Xamarin platform. Mono allows developers to build cross-platform applications for mobile and other non-Windows platforms.</p>
     <hr/>
@@ -1122,13 +1119,13 @@ LTS (long-term support) releases have an extended support period. Use this if yo
     <hr/>
   </details>
 - <details>
-    <summary>How are Mono and Core CLR similar, and what is the future goal for these runtimes?</summary>
+    <summary>How are Mono and Core CLR similar, and what is the future goal for these runtimes?⭐</summary>
     <hr/>
     <p>Mono and Core CLR are both .NET runtimes, and they share many similarities, such as supporting managed code execution and various .NET libraries. However, each runtime has unique capabilities tailored to different platforms and use cases (e.g., Mono for mobile and Core CLR for cloud and desktop). The future goal is to make Mono and Core CLR interchangeable, allowing developers to easily switch between them using a build option, depending on the specific needs of their applications.</p>
     <hr/>
   </details>
 - <details>
-    <summary>What is the main difference between Mono and Core CLR?</summary>
+    <summary>What is the main difference between Mono and Core CLR?⭐</summary>
     <hr/>
     <p>While both are .NET runtimes, Mono was originally designed for cross-platform compatibility and mobile devices, while Core CLR was designed for cloud applications and has expanded to other uses like desktop and IoT. Mono is part of Xamarin, while Core CLR is the default runtime for .NET Core.</p>
     <hr/>
@@ -1137,117 +1134,6 @@ LTS (long-term support) releases have an extended support period. Use this if yo
     <summary>Why does it make sense to have Mono and Core CLR as interchangeable runtimes?</summary>
     <hr/>
     <p>Both runtimes have similar capabilities but also offer unique features. Making them interchangeable allows developers to pick the runtime that best suits their needs, whether for mobile, cloud, or other application types.</p>
-    <hr/>
-  </details>
-- <details>
-    <summary>What are the generations in automatic memory management?</summary>
-    <hr/>
-    <p>Generations are named as Generations - 0, Generations - 1 & Generations - 2</p>
-    <hr/>
-  </details>
-- <details>
-    <summary>How many generations are maintained by the Garbage Collector?</summary>
-    <hr/>
-    <p>3 (three) generations are maintained by the Garbage Collector</p>
-    <hr/>
-  </details>
-- <details>
-      <summary>How are Generations arranged in automatic memory management?</summary>
-      <hr/>
-      <p>Generations are arranged in the increasing order of their memory sizes, That is Generations - 0 memory
-    size is less than Generations - 1 memory size & Generations - 1   memory size smaller than Generation - 2
-    memory size</p>
-      <hr/>
-  </details>
-- <details>
-      <summary>What are reachable & unreachable objects?</summary>
-      <hr/>
-      <p>Reachable objects are objects currently in use by the application.<br/>
-      Unreachable objects are objects that are no longer in use or are idle.
-      </p>
-      <hr/>
-  </details>
-- <details>
-    <summary>What is a collection in the context of the Garbage Collector?</summary>
-    <hr/>
-    <p>A collection is the process the Garbage Collector uses to free memory. It involves two phases:</p>
-    <ol>
-    <li>Marking Phase: Identifies reachable (in use) and unreachable (not in use) objects in Generations 0 and 1.</li>
-    <li>Compact Phase: Removes unreachable objects, promotes reachable objects to Generation 2, and places newly created objects in Generation 0.</li>
-    </ol>
-    <hr/>
-  </details>
-- <details>
-    <summary>What phases are involved in the collection process?</summary>
-    <hr/>
-     Garbage Collector will perform collection of both Generations - 0 & Generation - 1
-    <p>The collection process has two phases:</p>
-    <ol>
-    <li>Marking Phase</li>
-    <li>Compact Phase</li>
-    </ol>
-    <hr/>
-  </details>
-- <details>
-      <summary>Explain the marking phase in the collection process.</summary>
-      <hr/>
-      <p> In marking phase Garbage collector will perform following tasks
-  </p>
-      <ol>
-      <li>Examize all the objects of both Generation - 0 & Generation - 1,</li>
-      <li>Identifies which objects are reachable and which are not.</li>
-      <li>maintain separate flag for Reachable & Unreachable objects</li>
-      </ol>
-      <hr/>
-  </details>
-- <details>
-    <summary>Explain the compact phase in the collection process.</summary>
-    <hr/>
-    <p>In Compact phase Garbage Collector will perform following tasks:</p>
-    <ul>
-    <li>Destroy unreachable objects from Generations 0 and 1.</li>
-    <li>Reachable objects are promoted to next Generation ie. Generation - 2</li>
-    <li>Newly created object is placed in Generation - 0</li>
-    </ul>
-    <hr/>
-  </details>
-- <details>
-    <summary>How long does the Garbage Collector take for a collection?</summary>
-    <hr/>
-    <p>The Garbage Collector takes approximately 1/10th of a nanosecond to perform a collection of Generation 0.</p>
-    <hr/>
-  </details>
-- <details>
-    <summary>Why there are only 3 Generations maintained?</summary>
-    <hr/>
-    <ul>
-    <li>It has been absorbed that in total application lifetime 95% (or) more collections will perform with generation - 0 only</li>
-    <li>4 to 5% of collections will be performed with Generation - 0 & Generation - 1</li>
-    <li>0 to 1% of collections will be performed with Generation - 0, Generation - 1 & Generation - 2</li>
-    </ul>
-    <p>Three generations are enough to efficiently manage memory for most applications.</p>
-    <hr/>
-  </details>
-- <details>
-    <summary>Why are generations arranged in the increasing order of their memory sizes?</summary>
-    <hr/>
-    <ul>
-    <li>Most collections (95%) happen in Generation 0, which has the smallest size.</li>
-    <li>Fewer collections are needed for Generations 1 and 2, which have larger sizes.</li>
-    </ul>
-    <p>So they are arranged in increasing order</p>
-    <hr/>
-  </details>
-- <details>
-    <summary>Is it possible to trigger garbage collection manually?</summary>
-    <hr/>
-    <p>Yes, you can trigger garbage collection manually using the GC.Collect() method in .NET.</p>
-    <hr/>
-  </details>
-- <details>
-    <summary>Why does the Garbage Collector manage memory for reference types only, not value types?</summary>
-    <hr/>
-    <p>The Common Language Runtime (CLR) provides automatic memory management only for reference types. Value types are managed directly on the stack and do not require garbage collection.</p>
     <hr/>
   </details>
 - <details>
@@ -1263,7 +1149,7 @@ LTS (long-term support) releases have an extended support period. Use this if yo
     <hr/>
   </details>
 - <details>
-    <summary>What is Ngen.exe, and what does it do?</summary>
+    <summary>What is Ngen.exe, and what does it do?⭐</summary>
     <hr/>
     <ul>
     <li>Ngen.exe (Native Image Generator) compiles MSIL code to native code and stores it on the computer.</li>
@@ -1272,7 +1158,7 @@ LTS (long-term support) releases have an extended support period. Use this if yo
     <hr/>
   </details>
 - <details>
-    <summary>When should you use the JIT compiler versus Ngen.exe?</summary>
+    <summary>When should you use the JIT compiler versus Ngen.exe?⭐</summary>
     <hr/>
     <ul>
     <li>Use the JIT compiler for runtime compilation of MSIL code to native code</li>
@@ -1284,6 +1170,72 @@ LTS (long-term support) releases have an extended support period. Use this if yo
     <summary>Which is faster: managed code or unmanaged code execution, and why?</summary>
     <hr/>
     <p>Managed code execution is generally faster because the CLR provides optimization and services like memory management.</p>
+    <hr/>
+  </details>
+- <details>
+    <summary>What is the difference between Procedural Programming and Object-Oriented Programming?⭐</summary>
+    <hr/>
+    <p>Procedural Programming focuses on functions and procedures, with the main program being the entry point. Object-Oriented Programming uses classes and objects to encapsulate data and methods, providing better security and reusability.</p>
+    <hr/>
+  </details>
+- <details>
+    <summary>How does a class differ from a structure in programming?⭐</summary>
+    <hr/>
+    <p>A class is a user-defined type that can contain both variables and methods, whereas a structure (in C) can only contain variables. Classes support object-oriented features like inheritance and polymorphism, while structures are simpler and generally used for lightweight data.</p>
+    <hr/>
+  </details>
+- <details>
+    <summary>What is a class in Object-Oriented Programming?⭐</summary>
+    <hr/>
+    <p>A class is a blueprint for creating objects. It defines a type that can contain both data (variables) and methods to operate on that data.</p>
+    <hr/>
+  </details>
+- <details>
+    <summary>What is the main purpose of the static keyword in Java and C#?⭐</summary>
+    <hr/>
+    <p>The static keyword is used to define class-level members that can be accessed without creating an instance of the class. For example, the Main method in Java and C# is declared static so that it can be executed without needing to instantiate the class.</p>
+    <hr/>
+  </details>
+- <details>
+    <summary>How does Java handle the main method differently from C++ and C#?</summary>
+    <hr/>
+    <p>In Java, the main method is declared static and can be inside the class, allowing it to run without creating an instance of the class. In contrast, C++ typically places the main function outside of classes to avoid circular dependency issues.</p>
+    <hr/>
+  </details>
+- <details>
+    <summary>What is a web application?⭐</summary>
+    <hr/>
+    The data which is changing in one system but the modification is done in all other system is called web application.
+    <hr/>
+  </details>
+- <details>
+    <summary>What is a desktop application?⭐</summary>
+    <hr/>
+    The data which is changing in one system but not affected in other system is called desktop application.
+    <hr/>
+  </details>
+- <details>
+    <summary>What are the features that are not available in Java but available in C#?⭐</summary>
+    <hr/>
+    <ul>The feature that are available in C# but not available in java are: <li>Language Interoperablity</li><li>Pointer,</li><li> Structures,</li><li> Indexes,</li><li> Auto Implemented properties,</li><li> Code access security,</li><li> Explicit interface implementation,</li><li> Multiple Inheritance in C# is more efficient then Java </li><li> Access Modifier are only 4 in jave but in C# 7 access modifiers are avaliable</li></ul>
+    <hr/>
+  </details>
+- <details>
+    <summary>What are the standards followed when writing programs by using C# Language?⭐</summary>
+    <hr/>
+    <ol>
+      <li>
+      It's a case sensitive language so we need to follow the below rules and conventions:
+      <ul>
+      <li>All keywords in the language must be in lower case (rule)</li>
+      <li>While consuming the libraries, names will be in Pascal Case (rule). E.g.: WriteLine, ReadLine</li>
+      <li>While defining our own classes and members to name them we can follow any casing pattern, but Pascal case is suggested (convention)</li>
+      </ul>
+      </li>
+      <li>A C# program should be saved with “.cs” extension</li>
+      <li>We can use any name as a file name under which we write the program, but class name is suggested to be used as file name also</li>
+      <li>To write programs in C# we use an IDE (Integrated Development Environment) known as Visual Studio but we can also write them by using any text editor like Notepad also.</li>
+    </ol>
     <hr/>
   </details>
 - <details>
@@ -1325,24 +1277,7 @@ LTS (long-term support) releases have an extended support period. Use this if yo
     <p>Assemblies exist in the form of DLL or EXE files.</p>
     <hr/>
   </details>
-- <details>
-    <summary>What is the hierarchy of an assembly, and what is its purpose?</summary>
-    <hr/>
-    <p>The assembly hierarchy (e.g., System.Collections) provides easy access to predefined functions and helps avoid naming conflicts.</p>
-    <hr/>
-  </details>
-- <details>
-    <summary>What is the Base Class Library (BCL)?</summary>
-    <hr/>
-    <p>The Base Class Library consists of class libraries created by Microsoft, installed with the .NET Framework, and provides core functionality like collections, file I/O, etc.</p>
-    <hr/>
-  </details>
-- <details>
-    <summary>What are user-defined class libraries?</summary>
-    <hr/>
-    <p>User-defined class libraries are libraries created by developers to be reused within applications or projects.</p>
-    <hr/>
-  </details>
+## 02: Basic:-
 - <details>
     <summary>What is C# and why was it named so?</summary>
     <hr/>
@@ -1355,75 +1290,85 @@ LTS (long-term support) releases have an extended support period. Use this if yo
     <p>C# was developed around 2000 by Microsoft, with Anders Hejlsberg as the principal designer. It was initially known as "COOL" before being renamed to C#. It has evolved through several versions, with the most recent being C# 12.</p>
     <hr/>
   </details>
-- <details>
-    <summary>What is the difference between Procedural Programming and Object-Oriented Programming?</summary>
-    <hr/>
-    <p>Procedural Programming focuses on functions and procedures, with the main program being the entry point. Object-Oriented Programming uses classes and objects to encapsulate data and methods, providing better security and reusability.</p>
-    <hr/>
-  </details>
-- <details>
-    <summary>How does a class differ from a structure in programming?</summary>
-    <hr/>
-    <p>A class is a user-defined type that can contain both variables and methods, whereas a structure (in C) can only contain variables. Classes support object-oriented features like inheritance and polymorphism, while structures are simpler and generally used for lightweight data.</p>
-    <hr/>
-  </details>
-- <details>
-    <summary>What is a class in Object-Oriented Programming?</summary>
-    <hr/>
-    <p>A class is a blueprint for creating objects. It defines a type that can contain both data (variables) and methods to operate on that data.</p>
-    <hr/>
-  </details>
-- <details>
-    <summary>What is the main purpose of the static keyword in Java and C#?</summary>
-    <hr/>
-    <p>The static keyword is used to define class-level members that can be accessed without creating an instance of the class. For example, the Main method in Java and C# is declared static so that it can be executed without needing to instantiate the class.</p>
-    <hr/>
-  </details>
-- <details>
-    <summary>How does Java handle the main method differently from C++ and C#?</summary>
-    <hr/>
-    <p>In Java, the main method is declared static and can be inside the class, allowing it to run without creating an instance of the class. In contrast, C++ typically places the main function outside of classes to avoid circular dependency issues.</p>
-    <hr/>
-  </details>
-- <details>
-    <summary>What is a web application ?</summary>
-    <hr/>
-    The data which is changing in one system but the modification is done in all other system is called web application.
-    <hr/>
-  </details>
-- <details>
-    <summary>What is a desktop application ?</summary>
-    <hr/>
-    The data which is changing in one system but not affected in other system is called desktop application.
-    <hr/>
+
+#### Diffrence bitween value type and refrence type:
+
+1. <details>
+     <summary>Who allocate memory for Value type and where it's placed?</summary>
+     <hr/>
+     <p>Usually, memory allocation for value types is done using static memory allocation, and these data types are placed in stack memory.</p>
+     <hr/>
+   </details>
+2. <details>
+     <summary>Who allocate memory for refrence type and where it's placed?</summary>
+     <hr/>
+     <p>Memory allocation for reference types is done using dynamic memory allocation, and these are placed in heap memory.</p>
+     <hr/>
+   </details>
+3. <details>
+     <summary>How is data stored for value types and reference types in memory?</summary>
+     <hr/>
+     <p>Value types store data directly in their memory location, whereas reference types store a reference to another memory location where the data is stored.</p>
+     <hr/>
+   </details>
+4. <details>
+     <summary>When is memory allocated for value types compared to reference types?</summary>
+     <hr/>
+     <p>Memory allocated for value types is at compile time, while for reference types allocated the memory at runtime.</p>
+     <hr/>
+   </details>
+5. <details>
+     <summary>Where are value types and reference types stored in memory?</summary>
+     <hr/>
+     <p>Value types are stored in stack memory, while reference types are stored in heap memory.</p>
+     <hr/>
+   </details>
+6. <details>
+     <summary>How does memory allocation differ between value types and reference types?</summary>
+     <hr/>
+     <p>Memory allocation for value types occurs in <mark><b> contiguous memory locations in the stack </b></mark>, whereas for reference types, it occurs in <mark><b> non-contiguous (random) memory locations in the heap </b></mark>.</p>
+     <hr/>
+   </details>
+7. <details>
+     <summary>How does the CLR handle memory management for value types versus reference types?</summary>
+     <hr/>
+     <p>The CLR does not provide automatic memory management for value types, whereas it does provide automatic memory management ( such as garbage collection ) for reference types.</p>
+     <hr/>
+   </details>
+8. <details>
+     <summary>How does the amount of memory occupied by value types compare to reference types?</summary>
+     <hr/>
+     <p>Value types generally occupy less memory, whereas reference types can occupy more memory, with a single reference type variable potentially using up to 2GB.</p>
+     <hr/>
+   </details>
+9. <details>
+     <summary>What happens if a value type or reference type variable is not initialized?</summary>
+     <hr/>
+     <p>If a value type variable is not initialized, it stores a default value (e.g., int a; defaults to 0). If a reference type variable is not initialized, it stores a null reference (e.g., string s; defaults to null).</p>
+     <hr/>
+   </details>
+10. <details>
+        <summary>Can you provide examples of value types and reference types in C#?</summary>
+        <hr/>
+        <p>Examples of value types: int, double, and enum, while examples of reference types: string, object, and class.</p>
+        <hr/>
   </details>
 
-## 02: Basic:-
+<hr/>
 
-- <details>
-    <summary>What are the features that are not available in Java but available in C#?</summary>
-    <hr/>
-    <ul>The feature that are available in C# but not available in java are: <li>Language Interoperablity</li><li>Pointer,</li><li> Structures,</li><li> Indexes,</li><li> Auto Implemented properties,</li><li> Code access security,</li><li> Explicit interface implementation,</li><li> Multiple Inheritance in C# is more efficient then Java </li><li> Access Modifier are only 4 in jave but in C# 7 access modifiers are avaliable</li></ul>
-    <hr/>
-  </details>
-- <details>
-    <summary>What are the standards followed when writing programs by using C# Language?</summary>
-    <hr/>
-    <ol>
-      <li>
-      It's a case sensitive language so we need to follow the below rules and conventions:
-      <ul>
-      <li>All keywords in the language must be in lower case (rule)</li>
-      <li>While consuming the libraries, names will be in Pascal Case (rule). E.g.: WriteLine, ReadLine</li>
-      <li>While defining our own classes and members to name them we can follow any casing pattern, but Pascal case is suggested (convention)</li>
-      </ul>
-      </li>
-      <li>A C# program should be saved with “.cs” extension</li>
-      <li>We can use any name as a file name under which we write the program, but class name is suggested to be used as file name also</li>
-      <li>To write programs in C# we use an IDE (Integrated Development Environment) known as Visual Studio but we can also write them by using any text editor like Notepad also.</li>
-    </ol>
-    <hr/>
-  </details>
+| **Serial Number** | **Value Type**                                                                         | **Reference Type**                                                                                   |
+| ----------------- | -------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| 1                 | Store the data directly into their memory location.                                    | Do not store the data directly; instead, they refer to another memory location where data is stored. |
+| 2                 | Memory is allocated at compile time.                                                   | Memory is allocated at runtime.                                                                      |
+| 3                 | Memory is allocated by stack memory allocation.                                        | Memory is allocated by dynamic memory allocation.                                                    |
+| 4                 | Memory allocation is made within the stack, i.e., in a contiguous memory location.     | Memory allocation is made within the heap, i.e., in a random memory location.                        |
+| 5                 | CLR does not provide automatic memory management.                                      | CLR provides automatic memory management.                                                            |
+| 6                 | Occupies less memory.                                                                  | Occupies more memory; a single reference type variable can occupy a maximum of up to 2GB.            |
+| 7                 | If data is not initialized, stores the default value in the variable (e.g., `int a;`). | If data is not initialized, stores a null reference in the variable (e.g., `string S;`).             |
+| 8                 | Examples of value types: `int`, `double`, `enum`, etc.                                 | Examples of reference types: `string`, `object`, `class`, etc.                                       |
+
+<hr/>
+
 - <details>
     <summary>What is the syntax to define a class in C#?</summary>
     <hr/>
@@ -1448,21 +1393,19 @@ LTS (long-term support) releases have an extended support period. Use this if yo
     <hr/>
     
     ```c#
-    static void Main([string[] args])
-    {
-       // Statements
-    }
+      static void Main([string[] args])
+      {
+         // Statements
+      }
+    ```
 
-  ```
-
-  <ul>
-  <li><b>static</b>: Indicates that the method can be called without creating an instance of the class.</li>
-  <li><b>void</b>: Means the method does not return a value.</li>
-  <li><b>Main</b>: The entry point of the program; its name must be in Pascal Case.</li>
-  </ul>
-  <hr/>
+    <ul>
+    <li><b>static</b>: Indicates that the method can be called without creating an instance of the class.</li>
+    <li><b>void</b>: Means the method does not return a value.</li>
+    <li><b>Main</b>: The entry point of the program; its name must be in Pascal Case.</li>
+    </ul>
+   <hr/>
   </details>
-  ```
 
 - <details>
     <summary>How do you compile a C# program using the command prompt?</summary>
@@ -1710,19 +1653,14 @@ LTS (long-term support) releases have an extended support period. Use this if yo
     <hr/>
     
     ```C#
-    int a = 5, b = 10;
-
-  a = a \* b; // a becomes 50
-  b = a / b; // b becomes 5
-  a = a / b; // a becomes 10
-
-  ```
+      int a = 5, b = 10;
+      a = a \* b; // a becomes 50
+      b = a / b; // b becomes 5
+      a = a / b; // a becomes 10
+    ```
 
   <hr/>
   </details>
-
-  ```
-
 - <details>
     <summary>How do you swap two numbers in C# without using a third variable and +, -, *, / operator?</summary>
     <hr/>
@@ -2183,49 +2121,45 @@ LTS (long-term support) releases have an extended support period. Use this if yo
     <hr/>
     
     ```C#
-    static void Main()
-    {
-      int Number;
-      Console.Write("Enter any number = ");
-      Number = Convert.ToInt32(Console.ReadLine());
-
-      if (CheckPrime(Number))
+      static void Main()
       {
-        Console.WriteLine("Number is Prime");
+        int Number;
+        Console.Write("Enter any number = ");
+        Number = Convert.ToInt32(Console.ReadLine());
+
+        if (CheckPrime(Number))
+        {
+          Console.WriteLine("Number is Prime");
+        }
+        else
+        {
+          Console.WriteLine("Number is Not Prime");
+        }
+
+        Console.ReadKey();
       }
-      else
+
+      static bool CheckPrime(int N)
       {
-        Console.WriteLine("Number is Not Prime");
-      }
+      // A number less than or equal to 1 is not prime
+      if (N <= 1) return false;
 
-      Console.ReadKey();
-
-  }
-
-  static bool CheckPrime(int N)
-  {
-  // A number less than or equal to 1 is not prime
-  if (N <= 1) return false;
-
-      // Check for factors from 2 to sqrt(N)
-      for (int Count = 2; Count <= Math.Sqrt(N); Count++)
-      {
-          if (N % Count == 0)
+          // Check for factors from 2 to sqrt(N)
+          for (int Count = 2; Count <= Math.Sqrt(N); Count++)
           {
-              return false;
+              if (N % Count == 0)
+              {
+                  return false;
+              }
           }
+
+          return true;
+
       }
-
-      return true;
-
-  }
-
-  ```
+    ```
 
   <hr/>
   </details>
-  ```
-
 - <details>
     <summary>What is an array in C#?</summary>
     <hr/>
@@ -2608,52 +2542,48 @@ LTS (long-term support) releases have an extended support period. Use this if yo
     <hr/>
     
     ```C#
-    static void Main()
-    {
-      int Size, Index;
-      Console.WriteLine("Enter the size of an Array = ");
-      Size = Convert.ToInt32(Console.ReadLine());
-      int[] Array = new int[Size];
-      Console.WriteLine("Enter the " + Size + " elements to an array = ");
-      for (Index = 0; Index < Size; Index++)
+      static void Main()
       {
-        Array[Index] = Convert.ToInt32(Console.ReadLine());
-      }
-      Console.WriteLine("Elements of array Before sorting = ");
-      foreach (int X in Array)
-      {
-        Console.Write(X + " ");
-      }
-
-      // Bubble sort code
-      for (int Round = 1; Round <= Size - 1; Round++)
-      {
-        for (int Start_Index = 0; Start_Index < Size - Round; Start_Index++)
+        int Size, Index;
+        Console.WriteLine("Enter the size of an Array = ");
+        Size = Convert.ToInt32(Console.ReadLine());
+        int[] Array = new int[Size];
+        Console.WriteLine("Enter the " + Size + " elements to an array = ");
+        for (Index = 0; Index < Size; Index++)
         {
-          if (Array[Start_Index] > Array[Start_Index + 1])
+          Array[Index] = Convert.ToInt32(Console.ReadLine());
+        }
+        Console.WriteLine("Elements of array Before sorting = ");
+        foreach (int X in Array)
+        {
+          Console.Write(X + " ");
+        }
+
+        // Bubble sort code
+        for (int Round = 1; Round <= Size - 1; Round++)
+        {
+          for (int Start_Index = 0; Start_Index < Size - Round; Start_Index++)
           {
-            int Temporary = Array[Start_Index];
-            Array[Start_Index] = Array[Start_Index + 1];
-            Array[Start_Index + 1] = Temporary;
+            if (Array[Start_Index] > Array[Start_Index + 1])
+            {
+              int Temporary = Array[Start_Index];
+              Array[Start_Index] = Array[Start_Index + 1];
+              Array[Start_Index + 1] = Temporary;
+            }
           }
         }
+
+        Console.WriteLine("\nElements of array After sorting = ");
+        foreach (int X in Array)
+        {
+          Console.Write(X + " ");
+        }
+        Console.ReadKey();
       }
-
-      Console.WriteLine("\nElements of array After sorting = ");
-      foreach (int X in Array)
-      {
-        Console.Write(X + " ");
-      }
-      Console.ReadKey();
-
-  }
-
-  ```
+    ```
 
   <hr/>
   </details>
-  ```
-
 - <details>
     <summary> What are the advantages and disadvantages of Bubble Sort?</summary>
     <hr/>
@@ -2686,54 +2616,49 @@ LTS (long-term support) releases have an extended support period. Use this if yo
     <hr/>
     
     ```C#
-    static void Main()
-    {
-      int Size, Index;
-
-      Console.WriteLine("Enter the size of an Array   = ");
-      Size = Convert.ToInt32(Console.ReadLine());
-
-      int[] Array = new int[Size];
-
-      Console.WriteLine("Enter the " + Size + "   elements    to an array = ");
-
-      for (Index = 0; Index < Size; Index++)
+      static void Main()
       {
-        Array[Index] = Convert.ToInt32(Console. ReadLine());
-      }
-      Console.WriteLine("Elements of array = ");
-      foreach (int X in Array)
-      {
-        Console.Write(X + " ");
-      }
-      Console.WriteLine("\nEnter search value = ");
-      int Search_Value = Convert.ToInt32(Console. ReadLine   ());
-      for(Index = 0; Index < Size; Index++)
-      {
-        if(Search_Value == Array[Index])
+        int Size, Index;
+
+        Console.WriteLine("Enter the size of an Array   = ");
+        Size = Convert.ToInt32(Console.ReadLine());
+
+        int[] Array = new int[Size];
+
+        Console.WriteLine("Enter the " + Size + "   elements    to an array = ");
+
+        for (Index = 0; Index < Size; Index++)
         {
-        break;
+          Array[Index] = Convert.ToInt32(Console. ReadLine());
+        }
+        Console.WriteLine("Elements of array = ");
+        foreach (int X in Array)
+        {
+          Console.Write(X + " ");
+        }
+        Console.WriteLine("\nEnter search value = ");
+        int Search_Value = Convert.ToInt32(Console. ReadLine   ());
+        for(Index = 0; Index < Size; Index++)
+        {
+          if(Search_Value == Array[Index])
+          {
+          break;
+          }
+        }
+        if(Index < Size)
+        {
+          Console.WriteLine("Element found at " +   Index + " Index");
+        }
+        else
+        {
+          Console.WriteLine("Element Not Found");
         }
       }
-      if(Index < Size)
-      {
-        Console.WriteLine("Element found at " +   Index + " Index");
-      }
-      else
-      {
-        Console.WriteLine("Element Not Found");
-      }
-      Console.ReadKey();
 
-  }
-
-  ```
+    ```
 
   <hr/>
   </details>
-
-  ```
-
 - <details>
     <summary>What is Binary Search?</summary>
     <hr/>
@@ -3279,85 +3204,80 @@ LTS (long-term support) releases have an extended support period. Use this if yo
     <b>Identity matrix =</b> when leading diagonal elements / Principle diagonal elements should be same then it is called as Identity matrix
     
     ```c#
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-    namespace Class_Programs
-    {
-      class Program_44
+      using System;
+      using System.Collections.Generic;
+      using System.Linq;
+      using System.Text;
+      using System.Threading.Tasks;
+      namespace Class_Programs
       {
-        static void Main()
+        class Program_44
         {
-          int Row_Size, Column_Size;
-          bool Identity = true;
-          Console.Write("Enter the Row size & Column Size = \n");
-          Row_Size = Convert.ToInt32(Console.ReadLine());
-          Column_Size = Convert.ToInt32(Console.ReadLine());
+          static void Main()
+          {
+            int Row_Size, Column_Size;
+            bool Identity = true;
+            Console.Write("Enter the Row size & Column Size = \n");
+            Row_Size = Convert.ToInt32(Console.ReadLine());
+            Column_Size = Convert.ToInt32(Console.ReadLine());
 
-          if (Row_Size != Column_Size)
-          {
-            Console.WriteLine("Enter the Equal Row size & Column size");
-            Console.ReadKey();
-            return;
-          }
+            if (Row_Size != Column_Size)
+            {
+              Console.WriteLine("Enter the Equal Row size & Column size");
+              Console.ReadKey();
+              return;
+            }
 
-          int[,] Array = new int[Row_Size, Column_Size];
-          Console.WriteLine("Enter the {0} elements into the array = ", (Row_Size * Column_Size));
-          for (int R = 0; R < Row_Size; R++)
-          {
-            for (int C = 0; C < Column_Size; C++)
+            int[,] Array = new int[Row_Size, Column_Size];
+            Console.WriteLine("Enter the {0} elements into the array = ", (Row_Size * Column_Size));
+            for (int R = 0; R < Row_Size; R++)
             {
-              Array[R, C] = Convert.ToInt32(Console.ReadLine());
-            }
-          }
-          Console.WriteLine("Elements of 2D array are = ");
-          for (int R = 0; R < Row_Size; R++)
-          {
-            for (int C = 0; C < Column_Size; C++)
-            {
-              Console.Write(Array[R, C] + " ");
-            }
-            Console.WriteLine();
-          }
-          for (int R = 0; R < Row_Size; R++)
-          {
-            for (int C = 0; C < Column_Size; C++)
-            {
-              if (R == C && Array[R, C] != 1)
+              for (int C = 0; C < Column_Size; C++)
               {
-                Identity = false;
-                return;
-              }
-              if (R != C && Array[R, C] != 0)
-              {
-                Identity = false;
-                return;
+                Array[R, C] = Convert.ToInt32(Console.ReadLine());
               }
             }
+            Console.WriteLine("Elements of 2D array are = ");
+            for (int R = 0; R < Row_Size; R++)
+            {
+              for (int C = 0; C < Column_Size; C++)
+              {
+                Console.Write(Array[R, C] + " ");
+              }
+              Console.WriteLine();
+            }
+            for (int R = 0; R < Row_Size; R++)
+            {
+              for (int C = 0; C < Column_Size; C++)
+              {
+                if (R == C && Array[R, C] != 1)
+                {
+                  Identity = false;
+                  return;
+                }
+                if (R != C && Array[R, C] != 0)
+                {
+                  Identity = false;
+                  return;
+                }
+              }
+            }
+            if (Identity)
+            {
+              Console.WriteLine("The matrix is Identity matrix");
+            }
+            else
+            {
+              Console.WriteLine("The matrix is Not Identity matrix");
+            }
+            Console.ReadLine();
           }
-          if (Identity)
-          {
-            Console.WriteLine("The matrix is Identity matrix");
-          }
-          else
-          {
-            Console.WriteLine("The matrix is Not Identity matrix");
-          }
-          Console.ReadLine();
         }
       }
-
-  }
-
-  ```
+    ```
 
   <hr/>
   </details>
-
-  ```
-
 - <details>
     <summary>How many way to inslize Jagged array?</summary>
     <hr/>
@@ -3496,73 +3416,66 @@ LTS (long-term support) releases have an extended support period. Use this if yo
     <hr/>
     
     ```c#
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-    namespace Class_Programs
-    {
-     class Program_45
-     {
-      static void Main()
+      using System;
+      using System.Collections.Generic;
+      using System.Linq;
+      using System.Text;
+      using System.Threading.Tasks;
+      namespace Class_Programs
       {
-        int Size_1, Size_2, Index;
-        Console.WriteLine("Enter the Size for A-Array = ");
-        Size_1 = Convert.ToInt32(Console.ReadLine());
-        Console.WriteLine("Enter the Size for B-Array = ");
-        Size_2 = Convert.ToInt32(Console.ReadLine());
-        int[] A = new int[Size_1];
-        int[] B = new int[Size_2];
-        Console.WriteLine("Enter the " + Size_1 + " elements into the array A = ");
-        for(Index = 0; Index < Size_1; Index++)
+       class Program_45
+       {
+        static void Main()
         {
-          A[Index] = Convert.ToInt32(Console.ReadLine());
-        }
-        Console.WriteLine("Enter the " + Size_2 + " elements into the array A = ");
-
-        for (Index = 0; Index < Size_2; Index++)
-        {
-          B[Index] = Convert.ToInt32(Console.ReadLine());
-        }
-        int[] C = new int[Size_1 + Size_2];
-        for(int i = 0; i < Size_1; i++)
-        {
-          C[i] = A[i];
-        }
-        for (int i = Size_1; i < Size_1 + Size_2; i++)
-        {
-          C[i] = B[i-Size_1];
-        }
-        for(int Round = 1; Round < Size_1 + Size_2; Round++)
-        {
-          for(int i = 0; i < (Size_1 + Size_2) - Round; i++)
+          int Size_1, Size_2, Index;
+          Console.WriteLine("Enter the Size for A-Array = ");
+          Size_1 = Convert.ToInt32(Console.ReadLine());
+          Console.WriteLine("Enter the Size for B-Array = ");
+          Size_2 = Convert.ToInt32(Console.ReadLine());
+          int[] A = new int[Size_1];
+          int[] B = new int[Size_2];
+          Console.WriteLine("Enter the " + Size_1 + " elements into the array A = ");
+          for(Index = 0; Index < Size_1; Index++)
           {
-            if(C[i] > C[i+1])
+            A[Index] = Convert.ToInt32(Console.ReadLine());
+          }
+          Console.WriteLine("Enter the " + Size_2 + " elements into the array A = ");
+
+          for (Index = 0; Index < Size_2; Index++)
+          {
+            B[Index] = Convert.ToInt32(Console.ReadLine());
+          }
+          int[] C = new int[Size_1 + Size_2];
+          for(int i = 0; i < Size_1; i++)
+          {
+            C[i] = A[i];
+          }
+          for (int i = Size_1; i < Size_1 + Size_2; i++)
+          {
+            C[i] = B[i-Size_1];
+          }
+          for(int Round = 1; Round < Size_1 + Size_2; Round++)
+          {
+            for(int i = 0; i < (Size_1 + Size_2) - Round; i++)
             {
-              int Temp = C[i];
-              C[i] = C[i + 1];
-              C[i + 1] = Temp;
+              if(C[i] > C[i+1])
+              {
+                int Temp = C[i];
+                C[i] = C[i + 1];
+                C[i + 1] = Temp;
+              }
             }
           }
+          Console.WriteLine("Elements of merged array = ");
+          foreach(int X in C)
+          {
+            Console.Write(X + " ");
+          }
         }
-        Console.WriteLine("Elements of merged array = ");
-        foreach(int X in C)
-        {
-          Console.Write(X + " ");
-        }
-        Console.ReadKey();
       }
-
-  }
-  }
-
-  ```
-
+    ```
   <hr/>
   </details>
-
-  ```
 
 - <details>
       <summary>Write A C# program to find the transpose of a Matrix</summary>
@@ -5290,7 +5203,7 @@ Life cycle means from the starting of execution to the end of execution.
     
     - **Definition**: Value types are types that directly hold their values. All fixed-length types fall under this category. Examples include integer types, decimal types, `bool`, `char`, `DateTime`, and `Guid`.
 
-  - **Memory Storage**:
+    - **Memory Storage**:
 
     - Value types store their values on the `Stack`.
 
@@ -5300,25 +5213,23 @@ Life cycle means from the starting of execution to the end of execution.
 
     - The stack memory is controlled by the `Operating System`, and its size is fixed once allocated. It cannot be increased or decreased dynamically.
 
-  - **Example**:
+    - **Example**:
 
-          - **x = 100**: The integer value `100` is stored directly on the stack.
+      - **x = 100**: The integer value `100` is stored directly on the stack.
 
-          - **ch = 'A'**: The character `A` is also stored directly on the stack.
+      - **ch = 'A'**: The character `A` is also stored directly on the stack.
 
-          - **d = 45.83**: The double value `45.83` is stored directly on the stack.
+      - **d = 45.83**: The double value `45.83` is stored directly on the stack.
 
-        <hr/>
-
-    </details>
-
+    <hr/>
+  </details>
 - <details>
     <summary>What is Reference Types?</summary>
     <hr/>
 
-  - **Definition**: Reference types store references (addresses) to their data instead of the actual data itself. Examples include `String` and `Object` types.
+    - **Definition**: Reference types store references (addresses) to their data instead of the actual data itself. Examples include `String` and `Object` types.
 
-  - **Memory Storage**:
+    - **Memory Storage**:
 
     - Reference types store the actual values on the `Heap`, while their `address` or `reference` is stored on the `Stack`.
 
@@ -5328,37 +5239,34 @@ Life cycle means from the starting of execution to the end of execution.
 
     - In modern programming languages like `C#`, `Garbage Collector` manages heap memory. Therefore, heap memory is called `Managed Heap` in C# and .NET, meaning the developer doesn't manually handle memory allocation and deallocation, unlike languages like C/C++.
 
-  - **Example**:
+    - **Example**:
 
     - **s = "Hello"**: The string "Hello" is stored in the Managed Heap, and the reference (or address) pointing to "Hello" is stored on the Stack.
-
-          <hr/>
-
-      </details>
-
+    <hr/>
+  </details>
 - <details>
     <summary>What is Nullable value type?</summary>
     <hr/>
 
-  - **Nullable value types** were introduced in C# 2.0 to allow value types to store null values.
+    - **Nullable value types** were introduced in C# 2.0 to allow value types to store null values.
 
-  - By default, **value types** (like `int`, `decimal`) cannot store `null` values, whereas **reference types** (like `string`, `object`) can store `null`.
+    - By default, **value types** (like `int`, `decimal`) cannot store `null` values, whereas **reference types** (like `string`, `object`) can store `null`.
 
-  Example:
+    Example:
 
-  ```c#
-  string str = null;  // Valid
-  object obj = null;  // Valid
-  int i = null;       // Invalid (for regular int)
-  decimal d = null;   // Invalid (for regular decimal)
-  ```
+    ```c#
+    string str = null;  // Valid
+    object obj = null;  // Valid
+    int i = null;       // Invalid (for regular int)
+    decimal d = null;   // Invalid (for regular decimal)
+    ```
 
-  - To make a value type nullable, suffix the type with a `?` symbol:
+    - To make a value type nullable, suffix the type with a `?` symbol:
 
-  ```c#
-  int? i = null;     // Valid
-  decimal? d = null; // Valid
-  ```
+    ```c#
+    int? i = null;     // Valid
+    decimal? d = null; // Valid
+    ```
 
     <hr/>
   </details>
@@ -5434,44 +5342,40 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
     
     ```c#
-    using System;
-    class VarDynamic
-    {
-      static void Main()
+      using System;
+      class VarDynamic
       {
-        var i = 100;
-        Console.WriteLine(i.GetType());
-        var c = 'A';
-        Console.WriteLine(c.GetType());
-        var f = 45.67f;
-        Console.WriteLine(f.GetType());
-        var b = true;
-        Console.WriteLine(b.GetType());
-        var s = "Hello";
-        Console.WriteLine(s.GetType());
+        static void Main()
+        {
+          var i = 100;
+          Console.WriteLine(i.GetType());
+          var c = 'A';
+          Console.WriteLine(c.GetType());
+          var f = 45.67f;
+          Console.WriteLine(f.GetType());
+          var b = true;
+          Console.WriteLine(b.GetType());
+          var s = "Hello";
+          Console.WriteLine(s.GetType());
 
-        Console.WriteLine("----------------------------------------------------------------------------------------------------------");
+          Console.WriteLine("----------------------------------------------------------------------------------------------------------");
 
-        dynamic d;
-        d = 100;
-        Console.WriteLine(d.GetType());
-        d = 'Z';
-        Console.WriteLine(d.GetType());
-        d = 34.56;
-        Console.WriteLine(d.GetType());
-        d = false;
-        Console.WriteLine(d.GetType());
-        d = "Hello";
-        Console.WriteLine(d.GetType());
+          dynamic d;
+          d = 100;
+          Console.WriteLine(d.GetType());
+          d = 'Z';
+          Console.WriteLine(d.GetType());
+          d = 34.56;
+          Console.WriteLine(d.GetType());
+          d = false;
+          Console.WriteLine(d.GetType());
+          d = "Hello";
+          Console.WriteLine(d.GetType());
+        }
       }
-
-  }
-
-  ```
+    ```
   <hr/>
   </details>
-  ```
-
 - <details>
     <summary>What is Boxing and Un-Bixing?</summary>
     <hr/>
@@ -5483,7 +5387,7 @@ Life cycle means from the starting of execution to the end of execution.
       object obj = i; //Boxing
       ```
 
-  **Unboxing** is a process of converting a `reference type` which is created from a `value type` back into `value type`, but `un-boxing` requires an `explicit conversion`:
+    **Unboxing** is a process of converting a `reference type` which is created from a `value type` back into `value type`, but `un-boxing` requires an `explicit conversion`:
 
       ```c#
       int j = Convert.ToInt32(obj);  //Un-Boxing
@@ -5495,7 +5399,7 @@ Life cycle means from the starting of execution to the end of execution.
       Reference Type => Value Type //Invalid
       ```
 
-  **Note**: `Convert` is a predefined class in `System` namespace and `ToInt32` is a static method under that class, and this class also provides other methods for conversion like `ToDouble`, `ToSingle`, `ToDecimal`, `ToBoolean`, etc, to convert into different types.
+    **Note**: `Convert` is a predefined class in `System` namespace and `ToInt32` is a static method under that class, and this class also provides other methods for conversion like `ToDouble`, `ToSingle`, `ToDecimal`, `ToBoolean`, etc, to convert into different types.
 
     <hr/>
   </details>
@@ -5550,7 +5454,7 @@ Life cycle means from the starting of execution to the end of execution.
 
         <hr/>
 
-    </details>
+  </details>
 
 - <details>
     <summary>What is the Parse() method used for?</summary>
@@ -5574,7 +5478,7 @@ Life cycle means from the starting of execution to the end of execution.
 
         <hr/>
 
-    </details>
+  </details>
 
 - <details>
     <summary>What is string interpolation?</summary>
@@ -5642,7 +5546,7 @@ Life cycle means from the starting of execution to the end of execution.
 
         <hr/>
 
-    </details>
+  </details>
 
 - <details>
     <summary>What does the `sizeof()` operator do?</summary>
@@ -5999,7 +5903,7 @@ Life cycle means from the starting of execution to the end of execution.
 
         <hr/>
 
-    </details>
+  </details>
 
 - <details>
     <summary>What if we don't want to set the StartupObject manually?</summary>
@@ -14077,7 +13981,7 @@ Life cycle means from the starting of execution to the end of execution.
       <hr/>
       We are demonstrating how to execute three methods sequentially (single-threaded), using multiple threads (multi-threaded), and finally using the Task Parallel Library (TPL) for parallelism in a console application.
       <hr/>
-    </details>
+  </details>
   *`Single-Threaded Example`*:
 - <details>
       <summary>How does the single-threaded version of the program work?</summary>
@@ -14119,7 +14023,7 @@ Life cycle means from the starting of execution to the end of execution.
       ```
       <hr/>
 
-    </details>
+  </details>
   *`Multi-Threaded Example:`*
 
 - <details>
@@ -14164,7 +14068,7 @@ Life cycle means from the starting of execution to the end of execution.
       ```
       <hr/>
 
-    </details>
+  </details>
   *`Task Parallel Library (TPL) Example:`*
 
 - <details>
@@ -14346,7 +14250,7 @@ Life cycle means from the starting of execution to the end of execution.
       <hr/>
       We use delegates or lambda expressions to pass parameters to the tasks while creating them. This allows the methods to receive values dynamically when the tasks are executed.
       <hr/>
-    </details>
+  </details>
   **`Thread synchronization`**
 - <details>
     <summary>What is thread synchronization in C#?</summary>
@@ -14449,7 +14353,7 @@ Life cycle means from the starting of execution to the end of execution.
       - `Task.Delay(5000).Wait()` simulates a delay in execution.
       <hr/>
 
-    </details>
+  </details>
   **`Data Parallelism`**
 
 - <details>
@@ -14562,7 +14466,7 @@ Life cycle means from the starting of execution to the end of execution.
       <hr/>
       Parallel loops are generally faster for bulk tasks but may not always be faster for small or light operations.
       <hr/>
-    </details>
+  </details>
   *`continuation task`*:
 - <details>
     <summary>What is a continuation task?</summary>
@@ -14616,7 +14520,7 @@ Life cycle means from the starting of execution to the end of execution.
       - The t.Wait() ensures that the program waits for all tasks to complete before exiting.
       <hr/>
 
-    </details>
+  </details>
   *`Asynchronous Programming with async and await`*:
 
 - <details>

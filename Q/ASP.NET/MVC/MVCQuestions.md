@@ -63,7 +63,7 @@
 
 ---
 
-- he Model represents the data and the logic needed to handle that data. It is responsible for storing and processing the application's data.
+- The Model represents the data and the logic needed to handle that data. It is responsible for storing and processing the application's data.
 
 ---
 
@@ -72,6 +72,7 @@
 ---
 
 - The View is responsible for showing the data to the user. It handles how the information is displayed but doesn’t include much logic for handling data.
+- Use to present the information.
 
 ---
 
