@@ -1,4 +1,5 @@
 # **`.Net`**
+
 ![Compilation History Articture](Compilation-History-Articture.png)
 
 - <details>
@@ -293,20 +294,21 @@
      <summary>What is the diffrence bitween value type and refrence type?⭐</summary>
      <hr/>
 
-    | **Serial Number** | **Value Type**                                                                         | **Reference Type**                                                                                   |
-    | ----------------- | -------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-    | 1                 | Data store  directly into their memory location.                                       | Data do not store directly; instead, they refer to another memory location where data is stored.     |
-    | 2                 | Memory is allocated at compile time.                                                   | Memory is allocated at runtime.                                                                      |
-    | 3                 | Memory is allocated done by stack memory allocation.                                   | Memory is allocated done by dynamic memory allocation.                                               |
-    | 4                 | Placed in stack memory.                                                                | Placed in heap memory.                                                                               |        
-    | 4                 | Memory allocation for value types occurs in `contiguous memory locations in the stack `| Memory allocation for reference types, it occurs in `non-contiguous (random) memory locations in the heap`.|
-    | 5                 | The CLR does not provide automatic memory management for value types                   | CLR provides automatic memory management ( such as garbage collection ) for reference types.         |
-    | 6                 | Occupies less memory.                                                                  | Occupies more memory; a single reference type variable can occupy a maximum of up to 2GB.            |
-    | 7                 | If a value type variable is not initialized, it stores a default value (e.g., int a; defaults to 0). | If a reference type variable is not initialized, it stores a null reference (e.g., string s; defaults to null). |
-    | 8                 | Examples of value types: `int`, `double`, `enum`, etc.                                 | Examples of reference types: `string`, `object`, `class`, etc.                                       |
+  | **Serial Number** | **Value Type**                                                                                       | **Reference Type**                                                                                              |
+  | ----------------- | ---------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+  | 1                 | Data store directly into their memory location.                                                      | Data do not store directly; instead, they refer to another memory location where data is stored.                |
+  | 2                 | Memory is allocated at compile time.                                                                 | Memory is allocated at runtime.                                                                                 |
+  | 3                 | Memory is allocated done by stack memory allocation.                                                 | Memory is allocated done by dynamic memory allocation.                                                          |
+  | 4                 | Placed in stack memory.                                                                              | Placed in heap memory.                                                                                          |
+  | 4                 | Memory allocation for value types occurs in `contiguous memory locations in the stack `              | Memory allocation for reference types, it occurs in `non-contiguous (random) memory locations in the heap`.     |
+  | 5                 | The CLR does not provide automatic memory management for value types                                 | CLR provides automatic memory management ( such as garbage collection ) for reference types.                    |
+  | 6                 | Occupies less memory.                                                                                | Occupies more memory; a single reference type variable can occupy a maximum of up to 2GB.                       |
+  | 7                 | If a value type variable is not initialized, it stores a default value (e.g., int a; defaults to 0). | If a reference type variable is not initialized, it stores a null reference (e.g., string s; defaults to null). |
+  | 8                 | Examples of value types: `int`, `double`, `enum`, etc.                                               | Examples of reference types: `string`, `object`, `class`, etc.                                                  |
 
     <hr/>
   </details>
+
 - <details>
     <summary>What is C# and why was it named so?⭐</summary>
     <hr/>
@@ -322,9 +324,10 @@
 - <details>
     <summary>How do setup, compile & run program in notpaid?⭐</summary>
     <hr/>
-  
+
     <hr/>
   </details>
+
 - <details>
     <summary>What is the use of the using directive in C#?⭐</summary>
     <hr/>
@@ -384,6 +387,7 @@
 
     <hr/>
   </details>
+
 - <details>
     <summary>What is the purpose of the semicolon (;) in C#?⭐</summary>
     <hr/>
@@ -416,6 +420,7 @@
 
     <hr/>
   </details>
+
 - <details>
     <summary>What is the Difference Between Console.Write() and Console.WriteLine() ?⭐</summary>
     <hr/>
@@ -625,28 +630,30 @@
 
    </li>
    <li>Function with parameters and with return value
- 
-   ```C#
-   void Main()
-   {
-       int S = Add(50, 40);// Pass arguments 50 and 40
-       Console.WriteLine("Sum is = " + S);
-       Console.ReadKey();
-   }
- 
-   int Add(int x, int y) //x and y is Parameters
-   {
-       int Sum = x + y;
-       return Sum;
-   }
- 
-   ```
+
+  ```C#
+  void Main()
+  {
+      int S = Add(50, 40);// Pass arguments 50 and 40
+      Console.WriteLine("Sum is = " + S);
+      Console.ReadKey();
+  }
+
+  int Add(int x, int y) //x and y is Parameters
+  {
+      int Sum = x + y;
+      return Sum;
+  }
+
+  ```
 
     </li>
     </ol>
     <hr/>
   </details>
+
 ### **`Array & Loops`**
+
 - <details>
     <summary>What is an array in C#?⭐</summary>
     <hr/>
@@ -755,6 +762,7 @@
     </ol>
     <hr/>
   </details>
+
 - <details>
     <summary>What is a foreach loop in C#?⭐</summary>
     <hr/>
@@ -775,21 +783,22 @@
     <summary>D/F for and foreach?⭐</summary>
     <hr/>
 
-    | **Feature**              | **`for` Loop**                                                                                 | **`foreach` Loop**                                                |
-    | -------------------------| ---------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
-    | **Syntax**               | `for (initialization; condition;    iteration{ ... }`                                          | `foreach (DataType variable in    collection) { ... }`            |
-    | **Use Case**             | Used when i know the number index or do complex actions.                                       | Used to iterate over all elements of a collection or array.       |
-    | **Index Access**         | Provides access to the index of elements.                                                      | Does not provide access to the index directly.                    |
-    | **Modifying Collection** | Allows modification of the elementin the collection.                                           | Modifying the collection while iterating is not recommended.      |
-    | **Performance**          | Slightly faster if the size of the collection is known and indexing is needed.                 | Generally slowethan `for` when indexing is required.              |
-    | **Flexibility**          | More flexible as it can iterate in any order or direction (forward, backward, specific steps). | Less flexible, only iterates from start to end in order.          |
-    | **Ease of Use**          | More complex syntax, especially with nesteloops.                                               | Easier to read and write for simple iterations.                   |
-    | **Error-Prone**          | Higher risk of errors such as off-by-onerrors or infinite loops.                               | Lower risk of such errors, as ihandles iteration automatically.   |
-    | **Ideal Scenario**       | When you need to know the index or perform complex operations based on the index.              | When you jusneed to iterate through all elements in a collection. |
-    | **Fast**                 | Faster                                                                                         | Slow                                                              |
+  | **Feature**              | **`for` Loop**                                                                                 | **`foreach` Loop**                                                |
+  | ------------------------ | ---------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
+  | **Syntax**               | `for (initialization; condition;    iteration{ ... }`                                          | `foreach (DataType variable in    collection) { ... }`            |
+  | **Use Case**             | Used when i know the number index or do complex actions.                                       | Used to iterate over all elements of a collection or array.       |
+  | **Index Access**         | Provides access to the index of elements.                                                      | Does not provide access to the index directly.                    |
+  | **Modifying Collection** | Allows modification of the elementin the collection.                                           | Modifying the collection while iterating is not recommended.      |
+  | **Performance**          | Slightly faster if the size of the collection is known and indexing is needed.                 | Generally slowethan `for` when indexing is required.              |
+  | **Flexibility**          | More flexible as it can iterate in any order or direction (forward, backward, specific steps). | Less flexible, only iterates from start to end in order.          |
+  | **Ease of Use**          | More complex syntax, especially with nesteloops.                                               | Easier to read and write for simple iterations.                   |
+  | **Error-Prone**          | Higher risk of errors such as off-by-onerrors or infinite loops.                               | Lower risk of such errors, as ihandles iteration automatically.   |
+  | **Ideal Scenario**       | When you need to know the index or perform complex operations based on the index.              | When you jusneed to iterate through all elements in a collection. |
+  | **Fast**                 | Faster                                                                                         | Slow                                                              |
 
     <hr/>
   </details>
+
 - <details>
     <summary>What is an Array Object in C#?⭐</summary>
     <hr/>
@@ -849,6 +858,7 @@
 
     <hr/>
   </details>
+
 - <details>
     <summary>What is the use of Clear() method which is availabe in the Array Class? Give me example, use?⭐</summary>
     <hr/>
@@ -864,47 +874,53 @@
 
     <hr/>
   </details>
+
 - <details>
     <summary>What diffrence bitween Copy() & Clone() method?⭐</summary>
     <hr/>
 
-    1. **Purpose**:
-       - **Copy**: `Copies elements from one array to another`. It can be used to `copy all` or a `portion` of the `array` to `another array`.
-       - **Clone**: Creates a `shallow copy` of the array. It `returns a new array` with the `same elements and size as the original`.
+  1. **Purpose**:
 
-    2. **Shallow vs. Deep Copy**:
-       - **Copy**: Does not automatically perform a deep copy. If you're using reference types (e.g., objects), `Copy` only copies references, not the actual objects.
-       - **Clone**: Performs a shallow copy. The new array created will have the same references as the original. For value types (like integers), it copies the values.
+     - **Copy**: `Copies elements from one array to another`. It can be used to `copy all` or a `portion` of the `array` to `another array`.
+     - **Clone**: Creates a `shallow copy` of the array. It `returns a new array` with the `same elements and size as the original`.
 
-    3. **Usage**:
-       - **Copy**: `Array.Copy(sourceArray, destinationArray, length);` — You specify the source array, destination array, and the number of elements to copy.
-       - **Clone**: `array.Clone();` — Creates a new array that’s a copy of the original.
+  2. **Shallow vs. Deep Copy**:
 
-    **Summary**:
-    - **Copy** lets you copy elements to another array, either partially or fully.
-    - **Clone** creates a new array with the same size and elements as the original, but it does not create independent copies for reference types.
-    
-    **Example**:
+     - **Copy**: Does not automatically perform a deep copy. If you're using reference types (e.g., objects), `Copy` only copies references, not the actual objects.
+     - **Clone**: Performs a shallow copy. The new array created will have the same references as the original. For value types (like integers), it copies the values.
 
-    ```csharp
-    int[] originalArray = { 1, 2, 3, 4, 5 };
-    
-    // Using Clone method
-    int[] clonedArray = (int[])originalArray.Clone(); 
-    // clonedArray is a separate array with the same elements {1, 2, 3, 4, 5}
-    
-    // Using Copy method
-    int[] copiedArray = new int[3];
-    Array.Copy(originalArray, copiedArray, 3); 
-    // copiedArray now contains {1, 2, 3} (only the first 3 elements are copied)
-    ```
-    
-    **Key points**:
-    - `Clone` creates a new array with all elements.
-    - `Copy` copies specified elements to an existing array.
+  3. **Usage**:
+     - **Copy**: `Array.Copy(sourceArray, destinationArray, length);` — You specify the source array, destination array, and the number of elements to copy.
+     - **Clone**: `array.Clone();` — Creates a new array that’s a copy of the original.
+
+  **Summary**:
+
+  - **Copy** lets you copy elements to another array, either partially or fully.
+  - **Clone** creates a new array with the same size and elements as the original, but it does not create independent copies for reference types.
+
+  **Example**:
+
+  ```csharp
+  int[] originalArray = { 1, 2, 3, 4, 5 };
+
+  // Using Clone method
+  int[] clonedArray = (int[])originalArray.Clone();
+  // clonedArray is a separate array with the same elements {1, 2, 3, 4, 5}
+
+  // Using Copy method
+  int[] copiedArray = new int[3];
+  Array.Copy(originalArray, copiedArray, 3);
+  // copiedArray now contains {1, 2, 3} (only the first 3 elements are copied)
+  ```
+
+  **Key points**:
+
+  - `Clone` creates a new array with all elements.
+  - `Copy` copies specified elements to an existing array.
 
     <hr/>
   </details>
+
 - <details>
     <summary>What is the use of IndexOf() method which is availabe in the Array Class? Give me example, use?⭐</summary>
     <hr/>
@@ -934,9 +950,9 @@
     <li>Example: Array.Reverse(A); reverses the elements in array A.</li>
     </ul>
 
-    ```C#
-      Array.Reverse(A);
-    ```
+  ```C#
+    Array.Reverse(A);
+  ```
 
     <hr/>
   </details>
@@ -984,100 +1000,104 @@
 
     <hr/>
   </details>
+
 - <details>
     <summary>What is the difference between Length and GetLength in an array?⭐</summary>
     <hr/>
 
-    1. **Length**:
-       - **Definition**: Returns the total number of elements in all dimensions of an array.
-       - **Usage**: It is used when you want to know the total count of elements.
-       - **Example**: 
-         ```csharp
-         int[,] numbers = { { 1, 2 }, { 3, 4 }, { 5, 6 } };
-         int totalElements = numbers.Length; // totalElements = 6
-         ```
-    
-    2. **GetLength(int dimension)**:
-       - **Definition**: Returns the number of elements in a specified dimension of an array.
-       - **Usage**: It is used when you want to know the size of a particular dimension.
-       - **Example**: 
-         ```csharp
-         int[,] numbers = { { 1, 2 }, { 3, 4 }, { 5, 6 } };
-         int rows = numbers.GetLength(0); // rows = 3 (1st dimension)
-         int columns = numbers.GetLength(1); // columns = 2 (2nd dimension)
-         ```
-    
-    **Summary**:  
-    - `Length` gives the total count of elements.  
-    - `GetLength` gives the count of elements in a specific dimension of the array.
+  1. **Length**:
+
+     - **Definition**: Returns the total number of elements in all dimensions of an array.
+     - **Usage**: It is used when you want to know the total count of elements.
+     - **Example**:
+       ```csharp
+       int[,] numbers = { { 1, 2 }, { 3, 4 }, { 5, 6 } };
+       int totalElements = numbers.Length; // totalElements = 6
+       ```
+
+  2. **GetLength(int dimension)**:
+     - **Definition**: Returns the number of elements in a specified dimension of an array.
+     - **Usage**: It is used when you want to know the size of a particular dimension.
+     - **Example**:
+       ```csharp
+       int[,] numbers = { { 1, 2 }, { 3, 4 }, { 5, 6 } };
+       int rows = numbers.GetLength(0); // rows = 3 (1st dimension)
+       int columns = numbers.GetLength(1); // columns = 2 (2nd dimension)
+       ```
+
+  **Summary**:
+
+  - `Length` gives the total count of elements.
+  - `GetLength` gives the count of elements in a specific dimension of the array.
 
     <hr/>
   </details>
+
 - <details>
     <summary>What is 2 dimension Arrays?⭐</summary>
     <hr/>
     -  These arrays will store data in the form of rows & columns, and are declared as following:
 
-    **Syntax**:
-  
-    ```c#
-      <type>[,] <array_name> = new <type>[rows, columns]
-    ```
-  
-    **Example**:
-  
-    ```c#
-    int[,] arr = new int[4,5]; //Declaration and Initialization with default values
-  
-    //or
-  
-    int[,] arr; //Declaration
-    arr = new int[4,5]; //Initialization with default values
-  
-    //or
-  
-    int[,] arr = { <list of values> }; //Declaration and Initialization with given set of values
-    ```
-  
-    **Example**:
-  
-    ```c#
-    using System;
-    class TDArray
+  **Syntax**:
+
+  ```c#
+    <type>[,] <array_name> = new <type>[rows, columns]
+  ```
+
+  **Example**:
+
+  ```c#
+  int[,] arr = new int[4,5]; //Declaration and Initialization with default values
+
+  //or
+
+  int[,] arr; //Declaration
+  arr = new int[4,5]; //Initialization with default values
+
+  //or
+
+  int[,] arr = { <list of values> }; //Declaration and Initialization with given set of values
+  ```
+
+  **Example**:
+
+  ```c#
+  using System;
+  class TDArray
+  {
+    static void Main()
     {
-      static void Main()
-      {
-        int x = 0; int[,] arr = new int[4, 5];
-  
-        //Accessing values of TD Array by using foreach loop
-        foreach(int i in arr)
-        Console.Write(i + " ");
-        Console.WriteLine();
-  
-        //Assigning values to TD Array by using nested for loop
-        for(int i=0;i<arr.GetLength(0);i++) {
-          for(int j=0;j<arr.GetLength(1);j++) {
-            x += 5; arr[i,j] = x;
-          }
-        }
-        //Accessing values of TD Array by using nested for loop
-        for(int i=0;i<arr.GetLength(0);i++) {
-          for(int j=0;j<arr.GetLength(1);j++)
-            Console.Write(arr[i,j] + " ");
-          Console.WriteLine();
+      int x = 0; int[,] arr = new int[4, 5];
+
+      //Accessing values of TD Array by using foreach loop
+      foreach(int i in arr)
+      Console.Write(i + " ");
+      Console.WriteLine();
+
+      //Assigning values to TD Array by using nested for loop
+      for(int i=0;i<arr.GetLength(0);i++) {
+        for(int j=0;j<arr.GetLength(1);j++) {
+          x += 5; arr[i,j] = x;
         }
       }
+      //Accessing values of TD Array by using nested for loop
+      for(int i=0;i<arr.GetLength(0);i++) {
+        for(int j=0;j<arr.GetLength(1);j++)
+          Console.Write(arr[i,j] + " ");
+        Console.WriteLine();
+      }
     }
-  
-    //Out:-
-    int[,] arr = {
-      { 11, 12, 13, 14, 15 },
-      { 21, 22, 23, 24, 25 },
-      { 31, 32, 33, 34, 35 },
-      { 41, 42, 43, 44, 45 }
-    };
-  
-    ```
+  }
+
+  //Out:-
+  int[,] arr = {
+    { 11, 12, 13, 14, 15 },
+    { 21, 22, 23, 24, 25 },
+    { 31, 32, 33, 34, 35 },
+    { 41, 42, 43, 44, 45 }
+  };
+
+  ```
 
     <hr/>
   </details>
@@ -1133,6 +1153,7 @@
     </ol>
     <hr/>
   </details>
+
 - <details>
     <summary>How many way to inslize Jagged array?⭐</summary>
     <hr/>
@@ -1140,53 +1161,53 @@
     <li><b>Method-1</b><br/>
     Syntax: DataType[Main Array Notation][Inner Array Notation]<br/>Example: ArrayName = new DataType[Main Array Size][inner Array Notation];
 
-    ![alt text](JaggerArratMethod1.png)
-  
-    ```c#
-    int[][] A = new int[3][];
-    A[0] = new int[6];
-    A[1] = new int[5];
-    A[2] = new int[8];
-  
-    A[0][0] = 60; A[0][1] = 15; A[0][2] = 30; A[0][3] = 80; A[0][4] = 20; A[0][5] = 70;
-    A[1][0] = 25; A[1][1] = 45; A[1][2] = 15; A[1][3] = 85; A[1][4] = 55;
-    A[2][0] = 20; A[2][1] = 80; A[2][2] = 65; A[2][3] = 75; A[2][4] = 35; A[2][5] = 30;
-    A[2][6] = 80; A[2][7] = 10;
-    ```
-  
+  ![alt text](JaggerArratMethod1.png)
+
+  ```c#
+  int[][] A = new int[3][];
+  A[0] = new int[6];
+  A[1] = new int[5];
+  A[2] = new int[8];
+
+  A[0][0] = 60; A[0][1] = 15; A[0][2] = 30; A[0][3] = 80; A[0][4] = 20; A[0][5] = 70;
+  A[1][0] = 25; A[1][1] = 45; A[1][2] = 15; A[1][3] = 85; A[1][4] = 55;
+  A[2][0] = 20; A[2][1] = 80; A[2][2] = 65; A[2][3] = 75; A[2][4] = 35; A[2][5] = 30;
+  A[2][6] = 80; A[2][7] = 10;
+  ```
+
       </li>
       <li><b>Method-2</b><br/>
       Syntax: DataType[Main Array Notation][Inner Array Notation]<br/>
       ArrayName = new DataType[Main Array Size][inner Array Notation];
-  
-    ![alt text](JaggerArratMethod2.png)
-  
-    ```C#
-    int[][] A = new int[3][];
-    A[0] = new int[6] { 60, 15, 30, 80, 20, 70 };
-    A[1] = new int[5] { 25, 45, 15, 85, 55 };
-    A[2] = new int[8] { 20, 80, 65, 75, 35, 30, 80, 10 };
-    ```
-  
+
+  ![alt text](JaggerArratMethod2.png)
+
+  ```C#
+  int[][] A = new int[3][];
+  A[0] = new int[6] { 60, 15, 30, 80, 20, 70 };
+  A[1] = new int[5] { 25, 45, 15, 85, 55 };
+  A[2] = new int[8] { 20, 80, 65, 75, 35, 30, 80, 10 };
+  ```
+
       </li>
       <li><b>Method-3</b><br/>
       Syntax: DataType[Main Array Notation][Inner Array Notation]<br/>
       ArrayName = new DataType[Main Array Size][inner Array Notation];
-  
-    ![alt text](JaggerArratMethod3.png)
-  
-    ```C#
-    int[][] A = new int[][]
-    {
-        new int[] { 60, 15, 30, 80, 20, 70 },
-        new int[] { 25, 45, 15, 85, 55 },
-        new int[] { 20, 80, 65, 75, 35, 30, 80, 10 }
-    };
-  
-    ```
-  
-    → In Real time Jagged array used in Card games & Maximally used in Gaming application.<br/>
-    → When Inner array size is changing then we use Jagged array
+
+  ![alt text](JaggerArratMethod3.png)
+
+  ```C#
+  int[][] A = new int[][]
+  {
+      new int[] { 60, 15, 30, 80, 20, 70 },
+      new int[] { 25, 45, 15, 85, 55 },
+      new int[] { 20, 80, 65, 75, 35, 30, 80, 10 }
+  };
+
+  ```
+
+  → In Real time Jagged array used in Card games & Maximally used in Gaming application.<br/>
+  → When Inner array size is changing then we use Jagged array
 
     </li>
     </ol>
@@ -1249,14 +1270,15 @@
     <li>The value range that the variable can store also increases.</li>
     </ol>
 
-    **Example**:
-    ```c#
-    short a = 20;
-    int b = a;        // Implicit Conversion
-    int c = (int)a;   // Explicit Conversion
-    ```
+  **Example**:
 
-    In type widening, both implicit and explicit conversions are possible.
+  ```c#
+  short a = 20;
+  int b = a;        // Implicit Conversion
+  int c = (int)a;   // Explicit Conversion
+  ```
+
+  In type widening, both implicit and explicit conversions are possible.
     <hr/>
   </details>
 
@@ -1269,14 +1291,15 @@
     <li>The value range that the variable can store also decreases.</li>
     <ol>
 
-    **Example**:
-    ```c#
-    int a = 20;
-    short b = a;         // Implicit Conversion not possible
-    short c = (short)a;  // Explicit Conversion is possible
-    ```
+  **Example**:
 
-    In type shortening, only explicit conversion is possible.
+  ```c#
+  int a = 20;
+  short b = a;         // Implicit Conversion not possible
+  short c = (short)a;  // Explicit Conversion is possible
+  ```
+
+  In type shortening, only explicit conversion is possible.
     <hr/>
   </details>
 
@@ -1291,14 +1314,14 @@
     <hr/>
     In C#, object is a reference type that can store any kind of data—whether it's an integer, a float, a string, or a boolean. Every data type in C# derives from the object class.
 
-    Examples of different data stored in an object:
-    
-    ```C#
-    object a = 10;         // Storing an integer
-    object b = 20.5;       // Storing a double
-    object c = "Welcome";  // Storing a string
-    object d = true;       // Storing a boolean
-    ```
+  Examples of different data stored in an object:
+
+  ```C#
+  object a = 10;         // Storing an integer
+  object b = 20.5;       // Storing a double
+  object c = "Welcome";  // Storing a string
+  object d = true;       // Storing a boolean
+  ```
 
     <hr/>
   </details>
@@ -1332,6 +1355,7 @@
   In this example, we use Convert.ToSingle() to convert the object variables x and y to float before adding them.
     <hr/>
   </details>
+
 - <details>
     <summary>Why is type conversion necessary for object types when performing operations?⭐</summary>
     <hr/>
@@ -1397,6 +1421,7 @@
 
     <hr/>
   </details>
+
 - <details>
     <summary>What are the internal steps performed during Boxing?⭐</summary>
     <hr/>
@@ -1446,207 +1471,284 @@
     <summary>What is the nullable data type?⭐</summary>
     <hr/>
 
-    - Nullable types allow value types to store `null`.
-    - Declared by adding ? to the data type (e.g., `int?`, `double?`).
-    - Useful for representing missing or undefined values.
+  - Nullable types allow value types to store `null`.
+  - Declared by adding ? to the data type (e.g., `int?`, `double?`).
+  - Useful for representing missing or undefined values.
     For example if we want to store the null value in `int` then it will raise the compilation error, so to avoid the compilation error we use `?` postfix with data type (ex: int? a = null;).
 
-    ```c#
-    int? age = null;   // Nullable int
-    double? salary = null;   // Nullable double
-    bool? isAvailable = null;   // Nullable bool
-    ```
-    
-    <br/><br/>
-    If you use `?` it means this us nullable.
+  ```c#
+  int? age = null;   // Nullable int
+  double? salary = null;   // Nullable double
+  bool? isAvailable = null;   // Nullable bool
+  ```
+
+  <br/><br/>
+  If you use `?` it means this us nullable.
     <hr/>
   </details>
+
 - <details>
     <summary>What are the ways of Type Casting ?⭐</summary>
     <hr/>
 
-    **Four main ways** to perform type casting (also known as type conversion):
-    
-    1. **Implicit Casting (Automatic Conversion)**
-       - Automatically converts a smaller type to a larger type, like `int` to `double`.
-       - No data is lost, so no additional code is needed.
-       - Example:
-         ```csharp
-         int num = 10;
-         double result = num; // Implicit casting from int to double
-         ```
-    
-    2. **Explicit Casting (Manual Conversion)**
-       - Required when converting from a larger type to a smaller type or between incompatible types.
-       - Uses a cast operator `(Type)` and may lose data.
-       - Example:
-         ```csharp
-         double num = 10.5;
-         int result = (int)num; // Explicit casting from double to int
-         ```
-    
-    3. **Conversion with Helper Classes (Using Convert Class)**
-       - Converts different types using helper methods in the `Convert` class, which is safer and helps prevent errors.
-       - Example:
-         ```csharp
-         string str = "123";
-         int result = Convert.ToInt32(str); // Convert string to int
-         ```
-    
-    4. **Using `as` and `is` Operators (for Reference Types)**
-       - **`as`**: Casts an object to a specific type, returning `null` if it fails (no exception thrown).
-         ```csharp
-         object obj = "hello";
-         string str = obj as string; // Works since obj is a string
-         ```
-       - **`is`**: Checks if an object is of a certain type, returning `true` or `false`.
-         ```csharp
-         object obj = "hello";
-         if (obj is string)
-         {
-             string str = (string)obj; // Safe to cast
-         }
-         ```
+  **Four main ways** to perform type casting (also known as type conversion):
+
+  1. **Implicit Casting (Automatic Conversion)**
+
+     - Automatically converts a smaller type to a larger type, like `int` to `double`.
+     - No data is lost, so no additional code is needed.
+     - Example:
+       ```csharp
+       int num = 10;
+       double result = num; // Implicit casting from int to double
+       ```
+
+  2. **Explicit Casting (Manual Conversion)**
+
+     - Required when converting from a larger type to a smaller type or between incompatible types.
+     - Uses a cast operator `(Type)` and may lose data.
+     - Example:
+       ```csharp
+       double num = 10.5;
+       int result = (int)num; // Explicit casting from double to int
+       ```
+
+  3. **Conversion with Helper Classes (Using Convert Class)**
+
+     - Converts different types using helper methods in the `Convert` class, which is safer and helps prevent errors.
+     - Example:
+       ```csharp
+       string str = "123";
+       int result = Convert.ToInt32(str); // Convert string to int
+       ```
+
+  4. **Using `as` and `is` Operators (for Reference Types)**
+     - **`as`**: Casts an object to a specific type, returning `null` if it fails (no exception thrown).
+       ```csharp
+       object obj = "hello";
+       string str = obj as string; // Works since obj is a string
+       ```
+     - **`is`**: Checks if an object is of a certain type, returning `true` or `false`.
+       ```csharp
+       object obj = "hello";
+       if (obj is string)
+       {
+           string str = (string)obj; // Safe to cast
+       }
+       ```
 
     <hr/>
   </details>
-  
+
+### **`OOPs`**
 
 # **`ADO`**
 
 #### Q. What is ADO.Net?
+
 #### Q. What are the data provider?
+
 #### Q. What is the ADO.Net Components? And What is that?
+
 #### Q. What are the comman class in all data provider?
+
 #### Q. What are the work for Preforming CRUD Operation with DataBase fro .Net Applications?
+
 #### Q. What is the use of SQLConnection class?
+
 #### Q. How to create object of SQLConnection Class of ADO.Net?
+
 #### Q. What is connection string?
+
 #### Q. What is .Open() and .Close()? And why we need to close?
+
 #### Q. What is state property?
+
 #### Q. Give me example to establish connection with SQL Server?
+
 #### Q. When we use Using block?
+
 #### Q. What are the two use of Using Keyword?
+
 #### Q. Constructors of SQLConnection class of ADO.Net?
+
 #### Q. Usually where we store the connection string?
+
 #### Q. How to get the Connection String Value?
+
 #### Q. What are the namespace/provider used for connection class & how to use class with this provider?
+
 #### Q. What is SqlCommand and why we Use?
+
 #### Q. What is the SqlCommand Signature?
+
 #### Q. What are the step follow by ADO.Net for manuplating Database?
+
 #### Q. How many Overloaded constructors method in SqlCommand class & Explain it?
+
 #### Q. What are the most commanly method of SqlCommand class?
+
 #### Q. What are the ExecuteReader() method, SqlDataReader, and Read()?
+
 #### Q. What are the ExecuteNonQuery() method and AddWithValue() in ADO.NET?
+
 #### Q. What are the ExecuteScalar() method in ADO.NET? Provide an example where a user find Max Age values into a database.
+
 #### Q. What is SQLDataReader class?
+
 #### Q. GIve me the Exampp=le of SqlDataReader?
+
 #### Q. What are the properties of SqlDataReader class?
+
 #### Q. What are the method of SqlDataReader class?
+
 #### Q. What are the two articture when we accessing the data in ADO.Net?
+
 #### Q. What is SqlDataAdaptor class?
+
 #### Q. What is DataSet and DataTable?
+
 #### Q. What we pass in SqlDataAdapter constructor?
+
 #### Q. Give me the example, using DataSet?
+
 #### Q. Give me the example using DataTable?
+
 #### Q. What if Fill method?
+
 #### Q. What is the signature of SqlDataAdaptor?
+
 #### Q. How to call Store procedure using SqlDataAdapter?
+
 #### Q. How to call Stored Procedure by geting input parameters?
+
 #### Q. What is DataTable?
+
 #### Q. Give me 2 exampele add data in DataTable using Database and Without using Database?
+
 #### Q. What is Copy() and Clone() method use with DataTable?
+
 #### Q. What is DataSet?
+
 #### Q. How to get two table using DataSet with Store procuder?
+
 #### Q. What happen when we try to access the table like that `foreach (DataRow r in ds.Tables["Student"].Rows)`
+
 #### Q. How to work DataSet and DataTable together, without store procedure use seperate seperate query?
+
 #### Q. How to preform CRUD operation from database using ADO.Net in MVC?
+
 #### Q. How to get connection string from Visual Studio?
 
 # **`ASP.Net`**
+
 ## **`WebForm`**
 
-####  ASP.NET Page Life Cycle
+#### ASP.NET Page Life Cycle
+
 - Page Events
 - Understanding Page Life Cycle Stages
-    - Page Request, 
-    - Start, 
-    - Initialization, 
-    - Load, 
-    - PostBack, 
-    - Render, 
-    - Unload
+  - Page Request,
+  - Start,
+  - Initialization,
+  - Load,
+  - PostBack,
+  - Render,
+  - Unload
+
 #### Controls
+
 - Standard controls
-    - TextBox
-    - Label
-    - Button
-    - DropDownList
-    - ListBox
-    - RadioButton
-    - CheckBox
+  - TextBox
+  - Label
+  - Button
+  - DropDownList
+  - ListBox
+  - RadioButton
+  - CheckBox
 - Data Controls
-    - GridView
-    - Repeater
-    - DataList
-    - ListView
-    - DetailsView
-    - FormView
+  - GridView
+  - Repeater
+  - DataList
+  - ListView
+  - DetailsView
+  - FormView
 - Validation Controls
-    - Required Field Validation
-    - Compare Validation
-    - Range Validation
-    - RegularExpression Validation
-    - Custome Validation
-    - Validation Summary
+  - Required Field Validation
+  - Compare Validation
+  - Range Validation
+  - RegularExpression Validation
+  - Custome Validation
+  - Validation Summary
 - Rich Controls
-    - Calender
-    - FileUpload
+  - Calender
+  - FileUpload
+
 #### Event Handling
+
 - Events and Event Handlers
 - PostBack
 - ViewState
 - Server-side Event
 - Client-side Event
 - IsPostback
+
 #### State Management
+
 - Client-Side State Management
-    - ViewState
-    - Cookies
-    - Hidden Fields
-    - Query Strings
-- Server-Side State Management 
-    - Session State
-    - Application State
-    - Cache
+  - ViewState
+  - Cookies
+  - Hidden Fields
+  - Query Strings
+- Server-Side State Management
+  - Session State
+  - Application State
+  - Cache
+
 #### Master Pages
+
 - Creating and Implementing Master Pages
 - Applying Themes and Skins
 - Dynamic Master Pages
+
 #### Data Binding and Data Access
+
 - Binding Data to Controls (GridView, Repeater, ListView, etc.)
 - DataSource Controls: SqlDataSource, ObjectDataSource, XmlDataSource, EntityDataSource
 - Connecting to Databases using ADO.NET (SQLConnection, SQLCommand, SQLDataReader, DataSet)
+
 #### User Controls and Custom Controls
+
 - Creating and Using User Controls
 - Creating and Using Custom Controls
 - Registering and Referencing Controls
+
 #### Web.Config
+
 #### Global.axpx
+
 #### Handling Application and Session Events
+
 #### Cashing
+
 - Output Caching
 - Data Caching
 - Cache Dependency
+
 #### Machine.config
+
 #### Client & server side Scripting
 
 ## **`MVC 5`**
+
 ## **`Web Api`**
 
 #### Design Patterns
 
 # **`ASP.Net Core`**
+
 ## **`MVC Core`**
+
 ## **`Web Api Core`**
+
 ## **`Razor Pages (Web Apps)`**
