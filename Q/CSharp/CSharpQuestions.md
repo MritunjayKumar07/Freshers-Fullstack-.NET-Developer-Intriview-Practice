@@ -1277,98 +1277,63 @@ LTS (long-term support) releases have an extended support period. Use this if yo
     <p>Assemblies exist in the form of DLL or EXE files.</p>
     <hr/>
   </details>
-## 02: Basic:-
 - <details>
-    <summary>What is C# and why was it named so?</summary>
+    <summary>What is BCL?</summary>
+    <hr/>
+    <ul>
+    <li>A class library is collection of classes where every class will contain so many predefined functions which are helpful to write the code</li>
+    <li>A class library in .Net can also be called as assembly</li>
+    <li>Microsoft maintains a specific hierarchy for the class library like</li>
+    </ul>
+
+    ![alt text](BCL.png)
+
+    <ol>
+    <b>This hierarchy will help us in following</b>
+    <li>To provide easy access to the predefined function</li>
+    <li>To avoid duplicate naming problems</li>
+    </ol>
+    <ul>
+    <li>We can access any function like: <mark>AssemblyName.NameSpaceName.ClassName.FuntionName</mark></li>
+    <li>A class library / Assembly in .Net always will exists in the form DLL / Exe</li>
+    </ul>
+    <hr/>
+  </details>
+## 02: Basic:-
+
+
+- <details>
+     <summary>What is the diffrence bitween value type and refrence type?⭐</summary>
+     <hr/>
+
+    | **Serial Number** | **Value Type**                                                                         | **Reference Type**                                                                                   |
+    | ----------------- | -------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+    | 1                 | Data store  directly into their memory location.                                       | Data do not store directly; instead, they refer to another memory location where data is stored.     |
+    | 2                 | Memory is allocated at compile time.                                                   | Memory is allocated at runtime.                                                                      |
+    | 3                 | Memory is allocated done by stack memory allocation.                                   | Memory is allocated done by dynamic memory allocation.                                               |
+    | 4                 | Placed in stack memory.                                                                | Placed in heap memory.                                                                               |        
+    | 4                 | Memory allocation for value types occurs in `contiguous memory locations in the stack `| Memory allocation for reference types, it occurs in `non-contiguous (random) memory locations in the heap`.|
+    | 5                 | The CLR does not provide automatic memory management for value types                   | CLR provides automatic memory management ( such as garbage collection ) for reference types.         |
+    | 6                 | Occupies less memory.                                                                  | Occupies more memory; a single reference type variable can occupy a maximum of up to 2GB.            |
+    | 7                 | If a value type variable is not initialized, it stores a default value (e.g., int a; defaults to 0). | If a reference type variable is not initialized, it stores a null reference (e.g., string s; defaults to null). |
+    | 8                 | Examples of value types: `int`, `double`, `enum`, etc.                                 | Examples of reference types: `string`, `object`, `class`, etc.                                       |
+
+     <hr/>
+   </details>
+
+
+- <details>
+    <summary>What is C# and why was it named so?⭐</summary>
     <hr/>
     <p>C# is a general-purpose programming language developed by Microsoft as part of its .NET initiative. The name "C#" was inspired by the musical notation sharp (♯), indicating that the language is an increment or improvement over C++.</p>
     <hr/>
   </details>
 - <details>
-    <summary>Can you explain the history and evolution of C#?</summary>
+    <summary>Can you explain the history and evolution of C#?⭐</summary>
     <hr/>
     <p>C# was developed around 2000 by Microsoft, with Anders Hejlsberg as the principal designer. It was initially known as "COOL" before being renamed to C#. It has evolved through several versions, with the most recent being C# 12.</p>
     <hr/>
   </details>
-
-#### Diffrence bitween value type and refrence type:
-
-1. <details>
-     <summary>Who allocate memory for Value type and where it's placed?</summary>
-     <hr/>
-     <p>Usually, memory allocation for value types is done using static memory allocation, and these data types are placed in stack memory.</p>
-     <hr/>
-   </details>
-2. <details>
-     <summary>Who allocate memory for refrence type and where it's placed?</summary>
-     <hr/>
-     <p>Memory allocation for reference types is done using dynamic memory allocation, and these are placed in heap memory.</p>
-     <hr/>
-   </details>
-3. <details>
-     <summary>How is data stored for value types and reference types in memory?</summary>
-     <hr/>
-     <p>Value types store data directly in their memory location, whereas reference types store a reference to another memory location where the data is stored.</p>
-     <hr/>
-   </details>
-4. <details>
-     <summary>When is memory allocated for value types compared to reference types?</summary>
-     <hr/>
-     <p>Memory allocated for value types is at compile time, while for reference types allocated the memory at runtime.</p>
-     <hr/>
-   </details>
-5. <details>
-     <summary>Where are value types and reference types stored in memory?</summary>
-     <hr/>
-     <p>Value types are stored in stack memory, while reference types are stored in heap memory.</p>
-     <hr/>
-   </details>
-6. <details>
-     <summary>How does memory allocation differ between value types and reference types?</summary>
-     <hr/>
-     <p>Memory allocation for value types occurs in <mark><b> contiguous memory locations in the stack </b></mark>, whereas for reference types, it occurs in <mark><b> non-contiguous (random) memory locations in the heap </b></mark>.</p>
-     <hr/>
-   </details>
-7. <details>
-     <summary>How does the CLR handle memory management for value types versus reference types?</summary>
-     <hr/>
-     <p>The CLR does not provide automatic memory management for value types, whereas it does provide automatic memory management ( such as garbage collection ) for reference types.</p>
-     <hr/>
-   </details>
-8. <details>
-     <summary>How does the amount of memory occupied by value types compare to reference types?</summary>
-     <hr/>
-     <p>Value types generally occupy less memory, whereas reference types can occupy more memory, with a single reference type variable potentially using up to 2GB.</p>
-     <hr/>
-   </details>
-9. <details>
-     <summary>What happens if a value type or reference type variable is not initialized?</summary>
-     <hr/>
-     <p>If a value type variable is not initialized, it stores a default value (e.g., int a; defaults to 0). If a reference type variable is not initialized, it stores a null reference (e.g., string s; defaults to null).</p>
-     <hr/>
-   </details>
-10. <details>
-        <summary>Can you provide examples of value types and reference types in C#?</summary>
-        <hr/>
-        <p>Examples of value types: int, double, and enum, while examples of reference types: string, object, and class.</p>
-        <hr/>
-  </details>
-
-<hr/>
-
-| **Serial Number** | **Value Type**                                                                         | **Reference Type**                                                                                   |
-| ----------------- | -------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| 1                 | Store the data directly into their memory location.                                    | Do not store the data directly; instead, they refer to another memory location where data is stored. |
-| 2                 | Memory is allocated at compile time.                                                   | Memory is allocated at runtime.                                                                      |
-| 3                 | Memory is allocated by stack memory allocation.                                        | Memory is allocated by dynamic memory allocation.                                                    |
-| 4                 | Memory allocation is made within the stack, i.e., in a contiguous memory location.     | Memory allocation is made within the heap, i.e., in a random memory location.                        |
-| 5                 | CLR does not provide automatic memory management.                                      | CLR provides automatic memory management.                                                            |
-| 6                 | Occupies less memory.                                                                  | Occupies more memory; a single reference type variable can occupy a maximum of up to 2GB.            |
-| 7                 | If data is not initialized, stores the default value in the variable (e.g., `int a;`). | If data is not initialized, stores a null reference in the variable (e.g., `string S;`).             |
-| 8                 | Examples of value types: `int`, `double`, `enum`, etc.                                 | Examples of reference types: `string`, `object`, `class`, etc.                                       |
-
-<hr/>
-
 - <details>
     <summary>What is the syntax to define a class in C#?</summary>
     <hr/>
@@ -1442,20 +1407,20 @@ LTS (long-term support) releases have an extended support period. Use this if yo
     <hr/>
   </details>
 - <details>
-    <summary>What is the use of the using directive in C#?</summary>
+    <summary>What is the use of the using directive in C#?⭐</summary>
     <hr/>
     The using directive allows you to import a namespace so that you don’t need to prefix the namespace every time you use a type. For example: `using System;`.<br/>
     After importing, you can directly use Console.WriteLine instead of System.Console.WriteLine.
     <hr/>
   </details>
 - <details>
-    <summary>Why do we declare the Main method as static?</summary>
+    <summary>Why do we declare the Main method as static?⭐</summary>
     <hr/>
     The Main method is declared as static so that it can be called without creating an instance of the class. This is necessary because Main serves as the program's entry point.
     <hr/>
   </details>
 - <details>
-    <summary>What are the advantages of using namespaces in C#?</summary>
+    <summary>What are the advantages of using namespaces in C#?⭐</summary>
     <hr/>
     <ul>
     <li><b>Grouping related types</b>: Similar types (classes, structures, interfaces) are grouped under a namespace for easier access and identification.</li>
@@ -1464,13 +1429,13 @@ LTS (long-term support) releases have an extended support period. Use this if yo
     <hr/>
   </details>
 - <details>
-    <summary>What is a directive in C#?</summary>
+    <summary>What is a directive in C#?⭐</summary>
     <hr/>
     A directive is an instruction given to the compiler that it must follow. For example, importing a namespace `using` the using directive tells the compiler where the types used in the program come from.
     <hr/>
   </details>
 - <details>
-    <summary>What does the using directive do?</summary>
+    <summary>What does the using directive do?⭐</summary>
     <hr/>
     The `using` directive imports a namespace, allowing the program to use the types defined in that namespace without needing to prefix them with the namespace name every time.
     <hr/>
@@ -1482,18 +1447,13 @@ LTS (long-term support) releases have an extended support period. Use this if yo
     <hr/>
   </details>
 - <details>
-    <summary>What is the using static directive, and why is it used?</summary>
+    <summary>What is the using static directive, and why is it used?⭐</summary>
     <hr/>
       The using static directive allows you to import a type and use all of its static members without needing to prefix them with the type name. This was introduced in C# 6.0.
       <br/><br/>
       Use the using static directive when you want to access static members of a class frequently in your code, which can make your code cleaner and easier to read.
-    <hr/>
-  </details>
-- <details>
-    <summary>Can you provide an example of the using static directive?</summary>
-
-    <hr/>
-      
+      <br/>
+      Example of the using static directive:
       ```C#
       using static System.Console;
 
@@ -1529,16 +1489,16 @@ LTS (long-term support) releases have an extended support period. Use this if yo
     <hr/>
     <p>To print variables using the concatenation operator (+), you can concatenate them directly with strings:</p>
 
-  ```C#
-  int a = 10;
-  Console.WriteLine("Value of a is = " + a); //Out: Value of a is = 10
-  ```
+    ```C#
+    int a = 10;
+    Console.WriteLine("Value of a is = " + a); //Out: Value of a is = 10
+    ```
 
     <hr/>
   </details>
 
 - <details>
-    <summary>What are the steps for the compilation of a program in Visual Studio?</summary>
+    <summary>What are the steps for the compilation of a program in Visual Studio?⭐</summary>
     <hr/>
     <ol>
     <li>Click on Build from the top menu.</li>
@@ -1564,22 +1524,6 @@ LTS (long-term support) releases have an extended support period. Use this if yo
     <hr/>
   </details>
 - <details>
-    <summary>What are the three methods available in C# to read data from the user?</summary>
-    <hr/>
-    <ol>
-    <li><b>Read() -</b> Reads the character from the input stream and returns its ASCII value as an integer.</li>
-    <li><b>ReadLine() -</b> Reads a line of characters from the input stream and returns it as a string.</li>
-    <li><b>ReadKey() -</b> Captures and displays a single key press.</li>
-    </ol>
-    <hr/>
-  </details>
-- <details>
-    <summary>What is the return type of ReadLine() in C#?</summary>
-    <hr/>
-    <p>The return type of ReadLine() is string. It reads a line of text from the input stream as a string.</p>
-    <hr/>
-  </details>
-- <details>
     <summary>What are the steps to follow for basic programming in C#?</summary>
     <hr/>
     <ol>
@@ -1590,108 +1534,9 @@ LTS (long-term support) releases have an extended support period. Use this if yo
     </ol>
     <hr/>
   </details>
-- <details>
-    <summary>Write a C# program to calculate the area and perimeter of a rectangle.</summary>
-    <hr/>
-
-  ```C#
-  int Length, Breadth, Area, Perimeter;
-  Console.Write("Enter the Length & Breadth = ");
-  Length = Convert.ToInt32(Console.ReadLine());
-  Breadth = Convert.ToInt32(Console.ReadLine());
-  Area = Length * Breadth;
-  Perimeter = 2 * (Length + Breadth);
-  Console.WriteLine("Area is = " + Area);
-  Console.WriteLine("Perimeter is = " + Perimeter);
-  Console.ReadLine();
-  ```
-
-    <hr/>
-  </details>
 
 - <details>
-    <summary>How do you swap two numbers in C# using a third variable?</summary>
-    <hr/>
-
-  ```C#
-  int a, b, c;
-  Console.Write("Enter the Two numbers = ");
-  a = Convert.ToInt32(Console.ReadLine());
-  b = Convert.ToInt32(Console.ReadLine());
-  c = a;
-  a = b;
-  b = c;
-  Console.WriteLine("The values of a and b after swapping are = {0}, {1}    ", a, b);
-  Console.Read();
-  ```
-
-    <hr/>
-  </details>
-
-- <details>
-    <summary>How do you swap two numbers in C# without using a third variable?</summary>
-    <hr/>
-
-  ```C#
-  int a, b;
-  Console.Write("Enter the Two numbers = ");
-  a = Convert.ToInt32(Console.ReadLine());
-  b = Convert.ToInt32(Console.ReadLine());
-  a = a + b;
-  b = a - b;
-  a = a - b;
-  Console.WriteLine("The values of a and b after swapping are = {0},  {1} ", a, b);
-  Console.Read();
-
-  ```
-
-    <hr/>
-  </details>
-
-- <details>
-    <summary>How do you swap two numbers in C# without using a third variable and +, - operator?</summary>
-    <hr/>
-    
-    ```C#
-      int a = 5, b = 10;
-      a = a \* b; // a becomes 50
-      b = a / b; // b becomes 5
-      a = a / b; // a becomes 10
-    ```
-
-  <hr/>
-  </details>
-- <details>
-    <summary>How do you swap two numbers in C# without using a third variable and +, -, *, / operator?</summary>
-    <hr/>
-    
-    ```C#
-    int a = 5, b = 10;
-    
-    a = a ^ b;  // a becomes 15 (binary: 0101 ^ 1010 = 1111)
-    b = a ^ b;  // b becomes 5  (binary: 1111 ^ 1010 = 0101)
-    a = a ^ b;  // a becomes 10 (binary: 1111 ^ 0101 = 1010)
-    ```
-
-    <hr/>
-  </details>
-
-- <details>
-    <summary>How do you swap two numbers in C# without using a third variable and +, -, *, /, bitwise operator?</summary>
-    <hr/>
-    <hr/>
-    
-    ```C#
-    int a = 5, b = 10;
-    (a, b) = (b, a); // Swap using tuple assignment
-    ```
-
-  <hr/>
-  <hr/>
-  </details>
-
-- <details>
-    <summary>What is the difference between Read() and ReadLine() in C#?</summary>
+    <summary>What is the difference between Read() and ReadLine() in C#?⭐</summary>
     <hr/>
 
   | Feature         | `Read()    `                                    | `ReadLine()   `                                   |
@@ -1703,9 +1548,23 @@ LTS (long-term support) releases have an extended support period. Use this if yo
 
     <hr/>
   </details>
-
 - <details>
-    <summary>What is output stream arguments?</summary>
+    <summary>What is the Difference Between Console.Write() and Console.WriteLine() ?⭐</summary>
+    <hr/>
+    <p><b>Console.Write()</b>: Which is used to print the output & in console window after printing the line the cursor will remain in the same line</p>
+    <p><b>Console.WriteLine()</b>: Which is used to print the output & in console window after printing the line the cursor will move to next line</p>
+    <hr/>
+  </details>
+- <details>
+    <summary>What is the Difference Between Console.Read() and Console.ReadLine() and Console.ReadKey()?⭐</summary>
+    <hr/>
+    <p><b>Console.Read()</b>: Reads the character from the input stream and returns its ASCII value as an integer. Which is used to read the single character from the console window in the form of character</p>
+    <p><b>Console.ReadLine()</b>: Reads a line of characters from the input stream and returns it as a string. Which is used to read the multiple character from the console window in the form of string</p>
+    <p><b>Console.ReadKey()</b>: Captures and displays a single key press. Which is used to stop console window / Output window until press the any key from the keyboard</p>
+    <hr/>
+  </details>
+- <details>
+    <summary>What is output stream arguments?⭐</summary>
     <hr/>
     <p>They are called output stream arguments. They are used in string formatting to insert values into a formatted string. Ex: 
     
@@ -1717,20 +1576,20 @@ LTS (long-term support) releases have an extended support period. Use this if yo
     <hr/>
   </details>
 - <details>
-    <summary>What data types can output stream arguments be used with?</summary>
+    <summary>What data types can output stream arguments be used with?⭐</summary>
     <hr/>
     <p>Output stream arguments can be used with numeric data types (e.g., int, float, double).</p>
     <hr/>
   </details>
 - <details>
-      <summary>What are the benefits of using output stream arguments in C#?</summary>
+      <summary>What are the benefits of using output stream arguments in C#?⭐</summary>
       <hr/>
       <li>Memory Efficiency: Using output stream arguments can save space in memory.</li>
       <li>Reduced Memory Cost: This method reduces the cost of memory by avoiding the need to create multiple string concatenations.</li>
       <hr/>
   </details>
 - <details>
-    <summary>Datatype?</summary>
+    <summary>Datatype?⭐</summary>
     <hr/>
 
   ![DataType](./DataType.png)
@@ -1739,7 +1598,7 @@ LTS (long-term support) releases have an extended support period. Use this if yo
   </details>
 
 - <details>
-    <summary>What are the equivalent data types of C# to CTS (Common Type System)?</summary>
+    <summary>What are the equivalent data types of C# to CTS (Common Type System)?⭐</summary>
     <hr/>
     <ol>
       <li>Integer:
@@ -1783,7 +1642,7 @@ LTS (long-term support) releases have an extended support period. Use this if yo
     <hr/>
   </details>
 - <details>
-    <summary>What are the ranges and sizes of different C# data types?</summary>
+    <summary>What are the ranges and sizes of different C# data types?⭐</summary>
     <hr/>
     <ul>
     <li>sbyte: -128 to 127, Signed 8-bit integer</li>
@@ -1802,7 +1661,7 @@ LTS (long-term support) releases have an extended support period. Use this if yo
     <hr/>
   </details>
 - <details>
-    <summary>What are the different types of operators in C#?</summary>
+    <summary>What are the different types of operators in C#?⭐</summary>
     <hr/>
     <b>Arithmetic Operators: </b> `+`, `-`, `*`, `/` , `%` <br/>
     <b>Comparison Operators: </b> `<`, `>`, `<=`, `>=`, `==`, `!=`, Type comparison: `is` <br/>
@@ -1812,7 +1671,7 @@ LTS (long-term support) releases have an extended support period. Use this if yo
     <hr/>
   </details>
 - <details>
-    <summary>Which is faster: a = a + 5;, a += 5;, or a++;?</summary>
+    <summary>Which is faster: a = a + 5;, a += 5;, or a++;?⭐</summary>
     <hr/>
     <ul>
     <li>a = a + 5; → Slow, because it involves 5 push & 5 pop operations internally.</li>
@@ -1826,208 +1685,25 @@ LTS (long-term support) releases have an extended support period. Use this if yo
     <hr/>
     <p>The is operator in C# checks if an object is of a specific type or derived from that type. This feature is not available in C. In C, you would use type casting or manual checks, but there is no direct equivalent to the is operator.</p>
 
-  ```C#
-  if (myObject is string) { Console.WriteLine("myObject is a string"); }
-  ```
+    ```C#
+    if (myObject is string) { Console.WriteLine("myObject is a string"); }
+    ```
 
-  In this example, myObject is checked to see if it is of type string.
+    In this example, myObject is checked to see if it is of type string.
     <hr/>
   </details>
 
 - <details>
-    <summary>What are the common programming constructs in C#?</summary>
+    <summary>What are the common programming constructs in C#?⭐</summary>
     <hr/>
+    **Note**: Constructs refer to basic programming elements or building blocks used to write a program.
     <li><b>Operators: </b>`Operators`</li>
     <li><b>Selections: </b>`if`, `if-else`, `Nested if`, `Multiple ifs`, `if-else ladder` and `switch case`</li>
     <li><b>Iterations: </b>`for loop`, `while loop`,`do-while loop` and `foreach loop`,</li>
     <hr/>
   </details>
 - <details>
-    <summary>Write a C# program to find the given number is even (or) Odd using switch case?</summary>
-    <hr/>
-    This program is correct:
-
-  ```C#
-  switch (Number % 2)
-  {
-  case 0: Console.WriteLine("The entered number is Even = " + Number);    break;
-  default: Console.WriteLine("The entered number is Odd = " + Number);    break;
-  }
-  ```
-
-    <hr/>
-  </details>
-
-- <details>
-    <summary>Find 12% discount of total amount?</summary>
-    <hr/>
-    This program is correct:
-
-  ```C#
-  int Discount_Amount = 0.12 * Bill_Amount;
-  int Total = Bill_Amount - Discount_Amount;
-  ```
-
-    <hr/>
-  </details>
-
-- <details>
-    <summary>Find the factorial of a number using a for loop?</summary>
-    <hr/>
-    (factorial: 5! = 5 * 4 * 3 * 2 * 1 = 120.)
-    This program is wrong try you self:
-
-  ```C#
-  int Number, Count;
-  int Factorial_Value = 1;
-  Console.Write("Enter any number = ");
-  Number = Convert.ToInt32(Console.ReadLine());
-
-  for (Count = 1; Count <= Number; Count++)
-  {
-      Factorial_Value *= Count;
-  }
-  Console.WriteLine("The Factorial of the entered number is = " + Factorial_Value);
-  Console.ReadKey();
-  ```
-
-    <hr/>
-  </details>
-
-- <details>
-    <summary>Find the factors of a number using a for loop?</summary>
-    <hr/>
-    (factors: 16 = 1, 2, 4, 8) Those number(1,2,4,8) divide the number(16)
-    This program is wrong try you self:
-
-  ```C#
-  int Number = Convert.ToInt32(Console.ReadLine());
-  for (int Count = 1; Count <= Math.Sqrt(Number); Count++)
-  {
-      if (Number % Count == 0)
-      {
-          if (Count != Number / Count)
-          {
-            Console.Write(Count + " " + Number / Count + " ");
-          }
-          else
-          {
-            Console.Write(Count + " ");
-          }
-      }
-  }
-  ```
-
-    <hr/>
-  </details>
-
-- <details>
-    <summary>Write a C# program to determine if a number is prime or not using a for loop?</summary>
-    <hr/>
-    (Prime number is called when number is dividing by 1 and itself)
-    This program is wrong try you self:
-
-  ```C#
-  int Number, Count;
-  bool IsPrime = true;
-
-  Console.Write("Enter any number = ");
-  Number = Convert.ToInt32(Console.ReadLine());
-
-  for (Count = 2; Count <= Math.Sqrt(Number); Count++)
-  {
-    if (Number % Count == 0)
-      {
-        IsPrime = false;
-        break;
-      }
-  }
-
-  if (IsPrime && Number > 1)
-  {
-    Console.WriteLine("The number entered is a prime number");
-  }
-  else
-  {
-    Console.WriteLine("The number entered is not a prime number");
-  }
-  ```
-
-    <hr/>
-  </details>
-
-- <details>
-    <summary>Reverse a number using a C# program with a for loop?</summary>
-    <hr/>
-    This program is wrong try you self:
-
-  ```C#
-  int Number, rev = 0;
-
-  Console.Write("Enter any number = ");
-  Number = Convert.ToInt32(Console.ReadLine());
-
-  while (Number > 0)
-  {
-      int rem = Number % 10;
-      rev = rev * 10 + rem;
-      Number /= 10;
-  }
-
-  Console.WriteLine("The Reverse of the Number is = " + rev);
-  ```
-
-    <hr/>
-  </details>
-
-- <details>
-    <summary>Check if a number is an Armstrong number using a C# program?</summary>
-    <hr/>
-    An Armstrong number is a number that is equal to the sum of its digits, each raised to the power of the number of digits in the number.
-    (0 => 0^1 = 0)
-    (1 => 1^1 = 1)
-    (153 => 1^3 + 5^3 + 3^3 = 1 + 125 + 27 = 153)
-    (1634 => 1^4 + 6^4 + 3^4 + 4^4 = 1634)
-    This program is wrong try you self:
-
-  ```C#
-  int Number, Sum = 0, Count_Digits = 0;
-
-  Console.Write("Enter any number = ");
-  Number = Convert.ToInt32(Console.ReadLine());
-
-  // Count the number of digits
-  int temp = Number;
-  while (temp > 0)
-  {
-      Count_Digits++;
-      temp /= 10;
-  }
-
-  // Calculate the Armstrong number sum
-  temp = Number;
-  while (temp > 0)
-  {
-      int R = temp % 10;
-      Sum += (int)Math.Pow(R, Count_Digits);
-      temp /= 10;
-  }
-
-  if (Sum == Number)
-  {
-      Console.WriteLine("Number is an Armstrong number");
-  }
-  else
-  {
-      Console.WriteLine("Number is not an Armstrong number");
-  }
-  ```
-
-    <hr/>
-  </details>
-
-- <details>
-    <summary>What are functions in programming?</summary>
+    <summary>What are functions in programming?⭐</summary>
     <hr/>
     <p>Functions are reusable blocks of code that perform specific tasks. They allow you to write code once and call it whenever needed, promoting code reuse and organization.</p>
     <hr/>
@@ -2092,82 +1768,38 @@ LTS (long-term support) releases have an extended support period. Use this if yo
       }
       ```
 
-  </li>
-  <li>Function with parameters and with return value
-
-  ```C#
-  void Main()
-  {
-      int S = Add(50, 40);// Pass arguments 50 and 40
-      Console.WriteLine("Sum is = " + S);
-      Console.ReadKey();
-  }
-
-  int Add(int x, int y) //x and y is Parameters
-  {
-      int Sum = x + y;
-      return Sum;
-  }
-
-  ```
+   </li>
+   <li>Function with parameters and with return value
+ 
+   ```C#
+   void Main()
+   {
+       int S = Add(50, 40);// Pass arguments 50 and 40
+       Console.WriteLine("Sum is = " + S);
+       Console.ReadKey();
+   }
+ 
+   int Add(int x, int y) //x and y is Parameters
+   {
+       int Sum = x + y;
+       return Sum;
+   }
+ 
+   ```
 
     </li>
     </ol>
     <hr/>
   </details>
-
+### **`Array & Loops`**
 - <details>
-    <summary>Write program to find Prime number (or) not using Functions?</summary>
-    <hr/>
-    
-    ```C#
-      static void Main()
-      {
-        int Number;
-        Console.Write("Enter any number = ");
-        Number = Convert.ToInt32(Console.ReadLine());
-
-        if (CheckPrime(Number))
-        {
-          Console.WriteLine("Number is Prime");
-        }
-        else
-        {
-          Console.WriteLine("Number is Not Prime");
-        }
-
-        Console.ReadKey();
-      }
-
-      static bool CheckPrime(int N)
-      {
-      // A number less than or equal to 1 is not prime
-      if (N <= 1) return false;
-
-          // Check for factors from 2 to sqrt(N)
-          for (int Count = 2; Count <= Math.Sqrt(N); Count++)
-          {
-              if (N % Count == 0)
-              {
-                  return false;
-              }
-          }
-
-          return true;
-
-      }
-    ```
-
-  <hr/>
-  </details>
-- <details>
-    <summary>What is an array in C#?</summary>
+    <summary>What is an array in C#?⭐</summary>
     <hr/>
     <p>An array is a user-defined data type used to store same type of multiple values under a single name. It makes it easier for developers to write code, as each element in the array can be accessed using an index. Arrays in C# start with an index of 0 (the lower bound) and end with Size-1 (the upper bound).</p>
     <hr/>
   </details>
 - <details>
-    <summary>What are the types of arrays in C#?</summary>
+    <summary>What are the types of arrays in C#?⭐</summary>
     <hr/>
     There are three types of arrays available in C#:
     <ol>
@@ -2193,13 +1825,13 @@ LTS (long-term support) releases have an extended support period. Use this if yo
     <hr/>
   </details>
 - <details>
-    <summary>What is a single-dimensional array in C#?</summary>
+    <summary>What is a single-dimensional array in C#?⭐</summary>
     <hr/>
     <p>A single-dimensional array is an array that contains either a single row or a single column of elements. It is a linear structure where all elements are stored in a contiguous block of memory.</p>
     <hr/>
   </details>
 - <details>
-    <summary> What are the three methods to declare a single-dimensional array in C#?</summary>
+    <summary> What are the three methods to declare a single-dimensional array in C#?⭐</summary>
     <hr/>
     <ol>
     <li>Method 1:
@@ -2268,160 +1900,14 @@ LTS (long-term support) releases have an extended support period. Use this if yo
     </ol>
     <hr/>
   </details>
-
 - <details>
-    <summary>How to create a C# program that initializes an array with a user-defined size, accepts elements from the user, and prints the elements?</summary>
-    <hr/>
-    
-    ```C#
-    int Size, Index;
-    Console.Write("Enter the size of an array = ");
-    Size = Convert.ToInt32(Console.ReadLine());
-    int[] Array = new int[Size];
-    Console.WriteLine("Enter the " + Size + " elements toarray = ");
-    for (Index = 0; Index < Size; Index++)
-    {
-        Array[Index] = Convert.ToInt32(Console.ReadLine());
-    }
-    Console.WriteLine("Elements of the array = ");
-    for (Index = 0; Index < Size; Index++)
-    {
-        Console.Write(Array[Index] + " ");
-    }
-    ```
-
-    <hr/>
-  </details>
-
-- <details>
-    <summary>How to create a C# program that initializes an array with a user-defined size, accepts elements from the user, and prints the elements in reverse order?</summary>
-    <hr/>
-    
-    ```C#
-    int Size, Index_1, Index_2, Temporary;
-    Console.WriteLine("Enter the size of an Array = ");
-    Size = Convert.ToInt32(Console.ReadLine());
-    int[] Array = new int[Size];
-    Console.WriteLine("Enter the " + Size + " elements to an array = ");
-    for (Index_1 = 0; Index_1 < Size; Index_1++)
-    {
-        Array[Index_1] = Convert.ToInt32(Console.ReadLine());
-    }
-    Console.WriteLine("Elements of array before reverse order = ");
-    for (Index_1 = 0; Index_1 < Size; Index_1++)
-    {
-        Console.Write(Array[Index_1] + " ");
-    }
-    for (Index_1 = 0, Index_2 = Size - 1; Index_1 < Size / 2; Index_1++, Index_2--)
-    {
-        Temporary = Array[Index_1];
-        Array[Index_1] = Array[Index_2];
-        Array[Index_2] = Temporary;
-    }
-    Console.WriteLine("\nElements of the Array after Reveorder = ");
-    for (Index_1 = 0; Index_1 < Size; Index_1++)
-    {
-        Console.Write(Array[Index_1] + " ");
-    }
-    ```
-
-    <hr/>
-  </details>
-
-- <details>
-    <summary>Write a C# program to create an array with a user-defined size, accept elements from the user, find the missing element from the array, and print it to the user.</summary>
-    <hr/>
-
-  ```C#
-  int Size, Index, Number;
-  Console.Write("Enter the size of an array = ");
-  Size = Convert.ToInt32(Console.ReadLine());
-  int[] Array = new int[Size];
-  Console.Write("Enter any Number = ");
-  Number = Convert.ToInt32(Console.ReadLine());
-  Console.WriteLine("Enter the " + (Size - 1) + " multiples of " + Number);
-
-  // Accept array elements from the user
-  for (Index = 0; Index < Size - 1; Index++)
-  {
-      Array[Index] = Convert.ToInt32(Console.ReadLine());
-  }
-
-  // Find and print the missing element
-  for (Index = 0; Index < Size - 1; Index++)
-  {
-    if (Array[Index] != Number * (Index + 1))
-    {
-      Console.WriteLine("Missing element is = " + Number * (Index + 1));
-      break;
-    }
-  }
-  ```
-
-    <hr/>
-  </details>
-
-- <details>
-    <summary>Write a C# program to create an array with a user-defined size, accept elements from the user, and print the array elements in sorted order.</summary>
-    <hr/>
-
-  ```C#
-  static void Main(string[] args)
-  {
-    int size, index;
-    Console.Write("Enter the size of an array: ");
-    size = Convert.ToInt32(Console.ReadLine());
-    int[] A = new int[size];
-    Console.WriteLine("Enter " + size + " elements of the array:");
-
-    // Accept array elements from the user
-    for (index = 0; index < size; index++)
-    {
-        A[index] = Convert.ToInt32(Console.ReadLine());
-    }
-
-    // Print the array elements before sorting
-    Console.WriteLine("\nBefore sorting the elements in the array:");
-    foreach (int i in A)
-    {
-        Console.Write(i + " ");
-    }
-
-    // Sort the array using Bubble Sort
-    for (int round = 1; round <= size - 1; round++)
-    {
-        for (int sindex = 0; sindex < size - round; sindex++)
-        {
-            if (A[sindex] > A[sindex + 1])
-            {
-                int temp = A[sindex];
-                A[sindex] = A[sindex + 1];
-                A[sindex + 1] = temp;
-            }
-        }
-    }
-
-    // Print the array elements after sorting
-    Console.WriteLine("\nAfter sorting the elements in the array:");
-    foreach (int i in A)
-    {
-        Console.Write(i + " ");
-    }
-    Console.ReadKey();
-  }
-  ```
-
-    <hr/>
-  </details>
-
-- <details>
-    <summary>What is a foreach loop in C#?</summary>
+    <summary>What is a foreach loop in C#?⭐</summary>
     <hr/>
     <p>A foreach loop in C# is used to iterate over the elements of a collection or an array. It is especially useful when the number of elements is not known, or when we want to refer directly to each element without using an index.</p>
     <hr/>
   </details>
 - <details>
-    <summary>What are the limitations of a foreach loop in C#?</summary>
+    <summary>What are the limitations of a foreach loop in C#?⭐</summary>
     <hr/>
     <ul>
     <li>It cannot be used to input elements into the data source.</li>
@@ -2440,38 +1926,22 @@ LTS (long-term support) releases have an extended support period. Use this if yo
     <hr/>
   </details>
 - <details>
-    <summary>D/F for and foreach?</summary>
+    <summary>D/F for and foreach?⭐</summary>
     <hr/>
 
-  | **Feature**              | **`for` Loop**                                                                                 | **`foreach` Loop**                                                |
-  | ------------------------ | ---------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
-  | **Syntax**               | `for (initialization; condition;    iteration{ ... }`                                          | `foreach (DataType variable in    collection) { ... }`            |
-  | **Use Case**             | Used when the number of iterations is knownor when accessing elements by index.                | Used to iterate over all elements of a collection or array.       |
-  | **Index Access**         | Provides access to the index of elements.                                                      | Does not provide access to the index directly.                    |
-  | **Modifying Collection** | Allows modification of the elementin the collection.                                           | Modifying the collection while iterating is not recommended.      |
-  | **Performance**          | Slightly faster if the size of the collection is known and indexing is needed.                 | Generally slowethan `for` when indexing is required.              |
-  | **Flexibility**          | More flexible as it can iterate in any order or direction (forward, backward, specific steps). | Less flexible, only iterates from start to end in order.          |
-  | **Ease of Use**          | More complex syntax, especially with nesteloops.                                               | Easier to read and write for simple iterations.                   |
-  | **Error-Prone**          | Higher risk of errors such as off-by-onerrors or infinite loops.                               | Lower risk of such errors, as ihandles iteration automatically.   |
-  | **Ideal Scenario**       | When you need to know the index or perform complex operations based on the index.              | When you jusneed to iterate through all elements in a collection. |
+    | **Feature**              | **`for` Loop**                                                                                 | **`foreach` Loop**                                                |
+    | -------------------------| ---------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
+    | **Syntax**               | `for (initialization; condition;    iteration{ ... }`                                          | `foreach (DataType variable in    collection) { ... }`            |
+    | **Use Case**             | Used when i know the number index or do complex actions.                                       | Used to iterate over all elements of a collection or array.       |
+    | **Index Access**         | Provides access to the index of elements.                                                      | Does not provide access to the index directly.                    |
+    | **Modifying Collection** | Allows modification of the elementin the collection.                                           | Modifying the collection while iterating is not recommended.      |
+    | **Performance**          | Slightly faster if the size of the collection is known and indexing is needed.                 | Generally slowethan `for` when indexing is required.              |
+    | **Flexibility**          | More flexible as it can iterate in any order or direction (forward, backward, specific steps). | Less flexible, only iterates from start to end in order.          |
+    | **Ease of Use**          | More complex syntax, especially with nesteloops.                                               | Easier to read and write for simple iterations.                   |
+    | **Error-Prone**          | Higher risk of errors such as off-by-onerrors or infinite loops.                               | Lower risk of such errors, as ihandles iteration automatically.   |
+    | **Ideal Scenario**       | When you need to know the index or perform complex operations based on the index.              | When you jusneed to iterate through all elements in a collection. |
+    | **Fast**                 | Faster                                                                                         | Slow                                                              |
 
-    <hr/>
-  </details>
-
-- <details>
-    <summary>What is the difference in syntax between a for loop and a foreach loop?</summary>
-    <hr/>
-    <ul>
-    <li>for Loop: "for (initialization; condition; iteration) { ... }"</li>
-    <li>foreach Loop: "foreach (DataType variable in collection) { ... }"</li>
-    </ul>
-    <hr/>
-  </details>
-- <details>
-    <summary>Can you access the index of items in both loops?</summary>
-    <hr/>
-    <p>for Loop: Yes, you can access the index.</p>
-    <p>foreach Loop: No, it does not give direct access to the index.</p>
     <hr/>
   </details>
 - <details>
@@ -2510,251 +1980,25 @@ LTS (long-term support) releases have an extended support period. Use this if yo
     <hr/>
   </details>
 - <details>
-    <summary>When is each loop best to use?</summary>
+    <summary>When is which loop best to use?</summary>
     <hr/>
     <p>for Loop: Best when you need the index or do complex actions.</p>
     <p>foreach Loop: Best when you just need to go through all items in order.</p>
     <hr/>
   </details>
 - <details>
-    <summary>What is Bubble Sort?</summary>
-    <hr/>
-    <p>Bubble Sort is a simple sorting algorithm that repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order. This process continues until the list is sorted.</p>
-    <hr/>
-  </details>
-- <details>
-    <summary>How does the Bubble Sort algorithm work?</summary>
-    <hr/>
-    <ul>
-    <li>Compare Adjacent Items: In each pass (or round), compare each pair of adjacent items in the array.</li>
-    <li>Swap if Necessary: Swap them if they are in the wrong order.</li>
-    <li>Repeat: Continue this process for each item in the array. After each pass, the largest unsorted item moves to its correct position.</li>
-    <li>Reduce Comparisons: After each pass, the number of items to compare decreases, because the last items are already sorted.</li>
-    </ul>
-
-  ![Bubble_short](./Bubble_short.png)
-
-    <hr/>
-  </details>
-
-- <details>
-    <summary>How is the bubble sort impliment in C#?</summary>
-    <hr/>
-    
-    ```C#
-      static void Main()
-      {
-        int Size, Index;
-        Console.WriteLine("Enter the size of an Array = ");
-        Size = Convert.ToInt32(Console.ReadLine());
-        int[] Array = new int[Size];
-        Console.WriteLine("Enter the " + Size + " elements to an array = ");
-        for (Index = 0; Index < Size; Index++)
-        {
-          Array[Index] = Convert.ToInt32(Console.ReadLine());
-        }
-        Console.WriteLine("Elements of array Before sorting = ");
-        foreach (int X in Array)
-        {
-          Console.Write(X + " ");
-        }
-
-        // Bubble sort code
-        for (int Round = 1; Round <= Size - 1; Round++)
-        {
-          for (int Start_Index = 0; Start_Index < Size - Round; Start_Index++)
-          {
-            if (Array[Start_Index] > Array[Start_Index + 1])
-            {
-              int Temporary = Array[Start_Index];
-              Array[Start_Index] = Array[Start_Index + 1];
-              Array[Start_Index + 1] = Temporary;
-            }
-          }
-        }
-
-        Console.WriteLine("\nElements of array After sorting = ");
-        foreach (int X in Array)
-        {
-          Console.Write(X + " ");
-        }
-        Console.ReadKey();
-      }
-    ```
-
-  <hr/>
-  </details>
-- <details>
-    <summary> What are the advantages and disadvantages of Bubble Sort?</summary>
-    <hr/>
-    <p>Advantages: Easy to understand and implement.</p>
-    <p>Disadvantages: Inefficient for large datasets due to its O(n²) time complexity.</p>
-    <hr/>
-  </details>
-- <details>
-    <summary> How does the code sort the array?</summary>
-    <hr/>
-    <li>Input: The code first takes the size of the array and its elements from the user.</li>
-    <li>Sorting: It then applies Bubble Sort: repeatedly compares and swaps adjacent elements until the array is sorted.</li>
-    <li>Output: Finally, it prints the array before and after sorting.</li>
-    <hr/>
-  </details>
-- <details>
-    <summary>What is Linear Search?</summary>
-    <hr/>
-    <p>Linear Search is a simple search algorithm that checks each element of the list sequentially until the desired element is found or the end of the list is reached.</p>
-    <hr/>
-  </details>
-- <details>
-    <summary>How does Linear Search work?</summary>
-    <hr/>
-    <p>Start from the Beginning > Compare Each Element > If the element matches the target, return its position. If not, move to the next element. > End of List</p>
-    <hr/>
-  </details>
-- <details>
-    <summary>How is the Linear Search impliment in C#?</summary>
-    <hr/>
-    
-    ```C#
-      static void Main()
-      {
-        int Size, Index;
-
-        Console.WriteLine("Enter the size of an Array   = ");
-        Size = Convert.ToInt32(Console.ReadLine());
-
-        int[] Array = new int[Size];
-
-        Console.WriteLine("Enter the " + Size + "   elements    to an array = ");
-
-        for (Index = 0; Index < Size; Index++)
-        {
-          Array[Index] = Convert.ToInt32(Console. ReadLine());
-        }
-        Console.WriteLine("Elements of array = ");
-        foreach (int X in Array)
-        {
-          Console.Write(X + " ");
-        }
-        Console.WriteLine("\nEnter search value = ");
-        int Search_Value = Convert.ToInt32(Console. ReadLine   ());
-        for(Index = 0; Index < Size; Index++)
-        {
-          if(Search_Value == Array[Index])
-          {
-          break;
-          }
-        }
-        if(Index < Size)
-        {
-          Console.WriteLine("Element found at " +   Index + " Index");
-        }
-        else
-        {
-          Console.WriteLine("Element Not Found");
-        }
-      }
-
-    ```
-
-  <hr/>
-  </details>
-- <details>
-    <summary>What is Binary Search?</summary>
-    <hr/>
-    <p> Binary Search is a more efficient search algorithm that works on sorted lists by repeatedly dividing the search interval in half.</p>
-    <hr/>
-  </details>
-- <details>
-    <summary>How does Binary Search work?</summary>
-    <hr/>
-    <ul>
-    <li><b>Find the Middle: </b>Determine the middle element of the sorted list.</li>
-    <li><b>Compare: </b>Compare the middle element with the target value.</li>
-    <li><b>Narrow Down: </b>
-    <li>If the middle element is the target, return its position.</li>
-    <li>If the target is less than the middle element, repeat the search in the left half.</li>
-    <li>If the target is greater than the middle element, repeat the search in the right half.</li>
-    </li>
-    <li><b>Repeat: </b>Continue until the target is found or the search interval is empty.</li>
-    </ul>
-    <hr/>
-  </details>
-- <details>
-      <summary>How is the Biary Search impliment in C#?</summary>
-      <hr/>
-      
-      ```C#
-      static void Main()
-      {
-        int Size, Index, Left_Index, Mid_Index,Right_Index; 
-        bool Found = false;
-
-        Console.WriteLine("Enter the size of an Array = ");
-        Size = Convert.ToInt32(Console.ReadLine());
-
-        int[] Array = new int[Size];
-
-        Console.WriteLine("Enter the " + Size + "   elements to an array = ");
-
-        for (Index = 0; Index < Size; Index++)
-        {
-          Array[Index] = Convert.ToInt32(Console. ReadLine ());
-        }
-        Console.WriteLine("Elements of array = ");
-        foreach (int X in Array)
-        {
-          Console.Write(X + " ");
-        }
-        Console.WriteLine("\nEnter search value = ");
-        int Search_Value = Convert.ToInt32(Console. ReadLine   ());
-        Left_Index = 0; Right_Index = Size - 1;
-        while(Left_Index < Right_Index)
-        {
-          Mid_Index = (Left_Index + Right_Index) / 2;
-          if(Search_Value == Array[Mid_Index])
-          {
-            Found = true;
-            break;
-          }
-          else if(Search_Value > Array[Mid_Index])
-          {
-            Left_Index = Mid_Index + 1;
-          }
-          else if(Search_Value < Array[Mid_Index])
-          {
-            Right_Index = Mid_Index - 1;
-          }
-        }
-        if (Found)
-        {
-          Console.WriteLine("Element found");
-        }
-        else
-        {
-          Console.WriteLine("Element not found");
-        }
-        Console.ReadKey();
-      }
-      ```
-
-      <hr/>
-
-  </details>
-
-- <details>
-    <summary>What is an Array Object in C#?</summary>
+    <summary>What is an Array Object in C#?⭐</summary>
     <hr/>
     <p> An Array Object is a variable that holds a collection of values. It is created using a specific data type and size. For example, int[] A = new int[6]; creates an array of integers with 6 elements.</p>
     <hr/>
   </details>
 - <details>
-    <summary>What are some methods available for an Array Object?</summary>
+    <summary>What are some methods available for an Array Object?⭐</summary>
     <hr/>
     <ol>
-    <li>CopyTo(ArrayName, int Index)</li>
-    <li>GetLength(int Dimension)</li>
-    <li>GetValue(int Index)</li>
+    <li><b>CopyTo(ArrayName, int Index)</b>:<br/> Copy elements from one array to another array. <br/>Example:"A.CopyTo(B, 0);` copies elements from A to B starting at index 0."</li>
+    <li><b>GetLength(int Dimension)</b>:<br/> Finde the length of array in a given dimension.<br/>Example:"A.GetLength(0); returns the number of elements in array A."</li>
+    <li><b>GetValue(int Index)</b>:<br/> Retrieves the value at a specified index in the array<br/>Example:"A.GetValue(2); returns the value at index 2 of array A."</li>
     </ol>
     <hr/>
   </details>
@@ -2780,9 +2024,10 @@ LTS (long-term support) releases have an extended support period. Use this if yo
     <hr/>
   </details>
 - <details>
-    <summary>What are some properties available for an Array Object?</summary>
+    <summary>What are some properties available for an Array Object?⭐</summary>
     <hr/>
-    <p>Length and Rank</p>
+    <p><b>Length:</b> Returns the total number of elements in the array.<br/>Example: "A.Length; returns the size of array A".</p>
+    <p><b>Rank:</b> Returns the number of dimensions in the array.<br/>Example: "Example: A.Rank; returns the number of dimensions of array A.".</p>
     <hr/>
   </details>
 - <details>
@@ -2800,13 +2045,13 @@ LTS (long-term support) releases have an extended support period. Use this if yo
     <hr/>
   </details>
 - <details>
-    <summary>What is the Array Class in C#?</summary>
+    <summary>What is the Array Class in C#?⭐</summary>
     <hr/>
     <p>The Array Class provides static methods for manipulating arrays, such as copying, sorting, and searching.</p>
     <hr/>
   </details>
 - <details>
-    <summary>What are some methods available in the Array Class?</summary>
+    <summary>What are some methods available in the Array Class?⭐</summary>
     <hr/>
     <ul>
     <li>Copy(Source_array, int Source_Index, Destination_array, int Destination_Index, int length)</li>
@@ -2819,7 +2064,7 @@ LTS (long-term support) releases have an extended support period. Use this if yo
     <hr/>
   </details>
 - <details>
-    <summary>What is the use of Copy() method which is availabe in the Array Class? Give me syntax, example, use?</summary>
+    <summary>What is the use of Copy() method which is availabe in the Array Class? Give me syntax, example, use?⭐</summary>
     <hr/>
     <ul>
     <li>Copies a specified number of elements from one array to another.</li>
@@ -2835,25 +2080,8 @@ LTS (long-term support) releases have an extended support period. Use this if yo
 
     <hr/>
   </details>
-
 - <details>
-    <summary>What is the use of BinarySearch() method which is availabe in the Array Class? Give me example, use?</summary>
-    <hr/>
-    <ul>
-    <li>Searches for a value in a sorted array and returns its index.</li>
-    <li>Syntax: BinarySearch(Array, int Index, int Length, Object_value)</li>
-    <li>Example: Array.BinarySearch(A, Search_Value); finds the index of Search_Value in array A.</li>
-    </ul>
-
-  ```C#
-    int index = Array.BinarySearch(A, 30);
-  ```
-
-    <hr/>
-  </details>
-
-- <details>
-    <summary>What is the use of Clear() method which is availabe in the Array Class? Give me example, use?</summary>
+    <summary>What is the use of Clear() method which is availabe in the Array Class? Give me example, use?⭐</summary>
     <hr/>
     <ul>
     <li>Clears a range of elements in an array by setting them to their default values.</li>
@@ -2861,15 +2089,55 @@ LTS (long-term support) releases have an extended support period. Use this if yo
     <li>Example: Array.Clear(B, 4, 7); clears elements from index 4 to 10 in array B.</li>
     </ul>
 
-  ```C#
-    Array.Clear(B, 4, 7);
-  ```
+      ```C#
+        Array.Clear(B, 4, 7);
+      ```
 
     <hr/>
   </details>
-
 - <details>
-    <summary>What is the use of IndexOf() method which is availabe in the Array Class? Give me example, use?</summary>
+    <summary>What diffrence bitween Copy() & Clone() method?⭐</summary>
+    <hr/>
+
+    1. **Purpose**:
+       - **Copy**: `Copies elements from one array to another`. It can be used to `copy all` or a `portion` of the `array` to `another array`.
+       - **Clone**: Creates a `shallow copy` of the array. It `returns a new array` with the `same elements and size as the original`.
+
+    2. **Shallow vs. Deep Copy**:
+       - **Copy**: Does not automatically perform a deep copy. If you're using reference types (e.g., objects), `Copy` only copies references, not the actual objects.
+       - **Clone**: Performs a shallow copy. The new array created will have the same references as the original. For value types (like integers), it copies the values.
+
+    3. **Usage**:
+       - **Copy**: `Array.Copy(sourceArray, destinationArray, length);` — You specify the source array, destination array, and the number of elements to copy.
+       - **Clone**: `array.Clone();` — Creates a new array that’s a copy of the original.
+
+    ### Summary:
+    - **Copy** lets you copy elements to another array, either partially or fully.
+    - **Clone** creates a new array with the same size and elements as the original, but it does not create independent copies for reference types.
+    
+    **Example**:
+
+    ```csharp
+    int[] originalArray = { 1, 2, 3, 4, 5 };
+    
+    // Using Clone method
+    int[] clonedArray = (int[])originalArray.Clone(); 
+    // clonedArray is a separate array with the same elements {1, 2, 3, 4, 5}
+    
+    // Using Copy method
+    int[] copiedArray = new int[3];
+    Array.Copy(originalArray, copiedArray, 3); 
+    // copiedArray now contains {1, 2, 3} (only the first 3 elements are copied)
+    ```
+    
+    ### Key points:
+    - `Clone` creates a new array with all elements.
+    - `Copy` copies specified elements to an existing array.
+
+    <hr/>
+  </details>
+- <details>
+    <summary>What is the use of IndexOf() method which is availabe in the Array Class? Give me example, use?⭐</summary>
     <hr/>
     <ul>
     <li>Returns the index of the first occurrence of a specified value in the array.</li>
@@ -2879,7 +2147,7 @@ LTS (long-term support) releases have an extended support period. Use this if yo
     <hr/>
   </details>
 - <details>
-    <summary>What is the use of LastIndexOf() method which is availabe in the Array Class? Give me example, use?</summary>
+    <summary>What is the use of LastIndexOf() method which is availabe in the Array Class? Give me example, use?⭐</summary>
     <hr/>
     <ul>
     <li>Returns the index of the last occurrence of a specified value in the array.</li>
@@ -2889,7 +2157,7 @@ LTS (long-term support) releases have an extended support period. Use this if yo
     <hr/>
   </details>
 - <details>
-    <summary>What is the use of Reverse() method which is availabe in the Array Class? Give me example, use?</summary>
+    <summary>What is the use of Reverse() method which is availabe in the Array Class? Give me example, use?⭐</summary>
     <hr/>
     <ul>
     <li>Reverses the order of elements in an array.</li>
@@ -2897,15 +2165,15 @@ LTS (long-term support) releases have an extended support period. Use this if yo
     <li>Example: Array.Reverse(A); reverses the elements in array A.</li>
     </ul>
 
-  ```C#
-    Array.Reverse(A);
-  ```
+    ```C#
+      Array.Reverse(A);
+    ```
 
     <hr/>
   </details>
 
 - <details>
-    <summary>What is the use of Short() method which is availabe in the Array Class? Give me example, use?</summary>
+    <summary>What is the use of Short() method which is availabe in the Array Class? Give me example, use?⭐</summary>
     <hr/>
     <ul>
     <li>Sorts the elements of an array in ascending order.</li>
@@ -2918,13 +2186,7 @@ LTS (long-term support) releases have an extended support period. Use this if yo
     <hr/>
   </details>
 - <details>
-    <summary>What is Array Object?</summary>
-    <hr/>
-    <p>Array Object refers to the instance of an array with its properties and methods.</p>
-    <hr/>
-  </details>
-- <details>
-    <summary>How to use length, Rank, CopyTo, GetLength() & GetValue()?</summary>
+    <summary>How to use CopyTo, GetLength() & GetValue()?⭐</summary>
     <hr/>
 
   ```C#
@@ -2948,15 +2210,40 @@ LTS (long-term support) releases have an extended support period. Use this if yo
     // Display Array properties
     Console.Write("\nLength of array A = " + A.GetLength(0));
     Console.Write("\nValue at 2nd index = " + A.GetValue(2));
-    Console.Write("\nSize of Array A = " + A.Length);
-    Console.Write("\nRank of Array A = " + A.Rank);
-    Console.ReadKey();
   }
   ```
 
     <hr/>
   </details>
+- <details>
+    <summary>What is the difference between Length and GetLength in an array?⭐</summary>
+    <hr/>
 
+    1. **Length**:
+       - **Definition**: Returns the total number of elements in all dimensions of an array.
+       - **Usage**: It is used when you want to know the total count of elements.
+       - **Example**: 
+         ```csharp
+         int[,] numbers = { { 1, 2 }, { 3, 4 }, { 5, 6 } };
+         int totalElements = numbers.Length; // totalElements = 6
+         ```
+    
+    2. **GetLength(int dimension)**:
+       - **Definition**: Returns the number of elements in a specified dimension of an array.
+       - **Usage**: It is used when you want to know the size of a particular dimension.
+       - **Example**: 
+         ```csharp
+         int[,] numbers = { { 1, 2 }, { 3, 4 }, { 5, 6 } };
+         int rows = numbers.GetLength(0); // rows = 3 (1st dimension)
+         int columns = numbers.GetLength(1); // columns = 2 (2nd dimension)
+         ```
+    
+    **Summary**:  
+    - `Length` gives the total count of elements.  
+    - `GetLength` gives the count of elements in a specific dimension of the array.
+
+    <hr/>
+  </details>
 - <details>
     <summary>How to use Copy(), Reverse(), Sort(), Clear() & BinarySearch()?</summary>
     <hr/>
@@ -3029,76 +2316,76 @@ LTS (long-term support) releases have an extended support period. Use this if yo
     <hr/>
   </details>
 - <details>
-    <summary>What is 2 dimension Arrays?</summary>
+    <summary>What is 2 dimension Arrays?⭐</summary>
     <hr/>
     -  These arrays will store data in the form of rows & columns, and are declared as following:
 
-  **Syntax**:
-
-  ```c#
-    <type>[,] <array_name> = new <type>[rows, columns]
-  ```
-
-  **Example**:
-
-  ```c#
-  int[,] arr = new int[4,5]; //Declaration and Initialization with default values
-
-  //or
-
-  int[,] arr; //Declaration
-  arr = new int[4,5]; //Initialization with default values
-
-  //or
-
-  int[,] arr = { <list of values> }; //Declaration and Initialization with given set of values
-  ```
-
-  **Example**:
-
-  ```c#
-  using System;
-  class TDArray
-  {
-    static void Main()
+    **Syntax**:
+  
+    ```c#
+      <type>[,] <array_name> = new <type>[rows, columns]
+    ```
+  
+    **Example**:
+  
+    ```c#
+    int[,] arr = new int[4,5]; //Declaration and Initialization with default values
+  
+    //or
+  
+    int[,] arr; //Declaration
+    arr = new int[4,5]; //Initialization with default values
+  
+    //or
+  
+    int[,] arr = { <list of values> }; //Declaration and Initialization with given set of values
+    ```
+  
+    **Example**:
+  
+    ```c#
+    using System;
+    class TDArray
     {
-      int x = 0; int[,] arr = new int[4, 5];
-
-      //Accessing values of TD Array by using foreach loop
-      foreach(int i in arr)
-      Console.Write(i + " ");
-      Console.WriteLine();
-
-      //Assigning values to TD Array by using nested for loop
-      for(int i=0;i<arr.GetLength(0);i++) {
-        for(int j=0;j<arr.GetLength(1);j++) {
-          x += 5; arr[i,j] = x;
+      static void Main()
+      {
+        int x = 0; int[,] arr = new int[4, 5];
+  
+        //Accessing values of TD Array by using foreach loop
+        foreach(int i in arr)
+        Console.Write(i + " ");
+        Console.WriteLine();
+  
+        //Assigning values to TD Array by using nested for loop
+        for(int i=0;i<arr.GetLength(0);i++) {
+          for(int j=0;j<arr.GetLength(1);j++) {
+            x += 5; arr[i,j] = x;
+          }
+        }
+        //Accessing values of TD Array by using nested for loop
+        for(int i=0;i<arr.GetLength(0);i++) {
+          for(int j=0;j<arr.GetLength(1);j++)
+            Console.Write(arr[i,j] + " ");
+          Console.WriteLine();
         }
       }
-      //Accessing values of TD Array by using nested for loop
-      for(int i=0;i<arr.GetLength(0);i++) {
-        for(int j=0;j<arr.GetLength(1);j++)
-          Console.Write(arr[i,j] + " ");
-        Console.WriteLine();
-      }
     }
-  }
-
-  //Out:-
-  int[,] arr = {
-    { 11, 12, 13, 14, 15 },
-    { 21, 22, 23, 24, 25 },
-    { 31, 32, 33, 34, 35 },
-    { 41, 42, 43, 44, 45 }
-  };
-
-  ```
+  
+    //Out:-
+    int[,] arr = {
+      { 11, 12, 13, 14, 15 },
+      { 21, 22, 23, 24, 25 },
+      { 31, 32, 33, 34, 35 },
+      { 41, 42, 43, 44, 45 }
+    };
+  
+    ```
 
     <hr/>
   </details>
 
 - <details>
-    <summary>How many ways to inslize value in 2 dimension array?</summary>
+    <summary>How many ways to inslize value in 2 dimension array?⭐</summary>
     <hr/>
     <ol>
     <li><b>Method 1:- </b>
@@ -3148,7 +2435,6 @@ LTS (long-term support) releases have an extended support period. Use this if yo
     </ol>
     <hr/>
   </details>
-
 - <details>
     <summary>Example to print the array elements by taking inputs from the user & print on the screen</summary>
     <hr/>
@@ -3197,138 +2483,60 @@ LTS (long-term support) releases have an extended support period. Use this if yo
 
     <hr/>
   </details>
-
 - <details>
-    <summary>Write a C# program to identify the given matrix is identity matrix (or) not</summary>
-    <hr/>
-    <b>Identity matrix =</b> when leading diagonal elements / Principle diagonal elements should be same then it is called as Identity matrix
-    
-    ```c#
-      using System;
-      using System.Collections.Generic;
-      using System.Linq;
-      using System.Text;
-      using System.Threading.Tasks;
-      namespace Class_Programs
-      {
-        class Program_44
-        {
-          static void Main()
-          {
-            int Row_Size, Column_Size;
-            bool Identity = true;
-            Console.Write("Enter the Row size & Column Size = \n");
-            Row_Size = Convert.ToInt32(Console.ReadLine());
-            Column_Size = Convert.ToInt32(Console.ReadLine());
-
-            if (Row_Size != Column_Size)
-            {
-              Console.WriteLine("Enter the Equal Row size & Column size");
-              Console.ReadKey();
-              return;
-            }
-
-            int[,] Array = new int[Row_Size, Column_Size];
-            Console.WriteLine("Enter the {0} elements into the array = ", (Row_Size * Column_Size));
-            for (int R = 0; R < Row_Size; R++)
-            {
-              for (int C = 0; C < Column_Size; C++)
-              {
-                Array[R, C] = Convert.ToInt32(Console.ReadLine());
-              }
-            }
-            Console.WriteLine("Elements of 2D array are = ");
-            for (int R = 0; R < Row_Size; R++)
-            {
-              for (int C = 0; C < Column_Size; C++)
-              {
-                Console.Write(Array[R, C] + " ");
-              }
-              Console.WriteLine();
-            }
-            for (int R = 0; R < Row_Size; R++)
-            {
-              for (int C = 0; C < Column_Size; C++)
-              {
-                if (R == C && Array[R, C] != 1)
-                {
-                  Identity = false;
-                  return;
-                }
-                if (R != C && Array[R, C] != 0)
-                {
-                  Identity = false;
-                  return;
-                }
-              }
-            }
-            if (Identity)
-            {
-              Console.WriteLine("The matrix is Identity matrix");
-            }
-            else
-            {
-              Console.WriteLine("The matrix is Not Identity matrix");
-            }
-            Console.ReadLine();
-          }
-        }
-      }
-    ```
-
-  <hr/>
-  </details>
-- <details>
-    <summary>How many way to inslize Jagged array?</summary>
+    <summary>How many way to inslize Jagged array?⭐</summary>
     <hr/>
     <ol>
     <li><b>Method-1</b><br/>
     Syntax: DataType[Main Array Notation][Inner Array Notation]<br/>Example: ArrayName = new DataType[Main Array Size][inner Array Notation];
 
-  ![alt text](JaggerArratMethod1.png)
-
-  ```c#
-  int[][] A = new int[3][];
-  A[0] = new int[6];
-  A[1] = new int[5];
-  A[2] = new int[8];
-
-  A[0][0] = 60; A[0][1] = 15; A[0][2] = 30; A[0][3] = 80; A[0][4] = 20; A[0][5] = 70;
-  A[1][0] = 25; A[1][1] = 45; A[1][2] = 15; A[1][3] = 85; A[1][4] = 55;
-  A[2][0] = 20; A[2][1] = 80; A[2][2] = 65; A[2][3] = 75; A[2][4] = 35; A[2][5] = 30;
-  A[2][6] = 80; A[2][7] = 10;
-  ```
-
-    </li>
-    <li><b>Method-2</b><br/>
-    Syntax: DataType[Main Array Notation][Inner Array Notation]<br/>
-    ArrayName = new DataType[Main Array Size][inner Array Notation];
-
-  ![alt text](JaggerArratMethod2.png)
-
-  ```C#
-  int[][] A = new int[3][];
-  A[0] = new int[6] { 60, 15, 30, 80, 20, 70 };
-  A[1] = new int[5] { 25, 45, 15, 85, 55 };
-  A[2] = new int[8] { 20, 80, 65, 75, 35, 30, 80, 10 };
-  ```
-
-    </li>
-    <li><b>Method-3</b><br/>
-    Syntax: DataType[Main Array Notation][Inner Array Notation]<br/>
-    ArrayName = new DataType[Main Array Size][inner Array Notation];
-
-  ![alt text](JaggerArratMethod3.png)
-
-  ```C#
-  int[][] A = new int[][]
-  {
-      new int[] { 60, 15, 30, 80, 20, 70 },
-      new int[] { 25, 45, 15, 85, 55 },
-      new int[] { 20, 80, 65, 75, 35, 30, 80, 10 }
-  };
-
-  ```
+    ![alt text](JaggerArratMethod1.png)
+  
+    ```c#
+    int[][] A = new int[3][];
+    A[0] = new int[6];
+    A[1] = new int[5];
+    A[2] = new int[8];
+  
+    A[0][0] = 60; A[0][1] = 15; A[0][2] = 30; A[0][3] = 80; A[0][4] = 20; A[0][5] = 70;
+    A[1][0] = 25; A[1][1] = 45; A[1][2] = 15; A[1][3] = 85; A[1][4] = 55;
+    A[2][0] = 20; A[2][1] = 80; A[2][2] = 65; A[2][3] = 75; A[2][4] = 35; A[2][5] = 30;
+    A[2][6] = 80; A[2][7] = 10;
+    ```
+  
+      </li>
+      <li><b>Method-2</b><br/>
+      Syntax: DataType[Main Array Notation][Inner Array Notation]<br/>
+      ArrayName = new DataType[Main Array Size][inner Array Notation];
+  
+    ![alt text](JaggerArratMethod2.png)
+  
+    ```C#
+    int[][] A = new int[3][];
+    A[0] = new int[6] { 60, 15, 30, 80, 20, 70 };
+    A[1] = new int[5] { 25, 45, 15, 85, 55 };
+    A[2] = new int[8] { 20, 80, 65, 75, 35, 30, 80, 10 };
+    ```
+  
+      </li>
+      <li><b>Method-3</b><br/>
+      Syntax: DataType[Main Array Notation][Inner Array Notation]<br/>
+      ArrayName = new DataType[Main Array Size][inner Array Notation];
+  
+    ![alt text](JaggerArratMethod3.png)
+  
+    ```C#
+    int[][] A = new int[][]
+    {
+        new int[] { 60, 15, 30, 80, 20, 70 },
+        new int[] { 25, 45, 15, 85, 55 },
+        new int[] { 20, 80, 65, 75, 35, 30, 80, 10 }
+    };
+  
+    ```
+  
+    → In Real time Jagged array used in Card games & Maximally used in Gaming application.<br/>
+    → When Inner array size is changing then we use Jagged array
 
     </li>
     </ol>
@@ -3336,7 +2544,7 @@ LTS (long-term support) releases have an extended support period. Use this if yo
   </details>
 
 - <details>
-    <summary>Give me example of using Jagger array?</summary>
+    <summary>Give me example of using Jagger array?⭐</summary>
     <hr/>
     
     ```C#
@@ -3405,123 +2613,6 @@ LTS (long-term support) releases have an extended support period. Use this if yo
       }
     }
     ```
-
-  → In Real time Jagged array used in Card games & Maximally used in Gaming application.<br/>
-  → When Inner array size is changing then we use Jagged array
-    <hr/>
-  </details>
-
-- <details>
-    <summary>Write a C# program to merge any size of 2 arrays (Different size of arrays) & storing in 3rd array, print the 3rd array element by sorting</summary>
-    <hr/>
-    
-    ```c#
-      using System;
-      using System.Collections.Generic;
-      using System.Linq;
-      using System.Text;
-      using System.Threading.Tasks;
-      namespace Class_Programs
-      {
-       class Program_45
-       {
-        static void Main()
-        {
-          int Size_1, Size_2, Index;
-          Console.WriteLine("Enter the Size for A-Array = ");
-          Size_1 = Convert.ToInt32(Console.ReadLine());
-          Console.WriteLine("Enter the Size for B-Array = ");
-          Size_2 = Convert.ToInt32(Console.ReadLine());
-          int[] A = new int[Size_1];
-          int[] B = new int[Size_2];
-          Console.WriteLine("Enter the " + Size_1 + " elements into the array A = ");
-          for(Index = 0; Index < Size_1; Index++)
-          {
-            A[Index] = Convert.ToInt32(Console.ReadLine());
-          }
-          Console.WriteLine("Enter the " + Size_2 + " elements into the array A = ");
-
-          for (Index = 0; Index < Size_2; Index++)
-          {
-            B[Index] = Convert.ToInt32(Console.ReadLine());
-          }
-          int[] C = new int[Size_1 + Size_2];
-          for(int i = 0; i < Size_1; i++)
-          {
-            C[i] = A[i];
-          }
-          for (int i = Size_1; i < Size_1 + Size_2; i++)
-          {
-            C[i] = B[i-Size_1];
-          }
-          for(int Round = 1; Round < Size_1 + Size_2; Round++)
-          {
-            for(int i = 0; i < (Size_1 + Size_2) - Round; i++)
-            {
-              if(C[i] > C[i+1])
-              {
-                int Temp = C[i];
-                C[i] = C[i + 1];
-                C[i + 1] = Temp;
-              }
-            }
-          }
-          Console.WriteLine("Elements of merged array = ");
-          foreach(int X in C)
-          {
-            Console.Write(X + " ");
-          }
-        }
-      }
-    ```
-  <hr/>
-  </details>
-
-- <details>
-      <summary>Write A C# program to find the transpose of a Matrix</summary>
-      <hr/>
-      
-      ```c#
-      using System;
-      using System.Collections.Generic;
-      using System.Linq;
-      using System.Text;
-      using System.Threading.Tasks;
-      namespace Class_Programs
-      {
-        class Program_50
-        {
-          static void Main(string[] args)
-          {
-            int Row_Size, Column_Size;
-            Console.WriteLine("Enter the Row Size = ");
-            Row_Size = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Enter the Column Size = ");
-            Column_Size = Convert.ToInt32(Console.ReadLine());
-            int[,] A1 = new int[Row_Size, Column_Size];
-            Console.WriteLine("Enter the 2d array elements = ");
-            for (int R = 0; R < Row_Size; R++)
-            {
-              for (int C = 0; C < Column_Size; C++)
-              {
-                A1[R, C] = Convert.ToInt32(Console.ReadLine());
-              }
-            }
-            Console.WriteLine("Array elements = ");
-            for (int R = 0; R < Row_Size; R++)
-            {
-              for (int C = 0; C < Column_Size; C++)
-              {
-                Console.Write(A1[C, R] + " ");
-              }
-              Console.WriteLine();
-            }
-            Console.ReadKey();
-          }
-        }
-      }
-      ```
-
     <hr/>
   </details>
 
@@ -3534,7 +2625,7 @@ LTS (long-term support) releases have an extended support period. Use this if yo
     <hr/>
   </details>
 - <details>
-    <summary>What are the two types of type casting supported in C#?</summary>
+    <summary>What are the two types of type casting supported in C#?⭐</summary>
     <hr/>
     C# supports:
     <li>Data Type Widening</li>
@@ -3542,68 +2633,57 @@ LTS (long-term support) releases have an extended support period. Use this if yo
     <hr/>
   </details>
 - <details>
-    <summary>What is data type widening?</summary>
+    <summary>What is data type widening?⭐</summary>
     <hr/>
     <p>Data type widening is converting a variable from a lower type to a higher type. In this process:</p>
     <ol>
     <li>The memory size of the variable increases.</li>
     <li>The value range that the variable can store also increases.</li>
     </ol>
-    <hr/>
-  </details>
-- <details>
-    <summary>What is an example of data type widening in C#?</summary>
-    <hr/>
-    
+
+    **Example**:
     ```c#
     short a = 20;
     int b = a;        // Implicit Conversion
     int c = (int)a;   // Explicit Conversion
     ```
 
-  In type widening, both implicit and explicit conversions are possible.
+    In type widening, both implicit and explicit conversions are possible.
     <hr/>
   </details>
 
 - <details>
-    <summary>What is data type shortening?</summary>
+    <summary>What is data type shortening?⭐</summary>
     <hr/>
     Data type shortening is converting a variable from a higher type to a lower type. In this process:
     <ol>
     <li>The memory size of the variable decreases.</li>
     <li>The value range that the variable can store also decreases.</li>
     <ol>
-    <hr/>
-  </details>
-- <details>
-    <summary>What is an example of data type shortening in C#?</summary>
-    <hr/>
-    
+
+    **Example**:
     ```c#
     int a = 20;
     short b = a;         // Implicit Conversion not possible
     short c = (short)a;  // Explicit Conversion is possible
     ```
 
-  In type shortening, only explicit conversion is possible.
+    In type shortening, only explicit conversion is possible.
     <hr/>
   </details>
 
 - <details>
-    <summary>Why is implicit conversion not possible in type shortening?</summary>
+    <summary>Why is implicit conversion not possible in type shortening?⭐</summary>
     <hr/>
-    Implicit conversion is not possible in type shortening because the runtime must know how much memory and value size should be reduced. The developer must specify this explicitly using explicit casting to ensure safe conversion.
+    Implicit conversion is not possible in type shortening because the runtime must know how much memory and value size should be reduced. The `developer` must `specify` this `explicitly` using `explicit casting to ensure safe conversion`.
     <hr/>
   </details>
 - <details>
-    <summary>What is the object type in C#?</summary>
+    <summary>What is the object type in C#?⭐</summary>
     <hr/>
     In C#, object is a reference type that can store any kind of data—whether it's an integer, a float, a string, or a boolean. Every data type in C# derives from the object class.
-    <hr/>
-  </details>
-- <details>
-    <summary>Can you give examples of different data stored in an object?</summary>
-    <hr/>
+
+    Examples of different data stored in an object:
     
     ```C#
     object a = 10;         // Storing an integer
@@ -3616,7 +2696,7 @@ LTS (long-term support) releases have an extended support period. Use this if yo
   </details>
 
 - <details>
-    <summary>What is the difference between storing data in an object type versus a specific type like int?</summary>
+    <summary>What is the difference between storing data in an "object" vs "specific type (e.g., int)"?⭐</summary>
     <hr/>
     <p>When you store data in an object type:</p>
     <li>The actual data type is not known until runtime.</li>
@@ -3625,13 +2705,13 @@ LTS (long-term support) releases have an extended support period. Use this if yo
     <hr/>
   </details>
 - <details>
-    <summary>Can you perform operations directly on data stored in an object type?</summary>
+    <summary>Can you perform operations directly on data stored in an object type?⭐</summary>
     <hr/>
     <p>No, you cannot directly perform operations on data stored in an object type. To do so, you must first convert it to its original data type using type conversion.</p>
     <hr/>
   </details>
 - <details>
-    <summary>How do you perform operations on data stored in an object?</summary>
+    <summary>How do you perform operations on data stored in an object?⭐</summary>
     <hr/>
     You need to convert the object data to its actual type before performing operations. Here's an example:
 
@@ -3644,17 +2724,16 @@ LTS (long-term support) releases have an extended support period. Use this if yo
   In this example, we use Convert.ToSingle() to convert the object variables x and y to float before adding them.
     <hr/>
   </details>
-
 - <details>
-    <summary>Why is type conversion necessary for object types when performing operations?</summary>
+    <summary>Why is type conversion necessary for object types when performing operations?⭐</summary>
     <hr/>
     Type conversion is necessary because the object type can store any kind of data, and the compiler does not know the actual data type at compile time. To ensure safe operations, you must explicitly convert it to the correct type at runtime.
     <hr/>
   </details>
 - <details>
-    <summary>What is Boxing in C#?</summary>
+    <summary>What is Boxing in C#?⭐</summary>
     <hr/>
-    Boxing is the process of converting a value type (e.g., int, float, char) to a reference type (specifically, an object). For example:
+    Boxing is the process of converting a "value type" (e.g., int, float, char) to a "reference type" (specifically, an object). For example:
 
   ```c#
   int a = 10;
@@ -3666,9 +2745,9 @@ LTS (long-term support) releases have an extended support period. Use this if yo
   </details>
 
 - <details>
-    <summary>What is Unboxing in C#?</summary>
+    <summary>What is Unboxing in C#?⭐</summary>
     <hr/>
-    Unboxing is the process of converting a boxed variable (stored as an object) back to its original value type. For example:
+    Unboxing is the process of converting a "boxed variable (stored as an object)" back to its "original value type". For example:
 
   ```c#
   object O = 10;
@@ -3679,7 +2758,7 @@ LTS (long-term support) releases have an extended support period. Use this if yo
   </details>
 
 - <details>
-    <summary>What is the difference between Implicit and Explicit Boxing?</summary>
+    <summary>What is the difference between Implicit and Explicit Boxing?⭐</summary>
     <hr/>
     Implicit Boxing happens automatically when you assign a value type to an object. Example:
 
@@ -3699,7 +2778,7 @@ LTS (long-term support) releases have an extended support period. Use this if yo
   </details>
 
 - <details>
-    <summary>What type of conversion is supported by Unboxing?</summary>
+    <summary>What type of conversion is supported by Unboxing?⭐</summary>
     <hr/>
     Unboxing supports only explicit conversion. You need to explicitly cast the object to the desired value type:
 
@@ -3712,7 +2791,7 @@ LTS (long-term support) releases have an extended support period. Use this if yo
   </details>
 
 - <details>
-    <summary>What are the internal steps performed during Boxing?</summary>
+    <summary>What are the internal steps performed during Boxing?⭐</summary>
     <hr/>
     <ol>
     <li>The value type data is searched in the stack.</li>
@@ -3722,7 +2801,7 @@ LTS (long-term support) releases have an extended support period. Use this if yo
     <hr/>
   </details>
 - <details>
-    <summary>What happens internally during Unboxing?</summary>
+    <summary>What happens internally during Unboxing?⭐</summary>
     <hr/>
     <ol>
     <li>The reference type data is searched in the heap.</li>
@@ -3731,20 +2810,20 @@ LTS (long-term support) releases have an extended support period. Use this if yo
     <hr/>
   </details>
 - <details>
-    <summary>Why is Boxing & Unboxing considered more costly than normal initialization?</summary>
+    <summary>Why is Boxing & Unboxing considered more costly than normal initialization?⭐</summary>
     <hr/>
     Boxing is costly because it involves copying the value from the stack to the heap, which takes more time and memory. It is said to be 20 times costlier than normal initialization.<br/><br/>
     Unboxing is 4 times costlier than normal initialization because it involves copying the value from the heap back to the stack.
     <hr/>
   </details>
 - <details>
-    <summary>When should you use Boxing and Unboxing?</summary>
+    <summary>When should you use Boxing and Unboxing?⭐</summary>
     <hr/>
     Use Boxing and Unboxing only when necessary. They might be suitable in scenarios where other operations (like fetching data from a database or over a network) are even costlier. In general, avoid boxing and unboxing to maintain performance.
     <hr/>
   </details>
 - <details>
-    <summary>What is the key difference between Boxing and Unboxing?</summary>
+    <summary>What is the key difference between Boxing and Unboxing?⭐</summary>
     <hr/>
     
     | **Boxing** | **Unboxing** |
@@ -3757,33 +2836,22 @@ LTS (long-term support) releases have an extended support period. Use this if yo
   </details>
 
 - <details>
-    <summary>What is the nullable data type ?</summary>
+    <summary>What is the nullable data type?⭐</summary>
     <hr/>
+
+    - Nullable types allow value types to store `null`.
+    - Declared by adding ? to the data type (e.g., `int?`, `double?`).
+    - Useful for representing missing or undefined values.
     For example if we want to store the null value in `int` then it will raise the compilation error, so to avoid the compilation error we use `?` postfix with data type (ex: int? a = null;).
+
+    ```c#
+    int? age = null;   // Nullable int
+    double? salary = null;   // Nullable double
+    bool? isAvailable = null;   // Nullable bool
+    ```
+    
     <br/><br/>
     If you use `?` it means this us nullable.
-    <hr/>
-  </details>
-- <details>
-    <summary>What is Difference ToString() and Convert.ToString() ?</summary>
-    <hr/>
-    <p><b>ToString()</b> ⇒ It is one of the predefined method() which can be <mark>written within the class</mark>, return type is string</p>
-    <p><b>Convert.ToString()</b> ⇒ Which is used to convert from one / any other data type to string data type</p>
-    <hr/>
-  </details>
-- <details>
-    <summary>What is the Difference Between Console.Write() and Console.WriteLine() ?</summary>
-    <hr/>
-    <p><b>Console.Write()</b>: Which is used to print the output & in console window after printing the line the cursor will remain in the same line</p>
-    <p><b>Console.WriteLine()</b>: Which is used to print the output & in console window after printing the line the cursor will move to next line</p>
-    <hr/>
-  </details>
-- <details>
-    <summary>What is the Difference Between Console.Read() and Console.ReadLine() and Console.ReadKey()?</summary>
-    <hr/>
-    <p><b>Console.Read()</b>: Which is used to read the single character from the console window in the form of character</p>
-    <p><b>Console.ReadLine()</b>: Which is used to read the multiple character from the console window in the form of string</p>
-    <p><b>Console.ReadKey()</b>: Which is used to stop console window / Output window until press the any key from the keyboard</p>
     <hr/>
   </details>
 - <details>
@@ -3799,26 +2867,52 @@ LTS (long-term support) releases have an extended support period. Use this if yo
     <hr/>
   </details>
 - <details>
-    <summary>What is BCL ?</summary>
+    <summary>What are the ways of Type Casting ?⭐</summary>
     <hr/>
-    <ul>
-    <li>A class library is collection of classes where every class will contain so many predefined functions which are helpful to write the code</li>
-    <li>A class library in .Net can also be called as assembly</li>
-    <li>Microsoft maintains a specific hierarchy for the class library like</li>
-    </ul>
+
+    **Four main ways** to perform type casting (also known as type conversion):
     
-    ![alt text](BCL.png)
+    1. **Implicit Casting (Automatic Conversion)**
+       - Automatically converts a smaller type to a larger type, like `int` to `double`.
+       - No data is lost, so no additional code is needed.
+       - Example:
+         ```csharp
+         int num = 10;
+         double result = num; // Implicit casting from int to double
+         ```
+    
+    2. **Explicit Casting (Manual Conversion)**
+       - Required when converting from a larger type to a smaller type or between incompatible types.
+       - Uses a cast operator `(Type)` and may lose data.
+       - Example:
+         ```csharp
+         double num = 10.5;
+         int result = (int)num; // Explicit casting from double to int
+         ```
+    
+    3. **Conversion with Helper Classes (Using Convert Class)**
+       - Converts different types using helper methods in the `Convert` class, which is safer and helps prevent errors.
+       - Example:
+         ```csharp
+         string str = "123";
+         int result = Convert.ToInt32(str); // Convert string to int
+         ```
+    
+    4. **Using `as` and `is` Operators (for Reference Types)**
+       - **`as`**: Casts an object to a specific type, returning `null` if it fails (no exception thrown).
+         ```csharp
+         object obj = "hello";
+         string str = obj as string; // Works since obj is a string
+         ```
+       - **`is`**: Checks if an object is of a certain type, returning `true` or `false`.
+         ```csharp
+         object obj = "hello";
+         if (obj is string)
+         {
+             string str = (string)obj; // Safe to cast
+         }
+         ```
 
-    <ol>
-    <b>This hierarchy will help us in following</b>
-    <li>To provide easy access to the predefined function</li>
-    <li>To avoid duplicate naming problems</li>
-    </ol>
-
-    <ul>
-    <li>We can access any function like: <mark>AssemblyName.NameSpaceName.ClassName.FuntionName</mark></li>
-    <li>A class library / Assembly in .Net always will exists in the form DLL / Exe</li>
-    </ul>
     <hr/>
   </details>
 
