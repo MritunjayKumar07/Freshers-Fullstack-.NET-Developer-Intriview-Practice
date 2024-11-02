@@ -1793,6 +1793,52 @@ LTS (long-term support) releases have an extended support period. Use this if yo
   </details>
 ### **`Array & Loops`**
 - <details>
+    <summary>What are the Condition statement?Gice syntax and exaample⭐</summary>
+    <hr/>
+    - if, if-else, and switch
+    ```c#
+    //if ,else if & if-else
+    int number = 10;
+    if (number > 5){
+        Console.WriteLine("Number is greater than 5.");
+    }
+    else if(number > 8){
+        Console.WriteLine("Number is greater than 8.");
+    }
+    else{
+        Console.WriteLine("Number is 5 or less.");
+    }
+    
+    // switch example
+    char grade = 'B';
+    switch (grade) 
+    {
+        case 'A':
+            Console.WriteLine("Excellent!");
+            break;
+        case 'B':
+            Console.WriteLine("Good!");
+            break;
+        default:
+            Console.WriteLine("Grade not found.");
+            break;
+    }
+    ```
+    <hr/>
+  </details>
+- <details>
+    <summary>What are the Controller or Jump statement?⭐</summary>
+    <hr/>
+    `break`, `continue`, and `return`
+    <hr/>
+  </details>
+- <details>
+    <summary>What are the iteration or looping statements ?⭐</summary>
+    <hr/>
+    `for`, `while`, `do-while`, and `foreach`
+    <hr/>
+  </details>
+- <details>
     <summary>What is an array in C#?⭐</summary>
     <hr/>
     <p>An array is a user-defined data type used to store same type of multiple values under a single name. It makes it easier for developers to write code, as each element in the array can be accessed using an index. Arrays in C# start with an index of 0 (the lower bound) and end with Size-1 (the upper bound).</p>
@@ -2919,7 +2965,7 @@ LTS (long-term support) releases have an extended support period. Use this if yo
 ## **`OOPs`**
 
 - <details>
-    <summary> What are the two main programming approaches used in the industry?</summary>
+    <summary> What are the two main programming approaches used in the industry?⭐</summary>
     <hr/>
     <p>Procedural Programming Approach</p>
     <p>Object-Oriented Programming (OOP) Approach</p>
@@ -2954,9 +3000,9 @@ LTS (long-term support) releases have an extended support period. Use this if yo
     <hr/>
   </details>
 - <details>
-    <summary> What is Object-Oriented Programming (OOP) Approach?</summary>
+    <summary>What is Object-Oriented Programming (OOP) Approach?</summary>
     <hr/>
-    <p>Object-Oriented Programming (OOP) emerged in the late 1970s to overcome the limitations of procedural programming. Examples include C++, Python, Java, and C#. In OOP, a program is also a collection of variables and functions, but they are encapsulated within a class to provide security and reusability.</p>
+    <p>Object-Oriented Programming (OOP) is a way of programming that organizes code into "objects" (like small packages) containing data and actions. It makes code more secure, reusable, and easier to manage.</p>
     <hr/>
   </details>
 - <details>
@@ -2973,7 +3019,7 @@ LTS (long-term support) releases have an extended support period. Use this if yo
 
   - **Classes**: Act as containers for variables and functions.
 
-  - **Objects**: Instances of classes that encapsulate data and behavior.
+  - **Objects**: Instances of classes that encapsulate(summarize) data and behavior.
     <hr/>
   </details>
 
@@ -2991,7 +3037,7 @@ LTS (long-term support) releases have an extended support period. Use this if yo
 
      - **Functional Abstraction** : `Abstract Class and Interface` are primarily tools for achieving functional abstraction by allowing you to `define methods without implementations` (in the case of `abstract methods`) or providing contracts (in the case of interfaces).
 
-  2. **`Encapsulation`** is the practice of binding the features (variables) and behaviors (methods) of a class into a single entity. It ensures that data and methods are packaged together in a class, protecting data from unauthorized access. Encapsulation ensures that the internal data and operations of a class are not directly exposed, providing security, flexibility, and maintainability.
+  2. **`Encapsulation`** is the practice of binding the data (variables) and behaviors (methods) of a class into a single entity. It ensures that data and methods are packaged together in a class, protecting data from unauthorized access. Encapsulation ensures that the internal data and operations of a class are not directly exposed, providing security, flexibility, and maintainability.
 
   3. **`Polymorphism`** means having many forms. In programming, it refers to the `ability of methods to behave differently based on different inputs`. There are two types:
 
@@ -3021,7 +3067,7 @@ LTS (long-term support) releases have an extended support period. Use this if yo
   - **Fields** (private variables)
   - **Properties** (getters/setters)
   - **Methods** (public or private)
-  - **Access** Modifiers (private, public, etc.)
+  - **Access Modifiers** (private, public, etc.)
   - **Constructors** (to initialize fields)
   - **Encapsulated Behavior** (hiding internal logic)
 
@@ -3142,19 +3188,18 @@ LTS (long-term support) releases have an extended support period. Use this if yo
     <summary>What is Objects?</summary>
     <hr/>
 
-  - Instance of class
-
-  - Real world entity
-
-  - Take memory
-
-  - An object is the physical representation of a class. Without the object it is impossible to represent the class. It is used to instantiate the class, allowing the class to be used in a real-world context.
-
-  - For example, if "Student" is a class, "Raju" is an object of the "Student" class.
+    - Instance of class
+  
+    - Real world entity
+  
+    - Take memory
+  
+    - An object is the physical representation of a class. Without the object it is impossible to represent the class. It is used to instantiate the class, allowing the class to be used in a real-world context.
+  
+    - For example, if "Student" is a class, "Raju" is an object of the "Student" class.
 
     <hr/>
   </details>
-
 - <details>
     <summary>What is the difference between Object and Instance?</summary>
     <hr/>
@@ -3180,7 +3225,7 @@ LTS (long-term support) releases have an extended support period. Use this if yo
   </details>
 
 - <details>
-    <summary>What is Instance variable?</summary>
+    <summary>What is Instance variable? ⭐</summary>
     <hr/>
     Non static variable or Field area called Instance variable.
     
@@ -3193,12 +3238,12 @@ LTS (long-term support) releases have an extended support period. Use this if yo
           public int Year;
       }
     ```
-
+    
     <hr/>
   </details>
 
 - <details>
-    <summary>What is instance and Refrence "Car car1 = new Car();"?</summary>
+    <summary>What is instance and Refrence "Car car1 = new Car();"?⭐</summary>
     <hr/>
     <ul>
       <li><b>Reference Variable: </b>`car1` is a reference variable of type `Car`. It holds the address of the `Car` instance.
@@ -3206,7 +3251,12 @@ LTS (long-term support) releases have an extended support period. Use this if yo
       <li>
         <b>Instance: </b>The object created by `new Car()` is the instance. This instance has its own state and behavior defined by the `Car` class.
       </li>
-    <ul>
+    <ul>'
+    ```c#
+    Car car1 = new Car();
+    //or
+    new Car().CallMethods(); // Un-named instance calling CallMethods
+    ```
     <hr/>
   </details>
 - <details>
@@ -3224,7 +3274,7 @@ LTS (long-term support) releases have an extended support period. Use this if yo
   </details>
 
 - <details>
-    <summary>What is Constructor</summary>
+    <summary>What is Constructor?⭐</summary>
     <hr/>
     It is a spacel type of method which have same name as class name, It is use to inslize the variable inside the class and also use to create instance of class. This method dod't have any return type. Implicitly/default constructor is invoked as soon as an object of the class is created. We can pass parameters to a constructors. We can also give access modifier (public).
     <pre>
@@ -3258,7 +3308,7 @@ LTS (long-term support) releases have an extended support period. Use this if yo
     <hr/>
   </details>
 - <details>
-    <summary>What is Implicit/default constructor and Explicit constructor?</summary>
+    <summary>What is Implicit/default constructor and Explicit constructor? </summary>
     <hr/>
     <b>Implicit :</b>Parameter less construtor and provided by the compiler if no constructors are defined by the user. Access level matches the class.
     <br/>
@@ -3269,16 +3319,23 @@ LTS (long-term support) releases have an extended support period. Use this if yo
     <hr/>
   </details>
 - <details>
-    <summary>What is Static</summary>
+    <summary>What is Static?</summary>
     <hr/>
-    Keyword which is use to create space in memory and it's class member variable. If you want to get access the class member variable without creating object you need declare static member.</br>
+    Keyword which is use to create space in memory and it's class member variable. If you want to get access the class member variable without creating object you need declare static member.
+    </br>
     A static class is a class that cannot be instantiated, meaning you cannot create an object of a static class. All members of a static class must also be static.
     <hr/>
   </details>
 - <details>
-    <summary>One static class and in side the static class `non-static` member are available. Is that posible to access the static member?</summary>
+    <summary>Is it posible to contain  `non-static` member in a static class?</summary>
     <hr/>
-    No, First things you can't create the static member in static class and you can't create the instance of static class.<br/>
+
+    - A `static` class cannot have `non-static` members.
+
+    - You `cannot create` an `instance` of a `static class`.
+
+    `Static class only contains static members`.
+
     <hr/>
   </details>
 - <details>
@@ -3298,17 +3355,33 @@ LTS (long-term support) releases have an extended support period. Use this if yo
     <hr/>
   </details>
 - <details>
-    <summary>What is `this` keyword?</summary>
+    <summary>What is `this` keyword?⭐</summary>
     <hr/>
-    > Refers to the current instance of the class.  It acts as a reference to the current object, allowing access to the object's members (fields, properties, methods) and constructors.<br/><br/>
-    > It is used to differentiate between instance variables and parameters or local variables with the same name.<br/><br/>
-    > `this` used to return the current object from a method.
+
+    - Refers to the current `instance` of the class.  It `acts as a reference` to the current object, allowing access to the object's members (fields, properties, methods) and constructors.<br/><br/>
+
+    - It is used to differentiate between instance variables and parameters or local variables with the same name.<br/><br/>
+
+    - `this` used to return the current object from a method.
+
+    <br/>
+    <br/>
+    
+    - **Scope**: The this keyword can only be used within non-static methods and constructors, as it refers to an instance of the class.
+
+    - Static methods do not have an instance context and therefore cannot use this.
+
+    - **Contextual Clarity**: Using this is not mandatory when referring to instance members unless there is a naming conflict with parameters or local variables.
+
+    - However, some developers prefer using this consistently for clarity.
+
+    <br/>
     
     More Explanation: [Link](https://codecomponents.hashnode.dev/advance-c-sharp-proggramming-language?t=1721797919621#heading-this-keyword)
     <hr/>
   </details>
 - <details>
-    <summary>What is constructor chaining?</summary>
+    <summary>What is constructor chaining?⭐</summary>
     <hr/>
     <p> Using the 'this' keyword, you can call another constructor within the same class by matching the number and types of parameters are called constructor chaining.</p>
     <pre>
@@ -3324,17 +3397,6 @@ LTS (long-term support) releases have an extended support period. Use this if yo
     <p></p>
     <hr/>
   </details>
-
-```md
-## Key Points ot 'this' keyword:-
-
-Scope: The this keyword can only be used within non-static methods and constructors, as it refers to an instance of the class.
-Static methods do not have an instance context and therefore cannot use this.
-
-Contextual Clarity: Using this is not mandatory when referring to instance
-members unless there is a naming conflict with parameters or local variables.
-However, some developers prefer using this consistently for clarity.
-```
 
 - <details>
     <summary>What is copy constructor?</summary>
@@ -3429,7 +3491,7 @@ However, some developers prefer using this consistently for clarity.
     <hr/>
   </details>
 - <details>
-    <summary>What is Prevent Instantiation and Singleton Pattern? </summary>
+    <summary>What is Prevent Instantiation and Singleton Pattern?</summary>
     <hr/>
     In object-oriented programming, constructors are special methods used to initialize new objects. The constructors are allowing other classes to create instances of the class.
     <br/>
@@ -3561,7 +3623,7 @@ Life cycle means from the starting of execution to the end of execution.
 ```
 
 - <details>
-    <summary>How many time execute static and non-static constructor?</summary>
+    <summary>How many time execute static and non-static constructor?c</summary>
     <hr/>
     <p>In the life cycle of class, the static constructor executes only once, whereas the non-static constructor executes zero times if no instances are created and 'n' times if 'n' instances are created.</p>
     <hr/>
@@ -3613,14 +3675,14 @@ Life cycle means from the starting of execution to the end of execution.
     <p>It runs automatically when the object is no longer needed.</p>
     <p>Destructor's name is the same as the class name, but with a tilde (~) at the beginning.</p>
 
-  ```C#
-
-    ~SampleClass()
-    {
-        Console.WriteLine("Destructor: Cleaning up object.  ");
-    }
-
-  ```
+    ```C#
+  
+      ~SampleClass()
+      {
+          Console.WriteLin("Destructor: Cleaning upobject.");
+      }
+  
+    ```
 
     <hr/>
   </details>
@@ -3640,7 +3702,7 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>Can it posible destructor overloading? </summary>
+    <summary>Can it posible destructor overloading?</summary>
     <hr/>
     <p>Not posible, a class can only have one destructor.</p>
     <hr/>
@@ -3661,15 +3723,49 @@ Life cycle means from the starting of execution to the end of execution.
 
     <hr/>
   </details>
+- <details>
+    <summary>What is Variable, Instance & Refrence of class?</summary>
+    <hr/>
+    ```c#
+    Program f = new Program(); //Here, f is a copy of the class Program
+    ```
+    ```c#
+    //Example:-
+    class Program
+    {
+        int x = 10;
+        static void Main()
+        {
+            Program f;//now that time `f` is the copy of class which is not inslize. 
+            f = new Program();//Declear the valu, which is calss.
+            Console.WriteLine(f.x);// Give error:- Use of unassigned local variable 'f'
+        }
+    }
+
+    ```
+
+    - **Variable of a class** : A copy of the class that is not initialized like `Program f`. Default value is null.
+
+    - **Instance of a class** : A coppy of class that is initialized by using the `new` keyword which has it's own memory and never shared with another instance like `f = new Program();`.
+
+    - **Refrence of class** : A coppy of the class that is initialized by using an existing instance and references of the class will not have any memory allocation. They will be sharinge the same memory of the instance that was assigned for initializing the variable.
+
+    ```c#
+    Program f1 = new Program();//`f` is the instance of class 
+    Program f2 = f1;
+    ```
+
+    <hr/>
+  </details>
 
 - <details>
-    <summary>If I inherit a class and both classes have constructors, which class constructor is called first?</summary>
+    <summary>If I inherit a class and both classes have constructors, which class constructor is called first?⭐</summary>
     <hr/>
     <p>The parent class constructor is called first, then the child class constructor. This is because the child class constructor implicitly calls the parent class constructor before executing its own code.</p>
     <hr/>
   </details>
 - <details>
-    <summary>If I inherit a class and both classes have the same method, which class method is called first?</summary>
+    <summary>If I inherit a class and both classes have the same method, which class method is called first?⭐</summary>
     <hr/>
     <p>The child class method is called first because the object is created the child class. If an object is created the parent class, then the parent class method is called.</p>
     <hr/>
@@ -3809,32 +3905,8 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>What is WriteLine, Write, Read, ReadLine, ReadKey & Clear methods?</summary>
+    <summary>What is Clear methods?⭐</summary>
     <hr/>
-    
-    - This all method belongs to pre-define `Console` class & `Console` class present in `System` namespace.
-
-  - This are the `static method`, so we need to call by using Class name (prefixing with `System.Console`), hear the syntax with example & some point's:
-
-  - **WriteLine**: `System.Console.WriteLine()`
-
-    - Displays output with a newline at the end (Take whole single line space).
-
-  - **Write**: `System.Console.Write()`
-
-    - Displays output without a newline (Take ony required space in a line).
-
-  - **Read**: `System.Console.Read()`
-
-    - Reads a single character from the input.`char c = (char)Console.Read();`
-
-  - **ReadLine**: `System.Console.ReadLine()`
-
-    - Reads an entire line of input as a string.
-
-  - **ReadKey**: `System.Console.ReadKey()`
-
-    - Reads a single key press from the keyboard. It returns the key information, like which key was pressed.
 
   - **Clear**: `System.Console.Clear()`
 
@@ -4270,7 +4342,7 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>What is Literals?</summary>
+    <summary>What is Literals?⭐</summary>
     <hr/>
     
     - **Literals** are the fixed values in a program.
@@ -4339,7 +4411,7 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
   </details>
 - <details>
-    <summary>What is Nullable value type?</summary>
+    <summary>What is Nullable value type?⭐</summary>
     <hr/>
 
     - **Nullable value types** were introduced in C# 2.0 to allow value types to store null values.
@@ -4410,7 +4482,7 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>What is the diffrence bitween Var and Dunamic type?</summary>
+    <summary>What is the diffrence bitween Var and Dunamic type?⭐</summary>
     <hr/>
     
     | **Feature**                              | **var**                                                                                         | **dynamic**                                                                                       |
@@ -4551,7 +4623,7 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>What is the Parse() method used for?</summary>
+    <summary>What is the Parse() method used for?⭐</summary>
     <hr/>
 
   - The `Parse()` method is used to convert the string representation of a value to its equivalent **data type.**
@@ -4594,7 +4666,7 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>What are the different ways to format strings in C#?</summary>
+    <summary>What are the different ways to format strings in C#?⭐</summary>
     <hr/>
     
     1. **Concatenation**:
@@ -4625,7 +4697,7 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
   </details>
 - <details>
-    <summary>What are the different types of operators in C#?</summary>
+    <summary>What are the different types of operators in C#?⭐</summary>
     <hr/>
 
   - C# provides a rich set of built-in operators, such as:
@@ -4635,7 +4707,7 @@ Life cycle means from the starting of execution to the end of execution.
     3. **Relational Operators**: `==`, `!=`, `<`, `<=`, `>`, `>=`
     4. **Logical Operators**: `&&`, `||`, `!`
     5. **Unary Operators**: `++`, `--`
-    6. **Miscellaneous Operators**: `sizeof()`, `typeof()`, `is`, `as`, `?: (Ternary)`, `?? (Coalesce)`
+    6. **Miscellaneous Operators**: `sizeof()`(returns the size of a data type in bytes), `typeof()`(returns the type of a class or a data type), `is`, `as`, `?: (Ternary)`, `?? (Coalesce)`
 
 
         <hr/>
@@ -4655,7 +4727,7 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
   </details>
 - <details>
-    <summary>What does the `is` operator do?</summary>
+    <summary>What does the `is` operator do?⭐</summary>
     <hr/>
     The `is` operator checks if an object is of a specified type.
     ```c#
@@ -4666,7 +4738,7 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
   </details>
 - <details>
-    <summary>What is the as operator?</summary>
+    <summary>What is the as operator?⭐</summary>
     <hr/>
     The `as` operator attempts to **cast** an object to a specific **type** and returns `null` if the cast is not valid, instead of throwing an exception.
 
@@ -4679,7 +4751,7 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>What are the different ways of converting an object to a string?</summary>
+    <summary>What are the different ways of converting an object to a string?⭐</summary>
     <hr/>
     
     There are three common ways:
@@ -4691,7 +4763,7 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>What is the null-coalescing (??) operator?</summary>
+    <summary>What is the null-coalescing (??) operator?⭐</summary>
     <hr/>
     The null-coalescing operator (??) returns the left-hand operand if it's not null; otherwise, it returns the right-hand operand.
 
@@ -4731,7 +4803,7 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>What are the some Arry Class and Properties?</summary>
+    <summary>What are the some Arry Class and Properties?⭐</summary>
     <hr/>
 
   This is a pre-defined class under the “System” namespace which provides with a set of members in it to perform actions on an array, those are:
@@ -4818,7 +4890,7 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>How to convert string to character array and char array to string?</summary>
+    <summary>How to convert string to character array and char array to string?⭐</summary>
     <hr/>
 
   ```c#
@@ -4835,13 +4907,13 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>What are command line arguments in C#?</summary>
+    <summary>What are command line arguments in C#?⭐</summary>
     <hr/>
     Command line arguments are values passed by the user or programmer to the Main method of a C# program when it is executed. These values are provided via the command prompt and can be used within the program.
     <hr/>
   </details>
 - <details>
-    <summary> How does the Main method accept command line arguments?</summary>
+    <summary> How does the Main method accept command line arguments?⭐</summary>
     <hr/>
     The Main method accepts an array of strings as command line arguments, which is defined as string[] args. Each argument passed to the program is stored as an element of this array.
 
@@ -4853,7 +4925,7 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>Can you give an example of passing command line arguments to a program?</summary>
+    <summary>Can you give an example of passing command line arguments to a program?⭐</summary>
     <hr/>
     
     - Suppose you have the following program:
@@ -4883,7 +4955,7 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>Can we pass different types of values (int, double, string) as command line arguments?</summary>
+    <summary>Can we pass different types of values (int, double, string) as command line arguments?⭐</summary>
     <hr/>
     
     - Yes, you can pass any type of values (e.g., int, double, string, bool) as arguments, but they will be stored in the program as strings. You'll need to convert them into their respective types inside the program.
@@ -4948,19 +5020,19 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>Can we pass multiple command line arguments?</summary>
+    <summary>Can we pass multiple command line arguments?⭐</summary>
     <hr/>
     Yes, you can pass multiple arguments, separated by spaces, when running the program. The number of arguments is stored in args.Length.
     <hr/>
   </details>
 - <details>
-    <summary>What is the issue if multiple classes have Main methods in a C# project?</summary>
+    <summary>What is the issue if multiple classes have Main methods in a C# project?⭐</summary>
     <hr/>
     When there are multiple Main methods in different classes within a project, the compiler does not know which one to use as the `entry point`, leading to an error that there are multiple entry points.
     <hr/>
   </details>
 - <details>
-    <summary> How can we resolve the "multiple entry points" error?</summary>
+    <summary>How can we resolve the "multiple entry points" error?</summary>
     <hr/>
     The solution is to set a `Startup Object` in the project settings, which specifies the class containing the Main method that should be used as the entry point.
 
@@ -5022,7 +5094,7 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>How to use consume another class method?</summary>
+    <summary>How to consume another class method?</summary>
     <hr/>
 
   ```c#
@@ -5068,7 +5140,7 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>What is the difference between variables and objects?</summary>
+    <summary>What is the difference between variables and objects?⭐</summary>
     <hr/>
     Variables are copies of scalar types (like int, float, char, and bool), while objects are copies of complex types that you define, such as Student and Employee. For example:
 
@@ -5432,7 +5504,7 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>Give me the example of a user-defined return type in a method?</summary>
+    <summary>Give me the example of a user-defined return type in a method?⭐</summary>
     <hr/>
      The return type of a method is not necessary have to be a predefined type. It can also be a user-defined type, which represents a complex data structure.
 
@@ -5496,7 +5568,7 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
   </details>
 - <details>
-    <summary>What are the classifications of method parameters?</summary>
+    <summary>What are the classifications of method parameters?⭐</summary>
     <hr/>
     Method parameters are classified into three types:
 
@@ -5510,7 +5582,7 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>How are input, output, and InOut parameters declared?</summary>
+    <summary>How are input, output, and InOut parameters declared?⭐</summary>
     <hr/>
     
     - By default, every parameter is an input parameter.
@@ -5527,7 +5599,7 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>What is `ref` Parameters? Give example.</summary>
+    <summary>What is `ref` Parameters? Give example.⭐</summary>
     <hr/>
     ```c#
     using System;
@@ -5562,7 +5634,7 @@ Life cycle means from the starting of execution to the end of execution.
   ```
 
 - <details>
-    <summary>What is `out` Parameters? Give example.</summary>
+    <summary>What is `out` Parameters? Give example.⭐</summary>
     <hr/>
     By using out, you can effectively return multiple values from a method, leveraging both the method's return value and the out parameters.
 
@@ -5615,13 +5687,13 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>What are tuples in C#?</summary>
+    <summary>What are tuples in C#?⭐</summary>
     <hr/>
     A tuple is a data structure used to return multiple values from a method. It was introduced in C# 7.0 and can hold a set of values.
     <hr/>
   </details>
 - <details>
-    <summary>Can you provide an example of `InOut` parameters?</summary>
+    <summary>Can you provide an example of `InOut` parameters?⭐</summary>
     <hr/>
     ```c#
     internal class InOutParameters
@@ -5661,7 +5733,7 @@ Life cycle means from the starting of execution to the end of execution.
   ```
 
 - <details>
-    <summary>What does the `params` keyword do in a method?</summary>
+    <summary>What does the `params` keyword do in a method?⭐</summary>
     <hr/>
     The `params` keyword allows a method to accept a variable number of arguments. You can call the method without explicitly creating an array and pass a comma-separated list of values.
 
@@ -5718,7 +5790,7 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>In method signature which position use params? </summary>
+    <summary>In method signature which position use params?⭐</summary>
     <hr/>
     When we use the params keyword in a method parameter, it allows the method to accept a variable number of arguments. This means you can pass multiple arguments to the method, and they will be treated as an array inside the method. If you want to use params, it must be the last parameter in the method signature, and you can only have one params parameter per method.
 
@@ -5761,7 +5833,7 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>What is the diffrence bitween ref and out parameter?</summary>
+    <summary>What is the diffrence bitween ref and out parameter?⭐</summary>
     <hr/>
     Here is the difference between `ref` and `out` parameters in a table format:
 
@@ -5810,7 +5882,7 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>Can it is also possible to send arguments with the "key: value" formate?</summary>
+    <summary>Can it is also possible to send arguments with the "key: value" formate?⭐</summary>
     <hr/>
     It is also possible to send arguments with the key: value syntax. That way, the order of the arguments does not matter:
 
@@ -5834,7 +5906,7 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>How to passing an array to a method & Return an array from a method?</summary>
+    <summary>How to passing an array to a method & Return an array from a method?⭐</summary>
     <hr/>
     **`Pass an array to a method`**: you provide the method with the array reference. The method can then access and modify the elements of the array.
 
@@ -6004,7 +6076,7 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>What is de-referencing an instance?</summary>
+    <summary>What is de-referencing an instance?⭐</summary>
     <hr/>
     De-referencing occurs when you assign `null` to an instance. After de-referencing, the instance cannot be used to access class members. For example:
 
@@ -6017,7 +6089,7 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>What happens when null is assigned to a reference?</summary>
+    <summary>What happens when null is assigned to a reference?⭐</summary>
     <hr/>
     When `null` is assigned to a reference, it loses access to the memory it was pointing to. However, if the instance still exists, it can be accessed using other references. For example:
 
@@ -6032,7 +6104,7 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>What is the diffrence bitween Variable of class, Instance of class and Reference of a class?</summary>
+    <summary>What is the diffrence bitween Variable of class, Instance of class and Reference of a class?⭐</summary>
     <hr/>
 
   Difference between a **variable**, **instance**, and **reference** of a class in table format:
@@ -6049,7 +6121,7 @@ Life cycle means from the starting of execution to the end of execution.
 
     <hr/>
   </details>
-
+#### **`Constructor`**
 - <details>
     <summary>What is a constructor?</summary>
     <hr/>
@@ -6274,7 +6346,7 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
   </details>
 - <details>
-    <summary>What are the two categories of class members?</summary>
+    <summary>What are the two categories of class members?⭐</summary>
     <hr/>
     Class members are divided into two categories:
 
@@ -6336,7 +6408,7 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
   </details>
 - <details>
-    <summary>Can static fields be initialized through a constructor?</summary>
+    <summary>Can static fields be initialized through a constructor?⭐</summary>
     <hr/>
     Yes, `static` fields `can` be initialized through a constructor, but this is generally avoided. Static fields are shared among all instances of the class, and each new instance would overwrite the old value if initialized through the constructor.
     <hr/>
@@ -6362,7 +6434,7 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>What is a readonly field, and how is it different from a constant field?</summary>
+    <summary>What is a readonly field, and how is it different from a constant field?⭐</summary>
     <hr/>
     A **readonly field** is declared using the `readonly` keyword and can be initialized either at the time of declaration or within a constructor. `Once initialized, it cannot be modified`. Unlike constants, readonly fields can have different values for each instance of a class. In contrast, constant fields hold a fixed value for the entire class.
 
@@ -6380,7 +6452,7 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>What is the Difference bitween Constant & Readonly fields?</summary>
+    <summary>What is the Difference bitween Constant & Readonly fields?⭐</summary>
     <hr/>
     - **Constant fields**: Single fixed value for the whole class.
 
@@ -6392,7 +6464,7 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>When are static, constant, non-static, and readonly fields initialized?</summary>
+    <summary>When are static, constant, non-static, and readonly fields initialized?⭐</summary>
     <hr/>
     
     - **Static fields**: Initialized once when the class is first loaded, and they maintain a single copy throughout the class's lifecycle. They are modifiable.
@@ -6409,7 +6481,7 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>How can you access static, constant, and non-static fields in or outside of the class?</summary>
+    <summary>How can you access static, constant, and non-static fields in or outside of the class?⭐</summary>
     <hr/>
 
   - **Static fields**: Accessed using the class name directly (inside or outside the class).
@@ -6456,7 +6528,7 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>What is the diffrence bitwee static & non-static Constructor?</summary>
+    <summary>What is the diffrence bitwee static & non-static Constructor?⭐</summary>
     <hr/>
     - **Static constructor**: Called once when the class is loaded; cannot have parameters.
 
@@ -6627,7 +6699,7 @@ Life cycle means from the starting of execution to the end of execution.
 
     <hr/>
   </details>
-
+#### **`Inheritance`**
 - <details>
     <summary>What is inheritance in C#?</summary>
     <hr/>
@@ -6652,13 +6724,7 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
   </details>
 - <details>
-    <summary>How do you define and test inheritance in C#?</summary>
-    <hr/>
-    <p></p>
-    <hr/>
-  </details>
-- <details>
-    <summary>How do you define and test inheritance in C#?</summary>
+    <summary>How do you define and test inheritance in C#?⭐</summary>
     <hr/>
     To define inheritance, you create a child class that extends the parent class using the colon **`:`** symbol. The child class can then consume the public or protected members of the parent class.
 
@@ -6745,40 +6811,11 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
   </details>
 - <details>
-    <summary>Why does the child class constructor call the parent class constructor?</summary>
-    <hr/>
-    The child class constructor calls the parent class constructor to initialize the members of the parent class, which are inherited by the child class. The parent class's members must be initialized first to allow the child class to use them.
-    <hr/>
-  </details>
-- <details>
-    <summary>Are constructors inherited in C#?</summary>
-    <hr/>
-    No, constructors are not inherited. Each class has its own constructor, and the parent class constructor is called by the child class constructor to initialize the parent’s members.
-    <hr/>
-  </details>
-- <details>
     <summary>What is the 2 rule, Can a parent class access members of the child class?</summary>
     <hr/>
      No, a parent class cannot access members defined in the child class. A parent class only knows about its own members. However, the child class can access and use members of the parent class.
     <hr/>
   </details>
-- <details>
-    <summary>How can we test that a parent class cannot access child class members?</summary>
-    <hr/>
-    We can test this by creating an instance of the parent class and trying to call methods from the child class. For example:
-
-  ```c#
-  Class1 p = new Class1();
-  p.Test1(); // Valid
-  p.Test2(); // Valid
-  //p.Test3(); // Invalid
-  //p.Test4(); // Invalid
-  ```
-
-  In this code, methods `Test3()` and `Test4()` are specific to the child class, so they cannot be accessed by the parent class.
-    <hr/>
-  </details>
-
 - <details>
     <summary>What is the 3 rule,Can a child class instance be assigned to a parent class reference?</summary>
     <hr/>
@@ -6954,6 +6991,8 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/> 
   </details>
 
+#### **`Polymorphism`**
+
 - <details>
     <summary>What is Polymorphism?</summary>
     <hr/>
@@ -7047,7 +7086,7 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>Diffrence bitween Method Overloading vs Method Overriding</summary>
+    <summary>Diffrence bitween Method Overloading vs Method Overriding⭐</summary>
     <hr/>
 
   | **Aspect**              | **Method Overloading**                                         | **Method Overriding**                                                                 |
@@ -7064,22 +7103,22 @@ Life cycle means from the starting of execution to the end of execution.
     <summary>How inheritance work based on Overloading?</summary>
     <hr/>
     A child class can overload methods from the parent class without any special permission. For example:
+
     ```c#
     internal class LoadParent
     {
         public void Test() { Console.WriteLine("Parent Class Test Method Is Called."); }
     }
 
-  internal class LoadChild : LoadParent
-  {
-  public void Test(int i) { Console.WriteLine("Child Class Test Method Is Called."); }
+    internal class LoadChild : LoadParent
+    {
+        public void Test(int i) { Console.WriteLine("Child Class Test Method Is Called."); }
 
         static void Main()
         {
             LoadChild c = new LoadChild();
             c.Test(); // Calls parent class method
             c.Test(10); // Calls child class method
-            c.Test(); // Calls parent class method
 
             Console.WriteLine("---------------------");
             LoadParent p = new LoadParent();
@@ -7118,20 +7157,19 @@ Life cycle means from the starting of execution to the end of execution.
 
   internal class LoadChild : LoadParent
   {
-  // Overloading parent's Test method
-  public void Test(int i) { Console.WriteLine("Child Class Test Method Is Called."); }
+    // Overloading parent's Test method
+    public void Test(int i) { Console.WriteLine("Child Class Test Method Is Called."); }
 
-        // Overriding parent's Show method
-        public override void Show() { Console.WriteLine("Child Class Show Method Is Called."); }
-
-        static void Main()
-        {
-            LoadChild c = new LoadChild();
-            c.Test(); // Calls parent class Test method
-            c.Test(10); // Calls child class Test method
-            c.Show(); // Calls child class Show method (override)
-            Console.ReadLine();
-        }
+    // Overriding parent's Show method
+    public override void Show() { Console.WriteLine("Child Class Show Method Is Called."); }
+    static void Main()
+    {
+        LoadChild c = new LoadChild();
+        c.Test(); // Calls parent class Test method
+        c.Test(10); // Calls child class Test method
+        c.Show(); // Calls child class Show method (override)
+        Console.ReadLine();
+    }
 
   }
 
@@ -7147,13 +7185,13 @@ Life cycle means from the starting of execution to the end of execution.
   ```
 
 - <details>
-    <summary>Can we override any parent classes’ methods under child classes without declaring them as virtual?</summary>
+    <summary>Can we override any parent classes methods under child classes without declaring them as virtual?</summary>
     <hr/>
     No, we cannot override a parent class method unless it is declared as `virtual`.
     <hr/>
   </details>
 - <details>
-    <summary>Can we re-implement any parent classes’ methods under the child classes without declaring them as virtual?</summary>
+    <summary>Can we re-implement any parent classes methods under the child classes without declaring them as virtual?⭐</summary>
     <hr/>
     Yes, this can be done through:
 
@@ -7196,7 +7234,7 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
   </details>
 - <details>
-    <summary>What approaches are available to call parent class methods from the child class after re-implementing them?</summary>
+    <summary>What approaches are available to call parent class methods from the child class after re-implementing them?⭐</summary>
     <hr/>
     **There are two ways**:
       1. `Create a parent class instance`:
@@ -7267,8 +7305,6 @@ Life cycle means from the starting of execution to the end of execution.
   ```
   <hr/>
   </details>
-  ```
-
 - <details>
     <summary>How many type of Polymorphism?</summary>
     <hr/>
@@ -7293,7 +7329,7 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
   </details>
 - <details>
-    <summary>What are the differences between Static and Dynamic Polymorphism?</summary>
+    <summary>What are the differences between Static and Dynamic Polymorphism?⭐</summary>
     <hr/>
 
   | **Static Polymorphism**             | **Dynamic Polymorphism**                               |
@@ -7734,8 +7770,10 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
   </details>
 
+#### **`Sealed Class & Method`**
+
 - <details>
-    <summary>What is a Sealed Class?</summary>
+    <summary>What is a Sealed Class?⭐</summary>
     <hr/>
     A Sealed Class is a class that is declared using the `sealed` modifier, which `prevents` it from being inherited by other classes. For example:
     ```c#
@@ -7748,31 +7786,54 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
   </details>
 - <details>
-    <summary>Can a Sealed Class be inherited?</summary>
+    <summary>Can a Sealed Class be inherited?⭐</summary>
     <hr/>
     No, a Sealed Class cannot be inherited by any other class. Attempting to inherit from a sealed class results in a compile-time error. For example:`class Class2 : Class1 => Invalid`.
 
-  Here, `Class2` attempting to inherit `Class1` will be invalid since `Class1` is sealed.
+    Here, `Class2` attempting to inherit `Class1` will be invalid since `Class1` is sealed.
     <hr/>
   </details>
 
 - <details>
-    <summary>Can the members of a Sealed Class be used in other classes?</summary>
+    <summary>Can the members of a Sealed Class be used in other classes?⭐</summary>
     <hr/>
     Yes, the members of a Sealed Class can still be used in other classes by creating an instance of the sealed class. For example:`String str = new String("example");`
 
-  Here, `String` is a sealed class, **`but you can still create an instance of it and use its members`**.
+    ```c#
+    // Define a sealed class
+    public sealed class Logger
+    {
+        public void LogMessage(string message)
+        {
+            Console.WriteLine($"Log: {message}");
+        }
+    }
+
+    // Another class that uses the sealed class
+    public class Application
+    {
+        public void Start()
+        {
+            // Create an instance of the sealed class
+            Logger logger = new Logger();
+
+            // Use the member of the sealed class
+            logger.LogMessage("Application has started.");
+        }
+    }
+    ```
+    
+    Here, `String` is a sealed class, **`but you can still create an instance of it and use its members`**.
     <hr/>
   </details>
-
 - <details>
-    <summary>What is a Sealed Method?</summary>
+    <summary>What is a Sealed Method?⭐</summary>
     <hr/>
     A Sealed Method is a method that, `once declared`, `cannot be overridden` in `any derived class`. **`By default, methods in a class are sealed`** `unless they are explicitly declared` **`virtual`**. A sealed method is used to stop further overrides of a method in a derived class.
     <hr/>
   </details>
 - <details>
-    <summary>Can any method of a class be overridden by a child class?</summary>
+    <summary>Can any method of a class be overridden by a child class?⭐</summary>
     <hr/>
     No, only methods that are explicitly marked as `virtual` in the parent class can be overridden by a child class. Methods that are not `virtual` cannot be overridden. For example:
 
@@ -7789,25 +7850,25 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
     When a virtual method is overridden in a child class, the child class provides its own implementation of that method, replacing the parent's implementation. For example:
 
-  ```c#
-  class Class1
-  {
-     public virtual void Show() { /* Parent Implementation */ }
-  }
+    ```c#
+    class Class1
+    {
+       public virtual void Show() { /* Parent Implementation */ }
+    }
 
-  class Class2 : Class1
-  {
-     public override void Show() { /* Child Implementation */ }
-  }
-  ```
+    class Class2 : Class1
+    {
+       public override void Show() { /* Child Implementation */ }
+    }
+    ```
 
-  Here, `Class2` overrides the Show method of `Class1`.
+    Here, `Class2` overrides the Show method of `Class1`.
 
     <hr/>
   </details>
 
 - <details>
-    <summary>Can a child class seal an overridden method?</summary>
+    <summary>Can a child class seal an overridden method?⭐</summary>
     <hr/>
     Yes, a child class can seal an overridden method using the sealed modifier to prevent further overriding by any classes derived from it. For example:
 
@@ -7823,13 +7884,13 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>Can a method be sealed without being overridden first?</summary>
+    <summary>Can a method be sealed without being overridden first?⭐</summary>
     <hr/>
     No, a method must first be declared as `virtual` and then overridden in a child class before it can be sealed. The `sealed` modifier can only be applied to methods that override a `virtual` or `abstract` method.
     <hr/>
   </details>
 - <details>
-    <summary>When to apply sealed modifier?</summary>
+    <summary>When to apply sealed modifier?⭐</summary>
     <hr/>
     The sealed modifier can only be applied to methods that already override a virtual or abstract method from a base class. This means you can only "seal" a method that was initially meant to be overridden, preventing further overrides in any derived classes.
 
@@ -7852,7 +7913,7 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>Can a method sealed in one class be overridden in a class further down the hierarchy?</summary>
+    <summary>Can a method sealed in one class be overridden in a class further down the hierarchy?⭐</summary>
     <hr/>
     No, once a method is sealed in a class, it cannot be overridden in any class further down the inheritance hierarchy. For example:
 
@@ -7873,7 +7934,7 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>Why would you use a Sealed Class or a Sealed Method?</summary>
+    <summary>Why would you use a Sealed Class or a Sealed Method?⭐</summary>
     <hr/>
 
   - **Sealed Class**: You use a sealed class when you want to prevent other developers from extending or modifying its behavior through inheritance. This is often used for security, stability, or optimization reasons.
@@ -7881,17 +7942,17 @@ Life cycle means from the starting of execution to the end of execution.
   - **Sealed Method**: You use a sealed method when you want to allow a method to be overridden once (in a child class), but prevent further overriding by future subclasses.
     <hr/>
   </details>
-
+#### **`Abstract Method`**
 - <details>
     <summary>What is an Abstract Method?</summary>
     <hr/>
     An abstract method is a method without a body, meaning it has only a declaration but no implementation. To declare a method as abstract, the `abstract` modifier must be used. For example:
 
-  ```c#
-  public abstract void Mul(int a, int b);
-  ```
+    ```c#
+    public abstract void Mul(int a, int b);
+    ```
 
-  In this example, `Mul` is an abstract method, and any class that inherits this must provide its implementation.
+    In this example, `Mul` is an abstract method, and any class that inherits this must provide its implementation.
 
     <hr/>
   </details>
@@ -7901,15 +7962,15 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
     An abstract class is a class that contains one or more abstract methods and is declared using the `abstract` modifier. It can `also contain non-abstract (concrete) members`. For example:
 
-  ```c#
-  abstract class AbsParent
-  {
-     public abstract void Mul(int a, int b);
-     public void Add(int a, int b) { /* Implementation */ }
-  }
-  ```
+    ```c#
+    abstract class AbsParent
+    {
+       public abstract void Mul(int a, int b);
+       public void Add(int a, int b) { /* Implementation */ }
+    }
+    ```
 
-  Here, `AbsParent` is an abstract class because it contains the abstract method Mul.
+    Here, `AbsParent` is an abstract class because it contains the abstract method Mul.
 
     <hr/>
   </details>
@@ -8147,7 +8208,7 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>What is the difference between abstract methods and virtual methods?</summary>
+    <summary>What is the difference between abstract methods and virtual methods?⭐</summary>
     <hr/>
     - **Abstract methods**: Must be implemented by the child class and have no implementation in the parent class.
     - **Virtual methods**: Have an implementation in the parent class, but the child class can override it if needed.
@@ -8203,14 +8264,11 @@ Life cycle means from the starting of execution to the end of execution.
   - **Abstract methods** must be implemented by derived classes, but static methods cannot be declared as abstract because they do not participate in inheritance the same way instance methods do.
   <hr/>
   </details>
-  ```
 
 - <details>
-    <summary>Give me example of Abstract class & method?</summary>
+    <summary>Give me example of Abstract class & method?⭐</summary>
     <hr/>
     ```c#
-    namespace OOPSProject
-    {
       public abstract class Figure
       {
         public const float Pi = 3.14f;
@@ -8285,13 +8343,9 @@ Life cycle means from the starting of execution to the end of execution.
           Console.WriteLine($"Area of Rectangle is: {rect.GetArea()}\n");
         }
       }
-
-  }
-
   ```
   <hr/>
   </details>
-  ```
 
 - <details>
     <summary>Can it's mendatry if any abstract method in a class is there, then class shood automatically be abstract class and it's mendatry to use abstract modifier in class?</summary>
@@ -8299,6 +8353,9 @@ Life cycle means from the starting of execution to the end of execution.
     When a class contains abstract methods, it must be declared as abstract, and it is mandatory to use the `abstract` modifier in the class declaration. This structure helps enforce a clear contract for subclasses to follow, ensuring they implement the necessary functionality.
     <hr/>
   </details>
+
+#### **`Interface`**
+
 - <details>
     <summary>What is an interface?</summary>
     <hr/>
@@ -8306,7 +8363,7 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
   </details>
 - <details>
-    <summary>How is an interface different from a non-abstract class and an abstract class?</summary>
+    <summary>How is an interface different from a non-abstract class and an abstract class?⭐</summary>
     <hr/>
 
   - **Non-Abstract Class**: Contains only non-abstract (concrete) members.
@@ -8327,7 +8384,7 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>Why does .NET not support multiple inheritance through classes, but supports it through interfaces?</summary>
+    <summary>Why does .NET not support multiple inheritance through classes, but supports it through interfaces?⭐</summary>
     <hr/>
      .NET does not support multiple inheritance via classes due to **ambiguity issues**(Compiler confusion). However, multiple inheritance is supported through interfaces because a child class only implements the abstract members of the interfaces without consuming them.
     <hr/>
@@ -8344,7 +8401,7 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
   </details>
 - <details>
-    <summary>What are the key points about interfaces?</summary>
+    <summary>What are the key points about interfaces? ⭐</summary>
     <hr/>
 
   - We cannot declare fields in an interface.
@@ -8417,29 +8474,20 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>Can an interface be instantiated?</summary>
+    <summary>Can an interface be instantiated?⭐</summary>
     <hr/>
-    No, an interface cannot be instantiated. However, you can create a reference of an interface using an instance of the class that implements it.
-    <hr/>
-  </details>
-- <details>
-    <summary>How can multiple inheritance be implemented using interfaces in .NET?</summary>
-    <hr/>
-     No, an interface cannot be instantiated. However, you can create a reference of an interface using an instance of the class that implements it.
-
-  ```c#
-  // Define an interface
-  public interface IAnimal
+    **No, an interface cannot be instantiated directly**. However, you can create a reference of an interface and assign it to an instance of a class that implements the interface. This allows you to use the interface's methods as defined by the implementing class. 
+    ```c#
+    public interface IShape
   {
-      void Speak();
+      void Draw();
   }
 
-  // Implement the interface in a class
-  public class Dog : IAnimal
+  public class Circle : IShape
   {
-      public void Speak()
+      public void Draw()
       {
-          Console.WriteLine("Woof!");
+          Console.WriteLine("Drawing a circle.");
       }
   }
 
@@ -8447,20 +8495,55 @@ Life cycle means from the starting of execution to the end of execution.
   {
       static void Main()
       {
-          // Cannot instantiate the interface directly
-          // IAnimal animal = new IAnimal(); // This would cause a compile error
+          // Cannot do: IShape shape = new IShape(); // Error: cannot instantiate an interface
 
-          // Create an instance of the class that implements the    interface
-          Dog dog = new Dog();
-
-          // Create a reference of the interface using the class instance
-          IAnimal animal = dog;
-
-          // Call the method using the interface reference
-          animal.Speak(); // Output: Woof!
+          // Correct usage
+          IShape shape = new Circle();  // Interface reference pointing to a Circle instance
+          shape.Draw();  // Calls the Draw method of Circle
       }
   }
-  ```
+
+      ```
+      <hr/>
+  </details>
+- <details>
+      <summary>How can multiple inheritance be implemented using interfaces in .NET?</summary>
+      <hr/>
+
+      ```c#
+        // Define an interface
+        public interface IAnimal
+        {
+            void Speak();
+        }
+
+        // Implement the interface in a class
+        public class Dog : IAnimal
+        {
+            public void Speak()
+            {
+                Console.WriteLine("Woof!");
+            }
+        }
+
+        class Program
+        {
+            static void Main()
+            {
+                // Cannot instantiate the interface directly
+                // IAnimal animal = new IAnimal(); // This would cause a compile error
+
+                // Create an instance of the class that implements the    interface
+                Dog dog = new Dog();
+
+                // Create a reference of the interface using the class instance
+                IAnimal animal = dog;
+
+                // Call the method using the interface reference
+                animal.Speak(); // Output: Woof!
+            }
+        }
+      ```
 
     <hr/>
   </details>
@@ -8476,7 +8559,7 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>Provide an example of implementing multiple interfaces in .NET.</summary>
+    <summary>Provide an example of implementing multiple interfaces in .NET. ⭐</summary>
     <hr/>
     ```c#
     internal interface Interface1  
@@ -8550,7 +8633,7 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>How can a class inherit from an interface and a base class at the same time in C#?</summary>
+    <summary>How can a class inherit from an interface and a base class at the same time in C#?⭐</summary>
     <hr/>
      In C#, a class can inherit from one base class and implement one or more interfaces simultaneously. This is achieved by specifying the base class first, followed by the interfaces in the class declaration. For example:
 
@@ -8581,6 +8664,7 @@ Life cycle means from the starting of execution to the end of execution.
     No, interfaces cannot contain constructors in C#. This is because an interface defines a contract for classes to implement but does not provide any implementation itself, including the creation of objects.
     <hr/>
   </details>
+#### **`Structure`**
 - <details>
     <summary>What is Structure?</summary>
     <hr/>
@@ -8865,6 +8949,7 @@ Life cycle means from the starting of execution to the end of execution.
     No, a structure cannot have a default constructor explicitly defined. The compiler provides a default constructor that initializes all fields to their default values. However, you can create a parameterized constructor.
     <hr/>
   </details>
+---
 - <details>
     <summary>What is a Solution?</summary>
     <hr/>
@@ -9859,7 +9944,7 @@ Life cycle means from the starting of execution to the end of execution.
 
     <hr/>
   </details>
-
+---
 - <details>
     <summary>What is a finalizer used for?</summary>
     <hr/>
