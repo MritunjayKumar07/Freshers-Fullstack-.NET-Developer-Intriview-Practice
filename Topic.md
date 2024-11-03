@@ -3,6 +3,14 @@
 ![Compilation History Articture](Compilation-History-Articture.png)
 
 - <details>
+    <summary>What is the role of CIL (Common Intermediate Language) in the compilation of .NET programming languages, and how does it ensure platform independence?⭐</summary>
+    <hr/>
+    during compilation of any .NET programming languages, the source code is translated into CIL code rather than platform or processor-specific code. CIL is a CPU and platform-independent instruction set that can be executed in any environment supporting the Common Language Infrastructure, such as the .NET runtime on Windows, or the cross-platform Mono runtime.
+
+  ![alt text](./Q/CSharp/CompileAndExecutionProcess.png)
+
+    <hr/>
+- <details>
     <summary>How to execute C language code?⭐</summary>
     <hr/>
     <p>The program we write in C is called source code.</p>
@@ -287,6 +295,82 @@
     </ol>
     <hr/>
   </details>
+- <details>
+    <summary>What is an Assembly?⭐</summary>
+    <hr/>
+    An assembly is the output file generated after compiling a project. It contains the Common Intermediate Language (CIL) code of the types defined in the project. An assembly is also a unit of deployment.
+
+  - It’s an output file that is generated after compilation of a project which contains CIL Code in it.
+  - Assembly file contains the CIL Code of each type that is defined under the project.
+  - An Assembly is a unit of deployment, because when we need to install an application on client machines what we install is these Assemblies only and all the .NET Libraries are installed on our machines in the form of Assemblies when we install Visual Studio.
+  - The name of an assembly file is the same name of the project and can’t be changed.
+  - In .NET Framework the assembly files of a project will be present under the project folder’s “bin\debug” folder. In .NET Core, assembly file of a project will be present under `bin\debug\netcoreapp<Version>` folder and here version represents the Core Runtime version. From .NET 5, assembly file of a project will be present under `bin\debug\net<Version>` folder and here also version represents the Runtime version.
+  - In .NET Framework the extension of an assembly file can either be a “.exe” or “.dll” which is based on the type of project we open, for example if the project is an “Application Project” then it will generate “.exe” assembly whereas if it is a “Library Project” then it will generate “.dll” assembly. From .NET Core every project will generate “.dll” assembly and apart from that “Application Project’s” will generate an additional “.exe” assembly also i.e., “Library Projects” will be generating “.dll” only now also where as “Application Project’s” will generate both “.exe” and “.dll” also.
+    <hr/>
+  </details>
+- <details>
+    <summary>What types of assembly files are generated in .NET Framework and .NET Core?⭐</summary>
+    <hr/>
+    **.NET Framework**:
+      - Application projects generate `.exe` assemblies.
+      - Library projects generate `.dll` assemblies.
+    **.NET Core and above**:
+      - Application projects generate both `.exe` and `.dll` assemblies.
+      - Library projects generate `.dll` assemblies only.
+    <hr/>
+  </details>
+- <details>
+    <summary>Can you consume classes from one project in another project?⭐</summary>
+    <hr/>
+    Yes, but you need to add a reference to the assembly of the project that contains the class. This is done by right-clicking on the project, selecting "Add" -> "Project Reference", and then browsing to the required assembly.
+    <hr/>
+  </details>
+- <details>
+    <summary>What is `ildasm`?⭐</summary>
+    <hr/>
+    Intermediate Language Dis-Assembler. We use it to dis-assemble an Assembly file and view the contents of it. To check it out, open Visual Studio Developer Command Prompt, go to the location where the assembly files of the project are present and use it as following: `ildasm <name of the .dll assembly file>`.
+
+  **Note**: in .NET Framework we can dis-assemble both “.exe” and “.dll” assemblies also whereas from .NET Core we can dis-assemble only “.dll” assemblies.
+
+  **E.g.**: Open Visual Studio Developer Command Prompt, go to the below location and try the following:
+
+  ```bash
+  <drive>:\<our_folder>\OOPSProject\OOPSProject\bin\Debug\net8.0> ildasm OOPSProject.dll
+  <drive>:\<our_folder>\OOPSProject\SecondProject\bin\Debug\net8.0> ildasm SecondProject.dll
+  ```
+
+    <hr/>
+  </details>
+- <details>
+    <summary>How do you add a reference to an assembly in a project?⭐</summary>
+    <hr/>
+
+  To add reference of an assembly to a project open solution explorer, right click on the project to whom reference must be added, select “Add => Project Reference” option, which opens a window “Reference Manager” and in that window select “Browse” option in LHS, then click on “Browse” button below, select the assembly we want to consume from its physical location and click ok. Now we can consume types of that assembly by prefixing with their namespace or importing the namespace.
+
+  **Note**: In .NET Framework we can add reference to “.exe” or “.dll” assemblies also and consume them in other projects, whereas from .NET Core onwards we can’t add reference to “.exe” assemblies i.e., we can add reference only to “.dll” assemblies.
+
+  **Example**:To test this, go to “OOPSProject” Solution, right click on the “SecondProject” we have newly added, select add reference and add the reference of “OOPSProject.dll” assembly from its physical location (`<drive>:\<our_folder>\OOPSProject\OOPSProject\bin\Debug\net8.0>`). Now add a new class under the `“SecondProject”` naming it as “`Class1.cs`” and write the below code in it:
+
+  ```c#
+  using OOPSProject;
+  internal class Class1
+  {
+    static void Main()
+    {
+      Cone cone = new Cone(18.92, 34.12);
+      Console.WriteLine($"Area of Cone is: {cone.GetArea()}\n");
+      Circle circ = new Circle(45.36);
+      Console.WriteLine($"Area of Circle is: {circ.GetArea()}\n");
+      Triangle trin = new Triangle(34.98, 27.87);
+      Console.WriteLine($"Area of Triangle is: {trin.GetArea()}\n");
+      Rectangle rect = new Rectangle(45.29, 76.12);
+      Console.WriteLine($"Area of Rectangle is: {rect.GetArea()}\n");
+    }
+  }
+  ```
+
+    <hr/>
+  </details>
 
 # **`C-Sharp`**
 
@@ -566,89 +650,6 @@
     <summary>What are functions in programming?⭐</summary>
     <hr/>
     <p>Functions are reusable blocks of code that perform specific tasks. They allow you to write code once and call it whenever needed, promoting code reuse and organization.</p>
-    <hr/>
-  </details>
-- <details>
-    <summary>What are the four types of functions in C#?</summary>
-    <hr/>
-    <ol>
-    <li>Function without parameters and without return value
-
-      ```C#
-      void Main()
-      {
-          Add();//Function Calling
-          Console.ReadKey();
-      }
-
-      //Defination and Implementation of function's
-      void Add()
-      {
-          int Number_1 = 50, Number_2 = 60;
-          int Sum = Number_1 + Number_2;
-          Console.WriteLine("Sum is " + Sum);
-      }
-
-      ```
-
-    </li>
-    <li>Function without parameters and with return value
-
-      ```C#
-      void Main()
-      {
-          int S = Add();
-          Console.WriteLine("Sum is = " + S);
-          Console.ReadKey();
-      }
-
-      int Add()
-      {
-          int Number_1 = 50, Number_2 = 60;
-          int Sum = Number_1 + Number_2;
-          return Sum;
-      }
-
-      ```
-
-    </li>
-    <li>Function with parameters and without return value
-    
-      ```C#
-      void Main()
-      {
-          Add(50, 40);// Pass arguments 50 and 40
-          Console.ReadKey();
-      }
-
-      void Add(int x, int y) //x and y is Parameters
-      {
-        int Sum = x + y;
-        Console.WriteLine("Sum is = " + Sum);
-      }
-      ```
-
-   </li>
-   <li>Function with parameters and with return value
-
-  ```C#
-  void Main()
-  {
-      int S = Add(50, 40);// Pass arguments 50 and 40
-      Console.WriteLine("Sum is = " + S);
-      Console.ReadKey();
-  }
-
-  int Add(int x, int y) //x and y is Parameters
-  {
-      int Sum = x + y;
-      return Sum;
-  }
-
-  ```
-
-    </li>
-    </ol>
     <hr/>
   </details>
 
@@ -1598,61 +1599,6 @@
     <hr/>
   </details>
 - <details>
-    <summary>What issue in Procedure-Oriented Programming does Object-Oriented Programming solve?</summary>
-    <hr/>
-
-  **OOP** solves the lack of reusability in **Procedure-Oriented Programming** by introducing classes and objects, allowing for better code organization, data encapsulation, and reuse across programs.
-
-    <hr/>
-  </details>
-- <details>
-    <summary>What are the key components of Object-Oriented Programming in C#?⭐</summary>
-    <hr/>
-
-  - **Classes**: Act as containers for variables and functions.
-
-  - **Objects**: Instances of classes that encapsulate(summarize) data and behavior.
-    <hr/>
-  </details>
-
-- <details>
-    <summary>What are the four fundamental features of Object-Oriented Programming (OOP)?Expline it.⭐</summary>
-    <hr/>
-
-  1. **`Abstraction`** is the process of `hiding implementation details while providing the service or result`. It allows users to interact with the functionality without needing to know the internal workings.
-
-     Abstraction simplifies complex systems by hiding unnecessary details and exposing only the essential features of an object. It allows a class to expose only relevant data and methods, making the interface simpler to understand and use.
-
-     There are two types:
-
-     - **Data Abstraction** focuses more on hiding internal data(`fields or properties implementation details of a class`) and exposing only relevant parts, often achieved through encapsulation.
-
-     - **Functional Abstraction** : `Abstract Class and Interface` are primarily tools for achieving functional abstraction by allowing you to `define methods without implementations` (in the case of `abstract methods`) or providing contracts (in the case of interfaces).
-
-  2. **`Encapsulation`** is the practice of binding the data (variables) and behaviors (methods) of a class into a single entity. It ensures that data and methods are packaged together in a class, protecting data from unauthorized access. Encapsulation ensures that the internal data and operations of a class are not directly exposed, providing security, flexibility, and maintainability.
-
-  3. **`Polymorphism`** means having many forms. In programming, it refers to the `ability of methods to behave differently based on different inputs`. There are two types:
-
-     - **Static Polymorphism** (Compile-time polymorphism or Early binding)
-
-     - **Dynamic Polymorphism** (Runtime polymorphism or Late binding)
-
-  4. **`Inheritance`** is the process of creating a new class from an existing class. The existing class is referred to as the base class, parent class, or super class, while the newly created class is called the derived class, child class, or sub class. In inheritance, the child class inherits all the features of the parent class and can also provide additional features or enhancements. The primary purpose of inheritance is to promote reusability, allowing code to be reused and extended without modification. It also facilitates making necessary enhancements and modifications in a structured and efficient way.
-
-     - Single Inheritance
-
-     - Multi-Level Inheritance
-
-     - Multiple Inheritance (acchive through interfaces)
-
-     - Hierarchical Inheritance
-
-     - Hybrid Inheritance (acchive through interfaces)
-
-    <hr/>
-  </details>
-
-- <details>
     <summary>What is Instance variable? ⭐</summary>
     <hr/>
     Non static variable or Field area called Instance variable.
@@ -1680,36 +1626,14 @@
       <li>
         <b>Instance: </b>The object created by `new Car()` is the instance. This instance has its own state and behavior defined by the `Car` class.
       </li>
-    <ul>'
+    <ul>
+
     ```c#
     Car car1 = new Car();
     //or
     new Car().CallMethods(); // Un-named instance calling CallMethods
     ```
-    <hr/>
-  </details>
 
-- <details>
-    <summary>What is Constructor?⭐</summary>
-    <hr/>
-    It is a spacel type of method which have same name as class name, It is use to inslize the variable inside the class and also use to create instance of class. This method dod't have any return type. Implicitly/default constructor is invoked as soon as an object of the class is created. We can pass parameters to a constructors. We can also give access modifier (public).
-    <pre>
-      class MyClass
-      {
-        int i; string s;  bool b;
-        public MyClass  () 
-        {
-            i = 0; s = null; b = false; 
-        }
-      }
-    </pre>
-    <hr/>
-  </details>
-- <details>
-    <summary>What is Static?⭐</summary>
-    <hr/>
-    Keyword which is use to create space in memory and it's class member variable. If you want to get access the class member variable without creating object you need declare static member.</br>
-    A static class is a class that cannot be instantiated, meaning you cannot create an object of a static class. All members of a static class must also be static.
     <hr/>
   </details>
 - <details>
@@ -1722,16 +1646,6 @@
 
     `Static class only contains static members`.
 
-    <hr/>
-  </details>
-- <details>
-    <summary>How many type of constructor?⭐</summary>
-    <hr/>
-    Default or Parameter less<br/>
-    Parmetrized Constructor<br/>
-    Copy<br/>
-    Static<br/>
-    Private Constructor<br/>
     <hr/>
   </details>
 - <details>
@@ -1777,317 +1691,6 @@
     <p></p>
     <hr/>
   </details>
-
-- <details>
-    <summary>What is copy constructor?⭐</summary>
-    <hr/>
-    <p>Create multiple instances with the same value</p>
-    <p>In a copy constructor the constructor take the same class as a parameter to it.</p>
-    <p>The copy constructor is used to create a new instance by copying the values from an existing instance.</p>
-    <pre>
-    class Program
-    {
-      int x;
-      public Program(int i) // Parametrize Constructor
-      {
-        x=i;
-        Console.WriteLine("parametrize constructor "+ i);
-      }
-      public Program(Program other)// Copy constructor: 'Program' is class name and 'other' is refrence
-      {
-        x = other.x;
-        Console.WriteLine("Copy constructor " + other.x);
-      }
-      static void Main()
-      {
-        // Calls parameterized constructor
-        Program pc = new Program(15);
-        Program pc1 = new Program(pc);
-        pc.Display(); //Output is :- Vale of x is: 15
-        pc1.Display(); //Output is :- Vale of x is: 15
-      }
-    }
-    </pre>
-
-  - other.x refers to the x field of the existing instance (the one being copied).
-
-  - Using other.x allows you to access the value of x from the existing instance and assign it to the new instance.
-
-  - Create an instance like Program pc1 = new Program(pc);. This makes a new instance (pc1) by copying the value of x from the existing instance (pc).
-
-  - The line x = other.x; ensures that pc1.x gets the same value as pc.x.
-    <hr/>
-  </details>
-
-- <details>
-    <summary>What is Static Constructor?⭐</summary>
-    <hr/>
-    <p>Static constructor are responsible in initializing static variable and these constructors are never called explicitly they are implicitly called and more over these constructor are first to execute under any class.</p>
-
-    <pre>
-    class Program
-    {
-      static int x;
-      static Program() //StaticConstructor
-      {
-        x=i;
-      }
-      static void Main(){}
-    }
-    </pre>
-
-    <p>Main method runs first, but just before it runs, the static constructor is executed automatically.</p>
-    <hr/>
-  </details>
-
-- <details>
-    <summary>Is that posible to overloading the Static constructors?⭐</summary>
-    <hr/>
-    <p>Static constructors cannot be parameterized, so overloading static constructors (passing parameters in a static constructor) is not possible.</p>
-    <hr/>
-  </details>
-- <details>
-    <summary>What is Private Constructor?⭐</summary>
-    <hr/>
-    A private constructor is a special type of constructor that can't be accessed from outside the class. This means you can't create instances of the class directly from outside. Also, you can't inherit a class that has a private constructor. Private constructors are usually used to Prevent Instantiation ( Stop the creation of objects from a class) and Implement Singleton Pattern (Make sure only one instance of a class is created). 
-    <hr/>
-  </details>
-- <details>
-    <summary>What is Prevent Instantiation and Singleton Pattern?⭐</summary>
-    <hr/>
-    In object-oriented programming, constructors are special methods used to initialize new objects. The constructors are allowing other classes to create instances of the class.
-    <br/>
-    <br/>
-    <b>Preventing Instantiation: </b>When a <b><mark>class has a private constructor and no public or internal constructor</mark></b>, it prevents the creation of instances of that class from outside the class itself. This means that no code outside the class can directly create an instance of the class. (It means The primary goal is to stop external code from creating instances. This does not inherently involve the creation of a single instance; rather, it may mean no instances are created at all if the class is purely static or utility-based.)
-    <br/>
-    <br/>
-    <b>Singleton Pattern: </b>The Singleton pattern <b><mark>uses a private constructor as part of its design to ensure that only one instance of the class can exist</b></mark>. In this pattern, a static field holds the single instance of the class, and a public static method or property provides access to this instance. The private constructor prevents the creation of additional instances. (It means specifically designed to ensure a single, globally accessible instance of a class, typically using a private constructor, a static field to hold the instance, and a public method to provide access to it.)
-    Prevent instantiation is way to stop creating the object(instance) outside the class itself. This is typically done by making the class constructor private or protected.
-    <br/>
-
-  ```C#
-    public class Utility
-    {
-        // Private constructor prevents instantiation
-        private Utility(){}
-        // Static method
-        public static void PrintMessage()
-        {
-            Console.WriteLine("Utility method called.");
-        }
-    }
-    // Usage
-    Utility.PrintMessage(); // This is valid (class name + Method/Property name)
-    // Utility u = new Utility(); // This will cause a compile-time error
-  ```
-
-  One more example:-
-
-  ```C#
-  class School
-  {
-      // This field holds the single instance of the School class
-      private static School instance;
-
-      // Private constructor prevents instantiation from other classes
-      private School(){}
-
-      // Public property to provide access to the single instance of the class
-      public static School Instance
-      {
-          get
-          {
-              // If no instance exists, create one
-              if (instance == null) //If instance is null then create instance
-              {
-                  instance = new School(); //Give access to create only one instance
-              }
-              return instance; //If is not null then return previous instance.
-          }
-      }
-      // Method to demonstrate functionality
-      public void ShowMessage()
-      {
-          Console.WriteLine("School instance");
-      }
-  }
-
-  class Program2
-  {
-      static void Main()
-      {
-          School s1 = School.Instance;
-          School s2 = School.Instance;
-          s1.ShowMessage(); // Output: Singleton instance
-          // Verify both instances are the same
-          Console.WriteLine(s1 == s2); // Output: True
-      }
-  }
-  ```
-
-  - **_School:_** In inside the School class the 'school' keyword specifies the type of the instance field. In this case, instance is a field of type School, meaning it will hold references to School objects.
-
-  - **_instance:_** In inside the School class the 'instance' keyword is the name of the field. It holds the reference to the single instance of the School class that the Singleton pattern is managing. Initially, this field is null, meaning no instance of School has been created yet.
-
-  - Utility or Helper for unnecessary object creation.
-    <hr/>
-  </details>
-- <details>
-    <summary>Who initializing the Static or Non-Static Variable/Fields?⭐</summary>
-    <hr/>
-    <p>Constructors are responsible for initializing fields/variables of a class, so static fields are initialized by static constructors and non-static fields are initialized by non-static constructors.</p>
-
-  ```C#
-   class Program2
-   {
-    static int x;
-    int y = 20;
-    static Program2()
-    {
-        x = 10;
-    }
-    Program2()
-    {
-        y = 20;
-    }
-   }
-  ```
-
-    <hr/>
-  </details>
-
-- <details>
-    <summary>Who Called the Static and Non-Static constructor?⭐</summary>
-    <hr/>
-    <p>Static constructors are called implicitly by the .NET runtime when the class is first accessed, whereas non-static constructors are called explicitly when an instance of the class is created.</p>
-    <br/>
-    <p><b>Static Constructors: </b>These are implicitly called by the .NET runtime. A static constructor is automatically called when the class is first accessed, either when an instance of the class is created or when a static member of the class is referenced. You do not call a static constructor directly, and it is only called once per type..</p>
-    </hr>
-    <p><b>Non-Static Constructors: </b>These are explicitly called when you create an instance of the class using the new keyword. For example, MyClass obj = new MyClass(); explicitly calls the non-static constructor of MyClass.</p>
-    </hr>
-  </details>
-- <details>
-    <summary>Which Constructors execute first Static or `non-static` constructors?⭐</summary>
-    <hr/>
-    <p>Static constructors execute immediately once the execution of a class starts and, moreover, they are the first block of code to run in a class. Non-static constructors, on the other hand, execute only after creating an instance of the class and every time an instance of the class is created.</p>
-    <hr/>
-  </details>
-
-- <details>
-    <summary>Can be static constructor parametrized?⭐</summary>
-    <hr/>
-    <p>Non-static constructor can be parametrized but static constructor can't have parametrized. Because of static constrctor is implicitly call & wo will pass the parameter. Remember static constructor is a 1st block of code to run the class.</p>
-    <hr/>
-  </details>
-
-- <details>
-    <summary>Is that posible to overloade the static constructor?⭐</summary>
-    <hr/>
-    <p>Non static constructor can be overloaded where as static constructor can't be overloaded.</p>
-    <hr/>
-  </details>
-
-- <details>
-    <summary>When Static constructor implicitly defined by compiler?⭐</summary>
-    <hr/>
-    <p>Static constructors are implicitly defined only if that class contains any static members or else that constructor will be present at all.</p>
-    <hr/>
-  </details>
-
-- <details>
-    <summary>What is destructor?⭐</summary>
-    <hr/>
-    <p>Special method used to clean up an object before the garbage collector reclaims it.</p>
-    <p>It runs automatically when the object is no longer needed.</p>
-    <p>Destructor's name is the same as the class name, but with a tilde (~) at the beginning.</p>
-
-  ```C#
-
-    ~SampleClass()
-    {
-        Console.WriteLine("Destructor: Cleaning up object.  ");
-    }
-
-  ```
-
-    <hr/>
-  </details>
-
-- <details>
-    <summary>Destructors have any access modifiers?⭐</summary>
-    <hr/>
-    <p>No, destructors do not have access modifiers and are implicitly private.</p>
-    <hr/>
-  </details>
-
-- <details>
-    <summary>Destructors take any Parameters?⭐</summary>
-    <hr/>
-    <p>No, destructors cannot take parameters.</p>
-    <hr/>
-  </details>
-
-- <details>
-    <summary>Can it posible destructor overloading?⭐</summary>
-    <hr/>
-    <p>Not posible, a class can only have one destructor.</p>
-    <hr/>
-  </details>
-
-- <details>
-    <summary>Who and when called the destructor?⭐</summary>
-    <hr/>
-    <p>Destructors are called automatically by the garbage collector when an object is no longer needed.</p>
-    <hr/>
-  </details>
-- <details>
-    <summary>What is Variable, Instance & Refrence of class?⭐</summary>
-    <hr/>
-    ```c#
-    Program f = new Program(); //Here, f is a copy of the class Program
-    ```
-    ```c#
-    //Example:-
-    class Program
-    {
-        int x = 10;
-        static void Main()
-        {
-            Program f;//now that time `f` is the copy of class which is not inslize. 
-            f = new Program();//Declear the valu, which is calss.
-            Console.WriteLine(f.x);// Give error:- Use of unassigned local variable 'f'
-        }
-    }
-
-    ```
-
-    - **Variable of a class** : A copy of the class that is not initialized like `Program f`. Default value is null.
-
-    - **Instance of a class** : A coppy of class that is initialized by using the `new` keyword which has it's own memory and never shared with another instance like `f = new Program();`.
-
-    - **Refrence of class** : A coppy of the class that is initialized by using an existing instance and references of the class will not have any memory allocation. They will be sharinge the same memory of the instance that was assigned for initializing the variable.
-
-    ```c#
-    Program f1 = new Program();//`f` is the instance of class 
-    Program f2 = f1;
-    ```
-
-    <hr/>
-  </details>
-
-- <details>
-    <summary>If I inherit a class and both classes have constructors, which class constructor is called first?⭐</summary>
-    <hr/>
-    <p>The parent class constructor is called first, then the child class constructor. This is because the child class constructor implicitly calls the parent class constructor before executing its own code.</p>
-    <hr/>
-  </details>
-- <details>
-    <summary>If I inherit a class and both classes have the same method, which class method is called first?⭐</summary>
-    <hr/>
-    <p>The child class method is called first because the object is created the child class. If an object is created the parent class, then the parent class method is called.</p>
-    <hr/>
-  </details>
-
 - <details>
     <summary>What happens when an object to the class is created?⭐</summary>
     <hr/>
@@ -2510,7 +2113,7 @@
 
   - Indexers
 
-  - Events
+  - Events( Means Call the function)
 
   - De-constructors (Introduced in C# 7.0)
 
@@ -2688,6 +2291,24 @@
     <summary>What are tuples in C#?⭐</summary>
     <hr/>
     A tuple is a data structure used to return multiple values from a method. It was introduced in C# 7.0 and can hold a set of values.
+
+    ```c#
+    public (int, string) GetPersonInfo()
+    {
+        return (25, "Alice");  // Returns multiple values as a tuple
+    }
+
+    public void DisplayInfo()
+    {
+        var info = GetPersonInfo();
+        Console.WriteLine($"Age: {info.Item1}, Name: {info.Item2}");
+    }
+
+    ```
+
+    **GetPersonInfo** returns a tuple with an int and a string value.
+    **DisplayInfo** retrieves and displays these values using info.Item1 and info.Item2.
+
     <hr/>
   </details>
 - <details>
@@ -3802,6 +3423,1965 @@
   In this example, DerivedClass inherits from BaseClass and implements the IExample interface.
     <hr/>
   </details>
+#### **`Structure`**
+- <details>
+    <summary>What is Structure?⭐</summary>
+    <hr/>
+    Structure is also a user-defined type like a class and interface which can contain only non-abstract members. A structure can contain all the members what a class can contain like constructor, static constructor, constants, fields, methods, properties, indexers, operators, and events.
+    <hr/>
+  </details>
+- <details>
+    <summary>What are the differences in Class and Structure?⭐</summary>
+    <hr/>
+
+  | **Feature**                      | **Class**                                                                                                               | **Structure**                                                                                          |
+  | -------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
+  | **Type**                         | Reference type                                                                                                          | Value type                                                                                             |
+  | **Memory Allocation**            | Instances allocated on the Managed Heap                                                                                 | Instances allocated on the Stack                                                                       |
+  | **Memory Management**            | Automatic memory management through Garbage Collector                                                                   | No automatic memory management, but faster access                                                      |
+  | **Data Volume**                  | Recommended for larger volumes of data                                                                                  | Recommended for smaller volumes of data                                                                |
+  | **Pre-defined Types**            | Pre-defined reference types like `string` and `object`                                                                  | Pre-defined value types like `int`, `float`, `bool`, etc.                                              |
+  | **Instance Creation**            | `new` keyword is mandatory for creating instances                                                                       | `new` keyword is optional; default constructor is called implicitly                                    |
+  | **Default Constructor**          | Contains an implicit default constructor if no constructor is defined                                                   | Contains a default constructor which can be implicit or explicit                                       |
+  | **Field Initialization**         | Fields can be declared and initialized at the time of declaration                                                       | Fields can be declared but cannot be initialized at declaration unless there’s an explicit constructor |
+  | **Field Initialization Methods** | Fields can be initialized through a constructor or instance                                                             | Fields can only be initialized through a constructor or instance                                       |
+  | **Constructor Requirement**      | Constructors (default or parameterized) are mandatory for instance creation                                             | Default constructor is mandatory for instance creation without `new`                                   |
+  | **Constructor Definition**       | Developers can define any type of constructor                                                                           | Developers can define parameterized constructors; C# 10.0 allows default constructors                  |
+  | **Constructor Compilation**      | After compilation, if defined with `0` constructors, there will be `1` constructor; if `n` constructors, `n` will exist | After compilation, if defined with `0` constructors, there will be `1`; if `n`, `n + 1` will exist     |
+  | **Inheritance**                  | Supports both implementation and interface inheritance                                                                  | Supports only interface inheritance (cannot inherit from another structure)                            |
+
+  **Syntax of Structure**:
+
+  ```c#
+  [<modifiers>] struct <Name>  
+  {  
+      // Define only non-abstract members  
+  }
+  ```
+
+  **Example of Structure**:
+
+  ```c#
+  // Define a structure
+  public struct Point
+  {
+      // Field declaration
+      public int X { get; set; }
+      public int Y { get; set; }
+
+      // Constructor (default constructor is implicit)
+      public Point(int x, int y)
+      {
+          X = x;
+          Y = y;
+      }
+
+      // Method
+      public void DisplayCoordinates()
+      {
+          Console.WriteLine($"Point coordinates: X = {X}, Y = {Y}");
+      }
+  }
+
+  // Example of a structure implementing an interface
+  public interface IShape
+  {
+      double Area();
+  }
+
+  public struct Rectangle : IShape
+  {
+      public double Width { get; set; }
+      public double Height { get; set; }
+
+      public Rectangle(double width, double height)
+      {
+          Width = width;
+          Height = height;
+      }
+
+      public double Area()
+      {
+          return Width * Height;
+      }
+  }
+
+  class Program
+  {
+      static void Main()
+      {
+          // Create an instance of Point structure
+          Point p = new Point(5, 10);
+          p.DisplayCoordinates(); // Outputs: Point coordinates: X = 5, Y = 10
+
+          // Create an instance of Rectangle structure
+          Rectangle rect = new Rectangle(4.5, 3.2);
+          Console.WriteLine($"Rectangle Area: {rect.Area()}"); // Outputs: Rectangle Area: 14.4
+      }
+  }
+
+  ```
+
+    <hr/>
+  </details>
+- <details>
+    <summary>Provide an example of a simple structure definition in C#.⭐</summary>
+    <hr/>
+
+    ```c#
+    internal struct MyStruct  
+    {
+        int x;
+        public MyStruct(int x)
+        {
+            this.x = x;
+        }
+        public void Display()
+        {
+            Console.WriteLine("Method defined under a structure: " + x);
+        }
+        static void Main()
+        {
+            MyStruct m1 = new MyStruct();
+            m1.Display();
+            MyStruct m2;
+            m2.x = 10;
+            m2.Display();
+            MyStruct m3 = new MyStruct(20);
+            m3.Display();
+            Console.ReadLine();
+        }
+    }
+  ```
+
+  <hr/>
+  </details>
+
+- <details>
+    <summary>How can a structure be consumed in C#?⭐</summary>
+    <hr/>
+    A structure and its members can be consumed from another structure or a class by creating an instance of the structure because structures do not support inheritance. This means that you cannot create a new structure based on an existing one.
+    <hr/>
+  </details>
+- <details>
+    <summary>What happens if you do not initialize the fields of a structure?⭐</summary>
+    <hr/>
+    If you do not explicitly initialize the fields of a structure in C#, they will automatically have default values when you create an instance of that structure. Here are the default values for common data types:
+      - Integer types (int, short, long): 0
+      - Floating-point types (float, double): 0.0
+      - Boolean (bool): false
+      - Character (char): '\0' (the null character)
+      - Reference types (like strings or objects): null
+
+  However, if you try to access a field of a structure without initializing it first, you will get a compile-time error. This is because structures in C# do not allow uninitialized fields to be accessed.
+
+  **Example**:
+
+  ```c#
+  namespace OOPSProject
+  {
+      internal struct MyStruct
+      {
+          public int number;      // Will default to 0
+          public bool isActive;   // Will default to false
+          public string name;     // Will default to null
+          // Method to display the values of the fields
+          public void Display()
+          {
+              Console.WriteLine($"Number: {number}, IsActive: {isActive}, Name: {name}");
+          }
+      }
+      internal class Program
+      {
+          static void Main()
+          {
+              MyStruct myStruct; // Declare a structure variable
+              // Display method can be called directly, fields will have default values
+              myStruct.Display(); // Output: Number: 0, IsActive: False, Name:
+              // Uncommenting the line below will cause a compile-time error
+              // Console.WriteLine(myStruct.name.Length); // Error: Use of unassigned local variable 'myStruct'
+              // Explicitly initializing fields
+              myStruct.number = 10;
+              myStruct.isActive = true;
+              myStruct.name = "Test";
+              // Now displaying the initialized values
+              myStruct.Display(); // Output: Number: 10, IsActive: True, Name: Test
+              Console.ReadLine();
+          }
+      }
+  }
+  ```
+
+  **Explanation**
+
+  1. **Structure Declaration**: The MyStruct structure has three fields: number, isActive, and name. They have not been explicitly initialized.
+
+  2. **Default Values**: When an instance of MyStruct is declared (i.e., MyStruct myStruct;), its fields are automatically assigned default values:
+
+
+      - number will be 0
+      - isActive will be false
+      - name will be null
+
+  3. **Display Method**: When the Display() method is called, it outputs the default values of the fields.
+
+  4. **Compile-time Error**: If you try to access an uninitialized field directly (like calling myStruct.name.Length), it will result in a compile-time error. This is because you cannot access the Length property of name since it is null.
+
+  5. **Explicit Initialization**: After assigning values to the fields (number, isActive, name), calling the Display() method again shows the updated values.
+
+  Structures in C# automatically assign default values to their fields if not initialized, but trying to access these fields before assignment can lead to compile-time errors. Always ensure to initialize fields before accessing them to avoid errors.
+
+    <hr/>
+  </details>
+
+- <details>
+    <summary>Can you create a default constructor in a structure?⭐</summary>
+    <hr/>
+    No, a structure cannot have a default constructor explicitly defined. The compiler provides a default constructor that initializes all fields to their default values. However, you can create a parameterized constructor.
+    <hr/>
+  </details>
+#### **`Access Specifiers`**
+- <details>
+    <summary>What are Access Specifiers in C#?⭐</summary>
+    <hr/>
+    Access specifiers define the scope of types and their members, determining who can access them and who cannot. They are used to control the visibility of classes and members within the code.
+    <hr/>
+  </details>
+- <details>
+    <summary>How many Access Specifiers are supported in C#?⭐</summary>
+    <hr/>
+    1. **`Private`**: accessible only to the current class.
+    2. **`Internal`**: to all the classes in the current assembly(with-in the project) only.
+    3. **`Protected`**: to the current class and to it’s child classes.
+    4. **`Public`**: accessible to all the classes in all the assemblies (`global`).
+    5. **`Protected internal`**: if protected or internal access (`dual scope`), access to whole project and out-side the project.
+    6. **`Private protected`**: if private or internal access.
+    7. **`File`**: within the file scope.
+
+  **Note**: members that are defined in a type with any scope or specifier are always accessible with in the type, restrictions come into picture only when we try to access them outside of the type.
+    <hr/>
+  </details>
+
+- <details>
+    <summary>What is the default access modifier of inside the namespace?⭐</summary>
+    <hr/>
+    Internal (first level) 
+    <hr/>
+  </details>
+- <details>
+    <summary>What is the default access specifier for members in a class or structure?⭐</summary>
+    <hr/>
+    The default scope for members inside a class or structure is Private unless explicitly specified otherwise.
+    <hr/>
+  </details>
+- <details>
+    <summary>What is the default access modifier of constructor?⭐</summary>
+    <hr/>
+    Default access modifier of constructor is same access modifier of class. By default Internal. It means if class access modifire is private or internal or etc same as access modifier is constructor, it is connected to class.
+    <hr/>
+  </details>
+- <details>
+    <summary>What is the default access specifier for a type?⭐</summary>
+    <hr/>
+    The default scope for a type (such as a class or struct) is Internal in C#.
+    <hr/>
+  </details>
+- <details>
+    <summary>Whic access modifier where accessable?⭐</summary>
+    <hr/>
+
+  | Case                             | Private | Internal | Protected | Private Protected | Protected Internal | Public |
+  | -------------------------------- | ------- | -------- | --------- | ----------------- | ------------------ | ------ |
+  | Same Class, Same Project         | Yes     | Yes      | Yes       | Yes               | Yes                | Yes    |
+  | Child Class, Same Project        | No      | Yes      | Yes       | Yes               | Yes                | Yes    |
+  | Non-Child Class, Same Project    | No      | Yes      | No        | No                | Yes                | Yes    |
+  | Child Class, Another Project     | No      | No       | Yes       | No                | Yes                | Yes    |
+  | Non-Child Class, Another Project | No      | No       | No        | No                | No                 | Yes    |
+
+    <hr/>
+  </details>
+
+- <details>
+    <summary>Give me example of using all access modifier?⭐</summary>
+    <hr/>
+
+  1. Create console project name it(i.e:`AccessDemo1`) and name the solution(i.e:`MySolution`).
+
+  2. `Progeam.cs` (By creating object)
+
+  ```c#
+  namespace AccessDemo1
+  {
+  	public class Program //use Public access modifier
+  	{
+  		private void Test1_Private()
+  		{
+  			Console.WriteLine("Private Method");
+  		}
+  		internal void Test2_Internal()
+  		{
+  			Console.WriteLine("Internal Method");
+  		}
+  		protected void Test3_Protected()
+  		{
+  			Console.WriteLine("Protected Method");
+  		}
+  		protected internal void Test4_ProtecedInternal()
+  		{
+  			Console.WriteLine("Protected Internal Method");
+  		}
+  		public void Test5_Public()
+  		{
+  			Console.WriteLine("Public Method");
+  		}
+  		private protected void Test6_PrivateProtected()
+  		{
+  			Console.WriteLine("Private Protected Method");
+  		}
+
+  		static void Main(string[] args)
+  		{
+  			Program p = new Program();
+  			p.Test1_Private();
+  			p.Test2_Internal();
+  			p.Test3_Protected();
+  			p.Test4_ProtecedInternal();
+  			p.Test5_Public();
+  			p.Test6_PrivateProtected();
+  		}
+  	}
+  }
+
+  /*Output:
+
+  Private Method
+  Internal Method
+  Protected Method
+  Protected Internal Method
+  Public Method
+  Private Protected Method
+
+  */
+  ```
+
+  - All type of access modifier accessable in same class.
+
+  3. Create one more class name it(i.e: `Two.cs`) & consume it by Inheritance
+
+  - `Two.cs` (By Inheriting).
+
+  - **Right-click on the project** in Solution Explorer and select **Properties**.
+
+  - In the **Application** tab, look for the **Startup object dropdown**. This dropdown lists all the classes that contain a `Main` method.
+
+  - Select the class(i.e:`Two.cs`) that has the `Main` method you want to execute
+
+  - Save the changes and run the project.
+
+  ```c#
+  namespace AccessDemo1
+  {
+  	class Two:Program
+  	{
+  		static void Main(string[] args)
+  		{
+  			Two t = new Two();
+        //t.Test1_Private();//Give error
+  			t.Test2_Internal();
+  			t.Test3_Protected();
+  			t.Test4_ProtecedInternal();
+  			t.Test5_Public();
+  			t.Test6_PrivateProtected();
+  		}
+  	}
+  }
+
+  /*Output:
+
+  Internal Method
+  Protected Method
+  Protected Internal Method
+  Public Method
+  Private Protected Method
+  */
+  ```
+
+  - Except private method all are acceble in child class
+
+  4. Create another class name it(i.e:`Three.cs`) & consume using object:
+
+  ```c#
+  namespace AccessDemo1
+  {
+  	class Three
+  	{
+  		static void Main(string[] args)
+  		{
+  			Program p = new Program();
+  			//p.Test1_Private();//Error
+  			p.Test2_Internal();
+  			//p.Test3_Protected();//Error
+  			p.Test4_ProtecedInternal();
+  			p.Test5_Public();
+  			//p.Test6_PrivateProtected();//Error
+  		}
+  	}
+  }
+  ```
+
+  5. Add a new `Console App` project under `MySolution`, name it as `AccessDemo2`, rename the default file `Program.cs` as `Four.cs` so that class name also changes to Four, add a reference to `AccessDemo1` assembly from its physical location to the new project and write the below code in the class Four:
+
+  - Rrite click on `Add` > Click `Refrence Manager` > New windows open > Right hand side Click `Browse` > Browser(`AccessDemo1\bin\Debug\net8.0\AccessDemo1.dll`) the Project(`AccessDemo1`) accembly `AccessDemo1.dll`.
+
+    ```c#
+    namespace AccessDemo2
+    {
+    	internal class Four : AccessDemo1.Program
+    	{
+    		static void Main(string[] args)
+    		{
+    			Four p = new Four();
+    			//p.Test1_Private(); //Error
+    			//p.Test2_Internal(); //Error
+    			p.Test3_Protected();
+    			p.Test4_ProtecedInternal();
+    			p.Test5_Public();
+    			//p.Test6_PrivateProtected(); //Error
+    		}
+    	}
+    }
+    ```
+
+    <hr/>
+  </details>
+- <details>
+    <summary>How to restrict a class not to be accessible for any other class to consume by creating its instance?⭐</summary>
+    <hr/>
+    This can be done by declaring all the class constructors as protected
+    <hr/>
+  </details>
+#### **`If you have free time`**
+- <details>
+    <summary>What are the two types of assemblies in .NET?</summary>
+    <hr/>
+    The two types of assemblies in .NET are:
+
+  1. Private Assembly
+  2. Shared Assembly
+    <hr/>
+  </details>
+
+- <details>
+    <summary>What is a private assembly?</summary>
+    <hr/>
+    A private assembly is the default type of assembly. When the reference of a private assembly is added to any project, a copy of the assembly is created for that project. Each project maintains its own private copy of the assembly.
+    <hr/>
+  </details>
+- <details>
+    <summary>How do you create a private assembly?</summary>
+    <hr/>
+    To create a private assembly:
+    1. Create a new project of type **Class Library**.
+    2. Name the project, for example, "**PAssembly**".
+
+  A default class (e.g., `Class1`) will be created. Write the following code in the class:
+
+  ```c#
+  public string SayHello() {
+  return "Hello from private assembly.";
+  }
+  ```
+
+  Compile the project by right-clicking on the project in **Solution Explorer** and selecting "Build". This will generate the private assembly `PAssembly.dll`.
+    <hr/>
+  </details>
+
+- <details>
+    <summary>How can you check the location of the generated assembly?</summary>
+    <hr/>
+    The path of the generated assembly can be found in the Output window at the bottom of Visual Studio after building the project.
+
+  **Example**: `1>PAssembly -> D:\dotnet\CSharpCode\PAssembly\PAssembly\bin\Debug\net8.0\PAssembly.dll`
+    <hr/>
+  </details>
+
+- <details>
+    <summary>How do you consume a private assembly in multiple projects?</summary>
+    <hr/>
+    To consume a private assembly in multiple projects:
+
+  1. Create two new projects of type **Console App**, for example, "TestPAssembly1" and "TestPAssembly2".
+
+  2. Add a reference to the `PAssembly.dll` file from its physical location to both projects.
+
+  3. In each project's `Main` method, write the following code:
+
+  ```c#
+  PAssembly.Class1 obj = new PAssembly.Class1();
+  Console.WriteLine(obj.SayHello());
+  Console.ReadLine();
+  ```
+
+  4. Run both projects to test them.
+
+    <hr/>
+  </details>
+
+- <details>
+    <summary>How can you verify that multiple copies of the private assembly were created?</summary>
+    <hr/>
+    After running both projects, navigate to the **bin/debug/net8.0** folder of both projects. You will find a copy of `PAssembly.dll` in each project's folder, proving that each project maintains its own private copy of the assembly.
+    <hr/>
+  </details>
+- <details>
+    <summary>What is the advantage of a private assembly?</summary>
+    <hr/>
+    The advantage of a private assembly is **faster execution** because it resides in the local folder of the consumer project.
+    <hr/>
+  </details>
+- <details>
+    <summary>What is the drawback of a private assembly?</summary>
+    <hr/>
+    The drawback is that **multiple copies** of the assembly are created when multiple projects add a reference to it, resulting in redundancy.
+    <hr/>
+  </details>
+- <details>
+    <summary>What is a shared assembly?</summary>
+    <hr/>
+    If we want to use an assembly in multiple applications, private assemblies are not the best option. In this case, we can install the assembly into a central location called the **Global Assembly Cache (GAC)**. Every computer that has the ".NET Runtime" installed has this system-wide cache.
+
+  The **Global Assembly Cache** is where assemblies (like ".dll" files) are stored when they need to be shared by several applications on the same computer. For example, all .NET Libraries are shared assemblies, and they are stored in the GAC.
+
+  The key benefit of a shared assembly is that it doesn't create multiple copies, even if several projects use it. Only **one copy** of the assembly is kept in the GAC, and it serves all the projects that reference it.
+
+    <hr/>
+  </details>
+
+- <details>
+    <summary>What is the Global Assembly Cache (GAC)?</summary>
+    <hr/>
+    The GAC is a centralized location on a computer where shared assemblies are stored. It allows multiple applications to use the same assembly without creating multiple copies. The GAC is located at: `<OS Drive>:\Windows\Microsoft.NET\assembly\GAC_MSIL`
+    <hr/>
+  </details>
+- <details>
+    <summary> Why are multiple copies of a shared assembly not created?</summary>
+    <hr/>
+    In shared assemblies, only a single copy of the assembly is placed in the GAC, and all projects reference this single copy, avoiding redundancy.
+    <hr/>
+  </details>
+- <details>
+    <summary>Who can add or delete files from the GAC?</summary>
+    <hr/>
+    Only users with **Administrator privileges** can add or delete files from the GAC, as the GAC inherits the access control list (ACL) from the Windows directory.
+    <hr/>
+  </details>
+- <details>
+    <summary>How can you make an assembly shared?</summary>
+    <hr/>
+    To make an assembly shared, it needs to be installed into the GAC using a tool called Gacutil.exe.
+    <hr/>
+  </details>
+- <details>
+    <summary>How do you install an assembly into the GAC?</summary>
+    <hr/>
+    To install an assembly into the GAC, use the **Gacutil.exe** tool from the **Visual Studio Command Prompt**. The syntax to manage assemblies is:
+
+  ```css
+  gacutil -i | -u | -l [<assembly name>]
+  or
+  gacutil /i | /u | /l [<assembly name>]
+
+  Example: Install an Assembly into GAC
+  gacutil /i MyAssembly.dll
+
+  Example: Uninstall an Assembly from GAC
+  gacutil /u MyAssembly
+  (Note: You don't need to include .dll for uninstalling.)
+
+  Example: List All Assemblies in GAC:
+  gacutil /l
+  ```
+
+  **Where**:
+
+  - `-i` is for installing the assembly.
+  - `-u` is for uninstalling the assembly.
+  - `-l` is for listing assemblies.
+    <hr/>
+  </details>
+
+- <details>
+    <summary>How to open Visual/Developer Studio Command Prompt?</summary>
+    <hr/>
+
+  1. **Open Visual Studio**.
+
+  2. Go to **Tools** in the top menu.
+
+  3. Select **Command Line**.
+
+  4. Click on **Developer Command Prompt** from the submenu.
+
+    <hr/>
+  </details>
+
+- <details>
+    <summary>What type of assembly can be installed into the GAC?</summary>
+    <hr/>
+    Only **Strong-Named Assemblies** can be installed into the GAC.
+    <hr/>
+  </details>
+- <details>
+    <summary>What is a strong-named assembly?</summary>
+    <hr/>
+
+  Assemblies deployed in the global assembly cache must have a strong name. When an assembly is added to the global assembly cache, integrity checks are performed on all files that make up the assembly.
+
+  A strong-named assembly is an assembly with a strong name that ensures integrity and uniqueness. Assemblies in the GAC must have a strong name. The strong name consists of the assembly's `name`, `version number`, and `public key`.
+
+    <hr/>
+  </details>
+
+- <details>
+    <summary>What are the components of a strong name?</summary>
+    <hr/>
+
+  The components of a strong name are:
+
+  1. **Name**: The assembly's identifier.
+  2. **Version**: The version number of the assembly (default is `1.0.0.0`).
+  3. **Public Key**: A unique identifier for the assembly, generated and associated with the assembly to ensure global uniqueness.
+
+    <hr/>
+  </details>
+
+- <details>
+    <summary>Why is a public key required for a strong name?</summary>
+    <hr/>
+    A public key is used to ensure the **uniqueness** of the assembly in the GAC. It also provides integrity by ensuring that the assembly has not been modified since it was created.
+    <hr/>
+  </details>
+- <details>
+    <summary>What are the benefits of a strong name?</summary>
+    <hr/>
+
+  The benefits of a strong name are:
+
+  - Guarantees **name uniqueness** using unique key pairs.
+
+  - Protects the **version lineage** of the assembly.
+
+  - Ensures that only the original publisher can release new versions of the assembly.
+
+  - Provides a **strong integrity check** to ensure that the assembly's contents have not been altered.
+
+    <hr/>
+  </details>
+
+- <details>
+    <summary>How do you generate a public key for a strong name?</summary>
+    <hr/>
+
+  To sign an assembly with a strong name, you must have a public `key pair`. This public cryptographic key pair is used during compilation to create a strong-named assembly. You can create a key pair using the Strong Name tool (`Sn.exe`) from visual studio command prompt as following:
+
+  To generate a public key pair for a **strong name**, use the Strong Name tool (**Sn.exe**) in the Visual Studio Command Prompt with the following syntax:
+
+  ```c#
+  sn -k <file name>
+  ```
+
+  For example, to create a key file:
+
+  ```c#
+  sn -k Key.snk
+  ```
+
+  This generates a key-value pair and stores it in a file with a `.snk` (strong name key) extension.
+
+  **Note**: the above statement generates a key-value and writes it into the file “**`Key.snk. Key/Value`**" pair files usually have the extension of “**`.snk`**” (strong name key).
+
+  **Note**: to open Developer command prompt in VS (" ctr + ` ") press.
+
+    <hr/>
+  </details>
+
+- <details>
+    <summary>How do you generate a public key for a shared assembly?</summary>
+    <hr/>
+    To generate a public key, open the Visual Studio Command Prompt, navigate to your personal folder, and run the following command:
+
+  ```c#
+  <drive>:\<CSharp> sn -k Key.snk //Run it
+  ```
+
+  This generates a strong name key file named `Key.snk`.
+
+    <hr/>
+  </details>
+
+- <details>
+    <summary>How do you create a shared assembly?</summary>
+    <hr/>
+    To create a shared assembly:
+
+  1. Create a new project of type **Class Library** and name it **SAssembly**.
+  2. Add the public key (`Key.snk`) to the project to make the assembly strong-named:
+
+
+      - Open **Solution Explorer**.
+      - Right-click on the project and select **Properties**.
+      - In the **Build** tab, check the option **Sign the output assembly**.
+      - Browse and select the **Key.snk** file you generated.
+
+  3. Write the following code under Class1:
+
+  ```c#
+  public string SayHello1()
+  {
+     return "Hello from shared assembly => 1.0.0.0";
+  }
+  ```
+
+  4. Compile the project using the Build option to generate SAssembly.dll.
+
+    <hr/>
+  </details>
+
+- <details>
+    <summary>How do you install the assembly into GAC?</summary>
+    <hr/>
+    To install the shared assembly into GAC:
+
+  1. Open the **Visual Studio - Developer Command Prompt in Administrator Mode**.
+  2. Navigate to the location where `SAssembly.dll` is located (e.g., `bin\Debug\net8.0`).
+  3. Run the following command to install the assembly:
+
+  ```c#
+  <drive>:\<folder\SAssembly\SAssembly\bin\Debug\net8.0> gacutil -i SAssembly.dll
+  ```
+
+    <hr/>
+  </details>
+
+- <details>
+    <summary>How do you test the shared assembly?</summary>
+    <hr/>
+    To test the shared assembly:
+
+  1. Create a new `Console App` project named `TestSAssembly1`.
+  2. Add a reference to `SAssembly.dll` from its physical location.
+  3. Write the following code under the `Main` method.
+
+  ```c#
+  SAssembly.Class1 obj = new SAssembly.Class1();
+  MessageBox.Show(obj.SayHello1());
+  ```
+
+  4. Run the project. The `TestSAssembly1` project will use the `SAssembly.dll` from the **GAC**, and no local copy of `SAssembly.dll` is required in the project folder.
+
+    <hr/>
+  </details>
+
+- <details>
+    <summary>What is versioning in assemblies?</summary>
+    <hr/>
+    Every assembly has attributes that describe its general information, such as **Title, Company**, and **Version**. These attributes can be found in the `.csproj` file of the project.
+    <hr/>
+  </details>
+- <details>
+    <summary>How can you view and edit assembly attributes in the .csproj file?</summary>
+    <hr/>
+    To view and edit assembly attributes in the `.csproj` file:
+
+  1. Right-click on the project in **Solution Explorer**.
+  2. Select **Edit Project File**.
+  3. The .csproj file is an XML file where you can find the default information. You can add or edit attributes like **Company** or **Version** inside the `<PropertyGroup>` tag, e.g.:
+
+  ```xml
+  <Company>NIT</Company>
+  ```
+
+    <hr/>
+  </details>
+
+- <details>
+    <summary>Where do you find the key file information in the .csproj file?</summary>
+    <hr/>
+    The key file information is found under the `<AssemblyOriginatorKeyFile>` tag in the .csproj file:
+    ```xml
+    <AssemblyOriginatorKeyFile>Key.snk</AssemblyOriginatorKeyFile>
+    ```
+    <hr/>
+  </details>
+
+  Why do we maintain version numbers to an assembly?
+  128
+
+- <details>
+    <summary>Why do we maintain version numbers for an assembly?</summary>
+    <hr/>
+    Version numbers are maintained to distinguish the changes made over time. If any modifications or enhancements are made to the assembly code, the version number changes to reflect the updates. The default version of every assembly is 1.0.0.0. The version number is a combination of four values:
+
+  1. Major Version
+  2. Minor Version
+  3. Build Number
+  4. Revision
+
+    <hr/>
+  </details>
+
+- <details>
+    <summary>What are the criteria for changing the version number of an assembly?</summary>
+    <hr/>
+    The version number of an assembly changes based on the following criteria:
+
+  1. Major Version: Change when new types are added to the assembly.
+  2. Minor Version: Change when existing types are modified.
+  3. Build Number: Change when new members are added to the types.
+  4. Revision: Change when existing members are modified.
+    <hr/>
+  </details>
+
+- <details>
+    <summary>Where do you change the version number of an assembly?</summary>
+    <hr/>
+    To change the version number of an assembly, you need to modify the project’s property file:
+
+  1. Open Solution **Explorer**.
+  2. Right-click the project and select **Edit Project File**.
+  3. Inside the `<PropertyGroup>` tag, add the following statements:
+
+  ```xml
+    <AssemblyVersion>1.0.1.0</AssemblyVersion>
+    <FileVersion>1.0.1.0</FileVersion>
+  ```
+
+    <hr/>
+  </details>
+
+- <details>
+    <summary>How do you test the process of changing the version number of an assembly?</summary>
+    <hr/>
+    To test the versioning:
+
+  1. Open the **SAssembly** project.
+  2. Add a new method to **Class1**:
+
+  ```c#
+  public string SayHello2()
+  {
+    return "Hello from shared assembly => 1.0.1.0";
+  }
+  ```
+
+  3. Update the project property file with the following attributes:
+
+  ```xml
+    <Company>NIT</Company>
+    <Description>This is a shared assembly developed by Naresh I Technologies.</Description>
+    <AssemblyVersion>1.0.1.0</AssemblyVersion>
+    <FileVersion>1.0.1.0</FileVersion>
+  ```
+
+  4. Rebuild the project and add the new version of SAssembly.dll (version 1.0.1.0) to the GAC using the Gacutil Tool.
+    <hr/>
+  </details>
+
+- <details>
+    <summary>Can the Global Assembly Cache (GAC) store multiple versions of the same assembly?</summary>
+    <hr/>
+    Yes, GAC supports side-by-side execution, allowing multiple versions of the same assembly to be stored and used simultaneously. For example, after adding SAssembly.dll versions 1.0.0.0 and 1.0.1.0 to the GAC, different applications can use different versions.
+    <hr/>
+  </details>
+- <details>
+    <summary>How do you test side-by-side execution(run both version) of assemblies?</summary>
+    <hr/>
+    1. Create a new **Console App** project named **TestSAssembly2**.
+    2. Add a reference to `SAssembly.dll` from its physical location.
+    3. Write the following code in the Main method:
+      ```c#
+        Copy code
+        SAssembly.Class1 obj = new SAssembly.Class1();
+        MessageBox.Show(obj.SayHello2());
+      ```
+    4. Run the **TestSAssembly1** and **TestSAssembly2** projects simultaneously. Each project will use a different version of the `SAssembly.dll` from the GAC.
+    <hr/>
+  </details>
+- <details>
+    <summary>What are the four sections of an assembly?</summary>
+    <hr/>
+    An assembly consists of four sections:
+    1. **Assembly Manifest**: Contains assembly metadata like name, version, file list, and strong name information.
+    2. **Type Metadata**: Describes every type and member in a language-neutral manner.
+    3. **Microsoft Intermediate Language (MSIL) Code**: The actual code implementing the types.
+    4. **Resources**: Other resources like images or data that are part of the assembly.
+    <hr/>
+  </details>
+- <details>
+    <summary>What information does the Assembly Manifest contain?</summary>
+    <hr/>
+    The Assembly Manifest contains:
+
+  - Assembly Name
+  - Assembly Version
+  - File Version
+  - Company Information
+  - Strong Name Information
+  - List of files in the assembly
+    <hr/>
+  </details>
+
+- <details>
+    <summary>What information does Type Metadata provide?</summary>
+    <hr/>
+    Type Metadata describes every type and member defined in your code in a language-neutral manner. Metadata stores the following information:
+
+  - Description of the assembly.
+    - Identity (name, version, culture, public key).
+    - Other assemblies that this assembly depends on.
+    - Security permissions needed to run.
+  - Description of types. - Name, visibility, base class, and interfaces implemented. - Members (methods, fields, properties, events, nested types)
+    <hr/>
+  </details>
+
+- <details>
+    <summary>What are the benefits of metadata in assemblies?</summary>
+    <hr/>
+    Metadata provides the following benefits:
+
+  1. Self-describing files: Assemblies are self-describing, containing all the necessary information.
+
+  2. Language interoperability: Metadata enables seamless interaction between different programming languages.
+    <hr/>
+  </details>
+  
+#### **`Destructor/Finalizer`**
+- <details>
+    <summary>Should you force the garbage collector to run using `GC.Collect()`?⭐</summary>
+    <hr/>
+
+    Generally, **no**. Forcing the garbage collector to run can cause **performance issues**, as it suspends program execution while reclaiming memory.
+
+    <hr/>
+  </details>
+- <details>
+    <summary>How does the garbage collector handle instances marked as unused?⭐</summary>
+    <hr/>
+
+     When instances are marked as unused (e.g., by assigning them to `null`), the garbage collector can reclaim their memory and call the finalizer to destroy them.
+
+    <hr/>
+  </details>
+- <details>
+    <summary>What is the execution order of constructors and finalizers in an inheritance chain?⭐</summary>
+    <hr/>
+
+    - **Constructors** are called in a **top-to-bottom hierarchy** (parent first, then child).
+
+    - **Finalizers** are called in a **bottom-to-top** hierarchy (child first, then parent).
+
+    <hr/>
+  </details>
+
+- <details>
+    <summary>How does memory management differ in C# compared to languages like C++?⭐</summary>
+    <hr/>
+
+     In C#, **memory management** is handled by the **.NET Garbage** Collector, which automatically manages memory allocation and release. In contrast, languages like C++ require manual memory management. Finalizers are primarily used in C# to handle **unmanaged resources** (e.g., files, databases, network connections).
+
+    <hr/>
+  </details>
+- <details>
+    <summary>Can you give an example program that demonstrates how a finalizer works?⭐</summary>
+    <hr/>
+    
+    ```c#
+    internal class DestDemo1
+    {
+        public DestDemo1() => Console.WriteLine("Instance1 is created.");
+        
+        ~DestDemo1() => Console.WriteLine("Instance1 is destroyed.");
+    
+        static void Main(string[] args)
+        {
+            DestDemo1 d1 = new DestDemo1();
+            DestDemo1 d2 = new DestDemo1();
+            DestDemo1 d3 = new DestDemo1();
+            // d1 = null; d3 = null; GC.Collect();
+            Console.ReadLine();
+        }
+    }
+    
+    ```
+
+  Output (before ReadLine): 3 constructors called.
+  Output (after ReadLine): 3 finalizers called as program ends.
+
+    <hr/>
+  </details>
+
+- <details>
+    <summary>What happens when you explicitly call the garbage collector (GC.Collect())?⭐</summary>
+    <hr/>
+
+    If you uncomment `d1 = null; d3 = null; GC.Collect();` in the example code, the garbage collector will immediately destroy the first and third instances **before** the program ends, while the second instance is destroyed at the end of the program.
+
+    <hr/>
+  </details>
+- <details>
+    <summary>Why are finalizers important when dealing with unmanaged resources?⭐</summary>
+    <hr/>
+
+    Finalizers are necessary for cleaning up **unmanaged resources** (files, database connections, etc.) that are not automatically managed by the .NET garbage collector.
+
+    <hr/>
+  </details>
+
+#### **`Property & Enumerated`**
+
+- <details>
+    <summary>What is a property in C#?⭐</summary>
+    <hr/>
+
+    A **property** is a member of a class that provides a **flexible mechanism** to read, write, or compute the value of a **private field**. It works like a public field but uses special methods called **accessors** (get and set).
+
+    <hr/>
+  </details>
+- <details>
+    <summary>What is the syntax to define a property in C#?⭐</summary>
+    <hr/>
+    
+    ```c#
+    [<modifiers>] <type> Name
+    {
+        [ get { /* statements */ } ]  // Get Accessor
+        [ set { /* statements */ } ]  // Set Accessor
+    }
+    ```
+
+  - The get accessor is used to read a value.
+  - The set accessor is used to assign a value.
+
+    <hr/>
+  </details>
+
+- <details>
+    <summary>What is the purpose of the get and set accessors?⭐</summary>
+    <hr/>
+
+    - The `get` accessor **returns the value** of a private field. It behaves like a value-returning method.
+
+  - The `set` accessor **assigns a new value** to a private field. It has an implicit parameter called `value`, which refers to the value being assigned.
+    <hr/>
+  </details>
+
+- <details>
+    <summary>What are the different types of properties in terms of accessors?⭐</summary>
+    <hr/>
+    
+    1. Read-only property: Only has a get accessor.
+
+    ```c#
+    public int Custid
+    {
+        get { return _Custid; }
+    }
+    ```
+
+    2. Write-only property: Only has a set accessor.
+    3. Read/Write property: Has both get and set accessors.
+
+    <hr/>
+  </details>
+
+- <details>
+    <summary>Can a property have different access modifiers for the get and set accessors?⭐</summary>
+    <hr/>
+
+    Yes, the `get` and `set` accessors of a property can have **different access modifiers**. For example, `get` can be public, and `set` can be private or protected, controlling how the property can be accessed outside the class.
+
+    ```c#
+    public string State
+    {
+        get { return _State; }
+        protected set { if (_Status) _State = value; }
+    }
+    ```
+    <hr/>
+  </details>
+- <details>
+    <summary>Can a property be virtual or abstract & declared as static?⭐</summary>
+    <hr/>
+    Yes
+    <hr/>
+  </details>
+- <details>
+    <summary>What is an auto-implemented property?⭐</summary>
+    <hr/>
+
+    An auto-implemented property (introduced in C# 3.0) allows you to declare a property without writing explicit code for the field, `get`, or `set` accessors:
+
+    ```c#
+    public string Country { get; private set; }
+    ```
+    <hr/>
+  </details>
+- <details>
+    <summary>What is an auto property initializer?⭐</summary>
+    <hr/>
+
+    An **auto property initializer** (introduced in C# 6.0) allows a property to be initialized with a value at declaration:
+
+  ```c#
+  public string Continent { get; } = "Asia";
+  ```
+
+  This initializes the `Continent` property to "Asia" and makes it read-only.
+    <hr/>
+  </details>
+
+- <details>
+    <summary>What does the value keyword do in the set accessor?⭐</summary>
+    <hr/>
+
+    The `value` keyword represents the value assigned to the property in the `set` accessor. It acts like an input parameter of a method, referencing the value that client code is trying to assign to the property.
+
+    The keyword `value` is used in the set accessor of a property to represent the value being assigned. It works like an input parameter of a method, allowing you to set the value for the property.
+    ```c#
+    public bool Status
+    {
+        get { return _Status; }
+        set { _Status = value; }
+    }
+    ```
+
+    <hr/>
+  </details>
+- <details>
+    <summary>Can properties be used with enumerations?⭐</summary>
+    <hr/>
+
+    Yes, properties can be used with enumerations. For example, you can define a property of an enumerated type like Cities:
+
+  ```c#
+  public enum Cities
+  {
+  Bengaluru, Chennai, Delhi, Hyderabad, Kolkata, Mumbai
+  }
+  public Cities City { get; set; }
+  ```
+
+  Or
+
+  ```c#
+  public enum Cities
+  {
+  Bengaluru, Chennai, Delhi, Hyderabad, Kolkata, Mumbai
+  }
+
+  private string _city;
+
+  public Cities City
+  {
+    get { return _City; }
+    set
+    {
+      if(_Status)
+      {
+        _City = value;
+      }
+    }
+  }
+  ```
+
+    <hr/>
+  </details>
+- <details>
+    <summary>Can the accessors of a property have conditions?⭐</summary>
+    <hr/>
+
+     **Yes**, both `get` and `set` accessors can have conditions. For example, restricting access based on a status:
+
+  ```c#
+  public string Name
+  {
+      get { return _Name; }
+      set { if (_Status) _Name = value; }
+  }
+  ```
+
+    <hr/>
+  </details>
+- <details>
+    <summary>Give me example using property with condition, access level, enumerations and etc?⭐</summary>
+    <hr/>
+
+    ```c#
+    public class Customer
+    {
+        int _Custid;
+        bool _Status;
+        string _Name, _State;
+        double _Balance;
+        Cities _City;
+
+        public Customer(int Custid)
+        {
+            _Custid = Custid;
+            _Status = false;
+            _Name = "John";
+            _Balance = 5000.00;
+            _City = 0;
+            _State = "Karnataka";
+            Country = "India";
+        }
+
+        // Read-Only Property
+        public int Custid
+        {
+            get { return _Custid; }
+        }
+
+        // Read-Write Property
+        public bool Status
+        {
+            get { return _Status; }
+            set { _Status = value; }
+        }
+
+        // Read-Write Property with a condition in Set
+        public string Name
+        {
+            get { return _Name; }
+            set { if (_Status) _Name = value; }
+        }
+
+        // Read-Write Property with conditions in Get & Set
+        public double Balance
+        {
+            get { return _Status ? _Balance : 0; }
+            set { if (_Status && value >= 500) _Balance = value; }
+        }
+
+        ///Read-Write Property (Enumerated Property)
+        public Cities City
+        {
+            get { return _City; }
+            set { if (_Status) _City = value; }
+        }
+
+        // Read-Write Property with different access modifiers for Get/Set  (With a different scope to each property accessor (C# 2.0))
+        public string State
+        {
+            get { return _State; }
+            protected set { if (_Status) _State = value; }
+        }
+
+        // Auto-Implemented Property (Automatic or Auto-Implemented property (C# 3.0))
+        public string Country { get; private set; }
+
+        // Read-Only Property with initializer (Auto property initializer (C# 6.0))
+        public string Continent { get; } = "Asia";
+
+  }
+
+  ```
+
+  **Note**: The contextual keyword value is used in the set accessor in ordinary property declarations. It is like an input parameter of a method. The word value references the value that client code is attempting to assign to the property.
+
+  <hr/>
+  </details>
+- <details>
+    <summary>What is an Enumerated Property?⭐</summary>
+    <hr/>
+    An Enumerated Property is a property that allows a **set of predefined constants to be chosen**. For example, you can set the `BackgroundColor` property of the `Console` class with one of the values from the `ConsoleColor` enumeration like `ConsoleColor.Blue`.
+    <hr/>
+  </details>
+- <details>
+    <summary>What is an Enum in C#?⭐</summary>
+    <hr/>
+
+    An Enum is a **distinct** type containing a set of named constants called an enumerator list. It provides an easy way to work with a group of related constants, typically with integer values.
+
+    <hr/>
+  </details>
+- <details>
+    <summary>How is an Enum defined in C#?⭐</summary>
+    <hr/>
+    The syntax to define an Enum is as follows:
+    ```c#
+    public enum Days
+    {
+        Monday, Tuesday, Wednesday, Thursday, Friday
+    }
+    ```
+    Here, each item starts at index `0` by default, so `Monday` = 0, Tu`esday = 1, and so on.
+    <hr/>
+  </details>
+- <details>
+    <summary>How do you define an Enumerated Property?⭐</summary>
+    <hr/>
+    Follow these steps:
+    1. `Define an Enum`:
+      ```C#
+      public enum Days { Monday, Tuesday, Wednesday, Thursday, Friday }
+      ```
+    2. `Declare a field of type Enum`:
+      ```c#
+      private Days _Day = Days.Monday;
+      ```
+    3. `Define a property for the Enum field`:
+      ```c#
+      public Days Day
+      {
+          get { return _Day; }
+          set { _Day = value; }
+      }
+      ```
+    <hr/>
+  </details>
+- <details>
+    <summary>How do you test and consume properties in a class(i.e:`TestCustomer` class)?⭐</summary>
+    <hr/>
+    In a class named TestCustomer, you can create an instance of the Customer class and use it to demonstrate different property usages. Here is the provided code:
+
+  ```c#
+  internal class TestCustomer
+  {
+      static void Main()
+      {
+          Customer obj = new Customer(1001);
+          Console.WriteLine("Custid: " + obj.Custid + "\n");
+
+          if (obj.Status)
+              Console.WriteLine("Customer Status: Active");
+          else
+              Console.WriteLine("Customer Status: In-Active");
+
+          Console.WriteLine("Customer Name: " + obj.Name);
+          obj.Name += " Smith"; //Update fails because status is in-active
+          Console.WriteLine("Name when update failed: " + obj.Name);
+          Console.WriteLine("Balance when status is in-active: " + obj.Balance + "\n");
+
+
+          obj.Status = true; //Activating the status
+          if (obj.Status)
+            Console.WriteLine("Customer Status: Active");
+          else
+            Console.WriteLine("Customer Status: In-Active");
+
+          Console.WriteLine("Customer Name: " + obj.Name);
+          obj.Name += " Smith"; //Update succeds because status is in-active
+          Console.WriteLine("Name when update succeded: " + obj.Name);
+          Console.WriteLine("Balance when status is active: " + obj.Balance + "\n");
+          obj.Balance -= 4600; //Transaction failed
+          Console.WriteLine("Balance when transaction failed: " + obj.Balance);
+          obj.Balance -= 4500; //Transaction succeds
+          Console.WriteLine("Balance when transaction succeded: " + obj.Balance + "\n");
+          Console.WriteLine($"Customer City: {obj.City}");
+          obj.City = Cities.Hyderabad;
+          Console.WriteLine($"Modified City: {obj.City}");
+          Console.WriteLine("Customer State: " + obj.State);
+          //obj.State = "Telangana"; //Invalid because set accessor is accessible only to child classes
+          Console.WriteLine("Customer Country: " + obj.Country);
+          Console.WriteLine("Customer Continent: " + obj.Continent);
+
+          // Testing property usage with valid and invalid cases
+          // For example:
+          // - Updating name based on status
+          // - Activating status
+          // - Validating balance transactions
+          // - Modifying city, and checking readonly properties like State, Country, etc.
+
+          // Additional implementation for each check provided in the initial code.
+      }
+  }
+  ```
+
+    <hr/>
+  </details>
+- <details>
+    <summary>What are the key differences between traditional and auto-implemented properties?⭐</summary>
+    <hr/>
+    Traditional properties require explicit backing fields, whereas auto-implemented properties create backing fields automatically and offer a more concise syntax.
+    <hr/>
+  </details>
+- <details>
+    <summary>Why is initializing properties at the declaration time useful in C# 6.0+?⭐</summary>
+    <hr/>
+    It simplifies code by allowing default values to be set directly within the property declaration, eliminating the need for separate constructors or explicit backing fields.
+    <hr/>
+  </details>
+#### **`Object Initializers`**
+- <details>
+    <summary>Give me the example of obect initializers?⭐</summary>
+    <hr/>
+     To test these, add a new Code File naming it as “`TestStudent.cs`” and write the following code in it:
+     ```c#
+      namespace OOPSProject
+      {
+        public class Student
+        {
+          int? _Id, _Class;
+          string? _Name;
+          float? _Marks, _Fees;
+
+          public int? Id
+          {
+          get { return _Id; }
+          set { _Id = value; }
+          }
+
+          public int? Class
+          {
+            get { return _Class; }
+            set { _Class = value; }
+          }
+
+          public string? Name
+          {
+            get { return _Name; }
+            set { _Name = value; }
+          }
+
+          public float? Marks
+          {
+            get { return _Marks; }
+            set { _Marks = value; }
+          }
+
+          public float? Fees
+          {
+            get { return _Fees; }
+            set { _Fees = value; }
+          }
+
+          public override string ToString()
+          {
+            return "Id: " + _Id + "\nName: " + _Name + "\nClass: " + _Class + "\nMarks: " + _Marks + "\nFees: " + _Fees;
+          }
+        }
+        internal class TestStudent {
+          static void Main()
+          {
+            Student s1 = new Student { Id = 101, Name = "Raju", Class = 10, Marks = 575.00f, Fees = 5000.00f };
+            Student s2 = new Student { Id = 102, Name = "Vijay", Class = 10 };
+            Student s3 = new Student { Id = 103, Marks = 560.00f, Fees = 5000.00f };
+            Student s4 = new Student { Id = 104, Class = 10, Fees = 5000.00f };
+            Student s5 = new Student { Id = 105, Name = "Raju", Marks = 575.00f };
+            Student s6 = new Student { Id = 106, Class = 10, Marks = 575.00f };
+            Console.WriteLine(s1); Console.WriteLine(s2); Console.WriteLine(s3);
+            Console.WriteLine(s4); Console.WriteLine(s5); Console.WriteLine(s6);
+            Console.ReadLine();
+          }
+        }
+      }
+
+  ```
+  <hr/>
+  </details>
+- <details>
+    <summary>How many way to initialize an object?⭐</summary>
+    <hr/>
+    1. **`Using a Constructor`**: You can initialize an object using a `parameterized` or `default` `constructor`.
+      ```C#
+      Student s1 = new Student(101, "Raju", 10, 575.00f, 5000.00f);
+      ```
+    2. **`Using Object Initializers`**: Introduced in C# 3.0, object initializers allow you to set properties without explicitly invoking a constructor.
+      ```c#
+      Student s2 = new Student { Id = 101, Name = "Raju", Class = 10, Marks = 575.00f, Fees = 5000.00f };
+      ```
+    3. **`Using Collection Initializers`**: If you're working with collections, you can initialize the collection and its elements simultaneously.
+      ```c#
+      List<Student> students = new List<Student> {
+        new Student { Id = 101, Name = "Raju", Class = 10 },
+        new Student { Id = 102, Name = "Vijay", Class = 12 }
+      };
+      ```
+    4. **`Using new Keyword with Properties`**: You can set properties directly after creating an instance using the `new` keyword.
+      ```c#
+      Student s3 = new Student();
+      s3.Id = 103;
+      s3.Name = "Rahul";
+      ```
+    5. **`Using Anonymous Types`**: For read-only objects with a specific set of properties, you can use anonymous types.
+      ```c#
+      var student = new { Id = 101, Name = "Raju", Class = 10 };
+      ```
+    <hr/>
+  </details>
+#### **`Indexers`**
+- <details>
+    <summary>What are Indexers in C#?⭐</summary>
+    <hr/>
+     Indexers allow instances of a class or struct to be accessed using an array-like syntax. They are like properties but have parameters. This provides syntactic convenience, making it possible to treat classes and structs as "virtual arrays."
+    <hr/>
+  </details>
+- <details>
+    <summary>How do Indexers work in C#?⭐</summary>
+    <hr/>
+    Indexers use the `this` keyword to allow the class or struct to be indexed with `[]`. The indexers can have `get` and `set` accessors, where:
+    - The `get` accessor returns a value.
+    - The `set` accessor assigns a value using the `value` keyword.
+    <hr/>
+  </details>
+- <details>
+    <summary>What is the syntax to define an Indexer in C#?⭐</summary>
+    <hr/>
+    ```C#
+    [<modifiers>] <type> this[<Parameter List>]
+    {
+        get { /* statements */ }
+        set { /* statements */ }
+    }
+    ```
+    <hr/>
+  </details>
+- <details>
+    <summary>Can you list the main points of Indexers?⭐</summary>
+    <hr/>
+    - Uses the `this` keyword for defining the indexers.
+    - Parameters cannot be `out` or `ref`. The `out` and `ref` keyword are not allowed on parameters.
+    - `get` accessor returns a value.
+    - `set` accessor assigns a value using the `value` keyword.
+    - The `value` keyword is only used to define the value being assigned by the set indexer.
+    - Indexers do not have to be `indexed` by an `integer` value; it is up to you how to define the `look-up` mechanism..
+    - Indexers can be `overloaded`.
+    - Indexers cannot be defined as `static`.
+    - Indexers can have multiple parameters (for multi-dimensional indexing).
+    <hr/>
+  </details>
+- <details>
+    <summary>How do you test an Indexer in C#?⭐</summary>
+    <hr/>
+    Create an `Employee` class with an indexer, and in the `TestEmployee` class, demonstrate how to access and modify the `Employee` properties using indexers. Here is the example code:
+
+    **`Employee` Class**:
+
+    ```c#
+    namespace OOPSProject
+    {
+        public class Employee
+        {
+            int? _Id;
+            string? _Name, _Job;
+            double? _Salary;
+            bool? _Status;
+
+            public Employee(int Id)
+            {
+                _Id = Id;
+                _Name = "Nicholas";
+                _Job = "Manager";
+                _Salary = 50000.00;
+                _Status = true;
+            }
+
+            public object? this[int Index]
+            {
+                get
+                {
+                    if (Index == 1) return _Id;
+                    else if (Index == 2) return _Name;
+                    else if (Index == 3) return _Job;
+                    else if (Index == 4) return _Salary;
+                    else if (Index == 5) return _Status;
+                    else return null;
+                }
+                set
+                {
+                    if (Index == 2) _Name = (string?)value;
+                    else if (Index == 3) _Job = (string?)value;
+                    else if (Index == 4) _Salary = (double?)value;
+                    else if (Index == 5) _Status = (bool?)value;
+                }
+            }
+
+            public object? this[string Key]
+            {
+                get
+                {
+                    if (Key.ToUpper() == "ID") return _Id;
+                    else if (Key.ToUpper() == "NAME") return _Name;
+                    else if (Key.ToUpper() == "JOB") return _Job;
+                    else if (Key.ToUpper() == "SALARY") return _Salary;
+                    else if (Key.ToUpper() == "STATUS") return _Status;
+                    else return null;
+                }
+                set
+                {
+                    if (Key.ToLower() == "name") _Name = (string?)value;
+                    else if (Key.ToLower() == "job") _Job = (string?)value;
+                    else if (Key.ToLower() == "salary") _Salary = (double?)value;
+                    else if (Key.ToLower() == "status") _Status = (bool?)value;
+                }
+            }
+        }
+    }
+    ```
+
+    **`TestEmployee` Class**:
+
+    ```c#
+    internal class TestEmployee
+    {
+        static void Main()
+        {
+            Employee Emp = new Employee(1005);
+            Console.WriteLine("Employee ID: " + Emp[1]);
+            Console.WriteLine("Employee Name: " + Emp[2]);
+            Console.WriteLine("Employee Job: " + Emp[3]);
+            Console.WriteLine("Employee Salary: " + Emp[4]);
+            Console.WriteLine("Employee Status: " + Emp[5]);
+            Console.WriteLine();
+
+            Emp[3] = "Sr. Manager";
+            Emp["Salary"] = 75000.00;
+
+            Console.WriteLine("Employee ID: " + Emp["Id"]);
+            Console.WriteLine("Employee Name: " + Emp["name"]);
+            Console.WriteLine("Employee Job: " + Emp["JOB"]);
+            Console.WriteLine("Employee Salary: " + Emp["SaLaRy"]);
+            Console.WriteLine("Employee Status: " + Emp["Status"]);
+        }
+    }
+    ```
+
+    <hr/>
+  </details>
+- <details>
+    <summary>What is the purpose of using Indexers in C#?⭐</summary>
+    <hr/>
+    Indexers allow classes or structs to be accessed like arrays. This makes them convenient for classes that act like collections or arrays, making them easier to use and improving code readability.
+    <hr/>
+  </details>
+#### **`Deconstructor`**
+
+- <details>
+    <summary>What are Deconstructors in C#?⭐</summary>
+    <hr/>
+    Deconstructors were introduced in C# 7.0 to provide read-only access to the values (attributes) of a class. They allow you to expose values outside a class using a special method named `Deconstruct`. Deconstructors are `useful for breaking down an object into multiple components without exposing its internal state directly`.
+
+    “`Deconstruct`” (name cannot be changed)
+
+    These are newly introduced in `C# 7.0` which can also be used to provide access to the values or expose the values associated with a class to the outside environment, apart from `public fields`, `properties`, and `indexers`. `Deconstructor` is a special method with the name “`Deconstruct`” that is defined under the class to expose (`Read Only`) the attributes of a class and this will be defined with a code that is `reverse` to a `constructor`.
+    <hr/>
+  </details>
+
+- <details>
+    <summary>How is a Deconstructor defined?⭐</summary>
+    <hr/>
+    A Deconstructor is defined as a special method named `Deconstruct` inside a class. It uses the `out` keyword to pass values back to the caller. Here's an example of the syntax:
+
+    ```c#
+    public void Deconstruct(out int? Id, out string? Name, out string? Subject, out string? Designation, out double? Salary)
+    {
+        Id = this.Id;
+        Name = this.Name;
+        Subject = this.Subject;
+        Designation = this.Designation;
+        Salary = this.Salary;
+    }
+    ```
+
+    Use tuple deconstruction syntax to capture the values exposed by a Deconstructor. For example:
+
+    ```c#
+    (int? Id1, string? Name1, string? Subject1, string? Designation1, double? Salary1) = obj;
+    ```
+
+    Use `var` to capture values from a Deconstructor, which simplifies the code:
+
+    ```c#
+    var (Id2, Name2, Subject2, Designation2, Salary2) = obj;
+    ```
+
+    use an **underscore** `_` to skip attributes that you don't want to capture. For example:
+
+    ```c#
+    var (Id4, _, Subject4, _, Salary4) = obj;
+    ```
+
+    To skip multiple values, use _ at the corresponding position:
+
+    ```c#
+    var (Id5, _, _, Designation5, Salary5) = obj;
+    ```
+
+    <hr/>
+  </details>
+
+## **`Exceptions and Exception Handling`**
+
+- <details>
+    <summary>What are the two types of errors in C#?⭐</summary>
+    <hr/>
+    In C#, there are two types of errors:
+
+  1. **Compile-time errors**: Occur due to syntactical mistakes at the time of program compilation and are not considered dangerous. Not dangerous and can be fixed during development.
+  2. **Runtime errors**: Occur while the program is running and can be due to wrong logic, wrong input, or missing resources. Runtime errors are dangerous because they cause abnormal program termination.
+
+    <hr/>
+  </details>
+
+- <details>
+    <summary>What happens when a "runtime error occurs" in a program?⭐</summary>
+    <hr/>
+    When a runtime error occurs, the **`program terminates`** and the program gets **`abnormally terminated`** without executing the next line of code when the error happened.
+
+    `Whenever any error occurs in the program, the exception class is triggered, and it abnormally terminates the program.`
+    <hr/>
+  </details>
+
+- <details>
+    <summary>What is an Exception in C#?⭐</summary>
+    <hr/>
+    An Exception is a mechanism in C# to handle errors that occur during runtime. Exceptions are classes derived from the `Exception` class of the `System` namespace. They are thrown by the .NET CLR or by code in the program using the `throw` keyword.
+    <hr/>
+  </details>
+- <details>
+    <summary>What is responsible for the abnormal termination of a program?⭐</summary>
+    <hr/>
+    The exception is responsible for a program's abnormal termination. An exception is a class that gets triggered when a runtime error occurs. This class abnormally terminates the program by creating and throwing an instance of the specific exception class.
+    <hr/>
+  </details>
+- <details>
+    <summary>Can you give an example of an exception class and its related error?⭐</summary>
+    <hr/>
+     For example, `IndexOutOfRangeException` is an exception class that occurs when you try to access an index outside the bounds of an array. Because of the `IndexOutOfRangeException` class, your program terminates abnormally.
+    Example: `IndexOutOfBoundsException` is a run-time error and the name of a class. This error occurs when you try to add more values than the size of the array. Because of the `IndexOutOfBoundsException` class, your program abnormally terminates. 
+    <hr/>
+  </details>
+- <details>
+    <summary>What are some other predefined exception classes?⭐</summary>
+    <hr/>
+    Some predefined exception classes include `DivideByZeroException`, `OverflowException`, `FormatException`, and more. All these classes come under the base `Exception` class.
+    For program abnormally terminates lot's of predefine class are available like `DivideByZeroException`, `OverflowException`, `FormatException` and etc. And all this class present in Exception class.
+    <hr/>
+  </details>
+- <details>
+    <summary>How are predefined exception classes implemented in C#?⭐</summary>
+    <hr/>
+    There is a class named `Exception` which contains the logic for abnormal termination. It includes a `Message` property (declared as `virtual`) to display error messages. Child classes can override this property to customize error messages.
+    <hr/>
+  </details>
+- <details>
+    <summary>How are exceptions categorized in C#?⭐</summary>
+    <hr/>
+
+    Exceptions are categorized into:
+
+    1. **`SystemExceptions`**: Pre-defined exceptions that occur on specific error conditions, like `DivideByZeroException`, `FormatException`, `NullReferenceException`, etc.
+      - The base class for exceptions thrown by the .NET runtime. It includes common errors such as memory access violations or arithmetic overflows, like `NullReferenceException` or `IndexOutOfRangeException`.
+
+    2. **`ApplicationExceptions`**: Non-fatal errors that are explicitly caused by the program.
+
+
+      - The base class for exceptions that are defined specifically by your application. Custom exception classes can be derived from `ApplicationException` to handle errors unique to the application.
+
+    <hr/>
+  </details>
+
+- <details>
+    <summary>What is the exception class hierarchy in C#?⭐</summary>
+    <hr/>
+    The hierarchy of exception classes is as follows:
+    - Exception
+      1. SystemException
+        - FormatException
+        - NullReferenceException
+        - IndexOutOfRangeException
+        - ArithmeticException
+          - DivideByZeroException
+          - OverflowException
+      2. ApplicationException
+    <hr/>
+  </details>
+- <details>
+    <summary>What is Exception Handling in C#?⭐</summary>
+    <hr/>
+     Exception Handling is a process to stop the abnormal termination of a program whenever a runtime error occurs. It provides the following benefits:
+     1. Allows the execution of unaffected statements even after an error occurs.
+     2. Enables taking corrective actions to resolve errors.
+     3. Provides user-friendly error messages instead of pre-defined error messages.
+    <hr/>
+  </details>
+- <details>
+    <summary>What is the difference between "ApplicationException" and "SystemException"?⭐</summary>
+    <hr/>
+    `ApplicationException` is used to handle custom errors specific to your code, while `SystemException` is used for general errors that are handled by the .NET runtime.
+    <hr/>
+  </details>
+- <details>
+    <summary>How does an exception arise during program execution?⭐</summary>
+    <hr/>
+    All .NET applications run under the supervision of the **CLR (Common Language Runtime)**, which monitors the application during execution. When the CLR detects an error (e.g., division by zero), it stops the program and checks the mistake. Then, the CLR selects the associated exception class (like `DivideByZeroException`) and creates an instance of that class. The CLR throws this instance (object), causing the program to terminate abnormally.
+    <hr/>
+  </details>
+- <details>
+    <summary>How do you handle abnormal termination caused by exceptions?⭐</summary>
+    <hr/>
+    We use `exception handling` to prevent the abnormal termination of a program by enclosing the error-prone code in `try` and `catch` blocks.
+    ```c#
+    try
+    {
+        // Statements that may cause runtime errors.
+    }
+    catch(ExceptionType ex)
+    {
+        // Statements to execute when the error occurs.
+    }
+    ```
+    <hr/>
+  </details>
+- <details>
+    <summary>Can you provide an example code for handling exceptions using try-catch blocks?⭐</summary>
+    <hr/>
+     Below is the code in TryCatchDemo.cs for handling exceptions:
+     ```c#
+     internal class TryCatchDemo
+     {
+         static void Main()
+         {
+             try
+             {
+                 Console.Write("Enter 1st number: ");
+                 int x = int.Parse(Console.ReadLine());
+                 Console.Write("Enter 2nd number: ");
+                 int y = int.Parse(Console.ReadLine());
+                 int z = x / y;
+                 Console.WriteLine("The result of division is: " + z);
+             }
+             catch (DivideByZeroException)
+             {
+                 Console.ForegroundColor = ConsoleColor.Red;
+                 Console.WriteLine("Value of divisor can't be zero.");
+                 Console.ForegroundColor = ConsoleColor.White;
+             }
+             catch (FormatException)
+             {
+                 Console.ForegroundColor = ConsoleColor.Red;
+                 Console.WriteLine("Input values must be integers.");
+                 Console.ForegroundColor = ConsoleColor.White;
+             }
+             catch (Exception ex)
+             {
+                 Console.ForegroundColor = ConsoleColor.Red;
+                 Console.WriteLine(ex.Message);
+                 Console.ForegroundColor = ConsoleColor.White;
+             }
+         }
+     }
+     ```
+
+    In the example, the program prompts the user for two numbers. If:
+    - The user enters `0` as the second number, a `DivideByZeroException` is caught.
+    - The user enters a non-integer value, a `FormatException` is caught.
+    - Any other error is caught by the general `Exception` block.
+
+    **`Note`**:
+     - Only one catch bolock run.
+     - `catch(Exception ex)`Mendatory to use in last, if you use any catch block after this you got error.
+     - in last finaly block.
+    <hr/>
+  </details>
+- <details>
+    <summary>What happens if code is enclosed in try and catch blocks?⭐</summary>
+    <hr/>If all the statements inside the try block are successfully executed without any error, then control jumps directly to the first statement after all the catch blocks. If an error occurs, control immediately jumps to the catch block capable of handling that specific exception. If a catch block is found, the code inside that catch block is executed, and then control jumps to the statement after all catch blocks. If no matching catch block is found, abnormal termination occurs.<p></p>
+    <hr/>
+  </details>
+- <details>
+    <summary>What are the different combinations of try, catch, and finally blocks?⭐</summary>
+    <hr/>
+    - try and catch: The exceptions that occur in the program are caught by the catch block, preventing abnormal termination.
+    - try, catch, and finally: Works like above but with the addition that the finally block always executes.
+    - try and finally: If no catch block is present, the exceptions are not caught, causing abnormal termination, but the finally block still executes.
+    <hr/>
+  </details>
+- <details>
+    <summary>What are application exceptions?⭐</summary>
+    <hr/>
+    Application exceptions are non-fatal errors explicitly `caused by the programmer` based on custom error conditions. They are `raised explicitly` using the **`throw`** statement.
+    <hr/>
+  </details>
+- <details>
+    <summary>How do you throw an exception explicitly?⭐</summary>
+    <hr/>
+    To throw an exception explicitly, you need to:
+    1. Create an instance of any exception class.
+    2. Throw that instance using the `throw` keyword. Example:
+      ```c#
+      throw new ApplicationException("Error message");
+      ```
+    <hr/>
+  </details>
+- <details>
+    <summary>What are the different options when throwing an exception?⭐</summary>
+    <hr/>
+    - Use a predefined exception class if it matches the error condition.
+    - Create an instance of ApplicationException and pass an error message.
+    - Define a custom exception class by inheriting from a predefined exception class (like ApplicationException) and override the Message property.
+    <hr/>
+  </details>
+- <details>
+    <summary>How do you define a custom exception class?⭐</summary>
+    <hr/>
+    Define a new class inheriting from `ApplicationException` or any other predefined exception class. Override the `Message` property to provide a custom error message. Example:
+    ```C#
+    public class DivideByOddNoException : ApplicationException
+    {
+        public override string Message
+        {
+            get { return "Attempted to divide by odd number."; }
+        }
+    }
+    ```
+
+    Call exception: `throw new DivideByOddNoException();  // Custom exception`
+    <hr/>
+  </details>
+- <details>
+    <summary>What if there is an unknown exception?⭐</summary>
+    <hr/>
+    You can use a generic catch block that catches the base Exception class at the end:
+    ```c#
+    catch (Exception ex2)
+    {
+        Console.WriteLine(ex2.Message);
+    }
+    ```
+    <hr/>
+  </details>
+- <details>
+    <summary>What happen if parent class of all exceptions use first catch block then child exception catch block?⭐</summary>
+    <hr/>
+
+  - compilation error
+
+  ```c#
+  try
+  {
+      // DivideByZeroException error occurs
+  }
+  catch (Exception ex)
+  {
+      // Handles any exception including DivideByZeroException
+  }
+  catch (DivideByZeroException ex)
+  {
+      // This catch block will never execute
+  }
+  ```
+
+  - In your code, catch (Exception ex) handles all exceptions, including DivideByZeroException.
+  - Because Exception is the base class of all exceptions, any catch block for a more specific exception type (like DivideByZeroException) after the base class catch will be unreachable.
+  - The C# compiler identifies that the second catch block for DivideByZeroException will never be executed, leading to a compilation error.
+    <hr/>
+  </details>
+
+#### **`Delegate`**
+
+# **`SQL Server`**
 
 # **`ADO`**
 

@@ -8666,13 +8666,13 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 #### **`Structure`**
 - <details>
-    <summary>What is Structure?</summary>
+    <summary>What is Structure?⭐</summary>
     <hr/>
-    Structure is also a user-defined type like a class and interface which can contain only non-abstractmembers. A structure can contain all the members what a class can contain like constructor, static constructor, constants, fields, methods, properties, indexers, operators, and events.
+    Structure is also a user-defined type like a class and interface which can contain only non-abstract members. A structure can contain all the members what a class can contain like constructor, static constructor, constants, fields, methods, properties, indexers, operators, and events.
     <hr/>
   </details>
 - <details>
-    <summary>What are the differences in Class and Structure?</summary>
+    <summary>What are the differences in Class and Structure?⭐</summary>
     <hr/>
 
   | **Feature**                      | **Class**                                                                                                               | **Structure**                                                                                          |
@@ -8690,6 +8690,17 @@ Life cycle means from the starting of execution to the end of execution.
   | **Constructor Definition**       | Developers can define any type of constructor                                                                           | Developers can define parameterized constructors; C# 10.0 allows default constructors                  |
   | **Constructor Compilation**      | After compilation, if defined with `0` constructors, there will be `1` constructor; if `n` constructors, `n` will exist | After compilation, if defined with `0` constructors, there will be `1`; if `n`, `n + 1` will exist     |
   | **Inheritance**                  | Supports both implementation and interface inheritance                                                                  | Supports only interface inheritance (cannot inherit from another structure)                            |
+
+  **Syntax of Structure**:
+
+  ```c#
+  [<modifiers>] struct <Name>  
+  {  
+      // Define only non-abstract members  
+  }
+  ```
+
+  **Example of Structure**:
 
   ```c#
   // Define a structure
@@ -8754,19 +8765,6 @@ Life cycle means from the starting of execution to the end of execution.
 
     <hr/>
   </details>
-
-- <details>
-    <summary>What is the syntax to define a structure in C#?</summary>
-    <hr/>
-    The syntax to define a structure is:
-    ```c#
-    [<modifiers>] struct <Name>  
-    {  
-        // Define only non-abstract members  
-    }
-    ```
-    <hr/>
-  </details>
 - <details>
     <summary>How do you add a structure to a project?</summary>
     <hr/>
@@ -8780,51 +8778,42 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>Provide an example of a simple structure definition in C#.</summary>
+    <summary>Provide an example of a simple structure definition in C#.⭐</summary>
     <hr/>
+
     ```c#
-    namespace OOPSProject  
+    internal struct MyStruct  
     {
-        internal struct MyStruct  
+        int x;
+        public MyStruct(int x)
         {
-            int x;
-
-            public MyStruct(int x)
-            {
-                this.x = x;
-            }
-
-            public void Display()
-            {
-                Console.WriteLine("Method defined under a structure: " + x);
-            }
-
-            static void Main()
-            {
-                MyStruct m1 = new MyStruct();
-                m1.Display();
-
-                MyStruct m2;
-                m2.x = 10;
-                m2.Display();
-
-                MyStruct m3 = new MyStruct(20);
-                m3.Display();
-                Console.ReadLine();
-            }
+            this.x = x;
         }
-
-  }
-
+        public void Display()
+        {
+            Console.WriteLine("Method defined under a structure: " + x);
+        }
+        static void Main()
+        {
+            MyStruct m1 = new MyStruct();
+            m1.Display();
+            MyStruct m2;
+            m2.x = 10;
+            m2.Display();
+            MyStruct m3 = new MyStruct(20);
+            m3.Display();
+            Console.ReadLine();
+        }
+    }
   ```
+
   <hr/>
   </details>
-  ```
 
 - <details>
-    <summary>How can a structure be consumed in C#?</summary>
+    <summary>How can a structure be consumed in C#?⭐</summary>
     <hr/>
-    A structure and its members can be consumed from another structure or a class by creating an instance of the structure because structures do not support inheritance.
+    A structure and its members can be consumed from another structure or a class by creating an instance of the structure because structures do not support inheritance. This means that you cannot create a new structure based on an existing one.
     <hr/>
   </details>
 - <details>
@@ -8873,7 +8862,7 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
   </details>
 - <details>
-    <summary>What happens if you do not initialize the fields of a structure?</summary>
+    <summary>What happens if you do not initialize the fields of a structure?⭐</summary>
     <hr/>
     If you do not explicitly initialize the fields of a structure in C#, they will automatically have default values when you create an instance of that structure. Here are the default values for common data types:
       - Integer types (int, short, long): 0
@@ -8944,12 +8933,12 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>Can you create a default constructor in a structure?</summary>
+    <summary>Can you create a default constructor in a structure?⭐</summary>
     <hr/>
     No, a structure cannot have a default constructor explicitly defined. The compiler provides a default constructor that initializes all fields to their default values. However, you can create a parameterized constructor.
     <hr/>
   </details>
----
+
 - <details>
     <summary>What is a Solution?</summary>
     <hr/>
@@ -8987,7 +8976,7 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
   </details>
 - <details>
-    <summary>What is an Assembly?</summary>
+    <summary>What is an Assembly?⭐</summary>
     <hr/>
     An assembly is the output file generated after compiling a project. It contains the Common Intermediate Language (CIL) code of the types defined in the project. An assembly is also a unit of deployment.
 
@@ -9001,7 +8990,7 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>What types of assembly files are generated in .NET Framework and .NET Core?</summary>
+    <summary>What types of assembly files are generated in .NET Framework and .NET Core?⭐</summary>
     <hr/>
     **.NET Framework**:
       - Application projects generate `.exe` assemblies.
@@ -9021,7 +9010,7 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>Can you consume classes from one project in another project?</summary>
+    <summary>Can you consume classes from one project in another project?⭐</summary>
     <hr/>
     Yes, but you need to add a reference to the assembly of the project that contains the class. This is done by right-clicking on the project, selecting "Add" -> "Project Reference", and then browsing to the required assembly.
     <hr/>
@@ -9033,7 +9022,7 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
   </details>
 - <details>
-    <summary>What is `ildasm`?</summary>
+    <summary>What is `ildasm`?⭐</summary>
     <hr/>
     Intermediate Language Dis-Assembler. We use it to dis-assemble an Assembly file and view the contents of it. To check it out, open Visual Studio Developer Command Prompt, go to the location where the assembly files of the project are present and use it as following: `ildasm <name of the .dll assembly file>`.
 
@@ -9056,7 +9045,7 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
   </details>
 - <details>
-    <summary>How do you add a reference to an assembly in a project?</summary>
+    <summary>How do you add a reference to an assembly in a project?⭐</summary>
     <hr/>
 
   To add reference of an assembly to a project open solution explorer, right click on the project to whom reference must be added, select “Add => Project Reference” option, which opens a window “Reference Manager” and in that window select “Browse” option in LHS, then click on “Browse” button below, select the assembly we want to consume from its physical location and click ok. Now we can consume types of that assembly by prefixing with their namespace or importing the namespace.
@@ -9085,7 +9074,7 @@ Life cycle means from the starting of execution to the end of execution.
 
     <hr/>
   </details>
-
+#### **`Access Specifiers`**
 - <details>
     <summary>What are Access Specifiers in C#?</summary>
     <hr/>
@@ -9119,17 +9108,6 @@ Life cycle means from the starting of execution to the end of execution.
     The default scope for members inside a class or structure is Private unless explicitly specified otherwise.
     <hr/>
   </details>
-- <details>
-    <summary>Can we declare a types(like: class) as private, protected, or protected internal of namespace?</summary>
-    <hr/>
-    No, types cannot be declared as `Private`, `Protected`, or `Protected Internal`.
-
-  If you do not define a class as public, it is internal by default.
-
-  These specifiers only apply to the members of the types, such as methods, properties, and fields.
-    <hr/>
-  </details>
-
 - <details>
     <summary>What is the default access modifier of constructor?</summary>
     <hr/>
@@ -9424,13 +9402,13 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>. How to restrict a class not to be accessible for any other class to consume?</summary>
+    <summary>How to restrict a class not to be accessible for any other class to consume?</summary>
     <hr/>
     This can be done by declaring all the class constructors as private.
     <hr/>
   </details>
 - <details>
-    <summary> How to restrict a class not to be inherited for any other class?</summary>
+    <summary>How to restrict a class not to be inherited for any other class?</summary>
     <hr/>
     This can be done by declaring class as sealed.
     <hr/>
@@ -9441,6 +9419,7 @@ Life cycle means from the starting of execution to the end of execution.
     This can be done by declaring all the class constructors as protected
     <hr/>
   </details>
+#### **`If you have free time`**
 - <details>
     <summary>What are the two types of assemblies in .NET?</summary>
     <hr/>
@@ -9944,7 +9923,9 @@ Life cycle means from the starting of execution to the end of execution.
 
     <hr/>
   </details>
----
+
+#### **`Finalizer`**
+
 - <details>
     <summary>What is a finalizer used for?</summary>
     <hr/>
@@ -9992,34 +9973,34 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
   </details>
 - <details>
-    <summary>Should you force the garbage collector to run using `GC.Collect()`?</summary>
+    <summary>Should you force the garbage collector to run using `GC.Collect()`?⭐</summary>
     <hr/>
     Generally, **no**. Forcing the garbage collector to run can cause **performance issues**, as it suspends program execution while reclaiming memory.
     <hr/>
   </details>
 - <details>
-    <summary>How does the garbage collector handle instances marked as unused?</summary>
+    <summary>How does the garbage collector handle instances marked as unused?⭐</summary>
     <hr/>
      When instances are marked as unused (e.g., by assigning them to `null`), the garbage collector can reclaim their memory and call the finalizer to destroy them.
     <hr/>
   </details>
 - <details>
-    <summary>What is the execution order of constructors and finalizers in an inheritance chain?</summary>
+    <summary>What is the execution order of constructors and finalizers in an inheritance chain?⭐</summary>
     <hr/>
     - **Constructors** are called in a **top-to-bottom hierarchy** (parent first, then child).
 
-  - **Finalizers** are called in a **bottom-to-top** hierarchy (child first, then parent).
+    - **Finalizers** are called in a **bottom-to-top** hierarchy (child first, then parent).
     <hr/>
   </details>
 
 - <details>
-    <summary>How does memory management differ in C# compared to languages like C++?</summary>
+    <summary>How does memory management differ in C# compared to languages like C++?⭐</summary>
     <hr/>
      In C#, **memory management** is handled by the **.NET Garbage** Collector, which automatically manages memory allocation and release. In contrast, languages like C++ require manual memory management. Finalizers are primarily used in C# to handle **unmanaged resources** (e.g., files, databases, network connections).
     <hr/>
   </details>
 - <details>
-    <summary>Can you give an example program that demonstrates how a finalizer works?</summary>
+    <summary>Can you give an example program that demonstrates how a finalizer works?⭐</summary>
     <hr/>
     
     ```c#
@@ -10047,7 +10028,7 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>What happens when you explicitly call the garbage collector (GC.Collect())?</summary>
+    <summary>What happens when you explicitly call the garbage collector (GC.Collect())?⭐</summary>
     <hr/>
     If you uncomment `d1 = null; d3 = null; GC.Collect();` in the example code, the garbage collector will immediately destroy the first and third instances **before** the program ends, while the second instance is destroyed at the end of the program.
     <hr/>
@@ -10078,13 +10059,14 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>Why are finalizers important when dealing with unmanaged resources?</summary>
+    <summary>Why are finalizers important when dealing with unmanaged resources?⭐</summary>
     <hr/>
     Finalizers are necessary for cleaning up **unmanaged resources** (files, database connections, etc.) that are not automatically managed by the .NET garbage collector.
     <hr/>
   </details>
+#### **`Property`**
 - <details>
-    <summary>What is a property in C#?</summary>
+    <summary>What is a property in C#?⭐</summary>
     <hr/>
     A **property** is a member of a class that provides a **flexible mechanism** to read, write, or compute the value of a **private field**. It works like a public field but uses special methods called **accessors** (get and set).
     <hr/>
@@ -10101,7 +10083,7 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>What is the syntax to define a property in C#?</summary>
+    <summary>What is the syntax to define a property in C#?⭐</summary>
     <hr/>
     ```c#
     [<modifiers>] <type> Name
@@ -10117,7 +10099,7 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>What is the purpose of the get and set accessors?</summary>
+    <summary>What is the purpose of the get and set accessors?⭐</summary>
     <hr/>
     - The `get` accessor **returns the value** of a private field. It behaves like a value-returning method.
 
@@ -10126,9 +10108,17 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>What are the different types of properties in terms of accessors?</summary>
+    <summary>What are the different types of properties in terms of accessors?⭐</summary>
     <hr/>
     1. Read-only property: Only has a get accessor.
+
+    ```c#
+    public int Custid
+    {
+        get { return _Custid; }
+    }
+    ```
+
     2. Write-only property: Only has a set accessor.
     3. Read/Write property: Has both get and set accessors.
 
@@ -10136,26 +10126,26 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>Can a property have different access modifiers for the get and set accessors?</summary>
+    <summary>Can a property have different access modifiers for the get and set accessors?⭐</summary>
     <hr/>
     Yes, the `get` and `set` accessors of a property can have **different access modifiers**. For example, `get` can be public, and `set` can be private or protected, controlling how the property can be accessed outside the class.
     <hr/>
   </details>
 - <details>
-    <summary>Can a property be declared as static?</summary>
+    <summary>Can a property be declared as static?⭐</summary>
     <hr/>
     Yes, a property can be declared as static by using the static keyword. A static property is available to callers at any time, even if no instance of the class exists.
     <hr/>
   </details>
 - <details>
-    <summary>Can a property be virtual or abstract?</summary>
+    <summary>Can a property be virtual or abstract?⭐</summary>
     <hr/>
     - A property can be declared virtual using the virtual keyword, allowing derived classes to override it.
     - A property can also be abstract using the abstract keyword, which means derived classes must provide their own implementation.
     <hr/>
   </details>
 - <details>
-    <summary>What is an auto-implemented property?</summary>
+    <summary>What is an auto-implemented property?⭐</summary>
     <hr/>
     An auto-implemented property (introduced in C# 3.0) allows you to declare a property without writing explicit code for the field, `get`, or `set` accessors:
     ```c#
@@ -10164,7 +10154,7 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
   </details>
 - <details>
-    <summary>What is an auto property initializer?</summary>
+    <summary>What is an auto property initializer?⭐</summary>
     <hr/>
     An **auto property initializer** (introduced in C# 6.0) allows a property to be initialized with a value at declaration:
 
@@ -10177,13 +10167,13 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>What does the value keyword do in the set accessor?</summary>
+    <summary>What does the value keyword do in the set accessor?⭐</summary>
     <hr/>
     The `value` keyword represents the value assigned to the property in the `set` accessor. It acts like an input parameter of a method, referencing the value that client code is trying to assign to the property.
     <hr/>
   </details>
 - <details>
-    <summary>Can properties be used with enumerations?</summary>
+    <summary>Can properties be used with enumerations?⭐</summary>
     <hr/>
     Yes, properties can be used with enumerations. For example, you can define a property of an enumerated type like Cities:
 
@@ -10234,7 +10224,7 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
   </details>
 - <details>
-    <summary>Can the accessors of a property have conditions?</summary>
+    <summary>Can the accessors of a property have conditions?⭐</summary>
     <hr/>
      **Yes**, both `get` and `set` accessors can have conditions. For example, restricting access based on a status:
 
@@ -10250,7 +10240,7 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>Can a property have different access levels for get and set?</summary>
+    <summary>Can a property have different access levels for get and set?⭐</summary>
     <hr/>
     Yes, you can define a property where get is public and set is protected or private. For example:
 
@@ -10266,7 +10256,7 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>Give me example using property with condition, access level, enumerations and etc?</summary>
+    <summary>Give me example using property with condition, access level, enumerations and etc?⭐</summary>
     <hr/>
     ```c#
     public class Customer
@@ -10346,7 +10336,7 @@ Life cycle means from the starting of execution to the end of execution.
   ```
 
 - <details>
-    <summary>What is a contextual keyword `value` and how is it used?</summary>
+    <summary>What is a contextual keyword `value` and how is it used?⭐</summary>
     <hr/>
     The keyword `value` is used in the set accessor of a property to represent the value being assigned. It works like an input parameter of a method, allowing you to set the value for the property.
     ```c#
@@ -10358,20 +10348,23 @@ Life cycle means from the starting of execution to the end of execution.
     ```
     <hr/>
   </details>
+#### **`Enumerated`**
 - <details>
-    <summary>What is an Enumerated Property?</summary>
+    <summary>What is an Enumerated Property?⭐</summary>
     <hr/>
     An Enumerated Property is a property that allows a **set of predefined constants to be chosen**. For example, you can set the `BackgroundColor` property of the `Console` class with one of the values from the `ConsoleColor` enumeration like `ConsoleColor.Blue`.
     <hr/>
   </details>
 - <details>
-    <summary>What is an Enum in C#?</summary>
+    <summary>What is an Enum in C#?⭐</summary>
     <hr/>
-    An Enum is a distinct type containing a set of named constants called an enumerator list. It provides an easy way to work with a group of related constants, typically with integer values.
+
+    An Enum is a **distinct** type containing a set of named constants called an enumerator list. It provides an easy way to work with a group of related constants, typically with integer values.
+
     <hr/>
   </details>
 - <details>
-    <summary>How is an Enum defined in C#?</summary>
+    <summary>How is an Enum defined in C#?⭐</summary>
     <hr/>
     The syntax to define an Enum is as follows:
     ```c#
@@ -10384,7 +10377,7 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
   </details>
 - <details>
-    <summary>How do you define an Enumerated Property?</summary>
+    <summary>How do you define an Enumerated Property?⭐</summary>
     <hr/>
     Follow these steps:
     1. `Define an Enum`:
@@ -10418,7 +10411,7 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>How do you test and consume properties in a class(i.e:`TestCustomer` class)?</summary>
+    <summary>How do you test and consume properties in a class(i.e:`TestCustomer` class)?⭐</summary>
     <hr/>
     In a class named TestCustomer, you can create an instance of the Customer class and use it to demonstrate different property usages. Here is the provided code:
 
@@ -10492,13 +10485,13 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>What are the key differences between traditional and auto-implemented properties?</summary>
+    <summary>What are the key differences between traditional and auto-implemented properties?⭐</summary>
     <hr/>
     Traditional properties require explicit backing fields, whereas auto-implemented properties create backing fields automatically and offer a more concise syntax.
     <hr/>
   </details>
 - <details>
-    <summary>Why is initializing properties at the declaration time useful in C# 6.0+?</summary>
+    <summary>Why is initializing properties at the declaration time useful in C# 6.0+?⭐</summary>
     <hr/>
     It simplifies code by allowing default values to be set directly within the property declaration, eliminating the need for separate constructors or explicit backing fields.
     <hr/>
@@ -10511,7 +10504,7 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
     Object initializers allow you to `assign values` to accessible `properties` of an `object` at the time of creation, without `explicitly invoking a parameterized constructor`. They provide a declarative way to `initialize objects` `using the default constructor`.
 
-  Object initializers let you assign values to any accessible **`properties`** of an `instance` at creation time without having to `explicitly invoke` a `parameterized constructor`. You can use `object initializers` to initialize type objects in a `declarative manner` without explicitly invoking a `constructor` for the `type`. Object Initializers will use the `default constructor` for initializing `fields` thru `properties`.
+    Object initializers let you assign values to any accessible **`properties`** of an `instance` at creation time without having to `explicitly invoke` a `parameterized constructor`. You can use `object initializers` to initialize type objects in a `declarative manner` without explicitly invoking a `constructor` for the `type`. Object Initializers will use the `default constructor` for initializing `fields` thru `properties`.
     <hr/>
   </details>
 
@@ -10528,7 +10521,7 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
   </details>
 - <details>
-    <summary>Give me the example of obect initializers?</summary>
+    <summary>Give me the example of obect initializers?⭐</summary>
     <hr/>
      To test these, add a new Code File naming it as “`TestStudent.cs`” and write the following code in it:
      ```c#
@@ -10594,10 +10587,8 @@ Life cycle means from the starting of execution to the end of execution.
   ```
   <hr/>
   </details>
-  ```
-
 - <details>
-    <summary>How many way to initialize an object?</summary>
+    <summary>How many way to initialize an object?⭐</summary>
     <hr/>
     1. **`Using a Constructor`**: You can initialize an object using a `parameterized` or `default` `constructor`.
       ```C#
@@ -10630,13 +10621,13 @@ Life cycle means from the starting of execution to the end of execution.
 ## **`Indexers`**
 
 - <details>
-    <summary>What are Indexers in C#?</summary>
+    <summary>What are Indexers in C#?⭐</summary>
     <hr/>
      Indexers allow instances of a class or struct to be accessed using an array-like syntax. They are like properties but have parameters. This provides syntactic convenience, making it possible to treat classes and structs as "virtual arrays."
     <hr/>
   </details>
 - <details>
-    <summary>How do Indexers work in C#?</summary>
+    <summary>How do Indexers work in C#?⭐</summary>
     <hr/>
     Indexers use the `this` keyword to allow the class or struct to be indexed with `[]`. The indexers can have `get` and `set` accessors, where:
     - The `get` accessor returns a value.
@@ -10644,7 +10635,7 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
   </details>
 - <details>
-    <summary>What is the syntax to define an Indexer in C#?</summary>
+    <summary>What is the syntax to define an Indexer in C#?⭐</summary>
     <hr/>
     ```C#
     [<modifiers>] <type> this[<Parameter List>]
@@ -10656,7 +10647,7 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
   </details>
 - <details>
-    <summary>Can you list the main points of Indexers?</summary>
+    <summary>Can you list the main points of Indexers?⭐</summary>
     <hr/>
     - Uses the `this` keyword for defining the indexers.
     - Parameters cannot be `out` or `ref`. The `out` and `ref` keyword are not allowed on parameters.
@@ -10670,101 +10661,100 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
   </details>
 - <details>
-    <summary>How do you test an Indexer in C#?</summary>
+    <summary>How do you test an Indexer in C#?⭐</summary>
     <hr/>
     Create an `Employee` class with an indexer, and in the `TestEmployee` class, demonstrate how to access and modify the `Employee` properties using indexers. Here is the example code:
 
-  **`Employee` Class**:
+    **`Employee` Class**:
 
-  ```c#
-  namespace OOPSProject
-  {
-      public class Employee
-      {
-          int? _Id;
-          string? _Name, _Job;
-          double? _Salary;
-          bool? _Status;
+    ```c#
+    namespace OOPSProject
+    {
+        public class Employee
+        {
+            int? _Id;
+            string? _Name, _Job;
+            double? _Salary;
+            bool? _Status;
 
-          public Employee(int Id)
-          {
-              _Id = Id;
-              _Name = "Nicholas";
-              _Job = "Manager";
-              _Salary = 50000.00;
-              _Status = true;
-          }
+            public Employee(int Id)
+            {
+                _Id = Id;
+                _Name = "Nicholas";
+                _Job = "Manager";
+                _Salary = 50000.00;
+                _Status = true;
+            }
 
-          public object? this[int Index]
-          {
-              get
-              {
-                  if (Index == 1) return _Id;
-                  else if (Index == 2) return _Name;
-                  else if (Index == 3) return _Job;
-                  else if (Index == 4) return _Salary;
-                  else if (Index == 5) return _Status;
-                  else return null;
-              }
-              set
-              {
-                  if (Index == 2) _Name = (string?)value;
-                  else if (Index == 3) _Job = (string?)value;
-                  else if (Index == 4) _Salary = (double?)value;
-                  else if (Index == 5) _Status = (bool?)value;
-              }
-          }
+            public object? this[int Index]
+            {
+                get
+                {
+                    if (Index == 1) return _Id;
+                    else if (Index == 2) return _Name;
+                    else if (Index == 3) return _Job;
+                    else if (Index == 4) return _Salary;
+                    else if (Index == 5) return _Status;
+                    else return null;
+                }
+                set
+                {
+                    if (Index == 2) _Name = (string?)value;
+                    else if (Index == 3) _Job = (string?)value;
+                    else if (Index == 4) _Salary = (double?)value;
+                    else if (Index == 5) _Status = (bool?)value;
+                }
+            }
 
-          public object? this[string Key]
-          {
-              get
-              {
-                  if (Key.ToUpper() == "ID") return _Id;
-                  else if (Key.ToUpper() == "NAME") return _Name;
-                  else if (Key.ToUpper() == "JOB") return _Job;
-                  else if (Key.ToUpper() == "SALARY") return _Salary;
-                  else if (Key.ToUpper() == "STATUS") return _Status;
-                  else return null;
-              }
-              set
-              {
-                  if (Key.ToLower() == "name") _Name = (string?)value;
-                  else if (Key.ToLower() == "job") _Job = (string?)value;
-                  else if (Key.ToLower() == "salary") _Salary = (double?)value;
-                  else if (Key.ToLower() == "status") _Status = (bool?)value;
-              }
-          }
-      }
-  }
-  ```
+            public object? this[string Key]
+            {
+                get
+                {
+                    if (Key.ToUpper() == "ID") return _Id;
+                    else if (Key.ToUpper() == "NAME") return _Name;
+                    else if (Key.ToUpper() == "JOB") return _Job;
+                    else if (Key.ToUpper() == "SALARY") return _Salary;
+                    else if (Key.ToUpper() == "STATUS") return _Status;
+                    else return null;
+                }
+                set
+                {
+                    if (Key.ToLower() == "name") _Name = (string?)value;
+                    else if (Key.ToLower() == "job") _Job = (string?)value;
+                    else if (Key.ToLower() == "salary") _Salary = (double?)value;
+                    else if (Key.ToLower() == "status") _Status = (bool?)value;
+                }
+            }
+        }
+    }
+    ```
 
-  **`TestEmployee` Class**:
+    **`TestEmployee` Class**:
 
-  ```c#
-  internal class TestEmployee
-  {
-      static void Main()
-      {
-          Employee Emp = new Employee(1005);
-          Console.WriteLine("Employee ID: " + Emp[1]);
-          Console.WriteLine("Employee Name: " + Emp[2]);
-          Console.WriteLine("Employee Job: " + Emp[3]);
-          Console.WriteLine("Employee Salary: " + Emp[4]);
-          Console.WriteLine("Employee Status: " + Emp[5]);
-          Console.WriteLine();
+    ```c#
+    internal class TestEmployee
+    {
+        static void Main()
+        {
+            Employee Emp = new Employee(1005);
+            Console.WriteLine("Employee ID: " + Emp[1]);
+            Console.WriteLine("Employee Name: " + Emp[2]);
+            Console.WriteLine("Employee Job: " + Emp[3]);
+            Console.WriteLine("Employee Salary: " + Emp[4]);
+            Console.WriteLine("Employee Status: " + Emp[5]);
+            Console.WriteLine();
 
-          Emp[3] = "Sr. Manager";
-          Emp["Salary"] = 75000.00;
+            Emp[3] = "Sr. Manager";
+            Emp["Salary"] = 75000.00;
 
-          Console.WriteLine("Employee ID: " + Emp["Id"]);
-          Console.WriteLine("Employee Name: " + Emp["name"]);
-          Console.WriteLine("Employee Job: " + Emp["JOB"]);
-          Console.WriteLine("Employee Salary: " + Emp["SaLaRy"]);
-          Console.WriteLine("Employee Status: " + Emp["Status"]);
-          Console.ReadLine();
-      }
-  }
-  ```
+            Console.WriteLine("Employee ID: " + Emp["Id"]);
+            Console.WriteLine("Employee Name: " + Emp["name"]);
+            Console.WriteLine("Employee Job: " + Emp["JOB"]);
+            Console.WriteLine("Employee Salary: " + Emp["SaLaRy"]);
+            Console.WriteLine("Employee Status: " + Emp["Status"]);
+        }
+    }
+    ```
 
     <hr/>
   </details>
@@ -10776,7 +10766,7 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
   </details>
 - <details>
-    <summary>What is the purpose of using Indexers in C#?</summary>
+    <summary>What is the purpose of using Indexers in C#?⭐</summary>
     <hr/>
     Indexers allow classes or structs to be accessed like arrays. This makes them convenient for classes that act like collections or arrays, making them easier to use and improving code readability.
     <hr/>
@@ -10801,29 +10791,55 @@ Life cycle means from the starting of execution to the end of execution.
 ## **`Deconstructor`**
 
 - <details>
-    <summary>What are Deconstructors in C#?</summary>
+    <summary>What are Deconstructors in C#?⭐</summary>
     <hr/>
     Deconstructors were introduced in C# 7.0 to provide read-only access to the values (attributes) of a class. They allow you to expose values outside a class using a special method named `Deconstruct`. Deconstructors are `useful for breaking down an object into multiple components without exposing its internal state directly`.
 
-  These are newly introduced in `C# 7.0` which can also be used to provide access to the values or expose the values associated with a class to the outside environment, apart from `public fields`, `properties`, and `indexers`. `Deconstructor` is a special method with the name “`Deconstruct`” that is defined under the class to expose (`Read Only`) the attributes of a class and this will be defined with a code that is `reverse` to a `constructor`.
+    “`Deconstruct`” (name cannot be changed)
+
+    These are newly introduced in `C# 7.0` which can also be used to provide access to the values or expose the values associated with a class to the outside environment, apart from `public fields`, `properties`, and `indexers`. `Deconstructor` is a special method with the name “`Deconstruct`” that is defined under the class to expose (`Read Only`) the attributes of a class and this will be defined with a code that is `reverse` to a `constructor`.
     <hr/>
   </details>
 
 - <details>
-    <summary>How is a Deconstructor defined?</summary>
+    <summary>How is a Deconstructor defined?⭐</summary>
     <hr/>
     A Deconstructor is defined as a special method named `Deconstruct` inside a class. It uses the `out` keyword to pass values back to the caller. Here's an example of the syntax:
 
-  ```c#
-  public void Deconstruct(out int? Id, out string? Name, out string? Subject, out string? Designation, out double? Salary)
-  {
-      Id = this.Id;
-      Name = this.Name;
-      Subject = this.Subject;
-      Designation = this.Designation;
-      Salary = this.Salary;
-  }
-  ```
+    ```c#
+    public void Deconstruct(out int? Id, out string? Name, out string? Subject, out string? Designation, out double? Salary)
+    {
+        Id = this.Id;
+        Name = this.Name;
+        Subject = this.Subject;
+        Designation = this.Designation;
+        Salary = this.Salary;
+    }
+    ```
+
+    Use tuple deconstruction syntax to capture the values exposed by a Deconstructor. For example:
+
+    ```c#
+    (int? Id1, string? Name1, string? Subject1, string? Designation1, double? Salary1) = obj;
+    ```
+
+    Use `var` to capture values from a Deconstructor, which simplifies the code:
+
+    ```c#
+    var (Id2, Name2, Subject2, Designation2, Salary2) = obj;
+    ```
+
+    use an **underscore** `_` to skip attributes that you don't want to capture. For example:
+
+    ```c#
+    var (Id4, _, Subject4, _, Salary4) = obj;
+    ```
+
+    To skip multiple values, use _ at the corresponding position:
+
+    ```c#
+    var (Id5, _, _, Designation5, Salary5) = obj;
+    ```
 
     <hr/>
   </details>
@@ -10832,29 +10848,6 @@ Life cycle means from the starting of execution to the end of execution.
     <summary>What is the purpose of a Deconstructor?</summary>
     <hr/>
     The purpose of a Deconstructor is to expose the values (attributes) of a class as read-only to the outside environment. This is helpful for classes that want to return multiple values without making their fields public.
-    <hr/>
-  </details>
-- <details>
-    <summary>How can we capture values from a Deconstructor?</summary>
-    <hr/>
-    You can use tuple deconstruction syntax to capture the values exposed by a Deconstructor. For example:
-
-  ```c#
-  (int? Id1, string? Name1, string? Subject1, string? Designation1, double? Salary1) = obj;
-  ```
-
-    <hr/>
-  </details>
-
-- <details>
-    <summary>Can you use the var keyword for Deconstructor output?</summary>
-    <hr/>
-     Yes, you can use `var` to capture values from a Deconstructor, which simplifies the code:
-
-  ```c#
-  var (Id2, Name2, Subject2, Designation2, Salary2) = obj;
-  ```
-
     <hr/>
   </details>
 
@@ -11018,7 +11011,7 @@ Life cycle means from the starting of execution to the end of execution.
 ## **`Exceptions and Exception Handling`**
 
 - <details>
-    <summary>What are the two types of errors in C#?</summary>
+    <summary>What are the two types of errors in C#?⭐</summary>
     <hr/>
     In C#, there are two types of errors:
 
@@ -11029,16 +11022,16 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>What happens when a "runtime error occurs" in a program?</summary>
+    <summary>What happens when a "runtime error occurs" in a program?⭐</summary>
     <hr/>
     When a runtime error occurs, the **`program terminates`** and the program gets **`abnormally terminated`** without executing the next line of code when the error happened.
 
-  Whenever any error occurs in the program, the exception class is triggered, and it abnormally terminates the program.
+    `Whenever any error occurs in the program, the exception class is triggered, and it abnormally terminates the program.`
     <hr/>
   </details>
 
 - <details>
-    <summary>What is an Exception in C#?</summary>
+    <summary>What is an Exception in C#?⭐</summary>
     <hr/>
     An Exception is a mechanism in C# to handle errors that occur during runtime. Exceptions are classes derived from the `Exception` class of the `System` namespace. They are thrown by the .NET CLR or by code in the program using the `throw` keyword.
     <hr/>
@@ -11050,7 +11043,7 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
   </details>
 - <details>
-    <summary>What is responsible for the abnormal termination of a program?</summary>
+    <summary>What is responsible for the abnormal termination of a program?⭐</summary>
     <hr/>
     The exception is responsible for a program's abnormal termination. An exception is a class that gets triggered when a runtime error occurs. This class abnormally terminates the program by creating and throwing an instance of the specific exception class.
     <hr/>
@@ -11065,33 +11058,35 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>Can you give an example of an exception class and its related error?</summary>
+    <summary>Can you give an example of an exception class and its related error?⭐</summary>
     <hr/>
-     For example, IndexOutOfRangeException is an exception class that occurs when you try to access an index outside the bounds of an array. Because of the IndexOutOfRangeException class, your program terminates abnormally.
+     For example, `IndexOutOfRangeException` is an exception class that occurs when you try to access an index outside the bounds of an array. Because of the `IndexOutOfRangeException` class, your program terminates abnormally.
     Example: `IndexOutOfBoundsException` is a run-time error and the name of a class. This error occurs when you try to add more values than the size of the array. Because of the `IndexOutOfBoundsException` class, your program abnormally terminates. 
     <hr/>
   </details>
 - <details>
-    <summary>What are some other predefined exception classes?</summary>
+    <summary>What are some other predefined exception classes?⭐</summary>
     <hr/>
     Some predefined exception classes include `DivideByZeroException`, `OverflowException`, `FormatException`, and more. All these classes come under the base `Exception` class.
     For program abnormally terminates lot's of predefine class are available like `DivideByZeroException`, `OverflowException`, `FormatException` and etc. And all this class present in Exception class.
     <hr/>
   </details>
 - <details>
-    <summary>How are predefined exception classes implemented in C#?</summary>
+    <summary>How are predefined exception classes implemented in C#?⭐</summary>
     <hr/>
     There is a class named `Exception` which contains the logic for abnormal termination. It includes a `Message` property (declared as `virtual`) to display error messages. Child classes can override this property to customize error messages.
     <hr/>
   </details>
 - <details>
-    <summary>How are exceptions categorized in C#?</summary>
+    <summary>How are exceptions categorized in C#?⭐</summary>
     <hr/>
+
     Exceptions are categorized into:
+
     1. **`SystemExceptions`**: Pre-defined exceptions that occur on specific error conditions, like `DivideByZeroException`, `FormatException`, `NullReferenceException`, etc.
       - The base class for exceptions thrown by the .NET runtime. It includes common errors such as memory access violations or arithmetic overflows, like `NullReferenceException` or `IndexOutOfRangeException`.
 
-  2. **`ApplicationExceptions`**: Non-fatal errors that are explicitly caused by the program.
+    2. **`ApplicationExceptions`**: Non-fatal errors that are explicitly caused by the program.
 
 
       - The base class for exceptions that are defined specifically by your application. Custom exception classes can be derived from `ApplicationException` to handle errors unique to the application.
@@ -11100,7 +11095,7 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>What is the exception class hierarchy in C#?</summary>
+    <summary>What is the exception class hierarchy in C#?⭐</summary>
     <hr/>
     The hierarchy of exception classes is as follows:
     - Exception
@@ -11115,7 +11110,7 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
   </details>
 - <details>
-    <summary>What is Exception Handling in C#?</summary>
+    <summary>What is Exception Handling in C#?⭐</summary>
     <hr/>
      Exception Handling is a process to stop the abnormal termination of a program whenever a runtime error occurs. It provides the following benefits:
      1. Allows the execution of unaffected statements even after an error occurs.
@@ -11124,19 +11119,19 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
   </details>
 - <details>
-    <summary>What is the difference between "ApplicationException" and "SystemException"?</summary>
+    <summary>What is the difference between "ApplicationException" and "SystemException"?⭐</summary>
     <hr/>
     `ApplicationException` is used to handle custom errors specific to your code, while `SystemException` is used for general errors that are handled by the .NET runtime.
     <hr/>
   </details>
 - <details>
-    <summary>How does an exception arise during program execution?</summary>
+    <summary>How does an exception arise during program execution?⭐</summary>
     <hr/>
     All .NET applications run under the supervision of the **CLR (Common Language Runtime)**, which monitors the application during execution. When the CLR detects an error (e.g., division by zero), it stops the program and checks the mistake. Then, the CLR selects the associated exception class (like `DivideByZeroException`) and creates an instance of that class. The CLR throws this instance (object), causing the program to terminate abnormally.
     <hr/>
   </details>
 - <details>
-    <summary>How do you handle abnormal termination caused by exceptions?</summary>
+    <summary>How do you handle abnormal termination caused by exceptions?⭐</summary>
     <hr/>
     We use `exception handling` to prevent the abnormal termination of a program by enclosing the error-prone code in `try` and `catch` blocks.
     ```c#
@@ -11152,7 +11147,7 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
   </details>
 - <details>
-    <summary>Can you provide an example code for handling exceptions using try-catch blocks?</summary>
+    <summary>Can you provide an example code for handling exceptions using try-catch blocks?⭐</summary>
     <hr/>
      Below is the code in TryCatchDemo.cs for handling exceptions:
      ```c#
@@ -11187,10 +11182,19 @@ Life cycle means from the starting of execution to the end of execution.
                  Console.WriteLine(ex.Message);
                  Console.ForegroundColor = ConsoleColor.White;
              }
-             Console.WriteLine("End of the Program.");
          }
      }
      ```
+
+    In the example, the program prompts the user for two numbers. If:
+    - The user enters `0` as the second number, a `DivideByZeroException` is caught.
+    - The user enters a non-integer value, a `FormatException` is caught.
+    - Any other error is caught by the general `Exception` block.
+
+    **`Note`**:
+     - Only one catch bolock run.
+     - `catch(Exception ex)`Mendatory to use in last, if you use any catch block after this you got error.
+     - in last finaly block.
     <hr/>
   </details>
 - <details>
@@ -11211,7 +11215,7 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
   </details>
 - <details>
-    <summary>What happens if code is enclosed in try and catch blocks?</summary>
+    <summary>What happens if code is enclosed in try and catch blocks?⭐</summary>
     <hr/>If all the statements inside the try block are successfully executed without any error, then control jumps directly to the first statement after all the catch blocks. If an error occurs, control immediately jumps to the catch block capable of handling that specific exception. If a catch block is found, the code inside that catch block is executed, and then control jumps to the statement after all catch blocks. If no matching catch block is found, abnormal termination occurs.<p></p>
     <hr/>
   </details>
@@ -11228,7 +11232,7 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
   </details>
 - <details>
-    <summary>What are the different combinations of try, catch, and finally blocks?</summary>
+    <summary>What are the different combinations of try, catch, and finally blocks?⭐</summary>
     <hr/>
     - try and catch: The exceptions that occur in the program are caught by the catch block, preventing abnormal termination.
     - try, catch, and finally: Works like above but with the addition that the finally block always executes.
@@ -11279,16 +11283,15 @@ Life cycle means from the starting of execution to the end of execution.
 
   <hr/>
   </details>
-  ```
 
 - <details>
-    <summary>What are application exceptions?</summary>
+    <summary>What are application exceptions?⭐</summary>
     <hr/>
     Application exceptions are non-fatal errors explicitly `caused by the programmer` based on custom error conditions. They are `raised explicitly` using the **`throw`** statement.
     <hr/>
   </details>
 - <details>
-    <summary>How do you throw an exception explicitly?</summary>
+    <summary>How do you throw an exception explicitly?⭐</summary>
     <hr/>
     To throw an exception explicitly, you need to:
     1. Create an instance of any exception class.
@@ -11299,7 +11302,7 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
   </details>
 - <details>
-    <summary>What are the different options when throwing an exception?</summary>
+    <summary>What are the different options when throwing an exception?⭐</summary>
     <hr/>
     - Use a predefined exception class if it matches the error condition.
     - Create an instance of ApplicationException and pass an error message.
@@ -11307,7 +11310,7 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
   </details>
 - <details>
-    <summary>How do you define a custom exception class?</summary>
+    <summary>How do you define a custom exception class?⭐</summary>
     <hr/>
     Define a new class inheriting from `ApplicationException` or any other predefined exception class. Override the `Message` property to provide a custom error message. Example:
     ```C#
@@ -11319,6 +11322,8 @@ Life cycle means from the starting of execution to the end of execution.
         }
     }
     ```
+
+    Call exception: `throw new DivideByOddNoException();  // Custom exception`
     <hr/>
   </details>
 - <details>
@@ -11346,7 +11351,7 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
   </details>
 - <details>
-    <summary>What if there is an unknown exception?</summary>
+    <summary>What if there is an unknown exception?⭐</summary>
     <hr/>
     You can use a generic catch block that catches the base Exception class at the end:
     ```c#
@@ -11380,7 +11385,7 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
   </details>
 - <details>
-    <summary>What happen if parent class of all exceptions use first catch block then child exception catch block?</summary>
+    <summary>What happen if parent class of all exceptions use first catch block then child exception catch block?⭐</summary>
     <hr/>
 
   - compilation error
@@ -11639,7 +11644,7 @@ Life cycle means from the starting of execution to the end of execution.
       `
     <hr/>
   </details>
-
+## **`Anonymous methods`**
 - <details>
     <summary>What are anonymous methods?</summary>
     <hr/>
@@ -11691,8 +11696,7 @@ Life cycle means from the starting of execution to the end of execution.
   ```
   <hr/>
   </details>
-  ```
-
+## **`Lambda expressions`**
 - <details>
     <summary>What are lambda expressions in C#?</summary>
     <hr/>
@@ -11810,7 +11814,9 @@ Life cycle means from the starting of execution to the end of execution.
 - <details>
     <summary>Provide an Class Definition Without and With Expression Bodied Members.</summary>
     <hr/>
+
     Example of a class defined without expression-bodied members:
+
     ```c#
     internal class Circle1
     {
@@ -11855,9 +11861,10 @@ Life cycle means from the starting of execution to the end of execution.
 
   }
 
-  ````
+  ```
 
   Same class definition using expression-bodied members:
+
   ```c#
   internal class Circle2
   {
@@ -11876,11 +11883,11 @@ Life cycle means from the starting of execution to the end of execution.
       public double GetRadius() => _Pi * _Radius * _Radius; // C# 6.0
       public double GetPerimeter() => 2 * _Pi * _Radius; // C# 6.0
   }
-  ````
+  ```
 
     <hr/>
   </details>
-
+## **`Anonymous types`**
 - <details>
     <summary>What are anonymous types in C#?</summary>
     <hr/>
@@ -11976,8 +11983,7 @@ Life cycle means from the starting of execution to the end of execution.
   ```
   <hr/>
   </details>
-  ```
-
+## **`Partial types`**
 - <details>
     <summary>What are partial types in C#?</summary>
     <hr/>
