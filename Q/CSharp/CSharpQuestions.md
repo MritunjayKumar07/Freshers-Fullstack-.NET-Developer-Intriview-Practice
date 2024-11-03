@@ -7143,8 +7143,6 @@ Life cycle means from the starting of execution to the end of execution.
   ```
   <hr/>
   </details>
-  ```
-
 - <details>
     <summary>Give me Example of Inheritance-Based Overloading and Overriding:</summary>
     <hr/>
@@ -11414,9 +11412,9 @@ Life cycle means from the starting of execution to the end of execution.
 ## **`Delegate`**
 
 - <details>
-    <summary>What is a delegate in C#?</summary>
+    <summary>What is a delegate in C#?⭐</summary>
     <hr/>
-    A delegate is a type that `holds references of methods`. It acts as a `type-safe` and `secure function pointer`, which can encapsulate both `static` and `non-static` methods for execution.
+    A delegate is a **`type`** that `holds references of methods`. It acts as a `type-safe` and `secure function pointer`, which can encapsulate both `static` and `non-static` methods for execution.
     <hr/>
   </details>
 - <details>
@@ -11432,7 +11430,7 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
   </details>
 - <details>
-    <summary>How can methods be called in C#?</summary>
+    <summary>How can methods be called in C#?⭐</summary>
     <hr/>
     Methods can be called in two ways:
     1. By creating an instance of a class (for non-static methods) or directly using the class name (for static methods).
@@ -11440,7 +11438,7 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
   </details>
 - <details>
-    <summary>What are the three steps to call a method using a delegate?</summary>
+    <summary>What are the three steps to call a method using a delegate?⭐</summary>
     <hr/>
     The three steps are:
 
@@ -11480,13 +11478,13 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>Where can you define a delegate?</summary>
+    <summary>Where can you define a delegate?⭐</summary>
     <hr/>
-    Delegates can be `defined within` a `class`, `structure`, or `namespace`, just like `any other type`.
+    Delegates can be defined within a `class`, `structure`, or `namespace`, just like `any other type`.
     <hr/>
   </details>
 - <details>
-    <summary>Give me an example of defining and using delegates?</summary>
+    <summary>Give me an example of defining and using delegates?⭐</summary>
     <hr/>
     1. **Defining Delegates in a Namespace**:
       ```c#
@@ -11536,7 +11534,7 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
   </details>
 - <details>
-    <summary>What is a multicast delegate in C#?</summary>
+    <summary>What is a multicast delegate in C#?⭐</summary>
     <hr/>
     A multicast delegate holds references to multiple methods, allowing them to be called sequentially. All methods must have the **`same parameter types`** and return type (**`which must be void`**).
     <hr/>
@@ -11548,13 +11546,13 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
   </details>
 - <details>
-    <summary>How do you add methods to a multicast delegate?</summary>
+    <summary>How do you add methods to a multicast delegate?⭐</summary>
     <hr/>
     Use the `+=` operator to `add methods` and the `-=` operator to `remove methods`.
     <hr/>
   </details>
 - <details>
-    <summary>Provide an example of a multicast delegate in C#.</summary>
+    <summary>Provide an example of a multicast delegate in C#.⭐</summary>
     <hr/>
     ```c#
     // Define the delegate that matches the signature of the methods
@@ -11609,7 +11607,7 @@ Life cycle means from the starting of execution to the end of execution.
   ```
 
 - <details>
-    <summary>What are the predefine delegate? How to use it?</summary>
+    <summary>What are the predefine delegate? How to use it?⭐</summary>
     <hr/>
     C# provides three predefined generic delegates in the base class library: `Func`, `Action`, and `Predicate`. These delegates simplify the usage of methods as parameters, especially when working with collections and LINQ.
 
@@ -11646,9 +11644,9 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 ## **`Anonymous methods`**
 - <details>
-    <summary>What are anonymous methods?</summary>
+    <summary>What are anonymous methods?⭐</summary>
     <hr/>
-    Anonymous methods allow writing in-line `unnamed methods` in code using the `delegate` keyword. `They do not require modifiers, names, or explicit return types`.
+    Anonymous methods allow writing code in **`in-line`** & **`unnamed methods`** in code using the `delegate` keyword. `They do not require modifiers, names, or explicit return types`.
     <hr/>
   </details>
 - <details>
@@ -11662,7 +11660,7 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>Provide an example of using anonymous methods in C#.</summary>
+    <summary>Provide an example of using anonymous methods in C#.⭐</summary>
     <hr/>
     ```c#
     internal class DelDemo3
@@ -11698,7 +11696,7 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 ## **`Lambda expressions`**
 - <details>
-    <summary>What are lambda expressions in C#?</summary>
+    <summary>What are lambda expressions in C#?⭐</summary>
     <hr/>
      - Introduced in CSharp 3.0
      - `Lambda expressions` provide a `concise syntax` for anonymous methods using the `=>` operator, which replaces the `delegate` keyword.
@@ -11712,7 +11710,7 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
   </details>
 - <details>
-    <summary>Provide an example of using lambda expressions in C#.</summary>
+    <summary>Provide an example of using lambda expressions in C#.⭐</summary>
     <hr/>
     ```c#
     internal class DelDemo4
@@ -11744,37 +11742,33 @@ Life cycle means from the starting of execution to the end of execution.
   ```
   <hr/>
   </details>
-  ```
+
+#### **`Expression-bodied`**
 
 - <details>
-    <summary>What are expression-bodied members in C#?</summary>
+    <summary>What are expression-bodied members in C#?⭐</summary>
     <hr/>
     - Introduced in C# 6.0 & 7.0
     - Expression-bodied members allow you to implement members in a concise and readable way using a `single` expression instead of a full method body.
-    <hr/>
-  </details>
-- <details>
-    <summary>What is the general syntax for an expression-bodied member?</summary>
-    <hr/>
-    The syntax is as follows:
+
+    - General syntax for an expression-bodied member:
     ```c#
     member => expression;
     ```
     <hr/>
   </details>
 - <details>
-    <summary>What are the benefits of using expression-bodied members?</summary>
+    <summary>What are the benefits of using expression-bodied members?⭐</summary>
     <hr/>
     - **`Convenience`**: Allows writing methods inline, making the code shorter and easier to read.
     - **`Reduced Typing`**: No need to specify the method name, return type, or access modifier.
     - **`Code Clarity`**: Keeps related code together, reducing the need to look elsewhere for method definitions.
     - **`Ideal for Short Methods`**: Suitable for methods that are only used once and have simple logic.
-
     <hr/>
   </details>
 
 - <details>
-    <summary>Which type members support expression-bodied definitions?</summary>
+    <summary>Which type members support expression-bodied definitions?⭐</summary>
     <hr/>
     - `Methods`: Supported since C# 6.0
     - `Read-only Properties`: Supported since C# 6.0
@@ -11786,7 +11780,7 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
   </details>
 - <details>
-    <summary>Provide an example of using expression-bodied members with a calculator.</summary>
+    <summary>Provide an example of using expression-bodied members with a calculator.⭐</summary>
     <hr/>
     ```c#
     internal class DelDemo5
@@ -11809,10 +11803,8 @@ Life cycle means from the starting of execution to the end of execution.
   ```
   <hr/>
   </details>
-  ```
-
 - <details>
-    <summary>Provide an Class Definition Without and With Expression Bodied Members.</summary>
+    <summary>Provide an Class Definition Without and With Expression Bodied Members.⭐</summary>
     <hr/>
 
     Example of a class defined without expression-bodied members:
@@ -11889,13 +11881,13 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 ## **`Anonymous types`**
 - <details>
-    <summary>What are anonymous types in C#?</summary>
+    <summary>What are anonymous types in C#?⭐</summary>
     <hr/>
     Anonymous types allow you to create an instance of a type without explicitly defining its class. It is created using the `new` keyword along with object initializer syntax.
     <hr/>
   </details>
 - <details>
-    <summary>How can you define an anonymous type?</summary>
+    <summary>How can you define an anonymous type?⭐</summary>
     <hr/>
     ```c#
     var Emp = new { Id = 1001, Name = "Raju", Job = "Manager", Salary = 25000.00, Status = true };
@@ -11903,49 +11895,49 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
   </details>
 - <details>
-    <summary>Which keywords can be used to hold an anonymous type?</summary>
+    <summary>Which keywords can be used to hold an anonymous type?⭐</summary>
     <hr/>
     You can use either `var` or `dynamic` to hold an anonymous type.
     <hr/>
   </details>
 - <details>
-    <summary>Are the properties of anonymous types read-only?</summary>
+    <summary>Are the properties of anonymous types read-only?⭐</summary>
     <hr/>
    Yes, the properties of anonymous types are read-only. You cannot modify their values after the anonymous type is created.
     <hr/>
   </details>
 - <details>
-    <summary>How does the compiler handle the types of properties in anonymous types?</summary>
+    <summary>How does the compiler handle the types of properties in anonymous types?⭐</summary>
     <hr/>
     The compiler infers the type of each property based on the assigned values. For example, `Id` is inferred as `int`, `Name` as `string`, `Salary` as `double`, and `Status` as `bool`.
     <hr/>
   </details>
 - <details>
-    <summary>Are anonymous types derived from the Object class?</summary>
+    <summary>Are anonymous types derived from the Object class?⭐</summary>
     <hr/>
     Yes, anonymous types are derived from the `Object` class and are sealed classes.
     <hr/>
   </details>
 - <details>
-    <summary>What is the scope of an anonymous type?</summary>
+    <summary>What is the scope of an anonymous type?⭐</summary>
     <hr/>
     The scope of an anonymous type is local to the method where it is defined.
     <hr/>
   </details>
 - <details>
-    <summary>Can you pass an anonymous type to another method?</summary>
+    <summary>Can you pass an anonymous type to another method?⭐</summary>
     <hr/>
      You usually cannot pass it directly, but you can pass it to methods that accept parameters of `dynamic` type.
     <hr/>
   </details>
 - <details>
-    <summary>Can anonymous types be nested?</summary>
+    <summary>Can anonymous types be nested?⭐</summary>
     <hr/>
     Yes, an anonymous type can have another anonymous type as a property.
     <hr/>
   </details>
 - <details>
-    <summary>Could you provide me an example for Testing Anonymous Types?</summary>
+    <summary>Could you provide me an example for Testing Anonymous Types?⭐</summary>
     <hr/>
     ```c#
     namespace OOPSProject
@@ -11985,26 +11977,26 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 ## **`Partial types`**
 - <details>
-    <summary>What are partial types in C#?</summary>
+    <summary>What are partial types in C#?⭐</summary>
     <hr/>
     Partial types allow you to split the definition of a class, struct, or interface over multiple source files.
     <hr/>
   </details>
 - <details>
-    <summary>Why would you want to use partial classes?</summary>
+    <summary>Why would you want to use partial classes?⭐</summary>
     <hr/>
     - It enables multiple developers to work on different parts of the same class in large projects.
     - It is used by Visual Studio for auto-generated code in Windows Forms Apps, WPF Apps, Web Forms Apps, etc.
     <hr/>
   </details>
 - <details>
-    <summary> What does the partial keyword indicate?</summary>
+    <summary> What does the partial keyword indicate?⭐</summary>
     <hr/>
     It indicates that other parts of the class, struct, or interface can be defined elsewhere in the same namespace.
     <hr/>
   </details>
 - <details>
-    <summary>What are some important points to remember about partial types?</summary>
+    <summary>What are some important points to remember about partial types?⭐</summary>
     <hr/>
     - All parts must use the partial keyword.
     - All parts must be present at compile time to form the final type.
@@ -12019,7 +12011,7 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
   </details>
 - <details>
-    <summary>Could me provide me an exampleto shoe the Partial class?</summary>
+    <summary>Could me provide me an exampleto shoe the Partial class?⭐</summary>
     <hr/>
     `Part1.cs`
     ```c#

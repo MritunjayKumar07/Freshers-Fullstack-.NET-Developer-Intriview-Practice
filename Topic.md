@@ -5111,7 +5111,7 @@
     <hr/>
   </details>
 
-## **`Exceptions and Exception Handling`**
+#### **`Exceptions and Exception Handling`**
 
 - <details>
     <summary>What are the two types of errors in C#?⭐</summary>
@@ -5380,6 +5380,882 @@
   </details>
 
 #### **`Delegate`**
+- <details>
+    <summary>What is a delegate in C#?⭐</summary>
+    <hr/>
+    A delegate is a **`type`** that `holds references of methods`. It acts as a `type-safe` and `secure function pointer`, which can encapsulate both `static` and `non-static` methods for execution.
+    <hr/>
+  </details>
+- <details>
+    <summary>How can methods be called in C#?⭐</summary>
+    <hr/>
+    Methods can be called in two ways:
+    1. By creating an instance of a class (for non-static methods) or directly using the class name (for static methods).
+    2. Using a delegate, which can encapsulate both static and non-static methods.
+    <hr/>
+  </details>
+- <details>
+    <summary>What are the three steps to call a method using a delegate?⭐</summary>
+    <hr/>
+    The three steps are:
+
+  1. **`Define a delegate`**.
+
+
+      - **Syntax to define a delegate**:
+      ```c#
+      [<modifiers>] delegate void|<type> DelegateName([<Parameter List>]);
+      ```
+      - The delegate's parameters and return type must match the method's signature.
+
+      - **Example definitions**:
+      ```c#
+      public delegate void AddDel(int x, int y);
+      public delegate string SayDel(string name);
+      ```
+
+  2. Instantiate the delegate & bind with method.
+
+
+      - Create an instance of a delegate and bind it to a method. Example:
+      ```c#
+      AddDel ad = new AddDel(AddNums); // Or simply: AddDel ad = AddNums;
+      SayDel sd = new SayDel(SayHello); // Or simply: SayDel sd = SayHello;
+      ```
+
+  3. Call the delegate with the required parameters.
+
+
+      ```c#
+      ad(10, 20); // Executes AddNums method with parameters 10 and 20
+      string result = sd("Raju"); // Executes SayHello method with "Raju"
+      ```
+
+    <hr/>
+  </details>
+- <details>
+    <summary>Where can you define a delegate?⭐</summary>
+    <hr/>
+    Delegates can be defined within a `class`, `structure`, or `namespace`, just like `any other type`.
+    <hr/>
+  </details>
+- <details>
+    <summary>Give me an example of defining and using delegates?⭐</summary>
+    <hr/>
+    1. **Defining Delegates in a Namespace**:
+      ```c#
+      namespace OOPSProject
+      {
+        public delegate void MathDelegate(int x, int y);
+        public delegate string WishDelegate(string str);
+        public delegate void CalculatorDelegate(int a, int b, int c);
+      }
+      ```
+    
+    2. **Class Definition with Delegates**:
+      ```c#
+      internal class DelDemo1
+      {
+          public void AddNums(int x, int y, int z)
+          {
+              Console.WriteLine($"Sum of given 3 no's is: {x + y + z}");
+          }
+
+          public static string SayHello(string name)
+          {
+              return $"Hello {name}, have a nice day!";
+          }
+
+          static void Main()
+          {
+              DelDemo1 obj = new DelDemo1();
+              CalculatorDelegate cd = obj.AddNums;
+              cd(10, 20, 30); // Output: Sum of given 3 no's is: 60
+              cd(40, 50, 60); // Output: Sum of given 3 no's is: 150
+
+              WishDelegate wd = DelDemo1.SayHello;
+              Console.WriteLine(wd("Raju"));  // Output: Hello Raju, have a nice day!
+              Console.WriteLine(wd("Vijay")); // Output: Hello Vijay, have a nice day!
+          }
+      }
+      ```
+
+    <hr/>
+  </details>
+- <details>
+    <summary>What is a multicast delegate in C#?⭐</summary>
+    <hr/>
+    A multicast delegate holds references to multiple methods, allowing them to be called sequentially. All methods must have the **`same parameter types`** and return type (**`which must be void`**).
+    <hr/>
+  </details>
+- <details>
+    <summary>How do you add methods to a multicast delegate?⭐</summary>
+    <hr/>
+    Use the `+=` operator to `add methods` and the `-=` operator to `remove methods`.
+    <hr/>
+  </details>
+- <details>
+    <summary>Provide an example of a multicast delegate in C#.⭐</summary>
+    <hr/>
+    ```c#
+    // Define the delegate that matches the signature of the methods
+    public delegate void MathDelegate(int x, int y);
+
+  internal class DelDemo2
+  {
+  public void Add(int x, int y)
+  {
+  Console.WriteLine($"Add: {x + y}");
+  }
+
+        public void Sub(int x, int y)
+        {
+            Console.WriteLine($"Sub: {x - y}");
+        }
+
+        public void Mul(int x, int y)
+        {
+            Console.WriteLine($"Mul: {x * y}");
+        }
+
+        public void Div(int x, int y)
+        {
+            Console.WriteLine($"Div: {x / y}");
+        }
+
+        static void Main()
+        {
+            DelDemo2 obj = new DelDemo2();
+            MathDelegate md = obj.Add;
+            md += obj.Sub;
+            md += obj.Mul;
+            md += obj.Div;
+
+            md(100, 25); // Calls Add, Sub, Mul, and Div
+            Console.WriteLine();
+
+            md(760, 20); // Calls Add, Sub, Mul, and Div again
+            Console.WriteLine();
+
+            md -= obj.Mul; // Removes Mul from the delegate
+            md(930, 15); // Calls Add, Sub, and Div
+            Console.ReadLine();
+        }
+
+  }
+
+  ```
+  <hr/>
+  </details>
+- <details>
+    <summary>What are the predefine delegate? How to use it?⭐</summary>
+    <hr/>
+    C# provides three predefined generic delegates in the base class library: `Func`, `Action`, and `Predicate`. These delegates simplify the usage of methods as parameters, especially when working with collections and LINQ.
+
+  1. **`Func Delegate`**: Used when the method has a return value. It can have up to 16 input parameters, with the last type parameter representing the return type.
+
+
+      - **Syntax**:
+        ```c#
+        Func<in T1, in T2, in T3, in T4, in T5, in T6, in T7, in T8, in T9, in T10, in T11, in T12, in T13, in T4, in T5, in T6, out TResult> obj1 = <MethodName>;
+        ```
+        - How much you want to use use it because all are optional
+      - **Example**:
+      ```c#
+      Func<int, float, double, double> funcDelegate = AddNums1;
+      double result1 = funcDelegate.Invoke(100, 34.5f, 193.465);//Call the AddNums1 by delegate
+      ```
+        - `int`, `float`, `double`, are **input parameter** and `double` is **output parameter**
+
+  2. **`Action Delegate`**: Used when the method does `not return a value` (i.e., it returns void). It can take up to 16 input parameters.
+
+
+      - **Example**:
+        ```c#
+         Action<int, float, double> actionDelegate = AddNums2;
+         actionDelegate.Invoke(100, 34.5f, 193.465);
+        ```
+
+  3. **`Predicate Delegate`**: Specifically used for methods that `return a bool`. It is often used in scenarios where a condition needs to be checked. - **Example**:
+  `c#
+      Predicate<string> predicateDelegate = CheckLength;
+      bool result2 = predicateDelegate.Invoke("Hello World");
+      `
+    <hr/>
+  </details>
+#### **`Anonymous methods`**
+- <details>
+    <summary>What are anonymous methods?⭐</summary>
+    <hr/>
+    Anonymous methods allow writing code in **`in-line`** & **`unnamed methods`** in code using the `delegate` keyword. `They do not require modifiers, names, or explicit return types`.
+    <hr/>
+  </details>
+- <details>
+    <summary>Provide an example of using anonymous methods in C#.⭐</summary>
+    <hr/>
+    ```c#
+    internal class DelDemo3
+    {
+        static void Main()
+        {
+            //Define delegate without defining using name function
+            CalculatorDelegate cd = delegate (int a, int b, int c)
+            {
+                Console.WriteLine($"Product of given numbers: {a * b * c}");
+            };
+
+            cd(10, 20, 30); // Output: Product of given numbers: 6000
+            cd(40, 50, 60); // Output: Product of given numbers: 120000
+            cd(70, 80, 90); // Output: Product of given numbers: 504000
+
+            //Define delegate without defining using name function
+            WishDelegate wd = delegate (string user)
+            {
+                return $"Hello {user}, welcome to the application.";
+            };
+
+            Console.WriteLine(wd("Raju"));    // Output: Hello Raju, welcome to the application.
+            Console.WriteLine(wd("Pooja"));   // Output: Hello Pooja, welcome to the application.
+            Console.WriteLine(wd("Praveen")); // Output: Hello Praveen, welcome to the application.
+            Console.ReadLine();
+        }
+
+  }
+
+  ```
+  <hr/>
+  </details>
+#### **`Lambda expressions`**
+- <details>
+    <summary>What are lambda expressions in C#?⭐</summary>
+    <hr/>
+     - Introduced in CSharp 3.0
+     - `Lambda expressions` provide a `concise syntax` for anonymous methods using the `=>` operator, which replaces the `delegate` keyword.
+     - Lambda Operator “`=>`” was introduced so that there is no longer a need to use the `delegate` keyword or provide the type of the parameters. The types can usually be `inferred` by `compiler` from usage based on the `delegate`.
+    <hr/>
+  </details>
+- <details>
+    <summary>Provide an example of using lambda expressions in C#.⭐</summary>
+    <hr/>
+    ```c#
+    internal class DelDemo4
+    {
+        static void Main()
+        {
+            CalculatorDelegate cd = (a, b, c) =>
+            {
+                Console.WriteLine($"Product of given numbers: {a * b * c}");
+            };
+
+            cd(10, 20, 30); // Output: Product of given numbers: 6000
+            cd(40, 50, 60); // Output: Product of given numbers: 120000
+            cd(70, 80, 90); // Output: Product of given numbers: 504000
+
+            WishDelegate wd = user =>
+            {
+                return $"Hello {user}, welcome to the application.";
+            };
+
+            Console.WriteLine(wd("Raju"));    // Output: Hello Raju, welcome to the application.
+            Console.WriteLine(wd("Pooja"));   // Output: Hello Pooja, welcome to the application.
+            Console.WriteLine(wd("Praveen")); // Output: Hello Praveen, welcome to the application.
+            Console.ReadLine();
+        }
+
+  }
+
+  ```
+  <hr/>
+  </details>
+
+#### **`Expression-bodied`**
+
+- <details>
+    <summary>What are expression-bodied members in C#?⭐</summary>
+    <hr/>
+    - Introduced in C# 6.0 & 7.0
+    - Expression-bodied members allow you to implement members in a concise and readable way using a `single` expression instead of a full method body.
+
+    - General syntax for an expression-bodied member:
+    ```c#
+    member => expression;
+    ```
+    <hr/>
+  </details>
+- <details>
+    <summary>What are the benefits of using expression-bodied members?⭐</summary>
+    <hr/>
+    - **`Convenience`**: Allows writing methods inline, making the code shorter and easier to read.
+    - **`Reduced Typing`**: No need to specify the method name, return type, or access modifier.
+    - **`Code Clarity`**: Keeps related code together, reducing the need to look elsewhere for method definitions.
+    - **`Ideal for Short Methods`**: Suitable for methods that are only used once and have simple logic.
+    <hr/>
+  </details>
+- <details>
+    <summary>Which type members support expression-bodied definitions?⭐</summary>
+    <hr/>
+    - `Methods`: Supported since C# 6.0
+    - `Read-only Properties`: Supported since C# 6.0
+    - `Properties`: Supported since C# 7.0
+    - `Constructors`: Supported since C# 7.0
+    - `Finalizers`: Supported since C# 7.0
+    - `Indexers`: Supported since C# 7.0
+    - `Deconstructors`: Supported since C# 7.0
+    <hr/>
+  </details>
+- <details>
+    <summary>Provide an example of using expression-bodied members with a calculator.⭐</summary>
+    <hr/>
+    ```c#
+    internal class DelDemo5
+    {
+      static void Main()
+      {
+        CalculatorDelegate cd = (a, b, c) => Console.WriteLine($"Product of given numbers: {a * b * c}");
+        cd(10, 20, 30);
+        cd(40, 50, 60);
+        cd(70, 80, 90);
+
+        WishDelegate wd = user => $"Hello {user}, welcome to the application.";
+        Console.WriteLine(wd("Raju"));
+        Console.WriteLine(wd("Pooja"));
+        Console.WriteLine(wd("Praveen"));
+      }
+
+  }
+
+  ```
+  <hr/>
+  </details>
+- <details>
+    <summary>Provide an Class Definition Without and With Expression Bodied Members.⭐</summary>
+    <hr/>
+
+    Example of a class defined without expression-bodied members:
+
+    ```c#
+    internal class Circle1
+    {
+        double _Radius;
+        const float _Pi = 3.14f;
+
+        public Circle1(double Radius)
+        {
+            _Radius = Radius;
+        }
+
+        public void Deconstruct(out double Radius)
+        {
+            Radius = _Radius;
+        }
+
+        ~Circle1()
+        {
+            Console.WriteLine("Instance is destroyed.");
+        }
+
+        public float Pi
+        {
+            get { return _Pi; }
+        }
+
+        public double Radius
+        {
+            get { return _Radius; }
+            set { _Radius = value; }
+        }
+
+        public double GetRadius()
+        {
+            return _Pi * _Radius * _Radius;
+        }
+
+        public double GetPerimeter()
+        {
+            return 2 * _Pi * _Radius;
+        }
+
+  }
+
+  ```
+
+  Same class definition using expression-bodied members:
+
+  ```c#
+  internal class Circle2
+  {
+      const float _Pi = 3.14f;
+      double _Radius;
+
+      public Circle2(double Radius) => _Radius = Radius; // C# 7.0
+      public void Deconstruct(out double Radius) => Radius = _Radius; // C# 7.0
+      ~Circle2() => Console.WriteLine("Instance is destroyed."); // C# 7.0
+      public float Pi => _Pi; // C# 6.0
+      public double Radius // C# 7.0
+      {
+          get => _Radius;
+          set => _Radius = value;
+      }
+      public double GetRadius() => _Pi * _Radius * _Radius; // C# 6.0
+      public double GetPerimeter() => 2 * _Pi * _Radius; // C# 6.0
+  }
+  ```
+
+    <hr/>
+  </details>
+#### **`Anonymous types`**
+- <details>
+    <summary>What are anonymous types in C#?⭐</summary>
+    <hr/>
+    Anonymous types allow you to create an instance of a type without explicitly defining its class. It is created using the `new` keyword along with object initializer syntax.
+    <hr/>
+  </details>
+- <details>
+    <summary>How can you define an anonymous type?⭐</summary>
+    <hr/>
+    ```c#
+    var Emp = new { Id = 1001, Name = "Raju", Job = "Manager", Salary = 25000.00, Status = true };
+    ```
+    <hr/>
+  </details>
+- <details>
+    <summary>Which keywords can be used to hold an anonymous type?⭐</summary>
+    <hr/>
+    You can use either `var` or `dynamic` to hold an anonymous type.
+    <hr/>
+  </details>
+- <details>
+    <summary>Are the properties of anonymous types read-only?⭐</summary>
+    <hr/>
+   Yes, the properties of anonymous types are read-only. You cannot modify their values after the anonymous type is created.
+    <hr/>
+  </details>
+- <details>
+    <summary>How does the compiler handle the types of properties in anonymous types?⭐</summary>
+    <hr/>
+    The compiler infers the type of each property based on the assigned values. For example, `Id` is inferred as `int`, `Name` as `string`, `Salary` as `double`, and `Status` as `bool`.
+    <hr/>
+  </details>
+- <details>
+    <summary>Are anonymous types derived from the Object class?⭐</summary>
+    <hr/>
+    Yes, anonymous types are derived from the `Object` class and are sealed classes.
+    <hr/>
+  </details>
+- <details>
+    <summary>What is the scope of an anonymous type?⭐</summary>
+    <hr/>
+    The scope of an anonymous type is local to the method where it is defined.
+    <hr/>
+  </details>
+- <details>
+    <summary>Can you pass an anonymous type to another method?⭐</summary>
+    <hr/>
+     You usually cannot pass it directly, but you can pass it to methods that accept parameters of `dynamic` type.
+    <hr/>
+  </details>
+- <details>
+    <summary>Can anonymous types be nested?⭐</summary>
+    <hr/>
+    Yes, an anonymous type can have another anonymous type as a property.
+    <hr/>
+  </details>
+- <details>
+    <summary>Could you provide me an example for Testing Anonymous Types?⭐</summary>
+    <hr/>
+    ```c#
+    namespace OOPSProject
+    {
+        internal class TestAnonymousTypes
+        {
+            static void Main()
+            {
+                var Emp = new { Id = 1001, Name = "Raju", Job = "Manager", Salary = 50000.00, Status = true,
+                                Dept = new { Id = 10, Name = "Sales", Location = "Hyderabad" } };
+
+                Console.WriteLine(Emp.GetType() + "\n");
+                Printer.Print(Emp);
+                Console.ReadLine();
+            }
+        }
+
+        internal class Printer
+        {
+            public static void Print(dynamic d)
+            {
+                Console.WriteLine($"Employee Id: {d.Id}");
+                Console.WriteLine($"Employee Name: {d.Name}");
+                Console.WriteLine($"Employee Job: {d.Job}");
+                Console.WriteLine($"Employee Salary: {d.Salary}");
+                Console.WriteLine($"Employee Status: {d.Status}");
+                Console.WriteLine($"Department Id: {d.Dept.Id}");
+                Console.WriteLine($"Department Name: {d.Dept.Name}");
+                Console.WriteLine($"Department Location: {d.Dept.Location}");
+            }
+        }
+
+  }
+
+  ```
+  <hr/>
+  </details>
+#### **`Partial types`**
+- <details>
+    <summary>What are partial types in C#?⭐</summary>
+    <hr/>
+    Partial types allow you to split the definition of a class, struct, or interface over multiple source files.
+    <hr/>
+  </details>
+- <details>
+    <summary>Why would you want to use partial classes?⭐</summary>
+    <hr/>
+    - It enables multiple developers to work on different parts of the same class in large projects.
+    - It is used by Visual Studio for auto-generated code in Windows Forms Apps, WPF Apps, Web Forms Apps, etc.
+    <hr/>
+  </details>
+- <details>
+    <summary> What does the partial keyword indicate?⭐</summary>
+    <hr/>
+    It indicates that other parts of the class, struct, or interface can be defined elsewhere in the same namespace.
+    <hr/>
+  </details>
+- <details>
+    <summary>What are some important points to remember about partial types?⭐</summary>
+    <hr/>
+    - All parts must use the partial keyword.
+    - All parts must be present at compile time to form the final type.
+    - All parts must have the same accessibility level.
+    - If any part is declared as abstract, the whole type is considered abstract.
+    - If any part is declared as sealed, the whole type is considered sealed.
+    - If any part declares a base type, the whole type inherits that base type.
+    - Different parts can specify different base interfaces, and the final type will implement all of them.
+    - Members declared in one partial definition are accessible in all other parts.
+    - The final type is the combination of all the parts at compile time.
+    - The partial modifier cannot be applied to delegate or enumeration declarations.
+    <hr/>
+  </details>
+- <details>
+    <summary>Could me provide me an exampleto shoe the Partial class?⭐</summary>
+    <hr/>
+    `Part1.cs`
+    ```c#
+    namespace OOPSProject
+    {
+        partial class Parts
+        {
+            public void Method1()
+            {
+                Console.WriteLine("Part1 - Method1");
+            }
+
+            public void Method2()
+            {
+                Console.WriteLine("Part1 - Method2");
+            }
+        }
+
+  }
+
+  ````
+  `Part2.cs`
+  ```c#
+  namespace OOPSProject
+  {
+      partial class Parts
+      {
+          public void Method3()
+          {
+              Console.WriteLine("Part2 - Method3");
+          }
+
+          public void Method4()
+          {
+              Console.WriteLine("Part2 - Method4");
+          }
+      }
+  }
+  ````
+
+  `TestParts.cs`
+
+  ```c#
+  internal class TestParts
+  {
+      static void Main()
+      {
+          Parts p = new Parts();
+          p.Method1();
+          p.Method2();
+          p.Method3();
+          p.Method4();
+          Console.ReadLine();
+      }
+  }
+  ```
+
+    <hr/>
+  </details>
+
+#### **`Extension Methods`**
+- <details>
+    <summary>What does the partial keyword indicate?⭐</summary>
+    <hr/>
+    Add new methods to existing types without changing the original source code or creating a new derived type. They help extend classes, structures, or interfaces that you can’t modify directly.
+    <hr/>
+  </details>
+- <details>
+    <summary>How do Extension Methods enhance existing types?⭐</summary>
+    <hr/>
+    They allow you to add extra functionality to existing types, such as classes or structures, without needing their source code. This is useful for extending types defined in third-party libraries or system assemblies, where you don’t have direct access to modify the code.
+    <hr/>
+  </details>
+- <details>
+    <summary>Can Extension Methods be used with sealed classes and structures?⭐</summary>
+    <hr/>
+    Yes
+    <hr/>
+  </details>
+- <details>
+    <summary>Do Extension Methods require recompiling the original type?⭐</summary>
+    <hr/>
+    No
+    <hr/>
+  </details>
+- <details>
+    <summary>How do you create an Extension Method?⭐</summary>
+    <hr/>
+
+    To create an extension method:
+    1. Define a static method in a static class.
+    2. The first parameter of the method should start with the `this` keyword, followed by the type you want to extend.
+
+    `Example`:
+
+    ```c#
+    using System;
+
+    namespace ModifiersTest1
+    {
+        // Original class with a basic method
+        class Calculator
+        {
+            // Method to perform addition
+            public void Sum()
+            {
+                Console.WriteLine("22 + 5 => 27");
+            }
+        }
+
+        // Static class to define extension methods
+        static class Calculator2 
+        {
+            // Extension method to perform subtraction
+            // 'this Calculator c' binds this method to the Calculator class
+            public static void Sub(this Calculator c)
+            {
+                Console.WriteLine("22 - 5 => 17");
+            }
+        }
+
+        // Main program to demonstrate the use of the extension method
+        class Program2
+        {
+            static void Main(string[] args)
+            {
+                // Create an instance of the Calculator class
+                Calculator cal = new Calculator();
+
+                // Call the original Sum method
+                cal.Sum();
+
+                // Call the Sub method (extension method), which is now available as if it were part of Calculator
+                cal.Sub();  // Calling the extension method
+            }
+        }
+    }
+    ```
+
+    **Note**:
+
+    Even though `extension methods` are `defined as static`, they are `called` like `instance methods`. This is because the `this` keyword in the `first parameter binds the method to the type`, making it appear as an `instance method` on that type.
+    <hr/>
+  </details>
+- <details>
+    <summary>What happens if an extension method has the same name and signature as an existing method in the class?⭐</summary>
+    <hr/>
+
+    If an extension method and an existing method have the same name and signature, the existing method in the class takes precedence. The extension method won’t be called in this case.
+
+    <hr/>
+  </details>
+- <details>
+    <summary>Does the `this` parameter need to be passed explicitly?⭐</summary>
+    <hr/>
+
+    No, the parameter prefixed with `this` (like `this Calculator c`) is for binding purposes and does not need to be passed explicitly. All other parameters in the method are required to be passed as arguments.
+
+    **Example with additional parameters**:
+
+    ```c#
+    public static void Sub(this Calculator c, int x, string s)
+    {
+        Console.WriteLine($"{s}: {x}");
+    }
+    ```
+
+    <hr/>
+  </details>
+- <details>
+    <summary>Can Extension Methods be used with `struct` types?⭐</summary>
+    <hr/>
+
+    Yes, extension methods can be added to structures. For example, `Int32` is a structure in C#. Here’s how you can add an extension method to calculate the factorial of an integer:
+
+    ```c#
+    using System;
+    namespace ModifiersTest1
+    {
+        static class Calculator2 
+        {
+            public static int Fact(this Int32 x)
+            {
+                if (x == 1) return 1;
+                if (x == 2) return 2;
+                else return x * Fact(x - 1);
+            }
+        }
+        class Program2
+        {
+            static void Main(string[] args)
+            {
+                int i = 5;
+                Console.WriteLine(i.Fact());  // Output: 120
+            }
+        }
+    }
+    ```
+
+    <hr/>
+  </details>
+- <details>
+    <summary>Can Extension Methods be used with sealed classes like `string`?⭐</summary>
+    <hr/>
+
+    Yes, extension methods can be added to sealed classes, such as string, which is a sealed class in C#.
+
+    ```c#
+    using System;
+    namespace ModifiersTest1
+    {
+        static class Calculator2 
+        {
+            public static int Len(this String s)
+            {
+                return s.Length;
+            }
+        }
+        class Program2
+        {
+            static void Main(string[] args)
+            {
+                string name = "Mritunjay";
+                Console.WriteLine(name.Len());  // Output: 9
+            }
+        }
+    }
+    ```
+
+    <hr/>
+  </details>
+#### **`Diffrence bitwwen String & StringBuilder`**
+- <details>
+    <summary>What is the main difference between String and StringBuilder?⭐</summary>
+    <hr/>
+
+    - **`String`**: 
+      1. Strings are **immutable**. Once created, they cannot be modified. Any operation that seems to change a string (e.g., concatenation) actually creates a new string object in memory.
+
+      2. When you modify a `String` (e.g., `s = s + " world";`), a new string object is created to hold the new value. The original string remains unchanged, and memory is allocated for the new string. This leads to increased memory usage with repeated modifications.
+
+    - **`StringBuilder`**: 
+      1. StringBuilder is **mutable**, meaning its value can be modified without creating new objects and stored in memory. This makes it more memory-efficient for frequent string manipulations.
+
+      2. `StringBuilder` is mutable and does not create a new object with each modification. It manages memory dynamically, making it faster and more memory-efficient for situations with frequent changes.
+
+      3. When you initialize a `StringBuilder`, it allocates an initial memory space (e.g., 16 characters by default). If more space is needed, `StringBuilder` automatically increases its capacity in chunks. For example, if more than 16 characters are needed, it allocates additional memory, doubling to 32 characters.
+
+      4. Syntax or Example:- **`StringBuilder sb = new StringBuilder("Hello");`**
+
+      5. Since `StringBuilder` doesn’t create new instances with each modification, it saves memory and improves performance, making it ideal for situations where strings are modified frequently.
+
+    <hr/>
+  </details>
+- <details>
+    <summary>What namespaces are String and StringBuilder in?⭐</summary>
+    <hr/>
+
+    - **String**: `System` namespace.
+    - **StringBuilder**: `System.Text` namespace.
+
+    <hr/>
+  </details>
+- <details>
+    <summary>How can you compare the performance difference between `String` and `StringBuilder`?⭐</summary>
+    <hr/>
+
+    ```c#
+    using System;
+    using System.Text;
+    using System.Diagnostics;
+
+    namespace ModifiersTest1
+    {
+        class Program2
+        {
+            static void Main(string[] args)
+            {
+                string str1 = "Mritunjay";
+                Stopwatch sw1 = new Stopwatch();
+                sw1.Start();
+                for (int i = 0; i < 100000; i++)
+                {
+                    str1 = str1 + i;
+                }
+                sw1.Stop();
+
+                StringBuilder str2 = new StringBuilder("Hello");
+                Stopwatch sw2 = new Stopwatch();
+                sw2.Start();
+                for (int i = 0; i < 100000; i++)
+                {
+                    str2.Append(i);
+                }
+                sw2.Stop();
+
+                Console.WriteLine("Time taken by String: " + sw1.   ElapsedMilliseconds);
+                Console.WriteLine("Time taken by StringBuilder: " + sw2.    ElapsedMilliseconds);
+            }
+        }
+    }
+
+    //Output:
+    //Time taken by String: 42313 milliseconds
+    //Time taken by StringBuilder: 11 milliseconds
+
+    ```
+
+    <hr/>
+  </details>
+
+#### **`Multitherading`**
+
+[Multitherading](https://codecomponents.hashnode.dev/advance-c-sharp-proggramming-language#heading-multitherading)
+
+#### **`Constructor of the Thread Class`**
+
+[Constructor of the Thread Class](https://codecomponents.hashnode.dev/advance-c-sharp-proggramming-language#heading-constructor-of-the-thread-class)
+
+### **`Collections`**
 
 # **`SQL Server`**
 
