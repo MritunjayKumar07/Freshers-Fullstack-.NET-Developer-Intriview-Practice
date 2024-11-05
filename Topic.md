@@ -50,7 +50,9 @@
 - <details>
     <summary>What is CoreFX?⭐</summary>
     <hr/>
-    <p>CoreFX is the set of basic class libraries in .NET Core. It includes types for collections, file systems, console, JSON, XML, and other common functions. It is known as the **Unified Base Class Library** and **includes the `System.namespaces`** (and some Microsoft.namespaces).</p>
+    
+    CoreFX is the set of basic class libraries in .NET Core. It includes types for collections, file systems, console, JSON, XML, and other common functions. It is known as the **Unified Base Class Library** and **includes the `System.namespaces`** (and some Microsoft.namespaces).
+
     <hr/>
   </details>
 - <details>
@@ -380,31 +382,35 @@
 - <details>
     <summary>What does the using directive do?⭐</summary>
     <hr/>
+
     The `using` directive imports a namespace, allowing the program to use the types defined in that namespace without needing to prefix them with the namespace name every time.
+
     <hr/>
   </details>
 - <details>
     <summary>What is the using static directive, and why is it used?⭐</summary>
     <hr/>
-      The using static directive allows you to import a type and use all of its static members without needing to prefix them with the type name. This was introduced in C# 6.0.
-      <br/><br/>
-      Use the using static directive when you want to access static members of a class frequently in your code, which can make your code cleaner and easier to read.
-      <br/>
-      Example of the using static directive:
-      ```C#
-      using static System.Console;
 
-      class Example
-      {
-          static void Main()
-          {
-              WriteLine("Using static directive.");
-          }
-      }
+    The using static directive allows you to import a type and use all of its static members without needing to prefix them with the type name. This was introduced in C# 6.0.
 
-      ```
+    <br/><br/>
 
-      In this example, we imported System.Console using the using static directive, allowing us to call WriteLine directly without prefixing it with Console.
+    Use the using static directive when you want to access static members of a class frequently in your code, which can make your code cleaner and easier to read.
+
+    <br/>
+    
+    Example of the using static directive:
+    ```C#
+    using static System.Console;
+    class Example
+    {
+        static void Main()
+        {
+            WriteLine("Using static directive.");
+        }
+    }
+    ```
+    In this example, we imported System.Console using the using static directive, allowing us to call WriteLine directly without prefixing it with Console.
 
     <hr/>
   </details>
@@ -445,22 +451,27 @@
 - <details>
     <summary>What is the Difference Between Console.Write() and Console.WriteLine() ?⭐</summary>
     <hr/>
-    <p><b>Console.Write()</b>: Which is used to print the output & in console window after printing the line the cursor will remain in the same line</p>
-    <p><b>Console.WriteLine()</b>: Which is used to print the output & in console window after printing the line the cursor will move to next line</p>
+
+    - **`Console.Write()`** : Which is used to print the output & in console window after printing the line the cursor will remain in the same line.
+    - **`Console.WriteLine()`** : Which is used to print the output & in console window after printing the line the cursor will move to next line.
+
     <hr/>
   </details>
 - <details>
     <summary>What is the Difference Between Console.Read() and Console.ReadLine() and Console.ReadKey()?⭐</summary>
     <hr/>
-    <p><b>Console.Read()</b>: Reads the character from the input stream and returns its ASCII value as an integer. Which is used to read the single character from the console window in the form of character</p>
-    <p><b>Console.ReadLine()</b>: Reads a line of characters from the input stream and returns it as a string. Which is used to read the multiple character from the console window in the form of string</p>
-    <p><b>Console.ReadKey()</b>: Captures and displays a single key press. Which is used to stop console window / Output window until press the any key from the keyboard</p>
+
+    - **`Console.Read()`** : Reads the character from the input stream and returns its ASCII value as an integer. Which is used to read the single character from the console window in the form of character.
+    - **`Console.ReadLine()`** : Reads a line of characters from the input stream and returns it as a string. Which is used to read the multiple character from the console window in the form of string.
+    - **`Console.ReadKey()`** : Captures and displays a single key press. Which is used to stop console window / Output window until press the any key from the keyboard.
+
     <hr/>
   </details>
 - <details>
     <summary>What is output stream arguments?⭐</summary>
     <hr/>
-    <p>They are called output stream arguments. They are used in string formatting to insert values into a formatted string. Ex: 
+    
+    They are called output stream arguments. They are used in string formatting to insert values into a formatted string. Ex: 
     
     ```C#
     Console.WriteLine("The values of a and b are after swapping = {0}, {1}", a, b)
@@ -478,15 +489,17 @@
 - <details>
       <summary>What are the benefits of using output stream arguments in C#?⭐</summary>
       <hr/>
-      <li>Memory Efficiency: Using output stream arguments can save space in memory.</li>
-      <li>Reduced Memory Cost: This method reduces the cost of memory by avoiding the need to create multiple string concatenations.</li>
+
+      - **`Memory Efficiency`**: Using output stream arguments can save space in memory.
+      - **`Reduced Memory Cost`**: This method reduces the cost of memory by avoiding the need to create multiple string concatenations.
+
       <hr/>
   </details>
 - <details>
     <summary>Datatype?⭐</summary>
     <hr/>
 
-  ![DataType](./DataType.png)
+  ![DataType](./Q/CSharp/DataType)
 
     <hr/>
   </details>
@@ -577,7 +590,9 @@
 - <details>
     <summary>What are the common programming constructs in C#?⭐</summary>
     <hr/>
+
     **Note**: Constructs refer to basic programming elements or building blocks used to write a program.
+
     <li><b>Operators: </b>`Operators`</li>
     <li><b>Selections: </b>`if`, `if-else`, `Nested if`, `Multiple ifs`, `if-else ladder` and `switch case`</li>
     <li><b>Iterations: </b>`for loop`, `while loop`,`do-while loop` and `foreach loop`,</li>
@@ -594,7 +609,9 @@
 - <details>
     <summary>What are the Condition statement?Gice syntax and exaample⭐</summary>
     <hr/>
+
     - if, if-else, and switch
+
     ```c#
     //if ,else if & if-else
     int number = 10;
@@ -623,25 +640,32 @@
             break;
     }
     ```
+
     <hr/>
   </details>
 - <details>
     <summary>What are the Controller or Jump statement?⭐</summary>
     <hr/>
+
     `break`, `continue`, and `return`
+
     <hr/>
   </details>
 - <details>
     <summary>What are the iteration or looping statements ?⭐</summary>
     <hr/>
+
     `for`, `while`, `do-while`, and `foreach`
+
     <hr/>
   </details>
 
 - <details>
     <summary>What is an array in C#?⭐</summary>
     <hr/>
-    <p>An array is a user-defined data type used to store same type of multiple values under a single name. It makes it easier for developers to write code, as each element in the array can be accessed using an index. Arrays in C# start with an index of 0 (the lower bound) and end with Size-1 (the upper bound).</p>
+    
+    An array is a user-defined data type used to store same type of multiple values under a single name. It makes it easier for developers to write code, as each element in the array can be accessed using an index. Arrays in C# start with an index of 0 (the lower bound) and end with Size-1 (the upper bound).
+
     <hr/>
   </details>
 - <details>
@@ -682,65 +706,61 @@
     <ol>
     <li>Method 1:
 
-      ```C#
-      DataType[] ArrayName = new DataType[size];
-      ```
+    ```C#
+    DataType[] ArrayName = new DataType[size];
+    ```
 
-      Example:
+    Example:
 
-      ```C#
-      int[] A = new int[6];
-      A[0] = 40; A[1] = 80; A[2] = 60; A[3] = 10; A[4] = 90; A[5] = 30;
-      ```
+    ```C#
+    int[] A = new int[6];
+    A[0] = 40; A[1] = 80; A[2] = 60; A[3] = 10; A[4] = 90; A[5] = 30;
+    ```
 
     </li>
     <li>Method 2:
 
-      ```C#
-      DataType[] ArrayName = new DataType[size] {Initialising elements};
-      ```
+    ```C#
+    DataType[] ArrayName = new DataType[size] {Initialising elements};
+    ```
 
-      Example:
+    Example:
 
-      ```C#
-      int[] A = new int[6] { 40, 80, 60, 10, 90, 30 };
-      ```
+    ```C#
+    int[] A = new int[6] { 40, 80, 60, 10, 90, 30 };
+    ```
 
     </li>
     <li>Method 3:
 
-      ```C#
-      DataType[] ArrayName = new DataType[] {Initialising elements};
-      ```
+    ```C#
+    DataType[] ArrayName = new DataType[] {Initialising elements};
+    ```
 
-      Example:
+    Example:
 
-      ```C#
-      int[] A = new int[] { 40, 80, 60, 10, 90, 30 };
-      ```
+    ```C#
+    int[] A = new int[] { 40, 80, 60, 10, 90, 30 };
+    ```
 
     </li>
     <li>Method 4:
 
-      **Syntax**:
-      ```C#
-      <type>[] <array_name> = new <type>[length|size]
-      ```
+    **Syntax**:
 
-      **Example**:
+    ```C#
+    <type>[] <array_name> = new <type>[length|size]
+    ```
+    **Example**:
 
-      ```C#
-      int[] arr = new int[5]; //Declaration and Initialization with default values
-
-      //Or
-
-      int[] arr; //Declaration
-      arr = new int[5]; //Initialization with default values
-
-      //Or
-
-      int[] arr = { <list of values> }; //Declaration and Initialization with given set of values
-      ```
+    ```C#
+    int[] arr = new int[5]; //Declaration and Initialization with default values
+    //Or
+    int[] arr; //Declaration
+    arr = new int[5]; //Initialization with default values
+    //Or
+    int[] arr = { <list of values> }; //Declaration and Initialization with given set of values
+    ```
 
     </li>
     </ol>
@@ -852,9 +872,9 @@
     <li>Example: Array.Clear(B, 4, 7); clears elements from index 4 to 10 in array B.</li>
     </ul>
 
-      ```C#
-        Array.Clear(B, 4, 7);
-      ```
+    ```C#
+      Array.Clear(B, 4, 7);
+    ```
 
     <hr/>
   </details>
@@ -949,9 +969,11 @@
     <li>Syntax: Sort(Array)</li>
     <li>Example: Array.Sort(A); sorts the elements of array A.</li>
     </ul>
+
     ```C#
       Array.Sort(A);
     ```
+
     <hr/>
   </details>
 - <details>
@@ -1020,6 +1042,7 @@
 - <details>
     <summary>What is 2 dimension Arrays?⭐</summary>
     <hr/>
+
     -  These arrays will store data in the form of rows & columns, and are declared as following:
 
   **Syntax**:
@@ -1102,9 +1125,9 @@
   A[1, 0] = 50; A[1, 1] = 80; A[1, 2] = 25; A[1, 3] = 70;
   A[2, 0] = 40; A[2, 1] = 65; A[2, 2] = 20; A[2, 3] = 10;
 
-  ````
+  ```
 
-  ![alt text](2DArratMethod1.png)
+  ![alt text](./Q/CSharp/2DArratMethod1.png)
 
   </li>
   <li><b>Method 2:- </b>
@@ -1115,9 +1138,9 @@
 
   //Example:
   Int[ , ] A = new int[3, 4] { { 60, 35, 90, 15 },{ 50, 80, 25, 70 },{ 40, 65, 20, 10 } }
-  ````
+  ```
 
-  ![alt text](2DArratMethod2.png)
+  ![alt text](./Q/CSharp/2DArratMethod2.png)
 
     </li>
     <li><b>Method 3:- </b>
@@ -1130,7 +1153,7 @@
   Int[ , ] A = new int[ , ] { { 60, 35, 90, 15 },{ 50, 80, 25, 70 },{ 40, 65, 20, 10 } };
   ```
 
-  ![alt text](2DArratMethod3.png)
+  ![alt text](./Q/CSharp/2DArratMethod3.png)
 
     </li>
     
@@ -1143,55 +1166,58 @@
     <hr/>
     <ol>
     <li><b>Method-1</b><br/>
+
     Syntax: DataType[Main Array Notation][Inner Array Notation]<br/>Example: ArrayName = new DataType[Main Array Size][inner Array Notation];
 
-  ![alt text](JaggerArratMethod1.png)
+    ![alt text](./Q/CSharp/JaggerArratMethod1.png)
 
-  ```c#
-  int[][] A = new int[3][];
-  A[0] = new int[6];
-  A[1] = new int[5];
-  A[2] = new int[8];
+    ```c#
+    int[][] A = new int[3][];
+    A[0] = new int[6];
+    A[1] = new int[5];
+    A[2] = new int[8];
 
-  A[0][0] = 60; A[0][1] = 15; A[0][2] = 30; A[0][3] = 80; A[0][4] = 20; A[0][5] = 70;
-  A[1][0] = 25; A[1][1] = 45; A[1][2] = 15; A[1][3] = 85; A[1][4] = 55;
-  A[2][0] = 20; A[2][1] = 80; A[2][2] = 65; A[2][3] = 75; A[2][4] = 35; A[2][5] = 30;
-  A[2][6] = 80; A[2][7] = 10;
+    A[0][0] = 60; A[0][1] = 15; A[0][2] = 30; A[0][3] = 80; A[0][4] = 20; A[0][5] = 70;
+    A[1][0] = 25; A[1][1] = 45; A[1][2] = 15; A[1][3] = 85; A[1][4] = 55;
+    A[2][0] = 20; A[2][1] = 80; A[2][2] = 65; A[2][3] = 75; A[2][4] = 35; A[2][5] = 30;
+    A[2][6] = 80; A[2][7] = 10;
+    ```
+
+    </li>
+    <li><b>Method-2</b><br/>
+
+    **Syntax**: DataType[Main Array Notation][Inner Array Notation]<br/>
+    ArrayName = new DataType[Main Array Size][inner Array Notation];
+
+  ![alt text](./Q/CSharp/JaggerArratMethod2.png)
+
+    ```C#
+    int[][] A = new int[3][];
+    A[0] = new int[6] { 60, 15, 30, 80, 20, 70 };
+    A[1] = new int[5] { 25, 45, 15, 85, 55 };
+    A[2] = new int[8] { 20, 80, 65, 75, 35, 30, 80, 10 };
   ```
 
-      </li>
-      <li><b>Method-2</b><br/>
-      Syntax: DataType[Main Array Notation][Inner Array Notation]<br/>
-      ArrayName = new DataType[Main Array Size][inner Array Notation];
+    </li>
+    <li><b>Method-3</b><br/>
 
-  ![alt text](JaggerArratMethod2.png)
+    **Syntax**: DataType[Main Array Notation][Inner Array Notation]<br/>
+    ArrayName = new DataType[Main Array Size][inner Array Notation];
 
-  ```C#
-  int[][] A = new int[3][];
-  A[0] = new int[6] { 60, 15, 30, 80, 20, 70 };
-  A[1] = new int[5] { 25, 45, 15, 85, 55 };
-  A[2] = new int[8] { 20, 80, 65, 75, 35, 30, 80, 10 };
-  ```
+    ![alt text](./Q/CSharp/JaggerArratMethod3.png)
 
-      </li>
-      <li><b>Method-3</b><br/>
-      Syntax: DataType[Main Array Notation][Inner Array Notation]<br/>
-      ArrayName = new DataType[Main Array Size][inner Array Notation];
+    ```C#
+    int[][] A = new int[][]
+    {
+        new int[] { 60, 15, 30, 80, 20, 70 },
+        new int[] { 25, 45, 15, 85, 55 },
+        new int[] { 20, 80, 65, 75, 35, 30, 80, 10 }
+    };
 
-  ![alt text](JaggerArratMethod3.png)
+    ```
 
-  ```C#
-  int[][] A = new int[][]
-  {
-      new int[] { 60, 15, 30, 80, 20, 70 },
-      new int[] { 25, 45, 15, 85, 55 },
-      new int[] { 20, 80, 65, 75, 35, 30, 80, 10 }
-  };
-
-  ```
-
-  → In Real time Jagged array used in Card games & Maximally used in Gaming application.<br/>
-  → When Inner array size is changing then we use Jagged array
+    → In Real time Jagged array used in Card games & Maximally used in Gaming application.<br/>
+    → When Inner array size is changing then we use Jagged array
 
     </li>
     </ol>
@@ -1290,22 +1316,25 @@
 - <details>
     <summary>Why is implicit conversion not possible in type shortening?⭐</summary>
     <hr/>
+
     Implicit conversion is not possible in type shortening because the runtime must know how much memory and value size should be reduced. The `developer` must `specify` this `explicitly` using `explicit casting to ensure safe conversion`.
+
     <hr/>
   </details>
 - <details>
     <summary>What is the object type in C#?⭐</summary>
     <hr/>
+
     In C#, object is a reference type that can store any kind of data—whether it's an integer, a float, a string, or a boolean. Every data type in C# derives from the object class.
 
-  Examples of different data stored in an object:
+    Examples of different data stored in an object:
 
-  ```C#
-  object a = 10;         // Storing an integer
-  object b = 20.5;       // Storing a double
-  object c = "Welcome";  // Storing a string
-  object d = true;       // Storing a boolean
-  ```
+    ```C#
+    object a = 10;         // Storing an integer
+    object b = 20.5;       // Storing a double
+    object c = "Welcome";  // Storing a string
+    object d = true;       // Storing a boolean
+    ```
 
     <hr/>
   </details>
@@ -1328,34 +1357,39 @@
 - <details>
     <summary>How do you perform operations on data stored in an object?⭐</summary>
     <hr/>
+
     You need to convert the object data to its actual type before performing operations. Here's an example:
 
-  ```c#
-  object x = 10, y = 20;
-  object z = Convert.ToSingle(x) + Convert.ToSingle(y);
-  Console.WriteLine(z);
-  ```
+    ```c#
+    object x = 10, y = 20;
+    object z = Convert.ToSingle(x) + Convert.ToSingle(y);
+    Console.WriteLine(z);
+    ```
 
-  In this example, we use Convert.ToSingle() to convert the object variables x and y to float before adding them.
+    In this example, we use Convert.ToSingle() to convert the object variables x and y to float before adding them.
+
     <hr/>
   </details>
 
 - <details>
     <summary>Why is type conversion necessary for object types when performing operations?⭐</summary>
     <hr/>
+
     Type conversion is necessary because the object type can store any kind of data, and the compiler does not know the actual data type at compile time. To ensure safe operations, you must explicitly convert it to the correct type at runtime.
+
     <hr/>
   </details>
 - <details>
     <summary>What is Boxing in C#?⭐</summary>
     <hr/>
+
     Boxing is the process of converting a "value type" (e.g., int, float, char) to a "reference type" (specifically, an object). For example:
 
-  ```c#
-  int a = 10;
-  object O = a;    // Implicit Boxing
-  object X = (object)a;    //Explicit Boxing
-  ```
+    ```c#
+    int a = 10;
+    object O = a;    // Implicit Boxing
+    object X = (object)a;    //Explicit Boxing
+    ```
 
     <hr/>
   </details>
@@ -1363,12 +1397,13 @@
 - <details>
     <summary>What is Unboxing in C#?⭐</summary>
     <hr/>
+
     Unboxing is the process of converting a "boxed variable (stored as an object)" back to its "original value type". For example:
 
-  ```c#
-  object O = 10;
-  int b = (int)O;  // Explicit Unboxing
-  ```
+    ```c#
+    object O = 10;
+    int b = (int)O;  // Explicit Unboxing
+    ```
 
     <hr/>
   </details>
@@ -1376,19 +1411,20 @@
 - <details>
     <summary>What is the difference between Implicit and Explicit Boxing?⭐</summary>
     <hr/>
+
     Implicit Boxing happens automatically when you assign a value type to an object. Example:
 
-  ```c#
-  int a = 10;
-  object O = a;  // Implicit Boxing
-  ```
+    ```c#
+    int a = 10;
+    object O = a;  // Implicit Boxing
+    ```
 
-  Explicit Boxing is when you manually cast a value type to an object. Example:
+    Explicit Boxing is when you manually cast a value type to an object. Example:
 
-  ```c#
-  int a = 10;
-  object O = (object)a;  // Explicit Boxing
-  ```
+    ```c#
+    int a = 10;
+    object O = (object)a;  // Explicit Boxing
+    ```
 
     <hr/>
   </details>
@@ -1396,12 +1432,13 @@
 - <details>
     <summary>What type of conversion is supported by Unboxing?⭐</summary>
     <hr/>
+
     Unboxing supports only explicit conversion. You need to explicitly cast the object to the desired value type:
 
-  ```c#
-  object O = 10;
-  int b = (int)O;  // Explicit Unboxing
-  ```
+    ```c#
+    object O = 10;
+    int b = (int)O;  // Explicit Unboxing
+    ```
 
     <hr/>
   </details>
@@ -1428,14 +1465,18 @@
 - <details>
     <summary>Why is Boxing & Unboxing considered more costly than normal initialization?⭐</summary>
     <hr/>
+
     Boxing is costly because it involves copying the value from the stack to the heap, which takes more time and memory. It is said to be 20 times costlier than normal initialization.<br/><br/>
     Unboxing is 4 times costlier than normal initialization because it involves copying the value from the heap back to the stack.
+
     <hr/>
   </details>
 - <details>
     <summary>When should you use Boxing and Unboxing?⭐</summary>
     <hr/>
+
     Use Boxing and Unboxing only when necessary. They might be suitable in scenarios where other operations (like fetching data from a database or over a network) are even costlier. In general, avoid boxing and unboxing to maintain performance.
+
     <hr/>
   </details>
 - <details>
@@ -1455,19 +1496,21 @@
     <summary>What is the nullable data type?⭐</summary>
     <hr/>
 
-  - Nullable types allow value types to store `null`.
-  - Declared by adding ? to the data type (e.g., `int?`, `double?`).
-  - Useful for representing missing or undefined values.
-    For example if we want to store the null value in `int` then it will raise the compilation error, so to avoid the compilation error we use `?` postfix with data type (ex: int? a = null;).
+    - Nullable types allow value types to store `null`.
+    - Declared by adding ? to the data type (e.g., `int?`, `double?`).
+    - Useful for representing missing or undefined values.
+      For example if we want to store the null value in `int` then it will raise the compilation error, so to avoid the compilation error we use `?` postfix with data type (ex: int? a = null;).
 
-  ```c#
-  int? age = null;   // Nullable int
-  double? salary = null;   // Nullable double
-  bool? isAvailable = null;   // Nullable bool
-  ```
+    ```c#
+    int? age = null;   // Nullable int
+    double? salary = null;   // Nullable double
+    bool? isAvailable = null;   // Nullable bool
+    ```
 
   <br/><br/>
+
   If you use `?` it means this us nullable.
+
     <hr/>
   </details>
 
@@ -1614,8 +1657,10 @@
 - <details>
     <summary>What is constructor chaining?⭐</summary>
     <hr/>
-    <p> Using the 'this' keyword, you can call another constructor within the same class by matching the number and types of parameters are called constructor chaining.</p>
-    <pre>
+
+    Using the 'this' keyword, you can call another constructor within the same class by matching the number and types of parameters are called constructor chaining.
+
+    ```c#
     class A
     {
        public A() : this("mritunjay"){ }
@@ -1624,8 +1669,8 @@
            Console.WriteLine(nam);
        }
     }
-    </pre>
-    <p></p>
+    ```
+
     <hr/>
   </details>
 - <details>
@@ -2584,13 +2629,16 @@
 - <details>
     <summary>Can static fields be initialized through a constructor?⭐</summary>
     <hr/>
+
     Yes, `static` fields `can` be initialized through a constructor, but this is generally avoided. Static fields are shared among all instances of the class, and each new instance would overwrite the old value if initialized through the constructor.
+
     <hr/>
   </details>
 
 - <details>
     <summary>What is a readonly field, and how is it different from a constant field?⭐</summary>
     <hr/>
+
     A **readonly field** is declared using the `readonly` keyword and can be initialized either at the time of declaration or within a constructor. `Once initialized, it cannot be modified`. Unlike constants, readonly fields can have different values for each instance of a class. In contrast, constant fields hold a fixed value for the entire class.
 
   Example:
@@ -2609,11 +2657,12 @@
 - <details>
     <summary>What is the Difference bitween Constant & Readonly fields?⭐</summary>
     <hr/>
+
     - **Constant fields**: Single fixed value for the whole class.
 
-  - **Readonly fields**: Value can vary each instance but cannot be changed after initialization.
+    - **Readonly fields**: Value can vary each instance but cannot be changed after initialization.
 
-  The difference between constant and readonly fields is constant is a single fixed value for the whole class whereas readonly is a fixed value specific to each instance of the class.
+    The difference between constant and readonly fields is constant is a single fixed value for the whole class whereas readonly is a fixed value specific to each instance of the class.
 
     <hr/>
   </details>
@@ -2630,7 +2679,7 @@
     
     - **Readonly fields**: Initialized either at declaration or in a constructor, and they maintain a separate copy for each instance but cannot be modified after initialization.
 
-  **Note**: While accessing fields of a class from other classes use class name for accessing static and constant fields whereas use instance of class for accessing non-static and readonly fields
+    **Note**: While accessing fields of a class from other classes use class name for accessing static and constant fields whereas use instance of class for accessing non-static and readonly fields
 
     <hr/>
   </details>
@@ -2639,11 +2688,12 @@
     <summary>How can you access static, constant, and non-static fields in or outside of the class?⭐</summary>
     <hr/>
 
-  - **Static fields**: Accessed using the class name directly (inside or outside the class).
+    - **Static fields**: Accessed using the class name directly (inside or outside the class).
 
-  - **Constant fields**: Accessed using the class name directly (inside or outside the class).
+    - **Constant fields**: Accessed using the class name directly (inside or outside the class).
 
-  - **Non-static fields**: Accessed using an instance of the class (inside or outside the class).
+    - **Non-static fields**: Accessed using an instance of the class (inside or outside the class).
+
     <hr/>
   </details>
 
@@ -2652,59 +2702,59 @@
     <hr/>
     - **Static constructor**: Called once when the class is loaded; cannot have parameters.
 
-  - **Non-static constructor**: Called each time an instance is created; can have parameters.
+    - **Non-static constructor**: Called each time an instance is created; can have parameters.
 
-  | **Feature**                                       | **Non-Static Constructor**                        | **Static Constructor**                                    |
-  | ------------------------------------------------- | ------------------------------------------------- | --------------------------------------------------------- |
-  | **Declaration**                                   | Regular constructor, no `static` keyword          | Declared with the `static` keyword                        |
-  | **Call Type**                                     | Called explicitly when creating an instance       | Called implicitly, no need to create an instance          |
-  | **Purpose**                                       | Initializes non-static and readonly fields        | Initializes static and constant fields                    |
-  | **Execution Timing**                              | Executed when an instance of the class is created | Executed once when the class is first accessed            |
-  | **Execution Frequency**                           | Called every time a new instance is created       | Called only once during the class's lifecycle             |
-  | **Parameterized**                                 | Can have parameters                               | Cannot be parameterized                                   |
-  | **Execution Order**                               | Executed after the static constructor (if any)    | First block of code to execute in the class               |
-  | **Presence in Class with No Constructor Defined** | Automatically added by the compiler unless static | Only added by the compiler if the class has static fields |
-  | **Use Case Example**                              | `Constructors()`                                  | `static Constructors()`                                   |
+    | **Feature**                                       | **Non-Static Constructor**                        | **Static Constructor**                                    |
+    | ------------------------------------------------- | ------------------------------------------------- | --------------------------------------------------------- |
+    | **Declaration**                                   | Regular constructor, no `static` keyword          | Declared with the `static` keyword                        |
+    | **Call Type**                                     | Called explicitly when creating an instance       | Called implicitly, no need to create an instance          |
+    | **Purpose**                                       | Initializes non-static and readonly fields        | Initializes static and constant fields                    |
+    | **Execution Timing**                              | Executed when an instance of the class is created | Executed once when the class is first accessed            |
+    | **Execution Frequency**                           | Called every time a new instance is created       | Called only once during the class's lifecycle             |
+    | **Parameterized**                                 | Can have parameters                               | Cannot be parameterized                                   |
+    | **Execution Order**                               | Executed after the static constructor (if any)    | First block of code to execute in the class               |
+    | **Presence in Class with No Constructor Defined** | Automatically added by the compiler unless static | Only added by the compiler if the class has static fields |
+    | **Use Case Example**                              | `Constructors()`                                  | `static Constructors()`                                   |
 
-  **`Example Scenarios`**:
+    **`Example Scenarios`**:
 
-  1. **Case 1: No Fields**
+    1. **Case 1: No Fields**
 
-     ```csharp
-     class Test {}
-     ```
+       ```csharp
+       class Test {}
+       ```
 
-     _After compilation_: A non-static constructor will be added.
+       _After compilation_: A non-static constructor will be added.
 
-  2. **Case 2: Non-Static Field**
+    2. **Case 2: Non-Static Field**
 
-     ```csharp
-     class Test { int i = 10; }
-     ```
+       ```csharp
+       class Test { int i = 10; }
+       ```
 
-     _After compilation_: A non-static constructor will be added.
+       _After compilation_: A non-static constructor will be added.
 
-  3. **Case 3: Static Field**
+    3. **Case 3: Static Field**
 
-     ```csharp
-     class Test { static int i = 100; }
-     ```
+       ```csharp
+       class Test { static int i = 100; }
+       ```
 
-     _After compilation_: Both static and non-static constructors will be added.
+       _After compilation_: Both static and non-static constructors will be added.
 
-  4. **Case 4: Static Class with No Fields**
+    4. **Case 4: Static Class with No Fields**
 
-     ```csharp
-     static class Test {}
-     ```
+       ```csharp
+       static class Test {}
+       ```
 
-     _After compilation_: No constructor will be added.
+       _After compilation_: No constructor will be added.
 
-  5. **Case 5: Static Class with Static Field**
-     ```csharp
-     static class Test { static int i = 100; }
-     ```
-     _After compilation_: A static constructor will be added.
+    5. **Case 5: Static Class with Static Field**
+       ```csharp
+       static class Test { static int i = 100; }
+       ```
+       _After compilation_: A static constructor will be added.
 
     <hr/>
   </details>
@@ -2714,16 +2764,16 @@
     <hr/>
     A static class is a class `declared` with the `static` keyword. It can only `contain static members`, and you `cannot create an instance` of a static class. Static classes are `not required to have instances because all their members belong to the class itself`. The `Console` class is a well-known example of a `static class`.
 
-  Example:
+    Example:
 
-  ```c#
-  static class Class1
-  {
-      // Static members only
-  }
-  ```
+    ```c#
+    static class Class1
+    {
+        // Static members only
+    }
+    ```
 
-  **Note**: `Console` is a static class in our `Libraries` so every member of `Console` class is a `static` member only and to check that, right click on `Console` class in `Visual Studio` and choose the option “`Go to definition`” which will open `“Metadata”` or `“Source Code”` of that class.
+    **Note**: `Console` is a static class in our `Libraries` so every member of `Console` class is a `static` member only and to check that, right click on `Console` class in `Visual Studio` and choose the option “`Go to definition`” which will open `“Metadata”` or `“Source Code”` of that class.
 
     <hr/>
   </details>
@@ -2733,10 +2783,10 @@
     <hr/>
     An entity is any living or non-living object that has a set of attributes associated with it. Entities are fundamental components in application development, and they represent real-world objects in the application. Each entity can be a student, teacher, customer, employee, etc., depending on the application. Entities are managed and handled during application development.
 
-  **Example**:
+    **Example**:
 
-  - In a **School Application**, entities could include: `Student`, `Teacher`, and `Book`.
-  - In a **Retail Business Application**, entities could include: `Customer`, `Employee`, `Product`, and `Supplier`.
+    - In a **School Application**, entities could include: `Student`, `Teacher`, and `Book`.
+    - In a **Retail Business Application**, entities could include: `Customer`, `Employee`, `Product`, and `Supplier`.
 
     <hr/>
   </details>
@@ -2746,11 +2796,12 @@
     <hr/>
     The attributes of an entity are the characteristics or properties associated with that entity. For each identified entity, you list out the specific attributes. These attributes become the fields (columns) in a database table.
 
-  Example:-
+    Example:-
 
-  - **Student** entity attributes: `Id`, `Name`, `Address`, `Phone`, `Class`, `Section`, `Fees`, `Marks`, `Grade`.
-  - **Teacher** entity attributes: `Id`, `Name`, `Address`, `Phone`, `Qualification`, `Subject`, `Salary`, `Designation`.
-  - **Customer** entity attributes: `Id`, `Name`, `Address`, `Phone`, `Balance`, `Account Type`, `EmailId`, `PanCard`, `Aadhar`.
+    - **Student** entity attributes: `Id`, `Name`, `Address`, `Phone`, `Class`, `Section`, `Fees`, `Marks`, `Grade`.
+    - **Teacher** entity attributes: `Id`, `Name`, `Address`, `Phone`, `Qualification`, `Subject`, `Salary`, `Designation`.
+    - **Customer** entity attributes: `Id`, `Name`, `Address`, `Phone`, `Balance`, `Account Type`, `EmailId`, `PanCard`, `Aadhar`.
+
     <hr/>
   </details>
 - <details>
@@ -2758,93 +2809,96 @@
     <hr/>
     To design an application that manages entities and attributes, follow these steps:
 
-  1. **Define a class** for each entity.
-  2. Each **property** in the class should represent an attribute of the entity.
-  3. Each **instance** of the class should represent a unique instance of the entity.
+    1. **Define a class** for each entity.
+    2. Each **property** in the class should represent an attribute of the entity.
+    3. Each **instance** of the class should represent a unique instance of the entity.
 
-  **Example**: For the `Student` entity, you would define a class like this:
+    **Example**: For the `Student` entity, you would define a class like this:
 
-  ```c#
-  class Student
-  {
-      public int Id { get; set; }
-      public string Name { get; set; }
-      public string Address { get; set; }
-      public string Phone { get; set; }
-      public string Class { get; set; }
-      public string Section { get; set; }
-      public decimal Fees { get; set; }
-      public int Marks { get; set; }
-      public string Grade { get; set; }
-  }
-  ```
+    ```c#
+    class Student
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Address { get; set; }
+        public string Phone { get; set; }
+        public string Class { get; set; }
+        public string Section { get; set; }
+        public decimal Fees { get; set; }
+        public int Marks { get; set; }
+        public string Grade { get; set; }
+    }
+    ```
 
     <hr/>
   </details>
+
 #### **`Inheritance`**
+
 - <details>
     <summary>How do you define and test inheritance in C#?⭐</summary>
     <hr/>
+
     To define inheritance, you create a child class that extends the parent class using the colon **`:`** symbol. The child class can then consume the public or protected members of the parent class.
 
-  Example:
+    Example:
 
-  ```c#
-  internal class Class1
-  {
-      public Class1()
-      {
-          Console.WriteLine("Class1 constructor is called.");
-      }
+    ```c#
+    internal class Class1
+    {
+        public Class1()
+        {
+            Console.WriteLine("Class1 constructor is called.");
+        }
 
-      public void Test1()
-      {
-          Console.WriteLine("Method 1");
-      }
+        public void Test1()
+        {
+            Console.WriteLine("Method 1");
+        }
 
-      public void Test2()
-      {
-          Console.WriteLine("Method 2");
-      }
-  }
+        public void Test2()
+        {
+            Console.WriteLine("Method 2");
+        }
+    }
 
-  internal class Class2 : Class1
-  {
-      public Class2()
-      {
-          Console.WriteLine("Class2 constructor is called.");
-      }
+    internal class Class2 : Class1
+    {
+        public Class2()
+        {
+            Console.WriteLine("Class2 constructor is called.");
+        }
 
-      public void Test3()
-      {
-          Console.WriteLine("Method 3");
-      }
+        public void Test3()
+        {
+            Console.WriteLine("Method 3");
+        }
 
-      public void Test4()
-      {
-          Console.WriteLine("Method 4");
-      }
+        public void Test4()
+        {
+            Console.WriteLine("Method 4");
+        }
 
-      static void Main()
-      {
-          Class2 c = new Class2();
-          c.Test1(); // Inherited from Class1
-          c.Test2(); // Inherited from Class1
-          c.Test3(); // Defined in Class2
-          c.Test4(); // Defined in Class2
-          Console.ReadLine();
-      }
-  }
+        static void Main()
+        {
+            Class2 c = new Class2();
+            c.Test1(); // Inherited from Class1
+            c.Test2(); // Inherited from Class1
+            c.Test3(); // Defined in Class2
+            c.Test4(); // Defined in Class2
+            Console.ReadLine();
+        }
+    }
 
-  /*Output:
-  Class1 constructor is called.
-  Class2 constructor is called.
-  Method 1
-  Method 2
-  Method 3
-  Method 4
-  */
-  ```
+    /*Output:
+    Class1 constructor is called.
+    Class2 constructor is called.
+    Method 1
+    Method 2
+    Method 3
+    Method 4
+    */
+    ```
 
     <hr/>
   </details>
@@ -2855,28 +2909,31 @@
     <summary>Diffrence bitween Method Overloading vs Method Overriding⭐</summary>
     <hr/>
 
-  | **Aspect**              | **Method Overloading**                                         | **Method Overriding**                                                                 |
-  | ----------------------- | -------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
-  | **Definition**          | Multiple methods with the same name but different parameters   | A child class re-implements a parent class's method with the same name and parameters |
-  | **Where performed**     | Can be performed within a class or across parent-child classes | Only between parent-child classes                                                     |
-  | **Permission required** | No permission from parent class needed                         | Parent class must declare the method as `virtual` for overriding                      |
-  | **Behavior**            | Provides multiple behaviors for a method                       | Changes the behavior of a method defined in the parent class                          |
+    | **Aspect**              | **Method Overloading**                                         | **Method Overriding**                                                                 |
+    | ----------------------- | -------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+    | **Definition**          | Multiple methods with the same name but different parameters   | A child class re-implements a parent class's method with the same name and parameters |
+    | **Where performed**     | Can be performed within a class or across parent-child classes | Only between parent-child classes                                                     |
+    | **Permission required** | No permission from parent class needed                         | Parent class must declare the method as `virtual` for overriding                      |
+    | **Behavior**            | Provides multiple behaviors for a method                       | Changes the behavior of a method defined in the parent class                          |
 
     <hr/>
   </details>
 - <details>
     <summary>Can we re-implement any parent classes methods under the child classes without declaring them as virtual?⭐</summary>
     <hr/>
+
     Yes, this can be done through:
 
   - **Overriding** (requires the method to be virtual)
 
   - **Hiding/Shadowing** (works even if the parent method is not virtual)
+
     <hr/>
   </details>
 - <details>
     <summary>What approaches are available to call parent class methods from the child class after re-implementing them?⭐</summary>
     <hr/>
+
     **There are two ways**:
       1. `Create a parent class instance`:
         You can call parent methods directly.
@@ -2900,7 +2957,7 @@
         }
         ```
 
-  **Note**: - **LoadParent** - `public void Test()` - `public virtual void Show()` - `public void Display()`
+    **Note**: - **LoadParent** - `public void Test()` - `public virtual void Show()` - `public void Display()`
 
       - **LoadChild : LoadParent**
         - `public void Test(int i)` => Overloading
@@ -2915,43 +2972,51 @@
     <summary>What are the differences between Static and Dynamic Polymorphism?⭐</summary>
     <hr/>
 
-  | **Static Polymorphism**             | **Dynamic Polymorphism**                               |
-  | ----------------------------------- | ------------------------------------------------------ |
-  | Occurs at compile-time              | Occurs at runtime                                      |
-  | Achieved through method overloading | Achieved through method overriding                     |
-  | Inheritance is not required         | Inheritance is required                                |
-  | Happens within the same class       | Happens between parent-child classes                   |
-  | Does not require reference creation | Requires parent class reference through child instance |
+    | **Static Polymorphism**             | **Dynamic Polymorphism**                               |
+    | ----------------------------------- | ------------------------------------------------------ |
+    | Occurs at compile-time              | Occurs at runtime                                      |
+    | Achieved through method overloading | Achieved through method overriding                     |
+    | Inheritance is not required         | Inheritance is required                                |
+    | Happens within the same class       | Happens between parent-child classes                   |
+    | Does not require reference creation | Requires parent class reference through child instance |
 
     <hr/>
   </details>
+
 #### **`Sealed Class & Method`**
 
 - <details>
     <summary>What is a Sealed Class?⭐</summary>
     <hr/>
+
     A Sealed Class is a class that is declared using the `sealed` modifier, which `prevents` it from being inherited by other classes. For example:
+
     ```c#
     sealed class Class1
     {
        // Members
     }
     ```
+
     In this example, Class1 is a sealed class, meaning it cannot be used as a base class for inheritance.
+    
     <hr/>
   </details>
 - <details>
     <summary>Can a Sealed Class be inherited?⭐</summary>
     <hr/>
+
     No, a Sealed Class cannot be inherited by any other class. Attempting to inherit from a sealed class results in a compile-time error. For example:`class Class2 : Class1 => Invalid`.
 
     Here, `Class2` attempting to inherit `Class1` will be invalid since `Class1` is sealed.
+
     <hr/>
   </details>
 
 - <details>
     <summary>Can the members of a Sealed Class be used in other classes?⭐</summary>
     <hr/>
+
     Yes, the members of a Sealed Class can still be used in other classes by creating an instance of the sealed class. For example:`String str = new String("example");`
 
     ```c#
@@ -2979,89 +3044,102 @@
     ```
     
     Here, `String` is a sealed class, **`but you can still create an instance of it and use its members`**.
+
     <hr/>
   </details>
 - <details>
     <summary>What is a Sealed Method?⭐</summary>
     <hr/>
+
     A Sealed Method is a method that, `once declared`, `cannot be overridden` in `any derived class`. **`By default, methods in a class are sealed`** `unless they are explicitly declared` **`virtual`**. A sealed method is used to stop further overrides of a method in a derived class.
+
     <hr/>
   </details>
 - <details>
     <summary>Can any method of a class be overridden by a child class?⭐</summary>
     <hr/>
+
     No, only methods that are explicitly marked as `virtual` in the parent class can be overridden by a child class. Methods that are not `virtual` cannot be overridden. For example:
 
-  ```c#
-  public virtual void Show() { /* ... */ }
-  ```
+    ```c#
+    public virtual void Show() { /* ... */ }
+    ```
 
-  This `Show` method can be overridden in any child class.
+    This `Show` method can be overridden in any child class.
+
     <hr/>
   </details>
 - <details>
     <summary>Can a child class seal an overridden method?⭐</summary>
     <hr/>
+
     Yes, a child class can seal an overridden method using the sealed modifier to prevent further overriding by any classes derived from it. For example:
 
-  ```c#
-  class Class2 : Class1
-  {
-     public sealed override void Show() { /* Child Implementation */ }
-  }
-  ```
+    ```c#
+    class Class2 : Class1
+    {
+       public sealed override void Show() { /* Child Implementation */ }
+    }
+    ```
 
-  In this case, any further derived class (like `Class3`) cannot override the `Show` method.
+    In this case, any further derived class (like `Class3`) cannot override the `Show` method.
+
     <hr/>
   </details>
 
 - <details>
     <summary>Can a method be sealed without being overridden first?⭐</summary>
     <hr/>
+
     No, a method must first be declared as `virtual` and then overridden in a child class before it can be sealed. The `sealed` modifier can only be applied to methods that override a `virtual` or `abstract` method.
+
     <hr/>
   </details>
 - <details>
     <summary>When to apply sealed modifier?⭐</summary>
     <hr/>
+    
     The sealed modifier can only be applied to methods that already override a virtual or abstract method from a base class. This means you can only "seal" a method that was initially meant to be overridden, preventing further overrides in any derived classes.
 
-  **Example**:
+    **Example**:
 
-  ```c#
-  class Parent
-  {
-      public virtual void Show() { /* can be overridden */ }
-  }
+    ```c#
+    class Parent
+    {
+        public virtual void Show() { /* can be overridden */ }
+    }
 
-  class Child : Parent
-  {
-      public sealed override void Show() { /* cannot be overridden further */ }
-  }
-  ```
+    class Child : Parent
+    {
+        public sealed override void Show() { /* cannot be overridden further */ }
+    }
+    ```
 
-  n this case, `Child` can override `Show`, but any class inheriting from `Child` cannot override `Show` again because it’s sealed.
+    In this case, `Child` can override `Show`, but any class inheriting from `Child` cannot override `Show` again because it’s sealed.
+
     <hr/>
   </details>
 
 - <details>
     <summary>Can a method sealed in one class be overridden in a class further down the hierarchy?⭐</summary>
     <hr/>
+
     No, once a method is sealed in a class, it cannot be overridden in any class further down the inheritance hierarchy. For example:
 
-  ```c#
-  class Class2 : Class1
-  {
-     public sealed override void Show() { /* Implementation */ }
-  }
+    ```c#
+    class Class2 : Class1
+    {
+       public sealed override void Show() { /* Implementation */ }
+    }
 
-  class Class3 : Class2
-  {
-     public override void Show() => Invalid // This will cause a compile-time error.
-  }
-  ```
+    class Class3 : Class2
+    {
+       public override void Show() => Invalid // This will cause a compile-time error.
+    }
+    ```
 
-  Here, `Class3` cannot override the `Show` method because it has been sealed in `Class2`.
+    Here, `Class3` cannot override the `Show` method because it has been sealed in `Class2`.
+
     <hr/>
   </details>
 - <details>
@@ -3071,19 +3149,25 @@
   - **Sealed Class**: You use a sealed class when you want to prevent other developers from extending or modifying its behavior through inheritance. This is often used for security, stability, or optimization reasons.
 
   - **Sealed Method**: You use a sealed method when you want to allow a method to be overridden once (in a child class), but prevent further overriding by future subclasses.
+
     <hr/>
   </details>
+
 #### **`Abstract Method`**
+
 - <details>
     <summary>What is the difference between abstract methods and virtual methods?⭐</summary>
     <hr/>
+
     - **Abstract methods**: Must be implemented by the child class and have no implementation in the parent class.
     - **Virtual methods**: Have an implementation in the parent class, but the child class can override it if needed.
+
     <hr/>
   </details>
 - <details>
     <summary>Give me example of Abstract class & method?⭐</summary>
     <hr/>
+
     ```c#
       public abstract class Figure
       {
@@ -3160,6 +3244,7 @@
         }
       }
   ```
+
   <hr/>
   </details>
 
@@ -3173,12 +3258,15 @@
   - **Abstract Class**: Contains both abstract and non-abstract members.
 
   - **Interface**: Contains only abstract members.
+
     <hr/>
   </details>
 - <details>
     <summary>Why does .NET not support multiple inheritance through classes, but supports it through interfaces?⭐</summary>
     <hr/>
+
      .NET does not support multiple inheritance via classes due to **ambiguity issues**(Compiler confusion). However, multiple inheritance is supported through interfaces because a child class only implements the abstract members of the interfaces without consuming them.
+
     <hr/>
   </details>
 - <details>
@@ -3257,39 +3345,41 @@
 - <details>
     <summary>Can an interface be instantiated?⭐</summary>
     <hr/>
+
     **No, an interface cannot be instantiated directly**. However, you can create a reference of an interface and assign it to an instance of a class that implements the interface. This allows you to use the interface's methods as defined by the implementing class. 
     ```c#
     public interface IShape
-  {
-      void Draw();
-  }
+    {
+        void Draw();
+    } 
 
-  public class Circle : IShape
-  {
-      public void Draw()
-      {
-          Console.WriteLine("Drawing a circle.");
-      }
-  }
+    public class Circle : IShape
+    {
+        public void Draw()
+        {
+            Console.WriteLine("Drawing a circle.");
+        }
+    } 
 
-  class Program
-  {
-      static void Main()
-      {
-          // Cannot do: IShape shape = new IShape(); // Error: cannot instantiate an interface
+    class Program
+    {
+        static void Main()
+        {
+            // Cannot do: IShape shape = new IShape(); // Error: cannot instantiate an interface  
 
-          // Correct usage
-          IShape shape = new Circle();  // Interface reference pointing to a Circle instance
-          shape.Draw();  // Calls the Draw method of Circle
-      }
-  }
+            // Correct usage
+            IShape shape = new Circle();  // Interface reference pointing to a Circle instance
+            shape.Draw();  // Calls the Draw method of Circle
+        }
+    }
 
-      ```
-      <hr/>
+    ```
+    <hr/>
   </details>
 - <details>
     <summary>Provide an example of implementing multiple interfaces in .NET. ⭐</summary>
     <hr/>
+
     ```c#
     internal interface Interface1  
     {  
@@ -3338,12 +3428,14 @@
     }
 
     ```
+
    <hr/>
   </details>
 
 - <details>
     <summary>How can a class inherit from an interface and a base class at the same time in C#?⭐</summary>
     <hr/>
+
      In C#, a class can inherit from one base class and implement one or more interfaces simultaneously. This is achieved by specifying the base class first, followed by the interfaces in the class declaration. For example:
 
   ```c#
@@ -3358,13 +3450,16 @@
   ```
 
   In this example, DerivedClass inherits from BaseClass and implements the IExample interface.
+
     <hr/>
   </details>
 #### **`Structure`**
 - <details>
     <summary>What is Structure?⭐</summary>
     <hr/>
+
     Structure is also a user-defined type like a class and interface which can contain only non-abstract members. A structure can contain all the members what a class can contain like constructor, static constructor, constants, fields, methods, properties, indexers, operators, and events.
+
     <hr/>
   </details>
 - <details>
@@ -3497,12 +3592,15 @@
 - <details>
     <summary>How can a structure be consumed in C#?⭐</summary>
     <hr/>
+
     A structure and its members can be consumed from another structure or a class by creating an instance of the structure because structures do not support inheritance. This means that you cannot create a new structure based on an existing one.
+
     <hr/>
   </details>
 - <details>
     <summary>What happens if you do not initialize the fields of a structure?⭐</summary>
     <hr/>
+
     If you do not explicitly initialize the fields of a structure in C#, they will automatically have default values when you create an instance of that structure. Here are the default values for common data types:
       - Integer types (int, short, long): 0
       - Floating-point types (float, double): 0.0
@@ -3574,19 +3672,26 @@
 - <details>
     <summary>Can you create a default constructor in a structure?⭐</summary>
     <hr/>
+
     No, a structure cannot have a default constructor explicitly defined. The compiler provides a default constructor that initializes all fields to their default values. However, you can create a parameterized constructor.
+
     <hr/>
   </details>
+
 #### **`Access Specifiers`**
+
 - <details>
     <summary>What are Access Specifiers in C#?⭐</summary>
     <hr/>
+    
     Access specifiers define the scope of types and their members, determining who can access them and who cannot. They are used to control the visibility of classes and members within the code.
+
     <hr/>
   </details>
 - <details>
     <summary>How many Access Specifiers are supported in C#?⭐</summary>
     <hr/>
+
     1. **`Private`**: accessible only to the current class.
     2. **`Internal`**: to all the classes in the current assembly(with-in the project) only.
     3. **`Protected`**: to the current class and to it’s child classes.
@@ -3596,44 +3701,53 @@
     7. **`File`**: within the file scope.
 
   **Note**: members that are defined in a type with any scope or specifier are always accessible with in the type, restrictions come into picture only when we try to access them outside of the type.
+
     <hr/>
   </details>
 
 - <details>
     <summary>What is the default access modifier of inside the namespace?⭐</summary>
     <hr/>
+
     Internal (first level) 
+
     <hr/>
   </details>
 - <details>
     <summary>What is the default access specifier for members in a class or structure?⭐</summary>
     <hr/>
+
     The default scope for members inside a class or structure is Private unless explicitly specified otherwise.
+
     <hr/>
   </details>
 - <details>
     <summary>What is the default access modifier of constructor?⭐</summary>
     <hr/>
+
     Default access modifier of constructor is same access modifier of class. By default Internal. It means if class access modifire is private or internal or etc same as access modifier is constructor, it is connected to class.
+
     <hr/>
   </details>
 - <details>
     <summary>What is the default access specifier for a type?⭐</summary>
     <hr/>
+
     The default scope for a type (such as a class or struct) is Internal in C#.
+
     <hr/>
   </details>
 - <details>
     <summary>Whic access modifier where accessable?⭐</summary>
     <hr/>
 
-  | Case                             | Private | Internal | Protected | Private Protected | Protected Internal | Public |
-  | -------------------------------- | ------- | -------- | --------- | ----------------- | ------------------ | ------ |
-  | Same Class, Same Project         | Yes     | Yes      | Yes       | Yes               | Yes                | Yes    |
-  | Child Class, Same Project        | No      | Yes      | Yes       | Yes               | Yes                | Yes    |
-  | Non-Child Class, Same Project    | No      | Yes      | No        | No                | Yes                | Yes    |
-  | Child Class, Another Project     | No      | No       | Yes       | No                | Yes                | Yes    |
-  | Non-Child Class, Another Project | No      | No       | No        | No                | No                 | Yes    |
+  | **Case**                             | **Private** | **Internal** | **Protected** | **Private Protected** | **Protected Internal** | **Public** |
+  |--------------------------------------|-------------|--------------|---------------|-----------------------|------------------------|------------|
+  | Same Class, Same Project             | Yes         | Yes          | Yes           | Yes                   | Yes                     | Yes       |
+  | Child Class, Same Project            | No          | Yes          | Yes           | Yes                   | Yes                     | Yes       |
+  | Non-Child Class, Same Project        | No          | Yes          | No            | No                    | Yes                     | Yes       |
+  | Child Class, Another Project         | No          | No           | Yes           | No                    | Yes                     | Yes       |
+  | Non-Child Class, Another Project     | No          | No           | No            | No                    | No                      | Yes       |
 
     <hr/>
   </details>
@@ -3794,13 +3908,18 @@
 - <details>
     <summary>How to restrict a class not to be accessible for any other class to consume by creating its instance?⭐</summary>
     <hr/>
-    This can be done by declaring all the class constructors as protected
+
+    This can be done by declaring all the class constructors as protected.
+
     <hr/>
   </details>
+
 #### **`If you have free time`**
+
 - <details>
     <summary>What are the two types of assemblies in .NET?</summary>
     <hr/>
+
     The two types of assemblies in .NET are:
 
   1. Private Assembly
@@ -3811,12 +3930,15 @@
 - <details>
     <summary>What is a private assembly?</summary>
     <hr/>
+
     A private assembly is the default type of assembly. When the reference of a private assembly is added to any project, a copy of the assembly is created for that project. Each project maintains its own private copy of the assembly.
+
     <hr/>
   </details>
 - <details>
     <summary>How do you create a private assembly?</summary>
     <hr/>
+
     To create a private assembly:
     1. Create a new project of type **Class Library**.
     2. Name the project, for example, "**PAssembly**".
@@ -3830,21 +3952,25 @@
   ```
 
   Compile the project by right-clicking on the project in **Solution Explorer** and selecting "Build". This will generate the private assembly `PAssembly.dll`.
+
     <hr/>
   </details>
 
 - <details>
     <summary>How can you check the location of the generated assembly?</summary>
     <hr/>
+
     The path of the generated assembly can be found in the Output window at the bottom of Visual Studio after building the project.
 
   **Example**: `1>PAssembly -> D:\dotnet\CSharpCode\PAssembly\PAssembly\bin\Debug\net8.0\PAssembly.dll`
+
     <hr/>
   </details>
 
 - <details>
     <summary>How do you consume a private assembly in multiple projects?</summary>
     <hr/>
+
     To consume a private assembly in multiple projects:
 
   1. Create two new projects of type **Console App**, for example, "TestPAssembly1" and "TestPAssembly2".
@@ -3867,24 +3993,31 @@
 - <details>
     <summary>How can you verify that multiple copies of the private assembly were created?</summary>
     <hr/>
+
     After running both projects, navigate to the **bin/debug/net8.0** folder of both projects. You will find a copy of `PAssembly.dll` in each project's folder, proving that each project maintains its own private copy of the assembly.
+
     <hr/>
   </details>
 - <details>
     <summary>What is the advantage of a private assembly?</summary>
     <hr/>
+
     The advantage of a private assembly is **faster execution** because it resides in the local folder of the consumer project.
+
     <hr/>
   </details>
 - <details>
     <summary>What is the drawback of a private assembly?</summary>
     <hr/>
+
     The drawback is that **multiple copies** of the assembly are created when multiple projects add a reference to it, resulting in redundancy.
+
     <hr/>
   </details>
 - <details>
     <summary>What is a shared assembly?</summary>
     <hr/>
+
     If we want to use an assembly in multiple applications, private assemblies are not the best option. In this case, we can install the assembly into a central location called the **Global Assembly Cache (GAC)**. Every computer that has the ".NET Runtime" installed has this system-wide cache.
 
   The **Global Assembly Cache** is where assemblies (like ".dll" files) are stored when they need to be shared by several applications on the same computer. For example, all .NET Libraries are shared assemblies, and they are stored in the GAC.
@@ -3897,53 +4030,63 @@
 - <details>
     <summary>What is the Global Assembly Cache (GAC)?</summary>
     <hr/>
+    
     The GAC is a centralized location on a computer where shared assemblies are stored. It allows multiple applications to use the same assembly without creating multiple copies. The GAC is located at: `<OS Drive>:\Windows\Microsoft.NET\assembly\GAC_MSIL`
+
     <hr/>
   </details>
 - <details>
     <summary> Why are multiple copies of a shared assembly not created?</summary>
     <hr/>
+
     In shared assemblies, only a single copy of the assembly is placed in the GAC, and all projects reference this single copy, avoiding redundancy.
+
     <hr/>
   </details>
 - <details>
     <summary>Who can add or delete files from the GAC?</summary>
     <hr/>
+
     Only users with **Administrator privileges** can add or delete files from the GAC, as the GAC inherits the access control list (ACL) from the Windows directory.
+
     <hr/>
   </details>
 - <details>
     <summary>How can you make an assembly shared?</summary>
     <hr/>
+
     To make an assembly shared, it needs to be installed into the GAC using a tool called Gacutil.exe.
+
     <hr/>
   </details>
 - <details>
     <summary>How do you install an assembly into the GAC?</summary>
     <hr/>
+
     To install an assembly into the GAC, use the **Gacutil.exe** tool from the **Visual Studio Command Prompt**. The syntax to manage assemblies is:
 
-  ```css
-  gacutil -i | -u | -l [<assembly name>]
-  or
-  gacutil /i | /u | /l [<assembly name>]
+    ```css
+    gacutil -i | -u | -l [<assembly name>]
+    or
+    gacutil /i | /u | /l [<assembly name>]
 
-  Example: Install an Assembly into GAC
-  gacutil /i MyAssembly.dll
+    Example: Install an Assembly into GAC
+    gacutil /i MyAssembly.dll
 
-  Example: Uninstall an Assembly from GAC
-  gacutil /u MyAssembly
-  (Note: You don't need to include .dll for uninstalling.)
+    Example: Uninstall an Assembly from GAC
+    gacutil /u MyAssembly
+    (Note: You don't need to include .dll for uninstalling.)
 
-  Example: List All Assemblies in GAC:
-  gacutil /l
-  ```
+    Example: List All Assemblies in GAC:
+    gacutil /l
+    ```
 
-  **Where**:
+    **Where**:
 
-  - `-i` is for installing the assembly.
-  - `-u` is for uninstalling the assembly.
-  - `-l` is for listing assemblies.
+    - `-i` is for installing the assembly.
+    - `-u` is for uninstalling the assembly.
+    - `-l` is for listing assemblies.
+
     <hr/>
   </details>
 
@@ -3965,7 +4108,9 @@
 - <details>
     <summary>What type of assembly can be installed into the GAC?</summary>
     <hr/>
+
     Only **Strong-Named Assemblies** can be installed into the GAC.
+
     <hr/>
   </details>
 - <details>
@@ -3995,7 +4140,9 @@
 - <details>
     <summary>Why is a public key required for a strong name?</summary>
     <hr/>
+
     A public key is used to ensure the **uniqueness** of the assembly in the GAC. It also provides integrity by ensuring that the assembly has not been modified since it was created.
+    
     <hr/>
   </details>
 - <details>
@@ -5893,7 +6040,7 @@
 
   }
 
-  ````
+  ```
   `Part2.cs`
   ```c#
   namespace OOPSProject
@@ -5911,7 +6058,7 @@
           }
       }
   }
-  ````
+  ```
 
   `TestParts.cs`
 
