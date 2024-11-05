@@ -762,13 +762,13 @@ VB Source Code => Compiled by using VB Compiler => Generates CIL Code => Which c
     <hr/>
   </details>
 - <details>
-    <summary>Where is MSIL used, and where is CIL used?⭐</summary>
+    <summary>Where is MSIL used, and where is CIL used?</summary>
     <hr/>
     <p>MSIL is used in Microsoft's .NET Framework, while CIL is used in the wider Common Language Infrastructure (CLI).</p>
     <hr/>
   </details>
 - <details>
-    <summary>Are MSIL and CIL interchangeable?⭐</summary>
+    <summary>Are MSIL and CIL interchangeable?</summary>
     <hr/>
     <p>Yes, they are different names for the same intermediate language.</p>
     <hr/>
@@ -895,7 +895,7 @@ VB Source Code => Compiled by using VB Compiler => Generates CIL Code => Which c
     <hr/>
   </details>
 - <details>
-    <summary>What is the composition of .NET Core?⭐</summary>
+    <summary>What is the composition of .NET Core?</summary>
     <hr/>
     .NET Core is composed of the following parts:
     <ul>
@@ -987,7 +987,7 @@ VB Source Code => Compiled by using VB Compiler => Generates CIL Code => Which c
     <hr/>
   </details>
 - <details>
-    <summary>What is included in the .NET Core SDK?⭐</summary>
+    <summary>What is included in the .NET Core SDK?</summary>
     <hr/>
     <p>The .NET Core SDK includes the .NET Core CLI, essential libraries, runtime, and the dotnet command for building and running .NET Core applications. </p>
     <hr/>
@@ -1051,7 +1051,7 @@ LTS (long-term support) releases have an extended support period. Use this if yo
     <hr/>
   </details>
 - <details>
-    <summary>Why is it important to use an LTS version of .NET Core?⭐</summary>
+    <summary>Why is it important to use an LTS version of .NET Core?</summary>
     <hr/>
     <p>LTS((Long-Term Support)) versions offer extended support periods, ensuring stability and long-term maintenance, which is critical for production applications that require consistent performance and security updates.</p>
     <hr/>
@@ -1149,7 +1149,7 @@ LTS (long-term support) releases have an extended support period. Use this if yo
     <hr/>
   </details>
 - <details>
-    <summary>What is Ngen.exe, and what does it do?⭐</summary>
+    <summary>What is Ngen.exe, and what does it do?</summary>
     <hr/>
     <ul>
     <li>Ngen.exe (Native Image Generator) compiles MSIL code to native code and stores it on the computer.</li>
@@ -1158,7 +1158,7 @@ LTS (long-term support) releases have an extended support period. Use this if yo
     <hr/>
   </details>
 - <details>
-    <summary>When should you use the JIT compiler versus Ngen.exe?⭐</summary>
+    <summary>When should you use the JIT compiler versus Ngen.exe?</summary>
     <hr/>
     <ul>
     <li>Use the JIT compiler for runtime compilation of MSIL code to native code</li>

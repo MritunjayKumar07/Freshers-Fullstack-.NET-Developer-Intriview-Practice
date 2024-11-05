@@ -3,14 +3,6 @@
 ![Compilation History Articture](Compilation-History-Articture.png)
 
 - <details>
-    <summary>What is the role of CIL (Common Intermediate Language) in the compilation of .NET programming languages, and how does it ensure platform independence?⭐</summary>
-    <hr/>
-    during compilation of any .NET programming languages, the source code is translated into CIL code rather than platform or processor-specific code. CIL is a CPU and platform-independent instruction set that can be executed in any environment supporting the Common Language Infrastructure, such as the .NET runtime on Windows, or the cross-platform Mono runtime.
-
-  ![alt text](./Q/CSharp/CompileAndExecutionProcess.png)
-
-    <hr/>
-- <details>
     <summary>How to execute C language code?⭐</summary>
     <hr/>
     <p>The program we write in C is called source code.</p>
@@ -48,39 +40,30 @@
     <hr/>
   </details>
 - <details>
-    <summary>Where is MSIL used, and where is CIL used?⭐</summary>
-    <hr/>
-    <p>MSIL is used in Microsoft's .NET Framework, while CIL is used in the wider Common Language Infrastructure (CLI).</p>
-    <hr/>
-  </details>
-- <details>
-    <summary>Are MSIL and CIL interchangeable?⭐</summary>
-    <hr/>
-    <p>Yes, they are different names for the same intermediate language.</p>
-    <hr/>
-  </details>
-- <details>
     <summary>What is the architecture of .NET Core and what are the two main components of .NET Core?⭐</summary>
     <hr/>
+    .NET Core architecture is designed to be cross-platform, enabling applications to build once and run anywhere (Windows, macOS, Linux). It utilizes a modular approach with a component-based architecture, making it suitable for both monolithic and microservices applications.
+
     <p>The two main components of .NET Core are CoreCLR and CoreFX. CoreCLR is comparable to the Common Language Runtime (CLR) in the .NET Framework, while CoreFX is comparable to the Framework Class Library (FCL).</p>
     <hr/>
   </details>
 - <details>
     <summary>What is CoreFX?⭐</summary>
     <hr/>
-    <p>CoreFX is the set of basic class libraries in .NET Core. It includes types for collections, file systems, console, JSON, XML, and other common functions. It is known as the Unified Base Class Library and includes the System.* namespaces (and some Microsoft.* namespaces).</p>
+    <p>CoreFX is the set of basic class libraries in .NET Core. It includes types for collections, file systems, console, JSON, XML, and other common functions. It is known as the **Unified Base Class Library** and **includes the `System.namespaces`** (and some Microsoft.namespaces).</p>
     <hr/>
   </details>
 - <details>
     <summary>What is Roslyn in the context of .NET development?⭐</summary>
     <hr/>
-    <p>Roslyn is the open-source compiler platform for C# and Visual Basic.NET. It is cross-platform and provides rich code analysis APIs, enabling developers to write powerful code analysis and refactoring tools.</p>
-    <hr/>
-  </details>
-- <details>
-    <summary>What are the main features of Roslyn?⭐</summary>
-    <hr/>
-    <p>Roslyn provides a compiler-as-a-service API for C# and VB.NET, offering capabilities such as syntax analysis, semantic analysis, code generation, and refactoring. It allows developers to access and manipulate code in a more powerful way than traditional compilers.</p>
+    <p>
+    
+    **`Roslyn is the open-source compiler platform for C# and Visual Basic.NET.`** It is `cross-platform and provides rich code analysis APIs, enabling developers to write powerful code analysis and refactoring tools`.
+    
+    </p>
+
+    Roslyn `provides` a `compiler-as-a-service API for C# and VB.NET`, offering capabilities such as `syntax analysis, semantic analysis, code generation, and refactoring.` It `allows developers to access and manipulate code in a more powerful way than traditional compilers`.
+
     <hr/>
   </details>
 - <details>
@@ -97,18 +80,6 @@
     </li>
     <li>Flexible Deployment: Can be installed side-by-side or embedded in apps; compatible with Docker.
     </li>
-    </ul>
-    <hr/>
-  </details>
-- <details>
-    <summary>What is the composition of .NET Core?⭐</summary>
-    <hr/>
-    .NET Core is composed of the following parts:
-    <ul>
-    <li><b>.NET Core Runtime: </b>Provides a type system, assembly loading, garbage collection, native interoperability, and other basic services.</li>
-    <li><b>ASP.NET Core Runtime: </b>Framework for building cloud-based and internet-connected applications like web apps, IoT apps, and mobile backends.</li>
-    <li><b>.NET Core SDK and Language Compilers: </b>Includes compilers (e.g., Roslyn for C# and F#) and tools for development.</li>
-    <li><b>dotnet Command: </b>A CLI tool used to run .NET Core apps, manage runtime selection, and launch apps and tools.</li>
     </ul>
     <hr/>
   </details>
@@ -132,7 +103,7 @@
 - <details>
     <summary>What's the difference between the SDK and Runtime in .NET Core?⭐</summary>
     <hr/>
-    <p>The SDK provides all the tools required for development, including the CLI and compilers. The Runtime is the environment where the application runs, handling the execution of the code and abstracting interaction with the base operating system.</p>
+    <p>The SDK provides all the tools required for development, including the CLI and compilers. <br/>The Runtime is the environment where the application runs, handling the execution of the code and abstracting interaction with the base operating system.</p>
     <hr/>
   </details>
 - <details>
@@ -161,18 +132,6 @@
     <li><b>.NET Core: </b>A cross-platform version of .NET for building applications that run on Windows, macOS, and Linux, including Docker containers.</li>
     <li><b>Xamarin: </b>A framework for building mobile apps that run on iOS, Android, and Windows Phone devices.</li>
     </ul>
-    <hr/>
-  </details>
-- <details>
-    <summary>What is included in the .NET Core SDK?⭐</summary>
-    <hr/>
-    <p>The .NET Core SDK includes the .NET Core CLI, essential libraries, runtime, and the dotnet command for building and running .NET Core applications. </p>
-    <hr/>
-  </details>
-- <details>
-    <summary>Why is it important to use an LTS version of .NET Core?⭐</summary>
-    <hr/>
-    <p>LTS((Long-Term Support)) versions offer extended support periods, ensuring stability and long-term maintenance, which is critical for production applications that require consistent performance and security updates.</p>
     <hr/>
   </details>
 - <details>
@@ -218,24 +177,6 @@
     <hr/>
   </details>
 - <details>
-    <summary>What is Ngen.exe, and what does it do?⭐</summary>
-    <hr/>
-    <ul>
-    <li>Ngen.exe (Native Image Generator) compiles MSIL code to native code and stores it on the computer.</li>
-    <li>It compiles the entire assembly at once, which can improve startup performance.</li>
-    </ul>
-    <hr/>
-  </details>
-- <details>
-    <summary>When should you use the JIT compiler versus Ngen.exe?⭐</summary>
-    <hr/>
-    <ul>
-    <li>Use the JIT compiler for runtime compilation of MSIL code to native code</li>
-    <li>Use Ngen.exe to compile entire assemblies ahead of time for improved startup performance.</li>
-    </ul>
-    <hr/>
-  </details>
-- <details>
     <summary>What is the difference between Procedural Programming and Object-Oriented Programming?⭐</summary>
     <hr/>
     <p>Procedural Programming focuses on functions and procedures, with the main program being the entry point. Object-Oriented Programming uses classes and objects to encapsulate data and methods, providing better security and reusability.</p>
@@ -260,13 +201,9 @@
     <hr/>
   </details>
 - <details>
-    <summary>What is a web application?⭐</summary>
+    <summary>What is a web application & desktop application?⭐</summary>
     <hr/>
     The data which is changing in one system but the modification is done in all other system is called web application.
-    <hr/>
-  </details>
-- <details>
-    <summary>What is a desktop application?⭐</summary>
     <hr/>
     The data which is changing in one system but not affected in other system is called desktop application.
     <hr/>
