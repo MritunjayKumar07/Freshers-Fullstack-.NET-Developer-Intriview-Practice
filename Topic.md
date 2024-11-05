@@ -2685,7 +2685,7 @@
     <summary>When are static, constant, non-static, and readonly fields initialized?⭐</summary>
     <hr/>
     
-    - **Static fields**: Initialized once when the class is first loaded, and they maintain a single copy throughout the class's lifecycle. They are modifiable.
+    - **Static fields**: Initialized once when the class is first loaded, and they maintain a **single copy** throughout the class's **lifecycle**. They are **modifiable**. 
     
     - **Constant fields**: Initialized once when the class is first loaded, but they are not modifiable.
     
@@ -6255,7 +6255,1284 @@
 
 [Constructor of the Thread Class](https://codecomponents.hashnode.dev/advance-c-sharp-proggramming-language#heading-constructor-of-the-thread-class)
 
-### **`Collections`**
+### **`Collections, Generic & Generic Collection`**
+
+#### **`Collections`**
+
+![Collections](Collections.png)
+
+- <details>
+    <summary>What are the different constructors available for Collection classes?⭐</summary>
+    <hr/>
+    The `capacity` of a collection increases dynamically i.e., when we add new `elements` to a Collection the size keeps on `incrementing` automatically. Every `collection` class has 3 `constructors` to it and the behavior of `collections` will be as following when the instance is created using different `constructor`:
+
+    1. **`Default Constructor`**: Initializes an `empty instance` with `default capacity`. The `initial capacity is zero`, `which becomes 4 after adding the first element`. Then, it `doubles as needed.`
+    2. **`Collection(int Capacity)`**: Initializes an `empty instance` with the `specified initial capacity`. If `more capacity is required`, `it doubles`.
+    3. **`Collection(Collection c)`**: A `copy constructor` that `initializes` a `new instance with elements copied from an old collection`. The `initial capacity` is the `same as the number of elements copied` and `doubles if required`.
+    <hr/>
+  </details>
+- <details>
+    <summary>Diffrence bitween Array & ArrayList?⭐</summary>
+    <hr/>
+
+  **`Arrays`**:
+
+  - Arrays have a fixed size. Once declared, their size cannot be changed.
+  - You can resize an array using `Array.Resize`, but this creates a new array with the new size and destroys the old one.
+
+  `Example`: Resizing an Array
+
+  ```c#
+  internal class Program
+  {
+      static void Main(string[] args)
+      {
+          int[] arr = new int[10];
+          Array.Resize(ref arr, 12); // This uses an output parameter (ref)
+      }
+  }
+  ```
+
+  In this example, the old array is destroyed, and a new array with a size of 12 is created.
+
+  **`Limitations of Arrays`**: - The size of an array cannot be increased directly. - You cannot add a value in the middle of an array if it already contains values. - To add a new value, you need to increase the array's size, which involves creating a new array. - Similarly, you cannot delete a value in the middle of an array directly.
+
+  **`Collections`**:
+
+  - Automatically increase its size when new values are added.
+  - Insert and delete values in the middle of the collection.
+
+  | **Array**                    | **ArrayList**                       |
+  | ---------------------------- | ----------------------------------- |
+  | Fixed Length                 | Variable Length                     |
+  | Not possible to insert items | We can insert item into the middle  |
+  | Not posible to delete items  | We can delete items from the middle |
+
+    <hr/>
+  </details>
+
+#### **`Generics`**
+
+![alt text](Generics.png)
+
+## **`Generic Collections`**
+
+![Generic Collections](GenericCollections.png)
+
+- <details>
+    <summary>What is the difference between "Collection classes" and "Generic Collections"?⭐</summary>
+    <hr/>
+    - In `non-generic collections`, elements are stored as `objects`, which means any type of value can be stored. This requires `boxing and unboxing` when working with value types.
+    - In `generic collections`, you must `explicitly specify the type` of elements, providing `type safety` and avoiding unnecessary casting.
+
+  | **Feature**              | **Collection Classes**                     | **Generic Collections**                                |
+  | ------------------------ | ------------------------------------------ | ------------------------------------------------------ |
+  | Namespace                | System.Collections                         | System.Collections.Generic                             |
+  | Type Safety              | Not type-safe (stores elements as object). | Type-safe (elements are strongly typed).               |
+  | Performance              | Lower performance due to boxing/unboxing.  | Higher performance due to type safety.                 |
+  | Usage of Boxing/Unboxing | Boxing/unboxing occurs for value types.    | No boxing/unboxing required.                           |
+  | Flexibility              | Can store mixed types of elements.         | Stores elements of a specified type only.              |
+  | Examples                 | ArrayList, Hashtable, Stack, Queue.        | List<T>, Dictionary<TKey, TValue>, Stack<T>, Queue<T>. |
+  | Type Checking            | Done at runtime.                           | Done at compile-time.                                  |
+  | Introduced in            | .NET Framework 1.0 (2002).                 | .NET Framework 2.0 (2005).                             |
+
+    <hr/>
+  </details>
+- <details>
+    <summary>How would filtering values work using an Array instead of a List?⭐</summary>
+    <hr/>
+    Here’s how you would filter values greater than 40 from an array:
+
+    ```c#
+    internal class Class7
+    {
+        static void Main()
+        {
+            // Copying values > 40 from one array to another array and arranging them in descending order
+            int[] arr = { 13, 56, 29, 98, 24, 54, 79, 39, 8, 42, 22, 93, 6, 73, 35, 67, 48, 18, 61, 32, 86, 15, 21, 81, 2 };
+            int Count = 0, Index = 0;
+    
+            foreach (int i in arr) 
+            {
+                if (i > 40) 
+                {
+                    Count += 1; // Counting items greater than 40
+                }
+            }
+    
+            int[] brr = new int[Count]; // Creating a new array
+            foreach (int i in arr) 
+            {
+                if (i > 40) 
+                {
+                    brr[Index] = i; // Storing values greater than 40
+                    Index += 1;
+                }
+            }
+    
+            Array.Sort(brr); // Sorting brr in ascending order
+            Array.Reverse(brr); // Reversing for descending order
+            Console.WriteLine(String.Join(", ", brr));
+    
+            Console.ReadLine();
+        }
+    }
+    
+    ```
+
+  **Explanation**: This code counts the number of items greater than 40, creates a new array, stores the qualifying values, sorts, and reverses them to show in descending order.
+    <hr/>
+  </details>
+
+- <details>
+    <summary>Why are Collections and Collection Initializers beneficial compared to traditional arrays?⭐</summary>
+    <hr/>
+    - **`Less Code`**: Using collections like `List<T>` reduces the amount of code needed for operations like filtering and sorting.
+    - **`Type Safety`**: Generics allow for type-specific collections that prevent runtime errors related to type casting.
+    - **`Flexibility`**: Collections provide dynamic resizing and easier manipulation compared to fixed-size arrays.
+    <hr/>
+  </details>
+
+#### **`There are two interfaces generally used in collections`**
+
+- <details>
+    <summary>What are the two main interfaces for sorting in C# collections?⭐</summary>
+    <hr/>
+     In C#, the two main interfaces used for sorting collections are:
+
+     1. **IComparable** - For defining a natural or default sort order directly in the class.
+    
+     2. **IComparer** - For creating custom sort orders externally, which can be applied as needed.
+
+    <hr/>
+  </details>
+- <details>
+    <summary>What is the purpose of the IComparable interface?⭐</summary>
+    <hr/>
+      The `IComparable` interface allows a class to define its own default sort order. Implementing `IComparable<T>` in a class enables objects of that class to be compared based on a specific property. It requires implementing the `CompareTo` method, which contains the sorting logic.
+    <hr/>
+  </details>
+- <details>
+    <summary>How does the CompareTo method work in IComparable?⭐</summary>
+    <hr/>
+     The `CompareTo` method compares the current instance with another object of the same type. It returns:
+
+     - `1` if the current instance is greater than the other,
+     - `-1` if it's less,
+     - `0` if they're equal.
+
+     This helps determine the default sort order. For example, if sorting by `Balance` in the `Customer` class, `CompareTo` will return values based on comparing `Balance` properties.
+    <hr/>
+  </details>
+- <details>
+    <summary> What is the purpose of the IComparer interface?⭐</summary>
+    <hr/>
+     The `IComparer` interface is used to define custom sort orders without modifying the original class. This is useful when:
+
+    - You cannot modify the class directly.
+    - You want to sort by different properties than the default sort order.
+    
+    `IComparer<T>` requires implementing the `Compare` method, where custom sorting logic is defined.
+    <hr/>
+  </details>
+- <details>
+    <summary>How does the Compare method work in IComparer?⭐</summary>
+    <hr/>
+     The `Compare` method compares two objects of the same type and returns:
+
+    - 1 if the first object is greater,
+    - -1 if it’s less,
+    - 0 if they’re equal.
+    
+    For example, you can create a custom comparer to sort `Customer` objects by `Balance` instead of `CustId`.
+
+    <hr/>
+  </details>
+- <details>
+    <summary>When should we use IComparable vs. IComparer?⭐</summary>
+    <hr/>
+     
+     - Use `IComparable` when you want a default sort order directly in the class.
+    
+     - Use `IComparer` when you need a custom sorting logic that might vary depending on the situation or when you cannot modify the original class.
+
+    <hr/>
+  </details>
+- <details>
+    <summary> Can you give an example of sorting by Balance using IComparable?⭐</summary>
+    <hr/>
+     
+     ```c#
+      public class Customer : IComparable<Customer>
+      {
+          public int CustId { get; set; }
+          public string Name { get; set; }
+          public string City { get; set; }
+          public double Balance { get; set; }
+
+          public int CompareTo(Customer other)
+          {
+              // Sort based on Balance
+              if (this.Balance > other.Balance) return 1;
+              else if (this.Balance < other.Balance) return -1;
+              else return 0;
+          }
+      }
+     ```
+
+      In this example, the `Customer` class implements `IComparable<Customer>` to sort by `Balance` by default. If you create a list of `Customer` objects and call `Sort()`, it will order them by their `Balance` values.
+    <hr/>
+  </details>
+- <details>
+    <summary>Can you give an example of sorting by Balance using IComparer?⭐</summary>
+    <hr/>
+     
+      ```c#
+      class BalanceComparer : IComparer<Customer>
+      {
+          public int Compare(Customer x, Customer y)
+          {
+              // Sort based on Balance
+              if (x.Balance > y.Balance) return 1;
+              else if (x.Balance < y.Balance) return -1;
+              else return 0;
+          }
+      }
+      ```
+
+      To use this custom comparer, pass it to `Sort()`:
+
+      ```c#
+      List<Customer> customers = new List<Customer> { /* Add Customers */ };
+      BalanceComparer balanceComparer = new BalanceComparer();
+      customers.Sort(balanceComparer); // Sorts by Balance
+      ```
+    <hr/>
+  </details>
+- <details>
+    <summary>What happens if we use Sort() on List&gtCustomer&lt without any parameters?⭐</summary>
+    <hr/>
+
+       If you call `Sort()` without parameters, it uses the default sort order defined by `IComparable`. In the `Customer` example, it will sort by `CustId` (or whichever property `IComparable` sorts by). If `IComparable` is not implemented, an error will occur because `Sort()` won’t know how to order `Customer` objects.
+
+    <hr/>
+  </details>
+#### **`Sort() Method Overloads`**
+
+[Sort() Method Overloads](https://codecomponents.hashnode.dev/advance-c-sharp-proggramming-language#heading-sort-method-overloads)
+
+#### **`IEnumerable Interface`**
+
+- <details>
+    <summary>What is the IEnumerable Interface?⭐</summary>
+    <hr/>
+
+    - **IEnumerable**:is the base interface for all non-generic collections in .NET.
+    - **IEnumerable**: The base interface for collections. It enables itteration of `foreach` by defining **GetEnumerator()**.
+
+    - It defines a single method: **GetEnumerator()**, which returns an **IEnumerator**. This allows a collection to be iterated using a `foreach` loop.
+    - **IEnumerator** provides methods like **MoveNext()**, **Reset()**, and a **Current** property, which are used to navigate through a collection.
+    - All collection types in .NET implement **IEnumerable** (either directly or indirectly), which makes them iterable in a `foreach` loop. This is why you can use `foreach` with any collection that implements **IEnumerable**.
+
+    ```txt
+    IEnumerable
+     ├── ICollection
+     │   ├── IList
+     │   │   └── ArrayList
+     │   └── IDictionary
+     │       ├── Hashtable
+     │       └── Dictionary
+    ```
+
+    <hr/>
+  </details>
+- <details>
+    <summary>What is the ICollection Interface?⭐</summary>
+    <hr/>
+
+    - **ICollection** inherits from **IEnumerable** and adds methods for managing the size of the collection, enumerators, and synchronization.
+    - It is the base interface for collections that represent a group of objects (e.g., `List`, `ArrayList`, etc.).
+    <hr/>
+  </details>
+- <details>
+    <summary>What is the Role of GetEnumerator() Method in IEnumerable?⭐</summary>
+    <hr/>
+
+    - **GetEnumerator()**: Enables `foreach` by providing an enumerator that lets us iterate over the collection.
+    - **GetEnumerator()** is a method in the **IEnumerable** interface that returns an **IEnumerator**.
+    - The **IEnumerator** provides the functionality to iterate over a collection with methods like `MoveNext()`, `Reset()`, and a `Current` property.
+    - The `foreach` loop internally calls **GetEnumerator()** to get an enumerator for iterating through the collection.
+
+    <hr/>
+  </details>
+- <details>
+    <summary>Why do we need MoveNext(), Reset(), and Current?⭐</summary>
+    <hr/>
+
+     These methods are required by the `IEnumerator` interface:
+
+    - **MoveNext()**: Advances to the next element.
+    - **Reset()**: Resets the enumerator to the start position.
+    - **Current**: Returns the current element.
+
+    <hr/>
+  </details>
+
+## **`LINQ`**
+
+- <details>
+    <summary>What is LINQ?⭐</summary>
+    <hr/>
+    LINQ stands for **Language Integrated Query**. It is a querying methodology introduced in C# 3.0 that `allows developers to write query expressions similar to SQL to retrieve information from various data sources`, *`including objects`*, `databases`, and `XML`.
+
+    LINQ can work with multiple data sources, including:
+     - **`Collections and Arrays`**: Using `LINQ to Objects`.
+     - **`XML`**: Using `LINQ to XML`.
+     - **`Databases`**: Using `LINQ to SQL` and `LINQ to Entities`.
+
+    <hr/>
+  </details>
+- <details>
+    <summary>What are the different types of LINQ?⭐</summary>
+    <hr/>
+     LINQ is divided into three main types based on the data source:
+     1. **LINQ to Objects**:
+      - Used for performing queries on `in-memory data such as collections and arrays`.
+     2. **LINQ to XML (XLinq)**:
+      - Used for performing queries on `XML data sources`.
+     3. **LINQ to Databases:**
+      - *`LINQ to SQL`*: Used to perform queries specifically against Microsoft `SQL Server`.
+      - *`LINQ to Entities`*: Used to perform queries on relational `databases` like `SQL Server, Oracle, etc`.
+    <hr/>
+  </details>
+- <details>
+    <summary>What are the advantages of LINQ?⭐</summary>
+    <hr/>
+    - **`Object-based, Language-integrated Querying`**: LINQ allows querying across data sources like databases, XML, and collections using the same syntax.
+
+  - **`Compile-time Syntax Checking`**: LINQ queries are checked at compile time, reducing the chances of runtime errors.
+
+  - **`Native Language Support`**: LINQ allows querying data sources in the application’s native language, such as C# or VB, making code easier to understand and maintain.
+    <hr/>
+  </details>
+
+## **`LINQ to Objects`**
+
+- <details>
+    <summary>What is LINQ to Objects?⭐</summary>
+    <hr/>
+    INQ to Objects is a feature in LINQ that allows writing queries against in-memory data, such as arrays and collections, to filter or sort the information.
+
+    To use LINQ, you need to import the **`System.Linq`** namespace.
+
+    **Syntax** for a LINQ query is as follows:
+    ```c#
+    from <alias> in <array name | collection name> [<clauses>] select <alias> | new {<Column List>}
+    ```
+    - Starts with `from` and ends with `select`.
+    - Clauses include where, `group by`, and `order by`.
+
+    <hr/>
+  </details>
+- <details>
+    <summary>What are the key elements of a LINQ query?⭐</summary>
+    <hr/>
+    The key elements are:
+
+  - **from**: Specifies the source of data and declares an alias.
+  - **clauses**: Includes conditions such as `where`, `group by`, and `order by`.
+  - **select**: Specifies the data to retrieve, which can be the alias or a set of columns.
+    <hr/>
+  </details>
+
+- <details>
+    <summary>What are the clauses in LINQ?⭐</summary>
+    <hr/>
+    - **where**: Specifies a filter condition.
+    - **group by**: Groups data based on a key.
+    - **order by**: Sorts the data in ascending or descending order.
+    <hr/>
+  </details>
+- <details>
+    <summary>How does LINQ handle collections and arrays?⭐</summary>
+    <hr/>
+    LINQ can query collections and arrays using a straightforward syntax, filtering, sorting, and retrieving data based on specified conditions without manually iterating over elements.
+    <hr/>
+  </details>
+- <details>
+    <summary>What are LINQ Providers?⭐</summary>
+    <hr/>
+    LINQ providers are a set of classes that implement LINQ operations to allow interaction with different data sources. The `System.Linq` namespace is the LINQ provider or library required for writing LINQ queries in your code.
+    <hr/>
+  </details>
+- <details>
+    <summary>Can you give an example of a LINQ query on a collection?⭐</summary>
+    <hr/>
+    Example using a string array:
+    ```c#
+    internal class Class9
+    {
+        static void Main()
+        {
+            string[] colors = { "Red", "Blue", "Green", "Black", "White", "Brown", "Orange", "Purple", "Yellow", "Aqua" };
+
+            //Gets the list of all colors as is
+            var coll1 = from s in colors select s;
+            Console.WriteLine(String.Join(" ", coll1) + "\n");
+
+            //Gets the list of all colors in ascending order
+            var coll2 = from s in colors orderby s select s;
+            Console.WriteLine(String.Join(" ", coll2) + "\n");
+
+            //Gets the list of all colors in descending order
+            var coll3 = from s in colors orderby s descending select s;
+            Console.WriteLine(String.Join(" ", coll3) + "\n");
+
+            //Gets the list of colors whose length is 5 characters
+            var coll4 = from s in colors where s.Length == 5 select s;
+            Console.WriteLine(String.Join(" ", coll4) + "\n");
+
+            //Getting the list of colors whose name starts with character "B":
+            var coll5 = from s in colors where s[0] == 'B' select s;
+            Console.WriteLine(String.Join(" ", coll5));
+            var coll6 = from s in colors where s.IndexOf("B") == 0 select s;
+            Console.WriteLine(String.Join(" ", coll6));
+            var coll7 = from s in colors where s.StartsWith("B") select s;
+            Console.WriteLine(String.Join(" ", coll7));
+            var coll8 = from s in colors where s.Substring(0, 1) == "B" select s;
+            Console.WriteLine(String.Join(" ", coll8) + "\n");
+
+            //Getting the list of colors whose name ends with character "e":
+            var coll9 = from s in colors where s[s.Length - 1] == 'e' select s;
+            Console.WriteLine(String.Join(" ", coll9));
+            var coll10 = from s in colors where s.IndexOf("e") == s.Length - 1 select s;
+            Console.WriteLine(String.Join(" ", coll10));
+            var coll11 = from s in colors where s.EndsWith("e") select s;
+            Console.WriteLine(String.Join(" ", coll11));
+            var coll12 = from s in colors where s.Substring(s.Length - 1) == "e" select s;
+            Console.WriteLine(String.Join(" ", coll12) + "\n");
+
+            //Getting the list of colors whose name contains character "a" at 3rd place:
+            var coll13 = from s in colors where s[2] == 'a' select s;
+            Console.WriteLine(String.Join(" ", coll13));
+            var coll14 = from s in colors where s.IndexOf("a") == 2 select s;
+            Console.WriteLine(String.Join(" ", coll14));
+            var coll15 = from s in colors where s.Substring(2, 1) == "a" select s;
+            Console.WriteLine(String.Join(" ", coll15) + "\n");
+
+            //Getting the list of colors whose name contains character "O or o" in it:
+            var coll16 = from s in colors where s.Contains('O') || s.Contains('o') select s;
+            Console.WriteLine(String.Join(" ", coll16));
+            var coll17 = from s in colors where s.IndexOf('O') >= 0 || s.IndexOf('o') >= 0 select s;
+            Console.WriteLine(String.Join(" ", coll17));
+            var coll18 = from s in colors where s.ToUpper().Contains('O') select s;
+            Console.WriteLine(String.Join(" ", coll18));
+            var coll19 = from s in colors where s.ToLower().IndexOf('o') >= 0 select s;
+            Console.WriteLine(String.Join(" ", coll19) + "\n");
+
+            //Getting the list of colors whose name doesn’t contains character "O or o" in it:
+            var coll20 = from s in colors where s.Contains('O') == false && s.Contains('o') == false select s;
+            Console.WriteLine(String.Join(" ", coll20));
+            var coll21 = from s in colors where s.IndexOf('O') == -1 && s.IndexOf('o') == -1 select s;
+            Console.WriteLine(String.Join(" ", coll21));
+            var coll22 = from s in colors where s.ToUpper().Contains('O') == false select s;
+            Console.WriteLine(String.Join(" ", coll22));
+            var coll23 = from s in colors where s.ToLower().IndexOf('o') == -1 select s;
+            Console.WriteLine(String.Join(" ", coll23) + "\n");
+        }
+
+  }
+
+  ```
+  <hr/>
+  </details>
+
+- <details>
+    <summary>Can generic collections store user-defined types in LINQ?⭐</summary>
+    <hr/>
+    Yes, the values stored in a generic collection can include user-defined types such as classes or structures. 
+    The type of values being stored in a generic collection can be of user-defined type values also like a class type or structure type that is defined to represent an entity as following:
+    `List<Customer> Customers = new List<Customer>();`
+    <hr/>
+  </details>
+- <details>
+    <summary>Can you show an example of LINQ with in-memory data like List and Array?⭐</summary>
+    <hr/>
+
+  ```c#
+  List<int> coll1 = new List<int>() { 13, 56, 29, 98, 24, 54, 79 };
+  var coll2 = from i in coll1 where i > 40 orderby i descending select i;
+  Console.WriteLine(String.Join(", ", coll2));
+  ```
+
+  This example filters `coll1` to include only elements greater than 40, and sorts them in descending order.
+    <hr/>
+  </details>
+
+- <details>
+    <summary>How does LINQ simplify filtering data compared to traditional methods?⭐</summary>
+    <hr/>
+    In traditional methods, we often write repetitive loops to filter and sort data. LINQ focuses on what the result should look like by specifying `conditions` rather than describing `how` to achieve it, making it a `simpler` and `declarative` approach.
+    <hr/>
+  </details>
+- <details>
+    <summary>Can LINQ queries work with user-defined types like classes?⭐</summary>
+    <hr/>
+    Yes, LINQ can query collections of custom objects, like a list of `Customer` objects. Here’s an example:
+
+  1. Customer user-defined types:
+
+  ```c#
+  public class Customer {
+      public int Id { get; set; }
+      public string? Name { get; set; }
+      public string? City { get; set; }
+      public double Balance { get; set; }
+      public bool Status { get; set; }
+      public override string ToString() => $"Id: {Id}; Name: {Name}; City: {City}; Balance: {Balance}; Status: {Status}";
+  }
+  ```
+
+  2. Create a list of "Customer" objects and query them:
+
+  ```c#
+  List<Customer> Customers = new List<Customer> {
+    new Customer { Id = 101, Name = "Scott", City = "Delhi", Balance = 15000.00, Status = true },
+    new Customer { Id = 102, Name = "Dave", City = "Mumbai", Balance = 10000.00, Status = true }
+    // Add more customers as needed
+  };
+
+  //Or
+  Customer c1 = new Customer { Id = 101, Name = "Scott", City = "Delhi", Balance = 15000.00, Status = true };
+  Customer c2 = new Customer { Id = 102, Name = "Dave", City = "Mumbai", Balance = 10000.00, Status = true };
+  Customer c3 = new Customer { Id = 103, Name = "Sunitha", City = "Chennai", Balance = 15600.00, Status = false };
+  Customer c4 = new Customer { Id = 104, Name = "David", City = "Delhi", Balance = 22000.00, Status = true };
+  Customer c5 = new Customer { Id = 105, Name = "John", City = "Kolkata", Balance = 34000.00, Status = true };
+  Customer c6 = new Customer { Id = 106, Name = "Jane", City = "Hyderabad", Balance = 19000.00, Status = true };
+  Customer c7 = new Customer { Id = 107, Name = "Kavitha", City = "Mumbai", Balance = 16500.00, Status = true };
+  Customer c8 = new Customer { Id = 108, Name = "Steve", City = "Bengaluru", Balance = 34600.00, Status = false };
+  Customer c9 = new Customer { Id = 109, Name = "Sophia", City = "Chennai", Balance = 6300.00, Status = true };
+  Customer c10 = new Customer { Id = 110, Name = "Rehman", City = "Delhi", Balance = 9500.00, Status = true };
+  Customer c11 = new Customer { Id = 111, Name = "Raj", City = "Hyderabad", Balance = 9800.00, Status = false };
+  Customer c12 = new Customer { Id = 112, Name = "Rupa", City = "Kolkata", Balance = 13200.00, Status = true };
+  Customer c13 = new Customer { Id = 113, Name = "Ram", City = "Bengaluru", Balance = 47700.00, Status = true };
+  Customer c14 = new Customer { Id = 114, Name = "Joe", City = "Hyderabad", Balance = 26900.00, Status = false };
+  Customer c15 = new Customer { Id = 115, Name = "Peter", City = "Delhi", Balance = 17400.00, Status = true }
+
+  //Created a List of Customers and added all the Customer instances into the List
+  List<Customer> Customers = new List<Customer>()
+  {
+    c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15
+  };
+
+  ```
+
+  3. Perform queries on the list of Customer objects using LINQ
+
+  ```c#
+  //Fetching all customers:
+  var Coll = from c in Customers select c;
+
+  //Selecting specific columns with alias names to columns:
+  var Coll = from c in Customers select new { c.Id, c.Name, IsActive = c.Status };
+
+  //Sorting customers by Name(Order By Clause):
+  var Coll = from c in Customers orderby c.Name select c;
+
+  //Filtering customers based on Balance
+  var Coll = from c in Customers orderby c.Balance descending select c;
+  var Coll = from c in Customers where c.Balance > 25000 select c;
+
+  //Grouping customers by City and counting them(Where Clause):
+  var Coll = from c in Customers where c.City == "Hyderabad" select c;
+  var Coll = from c in Customers where c.City == "Bengaluru" && c.Balance > 40000 select c;
+  var Coll = from c in Customers where c.City == "Chennai" || c.Balance > 30000 select c;
+
+  //Group By Clause:
+  var Coll = from c in Customers group c by c.City into G select new { City = G.Key, Customers = G.Count() };
+  var Coll = from c in Customers group c by c.City into G select new { City = G.Key, MaxBalance = G.Max(c => c.Balance) };
+  var Coll = from c in Customers group c by c.City into G select new { City = G.Key, MinBalance = G.Min(c => c.Balance) };
+  var Coll = from c in Customers group c by c.City into G select new { City = G.Key, AvgBalance = G.Average(c => c.Balance) };
+  var Coll = from c in Customers group c by c.City into G select new { City = G.Key, TotalBalance = G.Sum(c => c.Balance) };
+
+  //Use LINQ to filter groups like the SQL HAVING (Where) clause:
+  var Coll = from c in Customers group c by c.City into G where G.Count() > 2 select new { City = G.Key, Customers = G.Count() };
+  var Coll = from c in Customers group c by c.City into G where G.Max(c => c.Balance) > 25000 select new { City = G.Key, MaxBalance = G.Max(c => c.Balance) };
+  var Coll = from c in Customers group c by c.City into G where G.Min(c => c.Balance) < 10000 select new { City = G.Key, MinBalance = G.Min(c => c.Balance) };
+
+  foreach (var customer in Coll) {
+  Console.WriteLine(customer);
+  }
+
+  ```
+
+    <hr/>
+  </details>
+- <details>
+    <summary>If i need having clause funcanality, then what we do?⭐</summary>
+    <hr/>
+    Wherever you need the functionality of “`having`”, use “`where`” overthere, because both are used for filtering only. LINQ has not given us 2 separate clauses i.e., if we use “`where`” before “`group by`” it works like “`where`” clause whereas if we use “`where`” after “`group by`” it works like “`having`”.
+    <hr/>
+  </details>
+
+## **`Task Parallel Library (TPL)`**
+- **`See and short it because i just copy nad pest most of the definaltion are repate and unwanted code is ther pleae remove is and short is as per you entriview.`**
+- <details>
+    <summary>What is the Task Parallel Library (TPL)?⭐</summary>
+    <hr/>
+    The Task Parallel Library (TPL) is a set of public types in the `System.Threading` and `System.Threading.Tasks` namespaces that simplifies adding multitasking and handling multiple operations at the same time to applications.
+
+    Means, The Task Parallel Library (TPL) is a set of public types “System.Threading” and “System.Threading.Tasks” namespaces. The purpose of TPL is to make developers more productive by simplifying the process of adding parallelism and concurrency to applications. The TPL scales the degree of concurrency dynamically to most efficiently use all the processors that are available. In addition, the TPL handles the partitioning of the work, the scheduling of Threads on the Thread Pool, cancellation support, state management, and other low-level details. By using TPL, you can maximize the performance of your code while focusing on the work that your program is designed to accomplish.
+
+    <hr/>
+  </details>
+
+- <details>
+    <summary>What is the purpose of the TPL?⭐</summary>
+    <hr/>
+    The purpose of TPL is to make developers more productive by making it easier to write code that executes in parallel, utilizing all available processors effectively.
+    <hr/>
+  </details>
+- <details>
+    <summary>How does TPL help in maximizing performance?⭐</summary>
+    <hr/>
+    TPL scales concurrency dynamically, efficiently utilizing all available processors. It handles work partitioning, thread scheduling, cancellation support, state management, and other low-level details automatically.
+    <hr/>
+  </details>
+- <details>
+    <summary>When did TPL become the preferred method for writing multithreaded code?⭐</summary>
+    <hr/>
+    Starting with .NET Framework 4, the TPL became the preferred way to write multithreaded and parallel code.
+
+  Means, Starting with .NET Framework 4, the TPL is the preferred way to write multithreaded and parallel code. However, not all code is suitable for parallelization. For example, if a loop performs only a small amount of work on each iteration, or it doesn't run for many iterations, then the overhead of parallelization can cause the code to run more slowly. Furthermore, parallelization like any multithreaded code adds complexity to your program execution. Although the TPL simplifies multithreaded scenarios, it is recommended that you have a basic understanding of threading concepts, for example, locks, deadlocks, and race conditions, so that you can use the TPL effectively.
+
+    <hr/>
+  </details>
+
+- <details>
+    <summary>Is all code suitable for parallelization using TPL?⭐</summary>
+    <hr/>
+    No, not all code is suitable for parallelization. For example, if a loop does very little work in each step or has only a few steps, using parallelization might make it slower because of the extra overhead.
+    <hr/>
+  </details>
+- <details>
+    <summary>Does TPL handle low-level threading complexities?⭐</summary>
+    <hr/>
+      Yes, TPL takes care of splitting tasks, managing thread pool scheduling, handling cancellation, and other low-level details automatically, so developers can focus on the main logic.
+    <hr/>
+  </details>
+- <details>
+    <summary>What are some basic threading concepts that developers should understand before using TPL?⭐</summary>
+    <hr/>
+    However, developers should know basic threading concepts like locks, deadlocks, and race conditions because parallel processing can make programs more complex.
+    <hr/>
+  </details>
+- <details>
+    <summary>Give me the summary of TPL.</summary>
+    <hr/>
+    - TPL simplifies parallelism and concurrency by handling low-level details.
+    - It dynamically scales concurrency to efficiently utilize processors.
+    - It became the preferred way for parallel code with .NET Framework 4.
+    <hr/>
+  </details>
+- <details>
+      <summary>Example of demonstrate the threaded?⭐</summary>
+      <hr/>
+      We are demonstrating how to execute three methods sequentially (single-threaded), using multiple threads (multi-threaded), and finally using the Task Parallel Library (TPL) for parallelism in a console application.
+
+      **`Single-Threaded Example`**:How does the single-threaded version of the program work.
+
+      The single-threaded program runs all three methods (`Print1`, `Print2`, and `Print3`) sequentially, one after the other, using the main thread. It prints the thread ID of the main thread executing each method.
+
+      Code demonstrates this single-threaded execution:
+      `single-threaded` execution in `Program.cs`:
+      ```c#
+      internal class Program
+      {
+          static void Print1()
+          {
+              for (int i = 1; i <= 100; i++)
+              {
+                  Console.WriteLine($"Thread Id: {Thread.CurrentThread.ManagedThreadId}; Print1 Method: {i}");
+              }
+          }
+          static void Print2()
+          {
+              for (int i = 1; i <= 100; i++)
+              {
+                  Console.WriteLine($"Thread Id: {Thread.CurrentThread.ManagedThreadId}; Print2 Method: {i}");
+              }
+          }
+          static void Print3()
+          {
+              for (int i = 1; i <= 100; i++)
+              {
+                  Console.WriteLine($"Thread Id: {Thread.CurrentThread.ManagedThreadId}; Print3 Method: {i}");
+              }
+          }
+          static void Main(string[] args)
+          {
+              Print1(); Print2(); Print3();
+          }
+      }
+
+      ```
+
+      **`Multi-Threaded Example:`**: How does the multi-threaded version of the program work.
+
+      In the multi-threaded version, we create three separate threads to execute each of the three methods concurrently. This creates four threads in total (including the main thread). The `Join()` method ensures that the main thread waits until all other threads complete.
+
+      Code demonstrates this multi-threaded execution:
+      `multi-threaded` execution in `Class1.cs`:
+      ```c#
+      internal class Class1
+      {
+          static void Print1()
+          {
+              for (int i = 1; i <= 100; i++) {
+                  Console.WriteLine($"Thread Id: {Thread.CurrentThread.ManagedThreadId}; Print1 Method: {i}");
+              }
+          }
+          static void Print2()
+          {
+              for (int i = 1; i <= 100; i++) {
+                  Console.WriteLine($"Thread Id: {Thread.CurrentThread.ManagedThreadId}; Print2 Method: {i}");
+              }
+          }
+          static void Print3()
+          {
+              for (int i = 1; i <= 100; i++) {
+                  Console.WriteLine($"Thread Id: {Thread.CurrentThread.ManagedThreadId}; Print3 Method: {i}");
+              }
+          }
+          static void Main()
+          {
+              Thread t1 = new Thread(Print1);
+              Thread t2 = new Thread(Print2);
+              Thread t3 = new Thread(Print3);
+              t1.Start(); t2.Start(); t3.Start();
+              t1.Join(); t2.Join(); t3.Join();
+              Console.WriteLine($"Main thread with Id: {Thread.CurrentThread.ManagedThreadId} is exiting.");
+          }
+      }
+
+      ```
+    **`Task Parallel Library (TPL) Example:`**: How does the TPL version of the program work.
+
+    The TPL version uses tasks to execute the three methods concurrently. It creates three tasks using `new Task()`, starts them using `Start()`, and waits for them to complete using `Wait()`. This approach uses threads internally but manages them automatically.
+    
+    Code demonstrates this TPL execution using basic tasks:
+    `Using basic` tasks in `Class2.cs`:
+    ```c#
+    internal class Class2
+    {
+        static void Print1()
+        {
+            for (int i = 1; i <= 100; i++) {
+                Console.WriteLine($"Thread Id: {Thread.CurrentThread.ManagedThreadId}; Print1 Method: {i}");
+            }
+        }
+        static void Print2()
+        {
+            for (int i = 1; i <= 100; i++) {
+                Console.WriteLine($"Thread Id: {Thread.CurrentThread.ManagedThreadId}; Print2 Method: {i}");
+            }
+        }
+        static void Print3()
+        {
+            for (int i = 1; i <= 100; i++) {
+                Console.WriteLine($"Thread Id: {Thread.CurrentThread.ManagedThreadId}; Print3 Method: {i}");
+            }
+        }
+        static void Main()
+        {
+            Task t1 = new Task(Print1);
+            Task t2 = new Task(Print2);
+            Task t3 = new Task(Print3);
+            t1.Start(); t2.Start(); t3.Start();
+            t1.Wait(); t2.Wait(); t3.Wait();
+            Console.WriteLine($"Main thread with Id: {Thread.CurrentThread.ManagedThreadId} is exiting.");
+        }
+    }
+    ```
+    **Note**: in the above code also, we have defined 3 `methods` and called them by using 3 `separate` tasks, so each `task` will execute 1 `method` concurrently. In this program also we will be having 4 `threads` along with the `Main thread` and we can see the `Id` of those `Threads` in the output.
+    <hr/>
+  </details>
+- <details>
+    <summary>How can we simplify task creation and execution using Task Factory?⭐</summary>
+    <hr/>
+    The simplified version uses `Task.Factory.StartNew()` to create and start tasks in a single line. We then call `Task.WaitAll()` to wait for all tasks to complete.
+
+  Code demonstrates this simplified TPL execution using Task Factory:
+
+  ```c#
+  Task t1 = Task.Factory.StartNew(Print1);
+  Task t2 = Task.Factory.StartNew(Print2);
+  Task t3 = Task.Factory.StartNew(Print3);
+  Task.WaitAll(t1, t2, t3);
+  Console.WriteLine($"Main thread with Id: {Thread.CurrentThread.ManagedThreadId} is exiting.");
+  ```
+
+  In the above code Factory is a static property of the Task class which will refer to TaskFactory class and the StartNew method of TaskFactory class will create a new Thread, starts it, and returns the reference of it.
+    <hr/>
+  </details>
+
+- <details>
+    <summary>In all the above TPL example which calling method by using `Task` are value returing or non-value returing? Can they take parameter.⭐</summary>
+    <hr/>
+    In the above programs the methods that we called by using `Tasks` are all non-value returning as well as they do not take any parameters also.
+    <hr/>
+  </details>
+- <details>
+    <summary>How does TPL internally manage threads compared to manual thread creation?⭐</summary>
+    <hr/>
+     TPL internally uses the thread pool and manages thread scheduling, avoiding the need to manually create and start threads. It reduces the complexity of handling concurrency and enhances performance by optimizing thread usage.
+    <hr/>
+  </details>
+- <details>
+    <summary>How to call value-returing method using `Task`?⭐</summary>
+    <hr/>
+    We use the `Task<int>` and `Task<string>` classes to call `value-returning methods` (GetLength and ToUpper). These methods do `not take any parameters` and `return results of types int and string`, respectively.
+
+  In the above programs the methods that we called by using `Tasks` are all `non-value returning` as well as they do `not take any parameters` also.
+
+  `Now` let’s learn how to call `value returning methods` by using `Task` and to do that add a new class in the project naming it as “Class3.cs” and write the below code in it:
+
+  ```c#
+  internal class Class3
+  {
+      static int GetLength()
+      {
+          string str = "";
+          for (int i = 1; i <= 100000; i++) {
+              str += i;
+          }
+          return str.Length;
+      }
+      static string ToUpper()
+      {
+          string str = "Hello World";
+          return str.ToUpper();
+      }
+      static void Main()
+      {
+          // Creating and starting tasks
+          Task<int> t1 = new Task<int>(GetLength);
+          Task<string> t2 = new Task<string>(ToUpper);
+          t1.Start(); t2.Start();
+
+          // Alternative using Task.Factory
+          // Task<int> t1 = Task.Factory.StartNew(GetLength);
+          // Task<string> t2 = Task.Factory.StartNew(ToUpper);
+
+          // Capturing results
+          int Result1 = t1.Result;
+          string Result2 = t2.Result;
+
+          // Displaying results
+          Console.WriteLine($"Value of Result1 is: {Result1}");
+          Console.WriteLine($"Value of Result2 is: {Result2}");
+      }
+  }
+
+  ```
+
+  - `Task<int> t1` and `Task<string> t2` are created to run the value-returning methods.
+  - The results are captured using the `Result` property of each task after completion.
+    <hr/>
+  </details>
+
+- <details>
+    <summary>How to call value-returing method using `Task` with Parameters?⭐</summary>
+    <hr/>
+    In this case, we use the `Task<int>` and `Task<string>` classes, but the methods (`GetLength` and `ToUpper`) take parameters. We pass these parameters using lambda expressions in the task creation.
+    ```c#
+    internal class Class4
+    {
+        static int GetLength(int ub)
+        {
+            string str = "";
+            for (int i = 1; i <= ub; i++)
+                str += i;
+            return str.Length;
+        }
+        static string ToUpper(string str)
+        {
+            return str.ToUpper();
+        }
+        static void Main()
+        {
+            // Creating and starting tasks with parameters using lambda expressions
+            Task<int> t1 = new Task<int>(() => GetLength(50000));
+            Task<string> t2 = new Task<string>(() => ToUpper("Hello India"));
+            t1.Start(); t2.Start();
+
+            // Alternative using Task.Factory
+            // Task<int> t1 = Task.Factory.StartNew(() => GetLength(50000));
+            // Task<string> t2 = Task.Factory.StartNew(() => ToUpper("Hello India"));
+
+            // Capturing results
+            int Result1 = t1.Result;
+            string Result2 = t2.Result;
+
+            // Displaying results
+            Console.WriteLine($"Value of Result1 is: {Result1}");
+            Console.WriteLine($"Value of Result2 is: {Result2}");
+        }
+
+  }
+
+  ```
+
+  - `Task<int>` t1 and `Task<string>` t2 are created using lambda expressions to pass parameters to the methods.
+  - We capture the results using the `Result` property of each task after completion.
+  <hr/>
+  </details>
+  ```
+
+- <details>
+      <summary>Why do we use delegates or lambda expressions in "value-returing method using `Task` with Parameters" examples?</summary>
+      <hr/>
+      We use delegates or lambda expressions to pass parameters to the tasks while creating them. This allows the methods to receive values dynamically when the tasks are executed.
+      <hr/>
+  </details>
+####  **`Thread synchronization`**
+- <details>
+    <summary>What is thread synchronization in C#?⭐</summary>
+    <hr/>
+    Thread synchronization is a technique that allows only one thread to access a shared resource at a time. It ensures that no other thread can interrupt until the assigned thread finishes its task. This helps avoid conflicts or system halts due to simultaneous access to shared resources.
+    -  It is mainly used in case of transactions like `deposit`, `withdraw` etc
+    - Accessing shared resources (data) is critical task that sometimes may halt the system. We deal with it by making threads synchronized.
+    -  In multithreading program, threads are allowed to access any resource for the required execution time. Threads share resources and executes asynchronously
+    -  No other thread can interrupt until the assigned thread finishes its task.
+    <hr/>
+  </details>
+- <details>
+    <summary>How is thread synchronization achieved using the lock keyword in C#?⭐</summary>
+    <hr/>
+    In C#, the `lock` keyword is used to synchronize access to shared resources. It locks the resource for the current thread, executes the task, and then releases the lock. This prevents other threads from interrupting until the task is completed.
+
+  `Example`:
+
+  ```c#
+  class Class5
+  {
+      public static void Print()
+      {
+          lock (typeof(Class5))  // Locking to synchronize threads
+          {
+              Console.Write("[CSharp Is ");
+              Thread.Sleep(5000);  // Simulate work
+              Console.WriteLine("Object Oriented]");
+          }
+      }
+
+      static void Main()
+      {
+          Thread t1 = new Thread(Print);
+          Thread t2 = new Thread(Print);
+          Thread t3 = new Thread(Print);
+
+          // Starting threads
+          t1.Start();
+          t2.Start();
+          t3.Start();
+
+          // Wait for threads to complete
+          t1.Join();
+          t2.Join();
+          t3.Join();
+      }
+  }
+
+  ```
+
+  - `lock (typeof(Class5))` ensures only one thread can execute the code inside the `lock` block at a time.
+
+    <hr/>
+  </details>
+
+- <details>
+      <summary>How can synchronization be performed using tasks?⭐</summary>
+      <hr/>
+      We can achieve synchronization using the `lock` keyword with tasks, similar to how it is done with threads. This ensures that only one task executes the critical section at a time.
+
+      `Example`:
+      ```c#
+        class Class6
+        {
+            public static void Print()
+            {
+                lock (typeof(Class6))// Locking to synchronize tasks
+                {
+                    Console.Write("[CSharp Is ");
+                    Task.Delay(5000).Wait();  // Simulate work
+                    Console.WriteLine("Object Oriented]");
+                }
+            }
+
+            static void Main()
+            {
+                // Creating and starting tasks
+                Task t1 = new Task(Print);
+                Task t2 = new Task(Print);
+                Task t3 = new Task(Print);
+
+                t1.Start();
+                t2.Start();
+                t3.Start();
+
+                // Alternative using Task.Factory
+                // Task t1 = Task.Factory.StartNew(Print);
+                // Task t2 = Task.Factory.StartNew(Print);
+                // Task t3 = Task.Factory.StartNew(Print);
+
+                // Waiting for all tasks to complete
+                Task.WaitAll(t1, t2, t3);
+            }
+        }
+
+      ```
+
+      - `lock (typeof(Class6))` ensures only one task can execute the critical section at a time.
+      - `Task.Delay(5000).Wait()` simulates a delay in execution.
+      <hr/>
+
+  </details>
+####  **`Data Parallelism`**
+
+- <details>
+    <summary>What is data parallelism?⭐</summary>
+    <hr/>
+
+  - Data parallelism refers to performing the same operation concurrently on elements in a source like an array or collection. In this approach, the source is partitioned so that multiple threads can operate on different segments simultaneously.
+  - The `Task Parallel Library (TPL)` supports data parallelism through “`Parallel`” class which is present under `System.Threading.Tasks` namespace.
+  - This class provides method-based parallel implementations of for and foreach loops. You write the loop logic for a “Parallel.For” or “Parallel.ForEach” loops much as you would write a sequential loop. You do not have to create threads or queue the work items i.e., TPL handles all the low-level work for you.
+
+    <hr/>
+  </details>
+
+- <details>
+    <summary>How does the Parallel class in TPL support data parallelism?⭐</summary>
+    <hr/>
+    The `Parallel` class in TPL provides method-based parallel implementations of `for` and `foreach` loops. This allows you to perform data parallelism easily without manually creating threads.
+    <hr/>
+  </details>
+- <details>
+    <summary>What code demonstrates the difference between "sequential" and "parallel" for loops?⭐</summary>
+    <hr/>
+    ```c#
+    using System.Diagnostics;
+
+  class Class7
+  {
+  static void Main()
+  {
+  // Sequential for loop
+  Stopwatch sw1 = new Stopwatch();
+  sw1.Start();
+  string str1 = "";
+  for (int i = 1; i < 200000; i++)
+  {
+  str1 += i;
+  }
+  sw1.Stop();
+  Console.WriteLine("Time taken to execute the code by using sequential for loop: " + sw1.ElapsedMilliseconds);
+
+            // Parallel for loop
+            Stopwatch sw2 = new Stopwatch();
+            sw2.Start();
+            string str2 = "";
+            Parallel.For(1, 200000, i =>
+            {
+                str2 += i;
+            });
+            sw2.Stop();
+            Console.WriteLine("Time taken to execute the code by using parallel for loop: " + sw2.ElapsedMilliseconds);
+        }
+
+  }
+
+  ```
+
+  - Sequential for loop: Each iteration is executed one by one.
+
+  - Parallel for loop: Iterations are executed concurrently on different threads.
+  <hr/>
+  </details>
+  ```
+
+- <details>
+    <summary>What code demonstrates the difference between sequential and parallel foreach loops?⭐</summary>
+    <hr/>
+    ```c#
+    using System.Diagnostics;
+
+  class Class8
+  {
+  static void Main()
+  {
+  int[] arr = { 1, 2, 3, 4, 5, ..., 50 };
+
+            // Sequential foreach loop
+            Stopwatch sw1 = new Stopwatch();
+            sw1.Start();
+            foreach (int i in arr)
+            {
+                Console.WriteLine($"Thread Id: {Thread.CurrentThread.ManagedThreadId}; i value: {i}");
+            }
+            sw1.Stop();
+            Console.WriteLine();
+
+            // Parallel foreach loop
+            Stopwatch sw2 = new Stopwatch();
+            sw2.Start();
+            Parallel.ForEach(arr, i => {
+                Console.WriteLine($"Thread Id: {Thread.CurrentThread.ManagedThreadId}; i value: {i}");
+            });
+            sw2.Stop();
+
+            Console.WriteLine("Time taken to execute code by using sequential foreach loop: " + sw1.ElapsedMilliseconds);
+            Console.WriteLine("Time taken to execute code by using parallel foreach loop: " + sw2.ElapsedMilliseconds);
+        }
+
+  }
+
+  ```
+
+  - `Sequential foreach loop`: Executes each iteration one after another on the same thread.
+  - `Parallel foreach loop`: Executes multiple iterations concurrently on different threads.
+  <hr/>
+  </details>
+  ```
+
+- <details>
+      <summary>When Parallel loops faster and may not faster?⭐</summary>
+      <hr/>
+      Parallel loops are generally faster for bulk tasks but may not always be faster for small or light operations.
+      <hr/>
+  </details>
+####  *`continuation task`*:
+- <details>
+    <summary>What is a continuation task?⭐</summary>
+    <hr/>
+
+  A continuation task is an asynchronous task that is invoked by another task (called an antecedent) when it finishes. Continuations allow a second operation to run once the first one is complete. This is useful when you want one task to depend on the result or completion of another task.
+
+  In asynchronous programming, it's common for one asynchronous operation, on completion, to invoke a second operation. Continuations allow descendant operations to consume the results of the first operation. A continuation task (also known just as a continuation) is an asynchronous task that's invoked by another task, known as the antecedent, when the antecedent finishes. To test this, add a new class in the project naming it as “Class9.cs” and write the below code in it:
+    <hr/>
+  </details>
+
+- <details>
+      <summary>How can you chain tasks in C# using continuation tasks?⭐</summary>
+      <hr/>
+      You can chain tasks using the `ContinueWith` method. This method allows a task to be executed as a continuation of a previously completed task.
+
+      Demonstrates chaining tasks using continuation tasks:
+      ```c#
+      class Class9
+      {
+          static void Method1(int x, int ub)
+          {
+              // Prints multiplication table from 1 to ub
+              for (int i = 1; i <= ub; i++)
+                  Console.WriteLine($"{x} * {i} = {x * i}");
+          }
+
+          static void Method2(int x, int ub)
+          {
+              // Prints multiplication table from ub to 1
+              for (int i = ub; i > 0; i--)
+                  Console.WriteLine($"{x} * {i} = {x * i}");
+          }
+
+          static void Main()
+          {
+              // Create a task and chain continuation tasks
+              Task t = Task.Factory.StartNew(() => Method1(5, 12))
+                                   .ContinueWith((antecedent) => Console.WriteLine()) // Add a blank line
+                                   .ContinueWith((antecedent) => Method2(5, 12));
+
+              // Wait for the task to complete
+              t.Wait();
+              Console.ReadLine();
+          }
+      }
+      ```
+
+      - Method1 prints a multiplication table from 1 to a specified upper bound (ub).
+      - ContinueWith is used to chain tasks so that Method2 runs after Method1 completes.
+      - The t.Wait() ensures that the program waits for all tasks to complete before exiting.
+      <hr/>
+
+  </details>
+####  *`Asynchronous Programming with async and await`*:
+
+- <details>
+    <summary>What are async and await in C#?⭐</summary>
+    <hr/>
+    - `async` and `await` are code markers used in C# to handle asynchronous programming. They allow for non-blocking execution, which prevents an application from getting blocked while waiting for a long-running operation to complete.
+
+  - async and await in C# are the code markers, which marks code positions from where the control should resume after a task completes. When we are dealing with UI, and on a button click we called a long-running method like reading a large file or something else which will take a long time and, in that case, the entire application must wait to complete the task. In other words, if a process is blocked in a synchronous application, the whole application gets blocked and stops responding until the whole task completes.
+    <hr/>
+  </details>
+
+- <details>
+    <summary> How do async and await work together?⭐</summary>
+    <hr/>
+
+  - `async` marks a method as asynchronous and allows the use of the `await` keyword inside it.
+  - `await` pauses the execution of the method until the awaited task is complete, allowing other tasks or code to run in the meantime.
+
+  ```c#
+  class Class10
+  {
+      static async void Test1()
+      {
+          // Simulates reading values from a database
+          Console.WriteLine("Started reading values from DB.....");
+          await Task.Delay(10000); // Simulate a 10-second delay for a long-running operation
+          Console.WriteLine("Completed reading values from DB.....");
+      }
+
+      static void Test2()
+      {
+          // Accepts user input
+          Console.Write("Please enter your name: ");
+          string Name = Console.ReadLine();
+          Console.WriteLine($"Name you entered is: {Name}");
+      }
+
+      static void Main()
+      {
+          // Start both methods
+          Test1(); // Asynchronous call
+          Test2(); // Synchronous call
+
+          // Wait for user input before closing
+          Console.ReadLine();
+      }
+  }
+  ```
+
+  - `Test1` is an asynchronous method that simulates reading from a database using await `Task.Delay(10000)`.
+  - `Test2` is a synchronous method that takes user input.
+  - In `Main()`, `Test1` runs asynchronously without blocking the execution of `Test2`.
+    <hr/>
+  </details>
+
+- <details>
+    <summary>What is the benefit of using async and await in UI applications?⭐</summary>
+    <hr/>
+    When dealing with UI applications, using `async` and `await` prevents the entire application from being blocked. For instance, if a long-running task like reading from a database is called, the UI remains responsive and doesn't freeze.
+    <hr/>
+  </details>
+- <details>
+    <summary>What happens if a synchronous long-running task is called without "async" and "await"?⭐</summary>
+    <hr/>
+    If a synchronous long-running task is called, the entire application may get blocked or become unresponsive until the task completes, leading to a poor user experience.
+    <hr/>
+  </details>
 
 # **`SQL Server`**
 

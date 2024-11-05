@@ -12106,8 +12106,6 @@ Life cycle means from the starting of execution to the end of execution.
     <summary>What is Collection?</summary>
     <hr/>
     A collection is a dynamic array that can automatically resize itself and manage its elements, providing greater flexibility compared to a traditional array.
-
-  Collections are pre-packaged data structures that provide dynamic resizing and additional functionalities compared to arrays. They automatically increase their size at execution time and support various operations like inserting, update and removing elements.
     <hr/>
   </details>
 
@@ -12123,7 +12121,7 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>What namespaces and classes are provided for "Collections" in .NET?</summary>
+    <summary>What is the namespaces and classes are provided for "Collections" in .NET?</summary>
     <hr/>
     In .NET, collections are defined under the `System.Collections` namespace. Common classes include:
 
@@ -12177,7 +12175,7 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>How does the "Queue" class work in C#?</summary>
+    <summary>How does the "Queue" class work in C#</summary>
     <hr/>
     The `Queue` class works on the principle of **First In First Out (FIFO)**. You can enqueue and dequeue items into/from a queue. Here’s an example:
     - We cannot `update` the `specific` `element` in a Queue collection because it follows the FIFO principle. The Queue class in C# only provides methods to add (Enqueue) and remove (Dequeue) elements.
@@ -12206,7 +12204,7 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>What are the different constructors available for Collection classes?</summary>
+    <summary>What are the different constructors available for Collection classes?⭐</summary>
     <hr/>
     The `capacity` of a collection increases dynamically i.e., when we add new `elements` to a Collection the size keeps on `incrementing` automatically. Every `collection` class has 3 `constructors` to it and the behavior of `collections` will be as following when the instance is created using different `constructor`:
 
@@ -12226,7 +12224,7 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
   </details>
 - <details>
-    <summary>Diffrence bitween Array & ArrayList?</summary>
+    <summary>Diffrence bitween Array & ArrayList?⭐</summary>
     <hr/>
 
   **`Arrays`**:
@@ -12403,7 +12401,6 @@ Life cycle means from the starting of execution to the end of execution.
   ```
   <hr/>
   </details>
-  ```
 
 ## **`Generics`**
 
@@ -12494,7 +12491,7 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
   </details>
 - <details>
-    <summary>What is the difference between "Collection classes" and "Generic Collections"?</summary>
+    <summary>What is the difference between "Collection classes" and "Generic Collections"?⭐</summary>
     <hr/>
     - In `non-generic collections`, elements are stored as `objects`, which means any type of value can be stored. This requires `boxing and unboxing` when working with value types.
     - In `generic collections`, you must `explicitly specify the type` of elements, providing `type safety` and avoiding unnecessary casting.
@@ -12531,23 +12528,23 @@ Life cycle means from the starting of execution to the end of execution.
 - <details>
     <summary>How to use Generic Collections in C#?</summary>
     <hr/>
+
     ```c#
     // Stack to store integer values
     Stack<int> si = new Stack<int>();
     si.Push(10);
     si.Push(20);
 
-  // Stack to store string values
-  Stack<string> ss = new Stack<string>();
-  ss.Push("Hello");
-  ss.Push("World");
+    // Stack to store string values
+    Stack<string> ss = new Stack<string>();
+    ss.Push("Hello");
+    ss.Push("World");
+    ```
 
-  ```
-  **Explanation**: In this example, `Stack<int>` stores only integers, and `Stack<string>` stores only strings, enforcing `type safety`.
+    **Explanation**: In this example, `Stack<int>` stores only integers, and `Stack<string>` stores only strings, enforcing `type safety`.
+    
   <hr/>
   </details>
-
-  ```
 
 - <details>
     <summary>What is the "List&ltT&gt" class in C#?</summary>
@@ -12677,9 +12674,10 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
   </details>
 - <details>
-    <summary>How would filtering values work using an Array instead of a List?</summary>
+    <summary>How would filtering values work using an Array instead of a List?⭐</summary>
     <hr/>
     Here’s how you would filter values greater than 40 from an array:
+
     ```c#
     internal class Class7
     {
@@ -12722,7 +12720,7 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>Why are Collections and Collection Initializers beneficial compared to traditional arrays?</summary>
+    <summary>Why are Collections and Collection Initializers beneficial compared to traditional arrays?⭐</summary>
     <hr/>
     - **`Less Code`**: Using collections like `List<T>` reduces the amount of code needed for operations like filtering and sorting.
     - **`Type Safety`**: Generics allow for type-specific collections that prevent runtime errors related to type casting.
@@ -12745,13 +12743,13 @@ Life cycle means from the starting of execution to the end of execution.
 ## **`LINQ`**
 
 - <details>
-    <summary>What is LINQ?</summary>
+    <summary>What is LINQ?⭐</summary>
     <hr/>
     LINQ stands for **Language Integrated Query**. It is a querying methodology introduced in C# 3.0 that `allows developers to write query expressions similar to SQL to retrieve information from various data sources`, *`including objects`*, `databases`, and `XML`.
     <hr/>
   </details>
 - <details>
-    <summary>What are the different types of LINQ?</summary>
+    <summary>What are the different types of LINQ?⭐</summary>
     <hr/>
      LINQ is divided into three main types based on the data source:
      1. **LINQ to Objects**:
@@ -12764,7 +12762,7 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
   </details>
 - <details>
-    <summary>What are the advantages of LINQ?</summary>
+    <summary>What are the advantages of LINQ?⭐</summary>
     <hr/>
     - **`Object-based, Language-integrated Querying`**: LINQ allows querying across data sources like databases, XML, and collections using the same syntax.
 
@@ -12775,7 +12773,7 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>Can LINQ work with multiple data sources?</summary>
+    <summary>Can LINQ work with multiple data sources?⭐</summary>
     <hr/>
      Yes, LINQ can work with multiple data sources, including:
      - **`Collections and Arrays`**: Using `LINQ to Objects`.
@@ -12799,24 +12797,23 @@ Life cycle means from the starting of execution to the end of execution.
 ## **`LINQ to Objects`**
 
 - <details>
-    <summary>What is LINQ to Objects?</summary>
+    <summary>What is LINQ to Objects?⭐</summary>
     <hr/>
     INQ to Objects is a feature in LINQ that allows writing queries against in-memory data, such as arrays and collections, to filter or sort the information.
-    <hr/>
-  </details>
-- <details>
-    <summary>What is the syntax of a LINQ query on objects?</summary>
-    <hr/>
-    The syntax for a LINQ query is as follows:
+
+    To use LINQ, you need to import the **`System.Linq`** namespace.
+
+    **Syntax** for a LINQ query is as follows:
     ```c#
     from <alias> in <array name | collection name> [<clauses>] select <alias> | new {<Column List>}
     ```
     - Starts with `from` and ends with `select`.
     - Clauses include where, `group by`, and `order by`.
+
     <hr/>
   </details>
 - <details>
-    <summary>What are the key elements of a LINQ query?</summary>
+    <summary>What are the key elements of a LINQ query?⭐</summary>
     <hr/>
     The key elements are:
 
@@ -12827,17 +12824,11 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>What are the clauses in LINQ?</summary>
+    <summary>What are the clauses in LINQ?⭐</summary>
     <hr/>
     - **where**: Specifies a filter condition.
     - **group by**: Groups data based on a key.
     - **order by**: Sorts the data in ascending or descending order.
-    <hr/>
-  </details>
-- <details>
-    <summary>How can you use LINQ in your application?</summary>
-    <hr/>
-    To use LINQ, you need to import the **`System.Linq`** namespace.
     <hr/>
   </details>
 - <details>
@@ -12847,19 +12838,19 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
   </details>
 - <details>
-    <summary>How does LINQ handle collections and arrays?</summary>
+    <summary>How does LINQ handle collections and arrays?⭐</summary>
     <hr/>
     LINQ can query collections and arrays using a straightforward syntax, filtering, sorting, and retrieving data based on specified conditions without manually iterating over elements.
     <hr/>
   </details>
 - <details>
-    <summary>What are LINQ Providers?</summary>
+    <summary>What are LINQ Providers?⭐</summary>
     <hr/>
     LINQ providers are a set of classes that implement LINQ operations to allow interaction with different data sources. The `System.Linq` namespace is the LINQ provider or library required for writing LINQ queries in your code.
     <hr/>
   </details>
 - <details>
-    <summary>Can you give an example of a LINQ query on a collection?</summary>
+    <summary>Can you give an example of a LINQ query on a collection?⭐</summary>
     <hr/>
     Example using a string array:
     ```c#
@@ -12939,10 +12930,9 @@ Life cycle means from the starting of execution to the end of execution.
   ```
   <hr/>
   </details>
-  ```
 
 - <details>
-    <summary>Can generic collections store user-defined types in LINQ?</summary>
+    <summary>Can generic collections store user-defined types in LINQ?⭐</summary>
     <hr/>
     Yes, the values stored in a generic collection can include user-defined types such as classes or structures. 
     The type of values being stored in a generic collection can be of user-defined type values also like a class type or structure type that is defined to represent an entity as following:
@@ -12950,7 +12940,7 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
   </details>
 - <details>
-    <summary>Can you show an example of LINQ with in-memory data like List and Array?</summary>
+    <summary>Can you show an example of LINQ with in-memory data like List and Array?⭐</summary>
     <hr/>
 
   ```c#
@@ -12964,7 +12954,7 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>How does LINQ simplify filtering data compared to traditional methods?</summary>
+    <summary>How does LINQ simplify filtering data compared to traditional methods?⭐</summary>
     <hr/>
     In traditional methods, we often write repetitive loops to filter and sort data. LINQ focuses on what the result should look like by specifying `conditions` rather than describing `how` to achieve it, making it a `simpler` and `declarative` approach.
     <hr/>
@@ -12981,7 +12971,7 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
   </details>
 - <details>
-    <summary>Can LINQ queries work with user-defined types like classes?</summary>
+    <summary>Can LINQ queries work with user-defined types like classes?⭐</summary>
     <hr/>
     Yes, LINQ can query collections of custom objects, like a list of `Customer` objects. Here’s an example:
 
@@ -13075,13 +13065,13 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>In LINQ having clause are there?</summary>
+    <summary>In LINQ "having" clause are there?</summary>
     <hr/>
      We don’t have “`having`” clause in `LINQ`.
     <hr/>
   </details>
 - <details>
-    <summary>If i need having clause funcanality, then what we do?</summary>
+    <summary>If i need having clause funcanality, then what we do?⭐</summary>
     <hr/>
     Wherever you need the functionality of “`having`”, use “`where`” overthere, because both are used for filtering only. LINQ has not given us 2 separate clauses i.e., if we use “`where`” before “`group by`” it works like “`where`” clause whereas if we use “`where`” after “`group by`” it works like “`having`”.
     <hr/>
@@ -13090,29 +13080,29 @@ Life cycle means from the starting of execution to the end of execution.
 ## **`Task Parallel Library (TPL)`**
 
 - <details>
-    <summary>What is the Task Parallel Library (TPL)?</summary>
+    <summary>What is the Task Parallel Library (TPL)?⭐</summary>
     <hr/>
-    The Task Parallel Library (TPL) is a set of public types in the `System.Threading` and `System.Threading`.Tasks namespaces that simplifies adding multitasking and handling multiple operations at the same time to applications.
+    The Task Parallel Library (TPL) is a set of public types in the `System.Threading` and `System.Threading.Tasks` namespaces that simplifies adding multitasking and handling multiple operations at the same time to applications.
 
-  Means, The Task Parallel Library (TPL) is a set of public types “System.Threading” and “System.Threading.Tasks” namespaces. The purpose of TPL is to make developers more productive by simplifying the process of adding parallelism and concurrency to applications. The TPL scales the degree of concurrency dynamically to most efficiently use all the processors that are available. In addition, the TPL handles the partitioning of the work, the scheduling of Threads on the Thread Pool, cancellation support, state management, and other low-level details. By using TPL, you can maximize the performance of your code while focusing on the work that your program is designed to accomplish.
+    Means, The Task Parallel Library (TPL) is a set of public types “System.Threading” and “System.Threading.Tasks” namespaces. The purpose of TPL is to make developers more productive by simplifying the process of adding parallelism and concurrency to applications. The TPL scales the degree of concurrency dynamically to most efficiently use all the processors that are available. In addition, the TPL handles the partitioning of the work, the scheduling of Threads on the Thread Pool, cancellation support, state management, and other low-level details. By using TPL, you can maximize the performance of your code while focusing on the work that your program is designed to accomplish.
 
     <hr/>
   </details>
 
 - <details>
-    <summary>What is the purpose of the TPL?</summary>
+    <summary>What is the purpose of the TPL?⭐</summary>
     <hr/>
     The purpose of TPL is to make developers more productive by making it easier to write code that executes in parallel, utilizing all available processors effectively.
     <hr/>
   </details>
 - <details>
-    <summary>How does TPL help in maximizing performance?</summary>
+    <summary>How does TPL help in maximizing performance?⭐</summary>
     <hr/>
     TPL scales concurrency dynamically, efficiently utilizing all available processors. It handles work partitioning, thread scheduling, cancellation support, state management, and other low-level details automatically.
     <hr/>
   </details>
 - <details>
-    <summary>When did TPL become the preferred method for writing multithreaded code?</summary>
+    <summary>When did TPL become the preferred method for writing multithreaded code?⭐</summary>
     <hr/>
     Starting with .NET Framework 4, the TPL became the preferred way to write multithreaded and parallel code.
 
@@ -13122,27 +13112,21 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>Is all code suitable for parallelization using TPL?</summary>
+    <summary>Is all code suitable for parallelization using TPL?⭐</summary>
     <hr/>
     No, not all code is suitable for parallelization. For example, if a loop does very little work in each step or has only a few steps, using parallelization might make it slower because of the extra overhead.
     <hr/>
   </details>
 - <details>
-    <summary>Does TPL handle low-level threading complexities?</summary>
+    <summary>Does TPL handle low-level threading complexities?⭐</summary>
     <hr/>
       Yes, TPL takes care of splitting tasks, managing thread pool scheduling, handling cancellation, and other low-level details automatically, so developers can focus on the main logic.
     <hr/>
   </details>
 - <details>
-    <summary>What are some basic threading concepts that developers should understand before using TPL?</summary>
+    <summary>What are some basic threading concepts that developers should understand before using TPL?⭐</summary>
     <hr/>
     However, developers should know basic threading concepts like locks, deadlocks, and race conditions because parallel processing can make programs more complex.
-    <hr/>
-  </details>
-- <details>
-    <summary>What namespaces are associated with the TPL?</summary>
-    <hr/>
-    TPL is primarily associated with the `System.Threading` and `System.Threading`.Tasks namespaces.
     <hr/>
   </details>
 - <details>
@@ -13154,15 +13138,12 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
   </details>
 - <details>
-      <summary>What are we trying to demonstrate in this exercise?</summary>
+      <summary>Example of demonstrate the threaded?⭐</summary>
       <hr/>
       We are demonstrating how to execute three methods sequentially (single-threaded), using multiple threads (multi-threaded), and finally using the Task Parallel Library (TPL) for parallelism in a console application.
-      <hr/>
-  </details>
-  *`Single-Threaded Example`*:
-- <details>
-      <summary>How does the single-threaded version of the program work?</summary>
-      <hr/>
+
+      **`Single-Threaded Example`**:How does the single-threaded version of the program work.
+
       The single-threaded program runs all three methods (`Print1`, `Print2`, and `Print3`) sequentially, one after the other, using the main thread. It prints the thread ID of the main thread executing each method.
 
       Code demonstrates this single-threaded execution:
@@ -13198,14 +13179,9 @@ Life cycle means from the starting of execution to the end of execution.
       }
 
       ```
-      <hr/>
 
-  </details>
-  *`Multi-Threaded Example:`*
+      **`Multi-Threaded Example:`**: How does the multi-threaded version of the program work.
 
-- <details>
-      <summary>How does the multi-threaded version of the program work?</summary>
-      <hr/>
       In the multi-threaded version, we create three separate threads to execute each of the three methods concurrently. This creates four threads in total (including the main thread). The `Join()` method ensures that the main thread waits until all other threads complete.
 
       Code demonstrates this multi-threaded execution:
@@ -13243,14 +13219,8 @@ Life cycle means from the starting of execution to the end of execution.
       }
 
       ```
-      <hr/>
+    **`Task Parallel Library (TPL) Example:`**: How does the TPL version of the program work.
 
-  </details>
-  *`Task Parallel Library (TPL) Example:`*
-
-- <details>
-    <summary>How does the TPL version of the program work?</summary>
-    <hr/>
     The TPL version uses tasks to execute the three methods concurrently. It creates three tasks using `new Task()`, starts them using `Start()`, and waits for them to complete using `Wait()`. This approach uses threads internally but manages them automatically.
     
     Code demonstrates this TPL execution using basic tasks:
@@ -13291,7 +13261,7 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
   </details>
 - <details>
-    <summary>How can we simplify task creation and execution using Task Factory?</summary>
+    <summary>How can we simplify task creation and execution using Task Factory?⭐</summary>
     <hr/>
     The simplified version uses `Task.Factory.StartNew()` to create and start tasks in a single line. We then call `Task.WaitAll()` to wait for all tasks to complete.
 
@@ -13310,19 +13280,19 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>In all the above TPL example which calling method by using `Task` are value returing or non-value returing? Can they take parameter.</summary>
+    <summary>In all the above TPL example which calling method by using `Task` are value returing or non-value returing? Can they take parameter.⭐</summary>
     <hr/>
     In the above programs the methods that we called by using `Tasks` are all non-value returning as well as they do not take any parameters also.
     <hr/>
   </details>
 - <details>
-    <summary>How does TPL internally manage threads compared to manual thread creation?</summary>
+    <summary>How does TPL internally manage threads compared to manual thread creation?⭐</summary>
     <hr/>
      TPL internally uses the thread pool and manages thread scheduling, avoiding the need to manually create and start threads. It reduces the complexity of handling concurrency and enhances performance by optimizing thread usage.
     <hr/>
   </details>
 - <details>
-    <summary>How to call value-returing method using `Task`?</summary>
+    <summary>How to call value-returing method using `Task`?⭐</summary>
     <hr/>
     We use the `Task<int>` and `Task<string>` classes to call `value-returning methods` (GetLength and ToUpper). These methods do `not take any parameters` and `return results of types int and string`, respectively.
 
@@ -13375,7 +13345,7 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>How to call value-returing method using `Task` with Parameters?</summary>
+    <summary>How to call value-returing method using `Task` with Parameters?⭐</summary>
     <hr/>
     In this case, we use the `Task<int>` and `Task<string>` classes, but the methods (`GetLength` and `ToUpper`) take parameters. We pass these parameters using lambda expressions in the task creation.
     ```c#
@@ -13428,9 +13398,9 @@ Life cycle means from the starting of execution to the end of execution.
       We use delegates or lambda expressions to pass parameters to the tasks while creating them. This allows the methods to receive values dynamically when the tasks are executed.
       <hr/>
   </details>
-  **`Thread synchronization`**
+####  **`Thread synchronization`**
 - <details>
-    <summary>What is thread synchronization in C#?</summary>
+    <summary>What is thread synchronization in C#?⭐</summary>
     <hr/>
     Thread synchronization is a technique that allows only one thread to access a shared resource at a time. It ensures that no other thread can interrupt until the assigned thread finishes its task. This helps avoid conflicts or system halts due to simultaneous access to shared resources.
     -  It is mainly used in case of transactions like `deposit`, `withdraw` etc
@@ -13440,7 +13410,7 @@ Life cycle means from the starting of execution to the end of execution.
     <hr/>
   </details>
 - <details>
-    <summary>How is thread synchronization achieved using the lock keyword in C#?</summary>
+    <summary>How is thread synchronization achieved using the lock keyword in C#?⭐</summary>
     <hr/>
     In C#, the `lock` keyword is used to synchronize access to shared resources. It locks the resource for the current thread, executes the task, and then releases the lock. This prevents other threads from interrupting until the task is completed.
 
@@ -13485,7 +13455,7 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-      <summary>How can synchronization be performed using tasks?</summary>
+      <summary>How can synchronization be performed using tasks?⭐</summary>
       <hr/>
       We can achieve synchronization using the `lock` keyword with tasks, similar to how it is done with threads. This ensures that only one task executes the critical section at a time.
 
@@ -13531,10 +13501,10 @@ Life cycle means from the starting of execution to the end of execution.
       <hr/>
 
   </details>
-  **`Data Parallelism`**
+####  **`Data Parallelism`**
 
 - <details>
-    <summary>What is data parallelism?</summary>
+    <summary>What is data parallelism?⭐</summary>
     <hr/>
 
   - Data parallelism refers to performing the same operation concurrently on elements in a source like an array or collection. In this approach, the source is partitioned so that multiple threads can operate on different segments simultaneously.
@@ -13545,13 +13515,13 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>How does the Parallel class in TPL support data parallelism?</summary>
+    <summary>How does the Parallel class in TPL support data parallelism?⭐</summary>
     <hr/>
     The `Parallel` class in TPL provides method-based parallel implementations of `for` and `foreach` loops. This allows you to perform data parallelism easily without manually creating threads.
     <hr/>
   </details>
 - <details>
-    <summary>What code demonstrates the difference between "sequential" and "parallel" for loops?</summary>
+    <summary>What code demonstrates the difference between "sequential" and "parallel" for loops?⭐</summary>
     <hr/>
     ```c#
     using System.Diagnostics;
@@ -13595,7 +13565,7 @@ Life cycle means from the starting of execution to the end of execution.
   ```
 
 - <details>
-    <summary>What code demonstrates the difference between sequential and parallel foreach loops?</summary>
+    <summary>What code demonstrates the difference between sequential and parallel foreach loops?⭐</summary>
     <hr/>
     ```c#
     using System.Diagnostics;
@@ -13639,14 +13609,14 @@ Life cycle means from the starting of execution to the end of execution.
   ```
 
 - <details>
-      <summary>When Parallel loops faster and may not faster?</summary>
+      <summary>When Parallel loops faster and may not faster?⭐</summary>
       <hr/>
       Parallel loops are generally faster for bulk tasks but may not always be faster for small or light operations.
       <hr/>
   </details>
-  *`continuation task`*:
+####  *`continuation task`*:
 - <details>
-    <summary>What is a continuation task?</summary>
+    <summary>What is a continuation task?⭐</summary>
     <hr/>
 
   A continuation task is an asynchronous task that is invoked by another task (called an antecedent) when it finishes. Continuations allow a second operation to run once the first one is complete. This is useful when you want one task to depend on the result or completion of another task.
@@ -13656,7 +13626,7 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-      <summary>How can you chain tasks in C# using continuation tasks?</summary>
+      <summary>How can you chain tasks in C# using continuation tasks?⭐</summary>
       <hr/>
       You can chain tasks using the `ContinueWith` method. This method allows a task to be executed as a continuation of a previously completed task.
 
@@ -13698,10 +13668,10 @@ Life cycle means from the starting of execution to the end of execution.
       <hr/>
 
   </details>
-  *`Asynchronous Programming with async and await`*:
+####  *`Asynchronous Programming with async and await`*:
 
 - <details>
-    <summary>What are async and await in C#?</summary>
+    <summary>What are async and await in C#?⭐</summary>
     <hr/>
     - `async` and `await` are code markers used in C# to handle asynchronous programming. They allow for non-blocking execution, which prevents an application from getting blocked while waiting for a long-running operation to complete.
 
@@ -13710,7 +13680,7 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary> How do async and await work together?</summary>
+    <summary> How do async and await work together?⭐</summary>
     <hr/>
 
   - `async` marks a method as asynchronous and allows the use of the `await` keyword inside it.
@@ -13754,13 +13724,13 @@ Life cycle means from the starting of execution to the end of execution.
   </details>
 
 - <details>
-    <summary>What is the benefit of using async and await in UI applications?</summary>
+    <summary>What is the benefit of using async and await in UI applications?⭐</summary>
     <hr/>
     When dealing with UI applications, using `async` and `await` prevents the entire application from being blocked. For instance, if a long-running task like reading from a database is called, the UI remains responsive and doesn't freeze.
     <hr/>
   </details>
 - <details>
-    <summary>What happens if a synchronous long-running task is called without "async" and "await"?</summary>
+    <summary>What happens if a synchronous long-running task is called without "async" and "await"?⭐</summary>
     <hr/>
     If a synchronous long-running task is called, the entire application may get blocked or become unresponsive until the task completes, leading to a poor user experience.
     <hr/>
