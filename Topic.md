@@ -499,7 +499,7 @@
     <summary>Datatype?⭐</summary>
     <hr/>
 
-  ![DataType](./Q/CSharp/DataType)
+  ![DataType](./Q/CSharp/DataType.png)
 
     <hr/>
   </details>
@@ -4142,7 +4142,7 @@
     <hr/>
 
     A public key is used to ensure the **uniqueness** of the assembly in the GAC. It also provides integrity by ensuring that the assembly has not been modified since it was created.
-    
+
     <hr/>
   </details>
 - <details>
