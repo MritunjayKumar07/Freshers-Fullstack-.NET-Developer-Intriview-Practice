@@ -665,7 +665,7 @@
     <hr/>
     
     An array is a user-defined data type used to store same type of multiple values under a single name. It makes it easier for developers to write code, as each element in the array can be accessed using an index. Arrays in C# start with an index of 0 (the lower bound) and end with Size-1 (the upper bound).
-
+    - Array size is immutable.
     <hr/>
   </details>
 - <details>
@@ -7620,10 +7620,941 @@
 
 # **`SQL Server`**
 
+- <details>
+    <summary>What is SQL Server?⭐</summary>
+    <hr/>
+    
+    - It is an RDBMS software which also support ORDBMS feature.
+    - It is used to create and manage databases.
+    - Developed by Microsoft.
+    - 1st version of SQL Server is 1.0 comes in	1989.
+    - Current version of SQL Server is 2022 comes in	2022
+
+    <hr/>
+  </details>
+- <details>
+    <summary>What is SQL Database?⭐</summary>
+    <hr/>
+    
+    A database is a collection of related data.
+
+    `There are two main types of databases`:
+
+    1. **OLTP (Online Transaction Processing) Databases**: Used for storing and managing day-to-day transactional data, where operations like CRUD are performed regularly to support business operations.
+
+    2. **OLAP (Online Analytical Processing) Databases**: Used for analyzing large datasets to gain insights and make strategic decisions. Organizations use OLAP databases to perform complex queries and aggregations that help understand business trends and performance.
+
+    <hr/>
+  </details>
+- <details>
+    <summary>What is DBMS?⭐</summary>
+    <hr/>
+    
+    - DBMS stands for Database Management System.
+    - It is a software used to create, manage, and manipulate databases.
+
+    - DBMS allows users to create, read, update, delete data.
+
+    - DBMS is an `inteface` between user and database.
+
+    **`Types of DBMS`**:
+
+    - HDBMS (Hierarchical DBMS)
+    - NDBMS (Network DBMS)
+    - RDBMS (Relational DBMS)
+    - ORDBMS (Object RDBMS)
+
+    <hr/>
+  </details>
+- <details>
+    <summary>What is RDBMS & ORDBMS?⭐</summary>
+    <hr/>
+    
+    **`RDBMS`**: 
+    - A Relational Database Management System (RDBMS) is a type of database management system that `uses tables to store and manage data.`
+
+    **`ORDBMS`**: 
+    - ORDBMS is a combination of RDBMS (Relational Database Management System) and OOP (Object-Oriented Programming).
+
+    - It improves RDBMS by adding object-oriented features like reusability.
+
+    <hr/>
+  </details>
+- <details>
+    <summary>What are the RDBMS Software?⭐</summary>
+    <hr/>
+    
+    - ORACLE
+      - Vendor: Oracle Corporation
+    - MySQL
+      - Vendor: Oracle Corporation
+    - `SQL SERVER`
+      - Vendor: Microsoft
+    - POSTGRESQL
+      - Vendor: PostgreSQL Global Development Group
+    - RDS (Relational Database Service)
+      - Vendor: Amazon Web Services (AWS)
+
+    <hr/>
+  </details>
+- <details>
+    <summary>What is NoSQL Databases?⭐</summary>
+    <hr/>
+    
+    NoSQL databases store data in an unstructured format.
+
+    - MongoDB
+    - Cassandra
+
+    <hr/>
+  </details>
+- <details>
+    <summary>What is SQL(Structured Query Language)?⭐</summary>
+    <hr/>
+    
+    - Users talk to SQL Server by sending commands called queries.
+
+    <hr/>
+  </details>
+- <details>
+    <summary>What is Query?⭐</summary>
+    <hr/>
+    
+    A **command** or **question** sent to SQL Server to do something with the database.
+
+    **Working**:
+
+    ```
+    User --> SSMS --> SQL --> SQL Server --> DB
+    ```
+
+    <hr/>
+  </details>
+- <details>
+    <summary>What are the SQL Sub-languages?⭐</summary>
+    <hr/>
+    
+    SQL has different sub-languages based on the operations performed on the database
+
+    1. **DDL (Data Definition Language)**:
+
+    - Defines and manages database structures.
+    - `Examples`: CREATE, ALTER, DROP, truncate .
+
+    2. **DML (Data Manipulation Language)**:
+
+    - Manipulates data within the database.
+    - `Examples`: INSERT, UPDATE, DELETE , merge .
+
+    3. **DQL (Data Query Language)**:
+
+    - Queries and retrieves data from the database.
+    - Example: SELECT.
+
+    4. **TCL (Transaction Control Language)**:
+
+    - Manages transactions within the database.
+    - `Examples`: COMMIT, ROLLBACK, SAVEPOINT.
+
+    5. **DCL (Data Control Language)**:
+
+    - Controls access to data within the database.
+    - `Examples`: GRANT, REVOKE.
+
+    <hr/>
+  </details>
+- <details>
+    <summary>What are the datatpye in SQL Server?⭐</summary>
+    <hr/>
+    
+    |         **ASCI**         |        **UNICODE**       |   **INTEGER**  |     **FLOAT**    |  **CURRENCY**  |   **DATE**   |        **BINARY**         | 
+    |--------------------------|--------------------------|----------------|------------------|----------------|--------------|---------------------------|
+    |      char(size)          |           nchar          |     tinyint    |   numeric(p,s)   |   smallmoney   |     date     |         binary            |
+    |   varchar(size/max)      |   nvarchar(size/max)     |    smallint    |   decimal(p,s)   |      money     |     time     |   varbinary(size/max)     |
+    |                          |                          |       int      |                  |                |   datetime   |                           |
+    |                          |                          |     bigint     |                  |                |              |                           |
+    |                          |                          |   numeric(p)   |                  |                |              |                           |
+
+    1. **ASCI**: 
+    - CHAR & VARCHAR can store standard ASCII characters (like letters a-z, A-Z, numbers 0-9, and basic special characters) and Extended ASCII characters (like accented letters and more special symbols). However, they cannot store all characters from different languages (like Chinese or Arabic) because they do not fully support Unicode.
+    - `CHAR` is recommended for fixed-length character columns. Memory west(Not remove un-used space).
+    - `CHAR(size)` allows character data up to `8000 characters`. Example GENDER CHAR(1).
+    - `Varchar(size/max)` is recommended for variable-length fields, store  upto 2GB. Memory not west(Remove un-used space).
+
+    2. **UNICODE**
+    - Storing characters from many languages or Symbols, you should use NCHAR & NVARCHAR.
+    - `nchar(size)` store 4000 character & `nvarchar(size/max)` store 2GB.
+    - `nchar(size)` Fixed-length data & `nvarchar(size/max)` Variable-length data
+
+    3. **INTEGER**
+    - `TINYINT`  -> 1 bytes
+    - `SMALLINT` -> 2 bytes
+    - `INT` -> 4 bytes
+    - `BIGINT` -> 8 bytes
+    - `Numeric(p)	` -> 5 to 17 bytes
+
+    4. **FLOAT**
+    - Allows numbers without decimal upto 38 digits.
+    - Example: Numeric(p): `Numeric(4) => 5864`
+    - Example: Numeric(p,s): `Numeric(7,2) => 50000.50`
+    - Example: Decimal(p,s): `Decimal(7,2) => 50000.50`
+
+    5. Money
+    - `SmallMoney` => 4 bytes
+    - `Money` => 8 bytes
+    <hr/>
+  </details>
+- <details>
+    <summary>Create database, use the database, create table, cheake structure, insert data & select?⭐</summary>
+    <hr/>
+    
+    ```sql
+    create database revesion;
+
+    use revesion;
+
+    CREATE TABLE emp (
+      id int primary key,
+    	fName Varchar(Max),
+    	lName Varchar(Max),
+    	age int,
+    	jobTitle Varchar(50),
+    );
+
+    SP_HELP emp--Store procudure
+
+    INSERT INTO emp (id, fName, lName, age, JobTitle) VALUES (1, 'John', 'Doe', 30, 'Engineer'), (2, 'Awnish', 'Kumar', 23, 'Worker'), (3, 'Sara', 'Smith', 28, 'Manager'), (4, 'Michael', 'Brown', 35, 'Technician'), (5, 'Emily', 'Davis', 26, 'Analyst'), (6, 'David', 'Wilson', 40, 'Supervisor'), (7, 'Jessica', 'Garcia', 24, 'Intern'), (8, 'Mark', 'Anderson', 45, 'Director'), (9, 'Linda', 'Martinez', 31, 'Consultant'), (10, 'James', 'Taylor', 29, 'Developer');
+    --OR
+    INSERT INTO emp VALUES (11, 'Johns', 'Doev', 38, 'Engineer');
+
+    Select * from emp;
+    Select id, fName from emp;
+    ```
+
+    <hr/>
+  </details>
+- <details>
+    <summary>Operators in SQL Server?⭐</summary>
+    <hr/>
+    
+    - `Arithmetic Operators`: + , - , * , / , % .
+    - `Relational Operators`: > , >= , < , <= , = , <> .
+    - `Logical Operators`:AND ,OR , NOT
+    - `Special Operators`: BETWEEN , IN ,LIKE ,IS ,ANY ,ALL ,EXISTS ,PIVOT .
+    - `Set Operators`: UNION ,UNION ALL ,INTERSECT ,EXCEPT .
+
+    <hr/>
+  </details>
+- <details>
+    <summary>What are the Clause & use?⭐</summary>
+    <hr/>
+    
+    1. **SELECT Clause**: Specifies the column/columns that you want to retrieve from a table. 
+    2. **Frome Clause**: Specifies the table from which to retrieve the data. 
+    3. **Where Clause**: Get specific row/rows based on condition.
+
+    ```sql
+    --Syntax:
+    Select <columns> from <table_name> where <condition>
+
+    --Example:
+    Select * from emp where hiredate > '2020-02-01';
+    Select * from emp where age = 36;
+
+    --compound conditions
+    Select * from emp where hiredate > '2020-02-01' OR age = 36;
+    Select * from emp where hiredate > '2020-02-01' AND age = 36;
+    ```
+
+    4. **GROUP BY Clause**: Groups rows that have the same values in specified columns into summary rows and calculate "total", "average" or etc. 
+
+    **`Execution`**:
+    ```sql
+    FROM 
+    WHERE 
+    GROUP BY 
+    HAVING 
+    SELECT 
+    ORDER BY
+    ```
+
+    ```sql
+    --Syntax:
+    SELECT <columns> FROM <table_name> [WHERE <condition>] GROUP BY <columns> [HAVING <condition>] [ORDER BY <columns> ASC/DESC];
+    --Example:
+    SELECT deptno, SUM(sal) as total FROM emp GROUP BY deptno; --return department wise total salary
+    /*OUT:-
+    deptno |  total
+    -------------
+    10        10000
+    20        7000
+    30        5000
+    */
+    SELECT job, COUNT(*) as job FROM emp GROUP BY job; --job name wize arrange
+    /*Out:
+    ANALYST   2
+    CLERK     4
+    MANAGER   3
+    */
+    SELECT DATEPART(yy, hiredate) as year, COUNT(*) as cnt FROM emp GROUP BY DATEPART(yy, hiredate); --years wize no of employees joind
+    SELECT DATENAME(dw, hiredate) as day, COUNT(*) as cnt FROM emp GROUP BY DATENAME(dw, hiredate); --day wize no of employees joind
+    SELECT deptno, COUNT(*) as cnt FROM emp WHERE COUNT(*) > 3 GROUP BY deptno; --Error
+    ```
+
+    - SQL Server `cannot calculate dept wise count before group by` and it can `calculate only group by using the count COUNT(*) > 3 after group by using HAVING clause`.
+
+
+
+    5. **HAVING Clause**: Similar to the WHERE clause, but it is used to filter records after grouping with GROUP BY. It’s typically used to filter aggregated data.
+
+    ```sql
+    SELECT deptno, COUNT(*) AS cnt FROM emp GROUP BY deptno HAVING COUNT(*) > 3;
+    SELECT job, COUNT(*) AS cnt FROM emp WHERE job IN('clerk', 'manager') GROUP BY job HAVING COUNT(*) > 3;--display job wise no of employees where job = clerk manager and no of employees > 3
+    ```
+
+    6. **ORDER BY Clause**: Sorts the result set `asc/desc` based on one or more columns. By default in ascending.
+
+    ```sql
+    --Syntax:
+    Select <columns> from <table_name> where <condition> Order by ASC/DESC;
+    --Example:
+    Select * from emp Order by fName asc;
+    Select sal*12 as AnnualSal from emp Order sal*12 ASC;--annual salary based
+    Select * from emp Order by 3 asc;--by column name 3 is an coloum number
+    Select * from emp Order by fName desc, lName asc, age desc;
+    Select id, fName, job, sal from emp where job IN('clerk','manager') Order by 4 desc, age desc;
+    Select id, job, sal from emp where job IN('clerk','manager') Order by 4 desc, lName asc, age desc;
+    Select id, m, p, c, (m+p+c)/3 as avg from student  Order by (m+p+c)/3 desc, m asc, m asc;
+    ```
+
+    **`Defination`**:
+    **ORDER BY fName DESC**: Sorts by fName (first name) in descending order (Z to A).
+    **lName ASC**: If multiple employees have the same first name, it then sorts by lName (last name) in ascending order (A to Z).
+    **age DESC**: If both fName and lName are the same, it finally sorts by age in descending order (highest age first).
+
+    7. **JOIN Clause**: Combines rows from two or more tables based on a related column between them.
+    8. **DISTINCT Clause**: Removes duplicate values in the result set.
+    9. **LIMIT / OFFSET Clause**: Limits the number of rows returned and can be used to paginate results.
+    10. **INSERT INTO Clause**: Adds new records to a table.
+    11. **UPDATE Clause**: Modifies existing records in a table.
+    12. **DELETE Clause**: Deletes records from a table.
+    13. **CREATE  Clause**: Create a new table, view, index, or other database objects.
+    14. **ALTER Clause**: Modifies an existing database object, such as a table.
+    15. **DROP Clause**: Deletes a table, view, or other database objects from the database.
+    16. **TRUNCATE Clause**: Deletes all records from a table, but does not remove the table structure.
+    17. **EXCEPT Clause**: Returns rows from the first query that are not in the second query. It’s similar to the MINUS operator in other database systems.
+    18. **INTERSECT Clause**: Returns rows that are common to both queries.
+    19. **UNION / UNION ALL Clause**: Combines the result sets of two or more queries.
+    20. **TOP Clause**: Use to select top `N` rows.
+
+    ```sql
+    --Syntax:
+    SELECT TOP <n> <columns> FROM <table_name> WHERE <condition>;
+
+    --Example:
+    Select Top 5 * From emp;
+    Select DISTINCT TOP 3 sal FROM emp ORDER BY hiredate ASC;
+    ```
+
+    <hr/>
+  </details>
+- <details>
+    <summary>What is Compound Conditions?⭐</summary>
+    <hr/>
+    Multiple condition combination with Logical & Special Operators is called Compound Conditions.
+    <hr/>
+  </details>
+- <details>
+    <summary>Special Operators & use?⭐</summary>
+    <hr/>
+    
+    1. **`IN`**: Use `IN` operator when comparasion based on list of values. Use `IN` operator when "=" comparision with `multiple values`.
+
+    ```sql
+    --Syntax:
+    Select <columns> from <tablename> where <columns> IN (v1, v2, v3,...);
+    --Example:
+    Select * from emp where age IN (26, 35, 30);
+    ```
+
+    2. **`BETWEEN`**: Use to range comparion.
+    
+    ```sql
+    --Syntax:
+    Select <columns> from <tablename> where <columns> BETWEEN <V1> AND <V2>;
+    --Example:
+    Select * from emp where hiredate BETWEEN '2022-01-01' AND '2024-03-01';
+    Select * from emp where age BETWEEN 18 AND 36;
+    Select * from emp where age IN(18, 36) AND hiredate BETWEEN '2022-01-01' AND '2024-03-01';
+    ```
+
+    3. **`LIKE`**: Use like operator for `patter comparision`.
+      - For Pattern matching we can use wildcard charecters(%, _).
+    ```sql
+    --Syntax:
+    Select <columns> from <tablename> where <columns> LIKE 'pattern';
+    Select <columns> from <tablename> where <columns> NOT LIKE 'pattern';
+    --Example:
+    Select * from emp where fName LIKE 's%'; --Name contain s in last or start with 's'
+    Select * from emp where hiredate LIKE '%-01';
+    Select * from emp where lName LIKE '____'; --Name contain only 4 character
+    ```
+
+    4. **`IS`**: Use for `NULL` comparision.
+      - Used mainly to test the `NULL` values in a column.
+    
+    ```sql
+      --Syntax: 
+      Select * from Where <column_name> IS `NULL`;
+      --Or:
+      Select * from Where <column_name> `IS NOT NULL`;
+
+      --Example: 
+      SELECT * FROM Orders WHERE DeliveryDate IS NULL;
+      Select * from emp where sal IS NOT NULL;
+    ```
+
+    5. 
+
+    <hr/>
+  </details>
+- <details>
+    <summary>What is Wildcard character?⭐</summary>
+    <hr/>
+    Two wildcard character % (`zero` or `many chars`) and _ (exactly 1 char).
+
+    1. **`% (Percent)`**: Represents zero or more characters.
+      - Syntax: `'<char>%'`, `'%<char>'`, `'%<char>%'`
+      - Example: `'m%'`, `'%kumar'`, `'mri%Kum%'`
+    2. **`_ (Underscore)`**: Represents exactly one character.
+      - Syntax: `'<char>_'`, `'_<char>'`, `'_<char>_'`
+      - Example: `'m________'`, `'__________kumar'`, `'mri_______Kum__'`
+
+    **`Combiln % & _`**:`__a%`(a is the 2nd char from start), `____`, 
+
+    3. **`[] (Square Brackets)`**: Matches any one character from a set or range of characters.
+      - Example: `'[A-C]%'`(match names starting with "A", "B", or "C"), `'[a-z]%'`(match names starting with any lowercase letter), `'[A-Ca-c]%'`(match names starting with any letter between "A-C" or "a-c").
+
+    4. **`[^] (Caret inside brackets)`**: Matches any one character not in the specified set.
+      - Example: `'[^A-C]%'`(match names that do not start with "A", "B", or "C").
+    
+    5. **`- (Hyphen within square brackets)`**: Represents a range of characters.
+      Example: `'[a-z]%'`(match names starting with any lowercase letter).
+
+    ```sql
+    Where job IN('clerk','%man%');
+    Where hiredate like '_____01___';
+    Where hiredate like '1980%';
+    Where fName like '[acjs]';
+    Where fName like '[a-sA-S]';
+    Where fName like '[^A-C]%';
+    ```
+
+    <hr/>
+  </details>
+- <details>
+    <summary>What is DISTINCT?⭐</summary>
+    <hr/>
+
+    The `DISTINCT` keyword is used to ensure that the query only returns unique column values. 
+
+    - **DISTINCT**: Removes duplicates from the selected column, ensuring each salary value appears only once in the results.
+
+    **Use DISTINCT**:
+    - You want to eliminate duplicate values in a specific column or set of columns.
+    - You’re looking for unique entries, like unique salary values, departments, or employee names
+
+    <hr/>
+  </details>
+- <details>
+    <summary>What is Commands & types?⭐</summary>
+    <hr/>
+
+    **Commands** are instructions to interact with and manage data in a database. They fall into different categories based on their function, such as managing data, creating tables, modifying structures, and controlling access. Below are the main types of SQL commands and their typical uses:
+
+    | Type | Commands | Use |
+    |------|----------|-----|
+    | **DDL** | `CREATE`, `ALTER`, `DROP`, `TRUNCATE` | Define or modify database structure |
+    | **DML** | `INSERT`, `UPDATE`, `DELETE`, `MERGE` | Manage data in tables |
+    | **DQL** | `SELECT` | Query data from tables |
+    | **DCL** | `GRANT`, `REVOKE` | Control permissions |
+    | **TCL** | `COMMIT`, `ROLLBACK`, `SAVEPOINT`, `SET TRANSACTION` | Manage transactions |
+
+    <hr/>
+  </details>
+- <details>
+    <summary>What is DML(Data Manipulation Language) command & use?⭐</summary>
+    <hr/>
+
+    - Command we use: `INSERT`, `UPDATE`, `DELETE`, `MERGE`.
+    - All DML command acts on table data(rows).
+    - By default all DML operations are auto committed so cannot be cancelled. To stop auto commit execute this command:
+    ```sql
+    SET IMPLICIT_TRANSACTIONS ON;
+    ```
+    To save the operation execute `commit`:
+    ```sql
+    COMMIT;
+    ```
+    To cancle the operation execute `rollback`:
+    ```sql
+    ROLLBACK;
+    ```
+
+    1. **`INSERT`**: Alwarady we know.
+
+    2. **`UPDATE`**: We can update all Row/Rows & Column/Columns from table.
+    ```sql
+    --Syntax:
+    Update <table_name> SET <Column_Name> = <Value>, <Column_Name> = <Value>, <Column_Name> = <Value>,... WHERE <conditions>
+    --Example:
+    UPDATE emp SET sal = 50000;
+    UPDATE emp SET sal = 50000 WHERE sal IS NULL;
+    UPDATE emp SET sal=sal*(sal*0.2), comm = comm + (comm * 0.1) WHERE job = 'SALSEMAN' AND hiredate LIKE '1981%';
+    ```
+
+    3. **`DELETE`**: Use to delete the row/rows from table;
+    ```sql
+    --Syntax:
+    DELETE FROM <table_name> [WHERE <condition>];
+    --Example:
+    DELETE FROM emp;--Delete all rows
+    DELETE FROM emp WHERE id=100; --Delete specific row
+    ```
+
+    4. **`MERGE`**:  
+
+    <hr/>
+  </details>
+- <details>
+    <summary>What is DDL(Data Defination Language) command & use?⭐</summary>
+    <hr/>
+
+    - Command we use: `CREATE`, `ALTER`, `DROP`, `TRUNCATE`.
+    - All DDL command acts on table structure that includes columns, datatype & size.
+    - By default all DDL operations are also auto committed so cannot be cancelled.
+
+    1. **`CREATE`**: Alwarady we know.
+
+    2. **`ALTER`**: Use to modify the table structure.
+      - `ALTER` command use in:
+        - add Columns
+        - drop Column
+        - modify the column
+          - increase/decrease field size
+          - change the datatype
+    ```sql
+    --Add Column Example:
+    ALTER TABLE emp ADD gender CHAR(1);
+
+    --Modifying Column Example:
+    ALTER TABLE emp ALTER COLUMN fName VARCHAR(20);
+    ALTER TABLE emp ALTER COLUMN sal MONEY;
+    ```
+
+    3. **`DROP`**: Use to drop the table and column.
+    ```sql
+    ALTER TABLE emp DROP COLUMN gender; --Drop column
+    DROP TABLE emp; --Drop table
+    ```
+
+    4. **`TRUNCATE`**: Delete all data from table but keeps structure (empty the table).
+      - Release memory.
+    ```Sql
+    TRUNCATE TABLE 
+    ```
+
+    <hr/>
+  </details>
+- <details>
+    <summary>Diffrence bitween DELETE & TRUNCATE?⭐</summary>
+    <hr/>
+
+    | **DELETE** | **TRUNCATE** |
+    |------------|--------------|
+    | DML command | DDL command | 
+    | Delete specific row/rows | Delete all rows |
+    | WHERE cloase use | WHERE cloase not use |
+    | Deletes row-by-row | Delete all row at a time | 
+    | Slower | Faster |
+    | Not release memory | Release Memory |
+    | Permanent delete because it can be rolled back | Cannot permanent delete because it cannot be rolled back | 
+
+    <hr/>
+  </details>
+- <details>
+    <summary>What is sp_rename?⭐</summary>
+    <hr/>
+
+    - Use to change the name of table and column.
+
+    ```sql
+    --Syntax:
+    sp_rename '<OldName>','<NewName>';
+    --Example:
+    sp_rename 'emp','emps'; --Change the table name
+    sp_rename 'emp.lName','SirName'; --Change the column name
+    ```
+
+    <hr/>
+  </details>
+- <details>
+    <summary>What is the diffrence bitween alias & rename?⭐</summary>
+    <hr/>
+
+    - **`ALIAS`**: Not permanent change the name & Changes Column heading in selected stmt output. 
+    - **`RENAME`**: Permanent change the name & Changes Column name in table.
+
+    <hr/>
+  </details>
+- <details>
+    <summary>What are the build-in functions?⭐</summary>
+    <hr/>
+
+    1. **`DATE functions`**:
+    ```sql
+    -- GETDATE() : Return current date & time
+    SELECT GETDATE(); --RETURN : 2024-08-31 23:22:30:627
+
+    --DATEPART(interval,date) : Use to extract part of the date.
+    SELECT DATEPART(yy,GETDATE()) --2024
+           DATEPART(mm,GETDATE()) --06
+           DATEPART(dd,GETDATE()) --01 (01=Sunday, 02=monday, 03=Tuesday,..., 07=Saturday)
+           DATEPART(dw,GETDATE()) --4
+           DATEPART(q,GETDATE()) --2
+           DATEPART(hh,GETDATE()) --12
+    
+    SELECT * FROM emp WHERE DATEPART(YY,hiredate)%4;
+    SELECT * FROM emp WHERE DATEPART(mm,hiredate) IN(1,4,12);
+    SELECT * FROM emp WHERE DATEPART(yy,hiredate) AND DATEPART(q,hiredate);
+
+    --DATENAME() : Extract part  of the date same like  DATEPART but in string value not in digit
+    DATEPART(DW,GETDATE()) --sunday
+    DATEPART(mm,GETDATE()) --june
+    DATEPART(DW, '1947-08-15') --Friday
+
+    --DATEDIFF() : Calculate the diffrence bitween two date.
+    DATEDIFF(interval, start date, end date); --Syntax
+    SELECT DATEDIFF(yy,'2021-06-01',GETDATE()) from emp;
+    SELECT DATEDIFF(dd,'2021-06-01','2021-08-05') from emp;
+    SELECT DATEDIFF(dd,hiredate,GETDATE()) from emp;
+
+    --DATEADD() : Use to add days, month, years in a date.
+    SELECT DATEADD(dd,10,GATEDATE()) --12-JUN-22
+    SELECT DATEADD(yy,-1,GATEDATE()) --2021-06-02
+    ```
+
+    2. **`STRING functions`**:
+    ```sql
+    --UPPER('value')
+    UPPER('hello') --HELLO
+    UPDATE emp SET fName = LOWER(fNAME);
+
+    --LOWER('value')
+    LOWER('HELLO') --hello
+
+    --LENGTH('value')
+    LENGTH('hello') --2
+
+    --LEFT('value',length)
+    LEFT('hello',4) --hell
+    SELECT * FROM emp WHERE LEFT(ename,1)='s';
+
+    --RIGHT('value',length)
+    RIGHT('hello',4) --ello
+
+    --SUBSTRING('value',start,length)
+    SUBSTRING('hello world',7,4) --welc
+
+    --REPLICATE(char, length) => Used to repeat character for given number of time.
+    REPLICATE('*',4) --****
+    SELECT fName, REPLICATE('*',LEN(sal)) as Salary FROM emp;
+
+    --REPLACE('str1','str2','str3') --Use to replace one string with another string.
+    REPLACE('hello','ello','abc') --habco
+    REPLACE('hello','ell','') --ho
+
+    --TRANSLATE('str1','str2','str3') --Use to translate one char to another char.
+    TRANSLATE('hello','elo','abc') --habbc     (e->a, l->b, o->c)
+    ```
+
+    3. **`MATHEMATICAL functions`**: 
+    ```sql
+    --POWER(3,2) => 9
+    --SQRT(16) => 4
+    --SQUARE(5) => 25
+    --ROUND(number,decimal places) => Use to round number to `integer or decimal` places "based on avg".
+    ROUND(38.4567,0) --38
+    ROUND(38.4567,2) --38.46
+    ROUND(38.4567,3) --38.457
+    --CEILING() => Round number alwase to higest.
+    CEILING(3.1) --4
+    --FLOOR() => Round number alwase to lower
+    FLOOR(3.9) --3
+    ```
+
+    4. **`CONVERSION functions`**: Use to convert one data type to another data type. CAST(), CONVERT() & FPRMAT().
+
+    5. **`SPECIAL functions`**: 
+
+    6. **`ANALYTICAL functions`**:
+    - RANK & DENSE_RANK function
+      - Use to find the ranks. 
+      - Ranking is alwase based on some column. 
+      - For Rank function input data must be sorted.
+
+      ```sql
+      --Suntax:
+      RANK() OVER(ORDER BY <column_name> DESC/ASC) as <new_column_name> FROM emp;
+
+      --Example:
+      SELECT fName, sal RANK() OVER(ORDER BY sal DESC) as ranksal FROM emp;
+      SELECT fName, sal DENSE_RANK() OVER(ORDER BY sal DESC) as ranksal FROM emp;
+      ```
+
+      **D/F RANK & DENSE_RANK:**
+      - Assigns the same rank to ties but skips the next rank(s) (creates gaps).
+      - Assigns the same rank to ties without skipping any ranks (no gaps).
+
+    - LEG/LEAD function
+      ```sql
+      --Syntax
+      LEG(col, number) OVER(ORDER BY col)  --return previous value
+      LEAD(col, number) OVER(ORDER BY col)  --return next value
+
+      --Example
+      SELECT fName, sal LEG(sal,1) OVER(ORDER BY id ASC) as prev_sal FROM emp;
+      ```
+
+
+    7. **`AGGREGATE functions`**: This function process grop of rows and return one value.
+    - Aggregate function not allowed in WHERE claose they are alloweed only SELECT & HAVING Clauses.
+
+    ```sql
+    --MAX() : return maximum value
+    SELECT MAX(sal) FROM emp;
+
+    --MIN()
+    --SUM()
+    --AVG()
+
+    --COUNT(*) : return number of rows in a table.
+    SELECT COUNT(*) FROM emp;
+    SELECT COUNT(*) FROM emp WHERE DATENAME(dw, hiredate) = 'sunday';
+    SELECT COUNT(*) FROM emp WHERE DATEPART(yy, hiredate) = 1981 AND DATEPART(q,hiredate) = 2;
+    SELECT * FROM emp WHERE COUNT(*) >= 3; --ERROR and solution is use sub query
+    SELECT * FROM emp WHERE sal = MAX(sal) >= 3; --ERROR and solution is use sub query
+    ```
+
+    <hr/>
+  </details>
+- <details>
+    <summary>How to JOIN the string?⭐</summary>
+    <hr/>
+
+    ```sql
+    SELECT fName + ' ' + lName + ' joined in ' + DATENAME(dw,hiredate) from emp;
+    ```
+
+    <hr/>
+  </details>
+- <details>
+    <summary>D/F bitween WHERE & HAVING clause?⭐</summary>
+    <hr/>
+
+    | **WHERE** | **HAVING** |
+    |-----------|------------|
+    | Select specific rows | Select specific group |
+    | Condition apply before GROUP BY | Condition apply after GROUP BY |
+    | Use WHERE clause if condition doesn't contain aggregate function | Use HAVING clause if condition contain aggregate function |
+
+    ```sql
+    --Example:
+    SELECT state, COUNT(*) FROM persons WHERE state IN('AP', 'TS', 'KL', 'KA', 'TN') GROUP BY state HAVING COUNT(*) > 50000000; -- find south state where population > 5cr
+
+    SELECT DATEPART(yy, dateid) as year, DATEPART(q, dateid) as qrt, SUM(amount) as total FROM sales GROUP BY DATEPART(yy, dateid), DATEPART(q, dateid) ORDER BY 1 ASC; --display year wise & with in year quarter wise total amount
+    ```
+
+    <hr/>
+  </details>
+- <details>
+    <summary>What is Integrity Constraints?⭐</summary>
+    <hr/>
+    - Rules to maintain data integrity i.e data quality.
+    - Prevents users from entering invalid data.
+    - Used to enforce rules like bal must be 1000.
+    - Integrity Constraints apply on column level & table level.
+
+    **`Types`**:
+
+    1. **`NOT NULL:`**
+      - Does `not` accept `NULL value` & `it is an mandatory column`.
+      - `NOT NULL` can be declared only at column level.
+
+    ```Sql
+    CREATE TABLE emp
+    {
+      id Int,
+      FullName VARCHAR(50) NOT NULL
+    }
+    INSERT INTO emp VALUES(1,NULL) --ERROR
+    INSERT INTO emp VALUES(1) --ERROR
+    INSERT INTO emp VALUES(1,'A') 
+    ```
+
+    2. **`UNIQUE:`**
+      - Not accept duplicate values.
+      - Declared column level & table lavel also.
+
+    ```Sql
+    CREATE TABLE emp
+    {
+      id int,
+      FullName VARCHAR(50) NOT NULL,
+      email VARCHAR(50) UNIQUE
+    }
+    INSERT INTO TABLE emp VALUES(1,'VIJAY KUMAR','abc@gmail.com');
+    INSERT INTO TABLE emp VALUES(1,'VIJAY KUMAR','abc@gmail.com');--ERROR
+    INSERT INTO TABLE emp VALUES(1,'VIJAY KUMAR'); --ALLOWED (NULL is stored)
+    INSERT INTO TABLE emp VALUES(1,'VIJAY KUMAR');--ERROR because you aggain try to store NULL
+    INSERT INTO TABLE emp VALUES(1,'VIJAY KUMAR', NULL);--ERROR because you aggain try to store NULL
+    ```
+    3. **`PRIMARY KEY:`**
+      - Does not accept null & duplicate value.
+      - It is a `combination of NOT NULL & UNIQUE`.
+      - Using `PRIMARY KEY` in column is a `uniquely identity the record` in a table. 
+      - In a table `one column must be a uniquely identit` the `record` & that `column must be declared with PRIMARY KEY`.
+      - `Only one primary key allowed in one table`, `if we want multiple column as a primary key` then `decalred` `one column` as a `primary key` and `another` are `UNIQUE & NOT NULL`.
+
+    ```Sql
+    CREATE TABLE emp
+    {
+      id int PRIMARY KEY,
+      email VARCHAR(50)
+    }
+    INSERT INTO emp VALUES(101,'abc@gmail.com');
+    INSERT INTO emp VALUES(101,'lmn@gmail.com');--ERROR
+    INSERT INTO emp VALUES(NULL,'xyz@gmail.com');--ERROR
+    CREATE TABLE emp
+    {
+      id int PRIMARY KEY,
+      email VARCHAR(50) NOT NULL UNIQUE,
+      aadharid VARCHAR(12) NOT NULL UNIQUE
+    }
+    ```
+    4. **`CHECK:`**
+    - Use check constraints when rule based on condition.
+    - Contain allows `NULL`.
+
+    ```sql
+    --Syntax
+    CHECK(<condition>)
+    --Example
+    CREATE TABLE emp
+    {
+      id INT,
+      FName VARCHAR(50),
+      sal MONEY CHECK(sal >= 3000)
+    }
+    INSERT INTO emp VALUES(1,'mk',1000); --ERROR
+    INSERT INTO emp VALUES(1,'mk',3000); --VALID
+    INSERT INTO emp VALUES(2,'mk',NULL); --VALID
+    INSERT INTO emp VALUES(3,'mk',NULL); --VALID
+    INSERT INTO emp VALUES(3,'mk'); --VALID
+
+    --For Gender check:
+    Gender CHAR(1) CHECK(Gender IN ('M','F'));
+    --Min 6 chars:
+    Gender CHAR(1) CHECK(LEN(PWD) >= 6);
+    --email id must contain '@' must end with '.com' or '.co' or '.in'
+    email VARCHAR(50) CHECK(email LIKE '%@%' AND (eamil LIKE '%.com' OR eamil LIKE '%.co' OR eamil LIKE '%.in'));
+    ```
+
+    5. **`FOREIGN KEY`**:
+    - Use to establish relation bitween two table and this relation ship called parent-child relationship..
+    - To establish relation ship between two table, take primary key of one table and add it to another table as foreing keg and declare with refrences constraint.
+    - Value establish in foreign key column shood match with value entered in primary key column.
+    - Foreing keg allows duplicates and nulls.
+    - Primary keg table is parent and Foreing keg table is child.
+
+    ```sql
+    --Syntax:
+    <parentID> <Datatype> REFERENCES <childTableName>(<childID>)
+    ```
+
+    ```sql
+    CREATE TABLE project
+    {
+      pid INT PRIMARY KEY,
+      pname VARCHAR(10),
+    }
+    INSERT INTO project VALUES(100,'A');
+    INSERT INTO project VALUES(101,'B');
+
+    CREATE TABLE emp_proj
+    {
+      eid INT PRIMARY KEY,
+      ename VARCHAR(10) NOT NULL,
+      pid INT REFERENCES project(pid)
+    }
+    ```
+
+    - `By default SQL Server create one to many(1:m) relationship between two tables`, `to establish one to one(1:1) relationship` `declare foreign key with **unique** contraint`.
+
+
+    6. **`DEFAULT:`**
+    - A colume can be declard with default constraint as follow.
+    - If we skip this colume then sql server inserts the default values.
+
+    ```sql
+    CREATE TABLE emp
+    {
+      id INT,
+      hiredate DATE DEFAULT GETDATE()
+    }
+    ```
+
+    <hr/>
+  </details>
+- <details>
+    <summary>D/F bitween UNIQUE & NOT NULL?⭐</summary>
+    <hr/>
+
+    | **UNIQUE** | **PRIMARY KEY** |
+    |------------|--------------|
+    | Allows one NULL | Does not allows NULL | 
+    | Multiple column can be UNIQUE | Single Column can be PRIMARY KEY | 
+
+    <hr/>
+  </details>
+- <details>
+    <summary>?⭐</summary>
+    <hr/>
+
+    <hr/>
+  </details>
+- <details>
+    <summary>?⭐</summary>
+    <hr/>
+
+    <hr/>
+  </details>
+- <details>
+    <summary>?⭐</summary>
+    <hr/>
+
+    <hr/>
+  </details>
+- <details>
+    <summary>?⭐</summary>
+    <hr/>
+
+    <hr/>
+  </details>
 # **`ADO`**
 
 - <details>
-    <summary> What is ADO.Net?⭐</summary>
+    <summary>What is ADO.Net?⭐</summary>
     <hr/>
 
     - ADO.net Stands for ActiveX Data Object.
