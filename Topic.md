@@ -6667,7 +6667,8 @@
 - <details>
     <summary>What is LINQ?⭐</summary>
     <hr/>
-    LINQ stands for **Language Integrated Query**. It is a querying methodology introduced in C# 3.0 that `allows developers to write query expressions similar to SQL to retrieve information from various data sources`, *`including objects`*, `databases`, and `XML`.
+
+    LINQ stands for **Language Integrated Query**. It is a **querying methodology** introduced in C# 3.0 that `allows developers to write query expressions similar to SQL to retrieve information from various data sources`, *`including objects`*, `databases`, and `XML`.
 
     LINQ can work with multiple data sources, including:
      - **`Collections and Arrays`**: Using `LINQ to Objects`.
@@ -6679,6 +6680,7 @@
 - <details>
     <summary>What are the different types of LINQ?⭐</summary>
     <hr/>
+
      LINQ is divided into three main types based on the data source:
      1. **LINQ to Objects**:
       - Used for performing queries on `in-memory data such as collections and arrays`.
@@ -6692,6 +6694,7 @@
 - <details>
     <summary>What are the advantages of LINQ?⭐</summary>
     <hr/>
+
     - **`Object-based, Language-integrated Querying`**: LINQ allows querying across data sources like databases, XML, and collections using the same syntax.
 
   - **`Compile-time Syntax Checking`**: LINQ queries are checked at compile time, reducing the chances of runtime errors.
@@ -6705,6 +6708,7 @@
 - <details>
     <summary>What is LINQ to Objects?⭐</summary>
     <hr/>
+
     INQ to Objects is a feature in LINQ that allows writing queries against in-memory data, such as arrays and collections, to filter or sort the information.
 
     To use LINQ, you need to import the **`System.Linq`** namespace.
@@ -6721,6 +6725,7 @@
 - <details>
     <summary>What are the key elements of a LINQ query?⭐</summary>
     <hr/>
+
     The key elements are:
 
   - **from**: Specifies the source of data and declares an alias.
@@ -6732,6 +6737,7 @@
 - <details>
     <summary>What are the clauses in LINQ?⭐</summary>
     <hr/>
+
     - **where**: Specifies a filter condition.
     - **group by**: Groups data based on a key.
     - **order by**: Sorts the data in ascending or descending order.
@@ -6740,18 +6746,21 @@
 - <details>
     <summary>How does LINQ handle collections and arrays?⭐</summary>
     <hr/>
+
     LINQ can query collections and arrays using a straightforward syntax, filtering, sorting, and retrieving data based on specified conditions without manually iterating over elements.
     <hr/>
   </details>
 - <details>
     <summary>What are LINQ Providers?⭐</summary>
     <hr/>
+
     LINQ providers are a set of classes that implement LINQ operations to allow interaction with different data sources. The `System.Linq` namespace is the LINQ provider or library required for writing LINQ queries in your code.
     <hr/>
   </details>
 - <details>
     <summary>Can you give an example of a LINQ query on a collection?⭐</summary>
     <hr/>
+
     Example using a string array:
     ```c#
     internal class Class9
@@ -6834,6 +6843,7 @@
 - <details>
     <summary>Can generic collections store user-defined types in LINQ?⭐</summary>
     <hr/>
+
     Yes, the values stored in a generic collection can include user-defined types such as classes or structures. 
     The type of values being stored in a generic collection can be of user-defined type values also like a class type or structure type that is defined to represent an entity as following:
     `List<Customer> Customers = new List<Customer>();`
@@ -6856,12 +6866,14 @@
 - <details>
     <summary>How does LINQ simplify filtering data compared to traditional methods?⭐</summary>
     <hr/>
+
     In traditional methods, we often write repetitive loops to filter and sort data. LINQ focuses on what the result should look like by specifying `conditions` rather than describing `how` to achieve it, making it a `simpler` and `declarative` approach.
     <hr/>
   </details>
 - <details>
     <summary>Can LINQ queries work with user-defined types like classes?⭐</summary>
     <hr/>
+
     Yes, LINQ can query collections of custom objects, like a list of `Customer` objects. Here’s an example:
 
   1. Customer user-defined types:
@@ -6955,6 +6967,7 @@
 - <details>
     <summary>If i need having clause funcanality, then what we do?⭐</summary>
     <hr/>
+
     Wherever you need the functionality of “`having`”, use “`where`” overthere, because both are used for filtering only. LINQ has not given us 2 separate clauses i.e., if we use “`where`” before “`group by`” it works like “`where`” clause whereas if we use “`where`” after “`group by`” it works like “`having`”.
     <hr/>
   </details>
@@ -6964,6 +6977,7 @@
 - <details>
     <summary>What is the Task Parallel Library (TPL)?⭐</summary>
     <hr/>
+
     The Task Parallel Library (TPL) is a set of public types in the `System.Threading` and `System.Threading.Tasks` namespaces that simplifies adding multitasking and handling multiple operations at the same time to applications.
 
     Means, The Task Parallel Library (TPL) is a set of public types “System.Threading” and “System.Threading.Tasks” namespaces. The purpose of TPL is to make developers more productive by simplifying the process of adding parallelism and concurrency to applications. The TPL scales the degree of concurrency dynamically to most efficiently use all the processors that are available. In addition, the TPL handles the partitioning of the work, the scheduling of Threads on the Thread Pool, cancellation support, state management, and other low-level details. By using TPL, you can maximize the performance of your code while focusing on the work that your program is designed to accomplish.
@@ -6974,18 +6988,21 @@
 - <details>
     <summary>What is the purpose of the TPL?⭐</summary>
     <hr/>
+
     The purpose of TPL is to make developers more productive by making it easier to write code that executes in parallel, utilizing all available processors effectively.
     <hr/>
   </details>
 - <details>
     <summary>How does TPL help in maximizing performance?⭐</summary>
     <hr/>
+
     TPL scales concurrency dynamically, efficiently utilizing all available processors. It handles work partitioning, thread scheduling, cancellation support, state management, and other low-level details automatically.
     <hr/>
   </details>
 - <details>
     <summary>When did TPL become the preferred method for writing multithreaded code?⭐</summary>
     <hr/>
+
     Starting with .NET Framework 4, the TPL became the preferred way to write multithreaded and parallel code.
 
   Means, Starting with .NET Framework 4, the TPL is the preferred way to write multithreaded and parallel code. However, not all code is suitable for parallelization. For example, if a loop performs only a small amount of work on each iteration, or it doesn't run for many iterations, then the overhead of parallelization can cause the code to run more slowly. Furthermore, parallelization like any multithreaded code adds complexity to your program execution. Although the TPL simplifies multithreaded scenarios, it is recommended that you have a basic understanding of threading concepts, for example, locks, deadlocks, and race conditions, so that you can use the TPL effectively.
@@ -6996,24 +7013,28 @@
 - <details>
     <summary>Is all code suitable for parallelization using TPL?⭐</summary>
     <hr/>
+
     No, not all code is suitable for parallelization. For example, if a loop does very little work in each step or has only a few steps, using parallelization might make it slower because of the extra overhead.
     <hr/>
   </details>
 - <details>
     <summary>Does TPL handle low-level threading complexities?⭐</summary>
     <hr/>
+
       Yes, TPL takes care of splitting tasks, managing thread pool scheduling, handling cancellation, and other low-level details automatically, so developers can focus on the main logic.
     <hr/>
   </details>
 - <details>
     <summary>What are some basic threading concepts that developers should understand before using TPL?⭐</summary>
     <hr/>
+
     However, developers should know basic threading concepts like locks, deadlocks, and race conditions because parallel processing can make programs more complex.
     <hr/>
   </details>
 - <details>
     <summary>Give me the summary of TPL.</summary>
     <hr/>
+
     - TPL simplifies parallelism and concurrency by handling low-level details.
     - It dynamically scales concurrency to efficiently utilize processors.
     - It became the preferred way for parallel code with .NET Framework 4.
@@ -7145,6 +7166,7 @@
 - <details>
     <summary>How can we simplify task creation and execution using Task Factory?⭐</summary>
     <hr/>
+
     The simplified version uses `Task.Factory.StartNew()` to create and start tasks in a single line. We then call `Task.WaitAll()` to wait for all tasks to complete.
 
   Code demonstrates this simplified TPL execution using Task Factory:
@@ -7164,18 +7186,21 @@
 - <details>
     <summary>In all the above TPL example which calling method by using `Task` are value returing or non-value returing? Can they take parameter.⭐</summary>
     <hr/>
+
     In the above programs the methods that we called by using `Tasks` are all non-value returning as well as they do not take any parameters also.
     <hr/>
   </details>
 - <details>
     <summary>How does TPL internally manage threads compared to manual thread creation?⭐</summary>
     <hr/>
+
      TPL internally uses the thread pool and manages thread scheduling, avoiding the need to manually create and start threads. It reduces the complexity of handling concurrency and enhances performance by optimizing thread usage.
     <hr/>
   </details>
 - <details>
     <summary>How to call value-returing method using `Task`?⭐</summary>
     <hr/>
+
     We use the `Task<int>` and `Task<string>` classes to call `value-returning methods` (GetLength and ToUpper). These methods do `not take any parameters` and `return results of types int and string`, respectively.
 
   In the above programs the methods that we called by using `Tasks` are all `non-value returning` as well as they do `not take any parameters` also.
@@ -7229,6 +7254,7 @@
 - <details>
     <summary>How to call value-returing method using `Task` with Parameters?⭐</summary>
     <hr/>
+
     In this case, we use the `Task<int>` and `Task<string>` classes, but the methods (`GetLength` and `ToUpper`) take parameters. We pass these parameters using lambda expressions in the task creation.
     ```c#
     internal class Class4
@@ -7284,6 +7310,7 @@
 - <details>
     <summary>What is thread synchronization in C#?⭐</summary>
     <hr/>
+
     Thread synchronization is a technique that allows only one thread to access a shared resource at a time. It ensures that no other thread can interrupt until the assigned thread finishes its task. This helps avoid conflicts or system halts due to simultaneous access to shared resources.
     -  It is mainly used in case of transactions like `deposit`, `withdraw` etc
     - Accessing shared resources (data) is critical task that sometimes may halt the system. We deal with it by making threads synchronized.
@@ -7294,6 +7321,7 @@
 - <details>
     <summary>How is thread synchronization achieved using the lock keyword in C#?⭐</summary>
     <hr/>
+
     In C#, the `lock` keyword is used to synchronize access to shared resources. It locks the resource for the current thread, executes the task, and then releases the lock. This prevents other threads from interrupting until the task is completed.
 
   `Example`:
@@ -7399,12 +7427,14 @@
 - <details>
     <summary>How does the Parallel class in TPL support data parallelism?⭐</summary>
     <hr/>
+
     The `Parallel` class in TPL provides method-based parallel implementations of `for` and `foreach` loops. This allows you to perform data parallelism easily without manually creating threads.
     <hr/>
   </details>
 - <details>
     <summary>What code demonstrates the difference between "sequential" and "parallel" for loops?⭐</summary>
     <hr/>
+
     ```c#
     using System.Diagnostics;
 
@@ -7449,6 +7479,7 @@
 - <details>
     <summary>What code demonstrates the difference between sequential and parallel foreach loops?⭐</summary>
     <hr/>
+
     ```c#
     using System.Diagnostics;
 
@@ -7493,6 +7524,7 @@
 - <details>
       <summary>When Parallel loops faster and may not faster?⭐</summary>
       <hr/>
+
       Parallel loops are generally faster for bulk tasks but may not always be faster for small or light operations.
       <hr/>
   </details>
@@ -7510,6 +7542,7 @@
 - <details>
       <summary>How can you chain tasks in C# using continuation tasks?⭐</summary>
       <hr/>
+
       You can chain tasks using the `ContinueWith` method. This method allows a task to be executed as a continuation of a previously completed task.
 
       Demonstrates chaining tasks using continuation tasks:
@@ -7555,6 +7588,7 @@
 - <details>
     <summary>What are async and await in C#?⭐</summary>
     <hr/>
+
     - `async` and `await` are code markers used in C# to handle asynchronous programming. They allow for non-blocking execution, which prevents an application from getting blocked while waiting for a long-running operation to complete.
 
   - async and await in C# are the code markers, which marks code positions from where the control should resume after a task completes. When we are dealing with UI, and on a button click we called a long-running method like reading a large file or something else which will take a long time and, in that case, the entire application must wait to complete the task. In other words, if a process is blocked in a synchronous application, the whole application gets blocked and stops responding until the whole task completes.
@@ -7608,12 +7642,14 @@
 - <details>
     <summary>What is the benefit of using async and await in UI applications?⭐</summary>
     <hr/>
+
     When dealing with UI applications, using `async` and `await` prevents the entire application from being blocked. For instance, if a long-running task like reading from a database is called, the UI remains responsive and doesn't freeze.
     <hr/>
   </details>
 - <details>
     <summary>What happens if a synchronous long-running task is called without "async" and "await"?⭐</summary>
     <hr/>
+    
     If a synchronous long-running task is called, the entire application may get blocked or become unresponsive until the task completes, leading to a poor user experience.
     <hr/>
   </details>
@@ -8365,8 +8401,9 @@
     | **WHERE** | **HAVING** |
     |-----------|------------|
     | Select specific rows | Select specific group |
-    | Condition apply before GROUP BY | Condition apply after GROUP BY |
-    | Use WHERE clause if condition doesn't contain aggregate function | Use HAVING clause if condition contain aggregate function |
+    | WHERE clause apply before GROUP BY | HAVING clause apply after GROUP BY |
+    | WHERE clause not support aggregate function | HAVING clause support aggregate function |
+    | In WHERE clause no need GROUP BY | In HAVING clause mendatry to use GROUP BY |
 
     ```sql
     --Example:
@@ -8383,13 +8420,13 @@
     - Rules to maintain data integrity i.e data quality.
     - Prevents users from entering invalid data.
     - Used to enforce rules like bal must be 1000.
-    - Integrity Constraints apply on column level & table level.
+    - Integrity Constraints apply on `column level` & `table level`.
 
-    **`Types`**:
+    **`Types`**: `Column level`
 
     1. **`NOT NULL:`**
       - Does `not` accept `NULL value` & `it is an mandatory column`.
-      - `NOT NULL` can be declared only at column level.
+      - `NOT NULL` can be declared **`only at column level`**.
 
     ```Sql
     CREATE TABLE emp
@@ -8514,6 +8551,60 @@
     }
     ```
 
+    `Table level`:
+    - If constraint are declared after declaring all columns then it is called tablre level.
+    - Use table level to declare constraint for multiple or combination of columns.
+    ```sql
+    --Syntax
+    CREATE TABLE <teableName>
+    {
+      <COLNAME> <DATATYPE>(SIZE),
+      <COLNAME> <DATATYPE>(SIZE)
+      CONSTRAINT
+    }
+    ```
+
+    **`CHECK:`** 
+    ```sql
+    --Example: 
+    CREATE TABLE product
+    {
+      pid INT PRIMARY KEY,
+      pname VARCHAR(10) NOT NULL,
+      mfd_dt DATE,
+      exp_dt DATE,
+      CHECK(exp_dt > mfd_dt)
+    }
+    ```
+
+    **`PRIMARY KEY:`** If primary key declared for combination then it is called `composits primary key`.
+    - Combine the columns for uniqe identity the record.
+
+    ```Sql
+    CREATE TABLE emp
+    {
+      sid REFERENCES student(sid),
+      cid REFERENCES course(cid),
+      PRIMARY KEY(sid,cid)
+    }
+    ```
+
+    **`FOREGIN KEY:`** If combination of columns declared foreign key then it is called `composite foreign key`.
+    - A composite foregin key refers composite primary key.
+
+    ```Sql
+    CREATE TABLE certificates
+    {
+      cno INT PRIMARY KEY,
+      doi DATE,
+      sid INT,
+      cid INT,
+        FOREIGN KEY(sid,cid) REFERENCES REGISTRATIONS(sid,cid) --REGISTRATIONS is a table name
+    }
+    ```
+
+    page no: 63-64
+
     <hr/>
   </details>
 - <details>
@@ -8528,8 +8619,248 @@
     <hr/>
   </details>
 - <details>
-    <summary>?⭐</summary>
+    <summary>How to add, drop constraints to existing table?⭐</summary>
     <hr/>
+    
+    - `ALTER` command is used to add constraints to existing table.
+    ```sql
+    CREATE TABLE emp
+    {
+      id INT,
+      fName VARCHAR(10),
+      sal MONEY,
+      dno INT
+    }
+    --Add CHECK contraint with condition sal >= 3000
+    ALTER TABLE emp ADD CHECK(sal>=3000); --If any employee salary is less then 3000 it give error that why check and try.
+
+    --If constraint is added with "WITH NOCHECK" then sql server not validate existing data and it validates only new data.
+    ALTER TABLE emp WITH NOCHECK ADD CHECK(sal >= 3000);
+
+    --Add PRIMARY KEY (if you want to add PRIMARY KEY first make suore that column is NOT NULL column)
+    ALTER TABLE emp ALTER COLUMN id INT NOT NULL; --Make column NOT NULL
+    ALTER TABLE emp ADD PRIMARY KEY(id);
+
+    --Add FOREIGN KEY
+    ALTER TABLE emp ADD FOREIGN KEY(dno) REFERENCES KEY department(dno);
+
+    --Change from NULL to NOT NULL
+    ALTER TABLE emp ALTER COLUMN fName VARCHAR(10) NOT NULL;
+    ```
+
+    - `DROP` command is use to remove constraints from an existing table.
+    ```sql
+    --Syntax:
+    ALTER TABLE <table_name> DROP CONSTRAINT <constraint_name>;
+
+    --Example:
+    --Drop the constraint in emp table.
+    ALTER TABLE dept DROP CONSTRAINT CK__emp__sal__5BE2A6F2;
+    --Drop the constraint in emp table.
+    ALTER TABLE dept DROP CONSTRAINT CK__emp__sal__5BE2A6F2;
+    ```
+
+    - PRIMARY KEY cannot be dropped/truncated if refrenced by some FOREGIN KEY . 
+
+    <hr/>
+  </details>
+- <details>
+    <summary>DELETE & UPDATE Rules?⭐</summary>
+    <hr/>
+
+    **`DELETE`**:
+
+    - These rules are declared with foreign key.
+    - Delete rule specifies how child row are affected if parent row is deleted.
+
+    1. **`ON DELETE NO ACTION (DEFAULT)`**
+    - Parent row cannot be deleted if associated with child row.
+    ```sql
+    DELETE FROM dept WHERE dno = 10;
+    ```
+
+    2. **`ON DELETE CASCADE`**
+    - If parent row is deleted then it is deleted with child rows
+    ```sql
+    CREATE TABLE dept
+    {
+      dno int PRIMARY KEY,
+      dname VARCHAR(10)
+    }
+    INSERT INTO dept VALUES(10,'HR');
+
+    CREATE TABLE emp
+    {
+      eno INT PRIMARY KEY,
+      dno INT REFERENCES dept(dno) ON DELETE CASCADE
+    }
+    INSERT INTO emp VALUES(1, 10);
+
+    DELETE FROM dept WHERE dno = 10;--delete both table related rows
+    ```
+
+    3. **`ON DELETE SET NULL`**
+    - If parent row is deleted then it is deleted without deleted child row but fk wil be set to null.
+    ```sql
+    CREATE TABLE dept
+    {
+      dno INT PRIMARY KEY,
+      dname VARCHAR(10)
+    }
+    INSERT INTO dept VALUES(10,'HR');
+
+    CREATE TABLE emp
+    {
+      eno INT PRIMARY KEY,
+      dno INT REFERENCES dept(dno) ON DELETE SET NULL
+    }
+
+    INSERT INTO emp VALUES(1, 10);
+
+    DELETE FROM dept WHERE dno = 10; 
+
+    | eno |  dno |
+    |  1  | NULL |
+    ```
+
+    4. **`ON DELETE SET DEFAULT`**
+    - If parent row deleted then it is deleted without deleting child rows but FOREIGN KEY will be set to default value.
+    ```sql
+    CREATE TABLE dept
+    {
+      dno int PRIMARY KEY,
+      dname VARCHAR(10),
+    }
+    INSERT INTO dept VALUES(10,'hr'),(20,'it');
+
+    CREATE TABLE emp
+    {
+      eno INT PRIMARY KEY,
+      dno INT DEFAULT 20 REFERENCES dept(dno) ON DELETE SET DEFAULT
+    }
+    INSERT INTO emp VALUES(1, 10);
+
+    DELETE FROM dept WHERE dno = 10;--delete from both table 
+    ```
+
+    **`UPDATE`**:
+    - If PRIMARY KEY value is updated then department FOREIGN KEY are also updated.
+    ```sql
+    CREATE TABLE dep
+    {
+      dno int PRIMARY KEY,
+      dname VARCHAR(10)
+    }
+    INSERT INTO dep VALUES(10,'HR'),(20,'IT')
+
+    CREATE TABLE emp
+    {
+      eno INT PRIMARY KEY,
+      dno INT REFERENCES dep(dno) ON DELETE SET NULL ON UPDATE CASCADE
+    }
+
+    INSERT INTO emp VALUES(1,10);
+
+    UPDATE dno SET dno = 90 WHERE dno = 10;
+    ```
+
+    <hr/>
+  </details>
+- <details>
+    <summary>JOIN & use?⭐</summary>
+    <hr/>
+
+    - Combines rows from two or more tables based on a related column between them.
+  
+    *`Types of JOINS`*:
+
+    1. **`EQUI JOIN / INNER JOIN`**
+    - To perform an EQUI JOIN between two tables, there `must be a common field (column) in each table`. However, the `names of the common fields don’t need to be the same`, and a `primary key-foreign key relationship is not required`.
+
+    - SQL Server joins the two tables based on a condition like `table1.common_field = table2.common_field`. This is called an equi join because it uses the`=` (equals) operator to match rows from both tables & return the matching record.
+
+    ```sql
+    --Syntax
+    SELECT <columns> 
+    FROM <table1> 
+    INNER JOIN <table2> 
+    ON <join_condition>;
+
+
+    --Example
+    CREATE TABLE emp (
+      eid INT PRIMARY KEY,
+      fName VARCHAR(50),
+      sal MONEY,
+      did INT
+    );
+
+    CREATE TABLE dept (
+      did INT PRIMARY KEY,
+      dName VARCHAR(50),
+      loc VARCHAR(50)
+    );
+
+    SELECT fName, sal, dName, loc 
+    FROM emp 
+    INNER JOIN dept 
+    ON emp.did = dept.did;
+    ```
+
+    - When both tables have columns with the same name, it can lead to an **`ambiguity issue`**. To avoid this, use **`aliases`**.
+    ```sql
+    --Example with Aliases
+    SELECT e.fName, e.sal, d.did, d.dName, d.loc AS city 
+    FROM emp AS e 
+    INNER JOIN dept AS d 
+    ON e.did = d.did;
+
+
+    --To find employees working in a specific location, such as "NEW YORK":
+    SELECT e.fName, e.sal, d.did, d.dName, d.loc AS city 
+    FROM emp AS e 
+    INNER JOIN dept AS d 
+    ON e.did = d.did 
+    WHERE d.loc = 'NEW YORK'; 
+    ```
+
+    - **JOIN More then two tables**: You can join more than two tables by chaining multiple `INNER JOIN` statements.
+    ```sql
+    --Syntax:
+    SELECT <columns> 
+    FROM <table_name1> 
+    INNER JOIN <table_name2> 
+    ON <condition> 
+    INNER JOIN <table_name3> 
+    ON <condition> 
+    INNER JOIN <table_name4> 
+    ON <condition>;
+
+
+    --Example: Suppose there’s a `location` table for city and state information and a `countries` table for country details. You can join these tables as follows
+    SELECT e.fName, d.dName, l.city, l.state, c.country_name 
+    FROM emp AS e 
+    INNER JOIN dept AS d 
+    ON e.did = d.did 
+    INNER JOIN location AS l 
+    ON d.lid = l.lid 
+    INNER JOIN countries AS c 
+    ON l.country_id = c.country_id;
+
+    ```
+
+    2. **`OUTER JOIN`**
+    - Inner join returns only matching records but will not return unmatched record, to fetch unmatched records also perform OUTER JOIN.
+      1. **`LEFT JOIN`**
+      - Return all rows (matched + unmatched) from left side table & matching rows from right side table.
+      ```sql
+      
+      ```
+      2. **`RIGHT JOIN`**
+      3. **`FULL JOIN`**
+    3. **`NON EQUI JOIN`**
+    4. **`SELF JOIN`**
+    5. **`CROSS JOIN / CARTESIAN JOIN`**
 
     <hr/>
   </details>
