@@ -7649,7 +7649,7 @@
 - <details>
     <summary>What happens if a synchronous long-running task is called without "async" and "await"?⭐</summary>
     <hr/>
-    
+
     If a synchronous long-running task is called, the entire application may get blocked or become unresponsive until the task completes, leading to a poor user experience.
     <hr/>
   </details>
@@ -8854,13 +8854,297 @@
       1. **`LEFT JOIN`**
       - Return all rows (matched + unmatched) from left side table & matching rows from right side table.
       ```sql
-      
+      SELECT e.fName, d.dName FROM emp e LEFT JOIN dept d ON e.did = d.did;
       ```
       2. **`RIGHT JOIN`**
+      - Return all rows from right side table and matching from left side table.
+      ```sql
+      SELECT e.fName, d.dName FROM emp e RIGHT JOIN dept d ON e.did = d.did;
+      ```
       3. **`FULL JOIN`**
+      - Return all rows from both table.
+      ```sql
+      SELECT e.fName, d.dName FROM emp e FULL JOIN dept d ON e.did = d.did;
+      ````
     3. **`NON EQUI JOIN`**
+    - NON EQUI JOIN is performed between the two table not sharing a common field.
+    Hear JOIN condition is not based on "=" operator & it is based on > < between operators.
+
+    emp:                         
+    | eid | hisal | FName | sal |
+    |-----|-------|-------|-----|
+
+    salgrade:
+    | grade | losal |
+    |-------|-------|
+
+    ```sql
+    --Display EName sal Grade
+    SELECT e.EName, e.sal, s.grade FROM emp e JOIN salgrade s ON e.sal BETWEEN s.losal AND s.hisal;
+    --Dispaly grade 3 employee list
+    SELECT e.FName, e.sal, s.grade, s.losal FROM emp e JOIN salgrade s ON e.sal BETWEEN s.losal AND s.hisal WHERE s.grade = 3
+    --Display EName, DName, Grade
+    SELECT e.FName, d.DName, s.grade, FROM emp e INNER JOIN dept d ON e.did = d.did JOIN salgrade s ON e.sal BETWEEN s.losal AND s.hisal;
+    ```
     4. **`SELF JOIN`**
+    - Joining the table to itself is called self join.
+    - In self JOIN a record in one table joined with another record of same table.
+    - To perform Self JOIN the same table must be declared two timw with different alias in FROM.
+    FROM emp x JOIN emp y
+    
+    emp x:
+    | id | ename | mgr | 
+    |----|-------|-----|
+    emp y
+    | id | ename | mgr |
+    |----|-------|-----|
+
+    ```sql
+    --display EName Mgrname
+    SELECT x.ename, y.ename as manager FROM emp x JOIN emp y ON x.mgr = y.id;
+    --display only the employees repoting to blake
+    SELECT x.ename, y.ename AS manager FROM emp x JOIN emp y ON x.mgr = y.id WHERE y.ename = 'BLAKE';
+    --display blake's manager name
+    SELECT x.ename, y.ename AS manager FROM emp x JOIN emp y ON x.mgr = y.id WHERE x.ename = 'BLAKE';
+    /*
+    TEAM A
+    | ID | COUNTRY |
+    |----|---------|
+
+    TEAM B
+    | ID | COUNTRY |
+    |----|---------|
+
+    Display output like that in table formate  IND VS AUS, IND VS RUS, AUS VS RSA*/
+    SELECT  A.COUNTRY + 'VS' + B.COUNTRY FROM TEAMS A JOIN TEAMS B ON A.ID < B.ID;
+    --Display ENAME DNAME GRADE MNAME
+    SELECT e.ename, d.ename, s.grade, m.ename FROM emp INNER JOIN dept d ON e.did = d.did JOIN salgrade s ON e.sal BETWEEN s.losal AND s.hisal JOIN emp m ON e.mgr = m.id;
+    ```
     5. **`CROSS JOIN / CARTESIAN JOIN`**
+    - Cross JOIN return cross product or cartesian product of two table.
+    A=1,2
+    B=3,4
+    A x B = (1,3)(1,4)(2,3)(2,4)
+    - If cross join performed between two table then all the records of 1st table joined with all the records of seconds table.
+    - To perform cross join submit the join query without join condition.
+    ```sql
+    SELECT e.ename, d.dname FROM emp e JOIN CROSS JOIN dept d;
+    ```
+
+    <hr/>
+  </details>
+- <details>
+    <summary>Group BY with JOIN?⭐</summary>
+    <hr/>
+
+    ```sql
+    --display dept wise total salary? display dept names?
+    SELECT d.dname, SUM(e.sal) as total FROM emp e INNER JOIN dept d ON e.did = d.did GROUP BY d.dname;
+    ```
+
+    <hr/>
+  </details>
+- <details>
+    <summary>SET operators?⭐</summary>
+    <hr/>
+
+    1. UNION
+    2. UNION All
+    3. INTERSECT
+    4. EXCEPT
+
+    ```sql
+    --Example:
+    A = 1, 2, 3, 4
+    B = 1, 2, 5, 6
+
+    A UNION B = 1, 2, 3, 4, 5, 6
+    A UNION All B = 1, 2, 3, 4, 1, 2, 5, 6
+    A INTERSECT B = 1, 2
+    A EXCEPT B = 3, 4
+    B EXCEPT A = 5, 6
+    ```
+
+    - SET operations are performed between `output of the two queries`.
+    **Syntax**:
+    ```sql
+    SELECT <statement1> UNION/UNION All/INTERSECT/EXCEPT SELECT <statement2>;
+    ```
+    **Rules**:
+    - `Number of column` return by both queries must be `same`.
+    - Correspcnding columns `datatype must be same`.
+
+    **Example**:
+    1. **`UNION`**:
+
+    - Combines output of two slect statement & `eliminates duplicates` & `short result`.
+
+    ```sql
+    SELECT job FROM emp WHERE did = 20 UNION SELECT job FROM emp WHERE did = 30;
+    --Total employees in organization
+    SELECT * FROM emp_us UNION SELECT * FROM emp_ind;
+    --List of employees working at US loc with dept details
+    SELECT e.*, d.* FROM emp_us e INNER JOIN dept d ON e.did  = d.did UNION SELECT e.*, d.* FROM emp_ind e INNER JOIN dept d ON e.did  = d.did;
+    --OR
+    SELECT * FROM (SELECT * FROM emp_us UNION SELECT * FROM emp_ind) e INNER JOIN dept d ON e.did = d.did;
+    ```
+
+    | **UNION** | **JOIN** |
+    |-----------|----------|
+    | Combines rows | Combines columns |
+    | Horizontal merge | Vertical merge |
+    | Obly simplar structures can be combined with UNION | Dissimilar structures can be joined |
+
+    2. **`UNION All`**:
+
+    - Combines row result by two queries & `duplicates are not elimated` & `result is not sorted`.
+
+    ```sql
+    SELECT job FROM emp WHERE did = 20 UNION ALL SELECT job FROM emp WHERE did = 30;
+    ```
+
+    | **UNION** | **UNION All** |
+    |-----------|---------------|
+    | Duplicates are eliminated | Duplicate are not eliminated |
+    | Result is sorted | Result is not sorted |
+    | Slower | Faster |
+
+    3. **`INTERSECT`**:
+
+    - Return common value form the output of two select statements.
+
+    ```sql
+    SELECT job FROM emp WHERE did = 20 INTERSECT SELECT job FROM emp WHERE did = 30;
+    ```
+
+    4. **`EXCEPT`**:
+
+    - Return values present in 1st query output and not present in 2nd query output.
+
+    ```sql
+    SELECT job FROM emp WHERE did = 20 EXCEPT SELECT job FROM emp WHERE did = 30;
+    ```
+  
+    <hr/>
+  </details>
+- <details>
+    <summary>Subqueries & Nested Queries?⭐</summary>
+    <hr/>
+
+    - A query in another query is called subquery or nested query.
+    - First SQL Server execute inner query then it execute outer query.
+    - Inner query is input to outer query.
+    - Use subquery when where condition is based on unknown value.
+
+    **`Types of Subqueries`**:
+    1. **`Single row subqueries`**
+    2. **`Multi row subqueries`**
+    3. **`Co-related subqueries`**
+    4. **`Derived table`**
+    5. **`Scalar subqueries`**
+
+    1. **`Single row subqueries`**
+    - If inner query return one value then subquery is called single row subquery.
+    ```sql
+    SELECT <columns> FROM <tablename> WHERE <colname> OP (SELECT STATEMENT);
+    ```
+    - OP must be any relation operator like = > >= <= <>
+    ```sql
+    --List of employees earning more than BLAKE
+    SELECT * FROM emp WHERE sal > (SELECT sal FROM emp WHERE ename = 'BLAKE');
+
+    --List of employees who are senior to king
+    SELECT * FROM emp WHERE hiredate < (SELECT hiredate FROM emp WHERE ename = 'KING');
+
+    --Employee name earning maximum salary
+    SELECT ename FROM emp WHERE sal = MAX(sal)--ERROR
+    --NOTE: Aggregate function are not allowed in where clause they are allowed only in select, having clauses.
+    SELECT ename FROM emp WHERE sal = (SELECT MAX(sal) FROM emp);
+
+    --Employee name having max experience
+    SELECT ename FROM emp WHERE hiredate = (SELECT MIN(hiredate) FROM emp);
+
+    --Display 2nd max salary
+    SELECT MAX(sal) FROM emp WHERE sal <> (SELECT MAX(sal) FROM emp);
+
+    --Display name of the employee earning 2nd max salary
+    SELECT ename FROM emp WHERE sal = (SELECT MAX(sal) FROM emp WHERE sal <> (SELECT MAX(sal) FROM emp));
+
+    --NOTE: Outer query can be SELECT/INSERT/UPDATE/DELETE but inner query must be always SELECT.
+
+    --Delete the employee have max experience
+    DELETE FROM emp WHERE hiredate = (SELECT MIN(hiredate) FROM emp);
+
+    --Swap employee salaries whose eid = 7499,7521
+    UPDATE emp 
+    SET sal = CASE eid 
+      WHEN 7499 THEN (SELECT sal FROM emp WHERE eid = 7521) 
+      WHEN 7521 THEN (SELECT sal FROM emp WHERE eid = 7499) 
+    END;
+
+    UPDATE emp 
+    SET sal = CASE eid 
+      WHEN 7499 THEN 1250
+      WHEN 7521 THEN 1600
+    END
+    WHERE eid IN (7499, 7521);
+    ```
+
+    2. **`Multi row subqueries`**
+    - If subquery return  more than one values then it is multirow subquery.
+    ```sql
+    --syntax
+    SELECT <columns> FROM <tablename> WHERE <column_name> OP (<SELECT_statement>);
+    ```
+
+    - OP must be IN, NOT IN, ANY, ALL
+
+    ```sql
+    --employee whose job = job of allen, blake
+    SELECT * FROM emp WHERE job IN (SELECT job WHERE ename IN('allen','blake'));
+    ```
+
+    **ANY operator**:
+    ```sql
+    --Syntax
+    WHERE <colname> ANY (V1, V2, V3,...);
+    --Example
+    WHERE X > ANY(1000, 2000, 3000);
+    /* If X = 800   FALSE
+          X = 1500  TRUE
+          X = 4500  TRUE*/
+    WHERE X < ANY(1000, 2000, 3000;)
+    /* If X = 800   TRUE
+          X = 1500  TRUE
+          X = 4500  FALSE*/  
+    ```
+    **ALL operator**:
+    ```sql
+    WHERE X > ALL(1000, 2000, 3000);
+    /* If X = 800   FALSE
+          X = 1500  FALSE
+          X = 4500  TRUE*/
+    WHERE X < ALL(1000, 2000, 3000;)
+    /* If X = 800   TRUE
+          X = 1500  FALSE
+          X = 4500  FALSE*/  
+    ```
+
+    | **SINGLE** | **MULTI** |
+    |------------|-----------|
+    |     =      |    IN     |
+    |     >      | >ANY >ALL |
+    |     <      | <ANY <ALL |
+
+    ```sql
+    --Employee earning more than all managers
+    SELECT * FROM emp WHERE sal > ALL(SELECT ssal FROM emp WHERE job = 'MANAGER');
+    --Employee eaarning more than atleast ine manager
+    SELECT * FROM emp WHERE sal > ANY(SELECT sal FROM emp WHERE job = 'MANAGER');
+    ```
+
+    3. **`Co-related subqueries`**
+    - If inner query 
 
     <hr/>
   </details>
@@ -8882,6 +9166,13 @@
 
     <hr/>
   </details>
+- <details>
+    <summary>?⭐</summary>
+    <hr/>
+
+    <hr/>
+  </details>
+
 # **`ADO`**
 
 - <details>
