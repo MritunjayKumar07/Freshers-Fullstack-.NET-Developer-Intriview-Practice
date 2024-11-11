@@ -1,7 +1,8 @@
 # **`.Net`**
 
+![alt text](image-1.png)
 ![alt text](image.png)
-
+![alt text](image-2.png)
 ### **Program's**
 1. Write a program to print the given no is a prime number or not?
   - Divided by itself and 1
@@ -3236,6 +3237,8 @@ rd variable?
 [Constructor of the Thread Class](https://codecomponents.hashnode.dev/advance-c-sharp-proggramming-language#heading-constructor-of-the-thread-class)
 
 ### **`Collections, Generic & Generic Collection`**
+
+![alt text](image-3.png)
 
 #### **`Collections`**
 
