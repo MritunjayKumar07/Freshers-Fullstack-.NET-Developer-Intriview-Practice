@@ -2,8 +2,6 @@
 
 ![alt text](image-1.png)
 ![alt text](image.png)
-![alt text](image-4.png)
-![alt text](image-2.png)
 ### **Program's**
 1. Write a program to print the given no is a prime number or not?
   - Divided by itself and 1
@@ -43,6 +41,9 @@ rd variable?
 ### **Pattern's**
 
 ### **`OOPs`**
+
+![alt text](image-4.png)
+![alt text](image-2.png)
 
 - <details>
     <summary>What is `this` keyword?⭐</summary>
