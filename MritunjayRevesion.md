@@ -2,6 +2,7 @@
 
 ![alt text](image-1.png)
 ![alt text](image.png)
+
 ### **Program's**
 1. Write a program to print the given no is a prime number or not?
   - Divided by itself and 1
@@ -46,7 +47,7 @@ rd variable?
 ![alt text](image-2.png)
 
 - <details>
-    <summary>What is `this` keyword?⭐</summary>
+    <summary>What is `this` keyword?</summary>
     <hr/>
 
     - Refers to the current `instance` of the class.  It `acts as a reference` to the current object, allowing access to the object's members (fields, properties, methods) and constructors.<br/><br/>
@@ -72,7 +73,7 @@ rd variable?
     <hr/>
   </details>
 - <details>
-    <summary>What is constructor chaining?⭐</summary>
+    <summary>What is constructor chaining?</summary>
     <hr/>
 
     Using the 'this' keyword, you can call another constructor within the same class by matching the number and types of parameters are called constructor chaining.
@@ -4553,18 +4554,6 @@ rd variable?
 # **`SQL Server`**
 
 - <details>
-    <summary>What is SQL Server?⭐</summary>
-    <hr/>
-    
-    - It is an RDBMS software which also support ORDBMS feature.
-    - It is used to create and manage databases.
-    - Developed by Microsoft.
-    - 1st version of SQL Server is 1.0 comes in	1989.
-    - Current version of SQL Server is 2022 comes in	2022
-
-    <hr/>
-  </details>
-- <details>
     <summary>What is SQL Database?⭐</summary>
     <hr/>
     
@@ -4575,40 +4564,6 @@ rd variable?
     1. **OLTP (Online Transaction Processing) Databases**: Used for storing and managing day-to-day transactional data, where operations like CRUD are performed regularly to support business operations.
 
     2. **OLAP (Online Analytical Processing) Databases**: Used for analyzing large datasets to gain insights and make strategic decisions. Organizations use OLAP databases to perform complex queries and aggregations that help understand business trends and performance.
-
-    <hr/>
-  </details>
-- <details>
-    <summary>What is DBMS?⭐</summary>
-    <hr/>
-    
-    - DBMS stands for Database Management System.
-    - It is a software used to create, manage, and manipulate databases.
-
-    - DBMS allows users to create, read, update, delete data.
-
-    - DBMS is an `inteface` between user and database.
-
-    **`Types of DBMS`**:
-
-    - HDBMS (Hierarchical DBMS)
-    - NDBMS (Network DBMS)
-    - RDBMS (Relational DBMS)
-    - ORDBMS (Object RDBMS)
-
-    <hr/>
-  </details>
-- <details>
-    <summary>What is RDBMS & ORDBMS?⭐</summary>
-    <hr/>
-    
-    **`RDBMS`**: 
-    - A Relational Database Management System (RDBMS) is a type of database management system that `uses tables to store and manage data.`
-
-    **`ORDBMS`**: 
-    - ORDBMS is a combination of RDBMS (Relational Database Management System) and OOP (Object-Oriented Programming).
-
-    - It improves RDBMS by adding object-oriented features like reusability.
 
     <hr/>
   </details>
@@ -4659,39 +4614,6 @@ rd variable?
     ```
     User --> SSMS --> SQL --> SQL Server --> DB
     ```
-
-    <hr/>
-  </details>
-- <details>
-    <summary>What are the SQL Sub-languages?⭐</summary>
-    <hr/>
-    
-    SQL has different sub-languages based on the operations performed on the database
-
-    1. **DDL (Data Definition Language)**:
-
-    - Defines and manages database structures.
-    - `Examples`: CREATE, ALTER, DROP, truncate .
-
-    2. **DML (Data Manipulation Language)**:
-
-    - Manipulates data within the database.
-    - `Examples`: INSERT, UPDATE, DELETE , merge .
-
-    3. **DQL (Data Query Language)**:
-
-    - Queries and retrieves data from the database.
-    - Example: SELECT.
-
-    4. **TCL (Transaction Control Language)**:
-
-    - Manages transactions within the database.
-    - `Examples`: COMMIT, ROLLBACK, SAVEPOINT.
-
-    5. **DCL (Data Control Language)**:
-
-    - Controls access to data within the database.
-    - `Examples`: GRANT, REVOKE.
 
     <hr/>
   </details>
@@ -4762,18 +4684,6 @@ rd variable?
     Select * from emp;
     Select id, fName from emp;
     ```
-
-    <hr/>
-  </details>
-- <details>
-    <summary>Operators in SQL Server?⭐</summary>
-    <hr/>
-    
-    - `Arithmetic Operators`: + , - , * , / , % .
-    - `Relational Operators`: > , >= , < , <= , = , <> .
-    - `Logical Operators`:AND ,OR , NOT
-    - `Special Operators`: BETWEEN , IN ,LIKE ,IS ,ANY ,ALL ,EXISTS ,PIVOT .
-    - `Set Operators`: UNION ,UNION ALL ,INTERSECT ,EXCEPT .
 
     <hr/>
   </details>
@@ -8001,6 +7911,67 @@ rd variable?
 #### Client & server side Scripting
 
 ## **`MVC 5`**
+
+- <details>
+    <summary>Use Crude Operation using LINQ to SQL?⭐</summary>
+    <hr/>
+
+    1. Create project: ASP.NET Web Application(.NET Framework)
+    2. Add LINQ to SQL:
+    - Right click on model folder > Add new item > Data or search LINQ to SQL(.dbml file) > Select LINQ to SQL & name it (name prefieer to use database name i.e: `<databasename>.dbml`) > Add
+    - Go to Server Explorrer > Add database connection > Drag & drop the table in OR designer (Object relational designer) which is an .dbml file.
+    
+    **Note**: Table convert to class, entity of table(coloum) convert to property & row reprensent to instance (i.e: Student table => Student class, entity => property, rows => instance(`new {<coloum1>, <coloum2>, <coloum3>, <coloum4>}`)).
+
+    3. Create DAL class file i.e: `<tablename>DAL.cs`:
+      - Add Object of DataContext (i.e:CrudDataContext.cs) class which is in `designer.cs` file 
+      
+    ```c#
+    using System.Configuration;
+
+    CrudDataContext Context = new CrudDataContext(ConfigurationManager.ConnectionStrings["<name_of_connection_string_availablein_web.config_file>"].ConnectionString); //Connection class object
+    ```
+
+    4. Return All student:-
+    ```c#
+    public List<Student> GetStudent()
+    {
+      List<Student> student;
+      student = (from s in Context.Student select s).ToList();
+      return student;
+    }
+    ```
+
+    4. Or Directly return all student by acction method without using DAL class:
+    ```c#
+    //Hear add Connection class object
+    //Now add acction method to direct access all student without using dal class.
+    public ViewResult GetStudent()
+    {
+     var student = Context.students.ToList();
+     //Or
+     List<student> student = Context.students.ToList();
+     return View(student);
+    }
+    ```
+
+    ```html
+    <!-- Use to import data -->
+    @model IEnumerable<projectname.Modele.Student>;
+    
+    <!-- Display column name -->
+    @Html.DisplayNameFor(model=>model.id);
+
+    <!-- Use to show data in for each loop -->
+    @foreach(var s in Model)
+    {
+        @Html.DisplayFor(i=>s.id);
+        .,.,.,
+    }
+    ```
+
+    <hr/>
+  </details>
 
 ## **`Web Api`**
 

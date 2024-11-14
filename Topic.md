@@ -7438,43 +7438,42 @@
     ```c#
     using System.Diagnostics;
 
-  class Class7
-  {
-  static void Main()
-  {
-  // Sequential for loop
-  Stopwatch sw1 = new Stopwatch();
-  sw1.Start();
-  string str1 = "";
-  for (int i = 1; i < 200000; i++)
-  {
-  str1 += i;
-  }
-  sw1.Stop();
-  Console.WriteLine("Time taken to execute the code by using sequential for loop: " + sw1.ElapsedMilliseconds);
-
-            // Parallel for loop
-            Stopwatch sw2 = new Stopwatch();
-            sw2.Start();
-            string str2 = "";
-            Parallel.For(1, 200000, i =>
-            {
-                str2 += i;
-            });
-            sw2.Stop();
-            Console.WriteLine("Time taken to execute the code by using parallel for loop: " + sw2.ElapsedMilliseconds);
-        }
-
-  }
-
-  ```
+    class Class7
+    {
+    static void Main()
+    {
+    // Sequential for loop
+    Stopwatch sw1 = new Stopwatch();
+    sw1.Start();
+    string str1 = "";
+    for (int i = 1; i < 200000; i++)
+    {
+    str1 += i;
+    }
+    sw1.Stop();
+    Console.WriteLine("Time taken to execute the code by using sequential for loop: " + sw1.ElapsedMilliseconds);
+  
+              // Parallel for loop
+              Stopwatch sw2 = new Stopwatch();
+              sw2.Start();
+              string str2 = "";
+              Parallel.For(1, 200000, i =>
+              {
+                  str2 += i;
+              });
+              sw2.Stop();
+              Console.WriteLine("Time taken to execute the code by using parallel for loop: " + sw2.ElapsedMilliseconds);
+          }
+  
+    }
+  
+    ```
 
   - Sequential for loop: Each iteration is executed one by one.
 
   - Parallel for loop: Iterations are executed concurrently on different threads.
   <hr/>
   </details>
-  ```
 
 - <details>
     <summary>What code demonstrates the difference between sequential and parallel foreach loops?⭐</summary>
@@ -10973,54 +10972,284 @@
 
 ## **`WebForm`**
 
-#### ASP.NET Page Life Cycle
+- <details>
+    <summary>ASP.NET Page Life Cycle?⭐</summary>
+    <hr/>
 
-- Page Events
-- Understanding Page Life Cycle Stages
-  - Page Request,
-  - Start,
-  - Initialization,
-  - Load,
-  - PostBack,
-  - Render,
-  - Unload
+    1. **Page Request**: (*`Deside if 1st time request or 2nd time request, if 1st time the it will go to server or if 2nd time the it take the page from cash memeory`*)
 
-#### Controls
+    - Before the page life cycle starts, a `page request is made`, i.e. e. When the user requests a page, the `server decides` whether to `parse and execute` the page (starting the page's life cycle) or to respond with a `cached version` of the `page without processing the page`.
 
-- Standard controls
-  - TextBox
-  - Label
-  - Button
-  - DropDownList
-  - ListBox
-  - RadioButton
-  - CheckBox
-- Data Controls
-  - GridView
-  - Repeater
-  - DataList
-  - ListView
-  - DetailsView
-  - FormView
-- Validation Controls
-  - Required Field Validation
-  - Compare Validation
-  - Range Validation
-  - RegularExpression Validation
-  - Custome Validation
-  - Validation Summary
-- Rich Controls
-  - Calender
-  - FileUpload
+    2. **Start**: (*`if is 1st time request(get) then IsPostBack is false, if second time request then IsPostBack is true.`*)
 
-#### Event Handling
+    - In this stage the page properties such as request and response are created & in this step also establishes `whether the request is` a `post-back or a new request (get)`. The `IsPostBack` property is set to `true` in the case of a post-back request and false in the case of a first or get request.
 
-- Events and Event Handlers
-- PostBack
-- ViewState
-- Server-side Event
-- Client-side Event
-- IsPostback
+    3. **Initialization**: (*`All of the page's controls will be created(textbox, button, dropdownlist & etc) & Unique Id is generated for each controller because remember the specific control and keep track`*).
+
+    - All of the page's controls will be created at this point, and each controls `Unique Id` property will be set.
+
+    4. **Load stage**: `If the current request is a post-back (meaning the page is reloaded after a form submission)`, The `page` and `controls` are `filled` with `data coming from the ViewState (or Control State)`. The `Load stage ensures` that `controller properties are loaded(inslize) with information which retrieved from the View State (or Control State)`. After every thing is finished controls display the same data(on client-side) the user previously entered or selected on the page.
+
+    (If it request is post-bock, the `controller & page property` is `filled with`` user input` `which` is `previously entered or selected` on the page).
+
+    5. **Validation**: In this stage any `server-side validations` that are required will be performed and set the `IsValid` property of each individual validator controls and then the `page will be set accordingly`.
+
+    6. **Event Handling**: If the request is a postback, then `all relevant event handlers for the controls will be called`, along with `any cached events`. During the initial request to the page, only the page events are triggered. However, in a postback request, both the page events and the  Control Events are triggered.
+
+    7. **Rendering**: In this stage, the `+`, meaning it is converted into HTML. Before rendering, the view state and control state are saved for the page and all controls.
+
+    **Note**: The R`enderControl method on each control is called by the page` `during the rendering stage`, and the output is written to the Output Stream object of the page's Response property.
+
+    8. **UnLoad**: The Request and Response properties are deleted, and cleanup occurs when the page is ready to be discarded. The Unload event is triggered after the page has been rendered and the output has been sent to the client.
+
+    ```mermaid
+    graph TD;
+    Page_Request-->Start-->Initialization-->Load-->Validation-->Event_Handling-->Rendering-->UnLoad;
+    ```
+
+    <hr/>
+  </details>
+- <details>
+  <summary>Controls in ASP.NET⭐</summary>
+  <hr/>
+
+  1. **Standard Controls**
+    - TextBox
+    - Label
+    - Button
+    - LinkButton 
+    - ImageButton
+    - DropDownList
+    - ListBox
+    - RadioButton
+    - RadioButtonLis
+    - CheckBox
+    - CheckBoxList
+    - Calendar
+  2. **Data Controls**
+    - GridView 
+    - Repeater
+    - DataList
+  3. **Validation Controls**
+  4. **Navigation Controls**
+  5. **Login Controls**
+  6. **Web Parts Controls**
+  7. **Ajax Extension Controls**
+  8. **Dynamic Data Controls**
+  9. **Transferring control**
+
+  <hr/>
+</details>
+
+- <details>
+  <summary>Data Controls in ASP.NET?⭐</summary>
+    <hr/>
+
+    1. **GridView**: The GridView control `displays data` in a `tabular format`, where each row represents a record and each column represents a field. It allows `sorting`, `paging`, and `editing` data, & `deleting` making it ideal for displaying large datasets.
+
+    `Example`:
+    ```html
+    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
+        <Columns>
+            <asp:BoundField DataField="ID" HeaderText="ID" />
+            <asp:BoundField DataField="Name" HeaderText="Name" />
+            <asp:BoundField DataField="Age" HeaderText="Age" />
+        </Columns>
+    </asp:GridView>
+
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:YourConnectionString %>" SelectCommand="SELECT ID, Name, Age FROM Users"></asp:SqlDataSource>
+    ```
+
+    | 
+
+    2. **Repeater**: The Repeater control is a `lightweight`, `fast`, `highly customizable control` for `displaying` a repeated `list of items`. Unlike GridView, it `doesn’t have built-in features for paging, sorting, or editing, making it ideal for static layouts`. And it's unstructure formate.
+
+    `Example`:
+    ```html
+    <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1">
+        <ItemTemplate>
+            <h3><%# Eval("Name") %></h3>
+            <p>Age: <%# Eval("Age") %></p>
+        </ItemTemplate>
+    </asp:Repeater>
+
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
+        ConnectionString="<%$ ConnectionStrings:YourConnectionString %>"
+        SelectCommand="SELECT Name, Age FROM Users"></asp:SqlDataSource>
+    ```
+
+    3. **DataList**: The DataList control is `more flexible` than GridView and `light weight server side control` that works as a container for data items. It is used to `display data into a list format to the web pages`. with `customizable layouts`, such as rows or columns. It supports features like `editing but lacks advanced features like sorting and paging`.
+
+    `Example`:
+    ```html
+    <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" RepeatColumns="2" RepeatDirection="Horizontal">
+        <ItemTemplate>
+            <h3><%# Eval("Name") %></h3>
+            <p>Age: <%# Eval("Age") %></p>
+        </ItemTemplate>
+    </asp:DataList>
+
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
+        ConnectionString="<%$ ConnectionStrings:YourConnectionString %>"
+        SelectCommand="SELECT Name, Age FROM Users"></asp:SqlDataSource>
+    ```
+
+    <hr/>
+  </details>
+
+- <details>
+  <summary>Differences Between GridView, Repeater, and DataList in ASP.NET?⭐</summary>
+    <hr/>
+    
+    | Feature/Aspect            | **GridView**                                                       | **Repeater**                                                     | **DataList**                                                      |
+    |----------------------------|--------------------------------------------------------------------|-------------------------------------------------------------------|-------------------------------------------------------------------|
+    | **Purpose**                | Displays data in a strict **tabular format** with features like sorting, paging, and editing | Displays data in a **repeated list** without enforced structure (more control over layout) | Displays data in a **customizable layout** (tabular or list-like) |
+    | **Built-in Features**      | Supports **sorting, paging, editing**, and **deleting** out of the box | No built-in support for sorting, paging, or editing | Supports **editing** but lacks advanced features like sorting and paging |
+    | **Best For**               | Ideal for displaying **large datasets** in a structured, interactive table format | Best for lightweight, **customizable and static layouts** | Suitable for a **flexible display of data**, often in multiple columns |
+    | **Layout Flexibility**     | Fixed tabular format with rows and columns                        | Highly customizable layout, **developer-defined** HTML structure | Customizable, can display items in **multiple rows or columns** |
+    | **Data Structure**         | Strictly **tabular** structure (rows and columns)                 | Free-form structure, no default table layout                      | Flexible, can be **tabular** or **list-based** depending on the layout |
+    | **Performance**            | Slightly **slower** due to more features                         | Lightweight and **faster**, ideal for static data lists           | In-between GridView and Repeater in terms of performance          |
+    | **Usage Example**          | Admin dashboards or data tables where users need to interact (sort, edit) | Blog post lists, product items on a shopping page | Product grids, gallery-style layouts, or multi-column lists       |
+    | **Rendering HTML**         | Generates **table-based HTML**                                    | Requires custom HTML structure, giving flexibility                | Can generate **table-based or custom HTML** based on requirements |
+    | **Code Example**           |                                                                 |                                                                  |                                                                   |
+    
+    ### Summary of When to Use Each Control
+    
+    1. **GridView**: Use when you need a structured table format with built-in interactivity, such as sorting and paging.
+    2. **Repeater**: Choose for simple, lightweight lists where you need full control over HTML and don’t need built-in interactivity.
+    3. **DataList**: Ideal for customizable layouts where you may want to organize items in multiple rows or columns with some interactivity like editing.
+
+    <hr/>
+  </details>
+
+- <details>
+  <summary>Validation Controls in ASP.NET?⭐</summary>
+    <hr/>
+
+    - **Validation Controls**: Validation is essential for any web application to ensure that user input is accurate and valid before processing. ASP.NET offers several validation controls that can perform checks both on the client and server sides.
+    - **Client-Side Validation**: Validation performed in the user's browser, typically using JavaScript. It provides quick feedback, preventing form submission until all fields are valid. However, if the javascript id desible in browser then it's not work, so it's best paired with server-side validation for security.
+    - **Server-Side Validation**: Validation processed on the server, ensuring security and data integrity even if client-side validation is bypassed. Server-side validation does not depend on the browser or scripting support.
+
+    1. `Required Field Validation`: Ensures a field is not left empty before submission.
+    2. `Compare Validation`:  Compares a field’s value against another value or field to ensure they match a specified condition (e.g., equal to, greater than).
+    3. `Range Validation`: Verifies if a field’s value falls within a specified range (e.g., a number within 1–100).
+    4. `RegularExpression Validation`: alidates input against a defined regular expression pattern (e.g., email format).
+    5. `Custome Validation`: Allows custom validation logic by defining a unique validation function.
+    6. `Validation Summary`: Displays a summary of all validation errors on the page for quick user reference.
+    <hr/>
+  </details>
+- <details>
+  <summary>Transferring Controls in ASP.NET⭐</summary>
+  <hr/>
+
+  1. **`Server.Transfer`**
+   - **Definition**: `Server.Transfer` transfers the current request to another page on the server without making a round-trip back to the client. This is faster than `Response.Redirect` because it doesn’t involve an additional HTTP request.
+   - **Use Case**: Best for transferring control between pages within the same application, as it retains the original request and query string data.
+   - **Example**:
+     ```csharp
+     // Transfers the user to AnotherPage.aspx without changing the URL in the browser
+     Server.Transfer("AnotherPage.aspx");
+     ```
+
+  2. **`Response.Redirect`**
+   - **Definition**: `Response.Redirect` sends a response back to the client’s browser, instructing it to navigate to a different URL. This method causes a round-trip to the client and changes the URL in the browser.
+   - **Use Case**: Use `Response.Redirect` for navigating to external websites or different applications, as it can handle absolute URLs.
+   - **Example**:
+     ```csharp
+     // Redirects the user to an external or internal URL, changing the URL in the browser
+     Response.Redirect("https://www.example.com");
+     ```
+
+  <hr/>
+</details>
+
+- <details>
+  <summary>Differences between PostBack and IsPostBack in ASP.NET?⭐</summary>
+  <hr/>
+
+  | **Feature**     | **PostBack**                                                                                      | **IsPostBack**                                                                                         |
+  |-----------------|--------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
+  | **Definition**  | The process of sending data from the client (browser) back to the server for processing.         | A Boolean property of the `Page` class that checks if a page is loaded as a result of a PostBack.       |
+  | **Purpose**     | To submit data to the server to trigger actions and update the page.                             | To differentiate between the initial page load and subsequent PostBacks, allowing selective code runs.  |
+  | **Example Use** | Occurs when a user clicks a button or interacts with a form control that causes a page reload.   | Used to prevent code from re-running on PostBacks. For example, loading data into controls only once.   |
+  | **Code Example**| A button click triggers a PostBack to process data on the server.                                | `if (!IsPostBack) { LoadData(); }` - Load data only on the initial load, not on subsequent PostBacks.   |
+  | **Example Scenario** | User clicks a "Submit" button, triggering a PostBack.                                       | `IsPostBack` is `false` on first load; `true` on reloads from form submissions.                         |
+  
+  ### Example Code
+  
+  ```html
+  <asp:Button ID="SubmitButton" runat="server" Text="Submit" OnClick="SubmitButton_Click" />
+  ```
+  
+  ```csharp
+  // Code-behind file
+  protected void Page_Load(object sender, EventArgs e)
+  {
+      if (!IsPostBack)
+      {
+          // Code here runs only on the first page load, e.g., initializing data
+          LoadData();
+      }
+  }
+  
+  protected void SubmitButton_Click(object sender, EventArgs e)
+  {
+      // This event is triggered by a PostBack when the button is clicked
+      ProcessSubmission();
+  }
+  ```
+  
+  - **On Initial Page Load**: `IsPostBack` is `false`, so `LoadData()` runs.
+  - **On Button Click**: A PostBack occurs, `IsPostBack` is `true`, so `LoadData()` is skipped, and `ProcessSubmission()` runs.
+
+  <hr/>
+</details>
+
+- <details>
+  <summary>What is Master Pages, Web.Config, Global.asax & Machine.config in ASP.NET⭐</summary>
+  <hr/>
+  
+  - **Master Pages**: Master Pages allow you to create a consistent layout for the pages in your application. They act as a template, where you define common structures (like headers, footers, and navigation). Content pages then inherit this structure, making it easier to maintain a uniform look and feel across the application.
+  
+  - **Web.config**: This is an XML file that stores configuration settings specific to a web application, such as connection strings, authentication modes, session settings, and error handling. Each ASP.NET application can have its own Web.config file, which can override the settings in the global configuration (Machine.config).
+
+  - **Global.asax**: Also known as the application file, it handles application-level events such as `Application_Start`, `Application_End`, `Session_Start`, and `Session_End`. It allows you to execute code in response to these events, making it ideal for managing application-wide behavior.
+
+  - **Machine.config**: This is the global configuration file for the entire .NET Framework on the server. It provides default configuration settings for all .NET applications on that server. Settings in Web.config files can override those in Machine.config, allowing for application-specific configurations.
+
+  <hr/>
+</details>
+
+- <details>
+  <summary>Event Handling in ASP.NET⭐</summary>
+  <hr/>
+
+  **1. Events and Event Handlers**  
+  In ASP.NET, events are actions that happen on the page, such as a button click, text input, or page load. Event handlers are methods (functions) that are triggered when these events occur. For example, when a user clicks a button, the button's "Click" event will trigger a specific method to handle that action.
+
+  **2. PostBack**  
+  PostBack happens when a page sends data from the client (browser) back to the server to process something, such as form submissions. This process reloads the page, and the server processes the request. It allows data entered by the user to be sent back to the server for validation, saving, or other actions.
+
+  **3. ViewState**  
+  ViewState is a mechanism used to preserve the state (values) of controls and data on a page between postbacks. It stores information (like text in a textbox or selected items in a dropdown) so that when the page reloads, the values are still available and the user doesn’t lose their input.
+
+  **4. Server-side Event**  
+  A server-side event occurs on the server, meaning that it is handled by the server when a user interacts with the web page (like clicking a button or selecting a checkbox). The code for the server-side event is written in the code-behind file (such as `Button_Click` method). The server processes this event and sends the response back to the client.
+
+  **5. Client-side Event**  
+  A client-side event occurs in the user's browser, typically triggered by user actions like clicking a button, moving the mouse, or typing in a text box. These events are handled using JavaScript and happen entirely on the user's machine, without needing to go back to the server.
+
+  **6. IsPostBack**  
+  The `IsPostBack` property is used to check whether the page is being loaded for the first time or if it’s being reloaded (i.e., after a PostBack). This helps to avoid re-running code that should only execute once, such as initializing controls or loading data. For example, if a user submits a form, the page is reloaded, and `IsPostBack` can be used to check if the page is being loaded after a user action or not.
+
+  <hr/>
+</details>
+
+- <details>
+  <summary>State Management in ASP.NET⭐</summary>
+  <hr/>
+  <hr/>
+</details>
 
 #### State Management
 
@@ -11034,12 +11263,6 @@
   - Application State
   - Cache
 
-#### Master Pages
-
-- Creating and Implementing Master Pages
-- Applying Themes and Skins
-- Dynamic Master Pages
-
 #### Data Binding and Data Access
 
 - Binding Data to Controls (GridView, Repeater, ListView, etc.)
@@ -11052,9 +11275,6 @@
 - Creating and Using Custom Controls
 - Registering and Referencing Controls
 
-#### Web.Config
-
-#### Global.axpx
 
 #### Handling Application and Session Events
 
@@ -11064,7 +11284,6 @@
 - Data Caching
 - Cache Dependency
 
-#### Machine.config
 
 #### Client & server side Scripting
 

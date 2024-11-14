@@ -1,86 +1,10 @@
 ## MVC Question:
 
-## 01: Design Patterns
-
-### Q. What are Design Patterns?
-
----
-
-- Design patterns are best practices for solving common software design problems.
-- They are solutions that experienced developers have found effective over time.
-- These patterns help in designing object-oriented software that is reusable, flexible, and easy to maintain.
-
----
-
-### Q. Why are Design Patterns Important?
-
----
-
-- Design patterns provide tried and tested solutions to recurring design problems.
-- They help inexperienced developers learn good software design practices quickly and make the design of software more standardized and consistent.
-
----
-
-### Q. Who are the "Gang of Four" (GOF)?
-
----
-
-- The "Gang of Four" refers to four authors — Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides — who published the influential book “Design Patterns: Elements of Reusable Object-Oriented Software” in 1994.
-- This book introduced the concept of design patterns in software development and described 23 foundational design patterns.
-
----
-
-### Q. What are the Types of Design Patterns?
-
----
-
-- According to the GOF book, design patterns are classified into three categories:
-
-- **Creational Patterns:** : These design patterns provide a way to create objects while hiding the creation logic, rather than instantiating objects directly using new operator. This gives program more flexibility in deciding which objects need to be created for a given use case.
-- **Structural Patterns**: These design patterns concern class and object composition. Concept of inheritance is used to compose interfaces and define ways to compose objects to obtain new functionalities.
-- **Behavioral Patterns:** : These design patterns are specifically concerned with communication between objects
-
----
-
-### Q. Give some example of Design Patterns?
-
----
-
-- **Singleton** A class of which only a single instance can exist.
-- **Proxy** An object representing another object.
-
----
-
 ### Q. What is MVC?
 
 ---
 
-- MVC stands for Model-View-Controller. It is a way to organize an application into three main parts to make it easier to manage and understand.
-
----
-
-### Q. What is Model?
-
----
-
-- The Model represents the data and the logic needed to handle that data. It is responsible for storing and processing the application's data.
-
----
-
-### Q. What is View?
-
----
-
-- The View is responsible for showing the data to the user. It handles how the information is displayed but doesn’t include much logic for handling data.
-- Use to present the information.
-
----
-
-### Q. What is Controller?
-
----
-
-- The Controller manages user input and updates the Model based on that input. It also decides which View to show to the user.
+- MVC stands for Model-View-Controller.It is an desine pattern. It is a way to organize an application into three main parts to make it easier to manage and understand.
 
 ---
 
@@ -88,62 +12,11 @@
 
 ---
 
-- **Controller:** Receives user input (like clicking a button or typing in a form) and decides what to do next.
+- **Controller:** Receives user input (like clicking a button or typing in a form) and decides what to do next. The Controller selects a View to display the data from the Model to the user in a clear and understandable format.
 - **Model:** The Controller uses the Model to fetch, update and manuplate data performing any needed calculations or data processing.
-- **Controller:** The Controller selects a View to display the data from the Model to the user in a clear and understandable format
-
-<img src="MVC.png" alt="Sample Image" width="100%" height="400">
+- **View:** The View is responsible for showing the data to the user. It handles how the information is displayed but doesn’t include much logic for handling data. Use to present the information.
 
 ---
-
-### Q. What is the history of the MVC pattern?
-
----
-
-- The MVC architecture pattern was first introduced by Trygve Reenskaug in the 1970s while working on Smalltalk-76 at Xerox Palo Alto Research Center. In the 1980s, Jim Althoff and others implemented a version of MVC for the Smalltalk-80 class library.
-
-- Starting MVC developed for Desktop GUI's.
-- Later MVC popular for desining web Applications, Mobile & other clients.
-- Currently being used in Web Application development.
-
----
-
-### Q. How did MVC become popular for web development?
-
----
-
-- Although originally designed for desktop graphical user interfaces (GUIs), the MVC pattern's separation of data, logic, and presentation proved useful for web applications. This led to its adoption across many web development frameworks in various programming languages.
-
----
-
-### Q. What is the difference between ASP.NET MVC and ASP.NET Core MVC?
-
----
-
-- **ASP.NET MVC:** Works only on the .NET Framework and has its versions listed from ASP.NET MVC 1.0 (2009) to ASP.NET MVC 5.2.9 (2022).
-- **ASP.NET Core MVC:** Designed to work on the newer .NET Core platform, providing cross-platform capabilities and modern web development tools. Its versions range from ASP.NET Core MVC 1.0 (2016) to ASP.NET Core MVC 8.0 (2023).
-
----
-
-### Q. Why are there different versions for ASP.NET MVC and ASP.NET Core MVC?
-
----
-
-- ASP.NET MVC is designed for the .NET Framework, which is mainly used on Windows, while ASP.NET Core MVC is designed to work on the .NET Core platform, which supports cross-platform development. The different versions represent updates, improvements, and new features.
-
----
-
-### Q. What is the significance of the MVC pattern for modern development?
-
----
-
-- The MVC pattern helps organize code into three distinct components: Models, Views, and Controllers. This separation makes it easier to manage, maintain, and scale applications, which is why it is widely used in web development frameworks today.
-
----
-
-```html
-Diffrence(अंतर) Diffrenciate(तुलना)
-```
 
 ### Q. What is the diffrence bitween ASP.NET MVC and ASP.NET Core MVC?⭐
 
@@ -164,7 +37,7 @@ Diffrence(अंतर) Diffrenciate(तुलना)
 
 ---
 
-## **`ASP.NET MVC 5`**
+## **`ASP.NET MVC 5`**(ASP.NET Web Application (.NET Framework))
 
 ### Q. What is the last version of ASP.NET MVC on the .NET Framework, and what version came after it?
 
@@ -179,228 +52,63 @@ Diffrence(अंतर) Diffrenciate(तुलना)
 
 ---
 
-### Q. How do you create an MVC project in Visual Studio 2022?
-
----
-
-1.  **Open Visual Studio 2022:** Start by launching Visual Studio 2022 on your computer.
-2.  **Create a New Project:** Click on "Create a new project" on the right-hand side of the window.
-3.  **Select Project Type:**
-
-- In the new window, under the “All Languages” dropdown, select “C#”.
-- Under the “All Platforms” dropdown, choose “Windows”.
-- Under the “All Project Types” dropdown, select “Web”
-
-4. **Choose Project Template:** From the list below, select “**ASP.NET Web Application (.NET Framework)**” and click on the “Next” button.
-5. **Configure Project Details:**
-
-- New window appears, enter the “Project Name”.
-- Enter the desired location for your project in the “Location” textbox.
-- Choose the latest version of “.NET Framework” (i.e., “.NET Framework 4.8”) from the “Framework” dropdown list.
-- Click on the “Create” button.
-
-6. **Select Project Template Options**:
-
-- In the “Create a new ASP.NET Web Application” window, select the “Empty” or "MVC" project template.
-- Check the “MVC” checkbox under “Add folders & core references”, if you will selectd the "Empty" project.
-- Uncheck all other checkboxes.
-
-- **Create the Project:** Click on the “Create” button to generate your MVC project.
-
----
-
 ### Q. What is the MVC Project Structure?
 
 ---
 
 MVC and Empty Project Structure
 
-| **Type**   | **MVC Project**    | **Empty Project**  |
-| ---------- | ------------------ | ------------------ |
-| **Folder** | Connected Services | Connected Services |
-| **Folder** | App_Data           |                    |
-| **Folder** | App_Start          | App_Start          |
-| **Folder** | Content            |                    |
-| **Folder** | Controllers        | Controllers        |
-| **Folder** | Models             | Models             |
-| **Folder** | Scripts            |                    |
-| **Folder** | Views              | Views              |
-| **File**   | Global.asax        | Global.asax        |
-| **File**   | Packages.config    | Packages.config    |
-| **File**   | Web.config         | Web.config         |
+| **Type**   | **MVC Project**    | **Empty Project**  | **Description** |
+| ---------- | ------------------ | ------------------ |-----------------|
+| **Folder** | Connected Services | Connected Services | Used for integrating Microsoft Azure Service into Visual Studio, for easily host and manage our application to Azure Portal from Visual Studio it-self. |
+| **Folder** | App_Data           |                    | Contains local Data Source files like “.mdf” files, “.xml” files, “Excel” files, etc. |
+| **Folder** | App_Start          | App_Start          |  |
+| **Folder** | Content            |                    | Contains static files like “.css” files, “image”, files, etc. |
+| **Folder** | Controllers        | Controllers        |  |
+| **Folder** | Models             | Models             |  |
+| **Folder** | Scripts            |                    | Contains Java Script or jQuery files |
+| **Folder** | Views              | Views              |  |
+| **File**   | Global.asax        | Global.asax        |  |
+| **File**   | Packages.config    | Packages.config    |  |
+| **File**   | Web.config         | Web.config         |  |
 
 In an **Empty Project**, the structure is usually more minimal.
 
----
+1. **App_Start**: This folder contains a set of files which contains classes, and these classes get executed when the application starts execution. App_Start folder can contain following files in it:
 
-### Q. What is the use of "Connected Services" file?
+    - **BundleConfig.cs:** Contains BundleConfig Class
+    - **FilterConfig.cs:** Contains FilterConfig Class
+    - **IdentityConfig.cs:** Contains IdentityConfig Class
+    - **RouteConfig.cs:** Contains RouteConfig Class
+    - **Startup.Auth.cs** Contains Startup Class
+    - In an Empty Project Template, the "App_Start" folder contains only the "RouteConfig.cs" file. In an MVC Project Template, the "App_Start" folder includes `BundleConfig.cs`, `FilterConfig.cs`, and `RouteConfig.cs` files.
 
----
+2. **Global.asax**:
+    - Global.asax is a file that contains the Global class for application-level configuration. It includes methods such as:
+    - **Application_Start:** Runs when the application starts.
+    - **Application_End:** Runs when the application ends.
+    - **Application_Error:** Handles application-level errors.
+    - **Session_Start:** Runs when a session starts.
+    - **Session_End:** Runs when a session ends.
 
-- This is used for integrating Microsoft Azure Service into Visual Studio, so that we can easily host and manage our application to Azure Portal from Visual Studio it-self.
+3. **Packages.config**:
+    - This contains information of packages that are used under this project, so that anyone can easily understand if there are any 3rd party packages consumed for the development of this application.
 
----
-
-### Q. What is the use of "App_Data" folder?
-
----
-
-- this folder contains local Data Source files like “.mdf” files, “.xml” files, “Excel” files, etc.
-
----
-
-### Q. What is the use of "App_Start" folder?
-
----
-
-- This folder contains a set of files which contains classes, and these classes get executed when the application starts execution. App_Start folder can contain following files in it:
-
-  - **BundleConfig.cs:** Contains BundleConfig Class
-  - **FilterConfig.cs:** Contains FilterConfig Class
-  - **IdentityConfig.cs:** Contains IdentityConfig Class
-  - **RouteConfig.cs:** Contains RouteConfig Class
-  - **:Startup.Auth.cs** Contains Startup Class
-
-- In an Empty Project Template, the "App_Start" folder contains only the "RouteConfig.cs" file. In an MVC Project Template, the "App_Start" folder includes `BundleConfig.cs`, `FilterConfig.cs`, and `RouteConfig.cs` files.
+4. **Web.config**:
+    - This is a configuration file for the whole application which contains configuration settings like “App Settings”, “Connection Strings”, “Network Settings”, “Compiler Settings”, etc.
 
 ---
 
-### Q. What is the use of "Content" folder?
+### Q. What should be the parent class of all controllers in an MVC application? ⭐
 
 ---
 
-- This folder contains static files like “.css” files, “image”, files, etc.
+- The parent class for all controllers should be the *`Controller`* class, which itself is a child of the *`ControllerBase`* class. Both these classes are defined in the System.Web.Mvc namespace.
 
 ---
 
-### Q. What is the use of "Controllers" folder?
 
----
-
-- This folder contains Controller classes where each Controller should be defined in a separate file.
-- In an Empty Project Template, the "Controllers" folder is empty. In an MVC Project Template, the "Controllers" folder includes a default "HomeController" with a file named "HomeController.cs".
-
----
-
-### Q. What is the use of "Models" folder?
-
----
-
-- This folder contains Model classes i.e., classes representing the Entities and Properties representing the attributes of Entities as well as all the Methods to manipulate the data.
-
----
-
-### Q. What is the use of "Scripts" folder?
-
----
-
-- This folder contains Java Script or jQuery files that are used for development of the application.
-
----
-
-### Q. What is the use of "Views" folder?
-
----
-
-- The Views folder contains all the user interface (UI) files for the application. These files use the .cshtml extension if you are working with C#, or .vbhtml if you are using VB. These files, known as "Razor Pages," include both C# or VB code and HTML.
-- In an Empty Project Template, the Views folder initially contains only a web.config file.
-- In an MVC Project Template, the Views folder includes two subfolders: Home and Shared. These subfolders contain .cshtml files, and the Views folder also includes \_ViewStart.cshtml and web.config files.
-
-- Each Controller will have its own folder under Views to store its associated Views. For instance, a HomeController will have a Home folder within Views to keep all its related Views. The Shared folder within Views contains Views that are common across all Controllers, such as layout or error views.
-
----
-
-### Q. What is the use of "Global.asax" file?
-
----
-
-- Global.asax is a file that contains the Global class for application-level configuration. It includes methods such as:
-
-  - **Application_Start:** Runs when the application starts.
-  - **Application_End:** Runs when the application ends.
-  - **Application_Error:** Handles application-level errors.
-  - **Session_Start:** Runs when a session starts.
-  - **Session_End:** Runs when a session ends.
-
----
-
-### Q. What is the use of "Packages.config" file?
-
----
-
-- This contains information of packages that are used under this project, so that anyone can easily understand if there are any 3rd party packages consumed for the development of this application.
-
----
-
-### Q. What is the use of "Web.config" file?
-
----
-
-- This is a configuration file for the whole application which contains configuration settings like “App Settings”, “Connection Strings”, “Network Settings”, “Compiler Settings”, etc.
-
----
-
-### Q. What is the role of a controller in an MVC application?
-
----
-
-- A controller is responsible for handling all incoming user requests in an MVC application. It processes user input, interacts with the model, and returns a view to the user.
-
----
-
-### Q. What should be the parent class of all controllers in an MVC application?
-
----
-
-- The parent class for all controllers should be the Controller class, which itself is a child of the ControllerBase class. Both these classes are defined in the System.Web.Mvc namespace.
-
----
-
-### Q. How should a controller class be named in an MVC application?
-
----
-
-- A controller class name should always end with the word "Controller." For example, if you want to create a controller named "Home," it should be named "HomeController."
-
----
-
-### Q. Why should a controller name end with "Controller"?
-
----
-
-- In ASP.NET MVC, the framework uses a naming convention to identify controller classes. The name must end with "Controller" so that the framework recognizes it as a controller and can handle routing correctly.
-
----
-
-### Q. How do you create a new ASP.NET Web Application project?
-
----
-
-- To create a new ASP.NET Web Application project, name it "MVCTestProject3", select the "Empty" project template, check the "MVC" checkbox, uncheck all other checkboxes, and click the "Create" button.
-
----
-
-### Q. What are the two ways to add a controller to an MVC project?
-
----
-
-You can add a controller to an MVC project in two ways:
-
-- Manually defining a controller class.<br/>Using scaffolding to define a controller class.
-
----
-
-### Q. How do you manually add a controller class to an MVC project?
-
----
-
-To manually add a controller:
-
-- Open Solution Explorer.<br/>Right-click on the Controllers folder.<br/>Select Add > New Item or Class.<br/>In the Add New Item window, select Class, name it "TestController.cs", and click Add.
-
----
-
-### Q. Which namespace should you import when defining a controller manually?
+### Q. Which namespace should you import when defining a controller manually? 
 
 ---
 
@@ -408,21 +116,38 @@ To manually add a controller:
 
 ---
 
-### Q. How should you define a controller class in ASP.NET MVC?
+### Q. How should you define a controller class with accetion method in ASP.NET MVC?
 
 ---
 
 - A controller class should inherit from the Controller class.
   ```C#
-  public class TestController : Controller
-  {
-      // Action methods go here
-  }
+    using System.Web.Mvc;
+
+    namespace MyController.Controllers
+    {
+      public class TestController : Controller
+      {
+        public string Index()
+        {
+        return "Hello index page";
+        }
+        public string Show()
+        {
+        return "Hello index page";
+        }
+      }
+    }
   ```
+
+  Access the Index action method of the TestController class in the browser?
+  - To access the Index action method, add /Test/Index to the default URL in the browser. 
+  For example Index: http://localhost:port/Test/Index or http://localhost:port/Test or http://localhost:port/Test/Index.cshtml 
+  For example show: http://localhost:port/Test/show or http://localhost:port/Test/show.cshtml 
 
 ---
 
-### Q. What is an action method in an ASP.NET MVC controller?
+### Q. What is an action method in an ASP.NET MVC controller? ⭐
 
 ---
 
@@ -435,85 +160,6 @@ To manually add a controller:
 ---
 
 - Yes, an action method must be public because only public methods can be accessed by the ASP.NET MVC framework to handle incoming HTTP requests. Private or protected methods cannot be access by HTTP requests.
-
----
-
-### Q. How do you define a simple action method in a controller?
-
----
-
-```C#
-public string Index()
-{
-    return "Hello from Test Controller - Index Action Method.";
-}
-```
-
----
-
-### Q. How do you access the Index action method of the TestController class in the browser?
-
----
-
-- To access the Index action method, add /Test/Index to the default URL in the browser. For example: http://localhost:port/Test/Index
-
----
-
-### Q. What do Test and Index represent in the URL http://localhost:port/Test/Index?
-
----
-
-- "Test" is the name of the controller class "TestController"<br/>"Index" is the name of the action method in the "TestController" class.
-
----
-
-### Q. What happens when you access the Index action method of TestController?
-
----
-
-- When you access the Index action method by navigating to http://localhost:port/Test/Index, it will return the string "Hello from Test Controller - Index Action Method."
-
----
-
-### Q. How do you define a second action method in the TestController class?
-
----
-
-```C#
-public string Show()
-{
-  return "Hello from Test Controller - Show Action Method.";
-}
-```
-
----
-
-### Q. Code
-
-```C#
-using System.Web.Mvc;
-
-namespace MyController.Controllers
-{
-  public class TestController : Controller
-  {
-    public string Index()
-    {
-    return "Hello index page";
-    }
-    public string Show()
-    {
-    return "Hello index page";
-    }
-  }
-}
-```
-
-### Q. How do you access the Show action method of the TestController class in the browser?
-
----
-
-- To access the Show action method, add /Test/Show to the default URL in the browser. For example: http://localhost:port/Test/Show
 
 ---
 
@@ -565,30 +211,6 @@ namespace MyController.Controllers
 
 ---
 
-### Q. How do you check if IIS is installed on your computer?
-
----
-
-- To check if IIS (Internet Information Services) is installed, go to the Windows search bar and type "inetmgr." If "Internet Information Services (IIS) Manager" appears, then IIS is installed on your computer.
-
----
-
-### Q. How can you install IIS on your computer?
-
----
-
-- To install IIS, go to Control Panel → Programs and Features → Turn Windows features on or off. In the Windows Features window, check the box for Internet Information Services and select all the sub-options under it, then click OK to install.
-
----
-
-### Q. Why do you need to select all sub-options when installing IIS?
-
----
-
-- Selecting all sub-options ensures that all necessary components and features of IIS are installed, providing full functionality for running and managing web applications.
-
----
-
 ### Q. How can you host a web application in IIS from Visual Studio?
 
 ---
@@ -623,153 +245,13 @@ namespace MyController.Controllers
 
 ---
 
-### Q. Why do you need to change the server option from "IIS Express" to "Local IIS" in Visual Studio?
-
----
-
-- Changing the server option from IIS Express to Local IIS configures Visual Studio to use the full version of IIS for hosting the application, providing additional features and allowing access from remote computers in a network, unlike the development-only IIS Express server.
-
----
-
-### Q. What is the default action method in an MVC application?
+### Q. What is the default controller & action method in an MVC application?
 
 ---
 
 - The default action method for all controllers in an MVC application is the Index action method. If an action method name is not specified in the URL, the Index action method is executed by default.
 
----
-
-### Q. What is the default controller in an MVC application?
-
----
-
 - The default controller in an MVC application is the HomeController. When a specific controller is not mentioned in the URL, the HomeController is invoked by default.
-
----
-
-### Q. How can you access the Index action method using a URL without specifying the action method name?
-
----
-
-- You can access the Index action method without specifying it in the URL, like so:
-  - IIS Express: http://localhost:port/Test
-  - Local IIS: http://localhost/MVCTestProject3/Test
-
-This will invoke the Index action method of the TestController.
-
----
-
-### Q. How does the application determine which controller and action method to invoke based on the URL?
-
----
-
-- The application uses the URL pattern to determine the controller and action method to invoke. For example:
-  - http://localhost:port or http://localhost/MVCTestProject3 will invoke HomeController's Index action method by default.
-  - http://localhost:port/Home or http://localhost/MVCTestProject3/Home will invoke HomeController's Index action method.
-  - http://localhost:port/Test or http://localhost/MVCTestProject3/Test will invoke TestController's Index action method.
-
----
-
-### Q. Provide examples of URLs and their corresponding action methods for both IIS Express and Local IIS.
-
----
-
-- IIS Express:
-- http://localhost:port → Invokes HomeController's Index
-- http://localhost:port/Home → Invokes HomeController's Index
-- http://localhost:port/Home/Index → Invokes HomeController's Index
-- http://localhost:port/Home/Show → Invokes HomeController's Show
-- http://localhost:port/Test → Invokes TestController's Index
-- http://localhost:port/Test/Index → Invokes TestController's Index
-- http://localhost:port/Test/Show → Invokes TestController's Show
-
-- Local IIS:
-- http://localhost/MVCTestProject3 → Invokes HomeController's Index
-- http://localhost/MVCTestProject3/Home → Invokes HomeController's Index
-- http://localhost/MVCTestProject3/Home/Index → Invokes HomeController's Index
-- http://localhost/MVCTestProject3/Home/Show → Invokes HomeController's Show
-- http://localhost/MVCTestProject3/Test → Invokes TestController's Index
-- http://localhost/MVCTestProject3/Test/Index → Invokes TestController's Index
-- http://localhost/MVCTestProject3/Test/Show → Invokes TestController's Show
-
----
-
-### Q. What is ASP.NET Scaffolding?
-
----
-
-- ASP.NET Scaffolding is a code generation framework used in ASP.NET web applications to quickly create code that interacts with data models. It reduces development time by automatically generating standard operations.
-
----
-
-### Q. How can you add a controller using scaffolding in Visual Studio?
-
----
-
-- To add a controller using scaffolding:
-- Open Solution Explorer.
-- Right-click on the Controllers folder.
-- Select Add > Controller.
-- In the Add New Scaffolded Item window, select MVC 5 Controller – Empty.
-- Click the Add button and enter the name (e.g., "DemoController") and click Add again.
-
----
-
-### Q. What does the default controller class look like when added using scaffolding?
-
----
-
-- When added using scaffolding, the default controller class will look like this:
-
-```C#
-  public class DemoController : Controller
-  {
-      // GET: Product
-      public ActionResult Index()
-      {
-          return View();
-      }
-  }
-```
-
-This class inherits from the Controller class whic is the parent class of all controller class and imports the System.Web.Mvc namespace by default.
-
----
-
-### Q. How do you modify a scaffolded controller to create custom action methods?
-
----
-
-- To modify a scaffolded controller, delete the existing code and add custom action methods like this:
-
-```C#
-public string Index()
-{
-    return "Hello from Demo Controller - Index Action Method.";
-}
-
-public string Show()
-{
-    return "Hello from Demo Controller - Show Action Method.";
-}
-
-```
-
----
-
-### Q. How do you access the action methods of the DemoController in IIS Express and Local IIS?
-
----
-
-- IIS Express:
-- http://localhost:port/Demo → Invokes Demo Controller's Index method.
-- http://localhost:port/Demo/Index → Invokes Demo Controller's Index method.
-- http://localhost:port/Demo/Show → Invokes Demo Controller's Show method.
-
-- Local IIS:
-- http://localhost/MVCTestProject3/Demo → Invokes Demo Controller's Index method.
-- http://localhost/MVCTestProject3/Demo/Index → Invokes Demo Controller's Index method.
-- http://localhost/MVCTestProject3/Demo/Show → Invokes Demo Controller's Show method.
 
 ---
 
@@ -797,11 +279,11 @@ public class RouteConfig
 
 ---
 
-### Q. What is Routing in ASP.NET?
+### Q. What is a Route in ASP.NET?
 
 ---
 
-- Routing is a mechanism that enables you to use URLs that are descriptive and do not have to map directly to specific physical files in a website. This allows URLs to be more user-friendly and meaningful, such as http://localhost:port/Products/Show/4, instead of http://localhost:port/Products.aspx?id=4.
+- A route is a URL pattern that is mapped to a handler, which can be a class that processes the request, such as a controller in an MVC application. Routes are defined by creating an instance of the Route class, specifying the URL pattern, the handler, and optionally a name for the route. Routes are stored in the RouteCollection object, which is accessed through the static Routes property of the RouteTable class.
 
 ---
 
@@ -813,13 +295,6 @@ public class RouteConfig
 
 ---
 
-### Q. What is a Route in ASP.NET?
-
----
-
-- A route is a URL pattern that is mapped to a handler, which can be a class that processes the request, such as a controller in an MVC application. Routes are defined by creating an instance of the Route class, specifying the URL pattern, the handler, and optionally a name for the route. Routes are stored in the RouteCollection object, which is accessed through the static Routes property of the RouteTable class.
-
----
 
 ### Q. How are routes typically defined in an MVC application?
 
@@ -886,49 +361,6 @@ routes.MapRoute(
 
 ---
 
-### Q. How can we pass parameters to a Controller’s action method?
-
----
-
-- Parameters can be passed to action methods using Route Parameters or Query Strings.
-
----
-
-### Q. How can we pass parameters to a Controller’s action method?
-
----
-
-- Parameters can be passed to action methods using several methods:
-- Route Parameters: <br/>
-  The default route pattern ({controller}/{action}/{id}) allows you to pass parameters directly in the URL. The id parameter is optional by default. For example: http://localhost:port/Params/Index1/100 passes 100 as the id parameter to the Index1 action method.
-- Query Strings: <br/>Parameters can be appended to the URL using query strings. The values are provided as key-value pairs after a ?. For example: http://localhost:port/Params/Index1?id=100 passes 100 as the id parameter.
-- Form Data (HTTP POST):<br>Parameters can also be sent to the action method through an HTTP POST request using form data. The values are sent as part of the request body, not the URL. For example:A form in HTML that uses the POST method can submit data to an action method like this:
-
-```C#
-<form action="/Params/Index1" method="post">
-<input type="text" name="id" />
-<input type="submit" value="Submit" />
-</form>
-```
-
-The id parameter will be passed to the Index1 action method.
-
-<li>Model Binding: <br/>You can pass complex data types (like objects) to an action method by binding form data or query strings to a model object. For example:
-
-```C#
-public ActionResult Index(Person person)
-{
-    // 'person' object will be populated with form/query data
-    return View();
-}
-
-```
-
-The person object will automatically bind to form fields or query parameters like person.Name and person.Age.
-
-- Request Body (JSON/XML Data): discus latter
-
----
 
 ### Q. Can the parameter name in the action method differ from the route parameter name?
 
@@ -1000,69 +432,6 @@ return $"Value of Id is: {Id} and value of Name is: {Name}";
 }
 
 ```
-
-- `Execute the above methods as following:`
-
-  - `IIS Express`:
-  - http://localhost:port/Params/Index1 //Invalid
-  - http://localhost:port/Params/Index1/100 //Valid
-  - http://localhost:port/Params/Index2 //Valid, but value of id is 0
-  - http://localhost:port/Params/Index2/200 //Valid
-  - http://localhost:port/Params/Index3 //Valid, but value of id is null
-  - http://localhost:port/Params/Index3/300 //Valid
-  - http://localhost:port/Params/Index4 //Invalid because there is no value for x
-  - http://localhost:port/Params/Index4/400 //Invalid because the value is not taken to x
-  - http://localhost:port/Params/Index5 //Valid and the value for x is null
-  - http://localhost:port/Params/Index5/500 //Valid, but now also the value for x is null only
-  - http://localhost:port/Params/Index6 //Valid and value of Id is null
-  - http://localhost:port/Params/Index6/Hello //Valid and value of Id is Hello
-  - http://localhost:port/Params/Index6/600 //Valid and value of Id is 600
-  - http://localhost:port/Params/Index6/true //Valid and value of Id is true
-  - http://localhost:port/Params/Index6/34.56 //Invalid, because of the special character decimal
-  - http://localhost:port/params/Index7 //Invalid because Id is mandatory parameter
-  - http://localhost:port/params/Index7/700 //Valid, in this case Name will be null value
-  - http://localhost:port/params/Index7/700/Raju //Valid
-  - http://localhost:port/Params/Index7/Raju/700 //Invalid because parameter values not in order
-  - http://localhost:port/Params/Index7?Id=700&Name=Raju //Valid, as we are passing values by specifying names
-  - http://localhost:port/Params/Index7?Name=Raju&Id=700 //Valid, as we are passing values by specifying names
-  - http://localhost:port/params/Index8 //Valid, in this case Id & Name will be null value
-  - http://localhost:port/params/Index8/800 //Valid, in this case Name will be null value
-  - http://localhost:port/params/Index8/800/Raju //Valid
-  - http://localhost:port/Params/Index8/Raju/800 //Valid, in this case id will be null value
-  - http://localhost:port/Params/Index8?Name=Raju //Valid, in this case id will be null value
-  - http://localhost:port/Params/Index8?Id=800&Name=Raju //Valid, as we are passing values by specifying names
-  - http://localhost:port/Params/Index8?Name=Raju&Id=800 //Valid, as we are passing values by specifying names
-
-  - `Local IIS`:
-  - http://localhost/MVCTestProject3/Params/Index1 //Invalid
-  - http://localhost/MVCTestProject3/Params/Index1/100 //Valid
-  - http://localhost/MVCTestProject3/Params/Index2 //Valid, but value of id is 0
-  - http://localhost/MVCTestProject3/Params/Index2/200 //Valid
-  - http://localhost/MVCTestProject3/Params/Index3 //Valid, but value of id is null
-  - http://localhost/MVCTestProject3/Params/Index3/300 //Valid
-  - http://localhost/MVCTestProject3/Params/Index4 //Invalid because there is no value for x
-  - http://localhost/MVCTestProject3/Params/Index4/400 //Invalid because the value is not taken to x
-  - http://localhost/MVCTestProject3/Params/Index5 //Valid and the value for x is null
-  - http://localhost/MVCTestProject3/Params/Index5/500 //Valid, but now also the value for x is null only
-  - http://localhost/MVCTestProject3/Params/Index6 //Valid and value of Id is null
-  - http://localhost/MVCTestProject3/Params/Index6/Hello //Valid and value of Id is Hello
-  - http://localhost/MVCTestProject3/Params/Index6/600 //Valid and value of Id is 600
-  - http://localhost/MVCTestProject3/Params/Index6/true //Valid and value of Id is true
-  - http://localhost/MVCTestProject3/Params/Index6/34.56 //Invalid, because of the special character decimal
-  - http://localhost/MVCTestProject3/params/Index7 //Invalid because Id is mandatory parameter
-  - http://localhost/MVCTestProject3/params/Index7/700 //Valid, in this case Name will be null value
-  - http://localhost/MVCTestProject3/params/Index7/700/Raju //Valid
-  - http://localhost/MVCTestProject3/Params/Index7/Raju/700 //Invalid because parameter values not in order
-  - http://localhost/MVCTestProject3/Params/Index7?Id=700&Name=Raju//Valid
-  - http://localhost/MVCTestProject3/Params/Index7?Name=Raju&Id=700 //Valid
-  - http://localhost/MVCTestProject3/params/Index8 //Valid
-  - http://localhost/MVCTestProject3/params/Index8/800 //Valid
-  - http://localhost/MVCTestProject3/params/Index8/800/Raju //Valid
-  - http://localhost/MVCTestProject3/Params/Index8/Raju/800 //Valid
-  - http://localhost/MVCTestProject3/Params/Index8?Name=Raju //Valid
-  - http://localhost/MVCTestProject3t/Params/Index8?Id=800&Name=Raju //Valid
-  - http://localhost/MVCTestProject3/Params/Index8?Name=Raju&Id=800 //Valid
-
 ---
 
 ### Q. How to pass value in method using Query string?
@@ -1075,23 +444,6 @@ public string Index9(int Pid, string Pname, double Price)
   return $"Pid: {Pid}; Pname: {Pname}; Price: {Price}";
 }
 ```
-
-Now run the application by using the following URL:
-
-**IIS Express:**
-
-- http://localhost:port/Params/Index9/101/Shoes/3500 //Invalid
-- http://localhost:port/Params/Index9?Pid=101&Pname=Shoes&Price=3500 //Valid
-- http://localhost:port/Params/Index9?Pname=Shoes&Price=3500&Pid=101 //Valid
-- http://localhost:port/Params/Index9?Price=3500&Pid=101&Pname=Shoes //Valid
-
-**Local IIS:**
-
-- http://localhost/MVCTestProject3/Params/Index9/101/Shoes/3500 //Invalid
-- http://localhost/MVCTestProject3/Params/Index9?Pid=101&Pname=Shoes&Price=3500 //Valid
-- http://localhost/MVCTestProject3/Params/Index9?Pname=Shoes&Price=3500&Pid=101 //Valid
-- http://localhost/MVCTestProject3/Params/Index9?Price=3500&Pid=101&Pname=Shoes //Valid
-
 ---
 
 ### Q. Is that posible to pass pass value without defining the parameters to an action method wusing querystring? If yes then How?
@@ -1109,24 +461,6 @@ public string Index10()
 ```
 
 In this case, this type of example is not related to `RouteConfig`, not mendatry to write parameter name or define parameter.
-
-Now run the application by using the following URL:
-
-**IIS Express:**
-
-- http://localhost:port/Params/Index10 //Invalid
-- http://localhost:port/Params/Index10/101/Shoes/3500 //Invalid
-- http://localhost:port/Params/Index10?Pid=101&Pname=Shoes&Price=3500 //Valid
-- http://localhost:port/Params/Index10?Pname=Shoes&Price=3500&Pid=101 //Valid
-- http://localhost:port/Params/Index10?Price=3500&Pid=101&Pname=Shoes //Valid
-
-**Local IIS:**
-
-- http://localhost/MVCTestProject3/Params/Index10 //Invalid
-- http://localhost/MVCTestProject3/Params/Index10/101/Shoes/3500 //Invalid
-- http://localhost/MVCTestProject3/Params/Index10?Pid=101&Pname=Shoes&Price=3500 //Valid
-- http://localhost/MVCTestProject3/Params/Index10?Pname=Shoes&Price=3500&Pid=101 //Valid
-- http://localhost/MVCTestProject3/Params/Index10?Price=3500&Pid=101&Pname=Shoes //Valid
 
 ---
 
@@ -1153,13 +487,6 @@ public string Validate1()
     return "Invalid User";
 }
 
-IIS Express:
-http://localhost:port/Params/Validate1?Name=Raju&Pwd=Admin //Valid
-http://localhost:port/Params/Validate1?Pwd=Admin&Name=Raju //Valid
-
-Local IIS:
-http://localhost/MVCTestProject3/Params/Validate1?Name=Raju&Pwd=Admin //Valid
-http://localhost/MVCTestProject3/Params/Validate1?Pwd=Admin&Name=Raju //Valid
 ```
 
 ```c#
@@ -1171,13 +498,6 @@ public string Validate2(string Name, string Pwd)
     return "Invalid User";
 }
 
-IIS Express:
-http://localhost:port/Params/Validate2?Name=Raju&Pwd=Admin //Valid
-http://localhost:port/Params/Validate2?Pwd=Admin&Name=Raju //Valid
-
-Local IIS:
-http://localhost/MVCTestProject3/Params/Validate2?Name=Raju&Pwd=Admin //Valid
-http://localhost/MVCTestProject3/Params/Validate2?Pwd=Admin&Name=Raju //Valid
 ```
 
 ---
@@ -10719,7 +10039,7 @@ Add the following code between the `<configuration></configuration>` tags in `We
 
 ```xml
 <connectionStrings>
-	<add name="ConStr" providerName="System.Data.SqlClient" connectionString="Data Source=DESKTOP-HOOMVQE\MSSQLSERVER02; Database=SchoolDB; User Id=mk; Password=123;"/>
+    <add name="ConStr" providerName="System.Data.SqlClient" connectionString="Data Source=DESKTOP-HOOMVQE\MSSQLSERVER02; Database=SchoolDB; User Id=mk; Password=123;"/>
 </connectionStrings>
 ```
 
@@ -10924,7 +10244,7 @@ Add the following code between the `<configuration></configuration>` tags in `We
 
 ```xml
 <connectionStrings>
-	<add name="ConStr" providerName="System.Data.SqlClient" connectionString="Data Source=DESKTOP-HOOMVQE\MSSQLSERVER02; Database=SchoolDB; User Id=mk; Password=123;"/>
+    <add name="ConStr" providerName="System.Data.SqlClient" connectionString="Data Source=DESKTOP-HOOMVQE\MSSQLSERVER02; Database=SchoolDB; User Id=mk; Password=123;"/>
 </connectionStrings>
 ```
 
@@ -12145,7 +11465,7 @@ public class Student
 
 ```xml
 <connectionStrings>
-	  <add name="ConStr" providerName="System.Data.SqlClient" connectionString="Data Source=DESKTOP-HOOMVQE\MSSQLSERVER02; Database=MVCDB; User Id=mk; Password=123;"/>
+      <add name="ConStr" providerName="System.Data.SqlClient" connectionString="Data Source=DESKTOP-HOOMVQE\MSSQLSERVER02; Database=MVCDB; User Id=mk; Password=123;"/>
 </connectionStrings>
 ```
 
@@ -14027,7 +13347,7 @@ You can install jQuery via NuGet Package Manager. Open it, search for `jQuery`(j
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <Match>
-	<Score>Match Score: 0</Score>
+    <Score>Match Score: 0</Score>
 </Match>
 ```
 
@@ -18645,8 +17965,8 @@ public IActionResult Index()
 [HttpPost]
 public IActionResult Index(string myName)//Hear come value
 {
-	ViewBag.MyName = myName;
-	return View();
+    ViewBag.MyName = myName;
+    return View();
 }
 ```
 
@@ -18668,14 +17988,14 @@ public IActionResult Index()
 [HttpPost]
 public IActionResult Index(string myName)
 {
-	ViewBag.MyName = myName;
-	return View();
+    ViewBag.MyName = myName;
+    return View();
 }
 [HttpPost]
 public IActionResult Show(string myName) //Hear come value
 {
     ViewBag.MyName = myName;
-	return View();
+    return View();
 }
 ```
 
@@ -18697,14 +18017,14 @@ public IActionResult Index()
 [HttpPost]
 public IActionResult Login(string myName)
 {
-	ViewBag.MyName = myName;
-	return View();
+    ViewBag.MyName = myName;
+    return View();
 }
 [HttpPost]
 public IActionResult Register(string myName) //Hear come value
 {
     ViewBag.MyName = myName;
-	return View();
+    return View();
 }
 ```
 
@@ -18728,20 +18048,20 @@ public IActionResult Index()
 [Route("/Home/Login", Name = "LoginRout")]
 public IActionResult Login(string myName)
 {
-	ViewBag.MyName = myName;
-	return View();
+    ViewBag.MyName = myName;
+    return View();
 }
 [Route("/Home/Register", Name = "RegisterRoute")]
 public IActionResult Register(string myName) //Hear come value
 {
     ViewBag.MyName = myName;
-	return View();
+    return View();
 }
 [Route("/Home/Forgot", Name = "Forgot")]
 public IActionResult Forgot(string myName) //Hear come value
 {
     ViewBag.MyName = myName;
-	return View();
+    return View();
 }
 ```
 
@@ -18765,14 +18085,14 @@ public IActionResult Index()
 [Route("/Home/Login", Name = "LoginRout")]
 public IActionResult Login(string myName)
 {
-	ViewBag.MyName = myName;
-	return View();
+    ViewBag.MyName = myName;
+    return View();
 }
 [Route("/Home/Register", Name = "RegisterRoute")]
 public IActionResult Register(string myName) //Hear come value
 {
     ViewBag.MyName = myName;
-	return View();
+    return View();
 }
 ```
 
@@ -18797,8 +18117,8 @@ public IActionResult Index()
 [Route("/Home/Login", Name = "Login")]
 public IActionResult Login(string myName)
 {
-	ViewBag.MyName = myName;
-	return View();
+    ViewBag.MyName = myName;
+    return View();
 }
 ```
 
@@ -18920,7 +18240,7 @@ using MVC_Core.Models;
 
 public IActionResult Index()
 {
-	Test model = new Test(); // Create an instance of the Test model
+    Test model = new Test(); // Create an instance of the Test model
   return View(model);//Pass the instance
 }
 
@@ -18966,7 +18286,7 @@ using MVC_Core.Models;
 
 public IActionResult Index()
 {
-	Test model = new Test(); // Create an instance of the Test model
+    Test model = new Test(); // Create an instance of the Test model
   return View(model);//Pass the instance
 }
 
@@ -21021,9 +20341,9 @@ app.UseStaticFiles();
 
 if (!app.Environment.IsDevelopment())
 {
-	app.UseStatusCodePagesWithReExecute("/ClientError/{0}");
-	app.UseExceptionHandler("/ServerError");
-	app.UseHsts();
+    app.UseStatusCodePagesWithReExecute("/ClientError/{0}");
+    app.UseExceptionHandler("/ServerError");
+    app.UseHsts();
 }
 
 app.UseRouting();
@@ -22979,11 +22299,11 @@ public class Customer
 ```c#
 public interface ICustomerDAL
 {
-	List<Customer> Customers_Select();
-	Customer Customer_Select(int Custid);
-	void Customer_Insert(Customer customer);
-	void Customer_Update(Customer customer);
-	void Customer_Delete(int Custid);
+    List<Customer> Customers_Select();
+    Customer Customer_Select(int Custid);
+    void Customer_Insert(Customer customer);
+    void Customer_Update(Customer customer);
+    void Customer_Delete(int Custid);
 }
 ```
 
@@ -23100,60 +22420,60 @@ using System.Net;
 
 namespace CoreWebApiService.Controllers
 {
-	[Route("api/[controller]")]
-	[ApiController]
-	public class CustomerController : Controller
-	{
-		private readonly ICustomerDAL dal;
-		public CustomerController(ICustomerDAL dal)
-		{
-			this.dal = dal;
-		}
-		[HttpGet]
-		public List<Customer> Index()
-		{
-			return dal.Customers_Select();
-		}
-		[HttpGet("{Custid}")]
-		public Customer GetCustomer(int Custid)
-		{
-			return dal.Customer_Select(Custid);
-		}
-		[HttpPost]
-		public HttpResponseMessage Post(Customer c)
-		{
-			dal.Customer_Insert(c);
-			return new HttpResponseMessage(HttpStatusCode.Created);
-		}
-		[HttpPut]
-		public HttpResponseMessage Put(Customer c)
-		{
-			Customer customer = dal.Customer_Select(c.Custid);
-			if (customer != null)
-			{
-				dal.Customer_Update(c);
-				return new HttpResponseMessage(HttpStatusCode.OK);
-			}
-			else
-			{
-				return new HttpResponseMessage(HttpStatusCode.NotFound);
-			}
-		}
-		[HttpDelete("{Custid}")]
-		public HttpResponseMessage Delete(int Custid)
-		{
-			Customer customer = dal.Customer_Select(Custid);
-			if (customer != null)
-			{
-				dal.Customer_Delete(Custid);
-				return new HttpResponseMessage(HttpStatusCode.OK);
-			}
-			else
-			{
-				return new HttpResponseMessage(HttpStatusCode.NotFound);
-			}
-		}
-	}
+    [Route("api/[controller]")]
+    [ApiController]
+    public class CustomerController : Controller
+    {
+        private readonly ICustomerDAL dal;
+        public CustomerController(ICustomerDAL dal)
+        {
+            this.dal = dal;
+        }
+        [HttpGet]
+        public List<Customer> Index()
+        {
+            return dal.Customers_Select();
+        }
+        [HttpGet("{Custid}")]
+        public Customer GetCustomer(int Custid)
+        {
+            return dal.Customer_Select(Custid);
+        }
+        [HttpPost]
+        public HttpResponseMessage Post(Customer c)
+        {
+            dal.Customer_Insert(c);
+            return new HttpResponseMessage(HttpStatusCode.Created);
+        }
+        [HttpPut]
+        public HttpResponseMessage Put(Customer c)
+        {
+            Customer customer = dal.Customer_Select(c.Custid);
+            if (customer != null)
+            {
+                dal.Customer_Update(c);
+                return new HttpResponseMessage(HttpStatusCode.OK);
+            }
+            else
+            {
+                return new HttpResponseMessage(HttpStatusCode.NotFound);
+            }
+        }
+        [HttpDelete("{Custid}")]
+        public HttpResponseMessage Delete(int Custid)
+        {
+            Customer customer = dal.Customer_Select(Custid);
+            if (customer != null)
+            {
+                dal.Customer_Delete(Custid);
+                return new HttpResponseMessage(HttpStatusCode.OK);
+            }
+            else
+            {
+                return new HttpResponseMessage(HttpStatusCode.NotFound);
+            }
+        }
+    }
 }
 ```
 
@@ -23462,7 +22782,7 @@ We need to install `Web API Core` seperatly only in `.Net core`. No need to inst
         }
 
         function BuildCustomerRow(Customer) {
-        	var NewRow = "<tr>" + "<td align='center'>" + Customer.custid + "</td>" +
+            var NewRow = "<tr>" + "<td align='center'>" + Customer.custid + "</td>" +
             "<td><input type='text' class='input-name' value='" + Customer.name + "'/></td>" +
             "<td><input type='text' class='input-balance' value='" + Customer.balance + "'/></td>" +
             "<td><input type='text' class='input-city' value='" + Customer.city + "'/></td>";
