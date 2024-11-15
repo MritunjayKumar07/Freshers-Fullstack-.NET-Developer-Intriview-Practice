@@ -61,7 +61,7 @@
 
     <br/>
     <br/>
-    
+
     - **Scope**: The this keyword can only be used within non-static methods and constructors, as it refers to an instance of the class.
 
   - Static methods do not have an instance context and therefore cannot use this.
@@ -796,53 +796,55 @@
     <hr/>
     Let me explain the key differences between `ref` and `out` parameters in C#.
 
-    ### Key Differences
+  ### Key Differences
 
-    1. **`Initialization Requirement`**
-       - **ref**: Variable `must` be `initialized before passing` to the `method`
-       - **out**: Variable `doesn't need` to be `initialized before passing` to the `method`, but `must` be `assigned a value within the method`
+  1. **`Initialization Requirement`**
 
-    2. **Value Assignment**
-       - **ref**: Method `may` or may not modify the value
-       - **out**: Method `must` assign a value `before returning`
+     - **ref**: Variable `must` be `initialized before passing` to the `method`
+     - **out**: Variable `doesn't need` to be `initialized before passing` to the `method`, but `must` be `assigned a value within the method`
 
-    3. **Purpose**
-       - **ref**: Used when you want to `pass a variable by reference` and may modify its value
-       - **out**: Used when you want a method to `return multiple values`
+  2. **Value Assignment**
 
-    ### Example with `ref`
+     - **ref**: Method `may` or may not modify the value
+     - **out**: Method `must` assign a value `before returning`
 
-    ```csharp
-    void MultiplyByTwo(ref int number)
-    {
-        number *= 2;
-    }
+  3. **Purpose**
+     - **ref**: Used when you want to `pass a variable by reference` and may modify its value
+     - **out**: Used when you want a method to `return multiple values`
 
-    // Usage
-    int x = 10;              // Must be initialized
-    MultiplyByTwo(ref x);    // x is now 20
-    ```
+  ### Example with `ref`
 
-    ### Example with `out`
+  ```csharp
+  void MultiplyByTwo(ref int number)
+  {
+      number *= 2;
+  }
 
-    ```csharp
-    void GetDimensions(out int width, out int height)
-    {
-        width = 100;    // Must assign value
-        height = 200;   // Must assign value
-    }
+  // Usage
+  int x = 10;              // Must be initialized
+  MultiplyByTwo(ref x);    // x is now 20
+  ```
 
-    // Usage
-    int w, h;           // No initialization needed
-    GetDimensions(out w, out h);
-    ```
+  ### Example with `out`
 
-    ### Best Practices
+  ```csharp
+  void GetDimensions(out int width, out int height)
+  {
+      width = 100;    // Must assign value
+      height = 200;   // Must assign value
+  }
 
-    1. Prefer return values over `ref` and `out` when possible
-    2. Use `out` when you need multiple return values
-    3. Use `ref` sparingly, mainly for performance optimization
-    4. Consider using tuples or custom objects instead of multiple `out` parameters
+  // Usage
+  int w, h;           // No initialization needed
+  GetDimensions(out w, out h);
+  ```
+
+  ### Best Practices
+
+  1. Prefer return values over `ref` and `out` when possible
+  2. Use `out` when you need multiple return values
+  3. Use `ref` sparingly, mainly for performance optimization
+  4. Consider using tuples or custom objects instead of multiple `out` parameters
 
     <hr/>
   </details>
@@ -1599,58 +1601,32 @@
   // Define a structure
   public struct Point
   {
-      // Field declaration
-      public int X { get; set; }
-      public int Y { get; set; }
+    public string Name;
+    public int Age;
 
-      // Constructor (default constructor is implicit)
-      public Point(int x, int y)
-      {
-          X = x;
-          Y = y;
-      }
-
-      // Method
-      public void DisplayCoordinates()
-      {
-          Console.WriteLine($"Point coordinates: X = {X}, Y = {Y}");
-      }
-  }
-
-  // Example of a structure implementing an interface
-  public interface IShape
-  {
-      double Area();
-  }
-
-  public struct Rectangle : IShape
-  {
-      public double Width { get; set; }
-      public double Height { get; set; }
-
-      public Rectangle(double width, double height)
-      {
-          Width = width;
-          Height = height;
-      }
-
-      public double Area()
-      {
-          return Width * Height;
-      }
+    // Constructor to initialize the struct
+    public Person(string name, int age)
+    {
+        Name = name;
+        Age = age;
+    }
   }
 
   class Program
   {
       static void Main()
       {
-          // Create an instance of Point structure
-          Point p = new Point(5, 10);
-          p.DisplayCoordinates(); // Outputs: Point coordinates: X = 5, Y = 10
+        //Access:
+        //Create an instance of the struct
+        Person person = new Person("Alice", 30);
+        Console.WriteLine($"Name: {person.Name}, Age: {person.Age}");
 
-          // Create an instance of Rectangle structure
-          Rectangle rect = new Rectangle(4.5, 3.2);
-          Console.WriteLine($"Rectangle Area: {rect.Area()}"); // Outputs: Rectangle Area: 14.4
+        //OR
+        // Create a struct instance without using 'new'
+        Person person;
+        person.Name = "Alice";
+        person.Age = 30;
+        Console.WriteLine($"Name: {person.Name}, Age: {person.Age}");
       }
   }
 
@@ -2565,13 +2541,11 @@
 
   1. **`SystemExceptions`**: Pre-defined exceptions that occur on specific error conditions, like `DivideByZeroException`, `FormatException`, `NullReferenceException`, etc.
 
-
-      - The base class for exceptions thrown by the .NET runtime. It includes common errors such as memory access violations or arithmetic overflows, like `NullReferenceException` or `IndexOutOfRangeException`.
+     - The base class for exceptions thrown by the .NET runtime. It includes common errors such as memory access violations or arithmetic overflows, like `NullReferenceException` or `IndexOutOfRangeException`.
 
   2. **`ApplicationExceptions`**: Non-fatal errors that are explicitly caused by the program.
 
-
-      - The base class for exceptions that are defined specifically by your application. Custom exception classes can be derived from `ApplicationException` to handle errors unique to the application.
+     - The base class for exceptions that are defined specifically by your application. Custom exception classes can be derived from `ApplicationException` to handle errors unique to the application.
 
     <hr/>
   </details>
@@ -2853,45 +2827,43 @@
 
   1. **Defining Delegates in a Namespace**:
 
-
-      ```c#
-      namespace OOPSProject
-      {
-        public delegate void MathDelegate(int x, int y);
-        public delegate string WishDelegate(string str);
-        public delegate void CalculatorDelegate(int a, int b, int c);
-      }
-      ```
+     ```c#
+     namespace OOPSProject
+     {
+       public delegate void MathDelegate(int x, int y);
+       public delegate string WishDelegate(string str);
+       public delegate void CalculatorDelegate(int a, int b, int c);
+     }
+     ```
 
   2. **Class Definition with Delegates**:
 
+     ```c#
+     internal class DelDemo1
+     {
+         public void AddNums(int x, int y, int z)
+         {
+             Console.WriteLine($"Sum of given 3 no's is: {x + y + z}");
+         }
 
-      ```c#
-      internal class DelDemo1
-      {
-          public void AddNums(int x, int y, int z)
-          {
-              Console.WriteLine($"Sum of given 3 no's is: {x + y + z}");
-          }
+         public static string SayHello(string name)
+         {
+             return $"Hello {name}, have a nice day!";
+         }
 
-          public static string SayHello(string name)
-          {
-              return $"Hello {name}, have a nice day!";
-          }
+         static void Main()
+         {
+             DelDemo1 obj = new DelDemo1();
+             CalculatorDelegate cd = obj.AddNums;
+             cd(10, 20, 30); // Output: Sum of given 3 no's is: 60
+             cd(40, 50, 60); // Output: Sum of given 3 no's is: 150
 
-          static void Main()
-          {
-              DelDemo1 obj = new DelDemo1();
-              CalculatorDelegate cd = obj.AddNums;
-              cd(10, 20, 30); // Output: Sum of given 3 no's is: 60
-              cd(40, 50, 60); // Output: Sum of given 3 no's is: 150
-
-              WishDelegate wd = DelDemo1.SayHello;
-              Console.WriteLine(wd("Raju"));  // Output: Hello Raju, have a nice day!
-              Console.WriteLine(wd("Vijay")); // Output: Hello Vijay, have a nice day!
-          }
-      }
-      ```
+             WishDelegate wd = DelDemo1.SayHello;
+             Console.WriteLine(wd("Raju"));  // Output: Hello Raju, have a nice day!
+             Console.WriteLine(wd("Vijay")); // Output: Hello Vijay, have a nice day!
+         }
+     }
+     ```
 
     <hr/>
   </details>
@@ -3000,9 +2972,9 @@
 
   3. **`Predicate Delegate`**: Specifically used for methods that `return a bool`. It is often used in scenarios where a condition needs to be checked. - **Example**:
   `c#
-    Predicate<string> predicateDelegate = CheckLength;
-    bool result2 = predicateDelegate.Invoke("Hello World");
-    `
+  Predicate<string> predicateDelegate = CheckLength;
+  bool result2 = predicateDelegate.Invoke("Hello World");
+  `
     <hr/>
   </details>
 
@@ -3709,19 +3681,16 @@
 
   1.  **LINQ to Objects**:
 
-
       - Used for performing queries on `in-memory data such as collections and arrays`.
 
   2.  **LINQ to XML (XLinq)**:
-
 
       - Used for performing queries on `XML data sources`.
 
   3.  **LINQ to Databases:**
 
-
-      - *`LINQ to SQL`*: Used to perform queries specifically against Microsoft `SQL Server`.
-      - *`LINQ to Entities`*: Used to perform queries on relational `databases` like `SQL Server, Oracle, etc`.
+      - _`LINQ to SQL`_: Used to perform queries specifically against Microsoft `SQL Server`.
+      - _`LINQ to Entities`_: Used to perform queries on relational `databases` like `SQL Server, Oracle, etc`.
 
     <hr/>
   </details>
@@ -5030,8 +4999,7 @@
 
   3. **`LIKE`**: Use like operator for `patter comparision`.
 
-
-      - For Pattern matching we can use wildcard charecters(%, _).
+     - For Pattern matching we can use wildcard charecters(%, \_).
 
   ```sql
   --Syntax:
@@ -5045,8 +5013,7 @@
 
   4. **`IS`**: Use for `NULL` comparision.
 
-
-      - Used mainly to test the `NULL` values in a column.
+     - Used mainly to test the `NULL` values in a column.
 
   ```sql
     --Syntax:
@@ -5059,10 +5026,8 @@
     Select * from emp where sal IS NOT NULL;
   ```
 
-  5.
-
-    <hr/>
-  </details>
+  5.    <hr/>
+      </details>
 
 - <details>
     <summary>What is Wildcard character?⭐</summary>
@@ -5071,27 +5036,23 @@
 
   1. **`% (Percent)`**: Represents zero or more characters.
 
-
-      - Syntax: `'<char>%'`, `'%<char>'`, `'%<char>%'`
-      - Example: `'m%'`, `'%kumar'`, `'mri%Kum%'`
+     - Syntax: `'<char>%'`, `'%<char>'`, `'%<char>%'`
+     - Example: `'m%'`, `'%kumar'`, `'mri%Kum%'`
 
   2. **`_ (Underscore)`**: Represents exactly one character.
 
-
-      - Syntax: `'<char>_'`, `'_<char>'`, `'_<char>_'`
-      - Example: `'m________'`, `'__________kumar'`, `'mri_______Kum__'`
+     - Syntax: `'<char>_'`, `'_<char>'`, `'_<char>_'`
+     - Example: `'m________'`, `'__________kumar'`, `'mri_______Kum__'`
 
   **`Combiln % & _`**:`__a%`(a is the 2nd char from start), `____`,
 
   3. **`[] (Square Brackets)`**: Matches any one character from a set or range of characters.
 
-
-      - Example: `'[A-C]%'`(match names starting with "A", "B", or "C"), `'[a-z]%'`(match names starting with any lowercase letter), `'[A-Ca-c]%'`(match names starting with any letter between "A-C" or "a-c").
+     - Example: `'[A-C]%'`(match names starting with "A", "B", or "C"), `'[a-z]%'`(match names starting with any lowercase letter), `'[A-Ca-c]%'`(match names starting with any letter between "A-C" or "a-c").
 
   4. **`[^] (Caret inside brackets)`**: Matches any one character not in the specified set.
 
-
-      - Example: `'[^A-C]%'`(match names that do not start with "A", "B", or "C").
+     - Example: `'[^A-C]%'`(match names that do not start with "A", "B", or "C").
 
   5. **`- (Hyphen within square brackets)`**: Represents a range of characters.
      Example: `'[a-z]%'`(match names starting with any lowercase letter).
@@ -5205,13 +5166,12 @@
 
   2. **`ALTER`**: Use to modify the table structure.
 
-
-      - `ALTER` command use in:
-        - add Columns
-        - drop Column
-        - modify the column
-          - increase/decrease field size
-          - change the datatype
+     - `ALTER` command use in:
+       - add Columns
+       - drop Column
+       - modify the column
+         - increase/decrease field size
+         - change the datatype
 
   ```sql
   --Add Column Example:
@@ -5231,8 +5191,7 @@
 
   4. **`TRUNCATE`**: Delete all data from table but keeps structure (empty the table).
 
-
-      - Release memory.
+     - Release memory.
 
   ```Sql
   TRUNCATE TABLE
@@ -5478,9 +5437,8 @@
 
   1. **`NOT NULL:`**
 
-
-      - Does `not` accept `NULL value` & `it is an mandatory column`.
-      - `NOT NULL` can be declared **`only at column level`**.
+     - Does `not` accept `NULL value` & `it is an mandatory column`.
+     - `NOT NULL` can be declared **`only at column level`**.
 
   ```Sql
   CREATE TABLE emp
@@ -5495,9 +5453,8 @@
 
   2. **`UNIQUE:`**
 
-
-      - Not accept duplicate values.
-      - Declared column level & table lavel also.
+     - Not accept duplicate values.
+     - Declared column level & table lavel also.
 
   ```Sql
   CREATE TABLE emp
@@ -5515,12 +5472,11 @@
 
   3. **`PRIMARY KEY:`**
 
-
-      - Does not accept null & duplicate value.
-      - It is a `combination of NOT NULL & UNIQUE`.
-      - Using `PRIMARY KEY` in column is a `uniquely identity the record` in a table.
-      - In a table `one column must be a uniquely identit` the `record` & that `column must be declared with PRIMARY KEY`.
-      - `Only one primary key allowed in one table`, `if we want multiple column as a primary key` then `decalred` `one column` as a `primary key` and `another` are `UNIQUE & NOT NULL`.
+     - Does not accept null & duplicate value.
+     - It is a `combination of NOT NULL & UNIQUE`.
+     - Using `PRIMARY KEY` in column is a `uniquely identity the record` in a table.
+     - In a table `one column must be a uniquely identit` the `record` & that `column must be declared with PRIMARY KEY`.
+     - `Only one primary key allowed in one table`, `if we want multiple column as a primary key` then `decalred` `one column` as a `primary key` and `another` are `UNIQUE & NOT NULL`.
 
   ```Sql
   CREATE TABLE emp
@@ -8251,8 +8207,7 @@
 
   3. Create DAL class file i.e: `<tablename>DAL.cs`:
 
-
-      - Add Object of DataContext (i.e:CrudDataContext.cs) class which is in `designer.cs` file
+     - Add Object of DataContext (i.e:CrudDataContext.cs) class which is in `designer.cs` file
 
   ```c#
   using System.Configuration;
