@@ -2294,12 +2294,14 @@
 - <details>
     <summary>What are Indexers in C#?⭐</summary>
     <hr/>
-     Indexers allow instances of a class or struct to be accessed using an array-like syntax. They are like properties but have parameters. This provides syntactic convenience, making it possible to treat classes and structs as "virtual arrays."
+
+     Indexers allow instances of a class or struct to be accessed using an array-like syntax. They are like properties but have parameters. This provides syntactic convenience, making it possible to treat classes and structs as "**`virtual arrays`**."
     <hr/>
   </details>
 - <details>
     <summary>How do Indexers work in C#?⭐</summary>
     <hr/>
+
     Indexers use the `this` keyword to allow the class or struct to be indexed with `[]`. The indexers can have `get` and `set` accessors, where:
     - The `get` accessor returns a value.
     - The `set` accessor assigns a value using the `value` keyword.
@@ -2308,6 +2310,7 @@
 - <details>
     <summary>What is the syntax to define an Indexer in C#?⭐</summary>
     <hr/>
+
     ```C#
     [<modifiers>] <type> this[<Parameter List>]
     {
@@ -2320,6 +2323,7 @@
 - <details>
     <summary>Can you list the main points of Indexers?⭐</summary>
     <hr/>
+
     - Uses the `this` keyword for defining the indexers.
     - Parameters cannot be `out` or `ref`. The `out` and `ref` keyword are not allowed on parameters.
     - `get` accessor returns a value.
@@ -2334,6 +2338,7 @@
 - <details>
     <summary>How do you test an Indexer in C#?⭐</summary>
     <hr/>
+
     Create an `Employee` class with an indexer, and in the `TestEmployee` class, demonstrate how to access and modify the `Employee` properties using indexers. Here is the example code:
 
   **`Employee` Class**:
@@ -2433,6 +2438,7 @@
 - <details>
     <summary>What is the purpose of using Indexers in C#?⭐</summary>
     <hr/>
+
     Indexers allow classes or structs to be accessed like arrays. This makes them convenient for classes that act like collections or arrays, making them easier to use and improving code readability.
     <hr/>
   </details>
@@ -2442,6 +2448,7 @@
 - <details>
     <summary>What are the two types of errors in C#?⭐</summary>
     <hr/>
+
     In C#, there are two types of errors:
 
   1. **Compile-time errors**: Occur due to syntactical mistakes at the time of program compilation and are not considered dangerous. Not dangerous and can be fixed during development.
@@ -2453,6 +2460,7 @@
 - <details>
     <summary>What happens when a "runtime error occurs" in a program?⭐</summary>
     <hr/>
+
     When a runtime error occurs, the **`program terminates`** and the program gets **`abnormally terminated`** without executing the next line of code when the error happened.
 
   `Whenever any error occurs in the program, the exception class is triggered, and it abnormally terminates the program.`
@@ -2462,25 +2470,30 @@
 - <details>
     <summary>What is an Exception in C#?⭐</summary>
     <hr/>
+
     An Exception is a mechanism in C# to handle errors that occur during runtime. Exceptions are classes derived from the `Exception` class of the `System` namespace. They are thrown by the .NET CLR or by code in the program using the `throw` keyword.
     <hr/>
   </details>
 - <details>
     <summary>What is responsible for the abnormal termination of a program?⭐</summary>
     <hr/>
+
     The exception is responsible for a program's abnormal termination. An exception is a class that gets triggered when a runtime error occurs. This class abnormally terminates the program by creating and throwing an instance of the specific exception class.
     <hr/>
   </details>
 - <details>
     <summary>Can you give an example of an exception class and its related error?⭐</summary>
     <hr/>
+
      For example, `IndexOutOfRangeException` is an exception class that occurs when you try to access an index outside the bounds of an array. Because of the `IndexOutOfRangeException` class, your program terminates abnormally.
+
     Example: `IndexOutOfBoundsException` is a run-time error and the name of a class. This error occurs when you try to add more values than the size of the array. Because of the `IndexOutOfBoundsException` class, your program abnormally terminates. 
     <hr/>
   </details>
 - <details>
     <summary>What are some other predefined exception classes?⭐</summary>
     <hr/>
+
     Some predefined exception classes include `DivideByZeroException`, `OverflowException`, `FormatException`, and more. All these classes come under the base `Exception` class.
     For program abnormally terminates lot's of predefine class are available like `DivideByZeroException`, `OverflowException`, `FormatException` and etc. And all this class present in Exception class.
     <hr/>
@@ -2488,6 +2501,7 @@
 - <details>
     <summary>How are predefined exception classes implemented in C#?⭐</summary>
     <hr/>
+
     There is a class named `Exception` which contains the logic for abnormal termination. It includes a `Message` property (declared as `virtual`) to display error messages. Child classes can override this property to customize error messages.
     <hr/>
   </details>
@@ -2511,6 +2525,7 @@
 - <details>
     <summary>What is the exception class hierarchy in C#?⭐</summary>
     <hr/>
+
     The hierarchy of exception classes is as follows:
     - Exception
       1. SystemException
@@ -2526,6 +2541,7 @@
 - <details>
     <summary>What is Exception Handling in C#?⭐</summary>
     <hr/>
+
      Exception Handling is a process to stop the abnormal termination of a program whenever a runtime error occurs. It provides the following benefits:
      1. Allows the execution of unaffected statements even after an error occurs.
      2. Enables taking corrective actions to resolve errors.
@@ -2535,18 +2551,21 @@
 - <details>
     <summary>What is the difference between "ApplicationException" and "SystemException"?⭐</summary>
     <hr/>
+
     `ApplicationException` is used to handle custom errors specific to your code, while `SystemException` is used for general errors that are handled by the .NET runtime.
     <hr/>
   </details>
 - <details>
     <summary>How does an exception arise during program execution?⭐</summary>
     <hr/>
+
     All .NET applications run under the supervision of the **CLR (Common Language Runtime)**, which monitors the application during execution. When the CLR detects an error (e.g., division by zero), it stops the program and checks the mistake. Then, the CLR selects the associated exception class (like `DivideByZeroException`) and creates an instance of that class. The CLR throws this instance (object), causing the program to terminate abnormally.
     <hr/>
   </details>
 - <details>
     <summary>How do you handle abnormal termination caused by exceptions?⭐</summary>
     <hr/>
+
     We use `exception handling` to prevent the abnormal termination of a program by enclosing the error-prone code in `try` and `catch` blocks.
     ```c#
     try
@@ -2563,6 +2582,7 @@
 - <details>
     <summary>Can you provide an example code for handling exceptions using try-catch blocks?⭐</summary>
     <hr/>
+
      Below is the code in TryCatchDemo.cs for handling exceptions:
      ```c#
      internal class TryCatchDemo
@@ -2616,12 +2636,15 @@
 
 - <details>
     <summary>What happens if code is enclosed in try and catch blocks?⭐</summary>
-    <hr/>If all the statements inside the try block are successfully executed without any error, then control jumps directly to the first statement after all the catch blocks. If an error occurs, control immediately jumps to the catch block capable of handling that specific exception. If a catch block is found, the code inside that catch block is executed, and then control jumps to the statement after all catch blocks. If no matching catch block is found, abnormal termination occurs.<p></p>
+    <hr/>
+    
+    If all the statements inside the try block are successfully executed without any error, then control jumps directly to the first statement after all the catch blocks. If an error occurs, control immediately jumps to the catch block capable of handling that specific exception. If a catch block is found, the code inside that catch block is executed, and then control jumps to the statement after all catch blocks. If no matching catch block is found, abnormal termination occurs.<p></p>
     <hr/>
   </details>
 - <details>
     <summary>What are the different combinations of try, catch, and finally blocks?⭐</summary>
     <hr/>
+
     - try and catch: The exceptions that occur in the program are caught by the catch block, preventing abnormal termination.
     - try, catch, and finally: Works like above but with the addition that the finally block always executes.
     - try and finally: If no catch block is present, the exceptions are not caught, causing abnormal termination, but the finally block still executes.
@@ -2630,23 +2653,27 @@
 - <details>
     <summary>What are application exceptions?⭐</summary>
     <hr/>
+
     Application exceptions are non-fatal errors explicitly `caused by the programmer` based on custom error conditions. They are `raised explicitly` using the **`throw`** statement.
     <hr/>
   </details>
 - <details>
     <summary>How do you throw an exception explicitly?⭐</summary>
     <hr/>
+
     To throw an exception explicitly, you need to:
     1. Create an instance of any exception class.
     2. Throw that instance using the `throw` keyword. Example:
-      ```c#
-      throw new ApplicationException("Error message");
-      ```
+
+    ```c#
+    throw new ApplicationException("Error message");
+    ```
     <hr/>
   </details>
 - <details>
     <summary>What are the different options when throwing an exception?⭐</summary>
     <hr/>
+
     - Use a predefined exception class if it matches the error condition.
     - Create an instance of ApplicationException and pass an error message.
     - Define a custom exception class by inheriting from a predefined exception class (like ApplicationException) and override the Message property.
@@ -2655,7 +2682,9 @@
 - <details>
     <summary>How do you define a custom exception class?⭐</summary>
     <hr/>
+
     Define a new class inheriting from `ApplicationException` or any other predefined exception class. Override the `Message` property to provide a custom error message. Example:
+
     ```C#
     public class DivideByOddNoException : ApplicationException
     {
@@ -2673,7 +2702,9 @@
 - <details>
     <summary>What if there is an unknown exception?⭐</summary>
     <hr/>
+
     You can use a generic catch block that catches the base Exception class at the end:
+
     ```c#
     catch (Exception ex2)
     {
@@ -2776,6 +2807,7 @@
 - <details>
     <summary>Where can you define a delegate?⭐</summary>
     <hr/>
+    
     Delegates can be defined within a `class`, `structure`, or `namespace`, just like `any other type`.
     <hr/>
   </details>
