@@ -942,7 +942,7 @@ rd variable?
     <hr/>
   </details>
 
-#### **`Constructor`**
+#### **`Static class`**
 
 - <details>
     <summary>What is a static class in C#, and how does it work?⭐</summary>
