@@ -1581,7 +1581,7 @@
   | **Default Constructor**| Always exists (implicit)    | Must be explicitly defined  |
   | **Example**            | `string`, `object`          | `int`, `bool`, `Point`      |
   | **Field Initialisation**| At declaration or in constructors | Only in constructors  |
-  
+
   - Use **classes** for complex, large objects with inheritance.  
   - Use **structs** for small, simple, and fast data types.
 
@@ -2260,6 +2260,7 @@
 - <details>
     <summary>How many way to initialize an object?⭐</summary>
     <hr/>
+    
     1. **`Using a Constructor`**: You can initialize an object using a `parameterized` or `default` `constructor`.
       ```C#
       Student s1 = new Student(101, "Raju", 10, 575.00f, 5000.00f);
