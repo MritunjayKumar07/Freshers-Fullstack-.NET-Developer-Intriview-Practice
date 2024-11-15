@@ -1570,21 +1570,20 @@
     <summary>What are the differences in Class and Structure?⭐</summary>
     <hr/>
 
-  | **Feature**                      | **Class**                                                                                                               | **Structure**                                                                                          |
-  | -------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
-  | **Type**                         | Reference type                                                                                                          | Value type                                                                                             |
-  | **Memory Allocation**            | Instances allocated on the Managed Heap                                                                                 | Instances allocated on the Stack                                                                       |
-  | **Memory Management**            | Automatic memory management through Garbage Collector                                                                   | No automatic memory management, but faster access                                                      |
-  | **Data Volume**                  | Recommended for larger volumes of data                                                                                  | Recommended for smaller volumes of data                                                                |
-  | **Pre-defined Types**            | Pre-defined reference types like `string` and `object`                                                                  | Pre-defined value types like `int`, `float`, `bool`, etc.                                              |
-  | **Instance Creation**            | `new` keyword is mandatory for creating instances                                                                       | `new` keyword is optional; default constructor is called implicitly                                    |
-  | **Default Constructor**          | Contains an implicit default constructor if no constructor is defined                                                   | Contains a default constructor which can be implicit or explicit                                       |
-  | **Field Initialization**         | Fields can be declared and initialized at the time of declaration                                                       | Fields can be declared but cannot be initialized at declaration unless there’s an explicit constructor |
-  | **Field Initialization Methods** | Fields can be initialized through a constructor or instance                                                             | Fields can only be initialized through a constructor or instance                                       |
-  | **Constructor Requirement**      | Constructors (default or parameterized) are mandatory for instance creation                                             | Default constructor is mandatory for instance creation without `new`                                   |
-  | **Constructor Definition**       | Developers can define any type of constructor                                                                           | Developers can define parameterized constructors; C# 10.0 allows default constructors                  |
-  | **Constructor Compilation**      | After compilation, if defined with `0` constructors, there will be `1` constructor; if `n` constructors, `n` will exist | After compilation, if defined with `0` constructors, there will be `1`; if `n`, `n + 1` will exist     |
-  | **Inheritance**                  | Supports both implementation and interface inheritance                                                                  | Supports only interface inheritance (cannot inherit from another structure)                            |
+  | **Feature**            | **Class**                   | **Struct**                  |
+  |------------------------|-----------------------------|-----------------------------|
+  | **Type**               | Reference type (heap)       | Value type (stack)          |
+  | **Memory Management**  | Managed by Garbage Collector | Programmer handles it       |
+  | **Performance**        | Slower, flexible            | Faster, lightweight         |
+  | **Data Size**          | Good for large data         | Best for small data         |
+  | **Inheritance**        | Supports inheritance        | No inheritance, only interfaces |
+  | **Instance Creation**  | `new` required              | `new` optional              |
+  | **Default Constructor**| Always exists (implicit)    | Must be explicitly defined  |
+  | **Example**            | `string`, `object`          | `int`, `bool`, `Point`      |
+  | **Field Initialisation**| At declaration or in constructors | Only in constructors  |
+  
+  - Use **classes** for complex, large objects with inheritance.  
+  - Use **structs** for small, simple, and fast data types.
 
   **Syntax of Structure**:
 
@@ -1631,48 +1630,6 @@
   }
 
   ```
-
-    <hr/>
-  </details>
-
-- <details>
-    <summary>Provide an example of a simple structure definition in C#.⭐</summary>
-    <hr/>
-
-  ```c#
-  internal struct MyStruct
-  {
-      int x;
-      public MyStruct(int x)
-      {
-          this.x = x;
-      }
-      public void Display()
-      {
-          Console.WriteLine("Method defined under a structure: " + x);
-      }
-      static void Main()
-      {
-          MyStruct m1 = new MyStruct();
-          m1.Display();
-          MyStruct m2;
-          m2.x = 10;
-          m2.Display();
-          MyStruct m3 = new MyStruct(20);
-          m3.Display();
-          Console.ReadLine();
-      }
-  }
-  ```
-
-  <hr/>
-  </details>
-
-- <details>
-    <summary>How can a structure be consumed in C#?⭐</summary>
-    <hr/>
-
-  A structure and its members can be consumed from another structure or a class by creating an instance of the structure because structures do not support inheritance. This means that you cannot create a new structure based on an existing one.
 
     <hr/>
   </details>
@@ -1747,7 +1704,7 @@
     <summary>Can you create a default constructor in a structure?⭐</summary>
     <hr/>
 
-  No, a structure cannot have a default constructor explicitly defined. The compiler provides a default constructor that initializes all fields to their default values. However, you can create a parameterized constructor.
+   No, a structure cannot have a default constructor explicitly defined. The compiler provides a default constructor that initializes all fields to their default values. However, you can create a parameterized constructor.
 
     <hr/>
   </details>
