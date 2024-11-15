@@ -1559,7 +1559,7 @@
     <summary>What is Structure?⭐</summary>
     <hr/>
 
-  Structure is also a user-defined type like a class and interface which can contain only non-abstract members. A structure can contain all the members what a class can contain like constructor, static constructor, constants, fields, methods, properties, indexers, operators, and events.
+  Structure is also a user-defined type like a class and interface which can **`contain only non-abstract members`**. A structure can contain all the members what a class can contain like constructor, static constructor, constants, fields, methods, properties, indexers, operators, and events.
 
     <hr/>
   </details>
