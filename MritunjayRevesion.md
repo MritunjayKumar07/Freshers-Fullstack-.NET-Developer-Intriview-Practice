@@ -794,48 +794,55 @@
 - <details>
     <summary>What is the diffrence bitween ref and out parameter?⭐</summary>
     <hr/>
-    Here is the difference between `ref` and `out` parameters in a table format:
+    Let me explain the key differences between `ref` and `out` parameters in C#.
 
-  | **Feature**                    | **ref Parameter**                                                                           | **out Parameter**                                                                       |
-  | ------------------------------ | ------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-  | **Initialization before call** | The variable **must** be initialized before being passed.                                   | The variable **does not need** to be initialized before being passed.                   |
-  | **Reading initial value**      | The method **can read** the initial value of the parameter.                                 | The method **cannot read** the initial value because it is assumed to be uninitialized. |
-  | **Assigning a value**          | The method **can modify** the existing value, but it is not required to assign a new value. | The method **must assign** a value to the parameter before returning.                   |
-  | **Typical Use**                | Used when the method needs to read and modify the value passed in.                          | Used when the method is expected to return a value, without needing an initial value.   |
+    ### Key Differences
 
-  **Example: `ref`**
+    1. **`Initialization Requirement`**
+       - **ref**: Variable `must` be `initialized before passing` to the `method`
+       - **out**: Variable `doesn't need` to be `initialized before passing` to the `method`, but `must` be `assigned a value within the method`
 
-  ```csharp
-  static void Main()
-  {
-      int number = 10; // Must be initialized
-      Console.WriteLine("Before calling ModifyRef: " + number); // Outputs 10
-      ModifyRef(ref number);
-      Console.WriteLine("After calling ModifyRef: " + number); // Outputs 20
-  }
+    2. **Value Assignment**
+       - **ref**: Method `may` or may not modify the value
+       - **out**: Method `must` assign a value `before returning`
 
-  static void ModifyRef(ref int x)
-  {
-      x = x + 10; // Modifies the original value
-  }
-  ```
+    3. **Purpose**
+       - **ref**: Used when you want to `pass a variable by reference` and may modify its value
+       - **out**: Used when you want a method to `return multiple values`
 
-  **Example: `out`**
+    ### Example with `ref`
 
-  ```csharp
-  static void Main()
-  {
-      int number; // No need to initialize
-      Console.WriteLine("Before calling AssignOut: uninitialized");
-      AssignOut(out number);
-      Console.WriteLine("After calling AssignOut: " + number); // Outputs 30
-  }
+    ```csharp
+    void MultiplyByTwo(ref int number)
+    {
+        number *= 2;
+    }
 
-  static void AssignOut(out int x)
-  {
-      x = 30; // Must assign a value before returning
-  }
-  ```
+    // Usage
+    int x = 10;              // Must be initialized
+    MultiplyByTwo(ref x);    // x is now 20
+    ```
+
+    ### Example with `out`
+
+    ```csharp
+    void GetDimensions(out int width, out int height)
+    {
+        width = 100;    // Must assign value
+        height = 200;   // Must assign value
+    }
+
+    // Usage
+    int w, h;           // No initialization needed
+    GetDimensions(out w, out h);
+    ```
+
+    ### Best Practices
+
+    1. Prefer return values over `ref` and `out` when possible
+    2. Use `out` when you need multiple return values
+    3. Use `ref` sparingly, mainly for performance optimization
+    4. Consider using tuples or custom objects instead of multiple `out` parameters
 
     <hr/>
   </details>
