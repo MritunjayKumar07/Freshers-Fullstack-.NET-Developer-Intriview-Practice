@@ -75,7 +75,26 @@
     More Explanation: [Link](https://codecomponents.hashnode.dev/advance-c-sharp-proggramming-language?t=1721797919621#heading-this-keyword)
     <hr/>
   </details>
+- <details>
+    <summary> Is ASP.NET different from ASP? If yes, explain how?</summary>
+    <hr/>
 
+    Yes, ASP.NET and ASP(Active Server Pages) both are different. Let’s check how they are different from each other.
+
+    - ASP.NET uses .NET languages such as C# and VB.NET, which are compiled to Microsoft Intermediate Language (MSIL). ASP uses VBScript. ASP code is interpreted during the execution.
+    - ASP.NET which is developed by Microsoft is used to create dynamic web applications while ASP is Microsoft’s server-side technology used to create web pages.
+    - ASP.NET is fully object-oriented but ASP is partially object-oriented.
+    - ASP.NET has full XML Support for easy data exchange whereas ASP has no built-in support for XML.
+    - ASP.NET uses the ADO.NET technology to connect and work with databases. ASP uses ADO technology.
+    <hr/>
+  </details>
+- <details>
+    <summary>What is the difference between int and Int32?</summary>
+    <hr/>
+
+    There is no difference between int and Int32. `Int32` is a `type provided` by the .NET framework class whereas `int` is an `alias name for Int32` in the C# programming language.
+    <hr/>
+  </details>
 - <details>
     <summary>What is constructor chaining?</summary>
     <hr/>
@@ -1157,6 +1176,117 @@
   | Inheritance is not required         | Inheritance is required                                |
   | Happens within the same class       | Happens between parent-child classes                   |
   | Does not require reference creation | Requires parent class reference through child instance |
+
+    <hr/>
+  </details>
+- <details>
+    <summary>What is method hiding?⭐</summary>
+    <hr/>
+
+    **Method Hiding** occurs when a derived class defines a method with the same name as a method in the base class, but the method in the derived class is marked with the `new` keyword to hide the base class method. CLR understance completly new method.
+
+    **Example:**  
+    ```csharp
+    using System;
+
+    class BaseClass
+    {
+        public void Show()
+        {
+            Console.WriteLine("Base Class Method");
+        }
+    }
+
+    class DerivedClass : BaseClass
+    {
+        public new void Show() // Hiding the base class method
+        {
+            Console.WriteLine("Derived Class Method");
+        }
+    }
+
+    class Program
+    {
+        static void Main()
+        {
+            BaseClass obj1 = new BaseClass();
+            obj1.Show(); // Output: Base Class Method
+
+            DerivedClass obj2 = new DerivedClass();
+            obj2.Show(); // Output: Derived Class Method
+
+            BaseClass obj3 = new DerivedClass();
+            obj3.Show(); // Output: Base Class Method (method hiding in action)            
+        }
+    }
+    ```
+
+    <hr/>
+  </details>
+
+- <details>
+    <summary>What is Differences Between Method Hiding and Method Overriding?⭐</summary>
+    <hr/>
+
+    | **Method Hiding**                 | **Method Overriding**                            |  
+    |------------------------------------|-------------------------------------------------|  
+    | Uses the `new` keyword to hide a base class method. | Uses the `override` keyword to modify a base class method. |  
+    | Does not affect the base class method when accessed using a base class reference. | Changes the behavior of the base class method when accessed through a derived class. |  
+    | Both methods exist independently in the base and derived classes. | The derived method replaces the base class method. |  
+    | Can be used for non-virtual methods. | Works only with `virtual`, `abstract`, or `override` methods. |  
+
+
+    ```c#
+    using System;
+
+    class BaseClass
+    {
+        public virtual void Show() // Virtual method allows overriding
+        {
+            Console.WriteLine("Base Class Method");
+        }
+    }
+
+    class DerivedClass : BaseClass
+    {
+        public new void Show() // Method Hiding
+        {
+            Console.WriteLine("Derived Class Method (Hiding)");
+        }
+    }
+
+    class DerivedClassOverride : BaseClass
+    {
+        public override void Show() // Method Overriding
+        {
+            Console.WriteLine("Derived Class Method (Overriding)");
+        }
+    }
+
+    class Program
+    {
+        static void Main()
+        {
+			      // Method Hiding
+            BaseClass obj1 = new DerivedClass();
+            obj1.Show(); // Output: Base Class Method (base class method is accessed)
+
+            // Method Overriding
+            BaseClass obj2 = new DerivedClassOverride();
+            obj2.Show(); // Output: Derived Class Method (Overriding behavior seen)
+
+			      //Normali call
+			      BaseClass obj3 = new BaseClass();
+			      obj3.Show(); //Base Class Method
+      
+			      DerivedClass obj4 = new DerivedClass();
+			      obj4.Show(); //Derived Class Method (Hiding)
+      
+			      DerivedClassOverride obj5 = new DerivedClassOverride();
+			      obj5.Show(); //Derived Class Method (Overriding)
+        }
+    }
+    ```
 
     <hr/>
   </details>
@@ -2807,7 +2937,7 @@
 - <details>
     <summary>Where can you define a delegate?⭐</summary>
     <hr/>
-    
+
     Delegates can be defined within a `class`, `structure`, or `namespace`, just like `any other type`.
     <hr/>
   </details>
@@ -3703,7 +3833,7 @@
     <summary>What is LINQ to Objects?⭐</summary>
     <hr/>
 
-  INQ to Objects is a feature in LINQ that allows writing queries against in-memory data, such as arrays and collections, to filter or sort the information.
+  LINQ to Objects is a feature in LINQ that allows writing queries against in-memory data, such as arrays and collections, to filter or sort the information.
 
   To use LINQ, you need to import the **`System.Linq`** namespace.
 
@@ -3949,6 +4079,7 @@
   var Coll = from c in Customers where c.City == "Chennai" || c.Balance > 30000 select c;
 
   //Group By Clause:
+  var Coll = from c in Customers group c by c.City into G select G;
   var Coll = from c in Customers group c by c.City into G select new { City = G.Key, Customers = G.Count() };
   var Coll = from c in Customers group c by c.City into G select new { City = G.Key, MaxBalance = G.Max(c => c.Balance) };
   var Coll = from c in Customers group c by c.City into G select new { City = G.Key, MinBalance = G.Min(c => c.Balance) };
@@ -4551,10 +4682,6 @@
   - `Parallel foreach loop`: Executes multiple iterations concurrently on different threads.
   <hr/>
   </details>
-
-  ```
-
-  ```
 
 - <details>
       <summary>When Parallel loops faster and may not faster?⭐</summary>
@@ -6387,9 +6514,9 @@
     <summary>What is ADO.Net?⭐</summary>
     <hr/>
 
-  - ADO.net Stands for ActiveX Data Object.
+  - ADO.net Stands for `ActiveX Data Object`.
 
-  - It is a database access technology created by Microsoft as part of its .Net Framework that can access any kinds of data source.
+  - It is a **`database access technology`** created by Microsoft as part of its .Net Framework that can `access any kinds of data source`.
 
   - ADO.Net is a Medium which is use to communicate the .Net application to Data Source(like: XML, SQL Server, MS Access, Oracal and etc) by the help of data provider which work like a briz, And this data provider are provide by ADO.Net.
 

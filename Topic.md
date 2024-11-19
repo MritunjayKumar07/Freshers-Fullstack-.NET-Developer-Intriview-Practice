@@ -23,6 +23,26 @@
     <hr/>
   </details>
 - <details>
+    <summary> Is ASP.NET different from ASP? If yes, explain how?</summary>
+    <hr/>
+
+    Yes, ASP.NET and ASP(Active Server Pages) both are different. Let’s check how they are different from each other.
+
+    - ASP.NET uses .NET languages such as C# and VB.NET, which are compiled to Microsoft Intermediate Language (MSIL). ASP uses VBScript. ASP code is interpreted during the execution.
+    - ASP.NET which is developed by Microsoft is used to create dynamic web applications while ASP is Microsoft’s server-side technology used to create web pages.
+    - ASP.NET is fully object-oriented but ASP is partially object-oriented.
+    - ASP.NET has full XML Support for easy data exchange whereas ASP has no built-in support for XML.
+    - ASP.NET uses the ADO.NET technology to connect and work with databases. ASP uses ADO technology.
+    <hr/>
+  </details>
+- <details>
+    <summary>What is the difference between int and Int32?</summary>
+    <hr/>
+
+    There is no difference between int and Int32. `Int32` is a `type provided` by the .NET framework class whereas `int` is an `alias name for Int32` in the C# programming language.
+    <hr/>
+  </details>
+- <details>
     <summary>What is Application Software?⭐</summary>
     <hr/>
     <p><mark><b> Application software refers to programs designed for end-users to perform specific tasks. </b></mark> This includes individual applications like Notepad, Microsoft Word, Excel, or web browsers. Essentially, any program you use on a computer, <mark><b>other than the operating system, is considered application software.</b></mark> Over time, the term has expanded to include mobile apps and complex software environments, highlighting the role of these programs in modern computing.</p>
@@ -2979,6 +2999,117 @@
     | Inheritance is not required         | Inheritance is required                                |
     | Happens within the same class       | Happens between parent-child classes                   |
     | Does not require reference creation | Requires parent class reference through child instance |
+
+    <hr/>
+  </details>
+- <details>
+    <summary>What is method hiding?⭐</summary>
+    <hr/>
+
+    **Method Hiding** occurs when a derived class defines a method with the same name as a method in the base class, but the method in the derived class is marked with the `new` keyword to hide the base class method. CLR understance completly new method.
+
+    **Example:**  
+    ```csharp
+    using System;
+
+    class BaseClass
+    {
+        public void Show()
+        {
+            Console.WriteLine("Base Class Method");
+        }
+    }
+
+    class DerivedClass : BaseClass
+    {
+        public new void Show() // Hiding the base class method
+        {
+            Console.WriteLine("Derived Class Method");
+        }
+    }
+
+    class Program
+    {
+        static void Main()
+        {
+            BaseClass obj1 = new BaseClass();
+            obj1.Show(); // Output: Base Class Method
+
+            DerivedClass obj2 = new DerivedClass();
+            obj2.Show(); // Output: Derived Class Method
+
+            BaseClass obj3 = new DerivedClass();
+            obj3.Show(); // Output: Base Class Method (method hiding in action)            
+        }
+    }
+    ```
+
+    <hr/>
+  </details>
+
+- <details>
+    <summary>What is Differences Between Method Hiding and Method Overriding?⭐</summary>
+    <hr/>
+
+    | **Method Hiding**                 | **Method Overriding**                            |  
+    |------------------------------------|-------------------------------------------------|  
+    | Uses the `new` keyword to hide a base class method. | Uses the `override` keyword to modify a base class method. |  
+    | Does not affect the base class method when accessed using a base class reference. | Changes the behavior of the base class method when accessed through a derived class. |  
+    | Both methods exist independently in the base and derived classes. | The derived method replaces the base class method. |  
+    | Can be used for non-virtual methods. | Works only with `virtual`, `abstract`, or `override` methods. |  
+
+
+    ```c#
+    using System;
+
+    class BaseClass
+    {
+        public virtual void Show() // Virtual method allows overriding
+        {
+            Console.WriteLine("Base Class Method");
+        }
+    }
+
+    class DerivedClass : BaseClass
+    {
+        public new void Show() // Method Hiding
+        {
+            Console.WriteLine("Derived Class Method (Hiding)");
+        }
+    }
+
+    class DerivedClassOverride : BaseClass
+    {
+        public override void Show() // Method Overriding
+        {
+            Console.WriteLine("Derived Class Method (Overriding)");
+        }
+    }
+
+    class Program
+    {
+        static void Main()
+        {
+			      // Method Hiding
+            BaseClass obj1 = new DerivedClass();
+            obj1.Show(); // Output: Base Class Method (base class method is accessed)
+
+            // Method Overriding
+            BaseClass obj2 = new DerivedClassOverride();
+            obj2.Show(); // Output: Derived Class Method (Overriding behavior seen)
+
+			      //Normali call
+			      BaseClass obj3 = new BaseClass();
+			      obj3.Show(); //Base Class Method
+      
+			      DerivedClass obj4 = new DerivedClass();
+			      obj4.Show(); //Derived Class Method (Hiding)
+      
+			      DerivedClassOverride obj5 = new DerivedClassOverride();
+			      obj5.Show(); //Derived Class Method (Overriding)
+        }
+    }
+    ```
 
     <hr/>
   </details>
@@ -11210,6 +11341,7 @@
   <hr/>
   
   - **Master Pages**: Master Pages allow you to create a consistent layout for the pages in your application. They act as a template, where you define common structures (like headers, footers, and navigation). Content pages then inherit this structure, making it easier to maintain a uniform look and feel across the application.
+  
   
   - **Web.config**: This is an XML file that stores configuration settings specific to a web application, such as connection strings, authentication modes, session settings, and error handling. Each ASP.NET application can have its own Web.config file, which can override the settings in the global configuration (Machine.config).
 
